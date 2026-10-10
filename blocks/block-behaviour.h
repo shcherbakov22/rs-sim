@@ -60,7 +60,7 @@ bool               block_is_signal_source(level & lv, state_id st);
 int32_t            block_get_signal(level & lv, state_id st, block_pos pos, direction dir);
 int32_t            block_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir);
 bool               block_can_survive(level & lv, state_id st, block_pos pos);
-int32_t            block_get_analog_output_signal(level & lv, state_id st, block_pos pos);
+int32_t            block_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
 bool               block_should_changed_state_keep_block_entity(level & lv, state_id st, state_id old);
 
 // BlockStateBase.updateNeighbourShapes

@@ -186,6 +186,14 @@ interaction_result chiseled_book_shelf_use_item_on(level &            lv,
                                                    const item_stack & stack);
 interaction_result chiseled_book_shelf_use_without_item(level & lv, state_id st, block_pos pos, direction face);
 
+// ShelfBlock, ShelfBlockEntity, SideChainPartBlock
+void               shelf_on_place(level & lv, state_id st, block_pos pos, state_id old);
+void               shelf_neighbor_changed(level & lv, state_id st, block_pos pos);
+void               shelf_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
+state_id           shelf_update_shape(level & lv, state_id st);
+int32_t            shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
+interaction_result shelf_use_item_on(level & lv, state_id st, block_pos pos, direction face, const item_stack & stack);
+
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 

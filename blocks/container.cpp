@@ -28,6 +28,7 @@ bool block_entity_is_container(const block_entity * be) {
         case BLOCK_ENTITY_TYPE_DECORATED_POT:
         case BLOCK_ENTITY_TYPE_JUKEBOX:
         case BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF:
+        case BLOCK_ENTITY_TYPE_SHELF:
             return true;
         default:
             return false;

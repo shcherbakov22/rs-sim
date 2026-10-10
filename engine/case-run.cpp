@@ -114,6 +114,9 @@ static void case_load_block_entity(level & lv, block_entity * be, const snbt_val
             be->song_playing             = true;
         } else if (be->type == BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF && entry.key == "last_interacted_slot") {
             be->last_interacted_slot = (int32_t) value.i;
+        } else if (be->type == BLOCK_ENTITY_TYPE_SHELF && entry.key == "align_items_to_bottom") {
+            // only the renderer reads it
+            continue;
         } else if (be->type == BLOCK_ENTITY_TYPE_LECTERN && entry.key == "Book") {
             int32_t slot = -1;
             if (!case_load_item(lv, value, be->items[0], slot)) {

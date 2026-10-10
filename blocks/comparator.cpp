@@ -30,13 +30,13 @@ static int32_t comparator_get_input_signal(level & lv, state_id st, block_pos po
     block_pos target    = pos_relative(pos, dir);
     state_id  target_st = level_get_state(lv, target);
     if (state_has(target_st, STATE_FLAG_ANALOG_OUTPUT)) {
-        return block_get_analog_output_signal(lv, target_st, target);
+        return block_get_analog_output_signal(lv, target_st, target, direction_opposite(dir));
     }
     if (result < 15 && state_has(target_st, STATE_FLAG_CONDUCTOR)) {
         target    = pos_relative(target, dir);
         target_st = level_get_state(lv, target);
         if (state_has(target_st, STATE_FLAG_ANALOG_OUTPUT)) {
-            return block_get_analog_output_signal(lv, target_st, target);
+            return block_get_analog_output_signal(lv, target_st, target, direction_opposite(dir));
         }
     }
     return result;

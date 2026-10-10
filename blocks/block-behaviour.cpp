@@ -102,6 +102,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_DECORATED_POT_BLOCK:
             result = decorated_pot_update_shape(lv, st);
             break;
+        case VCLASS_SHELF_BLOCK:
+            result = shelf_update_shape(lv, st);
+            break;
         case VCLASS_BELL_BLOCK:
             result = bell_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
@@ -169,6 +172,9 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
         case VCLASS_CRAFTER_BLOCK:
             crafter_neighbor_changed(lv, st, pos);
             break;
+        case VCLASS_SHELF_BLOCK:
+            shelf_neighbor_changed(lv, st, pos);
+            break;
         default:
             hook_unsupported(lv, st, HOOK_NEIGHBOR_CHANGED);
     }
@@ -197,6 +203,9 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
             break;
         case VCLASS_HOPPER_BLOCK:
             hopper_on_place(lv, st, pos, old);
+            break;
+        case VCLASS_SHELF_BLOCK:
+            shelf_on_place(lv, st, pos, old);
             break;
         default:
             hook_unsupported(lv, st, HOOK_ON_PLACE);
@@ -230,6 +239,9 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
             break;
         case VCLASS_PISTON_HEAD_BLOCK:
             piston_head_affect_neighbors_after_removal(lv, st, pos);
+            break;
+        case VCLASS_SHELF_BLOCK:
+            shelf_affect_neighbors_after_removal(lv, st, pos);
             break;
         case VCLASS_CHEST_BLOCK:
         case VCLASS_HOPPER_BLOCK:
@@ -343,6 +355,8 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, dir
             return jukebox_use_item_on(lv, st, pos, stack);
         case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
             return chiseled_book_shelf_use_item_on(lv, st, pos, face, stack);
+        case VCLASS_SHELF_BLOCK:
+            return shelf_use_item_on(lv, st, pos, face, stack);
         default:
             hook_unsupported(lv, st, HOOK_USE_ITEM_ON);
             return INTERACTION_RESULT_PASS;
@@ -534,7 +548,7 @@ void block_update_or_destroy(level & lv, state_id old, state_id updated, block_p
 }
 
 // the ported sources ignore the direction
-int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos) {
+int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir) {
     switch (hook_owner(st, HOOK_GET_ANALOG_OUTPUT_SIGNAL)) {
         case VCLASS_CHEST_BLOCK:
             return chest_get_analog_output_signal(lv, st, pos);
@@ -550,6 +564,8 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos) {
             return jukebox_get_analog_output_signal(lv, pos);
         case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
             return chiseled_book_shelf_get_analog_output_signal(lv, pos);
+        case VCLASS_SHELF_BLOCK:
+            return shelf_get_analog_output_signal(lv, st, pos, dir);
         case VCLASS_CRAFTER_BLOCK:
             return crafter_get_analog_output_signal(lv, pos);
         default:
