@@ -26,6 +26,7 @@ add_library(tmc STATIC
     blocks/chest.cpp
     blocks/chiseled-book-shelf.cpp
     blocks/comparator.cpp
+    blocks/composter.cpp
     blocks/container.cpp
     blocks/copper-golem-statue.cpp
     blocks/crafter.cpp

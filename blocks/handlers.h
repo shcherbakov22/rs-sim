@@ -268,6 +268,13 @@ void    detector_rail_tick(level & lv, state_id st, block_pos pos);
 int32_t detector_rail_get_signal(state_id st);
 int32_t detector_rail_get_direct_signal(state_id st, direction dir);
 
+// ComposterBlock
+void               composter_on_place(level & lv, state_id st, block_pos pos);
+interaction_result composter_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
+interaction_result composter_use_without_item(level & lv, state_id st, block_pos pos);
+void               composter_tick(level & lv, state_id st, block_pos pos);
+int32_t            composter_get_analog_output_signal(state_id st);
+
 // DoorBlock
 bool               door_can_survive(level & lv, state_id st, block_pos pos);
 state_id           door_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);

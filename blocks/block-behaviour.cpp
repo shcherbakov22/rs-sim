@@ -259,6 +259,9 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
         case VCLASS_DETECTOR_RAIL_BLOCK:
             detector_rail_on_place(lv, st, pos, old, moved_by_piston);
             break;
+        case VCLASS_COMPOSTER_BLOCK:
+            composter_on_place(lv, st, pos);
+            break;
         default:
             hook_unsupported(lv, st, HOOK_ON_PLACE);
     }
@@ -333,6 +336,9 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             break;
         case VCLASS_DETECTOR_RAIL_BLOCK:
             detector_rail_tick(lv, st, pos);
+            break;
+        case VCLASS_COMPOSTER_BLOCK:
+            composter_tick(lv, st, pos);
             break;
         case VCLASS_DIODE_BLOCK:
             diode_tick(lv, st, pos);
@@ -425,6 +431,8 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, dir
             return beehive_use_item_on(lv, st, pos, stack);
         case VCLASS_RESPAWN_ANCHOR_BLOCK:
             return respawn_anchor_use_item_on(lv, st, pos, stack);
+        case VCLASS_COMPOSTER_BLOCK:
+            return composter_use_item_on(lv, st, pos, stack);
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
             return copper_golem_statue_use_item_on(lv, st, pos, stack);
         case VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK:
@@ -461,6 +469,8 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return trap_door_use_without_item(lv, st, pos);
         case VCLASS_DOOR_BLOCK:
             return door_use_without_item(lv, st, pos);
+        case VCLASS_COMPOSTER_BLOCK:
+            return composter_use_without_item(lv, st, pos);
         case VCLASS_FENCE_BLOCK:
             // LeadItem.bindPlayerMobs: no mob is ever leashed to the virtual player
             return INTERACTION_RESULT_PASS;
@@ -662,6 +672,8 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
             return beehive_get_analog_output_signal(st);
         case VCLASS_RESPAWN_ANCHOR_BLOCK:
             return respawn_anchor_get_analog_output_signal(st);
+        case VCLASS_COMPOSTER_BLOCK:
+            return composter_get_analog_output_signal(st);
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
             return copper_golem_statue_get_analog_output_signal(st);
         case VCLASS_CRAFTER_BLOCK:
