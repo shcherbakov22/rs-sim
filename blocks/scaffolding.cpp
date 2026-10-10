@@ -3,6 +3,7 @@
 #include "blocks/handlers.h"
 #include "core/trace.h"
 #include "engine/level.h"
+#include "items/block-place-context.h"
 
 static int32_t scaffolding_get_distance(level & lv, block_pos pos) {
     block_pos below       = pos_relative(pos, DIRECTION_DOWN);
@@ -63,4 +64,8 @@ void scaffolding_tick(level & lv, state_id st, block_pos pos) {
 
 bool scaffolding_can_survive(level & lv, block_pos pos) {
     return scaffolding_get_distance(lv, pos) < 7;
+}
+
+bool scaffolding_can_be_replaced(state_id st, const block_place_context & ctx) {
+    return item_stack_get_item(ctx.hit.stack) == block_defs[state_block(st)].as_item;
 }

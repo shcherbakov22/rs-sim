@@ -114,6 +114,7 @@ state_id block_update_shape(level &   lv,
         case VCLASS_SHELF_BLOCK:
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
         case VCLASS_SLAB_BLOCK:
+        case VCLASS_CHAIN_BLOCK:
         case VCLASS_TRAP_DOOR_BLOCK:
         case VCLASS_BASE_RAIL_BLOCK:
         case VCLASS_CANDLE_BLOCK:
@@ -845,6 +846,8 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
             return layered_cauldron_get_analog_output_signal(st);
         case VCLASS_LAVA_CAULDRON_BLOCK:
             return lava_cauldron_get_analog_output_signal();
+        case VCLASS_END_PORTAL_FRAME_BLOCK:
+            return end_portal_frame_get_analog_output_signal(st);
         default:
             hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
             return 0;
@@ -900,6 +903,16 @@ state_id block_get_state_for_placement(level & lv, int32_t block, const block_pl
             return base_rail_get_state_for_placement(lv, block, ctx);
         case VCLASS_RED_STONE_WIRE_BLOCK:
             return red_stone_wire_get_state_for_placement(lv, ctx);
+        case VCLASS_SLAB_BLOCK:
+            return slab_get_state_for_placement(lv, block, ctx);
+        case VCLASS_ROTATED_PILLAR_BLOCK:
+            return rotated_pillar_get_state_for_placement(block, ctx);
+        case VCLASS_CHAIN_BLOCK:
+            return chain_get_state_for_placement(lv, block, ctx);
+        case VCLASS_END_PORTAL_FRAME_BLOCK:
+            return end_portal_frame_get_state_for_placement(block);
+        case VCLASS_PISTON_BASE_BLOCK:
+            return piston_base_get_state_for_placement(block);
         default:
             hook_unsupported(lv, st, HOOK_GET_STATE_FOR_PLACEMENT);
             return STATE_NONE;
@@ -917,6 +930,10 @@ bool block_can_be_replaced(level & lv, state_id st, const block_place_context & 
             return block_behaviour_can_be_replaced(st, ctx);
         case VCLASS_CANDLE_BLOCK:
             return candle_can_be_replaced(st, ctx);
+        case VCLASS_SLAB_BLOCK:
+            return slab_can_be_replaced(st, ctx);
+        case VCLASS_SCAFFOLDING_BLOCK:
+            return scaffolding_can_be_replaced(st, ctx);
         default:
             hook_unsupported(lv, st, HOOK_CAN_BE_REPLACED);
             return false;
@@ -932,6 +949,9 @@ void block_set_placed_by(level & lv, state_id st, block_pos pos) {
             return;
         case VCLASS_DIODE_BLOCK:
             diode_set_placed_by(lv, st, pos);
+            return;
+        case VCLASS_PISTON_BASE_BLOCK:
+            piston_base_set_placed_by(lv, st, pos);
             return;
         default:
             hook_unsupported(lv, st, HOOK_SET_PLACED_BY);

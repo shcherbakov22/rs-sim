@@ -394,12 +394,27 @@ void scaffolding_on_place(level & lv, state_id st, block_pos pos);
 void scaffolding_update_shape(level & lv, state_id st, block_pos pos);
 void scaffolding_tick(level & lv, state_id st, block_pos pos);
 bool scaffolding_can_survive(level & lv, block_pos pos);
+bool scaffolding_can_be_replaced(state_id st, const block_place_context & ctx);
 
 // LayeredCauldronBlock
 int32_t layered_cauldron_get_analog_output_signal(state_id st);
 
 // LavaCauldronBlock
 int32_t lava_cauldron_get_analog_output_signal();
+
+// SlabBlock
+bool     slab_can_be_replaced(state_id st, const block_place_context & ctx);
+state_id slab_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+
+// RotatedPillarBlock
+state_id rotated_pillar_get_state_for_placement(int32_t block, const block_place_context & ctx);
+
+// ChainBlock
+state_id chain_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+
+// EndPortalFrameBlock
+state_id end_portal_frame_get_state_for_placement(int32_t block);
+int32_t  end_portal_frame_get_analog_output_signal(state_id st);
 
 // ComposterBlock
 void               composter_on_place(level & lv, state_id st, block_pos pos);
@@ -473,14 +488,16 @@ interaction_result moving_piston_use_without_item(level & lv, block_pos pos);
 voxel_shape        moving_piston_get_collision_shape(level & lv, block_pos pos);
 
 // PistonBaseBlock
-void piston_base_neighbor_changed(level & lv, state_id st, block_pos pos);
-void piston_base_on_place(level & lv, state_id st, block_pos pos, state_id old);
-bool piston_base_trigger_event(level & lv, state_id st, block_pos pos, int32_t b0, int32_t b1);
-bool piston_base_is_pushable(state_id  st,
-                             block_pos pos,
-                             direction dir,
-                             bool      allow_destroyable,
-                             direction connection_direction);
+void     piston_base_neighbor_changed(level & lv, state_id st, block_pos pos);
+void     piston_base_on_place(level & lv, state_id st, block_pos pos, state_id old);
+bool     piston_base_trigger_event(level & lv, state_id st, block_pos pos, int32_t b0, int32_t b1);
+bool     piston_base_is_pushable(state_id  st,
+                                 block_pos pos,
+                                 direction dir,
+                                 bool      allow_destroyable,
+                                 direction connection_direction);
+state_id piston_base_get_state_for_placement(int32_t block);
+void     piston_base_set_placed_by(level & lv, state_id st, block_pos pos);
 
 // PistonHeadBlock
 void     piston_head_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);

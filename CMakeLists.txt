@@ -28,6 +28,7 @@ add_library(tmc STATIC
     blocks/candle-cake.cpp
     blocks/candle.cpp
     blocks/carpet.cpp
+    blocks/chain.cpp
     blocks/chest-block-entity.cpp
     blocks/chest.cpp
     blocks/chiseled-book-shelf.cpp
@@ -44,6 +45,7 @@ add_library(tmc STATIC
     blocks/dispenser.cpp
     blocks/door.cpp
     blocks/dropper.cpp
+    blocks/end-portal-frame.cpp
     blocks/ender-chest.cpp
     blocks/face-attached-horizontal-directional.cpp
     blocks/fence-gate.cpp
@@ -78,8 +80,10 @@ add_library(tmc STATIC
     blocks/redstone-wall-torch.cpp
     blocks/repeater.cpp
     blocks/respawn-anchor.cpp
+    blocks/rotated-pillar.cpp
     blocks/scaffolding.cpp
     blocks/shelf.cpp
+    blocks/slab.cpp
     blocks/soul-sand.cpp
     blocks/stair.cpp
     blocks/target.cpp

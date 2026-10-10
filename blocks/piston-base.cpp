@@ -278,3 +278,13 @@ bool piston_base_trigger_event(level & lv, state_id st, block_pos pos, int32_t b
     rng_next_float(lv.random);
     return true;
 }
+
+// the piston faces the player
+state_id piston_base_get_state_for_placement(int32_t block) {
+    state_id st = state_set(block_default(block), PROP_FACING, direction_opposite(player_nearest_directions[0]));
+    return state_set(st, PROP_EXTENDED, 0);
+}
+
+void piston_base_set_placed_by(level & lv, state_id st, block_pos pos) {
+    piston_base_check_if_extend(lv, st, pos);
+}
