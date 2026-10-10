@@ -145,6 +145,12 @@ state_id block_update_shape(level &   lv,
         case VCLASS_SOUL_SAND_BLOCK:
             soul_sand_update_shape(lv, st, pos, dir, neighbor);
             break;
+        case VCLASS_FALLING_BLOCK:
+            result = falling_block_update_shape(lv, st, pos);
+            break;
+        case VCLASS_CONCRETE_POWDER_BLOCK:
+            result = concrete_powder_update_shape(lv, st, pos);
+            break;
         case VCLASS_TRIP_WIRE_BLOCK:
             result = trip_wire_update_shape(st, dir, neighbor);
             break;
@@ -281,6 +287,9 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
         case VCLASS_DISPENSER_BLOCK:
             dispenser_neighbor_changed(lv, st, pos);
             break;
+        case VCLASS_TNT_BLOCK:
+            tnt_neighbor_changed(lv, pos);
+            break;
         case VCLASS_BELL_BLOCK:
             bell_neighbor_changed(lv, st, pos);
             break;
@@ -338,6 +347,12 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
             break;
         case VCLASS_SOUL_SAND_BLOCK:
             soul_sand_on_place(lv, st, pos);
+            break;
+        case VCLASS_FALLING_BLOCK:
+            falling_block_on_place(lv, st, pos);
+            break;
+        case VCLASS_TNT_BLOCK:
+            tnt_on_place(lv, st, pos, old);
             break;
         case VCLASS_TRIP_WIRE_BLOCK:
             trip_wire_on_place(lv, st, pos, old);
@@ -465,6 +480,9 @@ void block_tick(level & lv, state_id st, block_pos pos) {
         case VCLASS_SOUL_SAND_BLOCK:
             soul_sand_tick(lv, pos);
             break;
+        case VCLASS_FALLING_BLOCK:
+            falling_block_tick(lv, pos);
+            break;
         case VCLASS_TRIP_WIRE_BLOCK:
             trip_wire_tick(lv, pos);
             break;
@@ -580,6 +598,8 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, dir
             return cake_use_item_on(lv, st, pos, stack);
         case VCLASS_NOTE_BLOCK:
             return note_block_use_item_on(stack, face);
+        case VCLASS_TNT_BLOCK:
+            return tnt_use_item_on(lv, pos, stack);
         case VCLASS_ABSTRACT_CAULDRON_BLOCK:
             return abstract_cauldron_use_item_on(lv, st, pos, stack);
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
@@ -1010,6 +1030,8 @@ state_id block_get_state_for_placement(level & lv, int32_t block, const block_pl
             return trip_wire_hook_get_state_for_placement(lv, block, ctx);
         case VCLASS_INFESTED_ROTATED_PILLAR_BLOCK:
             return rotated_pillar_get_state_for_placement(block, ctx);
+        case VCLASS_CONCRETE_POWDER_BLOCK:
+            return concrete_powder_get_state_for_placement(lv, block, ctx);
         // the one-line placements: facing the nearest looking direction, the clicked face or away from the player, a signal, or water
         case VCLASS_DISPENSER_BLOCK:
         case VCLASS_BARREL_BLOCK:

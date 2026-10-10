@@ -1,12 +1,33 @@
-// TntBlock. Cases keep the game rule TNT_EXPLODES on, so priming always explodes.
+// TntBlock. Cases keep the game rule TNT_EXPLODES on, so priming always succeeds.
 
 #include "blocks/handlers.h"
 #include "core/rng.h"
 #include "core/trace.h"
 #include "engine/level.h"
 
-// explode: the PrimedTnt constructor draws its push angle from the level random before the spawn
-void tnt_explode(level & lv, block_pos pos) {
+// the PrimedTnt constructor draws its push angle from the level random before the spawn
+void tnt_prime(level & lv, block_pos pos) {
     rng_next_double(lv.random);
     trace_boundary(lv.tr, "spawn tnt %d %d %d", pos.x, pos.y, pos.z);
+}
+
+// the spawn ends the run, so the removal of the block after priming is left out
+void tnt_on_place(level & lv, state_id st, block_pos pos, state_id old) {
+    if (!state_is(old, state_block(st)) && level_has_neighbor_signal(lv, pos)) {
+        tnt_prime(lv, pos);
+    }
+}
+
+void tnt_neighbor_changed(level & lv, block_pos pos) {
+    if (level_has_neighbor_signal(lv, pos)) {
+        tnt_prime(lv, pos);
+    }
+}
+
+interaction_result tnt_use_item_on(level & lv, block_pos pos, const item_stack & stack) {
+    if (stack.item != ITEM_FLINT_AND_STEEL && stack.item != ITEM_FIRE_CHARGE) {
+        return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;
+    }
+    tnt_prime(lv, pos);
+    return INTERACTION_RESULT_SUCCESS;
 }

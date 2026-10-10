@@ -41,8 +41,7 @@ static item_stack dispense_item_behavior_flint_and_steel(level & lv, state_id st
     } else if (flint_and_steel_item_can_light(at)) {
         level_set_block(lv, target, state_set(at, PROP_LIT, 1), UPDATE_FLAG_ALL);
     } else if (block_instanceof(state_block(at), VCLASS_TNT_BLOCK)) {
-        // TntBlock.prime
-        tnt_explode(lv, target);
+        tnt_prime(lv, target);
         return dispensed;
     } else {
         return dispensed;
@@ -62,9 +61,9 @@ static item_stack dispense_item_behavior_bone_meal(level & lv, state_id st, bloc
     return dispensed;
 }
 
-// builds the same PrimedTnt as TntBlock.explode
+// builds the same PrimedTnt as TntBlock.prime
 static item_stack dispense_item_behavior_tnt(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    tnt_explode(lv, pos_relative(pos, dispenser_facing(st)));
+    tnt_prime(lv, pos_relative(pos, dispenser_facing(st)));
     return dispensed;
 }
 

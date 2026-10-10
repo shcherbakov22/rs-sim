@@ -41,6 +41,7 @@ add_library(tmc STATIC
     blocks/chiseled-book-shelf.cpp
     blocks/comparator.cpp
     blocks/composter.cpp
+    blocks/concrete-powder.cpp
     blocks/container.cpp
     blocks/copper-bulb.cpp
     blocks/copper-golem-statue.cpp
@@ -58,6 +59,7 @@ add_library(tmc STATIC
     blocks/end-rod.cpp
     blocks/ender-chest.cpp
     blocks/face-attached-horizontal-directional.cpp
+    blocks/falling-block.cpp
     blocks/fence-gate.cpp
     blocks/fence.cpp
     blocks/fire.cpp

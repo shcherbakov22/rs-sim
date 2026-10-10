@@ -667,7 +667,17 @@ void carved_pumpkin_clear_pattern_blocks(level & lv, const block_pattern & p, co
 void carved_pumpkin_on_place(level & lv, state_id st, block_pos pos, state_id old);
 
 // TntBlock
-void tnt_explode(level & lv, block_pos pos);
+void               tnt_prime(level & lv, block_pos pos);
+void               tnt_on_place(level & lv, state_id st, block_pos pos, state_id old);
+void               tnt_neighbor_changed(level & lv, block_pos pos);
+interaction_result tnt_use_item_on(level & lv, block_pos pos, const item_stack & stack);
+
+// FallingBlock, ConcretePowderBlock
+void     falling_block_on_place(level & lv, state_id st, block_pos pos);
+state_id falling_block_update_shape(level & lv, state_id st, block_pos pos);
+void     falling_block_tick(level & lv, block_pos pos);
+state_id concrete_powder_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+state_id concrete_powder_update_shape(level & lv, state_id st, block_pos pos);
 
 // PortalShape
 struct portal_shape {
