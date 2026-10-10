@@ -368,6 +368,8 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, dir
             return shelf_use_item_on(lv, st, pos, face, stack);
         case VCLASS_BEEHIVE_BLOCK:
             return beehive_use_item_on(lv, st, pos, stack);
+        case VCLASS_RESPAWN_ANCHOR_BLOCK:
+            return respawn_anchor_use_item_on(lv, st, pos, stack);
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
             return copper_golem_statue_use_item_on(lv, st, pos, stack);
         case VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK:
@@ -396,6 +398,8 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return jukebox_use_without_item(lv, st, pos);
         case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
             return chiseled_book_shelf_use_without_item(lv, st, pos, face);
+        case VCLASS_RESPAWN_ANCHOR_BLOCK:
+            return respawn_anchor_use_without_item(lv, st, pos);
         case VCLASS_BUTTON_BLOCK:
             return button_use_without_item(lv, st, pos);
         case VCLASS_REPEATER_BLOCK:
@@ -583,6 +587,8 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
             return shelf_get_analog_output_signal(lv, st, pos, dir);
         case VCLASS_BEEHIVE_BLOCK:
             return beehive_get_analog_output_signal(st);
+        case VCLASS_RESPAWN_ANCHOR_BLOCK:
+            return respawn_anchor_get_analog_output_signal(st);
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
             return copper_golem_statue_get_analog_output_signal(st);
         case VCLASS_CRAFTER_BLOCK:

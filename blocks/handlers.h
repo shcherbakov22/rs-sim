@@ -207,6 +207,11 @@ interaction_result weathering_copper_golem_statue_use_item_on(level &           
                                                               block_pos          pos,
                                                               const item_stack & stack);
 
+// RespawnAnchorBlock
+int32_t            respawn_anchor_get_analog_output_signal(state_id st);
+interaction_result respawn_anchor_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
+interaction_result respawn_anchor_use_without_item(level & lv, state_id st, block_pos pos);
+
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 

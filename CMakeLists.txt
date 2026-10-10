@@ -50,6 +50,7 @@ add_library(tmc STATIC
     blocks/redstone-torch.cpp
     blocks/redstone-wall-torch.cpp
     blocks/repeater.cpp
+    blocks/respawn-anchor.cpp
     blocks/shelf.cpp
     blocks/trapped-chest.cpp
     blocks/wall-torch.cpp
