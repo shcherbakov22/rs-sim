@@ -106,6 +106,7 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
             n_items = 9;
             break;
         case BLOCK_ENTITY_TYPE_LECTERN:
+        case BLOCK_ENTITY_TYPE_DECORATED_POT:
             n_items = 1;
             break;
         case BLOCK_ENTITY_TYPE_CHEST:

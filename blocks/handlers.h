@@ -88,7 +88,7 @@ void               comparator_check_tick_on_neighbor(level & lv, state_id st, bl
 void               comparator_tick(level & lv, state_id st, block_pos pos);
 
 // BaseEntityBlock
-bool base_entity_block_trigger_event(level & lv, block_pos pos, int32_t param_a);
+bool base_entity_block_trigger_event(level & lv, block_pos pos, int32_t param_a, int32_t param_b);
 
 // Container
 void         block_entity_set_changed(level & lv, block_pos pos, state_id st);
@@ -157,6 +157,11 @@ void    crafter_block_entity_server_tick(level & lv, block_pos pos, state_id st,
 int32_t crafter_get_analog_output_signal(level & lv, block_pos pos);
 void    crafter_neighbor_changed(level & lv, state_id st, block_pos pos);
 void    crafter_tick(level & lv, block_pos pos);
+
+// DecoratedPotBlock
+state_id           decorated_pot_update_shape(level & lv, state_id st);
+interaction_result decorated_pot_use_item_on(level & lv, block_pos pos, const item_stack & stack);
+interaction_result decorated_pot_use_without_item(level & lv, block_pos pos);
 
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);

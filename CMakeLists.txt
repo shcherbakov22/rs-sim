@@ -25,6 +25,7 @@ add_library(tmc STATIC
     blocks/comparator.cpp
     blocks/container.cpp
     blocks/crafter.cpp
+    blocks/decorated-pot.cpp
     blocks/diode.cpp
     blocks/dispenser.cpp
     blocks/dropper.cpp

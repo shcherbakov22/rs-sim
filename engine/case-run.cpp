@@ -95,6 +95,11 @@ static void case_load_block_entity(level & lv, block_entity * be, const snbt_val
             case_load_items(lv, be, value);
         } else if (be->type == BLOCK_ENTITY_TYPE_HOPPER && entry.key == "TransferCooldown") {
             be->cooldown_time = (int32_t) value.i;
+        } else if (be->type == BLOCK_ENTITY_TYPE_DECORATED_POT && entry.key == "item") {
+            int32_t slot = -1;
+            if (!case_load_item(lv, value, be->items[0], slot)) {
+                return;
+            }
         } else if (be->type == BLOCK_ENTITY_TYPE_LECTERN && entry.key == "Book") {
             int32_t slot = -1;
             if (!case_load_item(lv, value, be->items[0], slot)) {

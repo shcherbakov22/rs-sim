@@ -25,6 +25,7 @@ bool block_entity_is_container(const block_entity * be) {
         case BLOCK_ENTITY_TYPE_DISPENSER:
         case BLOCK_ENTITY_TYPE_DROPPER:
         case BLOCK_ENTITY_TYPE_CRAFTER:
+        case BLOCK_ENTITY_TYPE_DECORATED_POT:
             return true;
         default:
             return false;
@@ -64,12 +65,13 @@ int32_t container_get_max_stack_size(const item_stack & s) {
     return std::min(99, item_stack_get_max_stack_size(s));
 }
 
-// HopperBlockEntity overrides removeItem and setItem without setChanged
+// HopperBlockEntity and ContainerSingleItem (the decorated pot) override removeItem and setItem without setChanged
 item_stack container_remove_item(level & lv, const container & c, int32_t slot, int32_t count) {
     block_entity * be     = container_half(c, slot);
     item_stack &   stack  = be->items[slot];
     item_stack     result = !item_stack_is_empty(stack) && count > 0 ? item_stack_split(stack, count) : item_stack();
-    if (be->type != BLOCK_ENTITY_TYPE_HOPPER && !item_stack_is_empty(result)) {
+    bool           quiet  = be->type == BLOCK_ENTITY_TYPE_HOPPER || be->type == BLOCK_ENTITY_TYPE_DECORATED_POT;
+    if (!quiet && !item_stack_is_empty(result)) {
         block_entity_set_changed(lv, be->pos, be->state);
     }
     return result;
@@ -78,6 +80,10 @@ item_stack container_remove_item(level & lv, const container & c, int32_t slot, 
 void container_set_item(level & lv, const container & c, int32_t slot, item_stack s) {
     block_entity * be = container_half(c, slot);
     be->items[slot]   = s;
+    // ContainerSingleItem.setItem does not limit the stack either
+    if (be->type == BLOCK_ENTITY_TYPE_DECORATED_POT) {
+        return;
+    }
     item_stack_limit_size(be->items[slot], container_get_max_stack_size(s));
     if (be->type != BLOCK_ENTITY_TYPE_HOPPER) {
         block_entity_set_changed(lv, be->pos, be->state);

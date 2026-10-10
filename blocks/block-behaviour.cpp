@@ -99,6 +99,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_ENDER_CHEST_BLOCK:
             result = ender_chest_update_shape(lv, st);
             break;
+        case VCLASS_DECORATED_POT_BLOCK:
+            result = decorated_pot_update_shape(lv, st);
+            break;
         case VCLASS_BELL_BLOCK:
             result = bell_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
@@ -234,6 +237,7 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
         case VCLASS_SHULKER_BOX_BLOCK:
         case VCLASS_DISPENSER_BLOCK:
         case VCLASS_CRAFTER_BLOCK:
+        case VCLASS_DECORATED_POT_BLOCK:
             // Containers.updateNeighboursAfterDestroy
             level_update_neighbour_for_output_signal(lv, pos, state_block(st));
             break;
@@ -296,7 +300,7 @@ bool block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a
         // ComparatorBlock.triggerEvent does the same
         case VCLASS_BASE_ENTITY_BLOCK:
         case VCLASS_COMPARATOR_BLOCK:
-            return base_entity_block_trigger_event(lv, pos, param_a);
+            return base_entity_block_trigger_event(lv, pos, param_a, param_b);
         default:
             hook_unsupported(lv, st, HOOK_TRIGGER_EVENT);
             return false;
@@ -331,6 +335,8 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, con
             return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;
         case VCLASS_LECTERN_BLOCK:
             return lectern_use_item_on(lv, st, pos, stack);
+        case VCLASS_DECORATED_POT_BLOCK:
+            return decorated_pot_use_item_on(lv, pos, stack);
         default:
             hook_unsupported(lv, st, HOOK_USE_ITEM_ON);
             return INTERACTION_RESULT_PASS;
@@ -349,6 +355,8 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return lever_use_without_item(lv, st, pos);
         case VCLASS_LECTERN_BLOCK:
             return lectern_use_without_item(lv, st);
+        case VCLASS_DECORATED_POT_BLOCK:
+            return decorated_pot_use_without_item(lv, pos);
         case VCLASS_BUTTON_BLOCK:
             return button_use_without_item(lv, st, pos);
         case VCLASS_REPEATER_BLOCK:
@@ -521,6 +529,7 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos) {
         case VCLASS_BARREL_BLOCK:
         case VCLASS_SHULKER_BOX_BLOCK:
         case VCLASS_DISPENSER_BLOCK:
+        case VCLASS_DECORATED_POT_BLOCK:
             return container_get_redstone_signal_from_block_entity(lv, pos);
         case VCLASS_LECTERN_BLOCK:
             return lectern_get_analog_output_signal(lv, st, pos);
