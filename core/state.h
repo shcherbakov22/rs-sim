@@ -40,15 +40,7 @@ struct block_def {
     int32_t      entity_new;           // block_entity_type of EntityBlock.newBlockEntity, -1 for none
     int32_t      entity_valid;         // block_entity_type valid for the block (BlockEntityType.isValid), -1 for none
     int32_t      instrument;           // note_block_instrument of BlockState.instrument
-    int32_t      as_item;              // item_id of Block.asItem
     int32_t      waxed;                // HoneycombItem.WAXABLES, -1 for none
-    int32_t      wax_off;              // HoneycombItem.WAX_OFF_BY_BLOCK, -1 for none
-    int32_t      weathering_previous;  // WeatheringCopper.getPrevious, -1 for none
-    int32_t      stripped;             // AxeItem.STRIPPABLES, -1 for none
-    int32_t      flattened;            // ShovelItem.FLATTENABLES (the block's default state), -1 for none
-    int32_t      plant_head;           // GrowingPlantBlock.getHeadBlock, -1 for other blocks
-    int32_t      plant_body;           // GrowingPlantBlock.getBodyBlock, -1 for other blocks
-    int32_t      cauldron_map;         // cauldron_map of an AbstractCauldronBlock, -1 for other blocks
 };
 
 struct item_def {
@@ -61,12 +53,8 @@ struct item_def {
     int32_t      song_ticks;       // JukeboxSong.lengthInTicks of the JUKEBOX_PLAYABLE song, -1 for none
     int32_t      song_comparator;  // JukeboxSong.comparatorOutput
     float        compost_chance;   // ComposterBlock.COMPOSTABLES, -1 for items that do not compost
-    int32_t      fields_first;
-    int32_t      n_fields;
-    uint32_t     components;          // item_component bits of the default data components
-    uint32_t     cauldron_maps;       // bit per cauldron_map with an interaction for the item
+    uint32_t     components;       // item_component bits of the default data components
     int32_t      crafting_remainder;  // Item.getCraftingRemainder (count 1), -1 for none
-    const char * block_state;         // BLOCK_STATE component of a fresh stack as name=value,..., nullptr for none
     const char * dispense_entity;     // entity type a projectile, boat or minecart behaviour spawns, nullptr for others
     int32_t      max_damage;          // MAX_DAMAGE component of a fresh stack, 0 for none
 };
@@ -108,7 +96,6 @@ constexpr uint16_t SHAPE_NONE = 0xFFFF;
 extern const prop_def     prop_defs[];
 extern const block_prop   block_props[];
 extern const field_value  block_field_values[];
-extern const field_value  item_field_values[];
 extern const block_def    block_defs[];
 extern const item_def     item_defs[];
 extern const char * const block_entity_type_names[];
@@ -121,10 +108,6 @@ extern const int16_t iclass_hooks[]
                                  [ITEM_HOOK_COUNT];  // class that overrides each item hook, ICLASS_NONE for the default
 extern const char * const iclass_names[];
 extern const char * const item_hook_names[];
-extern const char * const cauldron_map_names[];
-extern const direction    player_direction;              // the virtual player's horizontal direction
-extern const direction    player_nearest_directions[6];  // Direction.orderedByNearest of the virtual player
-extern const int32_t      player_rotation_segment;       // RotationSegment.convertToSegment of the virtual player's yaw
 extern const uint64_t     state_flags[];
 extern const shape_box    shape_boxes[];
 extern const shape_def    shape_defs[];
