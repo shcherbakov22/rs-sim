@@ -48,7 +48,7 @@ extern const int16_t           vclass_super[];
 extern const int16_t      vclass_hooks[][HOOK_COUNT];  // class that overrides each hook, VCLASS_NONE for the default
 extern const char * const vclass_names[];
 extern const char * const hook_names[];
-extern const uint32_t     state_flags[];
+extern const uint64_t     state_flags[];
 extern const int32_t      n_block_defs;
 extern const int32_t      n_states;
 
