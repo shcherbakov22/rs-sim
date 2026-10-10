@@ -36,11 +36,15 @@ struct block_def {
     int32_t      n_props;
     int32_t      fields_first;
     int32_t      n_fields;
-    int32_t      cls;           // vanilla class, VCLASS_NONE for plain Block
-    int32_t      entity_new;    // block_entity_type of EntityBlock.newBlockEntity, -1 for none
-    int32_t      entity_valid;  // block_entity_type valid for the block (BlockEntityType.isValid), -1 for none
-    int32_t      instrument;    // note_block_instrument of BlockState.instrument
-    int32_t      as_item;       // item_id of Block.asItem
+    int32_t      cls;                  // vanilla class, VCLASS_NONE for plain Block
+    int32_t      entity_new;           // block_entity_type of EntityBlock.newBlockEntity, -1 for none
+    int32_t      entity_valid;         // block_entity_type valid for the block (BlockEntityType.isValid), -1 for none
+    int32_t      instrument;           // note_block_instrument of BlockState.instrument
+    int32_t      as_item;              // item_id of Block.asItem
+    int32_t      waxed;                // HoneycombItem.WAXABLES, -1 for none
+    int32_t      wax_off;              // HoneycombItem.WAX_OFF_BY_BLOCK, -1 for none
+    int32_t      weathering_previous;  // WeatheringCopper.getPrevious, -1 for none
+    int32_t      stripped;             // AxeItem.STRIPPABLES, -1 for none
 };
 
 struct item_def {
