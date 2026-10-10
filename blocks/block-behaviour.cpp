@@ -132,6 +132,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_CARPET_BLOCK:
             result = carpet_update_shape(lv, st, pos);
             break;
+        case VCLASS_NOTE_BLOCK:
+            result = note_block_update_shape(lv, st, pos, dir);
+            break;
         case VCLASS_LANTERN_BLOCK:
             result = lantern_update_shape(lv, st, pos, dir);
             break;
@@ -201,6 +204,9 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
             break;
         case VCLASS_COPPER_BULB_BLOCK:
             copper_bulb_check_and_flip(lv, st, pos);
+            break;
+        case VCLASS_NOTE_BLOCK:
+            note_block_neighbor_changed(lv, st, pos);
             break;
         case VCLASS_TRAP_DOOR_BLOCK:
             trap_door_neighbor_changed(lv, st, pos);
@@ -415,6 +421,8 @@ bool block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a
             return false;
         case VCLASS_PISTON_BASE_BLOCK:
             return piston_base_trigger_event(lv, st, pos, param_a, param_b);
+        case VCLASS_NOTE_BLOCK:
+            return note_block_trigger_event(lv, st);
         // ComparatorBlock.triggerEvent does the same
         case VCLASS_BASE_ENTITY_BLOCK:
         case VCLASS_COMPARATOR_BLOCK:
@@ -473,6 +481,8 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, dir
             return candle_cake_use_item_on(lv, st, pos, face, stack);
         case VCLASS_CAKE_BLOCK:
             return cake_use_item_on(lv, st, pos, stack);
+        case VCLASS_NOTE_BLOCK:
+            return note_block_use_item_on(stack, face);
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
             return copper_golem_statue_use_item_on(lv, st, pos, stack);
         case VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK:
@@ -515,6 +525,8 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return candle_cake_use_without_item();
         case VCLASS_CAKE_BLOCK:
             return cake_eat();
+        case VCLASS_NOTE_BLOCK:
+            return note_block_use_without_item(lv, st, pos);
         case VCLASS_FENCE_BLOCK:
             // LeadItem.bindPlayerMobs: no mob is ever leashed to the virtual player
             return INTERACTION_RESULT_PASS;
@@ -543,9 +555,12 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
     }
 }
 
-void block_attack(level & lv, state_id st) {
+void block_attack(level & lv, state_id st, block_pos pos) {
     switch (hook_owner(st, HOOK_ATTACK)) {
         case VCLASS_NONE:
+            break;
+        case VCLASS_NOTE_BLOCK:
+            note_block_attack(lv, st, pos);
             break;
         default:
             hook_unsupported(lv, st, HOOK_ATTACK);

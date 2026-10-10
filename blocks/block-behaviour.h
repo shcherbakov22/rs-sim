@@ -56,7 +56,7 @@ void     block_update_indirect_neighbour_shapes(level & lv, state_id st, block_p
 void     block_spawn_after_break(level & lv, state_id st, block_pos pos);
 interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, direction face, const item_stack & stack);
 interaction_result block_use_without_item(level & lv, state_id st, block_pos pos, direction face);
-void               block_attack(level & lv, state_id st);
+void               block_attack(level & lv, state_id st, block_pos pos);
 bool               block_is_signal_source(level & lv, state_id st);
 int32_t            block_get_signal(level & lv, state_id st, block_pos pos, direction dir);
 int32_t            block_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir);

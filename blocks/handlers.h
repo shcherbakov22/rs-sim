@@ -316,6 +316,14 @@ void    copper_bulb_check_and_flip(level & lv, state_id st, block_pos pos);
 void    copper_bulb_on_place(level & lv, state_id st, block_pos pos, state_id old);
 int32_t copper_bulb_get_analog_output_signal(level & lv, block_pos pos);
 
+// NoteBlock
+state_id           note_block_update_shape(level & lv, state_id st, block_pos pos, direction dir);
+void               note_block_neighbor_changed(level & lv, state_id st, block_pos pos);
+interaction_result note_block_use_item_on(const item_stack & stack, direction face);
+interaction_result note_block_use_without_item(level & lv, state_id st, block_pos pos);
+void               note_block_attack(level & lv, state_id st, block_pos pos);
+bool               note_block_trigger_event(level & lv, state_id st);
+
 // ComposterBlock
 void               composter_on_place(level & lv, state_id st, block_pos pos);
 interaction_result composter_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);

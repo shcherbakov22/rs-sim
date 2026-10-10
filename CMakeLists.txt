@@ -58,6 +58,7 @@ add_library(tmc STATIC
     blocks/lever.cpp
     blocks/lightning-rod.cpp
     blocks/moving-piston.cpp
+    blocks/note-block.cpp
     blocks/observer.cpp
     blocks/piston-base.cpp
     blocks/piston-head.cpp

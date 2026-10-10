@@ -253,7 +253,7 @@ static void case_apply_input(level & lv, const case_input & in) {
             case_use(lv, in);
             break;
         case CASE_VERB_ATTACK:
-            block_attack(lv, level_get_state(lv, in.pos));
+            block_attack(lv, level_get_state(lv, in.pos), in.pos);
             break;
         default:
             level_unsupported(lv, "input %s", case_verb_names[in.verb]);
