@@ -76,6 +76,7 @@ add_library(tmc STATIC
     blocks/redstone-wall-torch.cpp
     blocks/repeater.cpp
     blocks/respawn-anchor.cpp
+    blocks/scaffolding.cpp
     blocks/shelf.cpp
     blocks/soul-sand.cpp
     blocks/stair.cpp

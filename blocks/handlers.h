@@ -374,6 +374,12 @@ void     trip_wire_on_place(level & lv, state_id st, block_pos pos, state_id old
 void     trip_wire_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
 void     trip_wire_tick(level & lv, block_pos pos);
 
+// ScaffoldingBlock
+void scaffolding_on_place(level & lv, state_id st, block_pos pos);
+void scaffolding_update_shape(level & lv, state_id st, block_pos pos);
+void scaffolding_tick(level & lv, state_id st, block_pos pos);
+bool scaffolding_can_survive(level & lv, block_pos pos);
+
 // ComposterBlock
 void               composter_on_place(level & lv, state_id st, block_pos pos);
 interaction_result composter_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);

@@ -149,6 +149,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_TRIP_WIRE_HOOK_BLOCK:
             result = trip_wire_hook_update_shape(lv, st, pos, dir);
             break;
+        case VCLASS_SCAFFOLDING_BLOCK:
+            scaffolding_update_shape(lv, st, pos);
+            break;
         case VCLASS_LANTERN_BLOCK:
             result = lantern_update_shape(lv, st, pos, dir);
             break;
@@ -316,6 +319,9 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
         case VCLASS_TRIP_WIRE_BLOCK:
             trip_wire_on_place(lv, st, pos, old);
             break;
+        case VCLASS_SCAFFOLDING_BLOCK:
+            scaffolding_on_place(lv, st, pos);
+            break;
         case VCLASS_COMPOSTER_BLOCK:
             composter_on_place(lv, st, pos);
             break;
@@ -423,6 +429,9 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             break;
         case VCLASS_TRIP_WIRE_HOOK_BLOCK:
             trip_wire_hook_tick(lv, st, pos);
+            break;
+        case VCLASS_SCAFFOLDING_BLOCK:
+            scaffolding_tick(lv, st, pos);
             break;
         case VCLASS_COMPOSTER_BLOCK:
             composter_tick(lv, st, pos);
@@ -756,6 +765,8 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return base_pressure_plate_can_survive(lv, pos);
         case VCLASS_TRIP_WIRE_HOOK_BLOCK:
             return trip_wire_hook_can_survive(lv, st, pos);
+        case VCLASS_SCAFFOLDING_BLOCK:
+            return scaffolding_can_survive(lv, pos);
         case VCLASS_CANDLE_CAKE_BLOCK:
             return candle_cake_can_survive(lv, pos);
         default:
