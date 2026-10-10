@@ -50,6 +50,7 @@ struct item_def {
     uint32_t     tags;             // item_tag bits
     int32_t      song_ticks;       // JukeboxSong.lengthInTicks of the JUKEBOX_PLAYABLE song, -1 for none
     int32_t      song_comparator;  // JukeboxSong.comparatorOutput
+    float        compost_chance;   // ComposterBlock.COMPOSTABLES, -1 for items that do not compost
 };
 
 // Box of a collision shape, in block units, per axis x y z.
