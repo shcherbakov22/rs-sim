@@ -7,6 +7,7 @@
 #include <vector>
 
 // hook tables, one per family file
+extern const std::vector<block_hooks> dispenser_hooks;
 extern const std::vector<block_hooks> hopper_hooks;
 extern const std::vector<block_hooks> container_hooks;
 extern const std::vector<block_hooks> piston_hooks;
@@ -48,31 +49,9 @@ item_stack hopper_block_entity_add_item(level &           lv,
                                         item_stack        s,
                                         const direction * face);
 
-// DispenserBlock, DispenserBlockEntity, DefaultDispenseItemBehavior
-direction  dispenser_facing(state_id st);
-int32_t    dispenser_block_entity_get_random_slot(level & lv, const block_entity * be);
-void       default_dispense_item_behavior_spawn_item(level & lv, block_pos pos, direction dir);
-item_stack default_dispense_item_behavior_dispense(level & lv, state_id st, block_pos pos, item_stack dispensed);
-item_stack default_dispense_item_behavior_consume_with_remainder(level &    lv,
-                                                                 state_id   st,
-                                                                 block_pos  pos,
-                                                                 item_stack dispensed,
-                                                                 item_stack remainder);
-void       dispenser_tick(level & lv, state_id st, block_pos pos);
-void       dispenser_neighbor_changed(level & lv, state_id st, block_pos pos);
-
-// DispenseItemBehavior and its subclasses
-item_stack dispense_item_behavior_dispense(level & lv, state_id st, block_pos pos, item_stack dispensed);
-item_stack projectile_dispense_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed);
-item_stack boat_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed);
-item_stack minecart_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed);
-
 // CrafterBlock, CrafterBlockEntity
-bool    crafter_block_entity_can_place_item(const block_entity * be, int32_t slot);
-void    crafter_block_entity_server_tick(level & lv, block_pos pos, state_id st, block_entity * be);
-int32_t crafter_get_analog_output_signal(level & lv, block_pos pos);
-void    crafter_neighbor_changed(level & lv, state_id st, block_pos pos);
-void    crafter_tick(level & lv, state_id st, block_pos pos);
+bool crafter_block_entity_can_place_item(const block_entity * be, int32_t slot);
+void crafter_block_entity_server_tick(level & lv, block_pos pos, state_id st, block_entity * be);
 
 // JukeboxBlock, JukeboxBlockEntity, JukeboxSongPlayer
 bool jukebox_song_has_finished(int32_t record, int64_t ticks);
@@ -101,9 +80,6 @@ bool    composter_container_can_take_item_through_face(const composter_container
                                                        const item_stack &          s,
                                                        direction                   face);
 void    composter_container_set_changed(level & lv, composter_container & c);
-
-// DropperBlock
-void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 
 // ChestBlock
 bool chest_get_container(level & lv, state_id st, block_pos pos, bool ignore_being_blocked, container & out);

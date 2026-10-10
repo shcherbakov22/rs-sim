@@ -14,8 +14,8 @@ static void hook_unsupported(level & lv, state_id st, hook h) {
 
 // each vanilla class is in one family
 static const std::vector<block_hooks> * const block_hook_families[] = {
-    &hopper_hooks,  &container_hooks, &piston_hooks,  &diode_hooks,      &redstone_hooks, &rail_hooks,
-    &terrain_hooks, &fire_hooks,      &powered_hooks, &connecting_hooks, &attached_hooks,
+    &dispenser_hooks, &hopper_hooks,  &container_hooks, &piston_hooks,  &diode_hooks,      &redstone_hooks,
+    &rail_hooks,      &terrain_hooks, &fire_hooks,      &powered_hooks, &connecting_hooks, &attached_hooks,
 };
 
 static const block_hooks * block_hooks_of(int32_t vclass) {
@@ -192,12 +192,6 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
         switch (hook_owner(st, HOOK_NEIGHBOR_CHANGED)) {
             case VCLASS_NONE:
                 break;
-            case VCLASS_DISPENSER_BLOCK:
-                dispenser_neighbor_changed(lv, st, pos);
-                break;
-            case VCLASS_CRAFTER_BLOCK:
-                crafter_neighbor_changed(lv, st, pos);
-                break;
             default:
                 hook_unsupported(lv, st, HOOK_NEIGHBOR_CHANGED);
         }
@@ -225,11 +219,6 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
         switch (hook_owner(st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL)) {
             case VCLASS_NONE:
                 break;
-            case VCLASS_DISPENSER_BLOCK:
-            case VCLASS_CRAFTER_BLOCK:
-                // Containers.updateNeighboursAfterDestroy
-                level_update_neighbour_for_output_signal(lv, pos, state_block(st));
-                break;
             default:
                 hook_unsupported(lv, st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL);
         }
@@ -242,12 +231,6 @@ void block_tick(level & lv, state_id st, block_pos pos) {
     } else {
         switch (hook_owner(st, HOOK_TICK)) {
             case VCLASS_NONE:
-                break;
-            case VCLASS_DISPENSER_BLOCK:
-                dispenser_tick(lv, st, pos);
-                break;
-            case VCLASS_CRAFTER_BLOCK:
-                crafter_tick(lv, st, pos);
                 break;
             default:
                 hook_unsupported(lv, st, HOOK_TICK);
@@ -371,10 +354,6 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
     switch (hook_owner(st, HOOK_GET_ANALOG_OUTPUT_SIGNAL)) {
         case VCLASS_NONE:
             return 0;
-        case VCLASS_DISPENSER_BLOCK:
-            return container_get_redstone_signal_from_block_entity(lv, st, pos, dir);
-        case VCLASS_CRAFTER_BLOCK:
-            return crafter_get_analog_output_signal(lv, pos);
         default:
             hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
             return 0;

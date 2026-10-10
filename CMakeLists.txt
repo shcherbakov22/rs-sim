@@ -14,20 +14,14 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 add_library(tmc STATIC
     blocks/attached.cpp
     blocks/block-behaviour.cpp
-    blocks/boat-dispense-item-behavior.cpp
     blocks/connecting.cpp
     blocks/container.cpp
-    blocks/crafter.cpp
     blocks/diode.cpp
-    blocks/dispense-item-behavior.cpp
     blocks/dispenser.cpp
-    blocks/dropper.cpp
     blocks/fire.cpp
     blocks/hopper.cpp
-    blocks/minecart-dispense-item-behavior.cpp
     blocks/piston.cpp
     blocks/powered.cpp
-    blocks/projectile-dispense-behavior.cpp
     blocks/rail.cpp
     blocks/redstone.cpp
     blocks/terrain.cpp
