@@ -14,6 +14,7 @@ static void hook_unsupported(level & lv, state_id st, hook h) {
 
 // each vanilla class is in one family
 static const std::vector<block_hooks> * const block_hook_families[] = {
+    &powered_hooks,
     &connecting_hooks,
     &attached_hooks,
 };
@@ -137,6 +138,10 @@ bool block_can_support_center(level & lv, block_pos pos, direction dir) {
     return block_is_face_sturdy(lv, st, pos, dir, SUPPORT_TYPE_CENTER);
 }
 
+state_id block_behaviour_update_shape(level &, state_id st, block_pos, direction, block_pos, state_id) {
+    return st;
+}
+
 state_id block_update_shape(level &   lv,
                             state_id  st,
                             block_pos pos,
@@ -155,89 +160,81 @@ state_id block_update_shape(level &   lv,
     }
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_UPDATE_SHAPE)) {
         result = b->update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
-    } else switch (hook_owner(st, HOOK_UPDATE_SHAPE)) {
-        case VCLASS_NONE:
-            break;
-        case VCLASS_RED_STONE_WIRE_BLOCK:
-            result = red_stone_wire_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
-            break;
-        case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
-            result = attached_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
-            break;
-        case VCLASS_REPEATER_BLOCK:
-            result = repeater_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
-            break;
-        case VCLASS_COMPARATOR_BLOCK:
-            result = comparator_update_shape(lv, st, dir, neighbor_pos, neighbor);
-            break;
-        case VCLASS_CHEST_BLOCK:
-            result = chest_update_shape(st, dir, neighbor);
-            break;
-        // these classes only schedule the water tick, checked above
-        case VCLASS_ENDER_CHEST_BLOCK:
-        case VCLASS_DECORATED_POT_BLOCK:
-        case VCLASS_SHELF_BLOCK:
-        case VCLASS_SLAB_BLOCK:
-        case VCLASS_CHAIN_BLOCK:
-        case VCLASS_TRAP_DOOR_BLOCK:
-        case VCLASS_BASE_RAIL_BLOCK:
-        case VCLASS_CANDLE_BLOCK:
-        case VCLASS_HEAVY_CORE_BLOCK:
-        case VCLASS_WATERLOGGED_TRANSPARENT_BLOCK:
-        case VCLASS_LIGHTNING_ROD_BLOCK:
-        case VCLASS_BARRIER_BLOCK:
-        case VCLASS_LIGHT_BLOCK:
-            break;
-        case VCLASS_NOTE_BLOCK:
-            result = note_block_update_shape(lv, st, pos, dir);
-            break;
-        case VCLASS_SOUL_SAND_BLOCK:
-            soul_sand_update_shape(lv, st, pos, dir, neighbor);
-            break;
-        case VCLASS_FALLING_BLOCK:
-            result = falling_block_update_shape(lv, st, pos);
-            break;
-        case VCLASS_CONCRETE_POWDER_BLOCK:
-            result = concrete_powder_update_shape(lv, st, pos);
-            break;
-        case VCLASS_SCAFFOLDING_BLOCK:
-            scaffolding_update_shape(lv, st, pos);
-            break;
-        case VCLASS_DIRT_PATH_BLOCK:
-            result = dirt_path_update_shape(lv, st, pos, dir);
-            break;
-        case VCLASS_FIRE_BLOCK:
-            result = fire_update_shape(lv, st, pos);
-            break;
-        case VCLASS_SOUL_FIRE_BLOCK:
-            result = soul_fire_update_shape(lv, st, pos);
-            break;
-        case VCLASS_NETHER_PORTAL_BLOCK:
-            result = nether_portal_update_shape(lv, st, pos, dir, neighbor);
-            break;
-        case VCLASS_SNOWY_DIRT_BLOCK:
-            result = snowy_dirt_update_shape(st, dir, neighbor);
-            break;
-        case VCLASS_FENCE_GATE_BLOCK:
-            result = fence_gate_update_shape(lv, st, pos, dir, neighbor);
-            break;
-        case VCLASS_LEAVES_BLOCK:
-            result = leaves_update_shape(lv, st, pos, neighbor);
-            break;
-        case VCLASS_DOOR_BLOCK:
-            result = door_update_shape(lv, st, pos, dir, neighbor);
-            break;
-        case VCLASS_COPPER_CHEST_BLOCK:
-            result = copper_chest_update_shape(st, dir, neighbor);
-            break;
-        case VCLASS_PISTON_HEAD_BLOCK:
-            result = piston_head_update_shape(lv, st, pos, dir);
-            break;
-        case VCLASS_OBSERVER_BLOCK:
-            result = observer_update_shape(lv, st, pos, dir);
-            break;
-        default:
-            hook_unsupported(lv, st, HOOK_UPDATE_SHAPE);
+    } else {
+        switch (hook_owner(st, HOOK_UPDATE_SHAPE)) {
+            case VCLASS_NONE:
+                break;
+            case VCLASS_RED_STONE_WIRE_BLOCK:
+                result = red_stone_wire_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
+                break;
+            case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
+                result = attached_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
+                break;
+            case VCLASS_REPEATER_BLOCK:
+                result = repeater_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
+                break;
+            case VCLASS_COMPARATOR_BLOCK:
+                result = comparator_update_shape(lv, st, dir, neighbor_pos, neighbor);
+                break;
+            case VCLASS_CHEST_BLOCK:
+                result = chest_update_shape(st, dir, neighbor);
+                break;
+            // these classes only schedule the water tick, checked above
+            case VCLASS_ENDER_CHEST_BLOCK:
+            case VCLASS_DECORATED_POT_BLOCK:
+            case VCLASS_SHELF_BLOCK:
+            case VCLASS_SLAB_BLOCK:
+            case VCLASS_CHAIN_BLOCK:
+            case VCLASS_BASE_RAIL_BLOCK:
+            case VCLASS_CANDLE_BLOCK:
+            case VCLASS_HEAVY_CORE_BLOCK:
+            case VCLASS_WATERLOGGED_TRANSPARENT_BLOCK:
+            case VCLASS_LIGHTNING_ROD_BLOCK:
+            case VCLASS_BARRIER_BLOCK:
+            case VCLASS_LIGHT_BLOCK:
+                break;
+            case VCLASS_SOUL_SAND_BLOCK:
+                soul_sand_update_shape(lv, st, pos, dir, neighbor);
+                break;
+            case VCLASS_FALLING_BLOCK:
+                result = falling_block_update_shape(lv, st, pos);
+                break;
+            case VCLASS_CONCRETE_POWDER_BLOCK:
+                result = concrete_powder_update_shape(lv, st, pos);
+                break;
+            case VCLASS_SCAFFOLDING_BLOCK:
+                scaffolding_update_shape(lv, st, pos);
+                break;
+            case VCLASS_DIRT_PATH_BLOCK:
+                result = dirt_path_update_shape(lv, st, pos, dir);
+                break;
+            case VCLASS_FIRE_BLOCK:
+                result = fire_update_shape(lv, st, pos);
+                break;
+            case VCLASS_SOUL_FIRE_BLOCK:
+                result = soul_fire_update_shape(lv, st, pos);
+                break;
+            case VCLASS_NETHER_PORTAL_BLOCK:
+                result = nether_portal_update_shape(lv, st, pos, dir, neighbor);
+                break;
+            case VCLASS_SNOWY_DIRT_BLOCK:
+                result = snowy_dirt_update_shape(st, dir, neighbor);
+                break;
+            case VCLASS_LEAVES_BLOCK:
+                result = leaves_update_shape(lv, st, pos, neighbor);
+                break;
+            case VCLASS_COPPER_CHEST_BLOCK:
+                result = copper_chest_update_shape(st, dir, neighbor);
+                break;
+            case VCLASS_PISTON_HEAD_BLOCK:
+                result = piston_head_update_shape(lv, st, pos, dir);
+                break;
+            case VCLASS_OBSERVER_BLOCK:
+                result = observer_update_shape(lv, st, pos, dir);
+                break;
+            default:
+                hook_unsupported(lv, st, HOOK_UPDATE_SHAPE);
+        }
     }
     if (result != st && trace_wants(lv.tr, &pos)) {
         trace_add(lv.tr, "=> %s", state_to_string(result).c_str());
@@ -251,65 +248,52 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
                 block_defs[block].name, moved_by_piston ? " piston" : "");
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_NEIGHBOR_CHANGED)) {
         b->neighbor_changed(lv, st, pos, block, moved_by_piston);
-    } else switch (hook_owner(st, HOOK_NEIGHBOR_CHANGED)) {
-        case VCLASS_NONE:
-            break;
-        case VCLASS_RED_STONE_WIRE_BLOCK:
-            red_stone_wire_neighbor_changed(lv, st, pos);
-            break;
-        case VCLASS_FENCE_GATE_BLOCK:
-            fence_gate_neighbor_changed(lv, st, pos);
-            break;
-        case VCLASS_COPPER_BULB_BLOCK:
-            copper_bulb_check_and_flip(lv, st, pos);
-            break;
-        case VCLASS_NOTE_BLOCK:
-            note_block_neighbor_changed(lv, st, pos);
-            break;
-        case VCLASS_TRAP_DOOR_BLOCK:
-            trap_door_neighbor_changed(lv, st, pos);
-            break;
-        case VCLASS_DOOR_BLOCK:
-            door_neighbor_changed(lv, st, pos, block);
-            break;
-        case VCLASS_BASE_RAIL_BLOCK:
-            base_rail_neighbor_changed(lv, st, pos, moved_by_piston);
-            break;
-        case VCLASS_REDSTONE_TORCH_BLOCK:
-            redstone_torch_neighbor_changed(lv, st, pos);
-            break;
-        case VCLASS_DIODE_BLOCK:
-            diode_neighbor_changed(lv, st, pos);
-            break;
-        case VCLASS_REDSTONE_LAMP_BLOCK:
-            redstone_lamp_neighbor_changed(lv, st, pos);
-            break;
-        case VCLASS_PISTON_BASE_BLOCK:
-            piston_base_neighbor_changed(lv, st, pos);
-            break;
-        case VCLASS_PISTON_HEAD_BLOCK:
-            piston_head_neighbor_changed(lv, st, pos, block);
-            break;
-        case VCLASS_HOPPER_BLOCK:
-            hopper_neighbor_changed(lv, st, pos);
-            break;
-        case VCLASS_ABSTRACT_SKULL_BLOCK:
-            abstract_skull_neighbor_changed(lv, st, pos);
-            break;
-        case VCLASS_DISPENSER_BLOCK:
-            dispenser_neighbor_changed(lv, st, pos);
-            break;
-        case VCLASS_TNT_BLOCK:
-            tnt_neighbor_changed(lv, pos);
-            break;
-        case VCLASS_CRAFTER_BLOCK:
-            crafter_neighbor_changed(lv, st, pos);
-            break;
-        case VCLASS_SHELF_BLOCK:
-            shelf_neighbor_changed(lv, st, pos);
-            break;
-        default:
-            hook_unsupported(lv, st, HOOK_NEIGHBOR_CHANGED);
+    } else {
+        switch (hook_owner(st, HOOK_NEIGHBOR_CHANGED)) {
+            case VCLASS_NONE:
+                break;
+            case VCLASS_RED_STONE_WIRE_BLOCK:
+                red_stone_wire_neighbor_changed(lv, st, pos);
+                break;
+            case VCLASS_COPPER_BULB_BLOCK:
+                copper_bulb_check_and_flip(lv, st, pos);
+                break;
+            case VCLASS_BASE_RAIL_BLOCK:
+                base_rail_neighbor_changed(lv, st, pos, moved_by_piston);
+                break;
+            case VCLASS_REDSTONE_TORCH_BLOCK:
+                redstone_torch_neighbor_changed(lv, st, pos);
+                break;
+            case VCLASS_DIODE_BLOCK:
+                diode_neighbor_changed(lv, st, pos);
+                break;
+            case VCLASS_REDSTONE_LAMP_BLOCK:
+                redstone_lamp_neighbor_changed(lv, st, pos);
+                break;
+            case VCLASS_PISTON_BASE_BLOCK:
+                piston_base_neighbor_changed(lv, st, pos);
+                break;
+            case VCLASS_PISTON_HEAD_BLOCK:
+                piston_head_neighbor_changed(lv, st, pos, block);
+                break;
+            case VCLASS_HOPPER_BLOCK:
+                hopper_neighbor_changed(lv, st, pos);
+                break;
+            case VCLASS_DISPENSER_BLOCK:
+                dispenser_neighbor_changed(lv, st, pos);
+                break;
+            case VCLASS_TNT_BLOCK:
+                tnt_neighbor_changed(lv, pos);
+                break;
+            case VCLASS_CRAFTER_BLOCK:
+                crafter_neighbor_changed(lv, st, pos);
+                break;
+            case VCLASS_SHELF_BLOCK:
+                shelf_neighbor_changed(lv, st, pos);
+                break;
+            default:
+                hook_unsupported(lv, st, HOOK_NEIGHBOR_CHANGED);
+        }
     }
     trace_exit(lv.tr);
 }
@@ -317,174 +301,180 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
 void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool moved_by_piston) {
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_ON_PLACE)) {
         b->on_place(lv, st, pos, old, moved_by_piston);
-    } else switch (hook_owner(st, HOOK_ON_PLACE)) {
-        case VCLASS_NONE:
-            break;
-        case VCLASS_RED_STONE_WIRE_BLOCK:
-            red_stone_wire_on_place(lv, st, pos, old);
-            break;
-        case VCLASS_REDSTONE_TORCH_BLOCK:
-            redstone_torch_on_place(lv, st, pos);
-            break;
-        case VCLASS_DIODE_BLOCK:
-            diode_on_place(lv, st, pos);
-            break;
-        case VCLASS_OBSERVER_BLOCK:
-            observer_on_place(lv, st, pos, old);
-            break;
-        case VCLASS_PISTON_BASE_BLOCK:
-            piston_base_on_place(lv, st, pos, old);
-            break;
-        case VCLASS_HOPPER_BLOCK:
-            hopper_on_place(lv, st, pos, old);
-            break;
-        case VCLASS_SHELF_BLOCK:
-            shelf_on_place(lv, st, pos, old);
-            break;
-        case VCLASS_BASE_RAIL_BLOCK:
-            base_rail_on_place(lv, st, pos, old, moved_by_piston);
-            break;
-        case VCLASS_LIGHTNING_ROD_BLOCK:
-            lightning_rod_on_place(lv, st, pos, old);
-            break;
-        case VCLASS_COPPER_BULB_BLOCK:
-            copper_bulb_on_place(lv, st, pos, old);
-            break;
-        case VCLASS_TARGET_BLOCK:
-            target_on_place(lv, st, pos, old);
-            break;
-        case VCLASS_SOUL_SAND_BLOCK:
-            soul_sand_on_place(lv, st, pos);
-            break;
-        case VCLASS_FALLING_BLOCK:
-            falling_block_on_place(lv, st, pos);
-            break;
-        case VCLASS_TNT_BLOCK:
-            tnt_on_place(lv, st, pos, old);
-            break;
-        case VCLASS_SCAFFOLDING_BLOCK:
-            scaffolding_on_place(lv, st, pos);
-            break;
-        case VCLASS_COMPOSTER_BLOCK:
-            composter_on_place(lv, st, pos);
-            break;
-        case VCLASS_BASE_FIRE_BLOCK:
-            base_fire_on_place(lv, st, pos, old);
-            break;
-        case VCLASS_FIRE_BLOCK:
-            fire_on_place(lv, st, pos, old);
-            break;
-        default:
-            hook_unsupported(lv, st, HOOK_ON_PLACE);
+    } else {
+        switch (hook_owner(st, HOOK_ON_PLACE)) {
+            case VCLASS_NONE:
+                break;
+            case VCLASS_RED_STONE_WIRE_BLOCK:
+                red_stone_wire_on_place(lv, st, pos, old);
+                break;
+            case VCLASS_REDSTONE_TORCH_BLOCK:
+                redstone_torch_on_place(lv, st, pos);
+                break;
+            case VCLASS_DIODE_BLOCK:
+                diode_on_place(lv, st, pos);
+                break;
+            case VCLASS_OBSERVER_BLOCK:
+                observer_on_place(lv, st, pos, old);
+                break;
+            case VCLASS_PISTON_BASE_BLOCK:
+                piston_base_on_place(lv, st, pos, old);
+                break;
+            case VCLASS_HOPPER_BLOCK:
+                hopper_on_place(lv, st, pos, old);
+                break;
+            case VCLASS_SHELF_BLOCK:
+                shelf_on_place(lv, st, pos, old);
+                break;
+            case VCLASS_BASE_RAIL_BLOCK:
+                base_rail_on_place(lv, st, pos, old, moved_by_piston);
+                break;
+            case VCLASS_LIGHTNING_ROD_BLOCK:
+                lightning_rod_on_place(lv, st, pos, old);
+                break;
+            case VCLASS_COPPER_BULB_BLOCK:
+                copper_bulb_on_place(lv, st, pos, old);
+                break;
+            case VCLASS_TARGET_BLOCK:
+                target_on_place(lv, st, pos, old);
+                break;
+            case VCLASS_SOUL_SAND_BLOCK:
+                soul_sand_on_place(lv, st, pos);
+                break;
+            case VCLASS_FALLING_BLOCK:
+                falling_block_on_place(lv, st, pos);
+                break;
+            case VCLASS_TNT_BLOCK:
+                tnt_on_place(lv, st, pos, old);
+                break;
+            case VCLASS_SCAFFOLDING_BLOCK:
+                scaffolding_on_place(lv, st, pos);
+                break;
+            case VCLASS_COMPOSTER_BLOCK:
+                composter_on_place(lv, st, pos);
+                break;
+            case VCLASS_BASE_FIRE_BLOCK:
+                base_fire_on_place(lv, st, pos, old);
+                break;
+            case VCLASS_FIRE_BLOCK:
+                fire_on_place(lv, st, pos, old);
+                break;
+            default:
+                hook_unsupported(lv, st, HOOK_ON_PLACE);
+        }
     }
 }
 
 void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston) {
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL)) {
         b->affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
-    } else switch (hook_owner(st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL)) {
-        case VCLASS_NONE:
-            break;
-        case VCLASS_RED_STONE_WIRE_BLOCK:
-            red_stone_wire_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
-            break;
-        case VCLASS_LEVER_BLOCK:
-            lever_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
-            break;
-        case VCLASS_BASE_RAIL_BLOCK:
-            base_rail_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
-            break;
-        case VCLASS_LIGHTNING_ROD_BLOCK:
-            lightning_rod_affect_neighbors_after_removal(lv, st, pos);
-            break;
-        case VCLASS_REDSTONE_TORCH_BLOCK:
-            redstone_torch_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
-            break;
-        case VCLASS_DIODE_BLOCK:
-            diode_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
-            break;
-        case VCLASS_OBSERVER_BLOCK:
-            observer_affect_neighbors_after_removal(lv, st, pos);
-            break;
-        case VCLASS_PISTON_HEAD_BLOCK:
-            piston_head_affect_neighbors_after_removal(lv, st, pos);
-            break;
-        case VCLASS_SHELF_BLOCK:
-            shelf_affect_neighbors_after_removal(lv, st, pos);
-            break;
-        case VCLASS_CHEST_BLOCK:
-        case VCLASS_HOPPER_BLOCK:
-        case VCLASS_BARREL_BLOCK:
-        case VCLASS_SHULKER_BOX_BLOCK:
-        case VCLASS_DISPENSER_BLOCK:
-        case VCLASS_CRAFTER_BLOCK:
-        case VCLASS_DECORATED_POT_BLOCK:
-        case VCLASS_JUKEBOX_BLOCK:
-        case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
-            // Containers.updateNeighboursAfterDestroy
-            level_update_neighbour_for_output_signal(lv, pos, state_block(st));
-            break;
-        default:
-            hook_unsupported(lv, st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL);
+    } else {
+        switch (hook_owner(st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL)) {
+            case VCLASS_NONE:
+                break;
+            case VCLASS_RED_STONE_WIRE_BLOCK:
+                red_stone_wire_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+                break;
+            case VCLASS_LEVER_BLOCK:
+                lever_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+                break;
+            case VCLASS_BASE_RAIL_BLOCK:
+                base_rail_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+                break;
+            case VCLASS_LIGHTNING_ROD_BLOCK:
+                lightning_rod_affect_neighbors_after_removal(lv, st, pos);
+                break;
+            case VCLASS_REDSTONE_TORCH_BLOCK:
+                redstone_torch_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+                break;
+            case VCLASS_DIODE_BLOCK:
+                diode_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+                break;
+            case VCLASS_OBSERVER_BLOCK:
+                observer_affect_neighbors_after_removal(lv, st, pos);
+                break;
+            case VCLASS_PISTON_HEAD_BLOCK:
+                piston_head_affect_neighbors_after_removal(lv, st, pos);
+                break;
+            case VCLASS_SHELF_BLOCK:
+                shelf_affect_neighbors_after_removal(lv, st, pos);
+                break;
+            case VCLASS_CHEST_BLOCK:
+            case VCLASS_HOPPER_BLOCK:
+            case VCLASS_BARREL_BLOCK:
+            case VCLASS_SHULKER_BOX_BLOCK:
+            case VCLASS_DISPENSER_BLOCK:
+            case VCLASS_CRAFTER_BLOCK:
+            case VCLASS_DECORATED_POT_BLOCK:
+            case VCLASS_JUKEBOX_BLOCK:
+            case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
+                // Containers.updateNeighboursAfterDestroy
+                level_update_neighbour_for_output_signal(lv, pos, state_block(st));
+                break;
+            default:
+                hook_unsupported(lv, st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL);
+        }
     }
 }
 
 void block_tick(level & lv, state_id st, block_pos pos) {
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_TICK)) {
         b->tick(lv, st, pos);
-    } else switch (hook_owner(st, HOOK_TICK)) {
-        case VCLASS_NONE:
-            break;
-        case VCLASS_REDSTONE_TORCH_BLOCK:
-            redstone_torch_tick(lv, st, pos);
-            break;
-        case VCLASS_DIRT_PATH_BLOCK:
-            dirt_path_tick(lv, pos);
-            break;
-        case VCLASS_FIRE_BLOCK:
-            fire_tick(lv, pos);
-            break;
-        case VCLASS_LEAVES_BLOCK:
-            leaves_tick(lv, st, pos);
-            break;
-        case VCLASS_LIGHTNING_ROD_BLOCK:
-            lightning_rod_tick(lv, st, pos);
-            break;
-        case VCLASS_TARGET_BLOCK:
-            target_tick(lv, st, pos);
-            break;
-        case VCLASS_SOUL_SAND_BLOCK:
-            soul_sand_tick(lv, pos);
-            break;
-        case VCLASS_FALLING_BLOCK:
-            falling_block_tick(lv, pos);
-            break;
-        case VCLASS_SCAFFOLDING_BLOCK:
-            scaffolding_tick(lv, st, pos);
-            break;
-        case VCLASS_COMPOSTER_BLOCK:
-            composter_tick(lv, st, pos);
-            break;
-        case VCLASS_DIODE_BLOCK:
-            diode_tick(lv, st, pos);
-            break;
-        case VCLASS_COMPARATOR_BLOCK:
-            comparator_tick(lv, st, pos);
-            break;
-        case VCLASS_DISPENSER_BLOCK:
-            dispenser_tick(lv, st, pos);
-            break;
-        case VCLASS_CRAFTER_BLOCK:
-            crafter_tick(lv, st, pos);
-            break;
-        case VCLASS_REDSTONE_LAMP_BLOCK:
-            redstone_lamp_tick(lv, st, pos);
-            break;
-        case VCLASS_OBSERVER_BLOCK:
-            observer_tick(lv, st, pos);
-            break;
-        default:
-            hook_unsupported(lv, st, HOOK_TICK);
+    } else {
+        switch (hook_owner(st, HOOK_TICK)) {
+            case VCLASS_NONE:
+                break;
+            case VCLASS_REDSTONE_TORCH_BLOCK:
+                redstone_torch_tick(lv, st, pos);
+                break;
+            case VCLASS_DIRT_PATH_BLOCK:
+                dirt_path_tick(lv, pos);
+                break;
+            case VCLASS_FIRE_BLOCK:
+                fire_tick(lv, pos);
+                break;
+            case VCLASS_LEAVES_BLOCK:
+                leaves_tick(lv, st, pos);
+                break;
+            case VCLASS_LIGHTNING_ROD_BLOCK:
+                lightning_rod_tick(lv, st, pos);
+                break;
+            case VCLASS_TARGET_BLOCK:
+                target_tick(lv, st, pos);
+                break;
+            case VCLASS_SOUL_SAND_BLOCK:
+                soul_sand_tick(lv, pos);
+                break;
+            case VCLASS_FALLING_BLOCK:
+                falling_block_tick(lv, pos);
+                break;
+            case VCLASS_SCAFFOLDING_BLOCK:
+                scaffolding_tick(lv, st, pos);
+                break;
+            case VCLASS_COMPOSTER_BLOCK:
+                composter_tick(lv, st, pos);
+                break;
+            case VCLASS_DIODE_BLOCK:
+                diode_tick(lv, st, pos);
+                break;
+            case VCLASS_COMPARATOR_BLOCK:
+                comparator_tick(lv, st, pos);
+                break;
+            case VCLASS_DISPENSER_BLOCK:
+                dispenser_tick(lv, st, pos);
+                break;
+            case VCLASS_CRAFTER_BLOCK:
+                crafter_tick(lv, st, pos);
+                break;
+            case VCLASS_REDSTONE_LAMP_BLOCK:
+                redstone_lamp_tick(lv, st, pos);
+                break;
+            case VCLASS_OBSERVER_BLOCK:
+                observer_tick(lv, st, pos);
+                break;
+            default:
+                hook_unsupported(lv, st, HOOK_TICK);
+        }
     }
 }
 
@@ -497,8 +487,6 @@ bool block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a
             return false;
         case VCLASS_PISTON_BASE_BLOCK:
             return piston_base_trigger_event(lv, st, pos, param_a, param_b);
-        case VCLASS_NOTE_BLOCK:
-            return note_block_trigger_event(lv, st);
         // ComparatorBlock.triggerEvent does the same
         case VCLASS_BASE_ENTITY_BLOCK:
         case VCLASS_COMPARATOR_BLOCK:
@@ -512,14 +500,16 @@ bool block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a
 void block_update_indirect_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit) {
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES)) {
         b->update_indirect_neighbour_shapes(lv, st, pos, flags, limit);
-    } else switch (hook_owner(st, HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES)) {
-        case VCLASS_NONE:
-            break;
-        case VCLASS_RED_STONE_WIRE_BLOCK:
-            red_stone_wire_update_indirect_neighbour_shapes(lv, st, pos, flags, limit);
-            break;
-        default:
-            hook_unsupported(lv, st, HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES);
+    } else {
+        switch (hook_owner(st, HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES)) {
+            case VCLASS_NONE:
+                break;
+            case VCLASS_RED_STONE_WIRE_BLOCK:
+                red_stone_wire_update_indirect_neighbour_shapes(lv, st, pos, flags, limit);
+                break;
+            default:
+                hook_unsupported(lv, st, HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES);
+        }
     }
 }
 

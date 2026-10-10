@@ -12,7 +12,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_library(tmc STATIC
-    blocks/abstract-skull.cpp
     blocks/attached.cpp
     blocks/base-entity-block.cpp
     blocks/base-fire.cpp
@@ -33,10 +32,8 @@ add_library(tmc STATIC
     blocks/dirt-path.cpp
     blocks/dispense-item-behavior.cpp
     blocks/dispenser.cpp
-    blocks/door.cpp
     blocks/dropper.cpp
     blocks/falling-block.cpp
-    blocks/fence-gate.cpp
     blocks/fire.cpp
     blocks/hopper-block-entity.cpp
     blocks/hopper.cpp
@@ -47,7 +44,6 @@ add_library(tmc STATIC
     blocks/minecart-dispense-item-behavior.cpp
     blocks/moving-piston.cpp
     blocks/nether-portal.cpp
-    blocks/note-block.cpp
     blocks/observer.cpp
     blocks/piston-base.cpp
     blocks/piston-head.cpp
@@ -55,6 +51,7 @@ add_library(tmc STATIC
     blocks/piston-structure-resolver.cpp
     blocks/portal-shape.cpp
     blocks/powered-rail.cpp
+    blocks/powered.cpp
     blocks/projectile-dispense-behavior.cpp
     blocks/rail-state.cpp
     blocks/red-stone-wire.cpp
@@ -69,7 +66,6 @@ add_library(tmc STATIC
     blocks/soul-sand.cpp
     blocks/target.cpp
     blocks/tnt.cpp
-    blocks/trap-door.cpp
     blocks/trapped-chest.cpp
     core/rng.cpp
     core/state.cpp

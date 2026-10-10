@@ -1,7 +1,5 @@
 #pragma once
 
-// hooks to them; the other functions are vanilla's non-hook methods that other classes call.
-
 #include "blocks/block-behaviour.h"
 #include "core/voxel-shape.h"
 #include "engine/block-entity.h"
@@ -9,6 +7,7 @@
 #include <vector>
 
 // hook tables, one per family file
+extern const std::vector<block_hooks> powered_hooks;
 extern const std::vector<block_hooks> connecting_hooks;
 extern const std::vector<block_hooks> attached_hooks;
 
@@ -91,9 +90,6 @@ int32_t      container_get_redstone_signal(const container * c);
 void         containers_drop_contents(level & lv, block_pos pos, const container & c);
 int32_t      container_get_redstone_signal_from_block_entity(level & lv, block_pos pos);
 
-// AbstractSkullBlock
-void abstract_skull_neighbor_changed(level & lv, state_id st, block_pos pos);
-
 // SnowyDirtBlock
 state_id snowy_dirt_update_shape(state_id st, direction dir, state_id neighbor);
 
@@ -166,13 +162,6 @@ int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
 void     leaves_tick(level & lv, state_id st, block_pos pos);
 state_id leaves_update_shape(level & lv, state_id st, block_pos pos, state_id neighbor);
 
-// TrapDoorBlock
-void trap_door_neighbor_changed(level & lv, state_id st, block_pos pos);
-
-// FenceGateBlock
-state_id fence_gate_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
-void     fence_gate_neighbor_changed(level & lv, state_id st, block_pos pos);
-
 // BaseRailBlock and RailState of the straight rails
 struct rail_state {
     block_pos              pos;
@@ -205,11 +194,6 @@ void    copper_bulb_check_and_flip(level & lv, state_id st, block_pos pos);
 void    copper_bulb_on_place(level & lv, state_id st, block_pos pos, state_id old);
 int32_t copper_bulb_get_analog_output_signal(level & lv, block_pos pos);
 
-// NoteBlock
-state_id note_block_update_shape(level & lv, state_id st, block_pos pos, direction dir);
-void     note_block_neighbor_changed(level & lv, state_id st, block_pos pos);
-bool     note_block_trigger_event(level & lv, state_id st);
-
 // TargetBlock
 void    target_tick(level & lv, state_id st, block_pos pos);
 int32_t target_get_signal(state_id st);
@@ -240,11 +224,6 @@ bool    composter_container_can_take_item_through_face(const composter_container
                                                        const item_stack &          s,
                                                        direction                   face);
 void    composter_container_set_changed(level & lv, composter_container & c);
-
-// DoorBlock
-bool     door_can_survive(level & lv, state_id st, block_pos pos);
-state_id door_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
-void     door_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block);
 
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
