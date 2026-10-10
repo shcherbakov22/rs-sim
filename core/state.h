@@ -43,11 +43,13 @@ struct block_def {
 
 struct item_def {
     const char * name;
-    int32_t      max_stack_size;  // default MAX_STACK_SIZE component
-    int32_t      cls;             // item_class
-    int32_t      block;           // BlockItem.getBlock, -1 for other items
-    bool         dispense;        // has a DispenserBlock.DISPENSER_REGISTRY behaviour
-    uint32_t     tags;            // item_tag bits
+    int32_t      max_stack_size;   // default MAX_STACK_SIZE component
+    int32_t      cls;              // item_class
+    int32_t      block;            // BlockItem.getBlock, -1 for other items
+    bool         dispense;         // has a DispenserBlock.DISPENSER_REGISTRY behaviour
+    uint32_t     tags;             // item_tag bits
+    int32_t      song_ticks;       // JukeboxSong.lengthInTicks of the JUKEBOX_PLAYABLE song, -1 for none
+    int32_t      song_comparator;  // JukeboxSong.comparatorOutput
 };
 
 // Box of a collision shape, in block units, per axis x y z.
