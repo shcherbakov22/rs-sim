@@ -299,8 +299,9 @@ enum item_class {
 };
 
 enum item_tag {
-    ITEM_TAG_BOOKSHELF_BOOKS = 1u << 0,
-    ITEM_TAG_LECTERN_BOOKS = 1u << 1,
+    ITEM_TAG_AXES = 1u << 0,
+    ITEM_TAG_BOOKSHELF_BOOKS = 1u << 1,
+    ITEM_TAG_LECTERN_BOOKS = 1u << 2,
 };
 
 enum item_id {
