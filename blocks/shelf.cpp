@@ -151,8 +151,8 @@ void shelf_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
 
 // one bit per filled slot, only toward the back
 int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    if (dir != direction_opposite(shelf_facing(st)) || be == nullptr || be->type != BLOCK_ENTITY_TYPE_SHELF) {
+    block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_SHELF);
+    if (dir != direction_opposite(shelf_facing(st)) || be == nullptr) {
         return 0;
     }
     int32_t bits = 0;

@@ -3,11 +3,6 @@
 #include "blocks/handlers.h"
 #include "engine/level.h"
 
-static block_entity * chiseled_book_shelf_block_entity(level & lv, block_pos pos) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    return be != nullptr && be->type == BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF ? be : nullptr;
-}
-
 static prop_id chiseled_book_shelf_slot_occupied(int32_t slot) {
     return (prop_id) (PROP_SLOT_0_OCCUPIED + slot);
 }
@@ -61,6 +56,6 @@ bool chiseled_book_shelf_block_entity_can_take_item(const container & into, cons
 }
 
 int32_t chiseled_book_shelf_get_analog_output_signal(level & lv, block_pos pos) {
-    block_entity * be = chiseled_book_shelf_block_entity(lv, pos);
+    block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF);
     return be != nullptr ? be->last_interacted_slot + 1 : 0;
 }

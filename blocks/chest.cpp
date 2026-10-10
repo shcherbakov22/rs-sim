@@ -23,8 +23,7 @@ static bool chest_is_blocked_at(level & lv, block_pos pos) {
 
 // BlockEntityType.getBlockEntity: the block entity at pos if it has the chest's type
 static block_entity * chest_get_typed_block_entity(level & lv, state_id st, block_pos pos) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    return be != nullptr && be->type == block_defs[state_block(st)].entity_new ? be : nullptr;
+    return level_get_block_entity_of_type(lv, pos, block_defs[state_block(st)].entity_new);
 }
 
 // ChestBlock.combine (DoubleBlockCombiner.combineWithNeigbour) with CHEST_COMBINER; false is acceptNone

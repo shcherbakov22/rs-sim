@@ -71,8 +71,8 @@ static bool comparator_is_subtract(state_id st) {
 }
 
 static int32_t comparator_get_output_signal(level & lv, block_pos pos) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    return be != nullptr && be->type == BLOCK_ENTITY_TYPE_COMPARATOR ? be->output_signal : 0;
+    block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_COMPARATOR);
+    return be != nullptr ? be->output_signal : 0;
 }
 
 // item frames are entities, which the sim does not have, so getItemFrame is always null
@@ -118,9 +118,9 @@ static bool comparator_should_turn_on(level & lv, state_id st, block_pos pos) {
 // refreshOutputState
 static void comparator_tick(level & lv, state_id st, block_pos pos) {
     int32_t        output = comparator_calculate_output_signal(lv, st, pos);
-    block_entity * be     = level_get_block_entity(lv, pos);
+    block_entity * be     = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_COMPARATOR);
     int32_t        old    = 0;
-    if (be != nullptr && be->type == BLOCK_ENTITY_TYPE_COMPARATOR) {
+    if (be != nullptr) {
         old               = be->output_signal;
         be->output_signal = output;
     }

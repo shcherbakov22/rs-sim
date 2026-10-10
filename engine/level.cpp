@@ -172,6 +172,12 @@ block_entity * level_get_block_entity(level & lv, block_pos pos) {
     return level_chunk_get_block_entity(lv, pos, true);
 }
 
+// Level.getBlockEntity(BlockPos, BlockEntityType): null unless the block entity has that type
+block_entity * level_get_block_entity_of_type(level & lv, block_pos pos, int32_t type) {
+    block_entity * be = level_get_block_entity(lv, pos);
+    return be != nullptr && be->type == type ? be : nullptr;
+}
+
 // LevelChunk.setBlockEntity
 static void level_chunk_set_block_entity(level & lv, block_entity * be) {
     state_id st = level_get_state(lv, be->pos);

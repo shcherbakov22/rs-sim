@@ -77,8 +77,8 @@ item_stack default_dispense_item_behavior_consume_with_remainder(level &    lv,
 }
 
 static void dispenser_dispense_from(level & lv, state_id st, block_pos pos) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    if (be == nullptr || be->type != BLOCK_ENTITY_TYPE_DISPENSER) {
+    block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_DISPENSER);
+    if (be == nullptr) {
         return;
     }
     int32_t slot = dispenser_block_entity_get_random_slot(lv, be);

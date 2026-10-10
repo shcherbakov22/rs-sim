@@ -134,8 +134,7 @@ static state_id bell_update_shape(level &   lv,
 
 // BellBlock.attemptToRing and BellBlockEntity.onHit; the event carries the 3D data value of the direction
 static void bell_attempt_to_ring(level & lv, block_pos pos, direction dir) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    if (be != nullptr && be->type == BLOCK_ENTITY_TYPE_BELL) {
+    if (level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_BELL) != nullptr) {
         level_block_event(lv, pos, BLOCK_BELL, 1, dir);
     }
 }

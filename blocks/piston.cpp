@@ -333,8 +333,8 @@ void piston_moving_block_entity_tick(level & lv, block_entity * be) {
 
 // its PistonMovingBlockEntity, or null
 static block_entity * moving_piston_get_block_entity(level & lv, state_id st, block_pos pos) {
-    block_entity * be = state_is(st, BLOCK_MOVING_PISTON) ? level_get_block_entity(lv, pos) : nullptr;
-    return be != nullptr && be->type == BLOCK_ENTITY_TYPE_PISTON ? be : nullptr;
+    return state_is(st, BLOCK_MOVING_PISTON) ? level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_PISTON) :
+                                               nullptr;
 }
 
 voxel_shape moving_piston_get_collision_shape(level & lv, block_pos pos) {

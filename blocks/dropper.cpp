@@ -4,8 +4,8 @@
 #include "engine/level.h"
 
 void dropper_dispense_from(level & lv, state_id st, block_pos pos) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    if (be == nullptr || be->type != BLOCK_ENTITY_TYPE_DROPPER) {
+    block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_DROPPER);
+    if (be == nullptr) {
         return;
     }
     int32_t slot = dispenser_block_entity_get_random_slot(lv, be);

@@ -42,8 +42,8 @@ void crafter_block_entity_server_tick(level & lv, block_pos pos, state_id st, bl
 }
 
 int32_t crafter_get_analog_output_signal(level & lv, block_pos pos) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    if (be == nullptr || be->type != BLOCK_ENTITY_TYPE_CRAFTER) {
+    block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_CRAFTER);
+    if (be == nullptr) {
         return 0;
     }
     int32_t count = 0;
@@ -120,8 +120,8 @@ static void crafter_dispense_item(level &            lv,
 
 // CrafterBlock.dispenseFrom; the fail sound level event is not in the trace
 void crafter_tick(level & lv, state_id st, block_pos pos) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    if (be == nullptr || be->type != BLOCK_ENTITY_TYPE_CRAFTER) {
+    block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_CRAFTER);
+    if (be == nullptr) {
         return;
     }
     crafting_input in     = crafting_input_of(3, 3, be->items.data());

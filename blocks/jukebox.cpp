@@ -4,11 +4,6 @@
 #include "core/trace.h"
 #include "engine/level.h"
 
-static block_entity * jukebox_block_entity(level & lv, block_pos pos) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    return be != nullptr && be->type == BLOCK_ENTITY_TYPE_JUKEBOX ? be : nullptr;
-}
-
 static void jukebox_block_entity_on_song_changed(level & lv, block_entity * be) {
     level_update_neighbors_at(lv, be->pos, state_block(be->state));
     block_entity_set_changed(lv, be->pos, be->state);
@@ -76,11 +71,11 @@ void jukebox_block_entity_tick(level & lv, block_entity * be) {
 }
 
 int32_t jukebox_get_signal(level & lv, block_pos pos) {
-    block_entity * be = jukebox_block_entity(lv, pos);
+    block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_JUKEBOX);
     return be != nullptr && be->song_playing ? 15 : 0;
 }
 
 int32_t jukebox_get_analog_output_signal(level & lv, block_pos pos) {
-    block_entity * be = jukebox_block_entity(lv, pos);
+    block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_JUKEBOX);
     return be != nullptr ? item_defs[be->items[0].item].song_comparator : 0;
 }

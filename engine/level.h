@@ -103,6 +103,7 @@ bool level_destroy_block(level & lv, block_pos pos, bool drop, int32_t limit = U
 block_entity * level_new_block_entity(level & lv, block_entity_type type, block_pos pos, state_id st);
 // Level.getBlockEntity
 block_entity * level_get_block_entity(level & lv, block_pos pos);
+block_entity * level_get_block_entity_of_type(level & lv, block_pos pos, int32_t type);
 // Level.setBlockEntity (LevelChunk.addAndRegisterBlockEntity)
 void           level_set_block_entity(level & lv, block_entity * be);
 void           level_remove_block_entity(level & lv, block_pos pos);
