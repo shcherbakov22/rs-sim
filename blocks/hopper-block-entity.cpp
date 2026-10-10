@@ -1,6 +1,6 @@
 // HopperBlockEntity. The sim has no entities, so the item entity and container entity lookups find nothing.
 // Of the supported containers only the shulker box is a WorldlyContainer: every face sees every slot, and it refuses shulker boxes.
-// The crafter and the jukebox override Container.canPlaceItem; the jukebox also overrides canTakeItem.
+// The crafter, the jukebox and the chiseled bookshelf override Container.canPlaceItem; the last two also override canTakeItem.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -70,6 +70,10 @@ static item_stack hopper_block_entity_try_move_in_item(level &           lv,
     }
     if (to.first->type == BLOCK_ENTITY_TYPE_JUKEBOX &&
         (item_defs[item_stack_get_item(s)].song_ticks < 0 || !item_stack_is_empty(to.first->items[slot]))) {
+        return s;
+    }
+    if (to.first->type == BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF &&
+        !chiseled_book_shelf_block_entity_can_place_item(to.first, slot, s)) {
         return s;
     }
     item_stack & current   = container_get_item(to, slot);
@@ -150,6 +154,10 @@ static bool hopper_block_entity_try_take_in_item_from_slot(level &           lv,
         if (!any_empty) {
             return false;
         }
+    }
+    if (source.first->type == BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF &&
+        !chiseled_book_shelf_block_entity_can_take_item(hopper, s)) {
+        return false;
     }
     // vanilla restores the removed stack object itself; a copy stands in for it where removal empties the slot (a jukebox)
     item_stack original = s;

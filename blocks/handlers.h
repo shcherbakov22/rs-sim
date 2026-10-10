@@ -173,6 +173,19 @@ int32_t            jukebox_get_analog_output_signal(level & lv, block_pos pos);
 interaction_result jukebox_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
 interaction_result jukebox_use_without_item(level & lv, state_id st, block_pos pos);
 
+// ChiseledBookShelfBlock, ChiseledBookShelfBlockEntity
+item_stack chiseled_book_shelf_block_entity_remove_item(level & lv, block_entity * be, int32_t slot);
+void       chiseled_book_shelf_block_entity_set_item(level & lv, block_entity * be, int32_t slot, item_stack s);
+bool       chiseled_book_shelf_block_entity_can_place_item(const block_entity * be, int32_t slot, const item_stack & s);
+bool       chiseled_book_shelf_block_entity_can_take_item(const container & into, const item_stack & s);
+int32_t    chiseled_book_shelf_get_analog_output_signal(level & lv, block_pos pos);
+interaction_result chiseled_book_shelf_use_item_on(level &            lv,
+                                                   state_id           st,
+                                                   block_pos          pos,
+                                                   direction          face,
+                                                   const item_stack & stack);
+interaction_result chiseled_book_shelf_use_without_item(level & lv, state_id st, block_pos pos, direction face);
+
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 

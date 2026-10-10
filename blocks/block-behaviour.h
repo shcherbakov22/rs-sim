@@ -53,7 +53,7 @@ void     block_tick(level & lv, state_id st, block_pos pos);
 bool     block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a, int32_t param_b);
 void     block_update_indirect_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit);
 void     block_spawn_after_break(level & lv, state_id st, block_pos pos);
-interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
+interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, direction face, const item_stack & stack);
 interaction_result block_use_without_item(level & lv, state_id st, block_pos pos, direction face);
 void               block_attack(level & lv, state_id st);
 bool               block_is_signal_source(level & lv, state_id st);

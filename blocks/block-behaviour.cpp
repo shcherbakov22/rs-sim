@@ -239,6 +239,7 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
         case VCLASS_CRAFTER_BLOCK:
         case VCLASS_DECORATED_POT_BLOCK:
         case VCLASS_JUKEBOX_BLOCK:
+        case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
             // Containers.updateNeighboursAfterDestroy
             level_update_neighbour_for_output_signal(lv, pos, state_block(st));
             break;
@@ -330,7 +331,7 @@ void block_spawn_after_break(level & lv, state_id st, block_pos pos) {
     }
 }
 
-interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack) {
+interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, direction face, const item_stack & stack) {
     switch (hook_owner(st, HOOK_USE_ITEM_ON)) {
         case VCLASS_NONE:
             return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;
@@ -340,6 +341,8 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, con
             return decorated_pot_use_item_on(lv, pos, stack);
         case VCLASS_JUKEBOX_BLOCK:
             return jukebox_use_item_on(lv, st, pos, stack);
+        case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
+            return chiseled_book_shelf_use_item_on(lv, st, pos, face, stack);
         default:
             hook_unsupported(lv, st, HOOK_USE_ITEM_ON);
             return INTERACTION_RESULT_PASS;
@@ -362,6 +365,8 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return decorated_pot_use_without_item(lv, pos);
         case VCLASS_JUKEBOX_BLOCK:
             return jukebox_use_without_item(lv, st, pos);
+        case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
+            return chiseled_book_shelf_use_without_item(lv, st, pos, face);
         case VCLASS_BUTTON_BLOCK:
             return button_use_without_item(lv, st, pos);
         case VCLASS_REPEATER_BLOCK:
@@ -543,6 +548,8 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos) {
             return lectern_get_analog_output_signal(lv, st, pos);
         case VCLASS_JUKEBOX_BLOCK:
             return jukebox_get_analog_output_signal(lv, pos);
+        case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
+            return chiseled_book_shelf_get_analog_output_signal(lv, pos);
         case VCLASS_CRAFTER_BLOCK:
             return crafter_get_analog_output_signal(lv, pos);
         default:

@@ -22,6 +22,7 @@ add_library(tmc STATIC
     blocks/button.cpp
     blocks/chest-block-entity.cpp
     blocks/chest.cpp
+    blocks/chiseled-book-shelf.cpp
     blocks/comparator.cpp
     blocks/container.cpp
     blocks/crafter.cpp

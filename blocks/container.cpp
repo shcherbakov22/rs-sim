@@ -27,6 +27,7 @@ bool block_entity_is_container(const block_entity * be) {
         case BLOCK_ENTITY_TYPE_CRAFTER:
         case BLOCK_ENTITY_TYPE_DECORATED_POT:
         case BLOCK_ENTITY_TYPE_JUKEBOX:
+        case BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF:
             return true;
         default:
             return false;
@@ -75,6 +76,9 @@ item_stack container_remove_item(level & lv, const container & c, int32_t slot, 
         jukebox_block_entity_set_the_item(lv, be, item_stack());
         return record;
     }
+    if (be->type == BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF) {
+        return chiseled_book_shelf_block_entity_remove_item(lv, be, slot);
+    }
     item_stack & stack  = be->items[slot];
     item_stack   result = !item_stack_is_empty(stack) && count > 0 ? item_stack_split(stack, count) : item_stack();
     bool         quiet  = be->type == BLOCK_ENTITY_TYPE_HOPPER || be->type == BLOCK_ENTITY_TYPE_DECORATED_POT;
@@ -88,6 +92,10 @@ void container_set_item(level & lv, const container & c, int32_t slot, item_stac
     block_entity * be = container_half(c, slot);
     if (be->type == BLOCK_ENTITY_TYPE_JUKEBOX) {
         jukebox_block_entity_set_the_item(lv, be, s);
+        return;
+    }
+    if (be->type == BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF) {
+        chiseled_book_shelf_block_entity_set_item(lv, be, slot, s);
         return;
     }
     be->items[slot] = s;

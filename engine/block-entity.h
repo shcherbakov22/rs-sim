@@ -36,6 +36,9 @@ struct block_entity {
     bool    song_playing             = false;
     int64_t ticks_since_song_started = 0;
 
+    // ChiseledBookShelfBlockEntity
+    int32_t last_interacted_slot = -1;
+
     // CrafterBlockEntity
     uint32_t disabled_slots           = 0;  // bit per slot
     int32_t  crafting_ticks_remaining = 0;
