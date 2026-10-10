@@ -119,6 +119,8 @@ state_id block_update_shape(level &   lv,
         case VCLASS_HEAVY_CORE_BLOCK:
         case VCLASS_WATERLOGGED_TRANSPARENT_BLOCK:
         case VCLASS_LIGHTNING_ROD_BLOCK:
+        case VCLASS_BARRIER_BLOCK:
+        case VCLASS_LIGHT_BLOCK:
             if (state_get(st, PROP_WATERLOGGED)) {
                 level_unsupported(lv, "fluids");
             }
@@ -137,6 +139,9 @@ state_id block_update_shape(level &   lv,
             break;
         case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
             result = base_pressure_plate_update_shape(lv, st, pos, dir);
+            break;
+        case VCLASS_SOUL_SAND_BLOCK:
+            soul_sand_update_shape(lv, st, pos, dir, neighbor);
             break;
         case VCLASS_LANTERN_BLOCK:
             result = lantern_update_shape(lv, st, pos, dir);
@@ -299,6 +304,9 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
         case VCLASS_TARGET_BLOCK:
             target_on_place(lv, st, pos, old);
             break;
+        case VCLASS_SOUL_SAND_BLOCK:
+            soul_sand_on_place(lv, st, pos);
+            break;
         case VCLASS_COMPOSTER_BLOCK:
             composter_on_place(lv, st, pos);
             break;
@@ -391,6 +399,9 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             break;
         case VCLASS_TARGET_BLOCK:
             target_tick(lv, st, pos);
+            break;
+        case VCLASS_SOUL_SAND_BLOCK:
+            soul_sand_tick(lv, pos);
             break;
         case VCLASS_COMPOSTER_BLOCK:
             composter_tick(lv, st, pos);
@@ -542,6 +553,8 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return cake_eat();
         case VCLASS_NOTE_BLOCK:
             return note_block_use_without_item(lv, st, pos);
+        case VCLASS_LIGHT_BLOCK:
+            return light_use_without_item();
         case VCLASS_FENCE_BLOCK:
             // LeadItem.bindPlayerMobs: no mob is ever leashed to the virtual player
             return INTERACTION_RESULT_PASS;

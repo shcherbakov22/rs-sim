@@ -345,6 +345,14 @@ void    target_tick(level & lv, state_id st, block_pos pos);
 int32_t target_get_signal(state_id st);
 void    target_on_place(level & lv, state_id st, block_pos pos, state_id old);
 
+// SoulSandBlock
+void soul_sand_on_place(level & lv, state_id st, block_pos pos);
+void soul_sand_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
+void soul_sand_tick(level & lv, block_pos pos);
+
+// LightBlock
+interaction_result light_use_without_item();
+
 // ComposterBlock
 void               composter_on_place(level & lv, state_id st, block_pos pos);
 interaction_result composter_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);

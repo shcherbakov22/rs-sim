@@ -57,6 +57,7 @@ add_library(tmc STATIC
     blocks/leaves.cpp
     blocks/lectern.cpp
     blocks/lever.cpp
+    blocks/light.cpp
     blocks/lightning-rod.cpp
     blocks/moving-piston.cpp
     blocks/note-block.cpp
@@ -76,6 +77,7 @@ add_library(tmc STATIC
     blocks/repeater.cpp
     blocks/respawn-anchor.cpp
     blocks/shelf.cpp
+    blocks/soul-sand.cpp
     blocks/stair.cpp
     blocks/target.cpp
     blocks/trap-door.cpp
