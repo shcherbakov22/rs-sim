@@ -111,6 +111,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
             result = copper_golem_statue_update_shape(lv, st);
             break;
+        case VCLASS_IRON_BARS_BLOCK:
+            result = iron_bars_update_shape(lv, st, dir, neighbor_pos, neighbor);
+            break;
         case VCLASS_BELL_BLOCK:
             result = bell_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
