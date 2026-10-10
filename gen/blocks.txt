@@ -3652,6 +3652,7 @@ block lava 102 16 102 LiquidBlock
   collision 0
   support 0
 block sand 118 1 118 SandBlock
+  field ColoredFallingBlock.dustColor.rgba 14406560
   flag conductor
   flag drops
   flag sturdy_full_down
@@ -3701,6 +3702,7 @@ block suspicious_sand 119 4 119 BrushableBlock
   collision 1
   support 1
 block red_sand 123 1 123 SandBlock
+  field ColoredFallingBlock.dustColor.rgba 11098145
   flag conductor
   flag drops
   flag sturdy_full_down
@@ -3724,6 +3726,7 @@ block red_sand 123 1 123 SandBlock
   collision 1
   support 1
 block gravel 124 1 124 ColoredFallingBlock
+  field ColoredFallingBlock.dustColor.rgba -8356741
   flag conductor
   flag drops_random
   flag sturdy_full_down
@@ -6916,6 +6919,9 @@ block oak_door 5454 64 5465 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 1
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -7407,6 +7413,9 @@ block lever 6570 24 6579 LeverBlock
   support 0
 block stone_pressure_plate 6594 2 6595 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 0
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -7418,6 +7427,9 @@ block iron_door 6596 64 6607 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 0
+  field DoorBlock.type.canOpenByWindCharge 0
+  field DoorBlock.type.canButtonBeActivatedByArrows 0
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -7436,6 +7448,9 @@ block iron_door 6596 64 6607 DoorBlock
   support 58 58 59 59 60 60 59 59 58 58 59 59 60 60 59 59 60 60 61 61 58 58 61 61 60 60 61 61 58 58 61 61 59 59 60 60 61 61 60 60 59 59 60 60 61 61 60 60 61 61 58 58 59 59 58 58 61 61 58 58 59 59 58 58
 block oak_pressure_plate 6660 2 6661 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 1
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -7443,6 +7458,9 @@ block oak_pressure_plate 6660 2 6661 PressurePlateBlock
   support 0
 block spruce_pressure_plate 6662 2 6663 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 1
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -7450,6 +7468,9 @@ block spruce_pressure_plate 6662 2 6663 PressurePlateBlock
   support 0
 block birch_pressure_plate 6664 2 6665 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 1
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -7457,6 +7478,9 @@ block birch_pressure_plate 6664 2 6665 PressurePlateBlock
   support 0
 block jungle_pressure_plate 6666 2 6667 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 1
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -7464,6 +7488,9 @@ block jungle_pressure_plate 6666 2 6667 PressurePlateBlock
   support 0
 block acacia_pressure_plate 6668 2 6669 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 1
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -7471,6 +7498,9 @@ block acacia_pressure_plate 6668 2 6669 PressurePlateBlock
   support 0
 block cherry_pressure_plate 6670 2 6671 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 1
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -7478,6 +7508,9 @@ block cherry_pressure_plate 6670 2 6671 PressurePlateBlock
   support 0
 block dark_oak_pressure_plate 6672 2 6673 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 1
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -7485,6 +7518,9 @@ block dark_oak_pressure_plate 6672 2 6673 PressurePlateBlock
   support 0
 block pale_oak_pressure_plate 6674 2 6675 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 1
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -7492,6 +7528,9 @@ block pale_oak_pressure_plate 6674 2 6675 PressurePlateBlock
   support 0
 block mangrove_pressure_plate 6676 2 6677 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 1
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -7499,6 +7538,9 @@ block mangrove_pressure_plate 6676 2 6677 PressurePlateBlock
   support 0
 block bamboo_pressure_plate 6678 2 6679 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 1
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -7570,6 +7612,9 @@ block stone_button 6694 24 6703 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 0
   field ButtonBlock.ticksToStayPressed 20
   flag drops
   flag push_destroy
@@ -8312,6 +8357,9 @@ block oak_trapdoor 6913 64 6928 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 1
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -8340,6 +8388,9 @@ block spruce_trapdoor 6977 64 6992 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 1
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -8368,6 +8419,9 @@ block birch_trapdoor 7041 64 7056 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 1
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -8396,6 +8450,9 @@ block jungle_trapdoor 7105 64 7120 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 1
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -8424,6 +8481,9 @@ block acacia_trapdoor 7169 64 7184 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 1
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -8452,6 +8512,9 @@ block cherry_trapdoor 7233 64 7248 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 1
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -8480,6 +8543,9 @@ block dark_oak_trapdoor 7297 64 7312 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 1
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -8508,6 +8574,9 @@ block pale_oak_trapdoor 7361 64 7376 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 1
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -8536,6 +8605,9 @@ block mangrove_trapdoor 7425 64 7440 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 1
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -8564,6 +8636,9 @@ block bamboo_trapdoor 7489 64 7504 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 1
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -10255,6 +10330,9 @@ block oak_button 10473 24 10482 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 1
   field ButtonBlock.ticksToStayPressed 30
   flag drops
   flag push_destroy
@@ -10264,6 +10342,9 @@ block spruce_button 10497 24 10506 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 1
   field ButtonBlock.ticksToStayPressed 30
   flag drops
   flag push_destroy
@@ -10273,6 +10354,9 @@ block birch_button 10521 24 10530 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 1
   field ButtonBlock.ticksToStayPressed 30
   flag drops
   flag push_destroy
@@ -10282,6 +10366,9 @@ block jungle_button 10545 24 10554 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 1
   field ButtonBlock.ticksToStayPressed 30
   flag drops
   flag push_destroy
@@ -10291,6 +10378,9 @@ block acacia_button 10569 24 10578 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 1
   field ButtonBlock.ticksToStayPressed 30
   flag drops
   flag push_destroy
@@ -10300,6 +10390,9 @@ block cherry_button 10593 24 10602 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 1
   field ButtonBlock.ticksToStayPressed 30
   flag drops
   flag push_destroy
@@ -10309,6 +10402,9 @@ block dark_oak_button 10617 24 10626 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 1
   field ButtonBlock.ticksToStayPressed 30
   flag drops
   flag push_destroy
@@ -10318,6 +10414,9 @@ block pale_oak_button 10641 24 10650 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 1
   field ButtonBlock.ticksToStayPressed 30
   flag drops
   flag push_destroy
@@ -10327,6 +10426,9 @@ block mangrove_button 10665 24 10674 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 1
   field ButtonBlock.ticksToStayPressed 30
   flag drops
   flag push_destroy
@@ -10336,6 +10438,9 @@ block bamboo_button 10689 24 10698 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 1
   field ButtonBlock.ticksToStayPressed 30
   flag drops
   flag push_destroy
@@ -10517,6 +10622,9 @@ block trapped_chest 11005 24 11006 TrappedChestBlock
 block light_weighted_pressure_plate 11029 16 11029 WeightedPressurePlateBlock
   prop POWER
   field WeightedPressurePlateBlock.maxWeight 15
+  field BasePressurePlateBlock.type.canOpenByHand 0
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 0
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -10525,6 +10633,9 @@ block light_weighted_pressure_plate 11029 16 11029 WeightedPressurePlateBlock
 block heavy_weighted_pressure_plate 11045 16 11045 WeightedPressurePlateBlock
   prop POWER
   field WeightedPressurePlateBlock.maxWeight 150
+  field BasePressurePlateBlock.type.canOpenByHand 0
+  field BasePressurePlateBlock.type.canOpenByWindCharge 0
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 0
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -11606,6 +11717,9 @@ block iron_trapdoor 12365 64 12380 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 0
+  field TrapDoorBlock.type.canOpenByWindCharge 0
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 0
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -13468,6 +13582,9 @@ block spruce_door 13858 64 13869 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 1
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -13490,6 +13607,9 @@ block birch_door 13922 64 13933 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 1
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -13512,6 +13632,9 @@ block jungle_door 13986 64 13997 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 1
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -13534,6 +13657,9 @@ block acacia_door 14050 64 14061 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 1
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -13556,6 +13682,9 @@ block cherry_door 14114 64 14125 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 1
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -13578,6 +13707,9 @@ block dark_oak_door 14178 64 14189 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 1
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -13600,6 +13732,9 @@ block pale_oak_door 14242 64 14253 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 1
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -13622,6 +13757,9 @@ block mangrove_door 14306 64 14317 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 1
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -13644,6 +13782,9 @@ block bamboo_door 14370 64 14381 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 1
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -17994,6 +18135,9 @@ block warped_slab 20838 6 20841 SlabBlock
   support 123 123 72 72 1 1
 block crimson_pressure_plate 20844 2 20845 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 1
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -18001,6 +18145,9 @@ block crimson_pressure_plate 20844 2 20845 PressurePlateBlock
   support 0
 block warped_pressure_plate 20846 2 20847 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 1
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -18048,6 +18195,9 @@ block crimson_trapdoor 20912 64 20927 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 1
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -18076,6 +18226,9 @@ block warped_trapdoor 20976 64 20991 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 1
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -18176,6 +18329,9 @@ block crimson_button 21264 24 21273 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 1
   field ButtonBlock.ticksToStayPressed 30
   flag drops
   flag push_destroy
@@ -18185,6 +18341,9 @@ block warped_button 21288 24 21297 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 1
   field ButtonBlock.ticksToStayPressed 30
   flag drops
   flag push_destroy
@@ -18196,6 +18355,9 @@ block crimson_door 21312 64 21323 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 1
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -18218,6 +18380,9 @@ block warped_door 21376 64 21387 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 1
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -18989,6 +19154,9 @@ block polished_blackstone_slab 22535 6 22538 SlabBlock
   support 123 123 72 72 1 1
 block polished_blackstone_pressure_plate 22541 2 22542 PressurePlateBlock
   prop POWERED
+  field BasePressurePlateBlock.type.canOpenByHand 1
+  field BasePressurePlateBlock.type.canOpenByWindCharge 1
+  field BasePressurePlateBlock.type.canButtonBeActivatedByArrows 0
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -18998,6 +19166,9 @@ block polished_blackstone_button 22543 24 22552 ButtonBlock
   prop ATTACH_FACE
   prop HORIZONTAL_FACING
   prop POWERED
+  field ButtonBlock.type.canOpenByHand 1
+  field ButtonBlock.type.canOpenByWindCharge 1
+  field ButtonBlock.type.canButtonBeActivatedByArrows 0
   field ButtonBlock.ticksToStayPressed 20
   flag drops
   flag push_destroy
@@ -20989,6 +21160,9 @@ block copper_door 25821 64 25832 WeatheringCopperDoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 0
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -21011,6 +21185,9 @@ block exposed_copper_door 25885 64 25896 WeatheringCopperDoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 0
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -21033,6 +21210,9 @@ block oxidized_copper_door 25949 64 25960 WeatheringCopperDoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 0
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -21055,6 +21235,9 @@ block weathered_copper_door 26013 64 26024 WeatheringCopperDoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 0
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -21077,6 +21260,9 @@ block waxed_copper_door 26077 64 26088 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 0
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -21099,6 +21285,9 @@ block waxed_exposed_copper_door 26141 64 26152 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 0
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -21121,6 +21310,9 @@ block waxed_oxidized_copper_door 26205 64 26216 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 0
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -21143,6 +21335,9 @@ block waxed_weathered_copper_door 26269 64 26280 DoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field DoorBlock.type.canOpenByHand 1
+  field DoorBlock.type.canOpenByWindCharge 1
+  field DoorBlock.type.canButtonBeActivatedByArrows 0
   flag drops 0000000011111111000000001111111100000000111111110000000011111111
   flag push_destroy
   flag sturdy_full_north 0000000000000000001100110011001100001100000011001100000011000000
@@ -21165,6 +21360,9 @@ block copper_trapdoor 26333 64 26348 WeatheringCopperTrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 0
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -21193,6 +21391,9 @@ block exposed_copper_trapdoor 26397 64 26412 WeatheringCopperTrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 0
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -21221,6 +21422,9 @@ block oxidized_copper_trapdoor 26461 64 26476 WeatheringCopperTrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 0
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -21249,6 +21453,9 @@ block weathered_copper_trapdoor 26525 64 26540 WeatheringCopperTrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 0
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -21277,6 +21484,9 @@ block waxed_copper_trapdoor 26589 64 26604 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 0
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -21305,6 +21515,9 @@ block waxed_exposed_copper_trapdoor 26653 64 26668 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 0
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -21333,6 +21546,9 @@ block waxed_oxidized_copper_trapdoor 26717 64 26732 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 0
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
@@ -21361,6 +21577,9 @@ block waxed_weathered_copper_trapdoor 26781 64 26796 TrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field TrapDoorBlock.type.canOpenByHand 1
+  field TrapDoorBlock.type.canOpenByWindCharge 1
+  field TrapDoorBlock.type.canButtonBeActivatedByArrows 0
   flag fluid 1010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag sturdy_full_down 0000000000001111000000000000111100000000000011110000000000001111
