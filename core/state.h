@@ -67,9 +67,8 @@ struct item_def {
     uint32_t     cauldron_maps;       // bit per cauldron_map with an interaction for the item
     int32_t      crafting_remainder;  // Item.getCraftingRemainder (count 1), -1 for none
     const char * block_state;         // BLOCK_STATE component of a fresh stack as name=value,..., nullptr for none
-    const char * dispense_entity;        // entity type a projectile, boat or minecart behaviour spawns, nullptr for others
-    float        dispense_entity_width;  // EntityType.getWidth of dispense_entity
-    int32_t      max_damage;             // MAX_DAMAGE component of a fresh stack, 0 for none
+    const char * dispense_entity;     // entity type a projectile, boat or minecart behaviour spawns, nullptr for others
+    int32_t      max_damage;          // MAX_DAMAGE component of a fresh stack, 0 for none
 };
 
 // Ingredient: a set of items, as a range of ingredient_items
