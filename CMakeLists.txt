@@ -13,6 +13,7 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_library(tmc STATIC
     blocks/abstract-candle.cpp
+    blocks/abstract-cauldron.cpp
     blocks/abstract-skull.cpp
     blocks/amethyst-cluster.cpp
     blocks/barrel.cpp

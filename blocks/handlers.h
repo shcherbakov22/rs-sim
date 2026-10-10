@@ -396,8 +396,12 @@ void scaffolding_tick(level & lv, state_id st, block_pos pos);
 bool scaffolding_can_survive(level & lv, block_pos pos);
 bool scaffolding_can_be_replaced(state_id st, const block_place_context & ctx);
 
+// AbstractCauldronBlock
+interaction_result abstract_cauldron_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
+
 // LayeredCauldronBlock
 int32_t layered_cauldron_get_analog_output_signal(state_id st);
+void    layered_cauldron_lower_fill_level(level & lv, state_id st, block_pos pos);
 
 // LavaCauldronBlock
 int32_t lava_cauldron_get_analog_output_signal();

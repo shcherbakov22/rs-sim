@@ -541,6 +541,8 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, dir
             return cake_use_item_on(lv, st, pos, stack);
         case VCLASS_NOTE_BLOCK:
             return note_block_use_item_on(stack, face);
+        case VCLASS_ABSTRACT_CAULDRON_BLOCK:
+            return abstract_cauldron_use_item_on(lv, st, pos, stack);
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
             return copper_golem_statue_use_item_on(lv, st, pos, stack);
         case VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK:
@@ -807,6 +809,8 @@ void block_update_or_destroy(level & lv, state_id old, state_id updated, block_p
 // the ported sources ignore the direction
 int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir) {
     switch (hook_owner(st, HOOK_GET_ANALOG_OUTPUT_SIGNAL)) {
+        case VCLASS_NONE:
+            return 0;
         case VCLASS_CHEST_BLOCK:
             return chest_get_analog_output_signal(lv, st, pos);
         case VCLASS_HOPPER_BLOCK:
