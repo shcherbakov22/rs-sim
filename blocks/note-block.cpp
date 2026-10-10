@@ -1,8 +1,7 @@
-// NoteBlock: the instrument comes from the block above (mob heads) or below; a note plays as a block event
+// NoteBlock: the instrument comes from the block above (mob heads) or below; a rising signal plays a note as a block event. Tuning and hitting by hand are not ported.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 
 // NoteBlockInstrument.worksAboveNoteBlock: every instrument that is not tunable
 static bool note_block_instrument_works_above(int32_t instrument) {
@@ -43,25 +42,6 @@ void note_block_neighbor_changed(level & lv, state_id st, block_pos pos) {
     level_set_block(lv, pos, state_set(st, PROP_POWERED, signal), UPDATE_FLAG_ALL);
 }
 
-// a mob head held against the top face is placed instead
-interaction_result note_block_use_item_on(const item_stack & stack, direction face) {
-    if ((item_defs[stack.item].tags & ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS) && face == DIRECTION_UP) {
-        return INTERACTION_RESULT_PASS;
-    }
-    return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;
-}
-
-interaction_result note_block_use_without_item(level & lv, state_id st, block_pos pos) {
-    st = state_cycle(st, PROP_NOTE);
-    level_set_block(lv, pos, st, UPDATE_FLAG_ALL);
-    note_block_play_note(lv, st, pos);
-    return INTERACTION_RESULT_SUCCESS;
-}
-
-void note_block_attack(level & lv, state_id st, block_pos pos) {
-    note_block_play_note(lv, st, pos);
-}
-
 // the sound seed is the only level random draw; skulls here never carry a note_block_sound, so custom heads stay silent
 bool note_block_trigger_event(level & lv, state_id st) {
     if (state_has(st, STATE_FLAG_NOTE_CUSTOM_SOUND)) {
@@ -69,8 +49,4 @@ bool note_block_trigger_event(level & lv, state_id st) {
     }
     rng_next_long(lv.random);
     return true;
-}
-
-state_id note_block_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    return note_block_set_instrument(lv, block_place_context_get_clicked_pos(ctx), block_default(block));
 }

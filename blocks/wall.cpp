@@ -3,7 +3,6 @@
 #include "blocks/handlers.h"
 #include "core/voxel-shape.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 
 // WallBlock.PROPERTY_BY_DIRECTION
 static prop_id wall_property_by_direction(direction dir) {
@@ -113,20 +112,4 @@ state_id wall_update_shape(level &   lv,
         neighbor, block_is_face_sturdy(lv, neighbor, neighbor_pos, opposite, SUPPORT_TYPE_FULL), opposite);
     block_pos above = pos_relative(pos, DIRECTION_UP);
     return wall_update_shape_from(lv, st, above, level_get_state(lv, above), connected);
-}
-
-state_id wall_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    block_pos pos          = block_place_context_get_clicked_pos(ctx);
-    bool      water        = block_place_context_is_water_source(lv, ctx);
-    bool      connected[6] = {};
-    for (direction dir : DIRECTION_HORIZONTAL) {
-        block_pos neighbor_pos = pos_relative(pos, dir);
-        state_id  neighbor     = level_get_state(lv, neighbor_pos);
-        direction opposite     = direction_opposite(dir);
-        connected[dir]         = wall_connects_to(
-            neighbor, block_is_face_sturdy(lv, neighbor, neighbor_pos, opposite, SUPPORT_TYPE_FULL), opposite);
-    }
-    block_pos top_pos = pos_relative(pos, DIRECTION_UP);
-    return wall_update_shape_from(lv, state_set(block_default(block), PROP_WATERLOGGED, water), top_pos,
-                                  level_get_state(lv, top_pos), connected);
 }

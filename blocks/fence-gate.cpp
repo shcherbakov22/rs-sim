@@ -2,7 +2,6 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 
 // only the neighbors along the gate's width decide in_wall
 state_id fence_gate_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor) {
@@ -40,21 +39,4 @@ void fence_gate_neighbor_changed(level & lv, state_id st, block_pos pos) {
     if (state_get(st, PROP_OPEN) != has_power) {
         rng_next_float(lv.random);
     }
-}
-
-static bool fence_gate_is_wall(level & lv, block_pos pos, direction dir) {
-    return state_has(level_get_state(lv, pos_relative(pos, dir)), STATE_FLAG_TAG_WALLS);
-}
-
-state_id fence_gate_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    block_pos      pos     = block_place_context_get_clicked_pos(ctx);
-    bool           is_open = level_has_neighbor_signal(lv, pos);
-    direction_axis axis    = direction_get_axis(player_direction);
-    bool     in_wall = (axis == DIRECTION_AXIS_Z &&
-                        (fence_gate_is_wall(lv, pos, DIRECTION_WEST) || fence_gate_is_wall(lv, pos, DIRECTION_EAST))) ||
-                       (axis == DIRECTION_AXIS_X &&
-                        (fence_gate_is_wall(lv, pos, DIRECTION_NORTH) || fence_gate_is_wall(lv, pos, DIRECTION_SOUTH)));
-    state_id st      = state_set(block_default(block), PROP_HORIZONTAL_FACING, player_direction);
-    st               = state_set(state_set(st, PROP_OPEN, is_open), PROP_POWERED, is_open);
-    return state_set(st, PROP_IN_WALL, in_wall);
 }

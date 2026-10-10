@@ -67,16 +67,6 @@ int32_t block_field_get(int32_t block, object_field field) {
     TMC_ABORT("%s has no field %d", b.name, field);
 }
 
-int32_t item_field_get(int32_t item, object_field field) {
-    const item_def & d = item_defs[item];
-    for (int32_t i = 0; i < d.n_fields; i++) {
-        if (item_field_values[d.fields_first + i].field == field) {
-            return item_field_values[d.fields_first + i].value;
-        }
-    }
-    TMC_ABORT("%s has no field %d", d.name, field);
-}
-
 static const block_prop * state_find_prop(state_id st, prop_id prop) {
     const block_def & b = block_defs[state_block(st)];
     for (int32_t i = 0; i < b.n_props; i++) {

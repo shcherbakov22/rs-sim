@@ -169,7 +169,6 @@ bool item_instanceof(int32_t item, item_class cls);
 // value of a primitive instance field of the block object
 int32_t block_field_get(int32_t block, object_field field);
 // value of an instance field of the item object
-int32_t item_field_get(int32_t item, object_field field);
 
 // StateHolder.getValue/setValue/cycle; values are prop_def codes. The block must have the property.
 bool     state_has_prop(state_id st, prop_id prop);

@@ -115,9 +115,6 @@ static void case_load_hidden(level & lv, block_entity * be, const snbt_value & h
             continue;
         } else if (be->type == BLOCK_ENTITY_TYPE_BELL && bell_idle) {
             continue;
-        } else if (be->type == BLOCK_ENTITY_TYPE_LECTERN && entry.key == "page") {
-            // without pages the page never shows
-            continue;
         } else if (be->type == BLOCK_ENTITY_TYPE_JUKEBOX && entry.key == "song") {
             // a song past its end that no tick has stopped yet
             be->song_playing = be->song_playing || entry.value.i != 0;
@@ -184,18 +181,6 @@ static void case_load_block_entity(level & lv, block_entity * be, const snbt_val
             be->last_interacted_slot = (int32_t) value.i;
         } else if (be->type == BLOCK_ENTITY_TYPE_SHELF && entry.key == "align_items_to_bottom") {
             // only the renderer reads it
-            continue;
-        } else if (be->type == BLOCK_ENTITY_TYPE_BEEHIVE && entry.key == "bees" && value.list.empty()) {
-            continue;
-        } else if (be->type == BLOCK_ENTITY_TYPE_BEEHIVE && entry.key == "flower_pos") {
-            // only released bees read it
-            continue;
-        } else if (be->type == BLOCK_ENTITY_TYPE_LECTERN && entry.key == "Book") {
-            int32_t slot = -1;
-            if (!case_load_item(lv, value, be->items[0], slot)) {
-                return;
-            }
-        } else if (be->type == BLOCK_ENTITY_TYPE_LECTERN && entry.key == "Page") {
             continue;
         } else if (be->type == BLOCK_ENTITY_TYPE_CRAFTER && entry.key == "crafting_ticks_remaining") {
             be->crafting_ticks_remaining = (int32_t) value.i;
@@ -286,7 +271,7 @@ static void case_use(level & lv, const case_input & in) {
         return;
     }
     if (!item_stack_is_empty(stack)) {
-        item_use_on(lv, { in.pos, in.face, stack });
+        item_use_on(lv, stack);
     }
 }
 
@@ -321,7 +306,7 @@ static void case_apply_input(level & lv, const case_input & in) {
             case_use(lv, in);
             break;
         case CASE_VERB_ATTACK:
-            block_attack(lv, level_get_state(lv, in.pos), in.pos);
+            block_attack(lv, level_get_state(lv, in.pos));
             break;
         case CASE_VERB_CLOSE:
             // opening a container menu is unsupported, so no player holds one to close

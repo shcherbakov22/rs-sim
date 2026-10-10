@@ -1,20 +1,19 @@
-// BaseRailBlock: rails need rigid support below (and beside, for slopes) and reshape through RailState
+// BaseRailBlock: rails need rigid support below (and beside, for slopes) and reshape through RailState.
+// Only the straight PoweredRailBlock rails (powered and activator) are ported; RailBlock and DetectorRailBlock stop the run.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 
-bool base_rail_is_rail(state_id st) {
-    return state_has(st, STATE_FLAG_TAG_RAILS) && block_instanceof(state_block(st), VCLASS_BASE_RAIL_BLOCK);
-}
-
-bool base_rail_is_straight(state_id st) {
-    return block_field_get(state_block(st), FIELD_BASE_RAIL_BLOCK_IS_STRAIGHT) != 0;
-}
-
-// RailBlock has the full shape property; the straight rails one without curves
-prop_id base_rail_get_shape_property(state_id st) {
-    return block_instanceof(state_block(st), VCLASS_RAIL_BLOCK) ? PROP_RAIL_SHAPE : PROP_RAIL_SHAPE_STRAIGHT;
+bool base_rail_is_rail(level & lv, state_id st) {
+    int32_t block = state_block(st);
+    if (!state_has(st, STATE_FLAG_TAG_RAILS) || !block_instanceof(block, VCLASS_BASE_RAIL_BLOCK)) {
+        return false;
+    }
+    if (!block_instanceof(block, VCLASS_POWERED_RAIL_BLOCK)) {
+        level_unsupported(lv, "%s", block_defs[block].name);
+        return false;
+    }
+    return true;
 }
 
 static bool base_rail_can_support_rigid_block(level & lv, block_pos pos) {
@@ -25,28 +24,21 @@ bool base_rail_is_slope(int32_t shape) {
     return shape >= RAIL_SHAPE_ASCENDING_EAST && shape <= RAIL_SHAPE_ASCENDING_SOUTH;
 }
 
-bool base_rail_can_survive(level & lv, block_pos pos) {
-    return base_rail_can_support_rigid_block(lv, pos_relative(pos, DIRECTION_DOWN));
-}
-
 state_id base_rail_update_dir(level & lv, block_pos pos, state_id st, bool first) {
     rail_state rs = rail_state_init(st, pos);
-    rail_state_place(lv, rs, level_has_neighbor_signal(lv, pos), first,
-                     state_get(st, base_rail_get_shape_property(st)));
+    rail_state_place(lv, rs, first, state_get(st, PROP_RAIL_SHAPE_STRAIGHT));
     return rs.state;
 }
 
 // straight rails then get a neighborChanged of their own, which powers them
 state_id base_rail_update_state(level & lv, state_id st, block_pos pos, bool moved_by_piston) {
     st = base_rail_update_dir(lv, pos, st, true);
-    if (base_rail_is_straight(st)) {
-        level_neighbor_changed(lv, st, pos, state_block(st), moved_by_piston);
-    }
+    level_neighbor_changed(lv, st, pos, state_block(st), moved_by_piston);
     return st;
 }
 
 void base_rail_on_place(level & lv, state_id st, block_pos pos, state_id old, bool moved_by_piston) {
-    if (state_block(old) != state_block(st)) {
+    if (base_rail_is_rail(lv, st) && state_block(old) != state_block(st)) {
         base_rail_update_state(lv, st, pos, moved_by_piston);
     }
 }
@@ -70,39 +62,25 @@ static bool base_rail_should_be_removed(level & lv, block_pos pos, int32_t shape
 }
 
 // the subclass updateState(state, level, pos, block) runs only while the rail is still there and supported
-void base_rail_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block, bool moved_by_piston) {
-    if (!state_is(level_get_state(lv, pos), state_block(st))) {
+void base_rail_neighbor_changed(level & lv, state_id st, block_pos pos, bool moved_by_piston) {
+    if (!base_rail_is_rail(lv, st) || !state_is(level_get_state(lv, pos), state_block(st))) {
         return;
     }
-    if (base_rail_should_be_removed(lv, pos, state_get(st, base_rail_get_shape_property(st)))) {
+    if (base_rail_should_be_removed(lv, pos, state_get(st, PROP_RAIL_SHAPE_STRAIGHT))) {
         level_drop_resources(lv, st, pos, nullptr);
         level_remove_block(lv, pos, moved_by_piston);
         return;
     }
-    if (block_instanceof(state_block(st), VCLASS_RAIL_BLOCK)) {
-        rail_update_state(lv, st, pos, block);
-    } else if (block_instanceof(state_block(st), VCLASS_POWERED_RAIL_BLOCK)) {
-        powered_rail_update_state(lv, st, pos);
-    }
+    powered_rail_update_state(lv, st, pos);
 }
 
 void base_rail_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston) {
-    if (moved_by_piston) {
+    if (!base_rail_is_rail(lv, st) || moved_by_piston) {
         return;
     }
-    if (base_rail_is_slope(state_get(st, base_rail_get_shape_property(st)))) {
+    if (base_rail_is_slope(state_get(st, PROP_RAIL_SHAPE_STRAIGHT))) {
         level_update_neighbors_at(lv, pos_relative(pos, DIRECTION_UP), state_block(st));
     }
-    if (base_rail_is_straight(st)) {
-        level_update_neighbors_at(lv, pos, state_block(st));
-        level_update_neighbors_at(lv, pos_relative(pos, DIRECTION_DOWN), state_block(st));
-    }
-}
-
-state_id base_rail_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    bool     water     = block_place_context_is_water_source(lv, ctx);
-    state_id st        = block_default(block);
-    bool     east_west = player_direction == DIRECTION_EAST || player_direction == DIRECTION_WEST;
-    st = state_set(st, base_rail_get_shape_property(st), east_west ? RAIL_SHAPE_EAST_WEST : RAIL_SHAPE_NORTH_SOUTH);
-    return state_set(st, PROP_WATERLOGGED, water);
+    level_update_neighbors_at(lv, pos, state_block(st));
+    level_update_neighbors_at(lv, pos_relative(pos, DIRECTION_DOWN), state_block(st));
 }

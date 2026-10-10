@@ -2,7 +2,6 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 
 static block_entity * decorated_pot_block_entity(level & lv, block_pos pos) {
     block_entity * be = level_get_block_entity(lv, pos);
@@ -38,10 +37,4 @@ interaction_result decorated_pot_use_without_item(level & lv, block_pos pos) {
     }
     level_block_event(lv, pos, BLOCK_DECORATED_POT, 1, 1);
     return INTERACTION_RESULT_SUCCESS;
-}
-
-state_id decorated_pot_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    bool     water = block_place_context_is_water_source(lv, ctx);
-    state_id st    = state_set(block_default(block), PROP_HORIZONTAL_FACING, player_direction);
-    return state_set(state_set(st, PROP_WATERLOGGED, water), PROP_CRACKED, 0);
 }

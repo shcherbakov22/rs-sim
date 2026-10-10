@@ -1,4 +1,4 @@
-// AbstractCandleBlock: shared by candles and candle cakes
+// AbstractCandleBlock
 
 #include "blocks/handlers.h"
 #include "engine/level.h"

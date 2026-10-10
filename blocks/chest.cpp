@@ -2,7 +2,6 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 
 static direction chest_facing(state_id st) {
     return (direction) state_get(st, PROP_HORIZONTAL_FACING);
@@ -104,58 +103,4 @@ void chest_tick(level & lv, block_pos pos) {
     if (be != nullptr && (be->type == BLOCK_ENTITY_TYPE_CHEST || be->type == BLOCK_ENTITY_TYPE_TRAPPED_CHEST)) {
         chest_block_entity_recheck_open(lv, be);
     }
-}
-
-// ChestBlock.candidatePartnerFacing is facing
-static bool chest_candidate_partner_faces(level & lv, state_id st, block_pos pos, direction dir, direction facing) {
-    state_id neighbor = level_get_state(lv, pos_relative(pos, dir));
-    return chest_can_connect_to(st, neighbor) && chest_get_type(neighbor) == CHEST_TYPE_SINGLE &&
-           chest_facing(neighbor) == facing;
-}
-
-static chest_type chest_get_chest_type(level & lv, state_id st, block_pos pos, direction facing) {
-    if (chest_candidate_partner_faces(lv, st, pos, direction_clockwise(facing), facing)) {
-        return CHEST_TYPE_LEFT;
-    }
-    return chest_candidate_partner_faces(lv, st, pos, direction_counter_clockwise(facing), facing) ? CHEST_TYPE_RIGHT :
-                                                                                                     CHEST_TYPE_SINGLE;
-}
-
-// the virtual player never sneaks, so it never picks the partner by the clicked face
-state_id chest_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    direction  facing = direction_opposite(player_direction);
-    bool       water  = block_place_context_is_water_source(lv, ctx);
-    state_id   st     = block_default(block);
-    chest_type type   = chest_get_chest_type(lv, st, block_place_context_get_clicked_pos(ctx), facing);
-    st                = state_set(state_set(st, PROP_HORIZONTAL_FACING, facing), PROP_CHEST_TYPE, type);
-    return state_set(st, PROP_WATERLOGGED, water);
-}
-
-// CopperChestBlock.getLeastOxidizedChestOfConnectedBlocks: a chest that joins a copper chest takes the less oxidized
-// look of the two, unwaxed when only one of them is waxed
-static state_id copper_chest_unwax_block(state_id st) {
-    int32_t unwaxed = block_defs[state_block(st)].wax_off;
-    return unwaxed < 0 ? st : block_with_properties_of(unwaxed, st);
-}
-
-state_id copper_chest_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    state_id  st        = chest_get_state_for_placement(lv, block, ctx);
-    block_pos pos       = block_place_context_get_clicked_pos(ctx);
-    state_id  connected = level_get_state(lv, pos_relative(pos, chest_get_connected_direction(st)));
-    if (chest_get_type(st) == CHEST_TYPE_SINGLE ||
-        !block_instanceof(state_block(connected), VCLASS_COPPER_CHEST_BLOCK)) {
-        return st;
-    }
-    state_id updated             = st;
-    state_id connected_predicted = connected;
-    bool     waxed               = !block_instanceof(block, VCLASS_WEATHERING_COPPER_CHEST_BLOCK);
-    if (waxed != !block_instanceof(state_block(connected), VCLASS_WEATHERING_COPPER_CHEST_BLOCK)) {
-        updated             = copper_chest_unwax_block(st);
-        connected_predicted = copper_chest_unwax_block(connected);
-    }
-    int32_t least = block_field_get(block, FIELD_COPPER_CHEST_BLOCK_WEATHER_STATE) <=
-                            block_field_get(state_block(connected), FIELD_COPPER_CHEST_BLOCK_WEATHER_STATE) ?
-                        state_block(updated) :
-                        state_block(connected_predicted);
-    return block_with_properties_of(least, updated);
 }

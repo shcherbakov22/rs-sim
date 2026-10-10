@@ -13,29 +13,18 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_library(tmc STATIC
     blocks/abstract-candle.cpp
-    blocks/abstract-cauldron.cpp
     blocks/abstract-skull.cpp
     blocks/amethyst-cluster.cpp
     blocks/barrel.cpp
     blocks/base-entity-block.cpp
     blocks/base-fire.cpp
-    blocks/base-pressure-plate.cpp
     blocks/base-rail.cpp
     blocks/base-torch.cpp
-    blocks/beehive.cpp
     blocks/bell.cpp
     blocks/block-behaviour.cpp
-    blocks/block-pattern.cpp
     blocks/boat-dispense-item-behavior.cpp
-    blocks/button.cpp
-    blocks/cake.cpp
-    blocks/candle-cake.cpp
     blocks/candle.cpp
     blocks/carpet.cpp
-    blocks/carved-pumpkin.cpp
-    blocks/cave-vines-plant.cpp
-    blocks/cave-vines.cpp
-    blocks/chain.cpp
     blocks/chest-block-entity.cpp
     blocks/chest.cpp
     blocks/chiseled-book-shelf.cpp
@@ -44,39 +33,28 @@ add_library(tmc STATIC
     blocks/concrete-powder.cpp
     blocks/container.cpp
     blocks/copper-bulb.cpp
-    blocks/copper-golem-statue.cpp
     blocks/crafter.cpp
     blocks/cross-collision.cpp
     blocks/decorated-pot.cpp
-    blocks/detector-rail.cpp
     blocks/diode.cpp
     blocks/dirt-path.cpp
     blocks/dispense-item-behavior.cpp
     blocks/dispenser.cpp
     blocks/door.cpp
     blocks/dropper.cpp
-    blocks/end-portal-frame.cpp
-    blocks/end-rod.cpp
     blocks/ender-chest.cpp
     blocks/face-attached-horizontal-directional.cpp
     blocks/falling-block.cpp
     blocks/fence-gate.cpp
     blocks/fence.cpp
     blocks/fire.cpp
-    blocks/growing-plant-body.cpp
-    blocks/growing-plant-head.cpp
-    blocks/growing-plant.cpp
     blocks/hopper-block-entity.cpp
     blocks/hopper.cpp
     blocks/iron-bars.cpp
     blocks/jukebox.cpp
-    blocks/kelp.cpp
     blocks/ladder.cpp
     blocks/lantern.cpp
-    blocks/lava-cauldron.cpp
-    blocks/layered-cauldron.cpp
     blocks/leaves.cpp
-    blocks/lectern.cpp
     blocks/lever.cpp
     blocks/light.cpp
     blocks/lightning-rod.cpp
@@ -91,23 +69,15 @@ add_library(tmc STATIC
     blocks/piston-structure-resolver.cpp
     blocks/portal-shape.cpp
     blocks/powered-rail.cpp
-    blocks/pressure-plate.cpp
     blocks/projectile-dispense-behavior.cpp
     blocks/rail-state.cpp
-    blocks/rail.cpp
     blocks/red-stone-wire.cpp
     blocks/redstone-lamp.cpp
     blocks/redstone-torch.cpp
     blocks/redstone-wall-torch.cpp
     blocks/repeater.cpp
-    blocks/respawn-anchor.cpp
-    blocks/rotated-pillar.cpp
     blocks/scaffolding.cpp
-    blocks/shears-dispense-item-behavior.cpp
     blocks/shelf.cpp
-    blocks/shulker-box-dispense-behavior.cpp
-    blocks/skull.cpp
-    blocks/slab.cpp
     blocks/snowy-dirt.cpp
     blocks/soul-fire.cpp
     blocks/soul-sand.cpp
@@ -116,13 +86,8 @@ add_library(tmc STATIC
     blocks/tnt.cpp
     blocks/trap-door.cpp
     blocks/trapped-chest.cpp
-    blocks/trip-wire-hook.cpp
-    blocks/trip-wire.cpp
-    blocks/wall-skull.cpp
     blocks/wall-torch.cpp
     blocks/wall.cpp
-    blocks/wither-skull.cpp
-    blocks/weighted-pressure-plate.cpp
     core/rng.cpp
     core/state.cpp
     core/trace.cpp
@@ -136,37 +101,21 @@ add_library(tmc STATIC
     io/case-file.cpp
     io/snbt.cpp
     items/armor-dye-recipe.cpp
-    items/axe-item.cpp
     items/banner-duplicate-recipe.cpp
-    items/block-item.cpp
-    items/block-place-context.cpp
     items/bone-meal-item.cpp
     items/book-cloning-recipe.cpp
     items/decorated-pot-recipe.cpp
-    items/double-high-block-item.cpp
-    items/end-crystal-item.cpp
-    items/ender-eye-item.cpp
-    items/fire-charge-item.cpp
-    items/firework-rocket-item.cpp
     items/firework-rocket-recipe.cpp
     items/firework-star-fade-recipe.cpp
     items/firework-star-recipe.cpp
-    items/flint-and-steel-item.cpp
-    items/hoe-item.cpp
-    items/honeycomb-item.cpp
     items/item-behaviour.cpp
     items/map-cloning-recipe.cpp
     items/map-extending-recipe.cpp
-    items/minecart-item.cpp
     items/recipe-manager.cpp
-    items/scaffolding-block-item.cpp
     items/repair-item-recipe.cpp
     items/shaped-recipe.cpp
     items/shapeless-recipe.cpp
-    items/shears-item.cpp
     items/shield-decoration-recipe.cpp
-    items/shovel-item.cpp
-    items/standing-and-wall-block-item.cpp
     items/tipped-arrow-recipe.cpp
     items/transmute-recipe.cpp
 )

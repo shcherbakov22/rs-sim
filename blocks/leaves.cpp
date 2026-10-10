@@ -2,7 +2,6 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 
 #include <algorithm>
 
@@ -40,10 +39,4 @@ state_id leaves_update_shape(level & lv, state_id st, block_pos pos, state_id ne
         level_schedule_tick(lv, pos, state_block(st), 1);
     }
     return st;
-}
-
-state_id leaves_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    bool     water = block_place_context_is_water_source(lv, ctx);
-    state_id st    = state_set(state_set(block_default(block), PROP_PERSISTENT, 1), PROP_WATERLOGGED, water);
-    return leaves_update_distance(lv, st, block_place_context_get_clicked_pos(ctx));
 }

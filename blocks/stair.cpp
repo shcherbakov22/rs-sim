@@ -2,7 +2,6 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 
 static bool stair_is_stairs(state_id st) {
     return block_instanceof(state_block(st), VCLASS_STAIR_BLOCK);
@@ -49,17 +48,5 @@ state_id stair_update_shape(level & lv, state_id st, block_pos pos, direction di
     if (!direction_is_horizontal(dir)) {
         return st;
     }
-    return state_set(st, PROP_STAIRS_SHAPE, stair_get_stairs_shape(lv, st, pos));
-}
-
-// the upper half unless placed on top of a block or low on a side
-state_id stair_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    direction face  = ctx.hit.face;
-    block_pos pos   = block_place_context_get_clicked_pos(ctx);
-    bool      water = block_place_context_is_water_source(lv, ctx);
-    bool     top = face == DIRECTION_DOWN ||
-                   (face != DIRECTION_UP && use_on_context_get_click_location(ctx.hit, DIRECTION_AXIS_Y) - pos.y > 0.5);
-    state_id st  = state_set(block_default(block), PROP_HORIZONTAL_FACING, player_direction);
-    st           = state_set(state_set(st, PROP_HALF, top ? HALF_TOP : HALF_BOTTOM), PROP_WATERLOGGED, water);
     return state_set(st, PROP_STAIRS_SHAPE, stair_get_stairs_shape(lv, st, pos));
 }

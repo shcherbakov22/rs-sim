@@ -21,14 +21,3 @@ bool bone_meal_item_grow_water_plant(level & lv, block_pos pos) {
     level_unsupported(lv, "fluids");
     return true;
 }
-
-interaction_result bone_meal_item_use_on(level & lv, const use_on_context & hit) {
-    if (bone_meal_item_grow_crop(lv, hit.pos)) {
-        return INTERACTION_RESULT_SUCCESS;
-    }
-    if (block_is_face_sturdy(lv, level_get_state(lv, hit.pos), hit.pos, hit.face, SUPPORT_TYPE_FULL) &&
-        bone_meal_item_grow_water_plant(lv, pos_relative(hit.pos, hit.face))) {
-        return INTERACTION_RESULT_SUCCESS;
-    }
-    return INTERACTION_RESULT_PASS;
-}

@@ -2,7 +2,6 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 
 // the sound pitch draws a float
 static void door_play_sound(level & lv) {
@@ -55,60 +54,4 @@ void door_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block
         door_play_sound(lv);
     }
     level_set_block(lv, pos, state_set(state_set(st, PROP_POWERED, signal), PROP_OPEN, signal), UPDATE_FLAG_CLIENTS);
-}
-
-// DoorBlock.getHinge: full blocks beside the door push the hinge away from them, a door beside it pairs up, else the
-// click decides
-static door_hinge_side door_get_hinge(level & lv, const block_place_context & ctx) {
-    block_pos pos                 = block_place_context_get_clicked_pos(ctx);
-    direction place_direction     = player_direction;
-    block_pos above               = pos_relative(pos, DIRECTION_UP);
-    direction left_direction      = direction_counter_clockwise(place_direction);
-    block_pos left_pos            = pos_relative(pos, left_direction);
-    state_id  left                = level_get_state(lv, left_pos);
-    block_pos left_above_pos      = pos_relative(above, left_direction);
-    state_id  left_above          = level_get_state(lv, left_above_pos);
-    direction right_direction     = direction_clockwise(place_direction);
-    block_pos right_pos           = pos_relative(pos, right_direction);
-    state_id  right               = level_get_state(lv, right_pos);
-    block_pos right_above_pos     = pos_relative(above, right_direction);
-    state_id  right_above         = level_get_state(lv, right_above_pos);
-    int32_t   solid_block_balance = (block_is_collision_shape_full_block(lv, left, left_pos) ? -1 : 0) +
-                                    (block_is_collision_shape_full_block(lv, left_above, left_above_pos) ? -1 : 0) +
-                                    (block_is_collision_shape_full_block(lv, right, right_pos) ? 1 : 0) +
-                                    (block_is_collision_shape_full_block(lv, right_above, right_above_pos) ? 1 : 0);
-    bool      door_left           = block_instanceof(state_block(left), VCLASS_DOOR_BLOCK) &&
-                                    state_get(left, PROP_DOUBLE_BLOCK_HALF) == DOUBLE_BLOCK_HALF_LOWER;
-    bool      door_right          = block_instanceof(state_block(right), VCLASS_DOOR_BLOCK) &&
-                                    state_get(right, PROP_DOUBLE_BLOCK_HALF) == DOUBLE_BLOCK_HALF_LOWER;
-    if ((door_left && !door_right) || solid_block_balance > 0) {
-        return DOOR_HINGE_SIDE_RIGHT;
-    }
-    if ((door_right && !door_left) || solid_block_balance < 0) {
-        return DOOR_HINGE_SIDE_LEFT;
-    }
-    const block_pos & step       = direction_defs[place_direction].step;
-    double            click_x    = use_on_context_get_click_location(ctx.hit, DIRECTION_AXIS_X) - pos.x;
-    double            click_z    = use_on_context_get_click_location(ctx.hit, DIRECTION_AXIS_Z) - pos.z;
-    bool              left_hinge = (step.x >= 0 || !(click_z < 0.5)) && (step.x <= 0 || !(click_z > 0.5)) &&
-                                   (step.z >= 0 || !(click_x > 0.5)) && (step.z <= 0 || !(click_x < 0.5));
-    return left_hinge ? DOOR_HINGE_SIDE_LEFT : DOOR_HINGE_SIDE_RIGHT;
-}
-
-state_id door_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    block_pos pos   = block_place_context_get_clicked_pos(ctx);
-    block_pos above = pos_relative(pos, DIRECTION_UP);
-    if (pos.y >= LEVEL_Y_MAX || !block_can_be_replaced(lv, level_get_state(lv, above), ctx)) {
-        return STATE_NONE;
-    }
-    bool     powered = level_has_neighbor_signal(lv, pos) || level_has_neighbor_signal(lv, above);
-    state_id st      = state_set(block_default(block), PROP_HORIZONTAL_FACING, player_direction);
-    st               = state_set(st, PROP_DOOR_HINGE, door_get_hinge(lv, ctx));
-    st               = state_set(state_set(st, PROP_POWERED, powered), PROP_OPEN, powered);
-    return state_set(st, PROP_DOUBLE_BLOCK_HALF, DOUBLE_BLOCK_HALF_LOWER);
-}
-
-void door_set_placed_by(level & lv, state_id st, block_pos pos) {
-    level_set_block(lv, pos_relative(pos, DIRECTION_UP), state_set(st, PROP_DOUBLE_BLOCK_HALF, DOUBLE_BLOCK_HALF_UPPER),
-                    UPDATE_FLAG_ALL);
 }

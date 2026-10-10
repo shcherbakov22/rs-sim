@@ -6,7 +6,6 @@
 #include "core/voxel-shape.h"
 
 struct level;
-struct block_place_context;
 
 // BlockBehaviour.UPDATE_SHAPE_ORDER
 inline constexpr direction UPDATE_SHAPE_ORDER[6] = {
@@ -57,23 +56,16 @@ void     block_update_indirect_neighbour_shapes(level & lv, state_id st, block_p
 void     block_spawn_after_break(level & lv, state_id st, block_pos pos);
 interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, direction face, const item_stack & stack);
 interaction_result block_use_without_item(level & lv, state_id st, block_pos pos, direction face);
-void               block_attack(level & lv, state_id st, block_pos pos);
+void               block_attack(level & lv, state_id st);
 bool               block_is_signal_source(level & lv, state_id st);
 int32_t            block_get_signal(level & lv, state_id st, block_pos pos, direction dir);
 int32_t            block_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir);
 bool               block_can_survive(level & lv, state_id st, block_pos pos);
 int32_t            block_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
 bool               block_should_changed_state_keep_block_entity(level & lv, state_id st, state_id old);
-state_id           block_get_state_for_placement(level &                     lv,
-                                                 int32_t                     block,
-                                                 const block_place_context & ctx);  // STATE_NONE for null
-bool               block_can_be_replaced(level & lv, state_id st, const block_place_context & ctx);
-void               block_set_placed_by(level & lv, state_id st, block_pos pos);
 
 // BlockBehaviour.canBeReplaced: a replaceable block, unless the hand holds its own item
-bool block_behaviour_can_be_replaced(state_id st, const block_place_context & ctx);
 // BlockStateBase.isCollisionShapeFullBlock
-bool block_is_collision_shape_full_block(level & lv, state_id st, block_pos pos);
 
 // BlockStateBase.updateNeighbourShapes
 void block_update_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit);

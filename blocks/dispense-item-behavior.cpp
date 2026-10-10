@@ -32,13 +32,23 @@ static item_stack dispense_item_behavior_bucket(level & lv, state_id st, block_p
                                                                  { ITEM_POWDER_SNOW_BUCKET, 1 });
 }
 
+// CampfireBlock.canLight and CandleBlock.canLight
+static bool dispense_item_behavior_can_light(state_id st) {
+    return (state_has(st, STATE_FLAG_TAG_CAMPFIRES) || state_has(st, STATE_FLAG_TAG_CANDLES)) &&
+           state_has_prop(st, PROP_WATERLOGGED) && state_has_prop(st, PROP_LIT) && !state_get(st, PROP_LIT) &&
+           !state_get(st, PROP_WATERLOGGED);
+}
+
 static item_stack dispense_item_behavior_flint_and_steel(level & lv, state_id st, block_pos pos, item_stack dispensed) {
     direction facing = dispenser_facing(st);
     block_pos target = pos_relative(pos, facing);
     state_id  at     = level_get_state(lv, target);
     if (base_fire_can_be_placed_at(lv, target, facing)) {
         level_set_block(lv, target, base_fire_get_state(lv, target), UPDATE_FLAG_ALL);
-    } else if (flint_and_steel_item_can_light(at)) {
+    } else if (state_has(at, STATE_FLAG_TAG_CANDLE_CAKES)) {
+        level_unsupported(lv, "candle cake");
+        return dispensed;
+    } else if (dispense_item_behavior_can_light(at)) {
         level_set_block(lv, target, state_set(at, PROP_LIT, 1), UPDATE_FLAG_ALL);
     } else if (block_instanceof(state_block(at), VCLASS_TNT_BLOCK)) {
         tnt_prime(lv, target);
@@ -65,46 +75,10 @@ static item_stack dispense_item_behavior_tnt(level & lv, state_id st, block_pos 
     return dispensed;
 }
 
-// with no entity in front, the fallback to dispenseEquipment fails
-static item_stack dispense_item_behavior_wither_skeleton_skull(level &    lv,
-                                                               state_id   st,
-                                                               block_pos  pos,
-                                                               item_stack dispensed) {
-    direction facing = dispenser_facing(st);
-    block_pos target = pos_relative(pos, facing);
-    if (!state_has(level_get_state(lv, target), STATE_FLAG_AIR) || !wither_skull_can_spawn_mob(lv, target)) {
-        return dispensed;
-    }
-    // RotationSegment.convertToSegment gives up and down segment 0
-    int32_t rotation = direction_is_horizontal(facing) ? direction_get_2d_data_value(facing) << 2 : 0;
-    level_set_block(lv, target, state_set(block_default(BLOCK_WITHER_SKELETON_SKULL), PROP_ROTATION_16, rotation),
-                    UPDATE_FLAG_ALL);
-    wither_skull_check_spawn(lv, target);
-    item_stack_grow(dispensed, -1);
-    return dispensed;
-}
-
-// placing the pumpkin builds the golem in its onPlace
-static item_stack dispense_item_behavior_carved_pumpkin(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    block_pos target = pos_relative(pos, dispenser_facing(st));
-    if (!state_has(level_get_state(lv, target), STATE_FLAG_AIR) || !carved_pumpkin_can_spawn_golem(lv, target)) {
-        return dispensed;
-    }
-    level_set_block(lv, target, block_default(BLOCK_CARVED_PUMPKIN), UPDATE_FLAG_ALL);
-    item_stack_grow(dispensed, -1);
-    return dispensed;
-}
-
-// filling with water makes a water potion, a stack with data components
+// filling with water makes a water potion, a stack with data components; a beehive never loads, so none is full
 static item_stack dispense_item_behavior_glass_bottle(level & lv, state_id st, block_pos pos, item_stack dispensed) {
     block_pos target = pos_relative(pos, dispenser_facing(st));
-    state_id  at     = level_get_state(lv, target);
-    if (state_has(at, STATE_FLAG_TAG_BEEHIVES) && block_instanceof(state_block(at), VCLASS_BEEHIVE_BLOCK) &&
-        state_get(at, PROP_LEVEL_HONEY) >= 5) {
-        beehive_reset_honey_level(lv, at, target);
-        return default_dispense_item_behavior_consume_with_remainder(lv, st, pos, dispensed, { ITEM_HONEY_BOTTLE, 1 });
-    }
-    if (state_has(at, STATE_FLAG_FLUID)) {
+    if (state_has(level_get_state(lv, target), STATE_FLAG_FLUID)) {
         level_unsupported(lv, "fluids");
         return dispensed;
     }
@@ -117,10 +91,7 @@ static item_stack dispense_item_behavior_glowstone(level & lv, state_id st, bloc
     if (!state_is(at, BLOCK_RESPAWN_ANCHOR)) {
         return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
     }
-    if (state_get(at, PROP_RESPAWN_ANCHOR_CHARGES) != 4) {
-        respawn_anchor_charge(lv, at, target);
-        item_stack_grow(dispensed, -1);
-    }
+    level_unsupported(lv, "respawn anchor");
     return dispensed;
 }
 
@@ -144,7 +115,9 @@ item_stack dispense_item_behavior_dispense(level & lv, state_id st, block_pos po
         case DISPENSE_BEHAVIOR_CHEST:
         case DISPENSE_BEHAVIOR_POTION:
             return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
+        // a beehive never loads, so shears find nothing to shear
         case DISPENSE_BEHAVIOR_BRUSH:
+        case DISPENSE_BEHAVIOR_SHEARS:
             return dispensed;
         case DISPENSE_BEHAVIOR_PROJECTILE:
             return projectile_dispense_behavior_execute(lv, st, pos, dispensed);
@@ -152,10 +125,6 @@ item_stack dispense_item_behavior_dispense(level & lv, state_id st, block_pos po
             return boat_dispense_item_behavior_execute(lv, st, pos, dispensed);
         case DISPENSE_BEHAVIOR_MINECART:
             return minecart_dispense_item_behavior_execute(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_SHULKER_BOX:
-            return shulker_box_dispense_behavior_execute(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_SHEARS:
-            return shears_dispense_item_behavior_execute(lv, st, pos, dispensed);
         case DISPENSE_BEHAVIOR_ARMOR_STAND:
             return dispense_item_behavior_armor_stand(lv, st, pos, dispensed);
         case DISPENSE_BEHAVIOR_BUCKET:
@@ -166,18 +135,17 @@ item_stack dispense_item_behavior_dispense(level & lv, state_id st, block_pos po
             return dispense_item_behavior_bone_meal(lv, st, pos, dispensed);
         case DISPENSE_BEHAVIOR_TNT:
             return dispense_item_behavior_tnt(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_WITHER_SKELETON_SKULL:
-            return dispense_item_behavior_wither_skeleton_skull(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_CARVED_PUMPKIN:
-            return dispense_item_behavior_carved_pumpkin(lv, st, pos, dispensed);
         case DISPENSE_BEHAVIOR_GLASS_BOTTLE:
             return dispense_item_behavior_glass_bottle(lv, st, pos, dispensed);
         case DISPENSE_BEHAVIOR_GLOWSTONE:
             return dispense_item_behavior_glowstone(lv, st, pos, dispensed);
         case DISPENSE_BEHAVIOR_HONEYCOMB:
             return dispense_item_behavior_honeycomb(lv, st, pos, dispensed);
-        // spawn eggs (named after the first one) need mob spawning; filled buckets (named after the water bucket) place fluids
+        // spawn eggs (named after the first one) need mob spawning; filled buckets (named after the water bucket) place fluids; the others place blocks or summon
         case DISPENSE_BEHAVIOR_CHICKEN_SPAWN_EGG:
+        case DISPENSE_BEHAVIOR_SHULKER_BOX:
+        case DISPENSE_BEHAVIOR_WITHER_SKELETON_SKULL:
+        case DISPENSE_BEHAVIOR_CARVED_PUMPKIN:
         case DISPENSE_BEHAVIOR_WATER_BUCKET:
             break;
     }

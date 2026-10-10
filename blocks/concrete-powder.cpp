@@ -2,7 +2,6 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 
 // the face test runs on the neighbor's state but with the powder's position, as vanilla passes it
 static bool concrete_powder_touches_liquid(level & lv, block_pos pos) {
@@ -21,14 +20,6 @@ static bool concrete_powder_touches_liquid(level & lv, block_pos pos) {
 
 static state_id concrete_powder_concrete(int32_t block) {
     return block_default(block_field_get(block, FIELD_CONCRETE_POWDER_BLOCK_CONCRETE));
-}
-
-state_id concrete_powder_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    block_pos pos = block_place_context_get_clicked_pos(ctx);
-    if (state_has(level_get_state(lv, pos), STATE_FLAG_WATER) || concrete_powder_touches_liquid(lv, pos)) {
-        return concrete_powder_concrete(block);
-    }
-    return block_default(block);
 }
 
 state_id concrete_powder_update_shape(level & lv, state_id st, block_pos pos) {

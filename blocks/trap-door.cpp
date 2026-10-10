@@ -2,7 +2,6 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 
 static void trap_door_play_sound(level & lv) {
     rng_next_float(lv.random);
@@ -39,23 +38,4 @@ void trap_door_neighbor_changed(level & lv, state_id st, block_pos pos) {
     if (state_get(st, PROP_WATERLOGGED)) {
         level_unsupported(lv, "fluids");
     }
-}
-
-// next to a side face the trapdoor hangs on that face, in the upper half if the click was in it
-state_id trap_door_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    block_pos pos   = block_place_context_get_clicked_pos(ctx);
-    bool      water = block_place_context_is_water_source(lv, ctx);
-    direction face  = ctx.hit.face;
-    state_id  st    = block_default(block);
-    if (!ctx.replace_clicked && direction_is_horizontal(face)) {
-        double y = use_on_context_get_click_location(ctx.hit, DIRECTION_AXIS_Y) - pos.y;
-        st       = state_set(state_set(st, PROP_HORIZONTAL_FACING, face), PROP_HALF, y > 0.5 ? HALF_TOP : HALF_BOTTOM);
-    } else {
-        st = state_set(state_set(st, PROP_HORIZONTAL_FACING, direction_opposite(player_direction)), PROP_HALF,
-                       face == DIRECTION_UP ? HALF_BOTTOM : HALF_TOP);
-    }
-    if (level_has_neighbor_signal(lv, pos)) {
-        st = state_set(state_set(st, PROP_OPEN, 1), PROP_POWERED, 1);
-    }
-    return state_set(st, PROP_WATERLOGGED, water);
 }

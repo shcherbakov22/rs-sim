@@ -3,7 +3,6 @@
 #include "blocks/handlers.h"
 #include "core/trace.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 
 static int16_t hook_owner(state_id st, hook h) {
     return vclass_hooks[block_defs[state_block(st)].cls][h];
@@ -105,14 +104,10 @@ state_id block_update_shape(level &   lv,
         case VCLASS_CHEST_BLOCK:
             result = chest_update_shape(lv, st, dir, neighbor);
             break;
-        case VCLASS_BEEHIVE_BLOCK:
-            // a fire beside an empty hive has no bees to drive out
-            break;
         // these classes only schedule the water tick of a waterlogged block
         case VCLASS_ENDER_CHEST_BLOCK:
         case VCLASS_DECORATED_POT_BLOCK:
         case VCLASS_SHELF_BLOCK:
-        case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
         case VCLASS_SLAB_BLOCK:
         case VCLASS_CHAIN_BLOCK:
         case VCLASS_TRAP_DOOR_BLOCK:
@@ -130,17 +125,11 @@ state_id block_update_shape(level &   lv,
         case VCLASS_IRON_BARS_BLOCK:
             result = iron_bars_update_shape(lv, st, dir, neighbor_pos, neighbor);
             break;
-        case VCLASS_CAKE_BLOCK:
-            result = cake_update_shape(lv, st, pos, dir);
-            break;
         case VCLASS_CARPET_BLOCK:
             result = carpet_update_shape(lv, st, pos);
             break;
         case VCLASS_NOTE_BLOCK:
             result = note_block_update_shape(lv, st, pos, dir);
-            break;
-        case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
-            result = base_pressure_plate_update_shape(lv, st, pos, dir);
             break;
         case VCLASS_SOUL_SAND_BLOCK:
             soul_sand_update_shape(lv, st, pos, dir, neighbor);
@@ -150,12 +139,6 @@ state_id block_update_shape(level &   lv,
             break;
         case VCLASS_CONCRETE_POWDER_BLOCK:
             result = concrete_powder_update_shape(lv, st, pos);
-            break;
-        case VCLASS_TRIP_WIRE_BLOCK:
-            result = trip_wire_update_shape(st, dir, neighbor);
-            break;
-        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
-            result = trip_wire_hook_update_shape(lv, st, pos, dir);
             break;
         case VCLASS_SCAFFOLDING_BLOCK:
             scaffolding_update_shape(lv, st, pos);
@@ -178,17 +161,8 @@ state_id block_update_shape(level &   lv,
         case VCLASS_SNOWY_DIRT_BLOCK:
             result = snowy_dirt_update_shape(st, dir, neighbor);
             break;
-        case VCLASS_GROWING_PLANT_HEAD_BLOCK:
-            result = growing_plant_head_update_shape(lv, st, pos, dir, neighbor);
-            break;
-        case VCLASS_GROWING_PLANT_BODY_BLOCK:
-            result = growing_plant_body_update_shape(lv, st, pos, dir, neighbor);
-            break;
         case VCLASS_LADDER_BLOCK:
             result = ladder_update_shape(lv, st, pos, dir);
-            break;
-        case VCLASS_CANDLE_CAKE_BLOCK:
-            result = candle_cake_update_shape(lv, st, pos, dir);
             break;
         case VCLASS_WALL_BLOCK:
             result = wall_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
@@ -261,7 +235,7 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
             door_neighbor_changed(lv, st, pos, block);
             break;
         case VCLASS_BASE_RAIL_BLOCK:
-            base_rail_neighbor_changed(lv, st, pos, block, moved_by_piston);
+            base_rail_neighbor_changed(lv, st, pos, moved_by_piston);
             break;
         case VCLASS_REDSTONE_TORCH_BLOCK:
             redstone_torch_neighbor_changed(lv, st, pos);
@@ -333,9 +307,6 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
         case VCLASS_BASE_RAIL_BLOCK:
             base_rail_on_place(lv, st, pos, old, moved_by_piston);
             break;
-        case VCLASS_DETECTOR_RAIL_BLOCK:
-            detector_rail_on_place(lv, st, pos, old, moved_by_piston);
-            break;
         case VCLASS_LIGHTNING_ROD_BLOCK:
             lightning_rod_on_place(lv, st, pos, old);
             break;
@@ -354,9 +325,6 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
         case VCLASS_TNT_BLOCK:
             tnt_on_place(lv, st, pos, old);
             break;
-        case VCLASS_TRIP_WIRE_BLOCK:
-            trip_wire_on_place(lv, st, pos, old);
-            break;
         case VCLASS_SCAFFOLDING_BLOCK:
             scaffolding_on_place(lv, st, pos);
             break;
@@ -368,9 +336,6 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
             break;
         case VCLASS_FIRE_BLOCK:
             fire_on_place(lv, st, pos, old);
-            break;
-        case VCLASS_CARVED_PUMPKIN_BLOCK:
-            carved_pumpkin_on_place(lv, st, pos, old);
             break;
         default:
             hook_unsupported(lv, st, HOOK_ON_PLACE);
@@ -393,23 +358,8 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
         case VCLASS_LIGHTNING_ROD_BLOCK:
             lightning_rod_affect_neighbors_after_removal(lv, st, pos);
             break;
-        case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
-            base_pressure_plate_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
-            break;
-        case VCLASS_TRIP_WIRE_BLOCK:
-            trip_wire_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
-            break;
-        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
-            trip_wire_hook_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
-            break;
-        case VCLASS_LECTERN_BLOCK:
-            lectern_affect_neighbors_after_removal(lv, st, pos);
-            break;
         case VCLASS_REDSTONE_TORCH_BLOCK:
             redstone_torch_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
-            break;
-        case VCLASS_BUTTON_BLOCK:
-            button_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
             break;
         case VCLASS_DIODE_BLOCK:
             diode_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
@@ -422,9 +372,6 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
             break;
         case VCLASS_SHELF_BLOCK:
             shelf_affect_neighbors_after_removal(lv, st, pos);
-            break;
-        case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
-            level_update_neighbour_for_output_signal(lv, pos, state_block(st));
             break;
         case VCLASS_CHEST_BLOCK:
         case VCLASS_HOPPER_BLOCK:
@@ -456,23 +403,11 @@ void block_tick(level & lv, state_id st, block_pos pos) {
         case VCLASS_FIRE_BLOCK:
             fire_tick(lv, pos);
             break;
-        case VCLASS_GROWING_PLANT_BLOCK:
-            growing_plant_tick(lv, st, pos);
-            break;
-        case VCLASS_BUTTON_BLOCK:
-            button_tick(lv, st, pos);
-            break;
         case VCLASS_LEAVES_BLOCK:
             leaves_tick(lv, st, pos);
             break;
-        case VCLASS_DETECTOR_RAIL_BLOCK:
-            detector_rail_tick(lv, st, pos);
-            break;
         case VCLASS_LIGHTNING_ROD_BLOCK:
             lightning_rod_tick(lv, st, pos);
-            break;
-        case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
-            base_pressure_plate_tick(lv, st, pos);
             break;
         case VCLASS_TARGET_BLOCK:
             target_tick(lv, st, pos);
@@ -482,15 +417,6 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             break;
         case VCLASS_FALLING_BLOCK:
             falling_block_tick(lv, pos);
-            break;
-        case VCLASS_ABSTRACT_CAULDRON_BLOCK:
-            abstract_cauldron_tick(lv, pos);
-            break;
-        case VCLASS_TRIP_WIRE_BLOCK:
-            trip_wire_tick(lv, pos);
-            break;
-        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
-            trip_wire_hook_tick(lv, st, pos);
             break;
         case VCLASS_SCAFFOLDING_BLOCK:
             scaffolding_tick(lv, st, pos);
@@ -515,9 +441,6 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             break;
         case VCLASS_DISPENSER_BLOCK:
             dispenser_tick(lv, st, pos);
-            break;
-        case VCLASS_LECTERN_BLOCK:
-            lectern_tick(lv, st, pos);
             break;
         case VCLASS_CRAFTER_BLOCK:
             crafter_tick(lv, st, pos);
@@ -577,8 +500,6 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, dir
     switch (hook_owner(st, HOOK_USE_ITEM_ON)) {
         case VCLASS_NONE:
             return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;
-        case VCLASS_LECTERN_BLOCK:
-            return lectern_use_item_on(lv, st, pos, stack);
         case VCLASS_DECORATED_POT_BLOCK:
             return decorated_pot_use_item_on(lv, pos, stack);
         case VCLASS_JUKEBOX_BLOCK:
@@ -587,28 +508,12 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, dir
             return chiseled_book_shelf_use_item_on(lv, st, pos, face, stack);
         case VCLASS_SHELF_BLOCK:
             return shelf_use_item_on(lv, st, pos, face, stack);
-        case VCLASS_BEEHIVE_BLOCK:
-            return beehive_use_item_on(lv, st, pos, stack);
-        case VCLASS_RESPAWN_ANCHOR_BLOCK:
-            return respawn_anchor_use_item_on(lv, st, pos, stack);
         case VCLASS_COMPOSTER_BLOCK:
             return composter_use_item_on(lv, st, pos, stack);
         case VCLASS_CANDLE_BLOCK:
             return candle_use_item_on(lv, st, pos, stack);
-        case VCLASS_CANDLE_CAKE_BLOCK:
-            return candle_cake_use_item_on(lv, st, pos, face, stack);
-        case VCLASS_CAKE_BLOCK:
-            return cake_use_item_on(lv, st, pos, stack);
-        case VCLASS_NOTE_BLOCK:
-            return note_block_use_item_on(stack, face);
         case VCLASS_TNT_BLOCK:
             return tnt_use_item_on(lv, pos, stack);
-        case VCLASS_ABSTRACT_CAULDRON_BLOCK:
-            return abstract_cauldron_use_item_on(lv, st, pos, stack);
-        case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
-            return copper_golem_statue_use_item_on(lv, st, pos, stack);
-        case VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK:
-            return weathering_copper_golem_statue_use_item_on(lv, st, pos, stack);
         default:
             hook_unsupported(lv, st, HOOK_USE_ITEM_ON);
             return INTERACTION_RESULT_PASS;
@@ -625,16 +530,12 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return bell_use_without_item(lv, st, pos, face);
         case VCLASS_LEVER_BLOCK:
             return lever_use_without_item(lv, st, pos);
-        case VCLASS_LECTERN_BLOCK:
-            return lectern_use_without_item(lv, st);
         case VCLASS_DECORATED_POT_BLOCK:
             return decorated_pot_use_without_item(lv, pos);
         case VCLASS_JUKEBOX_BLOCK:
             return jukebox_use_without_item(lv, st, pos);
         case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
             return chiseled_book_shelf_use_without_item(lv, st, pos, face);
-        case VCLASS_RESPAWN_ANCHOR_BLOCK:
-            return respawn_anchor_use_without_item(lv, st, pos);
         case VCLASS_FENCE_GATE_BLOCK:
             return fence_gate_use_without_item(lv, st, pos);
         case VCLASS_TRAP_DOOR_BLOCK:
@@ -643,19 +544,11 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return door_use_without_item(lv, st, pos);
         case VCLASS_COMPOSTER_BLOCK:
             return composter_use_without_item(lv, st, pos);
-        case VCLASS_CANDLE_CAKE_BLOCK:
-            return candle_cake_use_without_item();
-        case VCLASS_CAKE_BLOCK:
-            return cake_eat();
-        case VCLASS_NOTE_BLOCK:
-            return note_block_use_without_item(lv, st, pos);
         case VCLASS_LIGHT_BLOCK:
             return light_use_without_item();
         case VCLASS_FENCE_BLOCK:
             // LeadItem.bindPlayerMobs: no mob is ever leashed to the virtual player
             return INTERACTION_RESULT_PASS;
-        case VCLASS_BUTTON_BLOCK:
-            return button_use_without_item(lv, st, pos);
         case VCLASS_REPEATER_BLOCK:
             return repeater_use_without_item(lv, st, pos);
         case VCLASS_COMPARATOR_BLOCK:
@@ -679,12 +572,9 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
     }
 }
 
-void block_attack(level & lv, state_id st, block_pos pos) {
+void block_attack(level & lv, state_id st) {
     switch (hook_owner(st, HOOK_ATTACK)) {
         case VCLASS_NONE:
-            break;
-        case VCLASS_NOTE_BLOCK:
-            note_block_attack(lv, st, pos);
             break;
         default:
             hook_unsupported(lv, st, HOOK_ATTACK);
@@ -698,19 +588,14 @@ bool block_is_signal_source(level & lv, state_id st) {
         case VCLASS_RED_STONE_WIRE_BLOCK:
             return lv.red_stone_wire_should_signal;
         case VCLASS_LEVER_BLOCK:
-        case VCLASS_LECTERN_BLOCK:
         case VCLASS_JUKEBOX_BLOCK:
         case VCLASS_REDSTONE_TORCH_BLOCK:
-        case VCLASS_BUTTON_BLOCK:
         case VCLASS_DIODE_BLOCK:
         case VCLASS_POWERED_BLOCK:
         case VCLASS_OBSERVER_BLOCK:
         case VCLASS_TRAPPED_CHEST_BLOCK:
-        case VCLASS_DETECTOR_RAIL_BLOCK:
         case VCLASS_LIGHTNING_ROD_BLOCK:
-        case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
         case VCLASS_TARGET_BLOCK:
-        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
             return true;
         default:
             hook_unsupported(lv, st, HOOK_IS_SIGNAL_SOURCE);
@@ -726,16 +611,12 @@ int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) 
             return red_stone_wire_get_signal(lv, st, pos, dir);
         case VCLASS_LEVER_BLOCK:
             return lever_get_signal(st);
-        case VCLASS_LECTERN_BLOCK:
-            return lectern_get_signal(st);
         case VCLASS_JUKEBOX_BLOCK:
             return jukebox_get_signal(lv, pos);
         case VCLASS_REDSTONE_TORCH_BLOCK:
             return redstone_torch_get_signal(st, dir);
         case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
             return redstone_wall_torch_get_signal(st, dir);
-        case VCLASS_BUTTON_BLOCK:
-            return button_get_signal(st);
         case VCLASS_DIODE_BLOCK:
             return diode_get_signal(lv, st, pos, dir);
         case VCLASS_POWERED_BLOCK:
@@ -744,16 +625,10 @@ int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) 
             return observer_get_signal(st, dir);
         case VCLASS_TRAPPED_CHEST_BLOCK:
             return trapped_chest_get_signal(lv, st, pos);
-        case VCLASS_DETECTOR_RAIL_BLOCK:
-            return detector_rail_get_signal(st);
         case VCLASS_LIGHTNING_ROD_BLOCK:
             return lightning_rod_get_signal(st);
-        case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
-            return base_pressure_plate_get_signal(st);
         case VCLASS_TARGET_BLOCK:
             return target_get_signal(st);
-        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
-            return trip_wire_hook_get_signal(st);
         default:
             hook_unsupported(lv, st, HOOK_GET_SIGNAL);
             return 0;
@@ -768,25 +643,15 @@ int32_t block_get_direct_signal(level & lv, state_id st, block_pos pos, directio
             return red_stone_wire_get_direct_signal(lv, st, pos, dir);
         case VCLASS_LEVER_BLOCK:
             return lever_get_direct_signal(st, dir);
-        case VCLASS_LECTERN_BLOCK:
-            return lectern_get_direct_signal(st, dir);
         case VCLASS_REDSTONE_TORCH_BLOCK:
             return redstone_torch_get_direct_signal(lv, st, pos, dir);
-        case VCLASS_BUTTON_BLOCK:
-            return button_get_direct_signal(st, dir);
         case VCLASS_DIODE_BLOCK:
         case VCLASS_OBSERVER_BLOCK:
             return block_get_signal(lv, st, pos, dir);
         case VCLASS_TRAPPED_CHEST_BLOCK:
             return trapped_chest_get_direct_signal(lv, st, pos, dir);
-        case VCLASS_DETECTOR_RAIL_BLOCK:
-            return detector_rail_get_direct_signal(st, dir);
         case VCLASS_LIGHTNING_ROD_BLOCK:
             return lightning_rod_get_direct_signal(st, dir);
-        case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
-            return base_pressure_plate_get_direct_signal(st, dir);
-        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
-            return trip_wire_hook_get_direct_signal(st, dir);
         default:
             hook_unsupported(lv, st, HOOK_GET_DIRECT_SIGNAL);
             return 0;
@@ -805,22 +670,12 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return red_stone_wire_can_survive(lv, pos);
         case VCLASS_BELL_BLOCK:
             return bell_can_survive(lv, st, pos);
-        case VCLASS_DOOR_BLOCK:
-            return door_can_survive(lv, st, pos);
-        case VCLASS_BASE_RAIL_BLOCK:
-            return base_rail_can_survive(lv, pos);
         case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
             return redstone_wall_torch_can_survive(lv, st, pos);
         case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
             return face_attached_horizontal_directional_can_survive(lv, st, pos);
         case VCLASS_DIODE_BLOCK:
             return diode_can_survive(lv, pos);
-        case VCLASS_PISTON_HEAD_BLOCK:
-            return piston_head_can_survive(lv, st, pos);
-        case VCLASS_AMETHYST_CLUSTER_BLOCK:
-            return amethyst_cluster_can_survive(lv, st, pos);
-        case VCLASS_CAKE_BLOCK:
-            return cake_can_survive(lv, pos);
         case VCLASS_CARPET_BLOCK:
             return carpet_can_survive(lv, pos);
         case VCLASS_LANTERN_BLOCK:
@@ -831,20 +686,8 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return fire_can_survive(lv, pos);
         case VCLASS_SOUL_FIRE_BLOCK:
             return soul_fire_can_survive(lv, pos);
-        case VCLASS_GROWING_PLANT_BLOCK:
-            return growing_plant_can_survive(lv, st, pos);
         case VCLASS_LADDER_BLOCK:
             return ladder_can_survive(lv, st, pos);
-        case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
-            return base_pressure_plate_can_survive(lv, pos);
-        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
-            return trip_wire_hook_can_survive(lv, st, pos);
-        case VCLASS_SCAFFOLDING_BLOCK:
-            return scaffolding_can_survive(lv, pos);
-        case VCLASS_CANDLE_BLOCK:
-            return candle_can_survive(lv, pos);
-        case VCLASS_CANDLE_CAKE_BLOCK:
-            return candle_cake_can_survive(lv, pos);
         default:
             hook_unsupported(lv, st, HOOK_CAN_SURVIVE);
             return true;
@@ -889,39 +732,18 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
         case VCLASS_DISPENSER_BLOCK:
         case VCLASS_DECORATED_POT_BLOCK:
             return container_get_redstone_signal_from_block_entity(lv, pos);
-        case VCLASS_LECTERN_BLOCK:
-            return lectern_get_analog_output_signal(lv, st, pos);
         case VCLASS_JUKEBOX_BLOCK:
             return jukebox_get_analog_output_signal(lv, pos);
         case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
             return chiseled_book_shelf_get_analog_output_signal(lv, pos);
         case VCLASS_SHELF_BLOCK:
             return shelf_get_analog_output_signal(lv, st, pos, dir);
-        case VCLASS_BEEHIVE_BLOCK:
-            return beehive_get_analog_output_signal(st);
-        case VCLASS_RESPAWN_ANCHOR_BLOCK:
-            return respawn_anchor_get_analog_output_signal(st);
         case VCLASS_COMPOSTER_BLOCK:
             return composter_get_analog_output_signal(st);
-        case VCLASS_CAKE_BLOCK:
-            return cake_get_analog_output_signal(st);
-        case VCLASS_CANDLE_CAKE_BLOCK:
-            return candle_cake_get_analog_output_signal();
-        case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
-            return copper_golem_statue_get_analog_output_signal(st);
         case VCLASS_CRAFTER_BLOCK:
             return crafter_get_analog_output_signal(lv, pos);
-        case VCLASS_DETECTOR_RAIL_BLOCK:
-            // only minecarts on a powered rail give an output
-            return 0;
         case VCLASS_COPPER_BULB_BLOCK:
             return copper_bulb_get_analog_output_signal(lv, pos);
-        case VCLASS_LAYERED_CAULDRON_BLOCK:
-            return layered_cauldron_get_analog_output_signal(st);
-        case VCLASS_LAVA_CAULDRON_BLOCK:
-            return lava_cauldron_get_analog_output_signal();
-        case VCLASS_END_PORTAL_FRAME_BLOCK:
-            return end_portal_frame_get_analog_output_signal(st);
         default:
             hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
             return 0;
@@ -934,193 +756,8 @@ bool block_should_changed_state_keep_block_entity(level & lv, state_id st, state
             return false;
         case VCLASS_COPPER_CHEST_BLOCK:
             return state_has(old, STATE_FLAG_TAG_COPPER_CHESTS);
-        case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
-            return state_has(old, STATE_FLAG_TAG_COPPER_GOLEM_STATUES);
         default:
             hook_unsupported(lv, st, HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY);
             return false;
     }
-}
-
-state_id block_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    state_id st = block_default(block);
-    switch (hook_owner(st, HOOK_GET_STATE_FOR_PLACEMENT)) {
-        case VCLASS_NONE:
-            return st;
-        case VCLASS_DOOR_BLOCK:
-            return door_get_state_for_placement(lv, block, ctx);
-        case VCLASS_OBSERVER_BLOCK:
-            return observer_get_state_for_placement(block);
-        case VCLASS_NOTE_BLOCK:
-            return note_block_get_state_for_placement(lv, block, ctx);
-        case VCLASS_WALL_TORCH_BLOCK:
-            return wall_torch_get_state_for_placement(lv, block, ctx);
-        case VCLASS_LANTERN_BLOCK:
-            return lantern_get_state_for_placement(lv, block, ctx);
-        case VCLASS_DIRT_PATH_BLOCK:
-            return dirt_path_get_state_for_placement(lv, block, ctx);
-        case VCLASS_SNOWY_DIRT_BLOCK:
-            return snowy_dirt_get_state_for_placement(lv, block, ctx);
-        case VCLASS_GROWING_PLANT_BLOCK:
-            return growing_plant_get_state_for_placement(lv, block, ctx);
-        case VCLASS_ABSTRACT_SKULL_BLOCK:
-            return abstract_skull_get_state_for_placement(lv, block, ctx);
-        case VCLASS_SKULL_BLOCK:
-            return skull_get_state_for_placement(lv, block, ctx);
-        case VCLASS_WALL_SKULL_BLOCK:
-            return wall_skull_get_state_for_placement(lv, block, ctx);
-        case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
-            return redstone_wall_torch_get_state_for_placement(lv, block, ctx);
-        case VCLASS_TRAP_DOOR_BLOCK:
-            return trap_door_get_state_for_placement(lv, block, ctx);
-        case VCLASS_DIODE_BLOCK:
-            return diode_get_state_for_placement(block);
-        case VCLASS_REPEATER_BLOCK:
-            return repeater_get_state_for_placement(lv, block, ctx);
-        case VCLASS_CANDLE_BLOCK:
-            return candle_get_state_for_placement(lv, block, ctx);
-        case VCLASS_CHEST_BLOCK:
-            return chest_get_state_for_placement(lv, block, ctx);
-        case VCLASS_HOPPER_BLOCK:
-            return hopper_get_state_for_placement(block, ctx);
-        case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
-            return face_attached_horizontal_directional_get_state_for_placement(lv, block, ctx);
-        case VCLASS_TRIP_WIRE_BLOCK:
-            return trip_wire_get_state_for_placement(lv, block, ctx);
-        case VCLASS_BASE_RAIL_BLOCK:
-            return base_rail_get_state_for_placement(lv, block, ctx);
-        case VCLASS_RED_STONE_WIRE_BLOCK:
-            return red_stone_wire_get_state_for_placement(lv, ctx);
-        case VCLASS_SLAB_BLOCK:
-            return slab_get_state_for_placement(lv, block, ctx);
-        case VCLASS_ROTATED_PILLAR_BLOCK:
-            return rotated_pillar_get_state_for_placement(block, ctx);
-        case VCLASS_CHAIN_BLOCK:
-            return chain_get_state_for_placement(lv, block, ctx);
-        case VCLASS_END_PORTAL_FRAME_BLOCK:
-            return end_portal_frame_get_state_for_placement(block);
-        case VCLASS_PISTON_BASE_BLOCK:
-            return piston_base_get_state_for_placement(block);
-        case VCLASS_STAIR_BLOCK:
-            return stair_get_state_for_placement(lv, block, ctx);
-        case VCLASS_WALL_BLOCK:
-            return wall_get_state_for_placement(lv, block, ctx);
-        case VCLASS_FENCE_BLOCK:
-            return fence_get_state_for_placement(lv, block, ctx);
-        case VCLASS_IRON_BARS_BLOCK:
-            return iron_bars_get_state_for_placement(lv, block, ctx);
-        case VCLASS_FENCE_GATE_BLOCK:
-            return fence_gate_get_state_for_placement(lv, block, ctx);
-        case VCLASS_LADDER_BLOCK:
-            return ladder_get_state_for_placement(lv, block, ctx);
-        case VCLASS_LEAVES_BLOCK:
-            return leaves_get_state_for_placement(lv, block, ctx);
-        case VCLASS_CRAFTER_BLOCK:
-            return crafter_get_state_for_placement(lv, block, ctx);
-        case VCLASS_BELL_BLOCK:
-            return bell_get_state_for_placement(lv, block, ctx);
-        case VCLASS_COPPER_CHEST_BLOCK:
-            return copper_chest_get_state_for_placement(lv, block, ctx);
-        case VCLASS_END_ROD_BLOCK:
-            return end_rod_get_state_for_placement(lv, block, ctx);
-        case VCLASS_SCAFFOLDING_BLOCK:
-            return scaffolding_get_state_for_placement(lv, block, ctx);
-        case VCLASS_SHELF_BLOCK:
-            return shelf_get_state_for_placement(lv, block, ctx);
-        case VCLASS_DECORATED_POT_BLOCK:
-            return decorated_pot_get_state_for_placement(lv, block, ctx);
-        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
-            return trip_wire_hook_get_state_for_placement(lv, block, ctx);
-        case VCLASS_INFESTED_ROTATED_PILLAR_BLOCK:
-            return rotated_pillar_get_state_for_placement(block, ctx);
-        case VCLASS_CONCRETE_POWDER_BLOCK:
-            return concrete_powder_get_state_for_placement(lv, block, ctx);
-        // the one-line placements: facing the nearest looking direction, the clicked face or away from the player, a signal, or water
-        case VCLASS_DISPENSER_BLOCK:
-        case VCLASS_BARREL_BLOCK:
-            return state_set(st, PROP_FACING, direction_opposite(player_nearest_directions[0]));
-        case VCLASS_SHULKER_BOX_BLOCK:
-            return state_set(st, PROP_FACING, ctx.hit.face);
-        case VCLASS_LIGHTNING_ROD_BLOCK:
-            return state_set(state_set(st, PROP_FACING, ctx.hit.face), PROP_WATERLOGGED,
-                             block_place_context_is_water_source(lv, ctx));
-        case VCLASS_GLAZED_TERRACOTTA_BLOCK:
-        case VCLASS_CARVED_PUMPKIN_BLOCK:
-        case VCLASS_BEEHIVE_BLOCK:
-        case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
-        case VCLASS_LECTERN_BLOCK:
-            return state_set(st, PROP_HORIZONTAL_FACING, direction_opposite(player_direction));
-        case VCLASS_ENDER_CHEST_BLOCK:
-        case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
-            return state_set(state_set(st, PROP_HORIZONTAL_FACING, direction_opposite(player_direction)),
-                             PROP_WATERLOGGED, block_place_context_is_water_source(lv, ctx));
-        case VCLASS_REDSTONE_LAMP_BLOCK:
-            return state_set(st, PROP_LIT, level_has_neighbor_signal(lv, block_place_context_get_clicked_pos(ctx)));
-        case VCLASS_WATERLOGGED_TRANSPARENT_BLOCK:
-        case VCLASS_BARRIER_BLOCK:
-        case VCLASS_HEAVY_CORE_BLOCK:
-            return state_set(st, PROP_WATERLOGGED, block_place_context_is_water_source(lv, ctx));
-        default:
-            hook_unsupported(lv, st, HOOK_GET_STATE_FOR_PLACEMENT);
-            return STATE_NONE;
-    }
-}
-
-bool block_behaviour_can_be_replaced(state_id st, const block_place_context & ctx) {
-    return state_has(st, STATE_FLAG_REPLACEABLE) &&
-           (item_stack_is_empty(ctx.hit.stack) || ctx.hit.stack.item != block_defs[state_block(st)].as_item);
-}
-
-bool block_can_be_replaced(level & lv, state_id st, const block_place_context & ctx) {
-    switch (hook_owner(st, HOOK_CAN_BE_REPLACED)) {
-        case VCLASS_NONE:
-            return block_behaviour_can_be_replaced(st, ctx);
-        case VCLASS_CANDLE_BLOCK:
-            return candle_can_be_replaced(st, ctx);
-        case VCLASS_SLAB_BLOCK:
-            return slab_can_be_replaced(st, ctx);
-        case VCLASS_SCAFFOLDING_BLOCK:
-            return scaffolding_can_be_replaced(st, ctx);
-        case VCLASS_GROWING_PLANT_BODY_BLOCK:
-            return growing_plant_body_can_be_replaced(st, ctx);
-        default:
-            hook_unsupported(lv, st, HOOK_CAN_BE_REPLACED);
-            return false;
-    }
-}
-
-void block_set_placed_by(level & lv, state_id st, block_pos pos) {
-    switch (hook_owner(st, HOOK_SET_PLACED_BY)) {
-        case VCLASS_NONE:
-            return;
-        case VCLASS_DOOR_BLOCK:
-            door_set_placed_by(lv, st, pos);
-            return;
-        case VCLASS_DIODE_BLOCK:
-            diode_set_placed_by(lv, st, pos);
-            return;
-        case VCLASS_PISTON_BASE_BLOCK:
-            piston_base_set_placed_by(lv, st, pos);
-            return;
-        case VCLASS_CRAFTER_BLOCK:
-            crafter_set_placed_by(lv, st, pos);
-            return;
-        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
-            trip_wire_hook_set_placed_by(lv, st, pos);
-            return;
-        case VCLASS_WITHER_SKULL_BLOCK:
-        case VCLASS_WITHER_WALL_SKULL_BLOCK:
-            wither_skull_check_spawn(lv, pos);
-            return;
-        // the record only comes from block entity data on the stack, which sim stacks never carry
-        case VCLASS_JUKEBOX_BLOCK:
-            return;
-        default:
-            hook_unsupported(lv, st, HOOK_SET_PLACED_BY);
-    }
-}
-
-// Block.isShapeFullBlock of the collision shape
-bool block_is_collision_shape_full_block(level & lv, state_id st, block_pos pos) {
-    return !shapes_join_is_not_empty(shapes_block(), block_get_collision_shape(lv, st, pos), BOOLEAN_OP_NOT_SAME);
 }

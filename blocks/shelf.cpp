@@ -3,7 +3,6 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 
 static constexpr int32_t SHELF_MAX_CHAIN_LENGTH = 3;
 
@@ -209,12 +208,4 @@ interaction_result shelf_use_item_on(level & lv, state_id st, block_pos pos, dir
     block_entity_set_changed(lv, be->pos, be->state);
     return item_stack_is_empty(removed) && item_stack_is_empty(stack) ? INTERACTION_RESULT_PASS :
                                                                         INTERACTION_RESULT_SUCCESS;
-}
-
-state_id shelf_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    block_pos pos   = block_place_context_get_clicked_pos(ctx);
-    bool      water = block_place_context_is_water_source(lv, ctx);
-    state_id  st    = state_set(block_default(block), PROP_HORIZONTAL_FACING, direction_opposite(player_direction));
-    st              = state_set(st, PROP_POWERED, level_has_neighbor_signal(lv, pos));
-    return state_set(st, PROP_WATERLOGGED, water);
 }

@@ -2,7 +2,6 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
-#include "items/block-place-context.h"
 #include "items/item-behaviour.h"
 #include "items/recipes.h"
 
@@ -149,33 +148,4 @@ void crafter_tick(level & lv, state_id st, block_pos pos) {
         }
     }
     block_entity_set_changed(lv, pos, be->state);
-}
-
-// FrontAndTop.fromFrontAndTop: the constant named front_top
-static int32_t crafter_front_and_top(direction front, direction top) {
-    const prop_def & p    = prop_defs[PROP_ORIENTATION];
-    std::string      name = std::string(direction_defs[front].name) + "_" + direction_defs[top].name;
-    for (int32_t i = 0; i < p.n_values; i++) {
-        if (name == p.values[i]) {
-            return p.codes[i];
-        }
-    }
-    TMC_ASSERT(false);
-    return 0;
-}
-
-// a crafter looking up or down keeps its top toward the player
-state_id crafter_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
-    direction front = direction_opposite(player_nearest_directions[0]);
-    direction top   = front == DIRECTION_DOWN ? direction_opposite(player_direction) :
-                      front == DIRECTION_UP   ? player_direction :
-                                                DIRECTION_UP;
-    state_id  st    = state_set(block_default(block), PROP_ORIENTATION, crafter_front_and_top(front, top));
-    return state_set(st, PROP_TRIGGERED, level_has_neighbor_signal(lv, block_place_context_get_clicked_pos(ctx)));
-}
-
-void crafter_set_placed_by(level & lv, state_id st, block_pos pos) {
-    if (state_get(st, PROP_TRIGGERED)) {
-        level_schedule_tick(lv, pos, state_block(st), 4);
-    }
 }
