@@ -317,6 +317,14 @@ enum item_component {
     ITEM_COMPONENT_BLOCK_STATE = 1u << 0,
 };
 
+// CauldronInteraction maps
+enum cauldron_map {
+    CAULDRON_MAP_EMPTY = 0,
+    CAULDRON_MAP_WATER = 1,
+    CAULDRON_MAP_LAVA = 2,
+    CAULDRON_MAP_POWDER_SNOW = 3,
+};
+
 enum item_tag {
     ITEM_TAG_AXES = 1u << 0,
     ITEM_TAG_BOOKSHELF_BOOKS = 1u << 1,

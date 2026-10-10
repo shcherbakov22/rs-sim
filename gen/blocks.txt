@@ -3,6 +3,10 @@ version 1.21.11
 hooks updateShape neighborChanged onPlace affectNeighborsAfterRemoval tick triggerEvent updateIndirectNeighbourShapes spawnAfterBreak useItemOn useWithoutItem attack isSignalSource getSignal getDirectSignal canSurvive getAnalogOutputSignal shouldChangedStateKeepBlockEntity getStateForPlacement setPlacedBy canBeReplaced
 flags air block_entity analog_output conductor fluid drops drops_random dynamic_shape unbreakable tag_copper_chests tag_copper_golem_statues tag_unstable_bottom_center tag_wooden_shelves tag_walls tag_fences tag_wooden_fences tag_wall_post_override tag_logs tag_rails tag_campfires tag_candles tag_candle_cakes connection_exception solid replaceable note_tunable note_custom_sound ticker push_destroy push_block push_ignore push_push_only sturdy_full_down sturdy_full_up sturdy_full_north sturdy_full_south sturdy_full_west sturdy_full_east sturdy_center_down sturdy_center_up sturdy_center_north sturdy_center_south sturdy_center_west sturdy_center_east sturdy_rigid_down sturdy_rigid_up sturdy_rigid_north sturdy_rigid_south sturdy_rigid_west sturdy_rigid_east
 item_hooks useOn updatePlacementContext getPlacementState placeBlock mustSurvive updateCustomBlockEntityTag canPlace
+cauldron_interactions empty water_bucket,lava_bucket,powder_snow_bucket,potion
+cauldron_interactions water white_shulker_box,orange_shulker_box,magenta_shulker_box,light_blue_shulker_box,yellow_shulker_box,lime_shulker_box,pink_shulker_box,gray_shulker_box,light_gray_shulker_box,cyan_shulker_box,purple_shulker_box,blue_shulker_box,brown_shulker_box,green_shulker_box,red_shulker_box,black_shulker_box,wolf_armor,leather_helmet,leather_chestplate,leather_leggings,leather_boots,bucket,water_bucket,lava_bucket,powder_snow_bucket,glass_bottle,potion,leather_horse_armor,white_banner,orange_banner,magenta_banner,light_blue_banner,yellow_banner,lime_banner,pink_banner,gray_banner,light_gray_banner,cyan_banner,purple_banner,blue_banner,brown_banner,green_banner,red_banner,black_banner
+cauldron_interactions lava bucket,water_bucket,lava_bucket,powder_snow_bucket
+cauldron_interactions powder_snow bucket,water_bucket,lava_bucket,powder_snow_bucket
 player south south west down up east north
 enum Direction$Axis x y z
 enum Direction down up north south west east
@@ -11024,6 +11028,7 @@ block brewing_stand 9251 8 9258 BrewingStandBlock
   support 155
 block cauldron 9259 1 9259 CauldronBlock
   as_item cauldron
+  cauldron empty
   flag analog_output
   flag drops
   flag solid
@@ -11033,6 +11038,7 @@ block cauldron 9259 1 9259 CauldronBlock
 block water_cauldron 9260 3 9260 LayeredCauldronBlock
   prop LEVEL_CAULDRON
   as_item cauldron
+  cauldron water
   flag analog_output
   flag drops
   flag solid
@@ -11041,6 +11047,7 @@ block water_cauldron 9260 3 9260 LayeredCauldronBlock
   support 156
 block lava_cauldron 9263 1 9263 LavaCauldronBlock
   as_item cauldron
+  cauldron lava
   flag analog_output
   flag drops
   flag solid
@@ -11050,6 +11057,7 @@ block lava_cauldron 9263 1 9263 LavaCauldronBlock
 block powder_snow_cauldron 9264 3 9264 LayeredCauldronBlock
   prop LEVEL_CAULDRON
   as_item cauldron
+  cauldron powder_snow
   flag analog_output
   flag drops
   flag solid

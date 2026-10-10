@@ -45,6 +45,7 @@ struct block_def {
     int32_t      wax_off;              // HoneycombItem.WAX_OFF_BY_BLOCK, -1 for none
     int32_t      weathering_previous;  // WeatheringCopper.getPrevious, -1 for none
     int32_t      stripped;             // AxeItem.STRIPPABLES, -1 for none
+    int32_t      cauldron_map;         // cauldron_map of an AbstractCauldronBlock, -1 for other blocks
 };
 
 struct item_def {
@@ -59,7 +60,8 @@ struct item_def {
     float        compost_chance;   // ComposterBlock.COMPOSTABLES, -1 for items that do not compost
     int32_t      fields_first;
     int32_t      n_fields;
-    uint32_t     components;  // item_component bits of the default data components
+    uint32_t     components;     // item_component bits of the default data components
+    uint32_t     cauldron_maps;  // bit per cauldron_map with an interaction for the item
 };
 
 // Box of a collision shape, in block units, per axis x y z.
@@ -92,6 +94,7 @@ extern const int16_t iclass_hooks[]
                                  [ITEM_HOOK_COUNT];  // class that overrides each item hook, ICLASS_NONE for the default
 extern const char * const iclass_names[];
 extern const char * const item_hook_names[];
+extern const char * const cauldron_map_names[];
 extern const direction    player_direction;              // the virtual player's horizontal direction
 extern const direction    player_nearest_directions[6];  // Direction.orderedByNearest of the virtual player
 extern const uint64_t     state_flags[];
