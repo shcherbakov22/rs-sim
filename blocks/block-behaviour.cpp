@@ -126,6 +126,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_FENCE_GATE_BLOCK:
             result = fence_gate_update_shape(lv, st, pos, dir, neighbor);
             break;
+        case VCLASS_FENCE_BLOCK:
+            result = fence_update_shape(lv, st, dir, neighbor_pos, neighbor);
+            break;
         case VCLASS_BELL_BLOCK:
             result = bell_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
@@ -420,6 +423,9 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return respawn_anchor_use_without_item(lv, st, pos);
         case VCLASS_FENCE_GATE_BLOCK:
             return fence_gate_use_without_item(lv, st, pos);
+        case VCLASS_FENCE_BLOCK:
+            // LeadItem.bindPlayerMobs: no mob is ever leashed to the virtual player
+            return INTERACTION_RESULT_PASS;
         case VCLASS_BUTTON_BLOCK:
             return button_use_without_item(lv, st, pos);
         case VCLASS_REPEATER_BLOCK:

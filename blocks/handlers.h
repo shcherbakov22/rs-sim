@@ -208,6 +208,10 @@ int32_t            respawn_anchor_get_analog_output_signal(state_id st);
 interaction_result respawn_anchor_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
 interaction_result respawn_anchor_use_without_item(level & lv, state_id st, block_pos pos);
 
+// CrossCollisionBlock, FenceBlock
+prop_id  cross_collision_property_by_direction(direction dir);
+state_id fence_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor);
+
 // IronBarsBlock
 state_id iron_bars_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor);
 

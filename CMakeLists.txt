@@ -28,6 +28,7 @@ add_library(tmc STATIC
     blocks/container.cpp
     blocks/copper-golem-statue.cpp
     blocks/crafter.cpp
+    blocks/cross-collision.cpp
     blocks/decorated-pot.cpp
     blocks/diode.cpp
     blocks/dispenser.cpp
@@ -35,6 +36,7 @@ add_library(tmc STATIC
     blocks/ender-chest.cpp
     blocks/face-attached-horizontal-directional.cpp
     blocks/fence-gate.cpp
+    blocks/fence.cpp
     blocks/hopper-block-entity.cpp
     blocks/hopper.cpp
     blocks/iron-bars.cpp
