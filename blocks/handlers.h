@@ -320,6 +320,7 @@ state_id ladder_update_shape(level & lv, state_id st, block_pos pos, direction d
 // LanternBlock
 bool     lantern_can_survive(level & lv, state_id st, block_pos pos);
 state_id lantern_update_shape(level & lv, state_id st, block_pos pos, direction dir);
+state_id lantern_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // LightningRodBlock
 void    lightning_rod_on_place(level & lv, state_id st, block_pos pos, state_id old);

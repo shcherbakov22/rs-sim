@@ -40,7 +40,7 @@ bool support_type_is_supporting(const voxel_shape & support_shape, direction dir
 
 // BlockState.getCollisionShape with the empty collision context
 voxel_shape block_get_collision_shape(level & lv, state_id st, block_pos pos) {
-    if (!state_has(st, STATE_FLAG_DYNAMIC_SHAPE)) {
+    if (state_collision_shapes[st] != SHAPE_NONE) {
         return voxel_shape_collision(st);
     }
     // a shulker box never opens without players, and a closed box is a full block
@@ -885,6 +885,8 @@ state_id block_get_state_for_placement(level & lv, int32_t block, const block_pl
             return note_block_get_state_for_placement(lv, block, ctx);
         case VCLASS_WALL_TORCH_BLOCK:
             return wall_torch_get_state_for_placement(lv, block, ctx);
+        case VCLASS_LANTERN_BLOCK:
+            return lantern_get_state_for_placement(lv, block, ctx);
         case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
             return redstone_wall_torch_get_state_for_placement(lv, block, ctx);
         case VCLASS_TRAP_DOOR_BLOCK:
