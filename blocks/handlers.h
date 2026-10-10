@@ -304,6 +304,18 @@ state_id ladder_update_shape(level & lv, state_id st, block_pos pos, direction d
 bool     lantern_can_survive(level & lv, state_id st, block_pos pos);
 state_id lantern_update_shape(level & lv, state_id st, block_pos pos, direction dir);
 
+// LightningRodBlock
+void    lightning_rod_on_place(level & lv, state_id st, block_pos pos, state_id old);
+void    lightning_rod_tick(level & lv, state_id st, block_pos pos);
+void    lightning_rod_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
+int32_t lightning_rod_get_signal(state_id st);
+int32_t lightning_rod_get_direct_signal(state_id st, direction dir);
+
+// CopperBulbBlock
+void    copper_bulb_check_and_flip(level & lv, state_id st, block_pos pos);
+void    copper_bulb_on_place(level & lv, state_id st, block_pos pos, state_id old);
+int32_t copper_bulb_get_analog_output_signal(level & lv, block_pos pos);
+
 // ComposterBlock
 void               composter_on_place(level & lv, state_id st, block_pos pos);
 interaction_result composter_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);

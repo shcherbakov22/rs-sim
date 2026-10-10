@@ -118,6 +118,7 @@ state_id block_update_shape(level &   lv,
         case VCLASS_CANDLE_BLOCK:
         case VCLASS_HEAVY_CORE_BLOCK:
         case VCLASS_WATERLOGGED_TRANSPARENT_BLOCK:
+        case VCLASS_LIGHTNING_ROD_BLOCK:
             if (state_get(st, PROP_WATERLOGGED)) {
                 level_unsupported(lv, "fluids");
             }
@@ -198,6 +199,9 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
         case VCLASS_FENCE_GATE_BLOCK:
             fence_gate_neighbor_changed(lv, st, pos);
             break;
+        case VCLASS_COPPER_BULB_BLOCK:
+            copper_bulb_check_and_flip(lv, st, pos);
+            break;
         case VCLASS_TRAP_DOOR_BLOCK:
             trap_door_neighbor_changed(lv, st, pos);
             break;
@@ -277,6 +281,12 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
         case VCLASS_DETECTOR_RAIL_BLOCK:
             detector_rail_on_place(lv, st, pos, old, moved_by_piston);
             break;
+        case VCLASS_LIGHTNING_ROD_BLOCK:
+            lightning_rod_on_place(lv, st, pos, old);
+            break;
+        case VCLASS_COPPER_BULB_BLOCK:
+            copper_bulb_on_place(lv, st, pos, old);
+            break;
         case VCLASS_COMPOSTER_BLOCK:
             composter_on_place(lv, st, pos);
             break;
@@ -297,6 +307,9 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
             break;
         case VCLASS_BASE_RAIL_BLOCK:
             base_rail_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+            break;
+        case VCLASS_LIGHTNING_ROD_BLOCK:
+            lightning_rod_affect_neighbors_after_removal(lv, st, pos);
             break;
         case VCLASS_LECTERN_BLOCK:
             lectern_affect_neighbors_after_removal(lv, st, pos);
@@ -354,6 +367,9 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             break;
         case VCLASS_DETECTOR_RAIL_BLOCK:
             detector_rail_tick(lv, st, pos);
+            break;
+        case VCLASS_LIGHTNING_ROD_BLOCK:
+            lightning_rod_tick(lv, st, pos);
             break;
         case VCLASS_COMPOSTER_BLOCK:
             composter_tick(lv, st, pos);
@@ -552,6 +568,7 @@ bool block_is_signal_source(level & lv, state_id st) {
         case VCLASS_OBSERVER_BLOCK:
         case VCLASS_TRAPPED_CHEST_BLOCK:
         case VCLASS_DETECTOR_RAIL_BLOCK:
+        case VCLASS_LIGHTNING_ROD_BLOCK:
             return true;
         default:
             hook_unsupported(lv, st, HOOK_IS_SIGNAL_SOURCE);
@@ -587,6 +604,8 @@ int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) 
             return trapped_chest_get_signal(lv, st, pos);
         case VCLASS_DETECTOR_RAIL_BLOCK:
             return detector_rail_get_signal(st);
+        case VCLASS_LIGHTNING_ROD_BLOCK:
+            return lightning_rod_get_signal(st);
         default:
             hook_unsupported(lv, st, HOOK_GET_SIGNAL);
             return 0;
@@ -614,6 +633,8 @@ int32_t block_get_direct_signal(level & lv, state_id st, block_pos pos, directio
             return trapped_chest_get_direct_signal(lv, st, pos, dir);
         case VCLASS_DETECTOR_RAIL_BLOCK:
             return detector_rail_get_direct_signal(st, dir);
+        case VCLASS_LIGHTNING_ROD_BLOCK:
+            return lightning_rod_get_direct_signal(st, dir);
         default:
             hook_unsupported(lv, st, HOOK_GET_DIRECT_SIGNAL);
             return 0;
@@ -723,6 +744,8 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
         case VCLASS_DETECTOR_RAIL_BLOCK:
             // only minecarts on a powered rail give an output
             return 0;
+        case VCLASS_COPPER_BULB_BLOCK:
+            return copper_bulb_get_analog_output_signal(lv, pos);
         default:
             hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
             return 0;

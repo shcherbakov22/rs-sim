@@ -33,6 +33,7 @@ add_library(tmc STATIC
     blocks/comparator.cpp
     blocks/composter.cpp
     blocks/container.cpp
+    blocks/copper-bulb.cpp
     blocks/copper-golem-statue.cpp
     blocks/crafter.cpp
     blocks/cross-collision.cpp
@@ -55,6 +56,7 @@ add_library(tmc STATIC
     blocks/leaves.cpp
     blocks/lectern.cpp
     blocks/lever.cpp
+    blocks/lightning-rod.cpp
     blocks/moving-piston.cpp
     blocks/observer.cpp
     blocks/piston-base.cpp
