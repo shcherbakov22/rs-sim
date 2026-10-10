@@ -22,7 +22,7 @@ struct block_prop {
     int32_t stride;
 };
 
-struct block_field_value {
+struct field_value {
     int32_t field;
     int32_t value;
 };
@@ -40,6 +40,7 @@ struct block_def {
     int32_t      entity_new;    // block_entity_type of EntityBlock.newBlockEntity, -1 for none
     int32_t      entity_valid;  // block_entity_type valid for the block (BlockEntityType.isValid), -1 for none
     int32_t      instrument;    // note_block_instrument of BlockState.instrument
+    int32_t      as_item;       // item_id of Block.asItem
 };
 
 struct item_def {
@@ -52,6 +53,9 @@ struct item_def {
     int32_t      song_ticks;       // JukeboxSong.lengthInTicks of the JUKEBOX_PLAYABLE song, -1 for none
     int32_t      song_comparator;  // JukeboxSong.comparatorOutput
     float        compost_chance;   // ComposterBlock.COMPOSTABLES, -1 for items that do not compost
+    int32_t      fields_first;
+    int32_t      n_fields;
+    uint32_t     components;  // item_component bits of the default data components
 };
 
 // Box of a collision shape, in block units, per axis x y z.
@@ -68,16 +72,24 @@ struct shape_def {
 constexpr uint16_t SHAPE_NONE = 0xFFFF;
 
 // generated in gen/blocks.cpp
-extern const prop_def          prop_defs[];
-extern const block_prop        block_props[];
-extern const block_field_value block_field_values[];
-extern const block_def         block_defs[];
-extern const item_def          item_defs[];
-extern const char * const      block_entity_type_names[];
-extern const int16_t           vclass_super[];
+extern const prop_def     prop_defs[];
+extern const block_prop   block_props[];
+extern const field_value  block_field_values[];
+extern const field_value  item_field_values[];
+extern const block_def    block_defs[];
+extern const item_def     item_defs[];
+extern const char * const block_entity_type_names[];
+extern const int16_t      vclass_super[];
 extern const int16_t      vclass_hooks[][HOOK_COUNT];  // class that overrides each hook, VCLASS_NONE for the default
 extern const char * const vclass_names[];
 extern const char * const hook_names[];
+extern const int16_t      iclass_super[];
+extern const int16_t iclass_hooks[]
+                                 [ITEM_HOOK_COUNT];  // class that overrides each item hook, ICLASS_NONE for the default
+extern const char * const iclass_names[];
+extern const char * const item_hook_names[];
+extern const direction    player_direction;              // the virtual player's horizontal direction
+extern const direction    player_nearest_directions[6];  // Direction.orderedByNearest of the virtual player
 extern const uint64_t     state_flags[];
 extern const shape_box    shape_boxes[];
 extern const shape_def    shape_defs[];
@@ -108,7 +120,9 @@ inline bool state_has(state_id st, state_flag flag) {
 bool block_instanceof(int32_t block, vclass cls);
 
 // value of a primitive instance field of the block object
-int32_t block_field_get(int32_t block, block_field field);
+int32_t block_field_get(int32_t block, object_field field);
+// value of an instance field of the item object
+int32_t item_field_get(int32_t item, object_field field);
 
 // StateHolder.getValue/setValue/cycle; values are prop_def codes. The block must have the property.
 bool     state_has_prop(state_id st, prop_id prop);
