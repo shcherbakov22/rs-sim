@@ -2,7 +2,7 @@
 
 #include "engine/level-ticks.h"
 
-#include <cerrno>
+#include <charconv>
 #include <map>
 
 static std::vector<std::string_view> split_ws(std::string_view line) {
@@ -25,48 +25,40 @@ static std::string_view strip(std::string_view s) {
 }
 
 static bool parse_i64(std::string_view s, int64_t & out) {
-    std::string str(s);
-    char *      end = nullptr;
-    errno           = 0;
-    out             = strtoll(str.c_str(), &end, 10);
-    return !str.empty() && *end == '\0' && errno == 0;
+    std::from_chars_result r = std::from_chars(s.data(), s.data() + s.size(), out);
+    return r.ec == std::errc() && r.ptr == s.data() + s.size();
 }
 
 static bool parse_i32(std::string_view s, int32_t & out) {
-    int64_t v;
-    if (!parse_i64(s, v) || v < INT32_MIN || v > INT32_MAX) return false;
-    out = (int32_t) v;
-    return true;
+    std::from_chars_result r = std::from_chars(s.data(), s.data() + s.size(), out);
+    return r.ec == std::errc() && r.ptr == s.data() + s.size();
 }
 
 static bool parse_pos(const std::vector<std::string_view> & t, size_t i, block_pos & out) {
     return t.size() >= i + 3 && parse_i32(t[i], out.x) && parse_i32(t[i + 1], out.y) && parse_i32(t[i + 2], out.z);
 }
 
+static bool case_error(std::string & err, const std::string & message) {
+    err = message;
+    return false;
+}
+
 static bool parse_input(const std::vector<std::string_view> & t, case_input & in, std::string & err) {
     if (!t[0].starts_with("@") || !parse_i32(t[0].substr(1), in.at) || t.size() < 5 || !parse_pos(t, 2, in.pos)) {
-        err = "expected '@<ticks> <verb> x y z ...'";
-        return false;
+        return case_error(err, "expected '@<ticks> <verb> x y z ...'");
     }
     if (t[1] == "place") {
         in.verb = CASE_VERB_PLACE;
-        if (t.size() != 6) {
-            err = "expected 'place x y z <state>'";
-            return false;
-        }
+        if (t.size() != 6) return case_error(err, "expected 'place x y z <state>'");
         return state_parse(t[5], in.state, err);
     }
-    if (t.size() != 5) {
-        err = "unexpected tokens after position";
-        return false;
-    }
+    if (t.size() != 5) return case_error(err, "unexpected tokens after position");
     if (t[1] == "break") {
         in.verb = CASE_VERB_BREAK;
     } else if (t[1] == "pull") {
         in.verb = CASE_VERB_PULL;
     } else {
-        err = "unknown input " + std::string(t[1]);
-        return false;
+        return case_error(err, "unknown input " + std::string(t[1]));
     }
     return true;
 }
@@ -85,149 +77,90 @@ struct case_parser {
 static bool case_parse_line(case_file & f, case_parser & p, std::string_view line, std::string & err) {
     std::vector<std::string_view> t = split_ws(line);
     if (t[0] == "tmc-case") {
-        if (t.size() != 2 || t[1] != "2") {
-            err = "unsupported version";
-            return false;
-        }
-        return true;
-    }
-    if (t[0] == "size") {
+        if (t.size() != 2 || t[1] != "2") return case_error(err, "unsupported version");
+    } else if (t[0] == "size") {
         if (!parse_pos(t, 1, f.size) || f.size.x <= 0 || f.size.y <= 0 || f.size.z <= 0) {
-            err = "bad size";
-            return false;
+            return case_error(err, "bad size");
         }
         f.states.assign((size_t) f.size.x * f.size.y * f.size.z, STATE_AIR);
-        return true;
-    }
-    if (t[0] == "seed") {
-        if (t.size() != 2 || !parse_i64(t[1], f.seed)) {
-            err = "bad seed";
-            return false;
-        }
-        return true;
-    }
-    if (t[0] == "run") {
+    } else if (t[0] == "seed") {
+        if (t.size() != 2 || !parse_i64(t[1], f.seed)) return case_error(err, "bad seed");
+    } else if (t[0] == "run") {
         p.section = "";
-        if (t.size() != 2 || !parse_i32(t[1], f.run)) {
-            err = "bad run";
-            return false;
-        }
-        return true;
-    }
-    if (t[0] == "key" || t[0] == "items" || t[0] == "data" || t[0] == "hidden" || t[0] == "ticks" || t[0] == "events" ||
-        t[0] == "toggles" || t[0] == "tickers" || t[0] == "inputs") {
+        if (t.size() != 2 || !parse_i32(t[1], f.run)) return case_error(err, "bad run");
+    } else if (t[0] == "key" || t[0] == "items" || t[0] == "data" || t[0] == "hidden" || t[0] == "ticks" ||
+               t[0] == "events" || t[0] == "toggles" || t[0] == "tickers" || t[0] == "inputs") {
         p.section = t[0];
-        return true;
-    }
-    if (t[0] == "layer") {
+    } else if (t[0] == "layer") {
         p.section = "layer";
         p.row     = 0;
         if (t.size() != 2 || !parse_i32(t[1], p.layer_y) || p.layer_y < 0 || p.layer_y >= f.size.y) {
-            err = "bad layer";
-            return false;
+            return case_error(err, "bad layer");
         }
-        return true;
-    }
-    if (f.states.empty() && p.section != "key") {
-        err = "size must come before " + p.section;
-        return false;
-    }
-    if (p.section == "key") {
+    } else if (f.states.empty() && p.section != "key") {
+        return case_error(err, "size must come before " + p.section);
+    } else if (p.section == "key") {
         size_t eq = line.find('=');
-        if (eq == std::string_view::npos) {
-            err = "expected '<key> = <block>'";
-            return false;
-        }
+        if (eq == std::string_view::npos) return case_error(err, "expected '<key> = <block>'");
         return state_parse(strip(line.substr(eq + 1)), p.key_state[std::string(strip(line.substr(0, eq)))], err);
-    }
-    if (p.section == "layer") {
+    } else if (p.section == "layer") {
         if ((int32_t) t.size() != f.size.x) {
-            err = "p.row has " + std::to_string(t.size()) + " entries, size x is " + std::to_string(f.size.x);
-            return false;
+            return case_error(
+                err, "row has " + std::to_string(t.size()) + " entries, size x is " + std::to_string(f.size.x));
         }
-        if (p.row >= f.size.z) {
-            err = "too many rows for size z";
-            return false;
-        }
+        if (p.row >= f.size.z) return case_error(err, "too many rows for size z");
         for (int32_t x = 0; x < f.size.x; x++) {
             auto it = p.key_state.find(t[x]);
-            if (it == p.key_state.end()) {
-                err = "unknown key '" + std::string(t[x]) + "'";
-                return false;
-            }
+            if (it == p.key_state.end()) return case_error(err, "unknown key '" + std::string(t[x]) + "'");
             f.states[x + f.size.x * (p.row + f.size.z * p.layer_y)] = it->second;
         }
         p.row++;
-        return true;
-    }
-    if (p.section == "items") {
+    } else if (p.section == "items") {
         case_item it = { {}, 0, t.size() >= 5 ? item_find(t[4]) : -1, 0, -1 };
         if (t.size() < 6 || t.size() > 7 || !parse_pos(t, 0, it.pos) || !parse_i32(t[3], it.slot) || it.item < 0 ||
             !parse_i32(t[5], it.count) || (t.size() == 7 && !parse_i32(t[6], it.damage))) {
-            err = "expected 'x y z <slot> <item> <count> [damage]'";
-            return false;
+            return case_error(err, "expected 'x y z <slot> <item> <count> [damage]'");
         }
         f.items.push_back(it);
-        return true;
-    }
-    // the oracle reads values with TagParser, so a case that has a trace holds only valid ones
-    if (p.section == "data" || p.section == "hidden") {
+    } else if (p.section == "data" || p.section == "hidden") {
+        // the oracle reads values with TagParser, so a case that has a trace holds only valid ones
         case_data d = { {}, t.size() >= 5 ? std::string(t[3]) : "", "", p.section == "hidden" };
-        if (t.size() < 5 || !parse_pos(t, 0, d.pos)) {
-            err = "expected 'x y z <key> <value>'";
-            return false;
-        }
+        if (t.size() < 5 || !parse_pos(t, 0, d.pos)) return case_error(err, "expected 'x y z <key> <value>'");
         d.value = line.substr(t[4].data() - line.data());
         f.data.push_back(d);
-        return true;
-    }
-    if (p.section == "ticks") {
+    } else if (p.section == "ticks") {
         case_tick tk;
         tk.block = t.size() == 6 ? block_find(t[3]) : -1;
         if (!parse_pos(t, 0, tk.pos) || tk.block < 0 || !parse_i64(t[4], tk.delay) || tk.delay < 1 ||
             !tick_priority_parse(t[5], tk.priority)) {
-            err = "expected 'x y z <block> <delay >= 1> <priority>'";
-            return false;
+            return case_error(err, "expected 'x y z <block> <delay >= 1> <priority>'");
         }
         f.ticks.push_back(tk);
-        return true;
-    }
-    if (p.section == "events") {
+    } else if (p.section == "events") {
         case_event ev;
         ev.block = t.size() == 6 ? block_find(t[3]) : -1;
         if (!parse_pos(t, 0, ev.pos) || ev.block < 0 || !parse_i32(t[4], ev.param_a) || !parse_i32(t[5], ev.param_b)) {
-            err = "expected 'x y z <block> <a> <b>'";
-            return false;
+            return case_error(err, "expected 'x y z <block> <a> <b>'");
         }
         f.events.push_back(ev);
-        return true;
-    }
-    if (p.section == "toggles") {
+    } else if (p.section == "toggles") {
         case_toggle tg;
         if (t.size() != 4 || !parse_pos(t, 0, tg.pos) || !parse_i64(t[3], tg.when)) {
-            err = "expected 'x y z <when>'";
-            return false;
+            return case_error(err, "expected 'x y z <when>'");
         }
         f.toggles.push_back(tg);
-        return true;
-    }
-    if (p.section == "tickers") {
-        block_pos p;
-        if (t.size() != 3 || !parse_pos(t, 0, p)) {
-            err = "expected 'x y z'";
-            return false;
-        }
-        f.tickers.push_back(p);
-        return true;
-    }
-    if (p.section == "inputs") {
+    } else if (p.section == "tickers") {
+        block_pos pos;
+        if (t.size() != 3 || !parse_pos(t, 0, pos)) return case_error(err, "expected 'x y z'");
+        f.tickers.push_back(pos);
+    } else if (p.section == "inputs") {
         case_input in;
         if (!parse_input(t, in, err)) return false;
         f.inputs.push_back(in);
-        return true;
+    } else {
+        return case_error(err, "line outside any section");
     }
-    err = "line outside any p.section";
-    return false;
+    return true;
 }
 
 bool case_parse(const std::string & text, case_file & out, std::string & err) {
@@ -244,14 +177,8 @@ bool case_parse(const std::string & text, case_file & out, std::string & err) {
         // '#' starts a comment; block strings never contain it
         line = strip(line.substr(0, line.find('#')));
         if (line.empty()) continue;
-        if (!case_parse_line(out, p, line, err)) {
-            err = "line " + std::to_string(n) + ": " + err;
-            return false;
-        }
+        if (!case_parse_line(out, p, line, err)) return case_error(err, "line " + std::to_string(n) + ": " + err);
     }
-    if (out.states.empty()) {
-        err = "missing size";
-        return false;
-    }
+    if (out.states.empty()) return case_error(err, "missing size");
     return true;
 }
