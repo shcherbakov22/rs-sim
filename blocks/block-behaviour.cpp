@@ -143,6 +143,12 @@ state_id block_update_shape(level &   lv,
         case VCLASS_SOUL_SAND_BLOCK:
             soul_sand_update_shape(lv, st, pos, dir, neighbor);
             break;
+        case VCLASS_TRIP_WIRE_BLOCK:
+            result = trip_wire_update_shape(st, dir, neighbor);
+            break;
+        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
+            result = trip_wire_hook_update_shape(lv, st, pos, dir);
+            break;
         case VCLASS_LANTERN_BLOCK:
             result = lantern_update_shape(lv, st, pos, dir);
             break;
@@ -307,6 +313,9 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
         case VCLASS_SOUL_SAND_BLOCK:
             soul_sand_on_place(lv, st, pos);
             break;
+        case VCLASS_TRIP_WIRE_BLOCK:
+            trip_wire_on_place(lv, st, pos, old);
+            break;
         case VCLASS_COMPOSTER_BLOCK:
             composter_on_place(lv, st, pos);
             break;
@@ -333,6 +342,12 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
             break;
         case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
             base_pressure_plate_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+            break;
+        case VCLASS_TRIP_WIRE_BLOCK:
+            trip_wire_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+            break;
+        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
+            trip_wire_hook_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
             break;
         case VCLASS_LECTERN_BLOCK:
             lectern_affect_neighbors_after_removal(lv, st, pos);
@@ -402,6 +417,12 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             break;
         case VCLASS_SOUL_SAND_BLOCK:
             soul_sand_tick(lv, pos);
+            break;
+        case VCLASS_TRIP_WIRE_BLOCK:
+            trip_wire_tick(lv, pos);
+            break;
+        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
+            trip_wire_hook_tick(lv, st, pos);
             break;
         case VCLASS_COMPOSTER_BLOCK:
             composter_tick(lv, st, pos);
@@ -614,6 +635,7 @@ bool block_is_signal_source(level & lv, state_id st) {
         case VCLASS_LIGHTNING_ROD_BLOCK:
         case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
         case VCLASS_TARGET_BLOCK:
+        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
             return true;
         default:
             hook_unsupported(lv, st, HOOK_IS_SIGNAL_SOURCE);
@@ -655,6 +677,8 @@ int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) 
             return base_pressure_plate_get_signal(st);
         case VCLASS_TARGET_BLOCK:
             return target_get_signal(st);
+        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
+            return trip_wire_hook_get_signal(st);
         default:
             hook_unsupported(lv, st, HOOK_GET_SIGNAL);
             return 0;
@@ -686,6 +710,8 @@ int32_t block_get_direct_signal(level & lv, state_id st, block_pos pos, directio
             return lightning_rod_get_direct_signal(st, dir);
         case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
             return base_pressure_plate_get_direct_signal(st, dir);
+        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
+            return trip_wire_hook_get_direct_signal(st, dir);
         default:
             hook_unsupported(lv, st, HOOK_GET_DIRECT_SIGNAL);
             return 0;
@@ -728,6 +754,8 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return ladder_can_survive(lv, st, pos);
         case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
             return base_pressure_plate_can_survive(lv, pos);
+        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
+            return trip_wire_hook_can_survive(lv, st, pos);
         case VCLASS_CANDLE_CAKE_BLOCK:
             return candle_cake_can_survive(lv, pos);
         default:

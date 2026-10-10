@@ -46,6 +46,12 @@ inline block_pos pos_relative(block_pos pos, direction dir) {
     return { pos.x + s.x, pos.y + s.y, pos.z + s.z };
 }
 
+// BlockPos.relative(Direction, int)
+inline block_pos pos_relative_steps(block_pos pos, direction dir, int32_t steps) {
+    const block_pos & s = direction_defs[dir].step;
+    return { pos.x + s.x * steps, pos.y + s.y * steps, pos.z + s.z * steps };
+}
+
 inline bool direction_is_horizontal(direction dir) {
     return dir >= DIRECTION_NORTH;
 }

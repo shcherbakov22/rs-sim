@@ -82,6 +82,8 @@ add_library(tmc STATIC
     blocks/target.cpp
     blocks/trap-door.cpp
     blocks/trapped-chest.cpp
+    blocks/trip-wire-hook.cpp
+    blocks/trip-wire.cpp
     blocks/wall-torch.cpp
     blocks/wall.cpp
     blocks/weighted-pressure-plate.cpp

@@ -1,7 +1,6 @@
 # Cases allowed to fail (paths relative to oracle/cases, no .case). Only remove lines.
 active/trapped-chest
 block-entities
-corpus/0002
 corpus/0003
 corpus/0005
 corpus/0006
@@ -15,7 +14,6 @@ corpus/0021
 corpus/0024
 corpus/0026
 corpus/0028
-corpus/0031
 corpus/0032
 corpus/0034
 corpus/0037
@@ -35,7 +33,6 @@ corpus/0061
 corpus/0063
 corpus/0064
 corpus/0065
-corpus/0066
 corpus/0069
 corpus/0073
 corpus/0074
@@ -67,7 +64,6 @@ corpus/0126
 corpus/0128
 corpus/0130
 corpus/0135
-corpus/0136
 corpus/0137
 corpus/0140
 corpus/0141
@@ -104,7 +100,6 @@ corpus/0220
 corpus/0225
 corpus/0231
 corpus/0233
-corpus/0234
 corpus/0235
 corpus/0236
 corpus/0237
@@ -125,7 +120,6 @@ corpus/0272
 corpus/0275
 corpus/0278
 corpus/0279
-corpus/0281
 corpus/0286
 corpus/0289
 corpus/0290

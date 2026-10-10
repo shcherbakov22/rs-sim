@@ -353,6 +353,27 @@ void soul_sand_tick(level & lv, block_pos pos);
 // LightBlock
 interaction_result light_use_without_item();
 
+// TripWireHookBlock
+bool     trip_wire_hook_can_survive(level & lv, state_id st, block_pos pos);
+state_id trip_wire_hook_update_shape(level & lv, state_id st, block_pos pos, direction dir);
+void     trip_wire_hook_calculate_state(level &   lv,
+                                        block_pos pos,
+                                        state_id  st,
+                                        bool      being_destroyed,
+                                        bool      can_update,
+                                        int32_t   wire_source,
+                                        state_id  wire_source_state);
+void     trip_wire_hook_tick(level & lv, state_id st, block_pos pos);
+void     trip_wire_hook_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
+int32_t  trip_wire_hook_get_signal(state_id st);
+int32_t  trip_wire_hook_get_direct_signal(state_id st, direction dir);
+
+// TripWireBlock
+state_id trip_wire_update_shape(state_id st, direction dir, state_id neighbor);
+void     trip_wire_on_place(level & lv, state_id st, block_pos pos, state_id old);
+void     trip_wire_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
+void     trip_wire_tick(level & lv, block_pos pos);
+
 // ComposterBlock
 void               composter_on_place(level & lv, state_id st, block_pos pos);
 interaction_result composter_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);

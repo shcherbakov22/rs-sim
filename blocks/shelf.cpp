@@ -22,8 +22,7 @@ static int32_t shelf_neighbor_part(level & lv, block_pos pos, direction facing) 
 
 // Neighbors.left and right: left is clockwise of the facing
 static block_pos shelf_neighbor_pos(block_pos center, direction facing, bool left, int32_t steps) {
-    block_pos step = direction_defs[left ? direction_clockwise(facing) : direction_counter_clockwise(facing)].step;
-    return { center.x + step.x * steps, center.y + step.y * steps, center.z + step.z * steps };
+    return pos_relative_steps(center, left ? direction_clockwise(facing) : direction_counter_clockwise(facing), steps);
 }
 
 static int32_t side_chain_part_when_connected_to_the_right(int32_t part) {
