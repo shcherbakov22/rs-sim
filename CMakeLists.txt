@@ -26,6 +26,7 @@ add_library(tmc STATIC
     blocks/cake.cpp
     blocks/candle-cake.cpp
     blocks/candle.cpp
+    blocks/carpet.cpp
     blocks/chest-block-entity.cpp
     blocks/chest.cpp
     blocks/chiseled-book-shelf.cpp
@@ -49,6 +50,8 @@ add_library(tmc STATIC
     blocks/hopper.cpp
     blocks/iron-bars.cpp
     blocks/jukebox.cpp
+    blocks/ladder.cpp
+    blocks/lantern.cpp
     blocks/leaves.cpp
     blocks/lectern.cpp
     blocks/lever.cpp

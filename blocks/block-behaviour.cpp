@@ -116,6 +116,8 @@ state_id block_update_shape(level &   lv,
         case VCLASS_TRAP_DOOR_BLOCK:
         case VCLASS_BASE_RAIL_BLOCK:
         case VCLASS_CANDLE_BLOCK:
+        case VCLASS_HEAVY_CORE_BLOCK:
+        case VCLASS_WATERLOGGED_TRANSPARENT_BLOCK:
             if (state_get(st, PROP_WATERLOGGED)) {
                 level_unsupported(lv, "fluids");
             }
@@ -125,6 +127,15 @@ state_id block_update_shape(level &   lv,
             break;
         case VCLASS_CAKE_BLOCK:
             result = cake_update_shape(lv, st, pos, dir);
+            break;
+        case VCLASS_CARPET_BLOCK:
+            result = carpet_update_shape(lv, st, pos);
+            break;
+        case VCLASS_LANTERN_BLOCK:
+            result = lantern_update_shape(lv, st, pos, dir);
+            break;
+        case VCLASS_LADDER_BLOCK:
+            result = ladder_update_shape(lv, st, pos, dir);
             break;
         case VCLASS_CANDLE_CAKE_BLOCK:
             result = candle_cake_update_shape(lv, st, pos, dir);
@@ -637,6 +648,12 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return amethyst_cluster_can_survive(lv, st, pos);
         case VCLASS_CAKE_BLOCK:
             return cake_can_survive(lv, pos);
+        case VCLASS_CARPET_BLOCK:
+            return carpet_can_survive(lv, pos);
+        case VCLASS_LANTERN_BLOCK:
+            return lantern_can_survive(lv, st, pos);
+        case VCLASS_LADDER_BLOCK:
+            return ladder_can_survive(lv, st, pos);
         case VCLASS_CANDLE_CAKE_BLOCK:
             return candle_cake_can_survive(lv, pos);
         default:

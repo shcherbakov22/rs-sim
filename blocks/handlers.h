@@ -271,6 +271,10 @@ int32_t detector_rail_get_direct_signal(state_id st, direction dir);
 // AbstractCandleBlock
 void abstract_candle_extinguish(level & lv, state_id st, block_pos pos);
 
+// CarpetBlock
+state_id carpet_update_shape(level & lv, state_id st, block_pos pos);
+bool     carpet_can_survive(level & lv, block_pos pos);
+
 // CakeBlock
 interaction_result cake_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
 interaction_result cake_eat();
@@ -291,6 +295,14 @@ interaction_result candle_cake_use_without_item();
 state_id           candle_cake_update_shape(level & lv, state_id st, block_pos pos, direction dir);
 bool               candle_cake_can_survive(level & lv, block_pos pos);
 int32_t            candle_cake_get_analog_output_signal();
+
+// LadderBlock
+bool     ladder_can_survive(level & lv, state_id st, block_pos pos);
+state_id ladder_update_shape(level & lv, state_id st, block_pos pos, direction dir);
+
+// LanternBlock
+bool     lantern_can_survive(level & lv, state_id st, block_pos pos);
+state_id lantern_update_shape(level & lv, state_id st, block_pos pos, direction dir);
 
 // ComposterBlock
 void               composter_on_place(level & lv, state_id st, block_pos pos);
