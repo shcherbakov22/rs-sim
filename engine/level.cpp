@@ -454,6 +454,7 @@ void level_update_neighbour_for_output_signal(level & lv, block_pos pos, int32_t
 
 void level_schedule_tick(level & lv, block_pos pos, int32_t block, int32_t delay, int32_t priority) {
     // LevelAccessor.createTick takes a sub-tick number even if the tick turns out to be a duplicate
+    TMC_ASSERT(delay >= 1);  // level_ticks relies on it
     scheduled_tick tick = { block, pos, lv.game_time + delay, priority, lv.sub_tick_count++ };
     if (trace_wants(lv.tr, &pos)) {
         bool dup = level_ticks_has_scheduled(lv.block_ticks, pos, block);
@@ -611,12 +612,16 @@ void level_tick(level & lv) {
     lv.game_time++;
 
     trace_phase(lv.tr, "blockTicks");
-    level_ticks_collect(lv.block_ticks, lv.game_time, 65536);
+    level_ticks_collect(lv.block_ticks, lv.game_time);
+    // vanilla runs at most 65536 ticks per game tick and leaves the rest for later
+    if (lv.block_ticks.to_run.size() > 65536) {
+        level_unsupported(lv, "more than 65536 scheduled ticks");
+        return;
+    }
     scheduled_tick t;
     while (level_ticks_poll(lv.block_ticks, t)) {
         level_tick_block(lv, t.pos, t.block);
     }
-    level_ticks_cleanup(lv.block_ticks);
 
     trace_phase(lv.tr, "fluidTicks");
     trace_phase(lv.tr, "raid");

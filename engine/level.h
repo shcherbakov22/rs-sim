@@ -16,6 +16,8 @@
 // World position of the case origin in the oracle (TmcOracle.BATCH_ORIGIN). Sim positions are relative to it,
 // but vanilla hash orders depend on world positions.
 constexpr block_pos LEVEL_ORIGIN = { 0, 64, 0 };
+// sections keyed by relative positions are the world's sections only while the origin is 16-aligned
+static_assert(LEVEL_ORIGIN.x % 16 == 0 && LEVEL_ORIGIN.y % 16 == 0 && LEVEL_ORIGIN.z % 16 == 0);
 
 // Build height relative to the case origin (overworld -64..319).
 constexpr int32_t LEVEL_Y_MIN = -128;

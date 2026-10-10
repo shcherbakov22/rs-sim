@@ -219,9 +219,9 @@ static bool case_parse_line(case_file & f, case_parser & p, std::string_view lin
     if (p.section == "ticks") {
         case_tick tk;
         tk.block = t.size() == 6 ? block_find(t[3]) : -1;
-        if (!parse_pos(t, 0, tk.pos) || tk.block < 0 || !parse_i64(t[4], tk.delay) ||
+        if (!parse_pos(t, 0, tk.pos) || tk.block < 0 || !parse_i64(t[4], tk.delay) || tk.delay < 1 ||
             !tick_priority_parse(t[5], tk.priority)) {
-            err = "expected 'x y z <block> <delay> <priority>'";
+            err = "expected 'x y z <block> <delay >= 1> <priority>'";
             return false;
         }
         f.ticks.push_back(tk);
