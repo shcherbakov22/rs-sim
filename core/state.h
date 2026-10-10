@@ -47,6 +47,7 @@ struct item_def {
     int32_t      cls;             // item_class
     int32_t      block;           // BlockItem.getBlock, -1 for other items
     bool         dispense;        // has a DispenserBlock.DISPENSER_REGISTRY behaviour
+    uint32_t     tags;            // item_tag bits
 };
 
 // Box of a collision shape, in block units, per axis x y z.

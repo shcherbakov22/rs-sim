@@ -298,6 +298,10 @@ enum item_class {
     ICLASS_WRITTEN_BOOK_ITEM = 69,
 };
 
+enum item_tag {
+    ITEM_TAG_LECTERN_BOOKS = 1u << 0,
+};
+
 enum item_id {
     ITEM_AIR = 0,
     ITEM_STONE = 1,

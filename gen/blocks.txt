@@ -151,1511 +151,1511 @@ property OMINOUS ominous bool true false
 property TRIAL_SPAWNER_STATE trial_spawner_state enum:TrialSpawnerState inactive waiting_for_players active waiting_for_reward_ejection ejecting_reward cooldown
 property VAULT_STATE vault_state enum:VaultState inactive active unlocking ejecting
 property TIP tip bool true false
-item air 64 AirItem - 0
-item stone 64 BlockItem stone 0
-item granite 64 BlockItem granite 0
-item polished_granite 64 BlockItem polished_granite 0
-item diorite 64 BlockItem diorite 0
-item polished_diorite 64 BlockItem polished_diorite 0
-item andesite 64 BlockItem andesite 0
-item polished_andesite 64 BlockItem polished_andesite 0
-item deepslate 64 BlockItem deepslate 0
-item cobbled_deepslate 64 BlockItem cobbled_deepslate 0
-item polished_deepslate 64 BlockItem polished_deepslate 0
-item calcite 64 BlockItem calcite 0
-item tuff 64 BlockItem tuff 0
-item tuff_slab 64 BlockItem tuff_slab 0
-item tuff_stairs 64 BlockItem tuff_stairs 0
-item tuff_wall 64 BlockItem tuff_wall 0
-item chiseled_tuff 64 BlockItem chiseled_tuff 0
-item polished_tuff 64 BlockItem polished_tuff 0
-item polished_tuff_slab 64 BlockItem polished_tuff_slab 0
-item polished_tuff_stairs 64 BlockItem polished_tuff_stairs 0
-item polished_tuff_wall 64 BlockItem polished_tuff_wall 0
-item tuff_bricks 64 BlockItem tuff_bricks 0
-item tuff_brick_slab 64 BlockItem tuff_brick_slab 0
-item tuff_brick_stairs 64 BlockItem tuff_brick_stairs 0
-item tuff_brick_wall 64 BlockItem tuff_brick_wall 0
-item chiseled_tuff_bricks 64 BlockItem chiseled_tuff_bricks 0
-item dripstone_block 64 BlockItem dripstone_block 0
-item grass_block 64 BlockItem grass_block 0
-item dirt 64 BlockItem dirt 0
-item coarse_dirt 64 BlockItem coarse_dirt 0
-item podzol 64 BlockItem podzol 0
-item rooted_dirt 64 BlockItem rooted_dirt 0
-item mud 64 BlockItem mud 0
-item crimson_nylium 64 BlockItem crimson_nylium 0
-item warped_nylium 64 BlockItem warped_nylium 0
-item cobblestone 64 BlockItem cobblestone 0
-item oak_planks 64 BlockItem oak_planks 0
-item spruce_planks 64 BlockItem spruce_planks 0
-item birch_planks 64 BlockItem birch_planks 0
-item jungle_planks 64 BlockItem jungle_planks 0
-item acacia_planks 64 BlockItem acacia_planks 0
-item cherry_planks 64 BlockItem cherry_planks 0
-item dark_oak_planks 64 BlockItem dark_oak_planks 0
-item pale_oak_planks 64 BlockItem pale_oak_planks 0
-item mangrove_planks 64 BlockItem mangrove_planks 0
-item bamboo_planks 64 BlockItem bamboo_planks 0
-item crimson_planks 64 BlockItem crimson_planks 0
-item warped_planks 64 BlockItem warped_planks 0
-item bamboo_mosaic 64 BlockItem bamboo_mosaic 0
-item oak_sapling 64 BlockItem oak_sapling 0
-item spruce_sapling 64 BlockItem spruce_sapling 0
-item birch_sapling 64 BlockItem birch_sapling 0
-item jungle_sapling 64 BlockItem jungle_sapling 0
-item acacia_sapling 64 BlockItem acacia_sapling 0
-item cherry_sapling 64 BlockItem cherry_sapling 0
-item dark_oak_sapling 64 BlockItem dark_oak_sapling 0
-item pale_oak_sapling 64 BlockItem pale_oak_sapling 0
-item mangrove_propagule 64 BlockItem mangrove_propagule 0
-item bedrock 64 BlockItem bedrock 0
-item sand 64 BlockItem sand 0
-item suspicious_sand 64 BlockItem suspicious_sand 0
-item suspicious_gravel 64 BlockItem suspicious_gravel 0
-item red_sand 64 BlockItem red_sand 0
-item gravel 64 BlockItem gravel 0
-item coal_ore 64 BlockItem coal_ore 0
-item deepslate_coal_ore 64 BlockItem deepslate_coal_ore 0
-item iron_ore 64 BlockItem iron_ore 0
-item deepslate_iron_ore 64 BlockItem deepslate_iron_ore 0
-item copper_ore 64 BlockItem copper_ore 0
-item deepslate_copper_ore 64 BlockItem deepslate_copper_ore 0
-item gold_ore 64 BlockItem gold_ore 0
-item deepslate_gold_ore 64 BlockItem deepslate_gold_ore 0
-item redstone_ore 64 BlockItem redstone_ore 0
-item deepslate_redstone_ore 64 BlockItem deepslate_redstone_ore 0
-item emerald_ore 64 BlockItem emerald_ore 0
-item deepslate_emerald_ore 64 BlockItem deepslate_emerald_ore 0
-item lapis_ore 64 BlockItem lapis_ore 0
-item deepslate_lapis_ore 64 BlockItem deepslate_lapis_ore 0
-item diamond_ore 64 BlockItem diamond_ore 0
-item deepslate_diamond_ore 64 BlockItem deepslate_diamond_ore 0
-item nether_gold_ore 64 BlockItem nether_gold_ore 0
-item nether_quartz_ore 64 BlockItem nether_quartz_ore 0
-item ancient_debris 64 BlockItem ancient_debris 0
-item coal_block 64 BlockItem coal_block 0
-item raw_iron_block 64 BlockItem raw_iron_block 0
-item raw_copper_block 64 BlockItem raw_copper_block 0
-item raw_gold_block 64 BlockItem raw_gold_block 0
-item heavy_core 64 BlockItem heavy_core 0
-item amethyst_block 64 BlockItem amethyst_block 0
-item budding_amethyst 64 BlockItem budding_amethyst 0
-item iron_block 64 BlockItem iron_block 0
-item copper_block 64 BlockItem copper_block 0
-item gold_block 64 BlockItem gold_block 0
-item diamond_block 64 BlockItem diamond_block 0
-item netherite_block 64 BlockItem netherite_block 0
-item exposed_copper 64 BlockItem exposed_copper 0
-item weathered_copper 64 BlockItem weathered_copper 0
-item oxidized_copper 64 BlockItem oxidized_copper 0
-item chiseled_copper 64 BlockItem chiseled_copper 0
-item exposed_chiseled_copper 64 BlockItem exposed_chiseled_copper 0
-item weathered_chiseled_copper 64 BlockItem weathered_chiseled_copper 0
-item oxidized_chiseled_copper 64 BlockItem oxidized_chiseled_copper 0
-item cut_copper 64 BlockItem cut_copper 0
-item exposed_cut_copper 64 BlockItem exposed_cut_copper 0
-item weathered_cut_copper 64 BlockItem weathered_cut_copper 0
-item oxidized_cut_copper 64 BlockItem oxidized_cut_copper 0
-item cut_copper_stairs 64 BlockItem cut_copper_stairs 0
-item exposed_cut_copper_stairs 64 BlockItem exposed_cut_copper_stairs 0
-item weathered_cut_copper_stairs 64 BlockItem weathered_cut_copper_stairs 0
-item oxidized_cut_copper_stairs 64 BlockItem oxidized_cut_copper_stairs 0
-item cut_copper_slab 64 BlockItem cut_copper_slab 0
-item exposed_cut_copper_slab 64 BlockItem exposed_cut_copper_slab 0
-item weathered_cut_copper_slab 64 BlockItem weathered_cut_copper_slab 0
-item oxidized_cut_copper_slab 64 BlockItem oxidized_cut_copper_slab 0
-item waxed_copper_block 64 BlockItem waxed_copper_block 0
-item waxed_exposed_copper 64 BlockItem waxed_exposed_copper 0
-item waxed_weathered_copper 64 BlockItem waxed_weathered_copper 0
-item waxed_oxidized_copper 64 BlockItem waxed_oxidized_copper 0
-item waxed_chiseled_copper 64 BlockItem waxed_chiseled_copper 0
-item waxed_exposed_chiseled_copper 64 BlockItem waxed_exposed_chiseled_copper 0
-item waxed_weathered_chiseled_copper 64 BlockItem waxed_weathered_chiseled_copper 0
-item waxed_oxidized_chiseled_copper 64 BlockItem waxed_oxidized_chiseled_copper 0
-item waxed_cut_copper 64 BlockItem waxed_cut_copper 0
-item waxed_exposed_cut_copper 64 BlockItem waxed_exposed_cut_copper 0
-item waxed_weathered_cut_copper 64 BlockItem waxed_weathered_cut_copper 0
-item waxed_oxidized_cut_copper 64 BlockItem waxed_oxidized_cut_copper 0
-item waxed_cut_copper_stairs 64 BlockItem waxed_cut_copper_stairs 0
-item waxed_exposed_cut_copper_stairs 64 BlockItem waxed_exposed_cut_copper_stairs 0
-item waxed_weathered_cut_copper_stairs 64 BlockItem waxed_weathered_cut_copper_stairs 0
-item waxed_oxidized_cut_copper_stairs 64 BlockItem waxed_oxidized_cut_copper_stairs 0
-item waxed_cut_copper_slab 64 BlockItem waxed_cut_copper_slab 0
-item waxed_exposed_cut_copper_slab 64 BlockItem waxed_exposed_cut_copper_slab 0
-item waxed_weathered_cut_copper_slab 64 BlockItem waxed_weathered_cut_copper_slab 0
-item waxed_oxidized_cut_copper_slab 64 BlockItem waxed_oxidized_cut_copper_slab 0
-item oak_log 64 BlockItem oak_log 0
-item spruce_log 64 BlockItem spruce_log 0
-item birch_log 64 BlockItem birch_log 0
-item jungle_log 64 BlockItem jungle_log 0
-item acacia_log 64 BlockItem acacia_log 0
-item cherry_log 64 BlockItem cherry_log 0
-item pale_oak_log 64 BlockItem pale_oak_log 0
-item dark_oak_log 64 BlockItem dark_oak_log 0
-item mangrove_log 64 BlockItem mangrove_log 0
-item mangrove_roots 64 BlockItem mangrove_roots 0
-item muddy_mangrove_roots 64 BlockItem muddy_mangrove_roots 0
-item crimson_stem 64 BlockItem crimson_stem 0
-item warped_stem 64 BlockItem warped_stem 0
-item bamboo_block 64 BlockItem bamboo_block 0
-item stripped_oak_log 64 BlockItem stripped_oak_log 0
-item stripped_spruce_log 64 BlockItem stripped_spruce_log 0
-item stripped_birch_log 64 BlockItem stripped_birch_log 0
-item stripped_jungle_log 64 BlockItem stripped_jungle_log 0
-item stripped_acacia_log 64 BlockItem stripped_acacia_log 0
-item stripped_cherry_log 64 BlockItem stripped_cherry_log 0
-item stripped_dark_oak_log 64 BlockItem stripped_dark_oak_log 0
-item stripped_pale_oak_log 64 BlockItem stripped_pale_oak_log 0
-item stripped_mangrove_log 64 BlockItem stripped_mangrove_log 0
-item stripped_crimson_stem 64 BlockItem stripped_crimson_stem 0
-item stripped_warped_stem 64 BlockItem stripped_warped_stem 0
-item stripped_oak_wood 64 BlockItem stripped_oak_wood 0
-item stripped_spruce_wood 64 BlockItem stripped_spruce_wood 0
-item stripped_birch_wood 64 BlockItem stripped_birch_wood 0
-item stripped_jungle_wood 64 BlockItem stripped_jungle_wood 0
-item stripped_acacia_wood 64 BlockItem stripped_acacia_wood 0
-item stripped_cherry_wood 64 BlockItem stripped_cherry_wood 0
-item stripped_dark_oak_wood 64 BlockItem stripped_dark_oak_wood 0
-item stripped_pale_oak_wood 64 BlockItem stripped_pale_oak_wood 0
-item stripped_mangrove_wood 64 BlockItem stripped_mangrove_wood 0
-item stripped_crimson_hyphae 64 BlockItem stripped_crimson_hyphae 0
-item stripped_warped_hyphae 64 BlockItem stripped_warped_hyphae 0
-item stripped_bamboo_block 64 BlockItem stripped_bamboo_block 0
-item oak_wood 64 BlockItem oak_wood 0
-item spruce_wood 64 BlockItem spruce_wood 0
-item birch_wood 64 BlockItem birch_wood 0
-item jungle_wood 64 BlockItem jungle_wood 0
-item acacia_wood 64 BlockItem acacia_wood 0
-item cherry_wood 64 BlockItem cherry_wood 0
-item pale_oak_wood 64 BlockItem pale_oak_wood 0
-item dark_oak_wood 64 BlockItem dark_oak_wood 0
-item mangrove_wood 64 BlockItem mangrove_wood 0
-item crimson_hyphae 64 BlockItem crimson_hyphae 0
-item warped_hyphae 64 BlockItem warped_hyphae 0
-item oak_leaves 64 BlockItem oak_leaves 0
-item spruce_leaves 64 BlockItem spruce_leaves 0
-item birch_leaves 64 BlockItem birch_leaves 0
-item jungle_leaves 64 BlockItem jungle_leaves 0
-item acacia_leaves 64 BlockItem acacia_leaves 0
-item cherry_leaves 64 BlockItem cherry_leaves 0
-item dark_oak_leaves 64 BlockItem dark_oak_leaves 0
-item pale_oak_leaves 64 BlockItem pale_oak_leaves 0
-item mangrove_leaves 64 BlockItem mangrove_leaves 0
-item azalea_leaves 64 BlockItem azalea_leaves 0
-item flowering_azalea_leaves 64 BlockItem flowering_azalea_leaves 0
-item sponge 64 BlockItem sponge 0
-item wet_sponge 64 BlockItem wet_sponge 0
-item glass 64 BlockItem glass 0
-item tinted_glass 64 BlockItem tinted_glass 0
-item lapis_block 64 BlockItem lapis_block 0
-item sandstone 64 BlockItem sandstone 0
-item chiseled_sandstone 64 BlockItem chiseled_sandstone 0
-item cut_sandstone 64 BlockItem cut_sandstone 0
-item cobweb 64 BlockItem cobweb 0
-item short_grass 64 BlockItem short_grass 0
-item fern 64 BlockItem fern 0
-item bush 64 BlockItem bush 0
-item azalea 64 BlockItem azalea 0
-item flowering_azalea 64 BlockItem flowering_azalea 0
-item dead_bush 64 BlockItem dead_bush 0
-item firefly_bush 64 BlockItem firefly_bush 0
-item short_dry_grass 64 BlockItem short_dry_grass 0
-item tall_dry_grass 64 BlockItem tall_dry_grass 0
-item seagrass 64 BlockItem seagrass 0
-item sea_pickle 64 BlockItem sea_pickle 0
-item white_wool 64 BlockItem white_wool 0
-item orange_wool 64 BlockItem orange_wool 0
-item magenta_wool 64 BlockItem magenta_wool 0
-item light_blue_wool 64 BlockItem light_blue_wool 0
-item yellow_wool 64 BlockItem yellow_wool 0
-item lime_wool 64 BlockItem lime_wool 0
-item pink_wool 64 BlockItem pink_wool 0
-item gray_wool 64 BlockItem gray_wool 0
-item light_gray_wool 64 BlockItem light_gray_wool 0
-item cyan_wool 64 BlockItem cyan_wool 0
-item purple_wool 64 BlockItem purple_wool 0
-item blue_wool 64 BlockItem blue_wool 0
-item brown_wool 64 BlockItem brown_wool 0
-item green_wool 64 BlockItem green_wool 0
-item red_wool 64 BlockItem red_wool 0
-item black_wool 64 BlockItem black_wool 0
-item dandelion 64 BlockItem dandelion 0
-item open_eyeblossom 64 BlockItem open_eyeblossom 0
-item closed_eyeblossom 64 BlockItem closed_eyeblossom 0
-item poppy 64 BlockItem poppy 0
-item blue_orchid 64 BlockItem blue_orchid 0
-item allium 64 BlockItem allium 0
-item azure_bluet 64 BlockItem azure_bluet 0
-item red_tulip 64 BlockItem red_tulip 0
-item orange_tulip 64 BlockItem orange_tulip 0
-item white_tulip 64 BlockItem white_tulip 0
-item pink_tulip 64 BlockItem pink_tulip 0
-item oxeye_daisy 64 BlockItem oxeye_daisy 0
-item cornflower 64 BlockItem cornflower 0
-item lily_of_the_valley 64 BlockItem lily_of_the_valley 0
-item wither_rose 64 BlockItem wither_rose 0
-item torchflower 64 BlockItem torchflower 0
-item pitcher_plant 64 BlockItem pitcher_plant 0
-item spore_blossom 64 BlockItem spore_blossom 0
-item brown_mushroom 64 BlockItem brown_mushroom 0
-item red_mushroom 64 BlockItem red_mushroom 0
-item crimson_fungus 64 BlockItem crimson_fungus 0
-item warped_fungus 64 BlockItem warped_fungus 0
-item crimson_roots 64 BlockItem crimson_roots 0
-item warped_roots 64 BlockItem warped_roots 0
-item nether_sprouts 64 BlockItem nether_sprouts 0
-item weeping_vines 64 BlockItem weeping_vines 0
-item twisting_vines 64 BlockItem twisting_vines 0
-item sugar_cane 64 BlockItem sugar_cane 0
-item kelp 64 BlockItem kelp 0
-item pink_petals 64 BlockItem pink_petals 0
-item wildflowers 64 BlockItem wildflowers 0
-item leaf_litter 64 BlockItem leaf_litter 0
-item moss_carpet 64 BlockItem moss_carpet 0
-item moss_block 64 BlockItem moss_block 0
-item pale_moss_carpet 64 BlockItem pale_moss_carpet 0
-item pale_hanging_moss 64 BlockItem pale_hanging_moss 0
-item pale_moss_block 64 BlockItem pale_moss_block 0
-item hanging_roots 64 BlockItem hanging_roots 0
-item big_dripleaf 64 BlockItem big_dripleaf 0
-item small_dripleaf 64 DoubleHighBlockItem small_dripleaf 0
-item bamboo 64 BlockItem bamboo 0
-item oak_slab 64 BlockItem oak_slab 0
-item spruce_slab 64 BlockItem spruce_slab 0
-item birch_slab 64 BlockItem birch_slab 0
-item jungle_slab 64 BlockItem jungle_slab 0
-item acacia_slab 64 BlockItem acacia_slab 0
-item cherry_slab 64 BlockItem cherry_slab 0
-item dark_oak_slab 64 BlockItem dark_oak_slab 0
-item pale_oak_slab 64 BlockItem pale_oak_slab 0
-item mangrove_slab 64 BlockItem mangrove_slab 0
-item bamboo_slab 64 BlockItem bamboo_slab 0
-item bamboo_mosaic_slab 64 BlockItem bamboo_mosaic_slab 0
-item crimson_slab 64 BlockItem crimson_slab 0
-item warped_slab 64 BlockItem warped_slab 0
-item stone_slab 64 BlockItem stone_slab 0
-item smooth_stone_slab 64 BlockItem smooth_stone_slab 0
-item sandstone_slab 64 BlockItem sandstone_slab 0
-item cut_sandstone_slab 64 BlockItem cut_sandstone_slab 0
-item petrified_oak_slab 64 BlockItem petrified_oak_slab 0
-item cobblestone_slab 64 BlockItem cobblestone_slab 0
-item brick_slab 64 BlockItem brick_slab 0
-item stone_brick_slab 64 BlockItem stone_brick_slab 0
-item mud_brick_slab 64 BlockItem mud_brick_slab 0
-item nether_brick_slab 64 BlockItem nether_brick_slab 0
-item quartz_slab 64 BlockItem quartz_slab 0
-item red_sandstone_slab 64 BlockItem red_sandstone_slab 0
-item cut_red_sandstone_slab 64 BlockItem cut_red_sandstone_slab 0
-item purpur_slab 64 BlockItem purpur_slab 0
-item prismarine_slab 64 BlockItem prismarine_slab 0
-item prismarine_brick_slab 64 BlockItem prismarine_brick_slab 0
-item dark_prismarine_slab 64 BlockItem dark_prismarine_slab 0
-item smooth_quartz 64 BlockItem smooth_quartz 0
-item smooth_red_sandstone 64 BlockItem smooth_red_sandstone 0
-item smooth_sandstone 64 BlockItem smooth_sandstone 0
-item smooth_stone 64 BlockItem smooth_stone 0
-item bricks 64 BlockItem bricks 0
-item acacia_shelf 64 BlockItem acacia_shelf 0
-item bamboo_shelf 64 BlockItem bamboo_shelf 0
-item birch_shelf 64 BlockItem birch_shelf 0
-item cherry_shelf 64 BlockItem cherry_shelf 0
-item crimson_shelf 64 BlockItem crimson_shelf 0
-item dark_oak_shelf 64 BlockItem dark_oak_shelf 0
-item jungle_shelf 64 BlockItem jungle_shelf 0
-item mangrove_shelf 64 BlockItem mangrove_shelf 0
-item oak_shelf 64 BlockItem oak_shelf 0
-item pale_oak_shelf 64 BlockItem pale_oak_shelf 0
-item spruce_shelf 64 BlockItem spruce_shelf 0
-item warped_shelf 64 BlockItem warped_shelf 0
-item bookshelf 64 BlockItem bookshelf 0
-item chiseled_bookshelf 64 BlockItem chiseled_bookshelf 0
-item decorated_pot 64 BlockItem decorated_pot 0
-item mossy_cobblestone 64 BlockItem mossy_cobblestone 0
-item obsidian 64 BlockItem obsidian 0
-item torch 64 StandingAndWallBlockItem torch 0
-item end_rod 64 BlockItem end_rod 0
-item chorus_plant 64 BlockItem chorus_plant 0
-item chorus_flower 64 BlockItem chorus_flower 0
-item purpur_block 64 BlockItem purpur_block 0
-item purpur_pillar 64 BlockItem purpur_pillar 0
-item purpur_stairs 64 BlockItem purpur_stairs 0
-item spawner 64 BlockItem spawner 0
-item creaking_heart 64 BlockItem creaking_heart 0
-item chest 64 BlockItem chest 1
-item crafting_table 64 BlockItem crafting_table 0
-item farmland 64 BlockItem farmland 0
-item furnace 64 BlockItem furnace 0
-item ladder 64 BlockItem ladder 0
-item cobblestone_stairs 64 BlockItem cobblestone_stairs 0
-item snow 64 BlockItem snow 0
-item ice 64 BlockItem ice 0
-item snow_block 64 BlockItem snow_block 0
-item cactus 64 BlockItem cactus 0
-item cactus_flower 64 BlockItem cactus_flower 0
-item clay 64 BlockItem clay 0
-item jukebox 64 BlockItem jukebox 0
-item oak_fence 64 BlockItem oak_fence 0
-item spruce_fence 64 BlockItem spruce_fence 0
-item birch_fence 64 BlockItem birch_fence 0
-item jungle_fence 64 BlockItem jungle_fence 0
-item acacia_fence 64 BlockItem acacia_fence 0
-item cherry_fence 64 BlockItem cherry_fence 0
-item dark_oak_fence 64 BlockItem dark_oak_fence 0
-item pale_oak_fence 64 BlockItem pale_oak_fence 0
-item mangrove_fence 64 BlockItem mangrove_fence 0
-item bamboo_fence 64 BlockItem bamboo_fence 0
-item crimson_fence 64 BlockItem crimson_fence 0
-item warped_fence 64 BlockItem warped_fence 0
-item pumpkin 64 BlockItem pumpkin 0
-item carved_pumpkin 64 BlockItem carved_pumpkin 1
-item jack_o_lantern 64 BlockItem jack_o_lantern 0
-item netherrack 64 BlockItem netherrack 0
-item soul_sand 64 BlockItem soul_sand 0
-item soul_soil 64 BlockItem soul_soil 0
-item basalt 64 BlockItem basalt 0
-item polished_basalt 64 BlockItem polished_basalt 0
-item smooth_basalt 64 BlockItem smooth_basalt 0
-item soul_torch 64 StandingAndWallBlockItem soul_torch 0
-item copper_torch 64 StandingAndWallBlockItem copper_torch 0
-item glowstone 64 BlockItem glowstone 1
-item infested_stone 64 BlockItem infested_stone 0
-item infested_cobblestone 64 BlockItem infested_cobblestone 0
-item infested_stone_bricks 64 BlockItem infested_stone_bricks 0
-item infested_mossy_stone_bricks 64 BlockItem infested_mossy_stone_bricks 0
-item infested_cracked_stone_bricks 64 BlockItem infested_cracked_stone_bricks 0
-item infested_chiseled_stone_bricks 64 BlockItem infested_chiseled_stone_bricks 0
-item infested_deepslate 64 BlockItem infested_deepslate 0
-item stone_bricks 64 BlockItem stone_bricks 0
-item mossy_stone_bricks 64 BlockItem mossy_stone_bricks 0
-item cracked_stone_bricks 64 BlockItem cracked_stone_bricks 0
-item chiseled_stone_bricks 64 BlockItem chiseled_stone_bricks 0
-item packed_mud 64 BlockItem packed_mud 0
-item mud_bricks 64 BlockItem mud_bricks 0
-item deepslate_bricks 64 BlockItem deepslate_bricks 0
-item cracked_deepslate_bricks 64 BlockItem cracked_deepslate_bricks 0
-item deepslate_tiles 64 BlockItem deepslate_tiles 0
-item cracked_deepslate_tiles 64 BlockItem cracked_deepslate_tiles 0
-item chiseled_deepslate 64 BlockItem chiseled_deepslate 0
-item reinforced_deepslate 64 BlockItem reinforced_deepslate 0
-item brown_mushroom_block 64 BlockItem brown_mushroom_block 0
-item red_mushroom_block 64 BlockItem red_mushroom_block 0
-item mushroom_stem 64 BlockItem mushroom_stem 0
-item iron_bars 64 BlockItem iron_bars 0
-item copper_bars 64 BlockItem copper_bars 0
-item exposed_copper_bars 64 BlockItem exposed_copper_bars 0
-item weathered_copper_bars 64 BlockItem weathered_copper_bars 0
-item oxidized_copper_bars 64 BlockItem oxidized_copper_bars 0
-item waxed_copper_bars 64 BlockItem waxed_copper_bars 0
-item waxed_exposed_copper_bars 64 BlockItem waxed_exposed_copper_bars 0
-item waxed_weathered_copper_bars 64 BlockItem waxed_weathered_copper_bars 0
-item waxed_oxidized_copper_bars 64 BlockItem waxed_oxidized_copper_bars 0
-item iron_chain 64 BlockItem iron_chain 0
-item copper_chain 64 BlockItem copper_chain 0
-item exposed_copper_chain 64 BlockItem exposed_copper_chain 0
-item weathered_copper_chain 64 BlockItem weathered_copper_chain 0
-item oxidized_copper_chain 64 BlockItem oxidized_copper_chain 0
-item waxed_copper_chain 64 BlockItem waxed_copper_chain 0
-item waxed_exposed_copper_chain 64 BlockItem waxed_exposed_copper_chain 0
-item waxed_weathered_copper_chain 64 BlockItem waxed_weathered_copper_chain 0
-item waxed_oxidized_copper_chain 64 BlockItem waxed_oxidized_copper_chain 0
-item glass_pane 64 BlockItem glass_pane 0
-item melon 64 BlockItem melon 0
-item vine 64 BlockItem vine 0
-item glow_lichen 64 BlockItem glow_lichen 0
-item resin_clump 64 BlockItem resin_clump 0
-item resin_block 64 BlockItem resin_block 0
-item resin_bricks 64 BlockItem resin_bricks 0
-item resin_brick_stairs 64 BlockItem resin_brick_stairs 0
-item resin_brick_slab 64 BlockItem resin_brick_slab 0
-item resin_brick_wall 64 BlockItem resin_brick_wall 0
-item chiseled_resin_bricks 64 BlockItem chiseled_resin_bricks 0
-item brick_stairs 64 BlockItem brick_stairs 0
-item stone_brick_stairs 64 BlockItem stone_brick_stairs 0
-item mud_brick_stairs 64 BlockItem mud_brick_stairs 0
-item mycelium 64 BlockItem mycelium 0
-item lily_pad 64 PlaceOnWaterBlockItem lily_pad 0
-item nether_bricks 64 BlockItem nether_bricks 0
-item cracked_nether_bricks 64 BlockItem cracked_nether_bricks 0
-item chiseled_nether_bricks 64 BlockItem chiseled_nether_bricks 0
-item nether_brick_fence 64 BlockItem nether_brick_fence 0
-item nether_brick_stairs 64 BlockItem nether_brick_stairs 0
-item sculk 64 BlockItem sculk 0
-item sculk_vein 64 BlockItem sculk_vein 0
-item sculk_catalyst 64 BlockItem sculk_catalyst 0
-item sculk_shrieker 64 BlockItem sculk_shrieker 0
-item enchanting_table 64 BlockItem enchanting_table 0
-item end_portal_frame 64 BlockItem end_portal_frame 0
-item end_stone 64 BlockItem end_stone 0
-item end_stone_bricks 64 BlockItem end_stone_bricks 0
-item dragon_egg 64 BlockItem dragon_egg 0
-item sandstone_stairs 64 BlockItem sandstone_stairs 0
-item ender_chest 64 BlockItem ender_chest 0
-item emerald_block 64 BlockItem emerald_block 0
-item oak_stairs 64 BlockItem oak_stairs 0
-item spruce_stairs 64 BlockItem spruce_stairs 0
-item birch_stairs 64 BlockItem birch_stairs 0
-item jungle_stairs 64 BlockItem jungle_stairs 0
-item acacia_stairs 64 BlockItem acacia_stairs 0
-item cherry_stairs 64 BlockItem cherry_stairs 0
-item dark_oak_stairs 64 BlockItem dark_oak_stairs 0
-item pale_oak_stairs 64 BlockItem pale_oak_stairs 0
-item mangrove_stairs 64 BlockItem mangrove_stairs 0
-item bamboo_stairs 64 BlockItem bamboo_stairs 0
-item bamboo_mosaic_stairs 64 BlockItem bamboo_mosaic_stairs 0
-item crimson_stairs 64 BlockItem crimson_stairs 0
-item warped_stairs 64 BlockItem warped_stairs 0
-item command_block 64 GameMasterBlockItem command_block 0
-item beacon 64 BlockItem beacon 0
-item cobblestone_wall 64 BlockItem cobblestone_wall 0
-item mossy_cobblestone_wall 64 BlockItem mossy_cobblestone_wall 0
-item brick_wall 64 BlockItem brick_wall 0
-item prismarine_wall 64 BlockItem prismarine_wall 0
-item red_sandstone_wall 64 BlockItem red_sandstone_wall 0
-item mossy_stone_brick_wall 64 BlockItem mossy_stone_brick_wall 0
-item granite_wall 64 BlockItem granite_wall 0
-item stone_brick_wall 64 BlockItem stone_brick_wall 0
-item mud_brick_wall 64 BlockItem mud_brick_wall 0
-item nether_brick_wall 64 BlockItem nether_brick_wall 0
-item andesite_wall 64 BlockItem andesite_wall 0
-item red_nether_brick_wall 64 BlockItem red_nether_brick_wall 0
-item sandstone_wall 64 BlockItem sandstone_wall 0
-item end_stone_brick_wall 64 BlockItem end_stone_brick_wall 0
-item diorite_wall 64 BlockItem diorite_wall 0
-item blackstone_wall 64 BlockItem blackstone_wall 0
-item polished_blackstone_wall 64 BlockItem polished_blackstone_wall 0
-item polished_blackstone_brick_wall 64 BlockItem polished_blackstone_brick_wall 0
-item cobbled_deepslate_wall 64 BlockItem cobbled_deepslate_wall 0
-item polished_deepslate_wall 64 BlockItem polished_deepslate_wall 0
-item deepslate_brick_wall 64 BlockItem deepslate_brick_wall 0
-item deepslate_tile_wall 64 BlockItem deepslate_tile_wall 0
-item anvil 64 BlockItem anvil 0
-item chipped_anvil 64 BlockItem chipped_anvil 0
-item damaged_anvil 64 BlockItem damaged_anvil 0
-item chiseled_quartz_block 64 BlockItem chiseled_quartz_block 0
-item quartz_block 64 BlockItem quartz_block 0
-item quartz_bricks 64 BlockItem quartz_bricks 0
-item quartz_pillar 64 BlockItem quartz_pillar 0
-item quartz_stairs 64 BlockItem quartz_stairs 0
-item white_terracotta 64 BlockItem white_terracotta 0
-item orange_terracotta 64 BlockItem orange_terracotta 0
-item magenta_terracotta 64 BlockItem magenta_terracotta 0
-item light_blue_terracotta 64 BlockItem light_blue_terracotta 0
-item yellow_terracotta 64 BlockItem yellow_terracotta 0
-item lime_terracotta 64 BlockItem lime_terracotta 0
-item pink_terracotta 64 BlockItem pink_terracotta 0
-item gray_terracotta 64 BlockItem gray_terracotta 0
-item light_gray_terracotta 64 BlockItem light_gray_terracotta 0
-item cyan_terracotta 64 BlockItem cyan_terracotta 0
-item purple_terracotta 64 BlockItem purple_terracotta 0
-item blue_terracotta 64 BlockItem blue_terracotta 0
-item brown_terracotta 64 BlockItem brown_terracotta 0
-item green_terracotta 64 BlockItem green_terracotta 0
-item red_terracotta 64 BlockItem red_terracotta 0
-item black_terracotta 64 BlockItem black_terracotta 0
-item barrier 64 BlockItem barrier 0
-item light 64 BlockItem light 0
-item hay_block 64 BlockItem hay_block 0
-item white_carpet 64 BlockItem white_carpet 0
-item orange_carpet 64 BlockItem orange_carpet 0
-item magenta_carpet 64 BlockItem magenta_carpet 0
-item light_blue_carpet 64 BlockItem light_blue_carpet 0
-item yellow_carpet 64 BlockItem yellow_carpet 0
-item lime_carpet 64 BlockItem lime_carpet 0
-item pink_carpet 64 BlockItem pink_carpet 0
-item gray_carpet 64 BlockItem gray_carpet 0
-item light_gray_carpet 64 BlockItem light_gray_carpet 0
-item cyan_carpet 64 BlockItem cyan_carpet 0
-item purple_carpet 64 BlockItem purple_carpet 0
-item blue_carpet 64 BlockItem blue_carpet 0
-item brown_carpet 64 BlockItem brown_carpet 0
-item green_carpet 64 BlockItem green_carpet 0
-item red_carpet 64 BlockItem red_carpet 0
-item black_carpet 64 BlockItem black_carpet 0
-item terracotta 64 BlockItem terracotta 0
-item packed_ice 64 BlockItem packed_ice 0
-item dirt_path 64 BlockItem dirt_path 0
-item sunflower 64 DoubleHighBlockItem sunflower 0
-item lilac 64 DoubleHighBlockItem lilac 0
-item rose_bush 64 DoubleHighBlockItem rose_bush 0
-item peony 64 DoubleHighBlockItem peony 0
-item tall_grass 64 DoubleHighBlockItem tall_grass 0
-item large_fern 64 DoubleHighBlockItem large_fern 0
-item white_stained_glass 64 BlockItem white_stained_glass 0
-item orange_stained_glass 64 BlockItem orange_stained_glass 0
-item magenta_stained_glass 64 BlockItem magenta_stained_glass 0
-item light_blue_stained_glass 64 BlockItem light_blue_stained_glass 0
-item yellow_stained_glass 64 BlockItem yellow_stained_glass 0
-item lime_stained_glass 64 BlockItem lime_stained_glass 0
-item pink_stained_glass 64 BlockItem pink_stained_glass 0
-item gray_stained_glass 64 BlockItem gray_stained_glass 0
-item light_gray_stained_glass 64 BlockItem light_gray_stained_glass 0
-item cyan_stained_glass 64 BlockItem cyan_stained_glass 0
-item purple_stained_glass 64 BlockItem purple_stained_glass 0
-item blue_stained_glass 64 BlockItem blue_stained_glass 0
-item brown_stained_glass 64 BlockItem brown_stained_glass 0
-item green_stained_glass 64 BlockItem green_stained_glass 0
-item red_stained_glass 64 BlockItem red_stained_glass 0
-item black_stained_glass 64 BlockItem black_stained_glass 0
-item white_stained_glass_pane 64 BlockItem white_stained_glass_pane 0
-item orange_stained_glass_pane 64 BlockItem orange_stained_glass_pane 0
-item magenta_stained_glass_pane 64 BlockItem magenta_stained_glass_pane 0
-item light_blue_stained_glass_pane 64 BlockItem light_blue_stained_glass_pane 0
-item yellow_stained_glass_pane 64 BlockItem yellow_stained_glass_pane 0
-item lime_stained_glass_pane 64 BlockItem lime_stained_glass_pane 0
-item pink_stained_glass_pane 64 BlockItem pink_stained_glass_pane 0
-item gray_stained_glass_pane 64 BlockItem gray_stained_glass_pane 0
-item light_gray_stained_glass_pane 64 BlockItem light_gray_stained_glass_pane 0
-item cyan_stained_glass_pane 64 BlockItem cyan_stained_glass_pane 0
-item purple_stained_glass_pane 64 BlockItem purple_stained_glass_pane 0
-item blue_stained_glass_pane 64 BlockItem blue_stained_glass_pane 0
-item brown_stained_glass_pane 64 BlockItem brown_stained_glass_pane 0
-item green_stained_glass_pane 64 BlockItem green_stained_glass_pane 0
-item red_stained_glass_pane 64 BlockItem red_stained_glass_pane 0
-item black_stained_glass_pane 64 BlockItem black_stained_glass_pane 0
-item prismarine 64 BlockItem prismarine 0
-item prismarine_bricks 64 BlockItem prismarine_bricks 0
-item dark_prismarine 64 BlockItem dark_prismarine 0
-item prismarine_stairs 64 BlockItem prismarine_stairs 0
-item prismarine_brick_stairs 64 BlockItem prismarine_brick_stairs 0
-item dark_prismarine_stairs 64 BlockItem dark_prismarine_stairs 0
-item sea_lantern 64 BlockItem sea_lantern 0
-item red_sandstone 64 BlockItem red_sandstone 0
-item chiseled_red_sandstone 64 BlockItem chiseled_red_sandstone 0
-item cut_red_sandstone 64 BlockItem cut_red_sandstone 0
-item red_sandstone_stairs 64 BlockItem red_sandstone_stairs 0
-item repeating_command_block 64 GameMasterBlockItem repeating_command_block 0
-item chain_command_block 64 GameMasterBlockItem chain_command_block 0
-item magma_block 64 BlockItem magma_block 0
-item nether_wart_block 64 BlockItem nether_wart_block 0
-item warped_wart_block 64 BlockItem warped_wart_block 0
-item red_nether_bricks 64 BlockItem red_nether_bricks 0
-item bone_block 64 BlockItem bone_block 0
-item structure_void 64 BlockItem structure_void 0
-item shulker_box 1 BlockItem shulker_box 1
-item white_shulker_box 1 BlockItem white_shulker_box 1
-item orange_shulker_box 1 BlockItem orange_shulker_box 1
-item magenta_shulker_box 1 BlockItem magenta_shulker_box 1
-item light_blue_shulker_box 1 BlockItem light_blue_shulker_box 1
-item yellow_shulker_box 1 BlockItem yellow_shulker_box 1
-item lime_shulker_box 1 BlockItem lime_shulker_box 1
-item pink_shulker_box 1 BlockItem pink_shulker_box 1
-item gray_shulker_box 1 BlockItem gray_shulker_box 1
-item light_gray_shulker_box 1 BlockItem light_gray_shulker_box 1
-item cyan_shulker_box 1 BlockItem cyan_shulker_box 1
-item purple_shulker_box 1 BlockItem purple_shulker_box 1
-item blue_shulker_box 1 BlockItem blue_shulker_box 1
-item brown_shulker_box 1 BlockItem brown_shulker_box 1
-item green_shulker_box 1 BlockItem green_shulker_box 1
-item red_shulker_box 1 BlockItem red_shulker_box 1
-item black_shulker_box 1 BlockItem black_shulker_box 1
-item white_glazed_terracotta 64 BlockItem white_glazed_terracotta 0
-item orange_glazed_terracotta 64 BlockItem orange_glazed_terracotta 0
-item magenta_glazed_terracotta 64 BlockItem magenta_glazed_terracotta 0
-item light_blue_glazed_terracotta 64 BlockItem light_blue_glazed_terracotta 0
-item yellow_glazed_terracotta 64 BlockItem yellow_glazed_terracotta 0
-item lime_glazed_terracotta 64 BlockItem lime_glazed_terracotta 0
-item pink_glazed_terracotta 64 BlockItem pink_glazed_terracotta 0
-item gray_glazed_terracotta 64 BlockItem gray_glazed_terracotta 0
-item light_gray_glazed_terracotta 64 BlockItem light_gray_glazed_terracotta 0
-item cyan_glazed_terracotta 64 BlockItem cyan_glazed_terracotta 0
-item purple_glazed_terracotta 64 BlockItem purple_glazed_terracotta 0
-item blue_glazed_terracotta 64 BlockItem blue_glazed_terracotta 0
-item brown_glazed_terracotta 64 BlockItem brown_glazed_terracotta 0
-item green_glazed_terracotta 64 BlockItem green_glazed_terracotta 0
-item red_glazed_terracotta 64 BlockItem red_glazed_terracotta 0
-item black_glazed_terracotta 64 BlockItem black_glazed_terracotta 0
-item white_concrete 64 BlockItem white_concrete 0
-item orange_concrete 64 BlockItem orange_concrete 0
-item magenta_concrete 64 BlockItem magenta_concrete 0
-item light_blue_concrete 64 BlockItem light_blue_concrete 0
-item yellow_concrete 64 BlockItem yellow_concrete 0
-item lime_concrete 64 BlockItem lime_concrete 0
-item pink_concrete 64 BlockItem pink_concrete 0
-item gray_concrete 64 BlockItem gray_concrete 0
-item light_gray_concrete 64 BlockItem light_gray_concrete 0
-item cyan_concrete 64 BlockItem cyan_concrete 0
-item purple_concrete 64 BlockItem purple_concrete 0
-item blue_concrete 64 BlockItem blue_concrete 0
-item brown_concrete 64 BlockItem brown_concrete 0
-item green_concrete 64 BlockItem green_concrete 0
-item red_concrete 64 BlockItem red_concrete 0
-item black_concrete 64 BlockItem black_concrete 0
-item white_concrete_powder 64 BlockItem white_concrete_powder 0
-item orange_concrete_powder 64 BlockItem orange_concrete_powder 0
-item magenta_concrete_powder 64 BlockItem magenta_concrete_powder 0
-item light_blue_concrete_powder 64 BlockItem light_blue_concrete_powder 0
-item yellow_concrete_powder 64 BlockItem yellow_concrete_powder 0
-item lime_concrete_powder 64 BlockItem lime_concrete_powder 0
-item pink_concrete_powder 64 BlockItem pink_concrete_powder 0
-item gray_concrete_powder 64 BlockItem gray_concrete_powder 0
-item light_gray_concrete_powder 64 BlockItem light_gray_concrete_powder 0
-item cyan_concrete_powder 64 BlockItem cyan_concrete_powder 0
-item purple_concrete_powder 64 BlockItem purple_concrete_powder 0
-item blue_concrete_powder 64 BlockItem blue_concrete_powder 0
-item brown_concrete_powder 64 BlockItem brown_concrete_powder 0
-item green_concrete_powder 64 BlockItem green_concrete_powder 0
-item red_concrete_powder 64 BlockItem red_concrete_powder 0
-item black_concrete_powder 64 BlockItem black_concrete_powder 0
-item turtle_egg 64 BlockItem turtle_egg 0
-item sniffer_egg 64 BlockItem sniffer_egg 0
-item dried_ghast 64 BlockItem dried_ghast 0
-item dead_tube_coral_block 64 BlockItem dead_tube_coral_block 0
-item dead_brain_coral_block 64 BlockItem dead_brain_coral_block 0
-item dead_bubble_coral_block 64 BlockItem dead_bubble_coral_block 0
-item dead_fire_coral_block 64 BlockItem dead_fire_coral_block 0
-item dead_horn_coral_block 64 BlockItem dead_horn_coral_block 0
-item tube_coral_block 64 BlockItem tube_coral_block 0
-item brain_coral_block 64 BlockItem brain_coral_block 0
-item bubble_coral_block 64 BlockItem bubble_coral_block 0
-item fire_coral_block 64 BlockItem fire_coral_block 0
-item horn_coral_block 64 BlockItem horn_coral_block 0
-item tube_coral 64 BlockItem tube_coral 0
-item brain_coral 64 BlockItem brain_coral 0
-item bubble_coral 64 BlockItem bubble_coral 0
-item fire_coral 64 BlockItem fire_coral 0
-item horn_coral 64 BlockItem horn_coral 0
-item dead_brain_coral 64 BlockItem dead_brain_coral 0
-item dead_bubble_coral 64 BlockItem dead_bubble_coral 0
-item dead_fire_coral 64 BlockItem dead_fire_coral 0
-item dead_horn_coral 64 BlockItem dead_horn_coral 0
-item dead_tube_coral 64 BlockItem dead_tube_coral 0
-item tube_coral_fan 64 StandingAndWallBlockItem tube_coral_fan 0
-item brain_coral_fan 64 StandingAndWallBlockItem brain_coral_fan 0
-item bubble_coral_fan 64 StandingAndWallBlockItem bubble_coral_fan 0
-item fire_coral_fan 64 StandingAndWallBlockItem fire_coral_fan 0
-item horn_coral_fan 64 StandingAndWallBlockItem horn_coral_fan 0
-item dead_tube_coral_fan 64 StandingAndWallBlockItem dead_tube_coral_fan 0
-item dead_brain_coral_fan 64 StandingAndWallBlockItem dead_brain_coral_fan 0
-item dead_bubble_coral_fan 64 StandingAndWallBlockItem dead_bubble_coral_fan 0
-item dead_fire_coral_fan 64 StandingAndWallBlockItem dead_fire_coral_fan 0
-item dead_horn_coral_fan 64 StandingAndWallBlockItem dead_horn_coral_fan 0
-item blue_ice 64 BlockItem blue_ice 0
-item conduit 64 BlockItem conduit 0
-item polished_granite_stairs 64 BlockItem polished_granite_stairs 0
-item smooth_red_sandstone_stairs 64 BlockItem smooth_red_sandstone_stairs 0
-item mossy_stone_brick_stairs 64 BlockItem mossy_stone_brick_stairs 0
-item polished_diorite_stairs 64 BlockItem polished_diorite_stairs 0
-item mossy_cobblestone_stairs 64 BlockItem mossy_cobblestone_stairs 0
-item end_stone_brick_stairs 64 BlockItem end_stone_brick_stairs 0
-item stone_stairs 64 BlockItem stone_stairs 0
-item smooth_sandstone_stairs 64 BlockItem smooth_sandstone_stairs 0
-item smooth_quartz_stairs 64 BlockItem smooth_quartz_stairs 0
-item granite_stairs 64 BlockItem granite_stairs 0
-item andesite_stairs 64 BlockItem andesite_stairs 0
-item red_nether_brick_stairs 64 BlockItem red_nether_brick_stairs 0
-item polished_andesite_stairs 64 BlockItem polished_andesite_stairs 0
-item diorite_stairs 64 BlockItem diorite_stairs 0
-item cobbled_deepslate_stairs 64 BlockItem cobbled_deepslate_stairs 0
-item polished_deepslate_stairs 64 BlockItem polished_deepslate_stairs 0
-item deepslate_brick_stairs 64 BlockItem deepslate_brick_stairs 0
-item deepslate_tile_stairs 64 BlockItem deepslate_tile_stairs 0
-item polished_granite_slab 64 BlockItem polished_granite_slab 0
-item smooth_red_sandstone_slab 64 BlockItem smooth_red_sandstone_slab 0
-item mossy_stone_brick_slab 64 BlockItem mossy_stone_brick_slab 0
-item polished_diorite_slab 64 BlockItem polished_diorite_slab 0
-item mossy_cobblestone_slab 64 BlockItem mossy_cobblestone_slab 0
-item end_stone_brick_slab 64 BlockItem end_stone_brick_slab 0
-item smooth_sandstone_slab 64 BlockItem smooth_sandstone_slab 0
-item smooth_quartz_slab 64 BlockItem smooth_quartz_slab 0
-item granite_slab 64 BlockItem granite_slab 0
-item andesite_slab 64 BlockItem andesite_slab 0
-item red_nether_brick_slab 64 BlockItem red_nether_brick_slab 0
-item polished_andesite_slab 64 BlockItem polished_andesite_slab 0
-item diorite_slab 64 BlockItem diorite_slab 0
-item cobbled_deepslate_slab 64 BlockItem cobbled_deepslate_slab 0
-item polished_deepslate_slab 64 BlockItem polished_deepslate_slab 0
-item deepslate_brick_slab 64 BlockItem deepslate_brick_slab 0
-item deepslate_tile_slab 64 BlockItem deepslate_tile_slab 0
-item scaffolding 64 ScaffoldingBlockItem scaffolding 0
-item redstone 64 BlockItem redstone_wire 0
-item redstone_torch 64 StandingAndWallBlockItem redstone_torch 0
-item redstone_block 64 BlockItem redstone_block 0
-item repeater 64 BlockItem repeater 0
-item comparator 64 BlockItem comparator 0
-item piston 64 BlockItem piston 0
-item sticky_piston 64 BlockItem sticky_piston 0
-item slime_block 64 BlockItem slime_block 0
-item honey_block 64 BlockItem honey_block 0
-item observer 64 BlockItem observer 0
-item hopper 64 BlockItem hopper 0
-item dispenser 64 BlockItem dispenser 0
-item dropper 64 BlockItem dropper 0
-item lectern 64 BlockItem lectern 0
-item target 64 BlockItem target 0
-item lever 64 BlockItem lever 0
-item lightning_rod 64 BlockItem lightning_rod 0
-item exposed_lightning_rod 64 BlockItem exposed_lightning_rod 0
-item weathered_lightning_rod 64 BlockItem weathered_lightning_rod 0
-item oxidized_lightning_rod 64 BlockItem oxidized_lightning_rod 0
-item waxed_lightning_rod 64 BlockItem waxed_lightning_rod 0
-item waxed_exposed_lightning_rod 64 BlockItem waxed_exposed_lightning_rod 0
-item waxed_weathered_lightning_rod 64 BlockItem waxed_weathered_lightning_rod 0
-item waxed_oxidized_lightning_rod 64 BlockItem waxed_oxidized_lightning_rod 0
-item daylight_detector 64 BlockItem daylight_detector 0
-item sculk_sensor 64 BlockItem sculk_sensor 0
-item calibrated_sculk_sensor 64 BlockItem calibrated_sculk_sensor 0
-item tripwire_hook 64 BlockItem tripwire_hook 0
-item trapped_chest 64 BlockItem trapped_chest 0
-item tnt 64 BlockItem tnt 1
-item redstone_lamp 64 BlockItem redstone_lamp 0
-item note_block 64 BlockItem note_block 0
-item stone_button 64 BlockItem stone_button 0
-item polished_blackstone_button 64 BlockItem polished_blackstone_button 0
-item oak_button 64 BlockItem oak_button 0
-item spruce_button 64 BlockItem spruce_button 0
-item birch_button 64 BlockItem birch_button 0
-item jungle_button 64 BlockItem jungle_button 0
-item acacia_button 64 BlockItem acacia_button 0
-item cherry_button 64 BlockItem cherry_button 0
-item dark_oak_button 64 BlockItem dark_oak_button 0
-item pale_oak_button 64 BlockItem pale_oak_button 0
-item mangrove_button 64 BlockItem mangrove_button 0
-item bamboo_button 64 BlockItem bamboo_button 0
-item crimson_button 64 BlockItem crimson_button 0
-item warped_button 64 BlockItem warped_button 0
-item stone_pressure_plate 64 BlockItem stone_pressure_plate 0
-item polished_blackstone_pressure_plate 64 BlockItem polished_blackstone_pressure_plate 0
-item light_weighted_pressure_plate 64 BlockItem light_weighted_pressure_plate 0
-item heavy_weighted_pressure_plate 64 BlockItem heavy_weighted_pressure_plate 0
-item oak_pressure_plate 64 BlockItem oak_pressure_plate 0
-item spruce_pressure_plate 64 BlockItem spruce_pressure_plate 0
-item birch_pressure_plate 64 BlockItem birch_pressure_plate 0
-item jungle_pressure_plate 64 BlockItem jungle_pressure_plate 0
-item acacia_pressure_plate 64 BlockItem acacia_pressure_plate 0
-item cherry_pressure_plate 64 BlockItem cherry_pressure_plate 0
-item dark_oak_pressure_plate 64 BlockItem dark_oak_pressure_plate 0
-item pale_oak_pressure_plate 64 BlockItem pale_oak_pressure_plate 0
-item mangrove_pressure_plate 64 BlockItem mangrove_pressure_plate 0
-item bamboo_pressure_plate 64 BlockItem bamboo_pressure_plate 0
-item crimson_pressure_plate 64 BlockItem crimson_pressure_plate 0
-item warped_pressure_plate 64 BlockItem warped_pressure_plate 0
-item iron_door 64 DoubleHighBlockItem iron_door 0
-item oak_door 64 DoubleHighBlockItem oak_door 0
-item spruce_door 64 DoubleHighBlockItem spruce_door 0
-item birch_door 64 DoubleHighBlockItem birch_door 0
-item jungle_door 64 DoubleHighBlockItem jungle_door 0
-item acacia_door 64 DoubleHighBlockItem acacia_door 0
-item cherry_door 64 DoubleHighBlockItem cherry_door 0
-item dark_oak_door 64 DoubleHighBlockItem dark_oak_door 0
-item pale_oak_door 64 DoubleHighBlockItem pale_oak_door 0
-item mangrove_door 64 DoubleHighBlockItem mangrove_door 0
-item bamboo_door 64 DoubleHighBlockItem bamboo_door 0
-item crimson_door 64 DoubleHighBlockItem crimson_door 0
-item warped_door 64 DoubleHighBlockItem warped_door 0
-item copper_door 64 DoubleHighBlockItem copper_door 0
-item exposed_copper_door 64 DoubleHighBlockItem exposed_copper_door 0
-item weathered_copper_door 64 DoubleHighBlockItem weathered_copper_door 0
-item oxidized_copper_door 64 DoubleHighBlockItem oxidized_copper_door 0
-item waxed_copper_door 64 DoubleHighBlockItem waxed_copper_door 0
-item waxed_exposed_copper_door 64 DoubleHighBlockItem waxed_exposed_copper_door 0
-item waxed_weathered_copper_door 64 DoubleHighBlockItem waxed_weathered_copper_door 0
-item waxed_oxidized_copper_door 64 DoubleHighBlockItem waxed_oxidized_copper_door 0
-item iron_trapdoor 64 BlockItem iron_trapdoor 0
-item oak_trapdoor 64 BlockItem oak_trapdoor 0
-item spruce_trapdoor 64 BlockItem spruce_trapdoor 0
-item birch_trapdoor 64 BlockItem birch_trapdoor 0
-item jungle_trapdoor 64 BlockItem jungle_trapdoor 0
-item acacia_trapdoor 64 BlockItem acacia_trapdoor 0
-item cherry_trapdoor 64 BlockItem cherry_trapdoor 0
-item dark_oak_trapdoor 64 BlockItem dark_oak_trapdoor 0
-item pale_oak_trapdoor 64 BlockItem pale_oak_trapdoor 0
-item mangrove_trapdoor 64 BlockItem mangrove_trapdoor 0
-item bamboo_trapdoor 64 BlockItem bamboo_trapdoor 0
-item crimson_trapdoor 64 BlockItem crimson_trapdoor 0
-item warped_trapdoor 64 BlockItem warped_trapdoor 0
-item copper_trapdoor 64 BlockItem copper_trapdoor 0
-item exposed_copper_trapdoor 64 BlockItem exposed_copper_trapdoor 0
-item weathered_copper_trapdoor 64 BlockItem weathered_copper_trapdoor 0
-item oxidized_copper_trapdoor 64 BlockItem oxidized_copper_trapdoor 0
-item waxed_copper_trapdoor 64 BlockItem waxed_copper_trapdoor 0
-item waxed_exposed_copper_trapdoor 64 BlockItem waxed_exposed_copper_trapdoor 0
-item waxed_weathered_copper_trapdoor 64 BlockItem waxed_weathered_copper_trapdoor 0
-item waxed_oxidized_copper_trapdoor 64 BlockItem waxed_oxidized_copper_trapdoor 0
-item oak_fence_gate 64 BlockItem oak_fence_gate 0
-item spruce_fence_gate 64 BlockItem spruce_fence_gate 0
-item birch_fence_gate 64 BlockItem birch_fence_gate 0
-item jungle_fence_gate 64 BlockItem jungle_fence_gate 0
-item acacia_fence_gate 64 BlockItem acacia_fence_gate 0
-item cherry_fence_gate 64 BlockItem cherry_fence_gate 0
-item dark_oak_fence_gate 64 BlockItem dark_oak_fence_gate 0
-item pale_oak_fence_gate 64 BlockItem pale_oak_fence_gate 0
-item mangrove_fence_gate 64 BlockItem mangrove_fence_gate 0
-item bamboo_fence_gate 64 BlockItem bamboo_fence_gate 0
-item crimson_fence_gate 64 BlockItem crimson_fence_gate 0
-item warped_fence_gate 64 BlockItem warped_fence_gate 0
-item powered_rail 64 BlockItem powered_rail 0
-item detector_rail 64 BlockItem detector_rail 0
-item rail 64 BlockItem rail 0
-item activator_rail 64 BlockItem activator_rail 0
-item saddle 1 Item - 0
-item white_harness 1 Item - 0
-item orange_harness 1 Item - 0
-item magenta_harness 1 Item - 0
-item light_blue_harness 1 Item - 0
-item yellow_harness 1 Item - 0
-item lime_harness 1 Item - 0
-item pink_harness 1 Item - 0
-item gray_harness 1 Item - 0
-item light_gray_harness 1 Item - 0
-item cyan_harness 1 Item - 0
-item purple_harness 1 Item - 0
-item blue_harness 1 Item - 0
-item brown_harness 1 Item - 0
-item green_harness 1 Item - 0
-item red_harness 1 Item - 0
-item black_harness 1 Item - 0
-item minecart 1 MinecartItem - 1
-item chest_minecart 1 MinecartItem - 1
-item furnace_minecart 1 MinecartItem - 1
-item tnt_minecart 1 MinecartItem - 1
-item hopper_minecart 1 MinecartItem - 1
-item carrot_on_a_stick 1 FoodOnAStickItem - 0
-item warped_fungus_on_a_stick 1 FoodOnAStickItem - 0
-item phantom_membrane 64 Item - 0
-item elytra 1 Item - 0
-item oak_boat 1 BoatItem - 1
-item oak_chest_boat 1 BoatItem - 1
-item spruce_boat 1 BoatItem - 1
-item spruce_chest_boat 1 BoatItem - 1
-item birch_boat 1 BoatItem - 1
-item birch_chest_boat 1 BoatItem - 1
-item jungle_boat 1 BoatItem - 1
-item jungle_chest_boat 1 BoatItem - 1
-item acacia_boat 1 BoatItem - 1
-item acacia_chest_boat 1 BoatItem - 1
-item cherry_boat 1 BoatItem - 1
-item cherry_chest_boat 1 BoatItem - 1
-item dark_oak_boat 1 BoatItem - 1
-item dark_oak_chest_boat 1 BoatItem - 1
-item pale_oak_boat 1 BoatItem - 1
-item pale_oak_chest_boat 1 BoatItem - 1
-item mangrove_boat 1 BoatItem - 1
-item mangrove_chest_boat 1 BoatItem - 1
-item bamboo_raft 1 BoatItem - 1
-item bamboo_chest_raft 1 BoatItem - 1
-item structure_block 64 GameMasterBlockItem structure_block 0
-item jigsaw 64 GameMasterBlockItem jigsaw 0
-item test_block 64 GameMasterBlockItem test_block 0
-item test_instance_block 64 GameMasterBlockItem test_instance_block 0
-item turtle_helmet 1 Item - 0
-item turtle_scute 64 Item - 0
-item armadillo_scute 64 Item - 0
-item wolf_armor 1 Item - 0
-item flint_and_steel 1 FlintAndSteelItem - 1
-item bowl 64 Item - 0
-item apple 64 Item - 0
-item bow 1 BowItem - 0
-item arrow 64 ArrowItem - 1
-item coal 64 Item - 0
-item charcoal 64 Item - 0
-item diamond 64 Item - 0
-item emerald 64 Item - 0
-item lapis_lazuli 64 Item - 0
-item quartz 64 Item - 0
-item amethyst_shard 64 Item - 0
-item raw_iron 64 Item - 0
-item iron_ingot 64 Item - 0
-item raw_copper 64 Item - 0
-item copper_ingot 64 Item - 0
-item raw_gold 64 Item - 0
-item gold_ingot 64 Item - 0
-item netherite_ingot 64 Item - 0
-item netherite_scrap 64 Item - 0
-item wooden_sword 1 Item - 0
-item wooden_shovel 1 ShovelItem - 0
-item wooden_pickaxe 1 Item - 0
-item wooden_axe 1 AxeItem - 0
-item wooden_hoe 1 HoeItem - 0
-item copper_sword 1 Item - 0
-item copper_shovel 1 ShovelItem - 0
-item copper_pickaxe 1 Item - 0
-item copper_axe 1 AxeItem - 0
-item copper_hoe 1 HoeItem - 0
-item stone_sword 1 Item - 0
-item stone_shovel 1 ShovelItem - 0
-item stone_pickaxe 1 Item - 0
-item stone_axe 1 AxeItem - 0
-item stone_hoe 1 HoeItem - 0
-item golden_sword 1 Item - 0
-item golden_shovel 1 ShovelItem - 0
-item golden_pickaxe 1 Item - 0
-item golden_axe 1 AxeItem - 0
-item golden_hoe 1 HoeItem - 0
-item iron_sword 1 Item - 0
-item iron_shovel 1 ShovelItem - 0
-item iron_pickaxe 1 Item - 0
-item iron_axe 1 AxeItem - 0
-item iron_hoe 1 HoeItem - 0
-item diamond_sword 1 Item - 0
-item diamond_shovel 1 ShovelItem - 0
-item diamond_pickaxe 1 Item - 0
-item diamond_axe 1 AxeItem - 0
-item diamond_hoe 1 HoeItem - 0
-item netherite_sword 1 Item - 0
-item netherite_shovel 1 ShovelItem - 0
-item netherite_pickaxe 1 Item - 0
-item netherite_axe 1 AxeItem - 0
-item netherite_hoe 1 HoeItem - 0
-item stick 64 Item - 0
-item mushroom_stew 1 Item - 0
-item string 64 BlockItem tripwire 0
-item feather 64 Item - 0
-item gunpowder 64 Item - 0
-item wheat_seeds 64 BlockItem wheat 0
-item wheat 64 Item - 0
-item bread 64 Item - 0
-item leather_helmet 1 Item - 0
-item leather_chestplate 1 Item - 0
-item leather_leggings 1 Item - 0
-item leather_boots 1 Item - 0
-item copper_helmet 1 Item - 0
-item copper_chestplate 1 Item - 0
-item copper_leggings 1 Item - 0
-item copper_boots 1 Item - 0
-item chainmail_helmet 1 Item - 0
-item chainmail_chestplate 1 Item - 0
-item chainmail_leggings 1 Item - 0
-item chainmail_boots 1 Item - 0
-item iron_helmet 1 Item - 0
-item iron_chestplate 1 Item - 0
-item iron_leggings 1 Item - 0
-item iron_boots 1 Item - 0
-item diamond_helmet 1 Item - 0
-item diamond_chestplate 1 Item - 0
-item diamond_leggings 1 Item - 0
-item diamond_boots 1 Item - 0
-item golden_helmet 1 Item - 0
-item golden_chestplate 1 Item - 0
-item golden_leggings 1 Item - 0
-item golden_boots 1 Item - 0
-item netherite_helmet 1 Item - 0
-item netherite_chestplate 1 Item - 0
-item netherite_leggings 1 Item - 0
-item netherite_boots 1 Item - 0
-item flint 64 Item - 0
-item porkchop 64 Item - 0
-item cooked_porkchop 64 Item - 0
-item painting 64 HangingEntityItem - 0
-item golden_apple 64 Item - 0
-item enchanted_golden_apple 64 Item - 0
-item oak_sign 16 SignItem oak_sign 0
-item spruce_sign 16 SignItem spruce_sign 0
-item birch_sign 16 SignItem birch_sign 0
-item jungle_sign 16 SignItem jungle_sign 0
-item acacia_sign 16 SignItem acacia_sign 0
-item cherry_sign 16 SignItem cherry_sign 0
-item dark_oak_sign 16 SignItem dark_oak_sign 0
-item pale_oak_sign 16 SignItem pale_oak_sign 0
-item mangrove_sign 16 SignItem mangrove_sign 0
-item bamboo_sign 16 SignItem bamboo_sign 0
-item crimson_sign 16 SignItem crimson_sign 0
-item warped_sign 16 SignItem warped_sign 0
-item oak_hanging_sign 16 HangingSignItem oak_hanging_sign 0
-item spruce_hanging_sign 16 HangingSignItem spruce_hanging_sign 0
-item birch_hanging_sign 16 HangingSignItem birch_hanging_sign 0
-item jungle_hanging_sign 16 HangingSignItem jungle_hanging_sign 0
-item acacia_hanging_sign 16 HangingSignItem acacia_hanging_sign 0
-item cherry_hanging_sign 16 HangingSignItem cherry_hanging_sign 0
-item dark_oak_hanging_sign 16 HangingSignItem dark_oak_hanging_sign 0
-item pale_oak_hanging_sign 16 HangingSignItem pale_oak_hanging_sign 0
-item mangrove_hanging_sign 16 HangingSignItem mangrove_hanging_sign 0
-item bamboo_hanging_sign 16 HangingSignItem bamboo_hanging_sign 0
-item crimson_hanging_sign 16 HangingSignItem crimson_hanging_sign 0
-item warped_hanging_sign 16 HangingSignItem warped_hanging_sign 0
-item bucket 16 BucketItem - 1
-item water_bucket 1 BucketItem - 1
-item lava_bucket 1 BucketItem - 1
-item powder_snow_bucket 1 SolidBucketItem powder_snow 1
-item snowball 16 SnowballItem - 1
-item leather 64 Item - 0
-item milk_bucket 1 Item - 0
-item pufferfish_bucket 1 MobBucketItem - 1
-item salmon_bucket 1 MobBucketItem - 1
-item cod_bucket 1 MobBucketItem - 1
-item tropical_fish_bucket 1 MobBucketItem - 1
-item axolotl_bucket 1 MobBucketItem - 1
-item tadpole_bucket 1 MobBucketItem - 1
-item brick 64 Item - 0
-item clay_ball 64 Item - 0
-item dried_kelp_block 64 BlockItem dried_kelp_block 0
-item paper 64 Item - 0
-item book 64 Item - 0
-item slime_ball 64 Item - 0
-item egg 16 EggItem - 1
-item blue_egg 16 EggItem - 1
-item brown_egg 16 EggItem - 1
-item compass 64 CompassItem - 0
-item recovery_compass 64 Item - 0
-item bundle 1 BundleItem - 0
-item white_bundle 1 BundleItem - 0
-item orange_bundle 1 BundleItem - 0
-item magenta_bundle 1 BundleItem - 0
-item light_blue_bundle 1 BundleItem - 0
-item yellow_bundle 1 BundleItem - 0
-item lime_bundle 1 BundleItem - 0
-item pink_bundle 1 BundleItem - 0
-item gray_bundle 1 BundleItem - 0
-item light_gray_bundle 1 BundleItem - 0
-item cyan_bundle 1 BundleItem - 0
-item purple_bundle 1 BundleItem - 0
-item blue_bundle 1 BundleItem - 0
-item brown_bundle 1 BundleItem - 0
-item green_bundle 1 BundleItem - 0
-item red_bundle 1 BundleItem - 0
-item black_bundle 1 BundleItem - 0
-item fishing_rod 1 FishingRodItem - 0
-item clock 64 Item - 0
-item spyglass 1 SpyglassItem - 0
-item glowstone_dust 64 Item - 0
-item cod 64 Item - 0
-item salmon 64 Item - 0
-item tropical_fish 64 Item - 0
-item pufferfish 64 Item - 0
-item cooked_cod 64 Item - 0
-item cooked_salmon 64 Item - 0
-item ink_sac 64 InkSacItem - 0
-item glow_ink_sac 64 GlowInkSacItem - 0
-item cocoa_beans 64 BlockItem cocoa 0
-item white_dye 64 DyeItem - 0
-item orange_dye 64 DyeItem - 0
-item magenta_dye 64 DyeItem - 0
-item light_blue_dye 64 DyeItem - 0
-item yellow_dye 64 DyeItem - 0
-item lime_dye 64 DyeItem - 0
-item pink_dye 64 DyeItem - 0
-item gray_dye 64 DyeItem - 0
-item light_gray_dye 64 DyeItem - 0
-item cyan_dye 64 DyeItem - 0
-item purple_dye 64 DyeItem - 0
-item blue_dye 64 DyeItem - 0
-item brown_dye 64 DyeItem - 0
-item green_dye 64 DyeItem - 0
-item red_dye 64 DyeItem - 0
-item black_dye 64 DyeItem - 0
-item bone_meal 64 BoneMealItem - 1
-item bone 64 Item - 0
-item sugar 64 Item - 0
-item cake 1 BlockItem cake 0
-item white_bed 1 BedItem white_bed 0
-item orange_bed 1 BedItem orange_bed 0
-item magenta_bed 1 BedItem magenta_bed 0
-item light_blue_bed 1 BedItem light_blue_bed 0
-item yellow_bed 1 BedItem yellow_bed 0
-item lime_bed 1 BedItem lime_bed 0
-item pink_bed 1 BedItem pink_bed 0
-item gray_bed 1 BedItem gray_bed 0
-item light_gray_bed 1 BedItem light_gray_bed 0
-item cyan_bed 1 BedItem cyan_bed 0
-item purple_bed 1 BedItem purple_bed 0
-item blue_bed 1 BedItem blue_bed 0
-item brown_bed 1 BedItem brown_bed 0
-item green_bed 1 BedItem green_bed 0
-item red_bed 1 BedItem red_bed 0
-item black_bed 1 BedItem black_bed 0
-item cookie 64 Item - 0
-item crafter 64 BlockItem crafter 0
-item filled_map 64 MapItem - 0
-item shears 1 ShearsItem - 1
-item melon_slice 64 Item - 0
-item dried_kelp 64 Item - 0
-item pumpkin_seeds 64 BlockItem pumpkin_stem 0
-item melon_seeds 64 BlockItem melon_stem 0
-item beef 64 Item - 0
-item cooked_beef 64 Item - 0
-item chicken 64 Item - 0
-item cooked_chicken 64 Item - 0
-item rotten_flesh 64 Item - 0
-item ender_pearl 16 EnderpearlItem - 0
-item blaze_rod 64 Item - 0
-item ghast_tear 64 Item - 0
-item gold_nugget 64 Item - 0
-item nether_wart 64 BlockItem nether_wart 0
-item glass_bottle 64 BottleItem - 1
-item potion 1 PotionItem - 1
-item spider_eye 64 Item - 0
-item fermented_spider_eye 64 Item - 0
-item blaze_powder 64 Item - 0
-item magma_cream 64 Item - 0
-item brewing_stand 64 BlockItem brewing_stand 0
-item cauldron 64 BlockItem cauldron 0
-item ender_eye 64 EnderEyeItem - 0
-item glistering_melon_slice 64 Item - 0
-item chicken_spawn_egg 64 SpawnEggItem - 1
-item cow_spawn_egg 64 SpawnEggItem - 1
-item pig_spawn_egg 64 SpawnEggItem - 1
-item sheep_spawn_egg 64 SpawnEggItem - 1
-item camel_spawn_egg 64 SpawnEggItem - 1
-item donkey_spawn_egg 64 SpawnEggItem - 1
-item horse_spawn_egg 64 SpawnEggItem - 1
-item mule_spawn_egg 64 SpawnEggItem - 1
-item cat_spawn_egg 64 SpawnEggItem - 1
-item parrot_spawn_egg 64 SpawnEggItem - 1
-item wolf_spawn_egg 64 SpawnEggItem - 1
-item armadillo_spawn_egg 64 SpawnEggItem - 1
-item bat_spawn_egg 64 SpawnEggItem - 1
-item bee_spawn_egg 64 SpawnEggItem - 1
-item fox_spawn_egg 64 SpawnEggItem - 1
-item goat_spawn_egg 64 SpawnEggItem - 1
-item llama_spawn_egg 64 SpawnEggItem - 1
-item ocelot_spawn_egg 64 SpawnEggItem - 1
-item panda_spawn_egg 64 SpawnEggItem - 1
-item polar_bear_spawn_egg 64 SpawnEggItem - 1
-item rabbit_spawn_egg 64 SpawnEggItem - 1
-item axolotl_spawn_egg 64 SpawnEggItem - 1
-item cod_spawn_egg 64 SpawnEggItem - 1
-item dolphin_spawn_egg 64 SpawnEggItem - 1
-item frog_spawn_egg 64 SpawnEggItem - 1
-item glow_squid_spawn_egg 64 SpawnEggItem - 1
-item nautilus_spawn_egg 64 SpawnEggItem - 1
-item pufferfish_spawn_egg 64 SpawnEggItem - 1
-item salmon_spawn_egg 64 SpawnEggItem - 1
-item squid_spawn_egg 64 SpawnEggItem - 1
-item tadpole_spawn_egg 64 SpawnEggItem - 1
-item tropical_fish_spawn_egg 64 SpawnEggItem - 1
-item turtle_spawn_egg 64 SpawnEggItem - 1
-item allay_spawn_egg 64 SpawnEggItem - 1
-item mooshroom_spawn_egg 64 SpawnEggItem - 1
-item sniffer_spawn_egg 64 SpawnEggItem - 1
-item copper_golem_spawn_egg 64 SpawnEggItem - 1
-item iron_golem_spawn_egg 64 SpawnEggItem - 1
-item snow_golem_spawn_egg 64 SpawnEggItem - 1
-item trader_llama_spawn_egg 64 SpawnEggItem - 1
-item villager_spawn_egg 64 SpawnEggItem - 1
-item wandering_trader_spawn_egg 64 SpawnEggItem - 1
-item bogged_spawn_egg 64 SpawnEggItem - 1
-item camel_husk_spawn_egg 64 SpawnEggItem - 1
-item drowned_spawn_egg 64 SpawnEggItem - 1
-item husk_spawn_egg 64 SpawnEggItem - 1
-item parched_spawn_egg 64 SpawnEggItem - 1
-item skeleton_spawn_egg 64 SpawnEggItem - 1
-item skeleton_horse_spawn_egg 64 SpawnEggItem - 1
-item stray_spawn_egg 64 SpawnEggItem - 1
-item wither_spawn_egg 64 SpawnEggItem - 1
-item wither_skeleton_spawn_egg 64 SpawnEggItem - 1
-item zombie_spawn_egg 64 SpawnEggItem - 1
-item zombie_horse_spawn_egg 64 SpawnEggItem - 1
-item zombie_nautilus_spawn_egg 64 SpawnEggItem - 1
-item zombie_villager_spawn_egg 64 SpawnEggItem - 1
-item cave_spider_spawn_egg 64 SpawnEggItem - 1
-item spider_spawn_egg 64 SpawnEggItem - 1
-item breeze_spawn_egg 64 SpawnEggItem - 1
-item creaking_spawn_egg 64 SpawnEggItem - 1
-item creeper_spawn_egg 64 SpawnEggItem - 1
-item elder_guardian_spawn_egg 64 SpawnEggItem - 1
-item guardian_spawn_egg 64 SpawnEggItem - 1
-item phantom_spawn_egg 64 SpawnEggItem - 1
-item silverfish_spawn_egg 64 SpawnEggItem - 1
-item slime_spawn_egg 64 SpawnEggItem - 1
-item warden_spawn_egg 64 SpawnEggItem - 1
-item witch_spawn_egg 64 SpawnEggItem - 1
-item evoker_spawn_egg 64 SpawnEggItem - 1
-item pillager_spawn_egg 64 SpawnEggItem - 1
-item ravager_spawn_egg 64 SpawnEggItem - 1
-item vindicator_spawn_egg 64 SpawnEggItem - 1
-item vex_spawn_egg 64 SpawnEggItem - 1
-item blaze_spawn_egg 64 SpawnEggItem - 1
-item ghast_spawn_egg 64 SpawnEggItem - 1
-item happy_ghast_spawn_egg 64 SpawnEggItem - 1
-item hoglin_spawn_egg 64 SpawnEggItem - 1
-item magma_cube_spawn_egg 64 SpawnEggItem - 1
-item piglin_spawn_egg 64 SpawnEggItem - 1
-item piglin_brute_spawn_egg 64 SpawnEggItem - 1
-item strider_spawn_egg 64 SpawnEggItem - 1
-item zoglin_spawn_egg 64 SpawnEggItem - 1
-item zombified_piglin_spawn_egg 64 SpawnEggItem - 1
-item ender_dragon_spawn_egg 64 SpawnEggItem - 1
-item enderman_spawn_egg 64 SpawnEggItem - 1
-item endermite_spawn_egg 64 SpawnEggItem - 1
-item shulker_spawn_egg 64 SpawnEggItem - 1
-item experience_bottle 64 ExperienceBottleItem - 1
-item fire_charge 64 FireChargeItem - 1
-item wind_charge 64 WindChargeItem - 1
-item writable_book 1 WritableBookItem - 0
-item written_book 16 WrittenBookItem - 0
-item breeze_rod 64 Item - 0
-item mace 1 MaceItem - 0
-item item_frame 64 ItemFrameItem - 0
-item glow_item_frame 64 ItemFrameItem - 0
-item flower_pot 64 BlockItem flower_pot 0
-item carrot 64 BlockItem carrots 0
-item potato 64 BlockItem potatoes 0
-item baked_potato 64 Item - 0
-item poisonous_potato 64 Item - 0
-item map 64 EmptyMapItem - 0
-item golden_carrot 64 Item - 0
-item skeleton_skull 64 StandingAndWallBlockItem skeleton_skull 0
-item wither_skeleton_skull 64 StandingAndWallBlockItem wither_skeleton_skull 1
-item player_head 64 PlayerHeadItem player_head 0
-item zombie_head 64 StandingAndWallBlockItem zombie_head 0
-item creeper_head 64 StandingAndWallBlockItem creeper_head 0
-item dragon_head 64 StandingAndWallBlockItem dragon_head 0
-item piglin_head 64 StandingAndWallBlockItem piglin_head 0
-item nether_star 64 Item - 0
-item pumpkin_pie 64 Item - 0
-item firework_rocket 64 FireworkRocketItem - 1
-item firework_star 64 Item - 0
-item enchanted_book 1 Item - 0
-item nether_brick 64 Item - 0
-item resin_brick 64 Item - 0
-item prismarine_shard 64 Item - 0
-item prismarine_crystals 64 Item - 0
-item rabbit 64 Item - 0
-item cooked_rabbit 64 Item - 0
-item rabbit_stew 1 Item - 0
-item rabbit_foot 64 Item - 0
-item rabbit_hide 64 Item - 0
-item armor_stand 16 ArmorStandItem - 1
-item copper_horse_armor 1 Item - 0
-item iron_horse_armor 1 Item - 0
-item golden_horse_armor 1 Item - 0
-item diamond_horse_armor 1 Item - 0
-item netherite_horse_armor 1 Item - 0
-item leather_horse_armor 1 Item - 0
-item lead 64 LeadItem - 0
-item name_tag 64 NameTagItem - 0
-item command_block_minecart 1 MinecartItem - 1
-item mutton 64 Item - 0
-item cooked_mutton 64 Item - 0
-item white_banner 16 BannerItem white_banner 0
-item orange_banner 16 BannerItem orange_banner 0
-item magenta_banner 16 BannerItem magenta_banner 0
-item light_blue_banner 16 BannerItem light_blue_banner 0
-item yellow_banner 16 BannerItem yellow_banner 0
-item lime_banner 16 BannerItem lime_banner 0
-item pink_banner 16 BannerItem pink_banner 0
-item gray_banner 16 BannerItem gray_banner 0
-item light_gray_banner 16 BannerItem light_gray_banner 0
-item cyan_banner 16 BannerItem cyan_banner 0
-item purple_banner 16 BannerItem purple_banner 0
-item blue_banner 16 BannerItem blue_banner 0
-item brown_banner 16 BannerItem brown_banner 0
-item green_banner 16 BannerItem green_banner 0
-item red_banner 16 BannerItem red_banner 0
-item black_banner 16 BannerItem black_banner 0
-item end_crystal 64 EndCrystalItem - 0
-item chorus_fruit 64 Item - 0
-item popped_chorus_fruit 64 Item - 0
-item torchflower_seeds 64 BlockItem torchflower_crop 0
-item pitcher_pod 64 BlockItem pitcher_crop 0
-item beetroot 64 Item - 0
-item beetroot_seeds 64 BlockItem beetroots 0
-item beetroot_soup 1 Item - 0
-item dragon_breath 64 Item - 0
-item splash_potion 1 SplashPotionItem - 1
-item spectral_arrow 64 SpectralArrowItem - 1
-item tipped_arrow 64 TippedArrowItem - 1
-item lingering_potion 1 LingeringPotionItem - 1
-item shield 1 ShieldItem - 0
-item wooden_spear 1 Item - 0
-item stone_spear 1 Item - 0
-item copper_spear 1 Item - 0
-item iron_spear 1 Item - 0
-item golden_spear 1 Item - 0
-item diamond_spear 1 Item - 0
-item netherite_spear 1 Item - 0
-item totem_of_undying 1 Item - 0
-item shulker_shell 64 Item - 0
-item iron_nugget 64 Item - 0
-item copper_nugget 64 Item - 0
-item knowledge_book 1 KnowledgeBookItem - 0
-item debug_stick 1 DebugStickItem - 0
-item music_disc_13 1 Item - 0
-item music_disc_cat 1 Item - 0
-item music_disc_blocks 1 Item - 0
-item music_disc_chirp 1 Item - 0
-item music_disc_creator 1 Item - 0
-item music_disc_creator_music_box 1 Item - 0
-item music_disc_far 1 Item - 0
-item music_disc_lava_chicken 1 Item - 0
-item music_disc_mall 1 Item - 0
-item music_disc_mellohi 1 Item - 0
-item music_disc_stal 1 Item - 0
-item music_disc_strad 1 Item - 0
-item music_disc_ward 1 Item - 0
-item music_disc_11 1 Item - 0
-item music_disc_wait 1 Item - 0
-item music_disc_otherside 1 Item - 0
-item music_disc_relic 1 Item - 0
-item music_disc_5 1 Item - 0
-item music_disc_pigstep 1 Item - 0
-item music_disc_precipice 1 Item - 0
-item music_disc_tears 1 Item - 0
-item disc_fragment_5 64 DiscFragmentItem - 0
-item trident 1 TridentItem - 0
-item nautilus_shell 64 Item - 0
-item iron_nautilus_armor 1 Item - 0
-item golden_nautilus_armor 1 Item - 0
-item diamond_nautilus_armor 1 Item - 0
-item netherite_nautilus_armor 1 Item - 0
-item copper_nautilus_armor 1 Item - 0
-item heart_of_the_sea 64 Item - 0
-item crossbow 1 CrossbowItem - 0
-item suspicious_stew 1 Item - 0
-item loom 64 BlockItem loom 0
-item flower_banner_pattern 1 Item - 0
-item creeper_banner_pattern 1 Item - 0
-item skull_banner_pattern 1 Item - 0
-item mojang_banner_pattern 1 Item - 0
-item globe_banner_pattern 1 Item - 0
-item piglin_banner_pattern 1 Item - 0
-item flow_banner_pattern 1 Item - 0
-item guster_banner_pattern 1 Item - 0
-item field_masoned_banner_pattern 1 Item - 0
-item bordure_indented_banner_pattern 1 Item - 0
-item goat_horn 1 InstrumentItem - 0
-item composter 64 BlockItem composter 0
-item barrel 64 BlockItem barrel 0
-item smoker 64 BlockItem smoker 0
-item blast_furnace 64 BlockItem blast_furnace 0
-item cartography_table 64 BlockItem cartography_table 0
-item fletching_table 64 BlockItem fletching_table 0
-item grindstone 64 BlockItem grindstone 0
-item smithing_table 64 BlockItem smithing_table 0
-item stonecutter 64 BlockItem stonecutter 0
-item bell 64 BlockItem bell 0
-item lantern 64 BlockItem lantern 0
-item soul_lantern 64 BlockItem soul_lantern 0
-item copper_lantern 64 BlockItem copper_lantern 0
-item exposed_copper_lantern 64 BlockItem exposed_copper_lantern 0
-item weathered_copper_lantern 64 BlockItem weathered_copper_lantern 0
-item oxidized_copper_lantern 64 BlockItem oxidized_copper_lantern 0
-item waxed_copper_lantern 64 BlockItem waxed_copper_lantern 0
-item waxed_exposed_copper_lantern 64 BlockItem waxed_exposed_copper_lantern 0
-item waxed_weathered_copper_lantern 64 BlockItem waxed_weathered_copper_lantern 0
-item waxed_oxidized_copper_lantern 64 BlockItem waxed_oxidized_copper_lantern 0
-item sweet_berries 64 BlockItem sweet_berry_bush 0
-item glow_berries 64 BlockItem cave_vines 0
-item campfire 64 BlockItem campfire 0
-item soul_campfire 64 BlockItem soul_campfire 0
-item shroomlight 64 BlockItem shroomlight 0
-item honeycomb 64 HoneycombItem - 1
-item bee_nest 64 BlockItem bee_nest 0
-item beehive 64 BlockItem beehive 0
-item honey_bottle 16 Item - 0
-item honeycomb_block 64 BlockItem honeycomb_block 0
-item lodestone 64 BlockItem lodestone 0
-item crying_obsidian 64 BlockItem crying_obsidian 0
-item blackstone 64 BlockItem blackstone 0
-item blackstone_slab 64 BlockItem blackstone_slab 0
-item blackstone_stairs 64 BlockItem blackstone_stairs 0
-item gilded_blackstone 64 BlockItem gilded_blackstone 0
-item polished_blackstone 64 BlockItem polished_blackstone 0
-item polished_blackstone_slab 64 BlockItem polished_blackstone_slab 0
-item polished_blackstone_stairs 64 BlockItem polished_blackstone_stairs 0
-item chiseled_polished_blackstone 64 BlockItem chiseled_polished_blackstone 0
-item polished_blackstone_bricks 64 BlockItem polished_blackstone_bricks 0
-item polished_blackstone_brick_slab 64 BlockItem polished_blackstone_brick_slab 0
-item polished_blackstone_brick_stairs 64 BlockItem polished_blackstone_brick_stairs 0
-item cracked_polished_blackstone_bricks 64 BlockItem cracked_polished_blackstone_bricks 0
-item respawn_anchor 64 BlockItem respawn_anchor 0
-item candle 64 BlockItem candle 0
-item white_candle 64 BlockItem white_candle 0
-item orange_candle 64 BlockItem orange_candle 0
-item magenta_candle 64 BlockItem magenta_candle 0
-item light_blue_candle 64 BlockItem light_blue_candle 0
-item yellow_candle 64 BlockItem yellow_candle 0
-item lime_candle 64 BlockItem lime_candle 0
-item pink_candle 64 BlockItem pink_candle 0
-item gray_candle 64 BlockItem gray_candle 0
-item light_gray_candle 64 BlockItem light_gray_candle 0
-item cyan_candle 64 BlockItem cyan_candle 0
-item purple_candle 64 BlockItem purple_candle 0
-item blue_candle 64 BlockItem blue_candle 0
-item brown_candle 64 BlockItem brown_candle 0
-item green_candle 64 BlockItem green_candle 0
-item red_candle 64 BlockItem red_candle 0
-item black_candle 64 BlockItem black_candle 0
-item small_amethyst_bud 64 BlockItem small_amethyst_bud 0
-item medium_amethyst_bud 64 BlockItem medium_amethyst_bud 0
-item large_amethyst_bud 64 BlockItem large_amethyst_bud 0
-item amethyst_cluster 64 BlockItem amethyst_cluster 0
-item pointed_dripstone 64 BlockItem pointed_dripstone 0
-item ochre_froglight 64 BlockItem ochre_froglight 0
-item verdant_froglight 64 BlockItem verdant_froglight 0
-item pearlescent_froglight 64 BlockItem pearlescent_froglight 0
-item frogspawn 64 PlaceOnWaterBlockItem frogspawn 0
-item echo_shard 64 Item - 0
-item brush 1 BrushItem - 1
-item netherite_upgrade_smithing_template 64 SmithingTemplateItem - 0
-item sentry_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item dune_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item coast_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item wild_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item ward_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item eye_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item vex_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item tide_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item snout_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item rib_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item spire_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item wayfinder_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item shaper_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item silence_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item raiser_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item host_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item flow_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item bolt_armor_trim_smithing_template 64 SmithingTemplateItem - 0
-item angler_pottery_sherd 64 Item - 0
-item archer_pottery_sherd 64 Item - 0
-item arms_up_pottery_sherd 64 Item - 0
-item blade_pottery_sherd 64 Item - 0
-item brewer_pottery_sherd 64 Item - 0
-item burn_pottery_sherd 64 Item - 0
-item danger_pottery_sherd 64 Item - 0
-item explorer_pottery_sherd 64 Item - 0
-item flow_pottery_sherd 64 Item - 0
-item friend_pottery_sherd 64 Item - 0
-item guster_pottery_sherd 64 Item - 0
-item heart_pottery_sherd 64 Item - 0
-item heartbreak_pottery_sherd 64 Item - 0
-item howl_pottery_sherd 64 Item - 0
-item miner_pottery_sherd 64 Item - 0
-item mourner_pottery_sherd 64 Item - 0
-item plenty_pottery_sherd 64 Item - 0
-item prize_pottery_sherd 64 Item - 0
-item scrape_pottery_sherd 64 Item - 0
-item sheaf_pottery_sherd 64 Item - 0
-item shelter_pottery_sherd 64 Item - 0
-item skull_pottery_sherd 64 Item - 0
-item snort_pottery_sherd 64 Item - 0
-item copper_grate 64 BlockItem copper_grate 0
-item exposed_copper_grate 64 BlockItem exposed_copper_grate 0
-item weathered_copper_grate 64 BlockItem weathered_copper_grate 0
-item oxidized_copper_grate 64 BlockItem oxidized_copper_grate 0
-item waxed_copper_grate 64 BlockItem waxed_copper_grate 0
-item waxed_exposed_copper_grate 64 BlockItem waxed_exposed_copper_grate 0
-item waxed_weathered_copper_grate 64 BlockItem waxed_weathered_copper_grate 0
-item waxed_oxidized_copper_grate 64 BlockItem waxed_oxidized_copper_grate 0
-item copper_bulb 64 BlockItem copper_bulb 0
-item exposed_copper_bulb 64 BlockItem exposed_copper_bulb 0
-item weathered_copper_bulb 64 BlockItem weathered_copper_bulb 0
-item oxidized_copper_bulb 64 BlockItem oxidized_copper_bulb 0
-item waxed_copper_bulb 64 BlockItem waxed_copper_bulb 0
-item waxed_exposed_copper_bulb 64 BlockItem waxed_exposed_copper_bulb 0
-item waxed_weathered_copper_bulb 64 BlockItem waxed_weathered_copper_bulb 0
-item waxed_oxidized_copper_bulb 64 BlockItem waxed_oxidized_copper_bulb 0
-item copper_chest 64 BlockItem copper_chest 0
-item exposed_copper_chest 64 BlockItem exposed_copper_chest 0
-item weathered_copper_chest 64 BlockItem weathered_copper_chest 0
-item oxidized_copper_chest 64 BlockItem oxidized_copper_chest 0
-item waxed_copper_chest 64 BlockItem waxed_copper_chest 0
-item waxed_exposed_copper_chest 64 BlockItem waxed_exposed_copper_chest 0
-item waxed_weathered_copper_chest 64 BlockItem waxed_weathered_copper_chest 0
-item waxed_oxidized_copper_chest 64 BlockItem waxed_oxidized_copper_chest 0
-item copper_golem_statue 64 BlockItem copper_golem_statue 0
-item exposed_copper_golem_statue 64 BlockItem exposed_copper_golem_statue 0
-item weathered_copper_golem_statue 64 BlockItem weathered_copper_golem_statue 0
-item oxidized_copper_golem_statue 64 BlockItem oxidized_copper_golem_statue 0
-item waxed_copper_golem_statue 64 BlockItem waxed_copper_golem_statue 0
-item waxed_exposed_copper_golem_statue 64 BlockItem waxed_exposed_copper_golem_statue 0
-item waxed_weathered_copper_golem_statue 64 BlockItem waxed_weathered_copper_golem_statue 0
-item waxed_oxidized_copper_golem_statue 64 BlockItem waxed_oxidized_copper_golem_statue 0
-item trial_spawner 64 BlockItem trial_spawner 0
-item trial_key 64 Item - 0
-item ominous_trial_key 64 Item - 0
-item vault 64 BlockItem vault 0
-item ominous_bottle 64 Item - 0
+item air 64 AirItem - 0 -
+item stone 64 BlockItem stone 0 -
+item granite 64 BlockItem granite 0 -
+item polished_granite 64 BlockItem polished_granite 0 -
+item diorite 64 BlockItem diorite 0 -
+item polished_diorite 64 BlockItem polished_diorite 0 -
+item andesite 64 BlockItem andesite 0 -
+item polished_andesite 64 BlockItem polished_andesite 0 -
+item deepslate 64 BlockItem deepslate 0 -
+item cobbled_deepslate 64 BlockItem cobbled_deepslate 0 -
+item polished_deepslate 64 BlockItem polished_deepslate 0 -
+item calcite 64 BlockItem calcite 0 -
+item tuff 64 BlockItem tuff 0 -
+item tuff_slab 64 BlockItem tuff_slab 0 -
+item tuff_stairs 64 BlockItem tuff_stairs 0 -
+item tuff_wall 64 BlockItem tuff_wall 0 -
+item chiseled_tuff 64 BlockItem chiseled_tuff 0 -
+item polished_tuff 64 BlockItem polished_tuff 0 -
+item polished_tuff_slab 64 BlockItem polished_tuff_slab 0 -
+item polished_tuff_stairs 64 BlockItem polished_tuff_stairs 0 -
+item polished_tuff_wall 64 BlockItem polished_tuff_wall 0 -
+item tuff_bricks 64 BlockItem tuff_bricks 0 -
+item tuff_brick_slab 64 BlockItem tuff_brick_slab 0 -
+item tuff_brick_stairs 64 BlockItem tuff_brick_stairs 0 -
+item tuff_brick_wall 64 BlockItem tuff_brick_wall 0 -
+item chiseled_tuff_bricks 64 BlockItem chiseled_tuff_bricks 0 -
+item dripstone_block 64 BlockItem dripstone_block 0 -
+item grass_block 64 BlockItem grass_block 0 -
+item dirt 64 BlockItem dirt 0 -
+item coarse_dirt 64 BlockItem coarse_dirt 0 -
+item podzol 64 BlockItem podzol 0 -
+item rooted_dirt 64 BlockItem rooted_dirt 0 -
+item mud 64 BlockItem mud 0 -
+item crimson_nylium 64 BlockItem crimson_nylium 0 -
+item warped_nylium 64 BlockItem warped_nylium 0 -
+item cobblestone 64 BlockItem cobblestone 0 -
+item oak_planks 64 BlockItem oak_planks 0 -
+item spruce_planks 64 BlockItem spruce_planks 0 -
+item birch_planks 64 BlockItem birch_planks 0 -
+item jungle_planks 64 BlockItem jungle_planks 0 -
+item acacia_planks 64 BlockItem acacia_planks 0 -
+item cherry_planks 64 BlockItem cherry_planks 0 -
+item dark_oak_planks 64 BlockItem dark_oak_planks 0 -
+item pale_oak_planks 64 BlockItem pale_oak_planks 0 -
+item mangrove_planks 64 BlockItem mangrove_planks 0 -
+item bamboo_planks 64 BlockItem bamboo_planks 0 -
+item crimson_planks 64 BlockItem crimson_planks 0 -
+item warped_planks 64 BlockItem warped_planks 0 -
+item bamboo_mosaic 64 BlockItem bamboo_mosaic 0 -
+item oak_sapling 64 BlockItem oak_sapling 0 -
+item spruce_sapling 64 BlockItem spruce_sapling 0 -
+item birch_sapling 64 BlockItem birch_sapling 0 -
+item jungle_sapling 64 BlockItem jungle_sapling 0 -
+item acacia_sapling 64 BlockItem acacia_sapling 0 -
+item cherry_sapling 64 BlockItem cherry_sapling 0 -
+item dark_oak_sapling 64 BlockItem dark_oak_sapling 0 -
+item pale_oak_sapling 64 BlockItem pale_oak_sapling 0 -
+item mangrove_propagule 64 BlockItem mangrove_propagule 0 -
+item bedrock 64 BlockItem bedrock 0 -
+item sand 64 BlockItem sand 0 -
+item suspicious_sand 64 BlockItem suspicious_sand 0 -
+item suspicious_gravel 64 BlockItem suspicious_gravel 0 -
+item red_sand 64 BlockItem red_sand 0 -
+item gravel 64 BlockItem gravel 0 -
+item coal_ore 64 BlockItem coal_ore 0 -
+item deepslate_coal_ore 64 BlockItem deepslate_coal_ore 0 -
+item iron_ore 64 BlockItem iron_ore 0 -
+item deepslate_iron_ore 64 BlockItem deepslate_iron_ore 0 -
+item copper_ore 64 BlockItem copper_ore 0 -
+item deepslate_copper_ore 64 BlockItem deepslate_copper_ore 0 -
+item gold_ore 64 BlockItem gold_ore 0 -
+item deepslate_gold_ore 64 BlockItem deepslate_gold_ore 0 -
+item redstone_ore 64 BlockItem redstone_ore 0 -
+item deepslate_redstone_ore 64 BlockItem deepslate_redstone_ore 0 -
+item emerald_ore 64 BlockItem emerald_ore 0 -
+item deepslate_emerald_ore 64 BlockItem deepslate_emerald_ore 0 -
+item lapis_ore 64 BlockItem lapis_ore 0 -
+item deepslate_lapis_ore 64 BlockItem deepslate_lapis_ore 0 -
+item diamond_ore 64 BlockItem diamond_ore 0 -
+item deepslate_diamond_ore 64 BlockItem deepslate_diamond_ore 0 -
+item nether_gold_ore 64 BlockItem nether_gold_ore 0 -
+item nether_quartz_ore 64 BlockItem nether_quartz_ore 0 -
+item ancient_debris 64 BlockItem ancient_debris 0 -
+item coal_block 64 BlockItem coal_block 0 -
+item raw_iron_block 64 BlockItem raw_iron_block 0 -
+item raw_copper_block 64 BlockItem raw_copper_block 0 -
+item raw_gold_block 64 BlockItem raw_gold_block 0 -
+item heavy_core 64 BlockItem heavy_core 0 -
+item amethyst_block 64 BlockItem amethyst_block 0 -
+item budding_amethyst 64 BlockItem budding_amethyst 0 -
+item iron_block 64 BlockItem iron_block 0 -
+item copper_block 64 BlockItem copper_block 0 -
+item gold_block 64 BlockItem gold_block 0 -
+item diamond_block 64 BlockItem diamond_block 0 -
+item netherite_block 64 BlockItem netherite_block 0 -
+item exposed_copper 64 BlockItem exposed_copper 0 -
+item weathered_copper 64 BlockItem weathered_copper 0 -
+item oxidized_copper 64 BlockItem oxidized_copper 0 -
+item chiseled_copper 64 BlockItem chiseled_copper 0 -
+item exposed_chiseled_copper 64 BlockItem exposed_chiseled_copper 0 -
+item weathered_chiseled_copper 64 BlockItem weathered_chiseled_copper 0 -
+item oxidized_chiseled_copper 64 BlockItem oxidized_chiseled_copper 0 -
+item cut_copper 64 BlockItem cut_copper 0 -
+item exposed_cut_copper 64 BlockItem exposed_cut_copper 0 -
+item weathered_cut_copper 64 BlockItem weathered_cut_copper 0 -
+item oxidized_cut_copper 64 BlockItem oxidized_cut_copper 0 -
+item cut_copper_stairs 64 BlockItem cut_copper_stairs 0 -
+item exposed_cut_copper_stairs 64 BlockItem exposed_cut_copper_stairs 0 -
+item weathered_cut_copper_stairs 64 BlockItem weathered_cut_copper_stairs 0 -
+item oxidized_cut_copper_stairs 64 BlockItem oxidized_cut_copper_stairs 0 -
+item cut_copper_slab 64 BlockItem cut_copper_slab 0 -
+item exposed_cut_copper_slab 64 BlockItem exposed_cut_copper_slab 0 -
+item weathered_cut_copper_slab 64 BlockItem weathered_cut_copper_slab 0 -
+item oxidized_cut_copper_slab 64 BlockItem oxidized_cut_copper_slab 0 -
+item waxed_copper_block 64 BlockItem waxed_copper_block 0 -
+item waxed_exposed_copper 64 BlockItem waxed_exposed_copper 0 -
+item waxed_weathered_copper 64 BlockItem waxed_weathered_copper 0 -
+item waxed_oxidized_copper 64 BlockItem waxed_oxidized_copper 0 -
+item waxed_chiseled_copper 64 BlockItem waxed_chiseled_copper 0 -
+item waxed_exposed_chiseled_copper 64 BlockItem waxed_exposed_chiseled_copper 0 -
+item waxed_weathered_chiseled_copper 64 BlockItem waxed_weathered_chiseled_copper 0 -
+item waxed_oxidized_chiseled_copper 64 BlockItem waxed_oxidized_chiseled_copper 0 -
+item waxed_cut_copper 64 BlockItem waxed_cut_copper 0 -
+item waxed_exposed_cut_copper 64 BlockItem waxed_exposed_cut_copper 0 -
+item waxed_weathered_cut_copper 64 BlockItem waxed_weathered_cut_copper 0 -
+item waxed_oxidized_cut_copper 64 BlockItem waxed_oxidized_cut_copper 0 -
+item waxed_cut_copper_stairs 64 BlockItem waxed_cut_copper_stairs 0 -
+item waxed_exposed_cut_copper_stairs 64 BlockItem waxed_exposed_cut_copper_stairs 0 -
+item waxed_weathered_cut_copper_stairs 64 BlockItem waxed_weathered_cut_copper_stairs 0 -
+item waxed_oxidized_cut_copper_stairs 64 BlockItem waxed_oxidized_cut_copper_stairs 0 -
+item waxed_cut_copper_slab 64 BlockItem waxed_cut_copper_slab 0 -
+item waxed_exposed_cut_copper_slab 64 BlockItem waxed_exposed_cut_copper_slab 0 -
+item waxed_weathered_cut_copper_slab 64 BlockItem waxed_weathered_cut_copper_slab 0 -
+item waxed_oxidized_cut_copper_slab 64 BlockItem waxed_oxidized_cut_copper_slab 0 -
+item oak_log 64 BlockItem oak_log 0 -
+item spruce_log 64 BlockItem spruce_log 0 -
+item birch_log 64 BlockItem birch_log 0 -
+item jungle_log 64 BlockItem jungle_log 0 -
+item acacia_log 64 BlockItem acacia_log 0 -
+item cherry_log 64 BlockItem cherry_log 0 -
+item pale_oak_log 64 BlockItem pale_oak_log 0 -
+item dark_oak_log 64 BlockItem dark_oak_log 0 -
+item mangrove_log 64 BlockItem mangrove_log 0 -
+item mangrove_roots 64 BlockItem mangrove_roots 0 -
+item muddy_mangrove_roots 64 BlockItem muddy_mangrove_roots 0 -
+item crimson_stem 64 BlockItem crimson_stem 0 -
+item warped_stem 64 BlockItem warped_stem 0 -
+item bamboo_block 64 BlockItem bamboo_block 0 -
+item stripped_oak_log 64 BlockItem stripped_oak_log 0 -
+item stripped_spruce_log 64 BlockItem stripped_spruce_log 0 -
+item stripped_birch_log 64 BlockItem stripped_birch_log 0 -
+item stripped_jungle_log 64 BlockItem stripped_jungle_log 0 -
+item stripped_acacia_log 64 BlockItem stripped_acacia_log 0 -
+item stripped_cherry_log 64 BlockItem stripped_cherry_log 0 -
+item stripped_dark_oak_log 64 BlockItem stripped_dark_oak_log 0 -
+item stripped_pale_oak_log 64 BlockItem stripped_pale_oak_log 0 -
+item stripped_mangrove_log 64 BlockItem stripped_mangrove_log 0 -
+item stripped_crimson_stem 64 BlockItem stripped_crimson_stem 0 -
+item stripped_warped_stem 64 BlockItem stripped_warped_stem 0 -
+item stripped_oak_wood 64 BlockItem stripped_oak_wood 0 -
+item stripped_spruce_wood 64 BlockItem stripped_spruce_wood 0 -
+item stripped_birch_wood 64 BlockItem stripped_birch_wood 0 -
+item stripped_jungle_wood 64 BlockItem stripped_jungle_wood 0 -
+item stripped_acacia_wood 64 BlockItem stripped_acacia_wood 0 -
+item stripped_cherry_wood 64 BlockItem stripped_cherry_wood 0 -
+item stripped_dark_oak_wood 64 BlockItem stripped_dark_oak_wood 0 -
+item stripped_pale_oak_wood 64 BlockItem stripped_pale_oak_wood 0 -
+item stripped_mangrove_wood 64 BlockItem stripped_mangrove_wood 0 -
+item stripped_crimson_hyphae 64 BlockItem stripped_crimson_hyphae 0 -
+item stripped_warped_hyphae 64 BlockItem stripped_warped_hyphae 0 -
+item stripped_bamboo_block 64 BlockItem stripped_bamboo_block 0 -
+item oak_wood 64 BlockItem oak_wood 0 -
+item spruce_wood 64 BlockItem spruce_wood 0 -
+item birch_wood 64 BlockItem birch_wood 0 -
+item jungle_wood 64 BlockItem jungle_wood 0 -
+item acacia_wood 64 BlockItem acacia_wood 0 -
+item cherry_wood 64 BlockItem cherry_wood 0 -
+item pale_oak_wood 64 BlockItem pale_oak_wood 0 -
+item dark_oak_wood 64 BlockItem dark_oak_wood 0 -
+item mangrove_wood 64 BlockItem mangrove_wood 0 -
+item crimson_hyphae 64 BlockItem crimson_hyphae 0 -
+item warped_hyphae 64 BlockItem warped_hyphae 0 -
+item oak_leaves 64 BlockItem oak_leaves 0 -
+item spruce_leaves 64 BlockItem spruce_leaves 0 -
+item birch_leaves 64 BlockItem birch_leaves 0 -
+item jungle_leaves 64 BlockItem jungle_leaves 0 -
+item acacia_leaves 64 BlockItem acacia_leaves 0 -
+item cherry_leaves 64 BlockItem cherry_leaves 0 -
+item dark_oak_leaves 64 BlockItem dark_oak_leaves 0 -
+item pale_oak_leaves 64 BlockItem pale_oak_leaves 0 -
+item mangrove_leaves 64 BlockItem mangrove_leaves 0 -
+item azalea_leaves 64 BlockItem azalea_leaves 0 -
+item flowering_azalea_leaves 64 BlockItem flowering_azalea_leaves 0 -
+item sponge 64 BlockItem sponge 0 -
+item wet_sponge 64 BlockItem wet_sponge 0 -
+item glass 64 BlockItem glass 0 -
+item tinted_glass 64 BlockItem tinted_glass 0 -
+item lapis_block 64 BlockItem lapis_block 0 -
+item sandstone 64 BlockItem sandstone 0 -
+item chiseled_sandstone 64 BlockItem chiseled_sandstone 0 -
+item cut_sandstone 64 BlockItem cut_sandstone 0 -
+item cobweb 64 BlockItem cobweb 0 -
+item short_grass 64 BlockItem short_grass 0 -
+item fern 64 BlockItem fern 0 -
+item bush 64 BlockItem bush 0 -
+item azalea 64 BlockItem azalea 0 -
+item flowering_azalea 64 BlockItem flowering_azalea 0 -
+item dead_bush 64 BlockItem dead_bush 0 -
+item firefly_bush 64 BlockItem firefly_bush 0 -
+item short_dry_grass 64 BlockItem short_dry_grass 0 -
+item tall_dry_grass 64 BlockItem tall_dry_grass 0 -
+item seagrass 64 BlockItem seagrass 0 -
+item sea_pickle 64 BlockItem sea_pickle 0 -
+item white_wool 64 BlockItem white_wool 0 -
+item orange_wool 64 BlockItem orange_wool 0 -
+item magenta_wool 64 BlockItem magenta_wool 0 -
+item light_blue_wool 64 BlockItem light_blue_wool 0 -
+item yellow_wool 64 BlockItem yellow_wool 0 -
+item lime_wool 64 BlockItem lime_wool 0 -
+item pink_wool 64 BlockItem pink_wool 0 -
+item gray_wool 64 BlockItem gray_wool 0 -
+item light_gray_wool 64 BlockItem light_gray_wool 0 -
+item cyan_wool 64 BlockItem cyan_wool 0 -
+item purple_wool 64 BlockItem purple_wool 0 -
+item blue_wool 64 BlockItem blue_wool 0 -
+item brown_wool 64 BlockItem brown_wool 0 -
+item green_wool 64 BlockItem green_wool 0 -
+item red_wool 64 BlockItem red_wool 0 -
+item black_wool 64 BlockItem black_wool 0 -
+item dandelion 64 BlockItem dandelion 0 -
+item open_eyeblossom 64 BlockItem open_eyeblossom 0 -
+item closed_eyeblossom 64 BlockItem closed_eyeblossom 0 -
+item poppy 64 BlockItem poppy 0 -
+item blue_orchid 64 BlockItem blue_orchid 0 -
+item allium 64 BlockItem allium 0 -
+item azure_bluet 64 BlockItem azure_bluet 0 -
+item red_tulip 64 BlockItem red_tulip 0 -
+item orange_tulip 64 BlockItem orange_tulip 0 -
+item white_tulip 64 BlockItem white_tulip 0 -
+item pink_tulip 64 BlockItem pink_tulip 0 -
+item oxeye_daisy 64 BlockItem oxeye_daisy 0 -
+item cornflower 64 BlockItem cornflower 0 -
+item lily_of_the_valley 64 BlockItem lily_of_the_valley 0 -
+item wither_rose 64 BlockItem wither_rose 0 -
+item torchflower 64 BlockItem torchflower 0 -
+item pitcher_plant 64 BlockItem pitcher_plant 0 -
+item spore_blossom 64 BlockItem spore_blossom 0 -
+item brown_mushroom 64 BlockItem brown_mushroom 0 -
+item red_mushroom 64 BlockItem red_mushroom 0 -
+item crimson_fungus 64 BlockItem crimson_fungus 0 -
+item warped_fungus 64 BlockItem warped_fungus 0 -
+item crimson_roots 64 BlockItem crimson_roots 0 -
+item warped_roots 64 BlockItem warped_roots 0 -
+item nether_sprouts 64 BlockItem nether_sprouts 0 -
+item weeping_vines 64 BlockItem weeping_vines 0 -
+item twisting_vines 64 BlockItem twisting_vines 0 -
+item sugar_cane 64 BlockItem sugar_cane 0 -
+item kelp 64 BlockItem kelp 0 -
+item pink_petals 64 BlockItem pink_petals 0 -
+item wildflowers 64 BlockItem wildflowers 0 -
+item leaf_litter 64 BlockItem leaf_litter 0 -
+item moss_carpet 64 BlockItem moss_carpet 0 -
+item moss_block 64 BlockItem moss_block 0 -
+item pale_moss_carpet 64 BlockItem pale_moss_carpet 0 -
+item pale_hanging_moss 64 BlockItem pale_hanging_moss 0 -
+item pale_moss_block 64 BlockItem pale_moss_block 0 -
+item hanging_roots 64 BlockItem hanging_roots 0 -
+item big_dripleaf 64 BlockItem big_dripleaf 0 -
+item small_dripleaf 64 DoubleHighBlockItem small_dripleaf 0 -
+item bamboo 64 BlockItem bamboo 0 -
+item oak_slab 64 BlockItem oak_slab 0 -
+item spruce_slab 64 BlockItem spruce_slab 0 -
+item birch_slab 64 BlockItem birch_slab 0 -
+item jungle_slab 64 BlockItem jungle_slab 0 -
+item acacia_slab 64 BlockItem acacia_slab 0 -
+item cherry_slab 64 BlockItem cherry_slab 0 -
+item dark_oak_slab 64 BlockItem dark_oak_slab 0 -
+item pale_oak_slab 64 BlockItem pale_oak_slab 0 -
+item mangrove_slab 64 BlockItem mangrove_slab 0 -
+item bamboo_slab 64 BlockItem bamboo_slab 0 -
+item bamboo_mosaic_slab 64 BlockItem bamboo_mosaic_slab 0 -
+item crimson_slab 64 BlockItem crimson_slab 0 -
+item warped_slab 64 BlockItem warped_slab 0 -
+item stone_slab 64 BlockItem stone_slab 0 -
+item smooth_stone_slab 64 BlockItem smooth_stone_slab 0 -
+item sandstone_slab 64 BlockItem sandstone_slab 0 -
+item cut_sandstone_slab 64 BlockItem cut_sandstone_slab 0 -
+item petrified_oak_slab 64 BlockItem petrified_oak_slab 0 -
+item cobblestone_slab 64 BlockItem cobblestone_slab 0 -
+item brick_slab 64 BlockItem brick_slab 0 -
+item stone_brick_slab 64 BlockItem stone_brick_slab 0 -
+item mud_brick_slab 64 BlockItem mud_brick_slab 0 -
+item nether_brick_slab 64 BlockItem nether_brick_slab 0 -
+item quartz_slab 64 BlockItem quartz_slab 0 -
+item red_sandstone_slab 64 BlockItem red_sandstone_slab 0 -
+item cut_red_sandstone_slab 64 BlockItem cut_red_sandstone_slab 0 -
+item purpur_slab 64 BlockItem purpur_slab 0 -
+item prismarine_slab 64 BlockItem prismarine_slab 0 -
+item prismarine_brick_slab 64 BlockItem prismarine_brick_slab 0 -
+item dark_prismarine_slab 64 BlockItem dark_prismarine_slab 0 -
+item smooth_quartz 64 BlockItem smooth_quartz 0 -
+item smooth_red_sandstone 64 BlockItem smooth_red_sandstone 0 -
+item smooth_sandstone 64 BlockItem smooth_sandstone 0 -
+item smooth_stone 64 BlockItem smooth_stone 0 -
+item bricks 64 BlockItem bricks 0 -
+item acacia_shelf 64 BlockItem acacia_shelf 0 -
+item bamboo_shelf 64 BlockItem bamboo_shelf 0 -
+item birch_shelf 64 BlockItem birch_shelf 0 -
+item cherry_shelf 64 BlockItem cherry_shelf 0 -
+item crimson_shelf 64 BlockItem crimson_shelf 0 -
+item dark_oak_shelf 64 BlockItem dark_oak_shelf 0 -
+item jungle_shelf 64 BlockItem jungle_shelf 0 -
+item mangrove_shelf 64 BlockItem mangrove_shelf 0 -
+item oak_shelf 64 BlockItem oak_shelf 0 -
+item pale_oak_shelf 64 BlockItem pale_oak_shelf 0 -
+item spruce_shelf 64 BlockItem spruce_shelf 0 -
+item warped_shelf 64 BlockItem warped_shelf 0 -
+item bookshelf 64 BlockItem bookshelf 0 -
+item chiseled_bookshelf 64 BlockItem chiseled_bookshelf 0 -
+item decorated_pot 64 BlockItem decorated_pot 0 -
+item mossy_cobblestone 64 BlockItem mossy_cobblestone 0 -
+item obsidian 64 BlockItem obsidian 0 -
+item torch 64 StandingAndWallBlockItem torch 0 -
+item end_rod 64 BlockItem end_rod 0 -
+item chorus_plant 64 BlockItem chorus_plant 0 -
+item chorus_flower 64 BlockItem chorus_flower 0 -
+item purpur_block 64 BlockItem purpur_block 0 -
+item purpur_pillar 64 BlockItem purpur_pillar 0 -
+item purpur_stairs 64 BlockItem purpur_stairs 0 -
+item spawner 64 BlockItem spawner 0 -
+item creaking_heart 64 BlockItem creaking_heart 0 -
+item chest 64 BlockItem chest 1 -
+item crafting_table 64 BlockItem crafting_table 0 -
+item farmland 64 BlockItem farmland 0 -
+item furnace 64 BlockItem furnace 0 -
+item ladder 64 BlockItem ladder 0 -
+item cobblestone_stairs 64 BlockItem cobblestone_stairs 0 -
+item snow 64 BlockItem snow 0 -
+item ice 64 BlockItem ice 0 -
+item snow_block 64 BlockItem snow_block 0 -
+item cactus 64 BlockItem cactus 0 -
+item cactus_flower 64 BlockItem cactus_flower 0 -
+item clay 64 BlockItem clay 0 -
+item jukebox 64 BlockItem jukebox 0 -
+item oak_fence 64 BlockItem oak_fence 0 -
+item spruce_fence 64 BlockItem spruce_fence 0 -
+item birch_fence 64 BlockItem birch_fence 0 -
+item jungle_fence 64 BlockItem jungle_fence 0 -
+item acacia_fence 64 BlockItem acacia_fence 0 -
+item cherry_fence 64 BlockItem cherry_fence 0 -
+item dark_oak_fence 64 BlockItem dark_oak_fence 0 -
+item pale_oak_fence 64 BlockItem pale_oak_fence 0 -
+item mangrove_fence 64 BlockItem mangrove_fence 0 -
+item bamboo_fence 64 BlockItem bamboo_fence 0 -
+item crimson_fence 64 BlockItem crimson_fence 0 -
+item warped_fence 64 BlockItem warped_fence 0 -
+item pumpkin 64 BlockItem pumpkin 0 -
+item carved_pumpkin 64 BlockItem carved_pumpkin 1 -
+item jack_o_lantern 64 BlockItem jack_o_lantern 0 -
+item netherrack 64 BlockItem netherrack 0 -
+item soul_sand 64 BlockItem soul_sand 0 -
+item soul_soil 64 BlockItem soul_soil 0 -
+item basalt 64 BlockItem basalt 0 -
+item polished_basalt 64 BlockItem polished_basalt 0 -
+item smooth_basalt 64 BlockItem smooth_basalt 0 -
+item soul_torch 64 StandingAndWallBlockItem soul_torch 0 -
+item copper_torch 64 StandingAndWallBlockItem copper_torch 0 -
+item glowstone 64 BlockItem glowstone 1 -
+item infested_stone 64 BlockItem infested_stone 0 -
+item infested_cobblestone 64 BlockItem infested_cobblestone 0 -
+item infested_stone_bricks 64 BlockItem infested_stone_bricks 0 -
+item infested_mossy_stone_bricks 64 BlockItem infested_mossy_stone_bricks 0 -
+item infested_cracked_stone_bricks 64 BlockItem infested_cracked_stone_bricks 0 -
+item infested_chiseled_stone_bricks 64 BlockItem infested_chiseled_stone_bricks 0 -
+item infested_deepslate 64 BlockItem infested_deepslate 0 -
+item stone_bricks 64 BlockItem stone_bricks 0 -
+item mossy_stone_bricks 64 BlockItem mossy_stone_bricks 0 -
+item cracked_stone_bricks 64 BlockItem cracked_stone_bricks 0 -
+item chiseled_stone_bricks 64 BlockItem chiseled_stone_bricks 0 -
+item packed_mud 64 BlockItem packed_mud 0 -
+item mud_bricks 64 BlockItem mud_bricks 0 -
+item deepslate_bricks 64 BlockItem deepslate_bricks 0 -
+item cracked_deepslate_bricks 64 BlockItem cracked_deepslate_bricks 0 -
+item deepslate_tiles 64 BlockItem deepslate_tiles 0 -
+item cracked_deepslate_tiles 64 BlockItem cracked_deepslate_tiles 0 -
+item chiseled_deepslate 64 BlockItem chiseled_deepslate 0 -
+item reinforced_deepslate 64 BlockItem reinforced_deepslate 0 -
+item brown_mushroom_block 64 BlockItem brown_mushroom_block 0 -
+item red_mushroom_block 64 BlockItem red_mushroom_block 0 -
+item mushroom_stem 64 BlockItem mushroom_stem 0 -
+item iron_bars 64 BlockItem iron_bars 0 -
+item copper_bars 64 BlockItem copper_bars 0 -
+item exposed_copper_bars 64 BlockItem exposed_copper_bars 0 -
+item weathered_copper_bars 64 BlockItem weathered_copper_bars 0 -
+item oxidized_copper_bars 64 BlockItem oxidized_copper_bars 0 -
+item waxed_copper_bars 64 BlockItem waxed_copper_bars 0 -
+item waxed_exposed_copper_bars 64 BlockItem waxed_exposed_copper_bars 0 -
+item waxed_weathered_copper_bars 64 BlockItem waxed_weathered_copper_bars 0 -
+item waxed_oxidized_copper_bars 64 BlockItem waxed_oxidized_copper_bars 0 -
+item iron_chain 64 BlockItem iron_chain 0 -
+item copper_chain 64 BlockItem copper_chain 0 -
+item exposed_copper_chain 64 BlockItem exposed_copper_chain 0 -
+item weathered_copper_chain 64 BlockItem weathered_copper_chain 0 -
+item oxidized_copper_chain 64 BlockItem oxidized_copper_chain 0 -
+item waxed_copper_chain 64 BlockItem waxed_copper_chain 0 -
+item waxed_exposed_copper_chain 64 BlockItem waxed_exposed_copper_chain 0 -
+item waxed_weathered_copper_chain 64 BlockItem waxed_weathered_copper_chain 0 -
+item waxed_oxidized_copper_chain 64 BlockItem waxed_oxidized_copper_chain 0 -
+item glass_pane 64 BlockItem glass_pane 0 -
+item melon 64 BlockItem melon 0 -
+item vine 64 BlockItem vine 0 -
+item glow_lichen 64 BlockItem glow_lichen 0 -
+item resin_clump 64 BlockItem resin_clump 0 -
+item resin_block 64 BlockItem resin_block 0 -
+item resin_bricks 64 BlockItem resin_bricks 0 -
+item resin_brick_stairs 64 BlockItem resin_brick_stairs 0 -
+item resin_brick_slab 64 BlockItem resin_brick_slab 0 -
+item resin_brick_wall 64 BlockItem resin_brick_wall 0 -
+item chiseled_resin_bricks 64 BlockItem chiseled_resin_bricks 0 -
+item brick_stairs 64 BlockItem brick_stairs 0 -
+item stone_brick_stairs 64 BlockItem stone_brick_stairs 0 -
+item mud_brick_stairs 64 BlockItem mud_brick_stairs 0 -
+item mycelium 64 BlockItem mycelium 0 -
+item lily_pad 64 PlaceOnWaterBlockItem lily_pad 0 -
+item nether_bricks 64 BlockItem nether_bricks 0 -
+item cracked_nether_bricks 64 BlockItem cracked_nether_bricks 0 -
+item chiseled_nether_bricks 64 BlockItem chiseled_nether_bricks 0 -
+item nether_brick_fence 64 BlockItem nether_brick_fence 0 -
+item nether_brick_stairs 64 BlockItem nether_brick_stairs 0 -
+item sculk 64 BlockItem sculk 0 -
+item sculk_vein 64 BlockItem sculk_vein 0 -
+item sculk_catalyst 64 BlockItem sculk_catalyst 0 -
+item sculk_shrieker 64 BlockItem sculk_shrieker 0 -
+item enchanting_table 64 BlockItem enchanting_table 0 -
+item end_portal_frame 64 BlockItem end_portal_frame 0 -
+item end_stone 64 BlockItem end_stone 0 -
+item end_stone_bricks 64 BlockItem end_stone_bricks 0 -
+item dragon_egg 64 BlockItem dragon_egg 0 -
+item sandstone_stairs 64 BlockItem sandstone_stairs 0 -
+item ender_chest 64 BlockItem ender_chest 0 -
+item emerald_block 64 BlockItem emerald_block 0 -
+item oak_stairs 64 BlockItem oak_stairs 0 -
+item spruce_stairs 64 BlockItem spruce_stairs 0 -
+item birch_stairs 64 BlockItem birch_stairs 0 -
+item jungle_stairs 64 BlockItem jungle_stairs 0 -
+item acacia_stairs 64 BlockItem acacia_stairs 0 -
+item cherry_stairs 64 BlockItem cherry_stairs 0 -
+item dark_oak_stairs 64 BlockItem dark_oak_stairs 0 -
+item pale_oak_stairs 64 BlockItem pale_oak_stairs 0 -
+item mangrove_stairs 64 BlockItem mangrove_stairs 0 -
+item bamboo_stairs 64 BlockItem bamboo_stairs 0 -
+item bamboo_mosaic_stairs 64 BlockItem bamboo_mosaic_stairs 0 -
+item crimson_stairs 64 BlockItem crimson_stairs 0 -
+item warped_stairs 64 BlockItem warped_stairs 0 -
+item command_block 64 GameMasterBlockItem command_block 0 -
+item beacon 64 BlockItem beacon 0 -
+item cobblestone_wall 64 BlockItem cobblestone_wall 0 -
+item mossy_cobblestone_wall 64 BlockItem mossy_cobblestone_wall 0 -
+item brick_wall 64 BlockItem brick_wall 0 -
+item prismarine_wall 64 BlockItem prismarine_wall 0 -
+item red_sandstone_wall 64 BlockItem red_sandstone_wall 0 -
+item mossy_stone_brick_wall 64 BlockItem mossy_stone_brick_wall 0 -
+item granite_wall 64 BlockItem granite_wall 0 -
+item stone_brick_wall 64 BlockItem stone_brick_wall 0 -
+item mud_brick_wall 64 BlockItem mud_brick_wall 0 -
+item nether_brick_wall 64 BlockItem nether_brick_wall 0 -
+item andesite_wall 64 BlockItem andesite_wall 0 -
+item red_nether_brick_wall 64 BlockItem red_nether_brick_wall 0 -
+item sandstone_wall 64 BlockItem sandstone_wall 0 -
+item end_stone_brick_wall 64 BlockItem end_stone_brick_wall 0 -
+item diorite_wall 64 BlockItem diorite_wall 0 -
+item blackstone_wall 64 BlockItem blackstone_wall 0 -
+item polished_blackstone_wall 64 BlockItem polished_blackstone_wall 0 -
+item polished_blackstone_brick_wall 64 BlockItem polished_blackstone_brick_wall 0 -
+item cobbled_deepslate_wall 64 BlockItem cobbled_deepslate_wall 0 -
+item polished_deepslate_wall 64 BlockItem polished_deepslate_wall 0 -
+item deepslate_brick_wall 64 BlockItem deepslate_brick_wall 0 -
+item deepslate_tile_wall 64 BlockItem deepslate_tile_wall 0 -
+item anvil 64 BlockItem anvil 0 -
+item chipped_anvil 64 BlockItem chipped_anvil 0 -
+item damaged_anvil 64 BlockItem damaged_anvil 0 -
+item chiseled_quartz_block 64 BlockItem chiseled_quartz_block 0 -
+item quartz_block 64 BlockItem quartz_block 0 -
+item quartz_bricks 64 BlockItem quartz_bricks 0 -
+item quartz_pillar 64 BlockItem quartz_pillar 0 -
+item quartz_stairs 64 BlockItem quartz_stairs 0 -
+item white_terracotta 64 BlockItem white_terracotta 0 -
+item orange_terracotta 64 BlockItem orange_terracotta 0 -
+item magenta_terracotta 64 BlockItem magenta_terracotta 0 -
+item light_blue_terracotta 64 BlockItem light_blue_terracotta 0 -
+item yellow_terracotta 64 BlockItem yellow_terracotta 0 -
+item lime_terracotta 64 BlockItem lime_terracotta 0 -
+item pink_terracotta 64 BlockItem pink_terracotta 0 -
+item gray_terracotta 64 BlockItem gray_terracotta 0 -
+item light_gray_terracotta 64 BlockItem light_gray_terracotta 0 -
+item cyan_terracotta 64 BlockItem cyan_terracotta 0 -
+item purple_terracotta 64 BlockItem purple_terracotta 0 -
+item blue_terracotta 64 BlockItem blue_terracotta 0 -
+item brown_terracotta 64 BlockItem brown_terracotta 0 -
+item green_terracotta 64 BlockItem green_terracotta 0 -
+item red_terracotta 64 BlockItem red_terracotta 0 -
+item black_terracotta 64 BlockItem black_terracotta 0 -
+item barrier 64 BlockItem barrier 0 -
+item light 64 BlockItem light 0 -
+item hay_block 64 BlockItem hay_block 0 -
+item white_carpet 64 BlockItem white_carpet 0 -
+item orange_carpet 64 BlockItem orange_carpet 0 -
+item magenta_carpet 64 BlockItem magenta_carpet 0 -
+item light_blue_carpet 64 BlockItem light_blue_carpet 0 -
+item yellow_carpet 64 BlockItem yellow_carpet 0 -
+item lime_carpet 64 BlockItem lime_carpet 0 -
+item pink_carpet 64 BlockItem pink_carpet 0 -
+item gray_carpet 64 BlockItem gray_carpet 0 -
+item light_gray_carpet 64 BlockItem light_gray_carpet 0 -
+item cyan_carpet 64 BlockItem cyan_carpet 0 -
+item purple_carpet 64 BlockItem purple_carpet 0 -
+item blue_carpet 64 BlockItem blue_carpet 0 -
+item brown_carpet 64 BlockItem brown_carpet 0 -
+item green_carpet 64 BlockItem green_carpet 0 -
+item red_carpet 64 BlockItem red_carpet 0 -
+item black_carpet 64 BlockItem black_carpet 0 -
+item terracotta 64 BlockItem terracotta 0 -
+item packed_ice 64 BlockItem packed_ice 0 -
+item dirt_path 64 BlockItem dirt_path 0 -
+item sunflower 64 DoubleHighBlockItem sunflower 0 -
+item lilac 64 DoubleHighBlockItem lilac 0 -
+item rose_bush 64 DoubleHighBlockItem rose_bush 0 -
+item peony 64 DoubleHighBlockItem peony 0 -
+item tall_grass 64 DoubleHighBlockItem tall_grass 0 -
+item large_fern 64 DoubleHighBlockItem large_fern 0 -
+item white_stained_glass 64 BlockItem white_stained_glass 0 -
+item orange_stained_glass 64 BlockItem orange_stained_glass 0 -
+item magenta_stained_glass 64 BlockItem magenta_stained_glass 0 -
+item light_blue_stained_glass 64 BlockItem light_blue_stained_glass 0 -
+item yellow_stained_glass 64 BlockItem yellow_stained_glass 0 -
+item lime_stained_glass 64 BlockItem lime_stained_glass 0 -
+item pink_stained_glass 64 BlockItem pink_stained_glass 0 -
+item gray_stained_glass 64 BlockItem gray_stained_glass 0 -
+item light_gray_stained_glass 64 BlockItem light_gray_stained_glass 0 -
+item cyan_stained_glass 64 BlockItem cyan_stained_glass 0 -
+item purple_stained_glass 64 BlockItem purple_stained_glass 0 -
+item blue_stained_glass 64 BlockItem blue_stained_glass 0 -
+item brown_stained_glass 64 BlockItem brown_stained_glass 0 -
+item green_stained_glass 64 BlockItem green_stained_glass 0 -
+item red_stained_glass 64 BlockItem red_stained_glass 0 -
+item black_stained_glass 64 BlockItem black_stained_glass 0 -
+item white_stained_glass_pane 64 BlockItem white_stained_glass_pane 0 -
+item orange_stained_glass_pane 64 BlockItem orange_stained_glass_pane 0 -
+item magenta_stained_glass_pane 64 BlockItem magenta_stained_glass_pane 0 -
+item light_blue_stained_glass_pane 64 BlockItem light_blue_stained_glass_pane 0 -
+item yellow_stained_glass_pane 64 BlockItem yellow_stained_glass_pane 0 -
+item lime_stained_glass_pane 64 BlockItem lime_stained_glass_pane 0 -
+item pink_stained_glass_pane 64 BlockItem pink_stained_glass_pane 0 -
+item gray_stained_glass_pane 64 BlockItem gray_stained_glass_pane 0 -
+item light_gray_stained_glass_pane 64 BlockItem light_gray_stained_glass_pane 0 -
+item cyan_stained_glass_pane 64 BlockItem cyan_stained_glass_pane 0 -
+item purple_stained_glass_pane 64 BlockItem purple_stained_glass_pane 0 -
+item blue_stained_glass_pane 64 BlockItem blue_stained_glass_pane 0 -
+item brown_stained_glass_pane 64 BlockItem brown_stained_glass_pane 0 -
+item green_stained_glass_pane 64 BlockItem green_stained_glass_pane 0 -
+item red_stained_glass_pane 64 BlockItem red_stained_glass_pane 0 -
+item black_stained_glass_pane 64 BlockItem black_stained_glass_pane 0 -
+item prismarine 64 BlockItem prismarine 0 -
+item prismarine_bricks 64 BlockItem prismarine_bricks 0 -
+item dark_prismarine 64 BlockItem dark_prismarine 0 -
+item prismarine_stairs 64 BlockItem prismarine_stairs 0 -
+item prismarine_brick_stairs 64 BlockItem prismarine_brick_stairs 0 -
+item dark_prismarine_stairs 64 BlockItem dark_prismarine_stairs 0 -
+item sea_lantern 64 BlockItem sea_lantern 0 -
+item red_sandstone 64 BlockItem red_sandstone 0 -
+item chiseled_red_sandstone 64 BlockItem chiseled_red_sandstone 0 -
+item cut_red_sandstone 64 BlockItem cut_red_sandstone 0 -
+item red_sandstone_stairs 64 BlockItem red_sandstone_stairs 0 -
+item repeating_command_block 64 GameMasterBlockItem repeating_command_block 0 -
+item chain_command_block 64 GameMasterBlockItem chain_command_block 0 -
+item magma_block 64 BlockItem magma_block 0 -
+item nether_wart_block 64 BlockItem nether_wart_block 0 -
+item warped_wart_block 64 BlockItem warped_wart_block 0 -
+item red_nether_bricks 64 BlockItem red_nether_bricks 0 -
+item bone_block 64 BlockItem bone_block 0 -
+item structure_void 64 BlockItem structure_void 0 -
+item shulker_box 1 BlockItem shulker_box 1 -
+item white_shulker_box 1 BlockItem white_shulker_box 1 -
+item orange_shulker_box 1 BlockItem orange_shulker_box 1 -
+item magenta_shulker_box 1 BlockItem magenta_shulker_box 1 -
+item light_blue_shulker_box 1 BlockItem light_blue_shulker_box 1 -
+item yellow_shulker_box 1 BlockItem yellow_shulker_box 1 -
+item lime_shulker_box 1 BlockItem lime_shulker_box 1 -
+item pink_shulker_box 1 BlockItem pink_shulker_box 1 -
+item gray_shulker_box 1 BlockItem gray_shulker_box 1 -
+item light_gray_shulker_box 1 BlockItem light_gray_shulker_box 1 -
+item cyan_shulker_box 1 BlockItem cyan_shulker_box 1 -
+item purple_shulker_box 1 BlockItem purple_shulker_box 1 -
+item blue_shulker_box 1 BlockItem blue_shulker_box 1 -
+item brown_shulker_box 1 BlockItem brown_shulker_box 1 -
+item green_shulker_box 1 BlockItem green_shulker_box 1 -
+item red_shulker_box 1 BlockItem red_shulker_box 1 -
+item black_shulker_box 1 BlockItem black_shulker_box 1 -
+item white_glazed_terracotta 64 BlockItem white_glazed_terracotta 0 -
+item orange_glazed_terracotta 64 BlockItem orange_glazed_terracotta 0 -
+item magenta_glazed_terracotta 64 BlockItem magenta_glazed_terracotta 0 -
+item light_blue_glazed_terracotta 64 BlockItem light_blue_glazed_terracotta 0 -
+item yellow_glazed_terracotta 64 BlockItem yellow_glazed_terracotta 0 -
+item lime_glazed_terracotta 64 BlockItem lime_glazed_terracotta 0 -
+item pink_glazed_terracotta 64 BlockItem pink_glazed_terracotta 0 -
+item gray_glazed_terracotta 64 BlockItem gray_glazed_terracotta 0 -
+item light_gray_glazed_terracotta 64 BlockItem light_gray_glazed_terracotta 0 -
+item cyan_glazed_terracotta 64 BlockItem cyan_glazed_terracotta 0 -
+item purple_glazed_terracotta 64 BlockItem purple_glazed_terracotta 0 -
+item blue_glazed_terracotta 64 BlockItem blue_glazed_terracotta 0 -
+item brown_glazed_terracotta 64 BlockItem brown_glazed_terracotta 0 -
+item green_glazed_terracotta 64 BlockItem green_glazed_terracotta 0 -
+item red_glazed_terracotta 64 BlockItem red_glazed_terracotta 0 -
+item black_glazed_terracotta 64 BlockItem black_glazed_terracotta 0 -
+item white_concrete 64 BlockItem white_concrete 0 -
+item orange_concrete 64 BlockItem orange_concrete 0 -
+item magenta_concrete 64 BlockItem magenta_concrete 0 -
+item light_blue_concrete 64 BlockItem light_blue_concrete 0 -
+item yellow_concrete 64 BlockItem yellow_concrete 0 -
+item lime_concrete 64 BlockItem lime_concrete 0 -
+item pink_concrete 64 BlockItem pink_concrete 0 -
+item gray_concrete 64 BlockItem gray_concrete 0 -
+item light_gray_concrete 64 BlockItem light_gray_concrete 0 -
+item cyan_concrete 64 BlockItem cyan_concrete 0 -
+item purple_concrete 64 BlockItem purple_concrete 0 -
+item blue_concrete 64 BlockItem blue_concrete 0 -
+item brown_concrete 64 BlockItem brown_concrete 0 -
+item green_concrete 64 BlockItem green_concrete 0 -
+item red_concrete 64 BlockItem red_concrete 0 -
+item black_concrete 64 BlockItem black_concrete 0 -
+item white_concrete_powder 64 BlockItem white_concrete_powder 0 -
+item orange_concrete_powder 64 BlockItem orange_concrete_powder 0 -
+item magenta_concrete_powder 64 BlockItem magenta_concrete_powder 0 -
+item light_blue_concrete_powder 64 BlockItem light_blue_concrete_powder 0 -
+item yellow_concrete_powder 64 BlockItem yellow_concrete_powder 0 -
+item lime_concrete_powder 64 BlockItem lime_concrete_powder 0 -
+item pink_concrete_powder 64 BlockItem pink_concrete_powder 0 -
+item gray_concrete_powder 64 BlockItem gray_concrete_powder 0 -
+item light_gray_concrete_powder 64 BlockItem light_gray_concrete_powder 0 -
+item cyan_concrete_powder 64 BlockItem cyan_concrete_powder 0 -
+item purple_concrete_powder 64 BlockItem purple_concrete_powder 0 -
+item blue_concrete_powder 64 BlockItem blue_concrete_powder 0 -
+item brown_concrete_powder 64 BlockItem brown_concrete_powder 0 -
+item green_concrete_powder 64 BlockItem green_concrete_powder 0 -
+item red_concrete_powder 64 BlockItem red_concrete_powder 0 -
+item black_concrete_powder 64 BlockItem black_concrete_powder 0 -
+item turtle_egg 64 BlockItem turtle_egg 0 -
+item sniffer_egg 64 BlockItem sniffer_egg 0 -
+item dried_ghast 64 BlockItem dried_ghast 0 -
+item dead_tube_coral_block 64 BlockItem dead_tube_coral_block 0 -
+item dead_brain_coral_block 64 BlockItem dead_brain_coral_block 0 -
+item dead_bubble_coral_block 64 BlockItem dead_bubble_coral_block 0 -
+item dead_fire_coral_block 64 BlockItem dead_fire_coral_block 0 -
+item dead_horn_coral_block 64 BlockItem dead_horn_coral_block 0 -
+item tube_coral_block 64 BlockItem tube_coral_block 0 -
+item brain_coral_block 64 BlockItem brain_coral_block 0 -
+item bubble_coral_block 64 BlockItem bubble_coral_block 0 -
+item fire_coral_block 64 BlockItem fire_coral_block 0 -
+item horn_coral_block 64 BlockItem horn_coral_block 0 -
+item tube_coral 64 BlockItem tube_coral 0 -
+item brain_coral 64 BlockItem brain_coral 0 -
+item bubble_coral 64 BlockItem bubble_coral 0 -
+item fire_coral 64 BlockItem fire_coral 0 -
+item horn_coral 64 BlockItem horn_coral 0 -
+item dead_brain_coral 64 BlockItem dead_brain_coral 0 -
+item dead_bubble_coral 64 BlockItem dead_bubble_coral 0 -
+item dead_fire_coral 64 BlockItem dead_fire_coral 0 -
+item dead_horn_coral 64 BlockItem dead_horn_coral 0 -
+item dead_tube_coral 64 BlockItem dead_tube_coral 0 -
+item tube_coral_fan 64 StandingAndWallBlockItem tube_coral_fan 0 -
+item brain_coral_fan 64 StandingAndWallBlockItem brain_coral_fan 0 -
+item bubble_coral_fan 64 StandingAndWallBlockItem bubble_coral_fan 0 -
+item fire_coral_fan 64 StandingAndWallBlockItem fire_coral_fan 0 -
+item horn_coral_fan 64 StandingAndWallBlockItem horn_coral_fan 0 -
+item dead_tube_coral_fan 64 StandingAndWallBlockItem dead_tube_coral_fan 0 -
+item dead_brain_coral_fan 64 StandingAndWallBlockItem dead_brain_coral_fan 0 -
+item dead_bubble_coral_fan 64 StandingAndWallBlockItem dead_bubble_coral_fan 0 -
+item dead_fire_coral_fan 64 StandingAndWallBlockItem dead_fire_coral_fan 0 -
+item dead_horn_coral_fan 64 StandingAndWallBlockItem dead_horn_coral_fan 0 -
+item blue_ice 64 BlockItem blue_ice 0 -
+item conduit 64 BlockItem conduit 0 -
+item polished_granite_stairs 64 BlockItem polished_granite_stairs 0 -
+item smooth_red_sandstone_stairs 64 BlockItem smooth_red_sandstone_stairs 0 -
+item mossy_stone_brick_stairs 64 BlockItem mossy_stone_brick_stairs 0 -
+item polished_diorite_stairs 64 BlockItem polished_diorite_stairs 0 -
+item mossy_cobblestone_stairs 64 BlockItem mossy_cobblestone_stairs 0 -
+item end_stone_brick_stairs 64 BlockItem end_stone_brick_stairs 0 -
+item stone_stairs 64 BlockItem stone_stairs 0 -
+item smooth_sandstone_stairs 64 BlockItem smooth_sandstone_stairs 0 -
+item smooth_quartz_stairs 64 BlockItem smooth_quartz_stairs 0 -
+item granite_stairs 64 BlockItem granite_stairs 0 -
+item andesite_stairs 64 BlockItem andesite_stairs 0 -
+item red_nether_brick_stairs 64 BlockItem red_nether_brick_stairs 0 -
+item polished_andesite_stairs 64 BlockItem polished_andesite_stairs 0 -
+item diorite_stairs 64 BlockItem diorite_stairs 0 -
+item cobbled_deepslate_stairs 64 BlockItem cobbled_deepslate_stairs 0 -
+item polished_deepslate_stairs 64 BlockItem polished_deepslate_stairs 0 -
+item deepslate_brick_stairs 64 BlockItem deepslate_brick_stairs 0 -
+item deepslate_tile_stairs 64 BlockItem deepslate_tile_stairs 0 -
+item polished_granite_slab 64 BlockItem polished_granite_slab 0 -
+item smooth_red_sandstone_slab 64 BlockItem smooth_red_sandstone_slab 0 -
+item mossy_stone_brick_slab 64 BlockItem mossy_stone_brick_slab 0 -
+item polished_diorite_slab 64 BlockItem polished_diorite_slab 0 -
+item mossy_cobblestone_slab 64 BlockItem mossy_cobblestone_slab 0 -
+item end_stone_brick_slab 64 BlockItem end_stone_brick_slab 0 -
+item smooth_sandstone_slab 64 BlockItem smooth_sandstone_slab 0 -
+item smooth_quartz_slab 64 BlockItem smooth_quartz_slab 0 -
+item granite_slab 64 BlockItem granite_slab 0 -
+item andesite_slab 64 BlockItem andesite_slab 0 -
+item red_nether_brick_slab 64 BlockItem red_nether_brick_slab 0 -
+item polished_andesite_slab 64 BlockItem polished_andesite_slab 0 -
+item diorite_slab 64 BlockItem diorite_slab 0 -
+item cobbled_deepslate_slab 64 BlockItem cobbled_deepslate_slab 0 -
+item polished_deepslate_slab 64 BlockItem polished_deepslate_slab 0 -
+item deepslate_brick_slab 64 BlockItem deepslate_brick_slab 0 -
+item deepslate_tile_slab 64 BlockItem deepslate_tile_slab 0 -
+item scaffolding 64 ScaffoldingBlockItem scaffolding 0 -
+item redstone 64 BlockItem redstone_wire 0 -
+item redstone_torch 64 StandingAndWallBlockItem redstone_torch 0 -
+item redstone_block 64 BlockItem redstone_block 0 -
+item repeater 64 BlockItem repeater 0 -
+item comparator 64 BlockItem comparator 0 -
+item piston 64 BlockItem piston 0 -
+item sticky_piston 64 BlockItem sticky_piston 0 -
+item slime_block 64 BlockItem slime_block 0 -
+item honey_block 64 BlockItem honey_block 0 -
+item observer 64 BlockItem observer 0 -
+item hopper 64 BlockItem hopper 0 -
+item dispenser 64 BlockItem dispenser 0 -
+item dropper 64 BlockItem dropper 0 -
+item lectern 64 BlockItem lectern 0 -
+item target 64 BlockItem target 0 -
+item lever 64 BlockItem lever 0 -
+item lightning_rod 64 BlockItem lightning_rod 0 -
+item exposed_lightning_rod 64 BlockItem exposed_lightning_rod 0 -
+item weathered_lightning_rod 64 BlockItem weathered_lightning_rod 0 -
+item oxidized_lightning_rod 64 BlockItem oxidized_lightning_rod 0 -
+item waxed_lightning_rod 64 BlockItem waxed_lightning_rod 0 -
+item waxed_exposed_lightning_rod 64 BlockItem waxed_exposed_lightning_rod 0 -
+item waxed_weathered_lightning_rod 64 BlockItem waxed_weathered_lightning_rod 0 -
+item waxed_oxidized_lightning_rod 64 BlockItem waxed_oxidized_lightning_rod 0 -
+item daylight_detector 64 BlockItem daylight_detector 0 -
+item sculk_sensor 64 BlockItem sculk_sensor 0 -
+item calibrated_sculk_sensor 64 BlockItem calibrated_sculk_sensor 0 -
+item tripwire_hook 64 BlockItem tripwire_hook 0 -
+item trapped_chest 64 BlockItem trapped_chest 0 -
+item tnt 64 BlockItem tnt 1 -
+item redstone_lamp 64 BlockItem redstone_lamp 0 -
+item note_block 64 BlockItem note_block 0 -
+item stone_button 64 BlockItem stone_button 0 -
+item polished_blackstone_button 64 BlockItem polished_blackstone_button 0 -
+item oak_button 64 BlockItem oak_button 0 -
+item spruce_button 64 BlockItem spruce_button 0 -
+item birch_button 64 BlockItem birch_button 0 -
+item jungle_button 64 BlockItem jungle_button 0 -
+item acacia_button 64 BlockItem acacia_button 0 -
+item cherry_button 64 BlockItem cherry_button 0 -
+item dark_oak_button 64 BlockItem dark_oak_button 0 -
+item pale_oak_button 64 BlockItem pale_oak_button 0 -
+item mangrove_button 64 BlockItem mangrove_button 0 -
+item bamboo_button 64 BlockItem bamboo_button 0 -
+item crimson_button 64 BlockItem crimson_button 0 -
+item warped_button 64 BlockItem warped_button 0 -
+item stone_pressure_plate 64 BlockItem stone_pressure_plate 0 -
+item polished_blackstone_pressure_plate 64 BlockItem polished_blackstone_pressure_plate 0 -
+item light_weighted_pressure_plate 64 BlockItem light_weighted_pressure_plate 0 -
+item heavy_weighted_pressure_plate 64 BlockItem heavy_weighted_pressure_plate 0 -
+item oak_pressure_plate 64 BlockItem oak_pressure_plate 0 -
+item spruce_pressure_plate 64 BlockItem spruce_pressure_plate 0 -
+item birch_pressure_plate 64 BlockItem birch_pressure_plate 0 -
+item jungle_pressure_plate 64 BlockItem jungle_pressure_plate 0 -
+item acacia_pressure_plate 64 BlockItem acacia_pressure_plate 0 -
+item cherry_pressure_plate 64 BlockItem cherry_pressure_plate 0 -
+item dark_oak_pressure_plate 64 BlockItem dark_oak_pressure_plate 0 -
+item pale_oak_pressure_plate 64 BlockItem pale_oak_pressure_plate 0 -
+item mangrove_pressure_plate 64 BlockItem mangrove_pressure_plate 0 -
+item bamboo_pressure_plate 64 BlockItem bamboo_pressure_plate 0 -
+item crimson_pressure_plate 64 BlockItem crimson_pressure_plate 0 -
+item warped_pressure_plate 64 BlockItem warped_pressure_plate 0 -
+item iron_door 64 DoubleHighBlockItem iron_door 0 -
+item oak_door 64 DoubleHighBlockItem oak_door 0 -
+item spruce_door 64 DoubleHighBlockItem spruce_door 0 -
+item birch_door 64 DoubleHighBlockItem birch_door 0 -
+item jungle_door 64 DoubleHighBlockItem jungle_door 0 -
+item acacia_door 64 DoubleHighBlockItem acacia_door 0 -
+item cherry_door 64 DoubleHighBlockItem cherry_door 0 -
+item dark_oak_door 64 DoubleHighBlockItem dark_oak_door 0 -
+item pale_oak_door 64 DoubleHighBlockItem pale_oak_door 0 -
+item mangrove_door 64 DoubleHighBlockItem mangrove_door 0 -
+item bamboo_door 64 DoubleHighBlockItem bamboo_door 0 -
+item crimson_door 64 DoubleHighBlockItem crimson_door 0 -
+item warped_door 64 DoubleHighBlockItem warped_door 0 -
+item copper_door 64 DoubleHighBlockItem copper_door 0 -
+item exposed_copper_door 64 DoubleHighBlockItem exposed_copper_door 0 -
+item weathered_copper_door 64 DoubleHighBlockItem weathered_copper_door 0 -
+item oxidized_copper_door 64 DoubleHighBlockItem oxidized_copper_door 0 -
+item waxed_copper_door 64 DoubleHighBlockItem waxed_copper_door 0 -
+item waxed_exposed_copper_door 64 DoubleHighBlockItem waxed_exposed_copper_door 0 -
+item waxed_weathered_copper_door 64 DoubleHighBlockItem waxed_weathered_copper_door 0 -
+item waxed_oxidized_copper_door 64 DoubleHighBlockItem waxed_oxidized_copper_door 0 -
+item iron_trapdoor 64 BlockItem iron_trapdoor 0 -
+item oak_trapdoor 64 BlockItem oak_trapdoor 0 -
+item spruce_trapdoor 64 BlockItem spruce_trapdoor 0 -
+item birch_trapdoor 64 BlockItem birch_trapdoor 0 -
+item jungle_trapdoor 64 BlockItem jungle_trapdoor 0 -
+item acacia_trapdoor 64 BlockItem acacia_trapdoor 0 -
+item cherry_trapdoor 64 BlockItem cherry_trapdoor 0 -
+item dark_oak_trapdoor 64 BlockItem dark_oak_trapdoor 0 -
+item pale_oak_trapdoor 64 BlockItem pale_oak_trapdoor 0 -
+item mangrove_trapdoor 64 BlockItem mangrove_trapdoor 0 -
+item bamboo_trapdoor 64 BlockItem bamboo_trapdoor 0 -
+item crimson_trapdoor 64 BlockItem crimson_trapdoor 0 -
+item warped_trapdoor 64 BlockItem warped_trapdoor 0 -
+item copper_trapdoor 64 BlockItem copper_trapdoor 0 -
+item exposed_copper_trapdoor 64 BlockItem exposed_copper_trapdoor 0 -
+item weathered_copper_trapdoor 64 BlockItem weathered_copper_trapdoor 0 -
+item oxidized_copper_trapdoor 64 BlockItem oxidized_copper_trapdoor 0 -
+item waxed_copper_trapdoor 64 BlockItem waxed_copper_trapdoor 0 -
+item waxed_exposed_copper_trapdoor 64 BlockItem waxed_exposed_copper_trapdoor 0 -
+item waxed_weathered_copper_trapdoor 64 BlockItem waxed_weathered_copper_trapdoor 0 -
+item waxed_oxidized_copper_trapdoor 64 BlockItem waxed_oxidized_copper_trapdoor 0 -
+item oak_fence_gate 64 BlockItem oak_fence_gate 0 -
+item spruce_fence_gate 64 BlockItem spruce_fence_gate 0 -
+item birch_fence_gate 64 BlockItem birch_fence_gate 0 -
+item jungle_fence_gate 64 BlockItem jungle_fence_gate 0 -
+item acacia_fence_gate 64 BlockItem acacia_fence_gate 0 -
+item cherry_fence_gate 64 BlockItem cherry_fence_gate 0 -
+item dark_oak_fence_gate 64 BlockItem dark_oak_fence_gate 0 -
+item pale_oak_fence_gate 64 BlockItem pale_oak_fence_gate 0 -
+item mangrove_fence_gate 64 BlockItem mangrove_fence_gate 0 -
+item bamboo_fence_gate 64 BlockItem bamboo_fence_gate 0 -
+item crimson_fence_gate 64 BlockItem crimson_fence_gate 0 -
+item warped_fence_gate 64 BlockItem warped_fence_gate 0 -
+item powered_rail 64 BlockItem powered_rail 0 -
+item detector_rail 64 BlockItem detector_rail 0 -
+item rail 64 BlockItem rail 0 -
+item activator_rail 64 BlockItem activator_rail 0 -
+item saddle 1 Item - 0 -
+item white_harness 1 Item - 0 -
+item orange_harness 1 Item - 0 -
+item magenta_harness 1 Item - 0 -
+item light_blue_harness 1 Item - 0 -
+item yellow_harness 1 Item - 0 -
+item lime_harness 1 Item - 0 -
+item pink_harness 1 Item - 0 -
+item gray_harness 1 Item - 0 -
+item light_gray_harness 1 Item - 0 -
+item cyan_harness 1 Item - 0 -
+item purple_harness 1 Item - 0 -
+item blue_harness 1 Item - 0 -
+item brown_harness 1 Item - 0 -
+item green_harness 1 Item - 0 -
+item red_harness 1 Item - 0 -
+item black_harness 1 Item - 0 -
+item minecart 1 MinecartItem - 1 -
+item chest_minecart 1 MinecartItem - 1 -
+item furnace_minecart 1 MinecartItem - 1 -
+item tnt_minecart 1 MinecartItem - 1 -
+item hopper_minecart 1 MinecartItem - 1 -
+item carrot_on_a_stick 1 FoodOnAStickItem - 0 -
+item warped_fungus_on_a_stick 1 FoodOnAStickItem - 0 -
+item phantom_membrane 64 Item - 0 -
+item elytra 1 Item - 0 -
+item oak_boat 1 BoatItem - 1 -
+item oak_chest_boat 1 BoatItem - 1 -
+item spruce_boat 1 BoatItem - 1 -
+item spruce_chest_boat 1 BoatItem - 1 -
+item birch_boat 1 BoatItem - 1 -
+item birch_chest_boat 1 BoatItem - 1 -
+item jungle_boat 1 BoatItem - 1 -
+item jungle_chest_boat 1 BoatItem - 1 -
+item acacia_boat 1 BoatItem - 1 -
+item acacia_chest_boat 1 BoatItem - 1 -
+item cherry_boat 1 BoatItem - 1 -
+item cherry_chest_boat 1 BoatItem - 1 -
+item dark_oak_boat 1 BoatItem - 1 -
+item dark_oak_chest_boat 1 BoatItem - 1 -
+item pale_oak_boat 1 BoatItem - 1 -
+item pale_oak_chest_boat 1 BoatItem - 1 -
+item mangrove_boat 1 BoatItem - 1 -
+item mangrove_chest_boat 1 BoatItem - 1 -
+item bamboo_raft 1 BoatItem - 1 -
+item bamboo_chest_raft 1 BoatItem - 1 -
+item structure_block 64 GameMasterBlockItem structure_block 0 -
+item jigsaw 64 GameMasterBlockItem jigsaw 0 -
+item test_block 64 GameMasterBlockItem test_block 0 -
+item test_instance_block 64 GameMasterBlockItem test_instance_block 0 -
+item turtle_helmet 1 Item - 0 -
+item turtle_scute 64 Item - 0 -
+item armadillo_scute 64 Item - 0 -
+item wolf_armor 1 Item - 0 -
+item flint_and_steel 1 FlintAndSteelItem - 1 -
+item bowl 64 Item - 0 -
+item apple 64 Item - 0 -
+item bow 1 BowItem - 0 -
+item arrow 64 ArrowItem - 1 -
+item coal 64 Item - 0 -
+item charcoal 64 Item - 0 -
+item diamond 64 Item - 0 -
+item emerald 64 Item - 0 -
+item lapis_lazuli 64 Item - 0 -
+item quartz 64 Item - 0 -
+item amethyst_shard 64 Item - 0 -
+item raw_iron 64 Item - 0 -
+item iron_ingot 64 Item - 0 -
+item raw_copper 64 Item - 0 -
+item copper_ingot 64 Item - 0 -
+item raw_gold 64 Item - 0 -
+item gold_ingot 64 Item - 0 -
+item netherite_ingot 64 Item - 0 -
+item netherite_scrap 64 Item - 0 -
+item wooden_sword 1 Item - 0 -
+item wooden_shovel 1 ShovelItem - 0 -
+item wooden_pickaxe 1 Item - 0 -
+item wooden_axe 1 AxeItem - 0 -
+item wooden_hoe 1 HoeItem - 0 -
+item copper_sword 1 Item - 0 -
+item copper_shovel 1 ShovelItem - 0 -
+item copper_pickaxe 1 Item - 0 -
+item copper_axe 1 AxeItem - 0 -
+item copper_hoe 1 HoeItem - 0 -
+item stone_sword 1 Item - 0 -
+item stone_shovel 1 ShovelItem - 0 -
+item stone_pickaxe 1 Item - 0 -
+item stone_axe 1 AxeItem - 0 -
+item stone_hoe 1 HoeItem - 0 -
+item golden_sword 1 Item - 0 -
+item golden_shovel 1 ShovelItem - 0 -
+item golden_pickaxe 1 Item - 0 -
+item golden_axe 1 AxeItem - 0 -
+item golden_hoe 1 HoeItem - 0 -
+item iron_sword 1 Item - 0 -
+item iron_shovel 1 ShovelItem - 0 -
+item iron_pickaxe 1 Item - 0 -
+item iron_axe 1 AxeItem - 0 -
+item iron_hoe 1 HoeItem - 0 -
+item diamond_sword 1 Item - 0 -
+item diamond_shovel 1 ShovelItem - 0 -
+item diamond_pickaxe 1 Item - 0 -
+item diamond_axe 1 AxeItem - 0 -
+item diamond_hoe 1 HoeItem - 0 -
+item netherite_sword 1 Item - 0 -
+item netherite_shovel 1 ShovelItem - 0 -
+item netherite_pickaxe 1 Item - 0 -
+item netherite_axe 1 AxeItem - 0 -
+item netherite_hoe 1 HoeItem - 0 -
+item stick 64 Item - 0 -
+item mushroom_stew 1 Item - 0 -
+item string 64 BlockItem tripwire 0 -
+item feather 64 Item - 0 -
+item gunpowder 64 Item - 0 -
+item wheat_seeds 64 BlockItem wheat 0 -
+item wheat 64 Item - 0 -
+item bread 64 Item - 0 -
+item leather_helmet 1 Item - 0 -
+item leather_chestplate 1 Item - 0 -
+item leather_leggings 1 Item - 0 -
+item leather_boots 1 Item - 0 -
+item copper_helmet 1 Item - 0 -
+item copper_chestplate 1 Item - 0 -
+item copper_leggings 1 Item - 0 -
+item copper_boots 1 Item - 0 -
+item chainmail_helmet 1 Item - 0 -
+item chainmail_chestplate 1 Item - 0 -
+item chainmail_leggings 1 Item - 0 -
+item chainmail_boots 1 Item - 0 -
+item iron_helmet 1 Item - 0 -
+item iron_chestplate 1 Item - 0 -
+item iron_leggings 1 Item - 0 -
+item iron_boots 1 Item - 0 -
+item diamond_helmet 1 Item - 0 -
+item diamond_chestplate 1 Item - 0 -
+item diamond_leggings 1 Item - 0 -
+item diamond_boots 1 Item - 0 -
+item golden_helmet 1 Item - 0 -
+item golden_chestplate 1 Item - 0 -
+item golden_leggings 1 Item - 0 -
+item golden_boots 1 Item - 0 -
+item netherite_helmet 1 Item - 0 -
+item netherite_chestplate 1 Item - 0 -
+item netherite_leggings 1 Item - 0 -
+item netherite_boots 1 Item - 0 -
+item flint 64 Item - 0 -
+item porkchop 64 Item - 0 -
+item cooked_porkchop 64 Item - 0 -
+item painting 64 HangingEntityItem - 0 -
+item golden_apple 64 Item - 0 -
+item enchanted_golden_apple 64 Item - 0 -
+item oak_sign 16 SignItem oak_sign 0 -
+item spruce_sign 16 SignItem spruce_sign 0 -
+item birch_sign 16 SignItem birch_sign 0 -
+item jungle_sign 16 SignItem jungle_sign 0 -
+item acacia_sign 16 SignItem acacia_sign 0 -
+item cherry_sign 16 SignItem cherry_sign 0 -
+item dark_oak_sign 16 SignItem dark_oak_sign 0 -
+item pale_oak_sign 16 SignItem pale_oak_sign 0 -
+item mangrove_sign 16 SignItem mangrove_sign 0 -
+item bamboo_sign 16 SignItem bamboo_sign 0 -
+item crimson_sign 16 SignItem crimson_sign 0 -
+item warped_sign 16 SignItem warped_sign 0 -
+item oak_hanging_sign 16 HangingSignItem oak_hanging_sign 0 -
+item spruce_hanging_sign 16 HangingSignItem spruce_hanging_sign 0 -
+item birch_hanging_sign 16 HangingSignItem birch_hanging_sign 0 -
+item jungle_hanging_sign 16 HangingSignItem jungle_hanging_sign 0 -
+item acacia_hanging_sign 16 HangingSignItem acacia_hanging_sign 0 -
+item cherry_hanging_sign 16 HangingSignItem cherry_hanging_sign 0 -
+item dark_oak_hanging_sign 16 HangingSignItem dark_oak_hanging_sign 0 -
+item pale_oak_hanging_sign 16 HangingSignItem pale_oak_hanging_sign 0 -
+item mangrove_hanging_sign 16 HangingSignItem mangrove_hanging_sign 0 -
+item bamboo_hanging_sign 16 HangingSignItem bamboo_hanging_sign 0 -
+item crimson_hanging_sign 16 HangingSignItem crimson_hanging_sign 0 -
+item warped_hanging_sign 16 HangingSignItem warped_hanging_sign 0 -
+item bucket 16 BucketItem - 1 -
+item water_bucket 1 BucketItem - 1 -
+item lava_bucket 1 BucketItem - 1 -
+item powder_snow_bucket 1 SolidBucketItem powder_snow 1 -
+item snowball 16 SnowballItem - 1 -
+item leather 64 Item - 0 -
+item milk_bucket 1 Item - 0 -
+item pufferfish_bucket 1 MobBucketItem - 1 -
+item salmon_bucket 1 MobBucketItem - 1 -
+item cod_bucket 1 MobBucketItem - 1 -
+item tropical_fish_bucket 1 MobBucketItem - 1 -
+item axolotl_bucket 1 MobBucketItem - 1 -
+item tadpole_bucket 1 MobBucketItem - 1 -
+item brick 64 Item - 0 -
+item clay_ball 64 Item - 0 -
+item dried_kelp_block 64 BlockItem dried_kelp_block 0 -
+item paper 64 Item - 0 -
+item book 64 Item - 0 -
+item slime_ball 64 Item - 0 -
+item egg 16 EggItem - 1 -
+item blue_egg 16 EggItem - 1 -
+item brown_egg 16 EggItem - 1 -
+item compass 64 CompassItem - 0 -
+item recovery_compass 64 Item - 0 -
+item bundle 1 BundleItem - 0 -
+item white_bundle 1 BundleItem - 0 -
+item orange_bundle 1 BundleItem - 0 -
+item magenta_bundle 1 BundleItem - 0 -
+item light_blue_bundle 1 BundleItem - 0 -
+item yellow_bundle 1 BundleItem - 0 -
+item lime_bundle 1 BundleItem - 0 -
+item pink_bundle 1 BundleItem - 0 -
+item gray_bundle 1 BundleItem - 0 -
+item light_gray_bundle 1 BundleItem - 0 -
+item cyan_bundle 1 BundleItem - 0 -
+item purple_bundle 1 BundleItem - 0 -
+item blue_bundle 1 BundleItem - 0 -
+item brown_bundle 1 BundleItem - 0 -
+item green_bundle 1 BundleItem - 0 -
+item red_bundle 1 BundleItem - 0 -
+item black_bundle 1 BundleItem - 0 -
+item fishing_rod 1 FishingRodItem - 0 -
+item clock 64 Item - 0 -
+item spyglass 1 SpyglassItem - 0 -
+item glowstone_dust 64 Item - 0 -
+item cod 64 Item - 0 -
+item salmon 64 Item - 0 -
+item tropical_fish 64 Item - 0 -
+item pufferfish 64 Item - 0 -
+item cooked_cod 64 Item - 0 -
+item cooked_salmon 64 Item - 0 -
+item ink_sac 64 InkSacItem - 0 -
+item glow_ink_sac 64 GlowInkSacItem - 0 -
+item cocoa_beans 64 BlockItem cocoa 0 -
+item white_dye 64 DyeItem - 0 -
+item orange_dye 64 DyeItem - 0 -
+item magenta_dye 64 DyeItem - 0 -
+item light_blue_dye 64 DyeItem - 0 -
+item yellow_dye 64 DyeItem - 0 -
+item lime_dye 64 DyeItem - 0 -
+item pink_dye 64 DyeItem - 0 -
+item gray_dye 64 DyeItem - 0 -
+item light_gray_dye 64 DyeItem - 0 -
+item cyan_dye 64 DyeItem - 0 -
+item purple_dye 64 DyeItem - 0 -
+item blue_dye 64 DyeItem - 0 -
+item brown_dye 64 DyeItem - 0 -
+item green_dye 64 DyeItem - 0 -
+item red_dye 64 DyeItem - 0 -
+item black_dye 64 DyeItem - 0 -
+item bone_meal 64 BoneMealItem - 1 -
+item bone 64 Item - 0 -
+item sugar 64 Item - 0 -
+item cake 1 BlockItem cake 0 -
+item white_bed 1 BedItem white_bed 0 -
+item orange_bed 1 BedItem orange_bed 0 -
+item magenta_bed 1 BedItem magenta_bed 0 -
+item light_blue_bed 1 BedItem light_blue_bed 0 -
+item yellow_bed 1 BedItem yellow_bed 0 -
+item lime_bed 1 BedItem lime_bed 0 -
+item pink_bed 1 BedItem pink_bed 0 -
+item gray_bed 1 BedItem gray_bed 0 -
+item light_gray_bed 1 BedItem light_gray_bed 0 -
+item cyan_bed 1 BedItem cyan_bed 0 -
+item purple_bed 1 BedItem purple_bed 0 -
+item blue_bed 1 BedItem blue_bed 0 -
+item brown_bed 1 BedItem brown_bed 0 -
+item green_bed 1 BedItem green_bed 0 -
+item red_bed 1 BedItem red_bed 0 -
+item black_bed 1 BedItem black_bed 0 -
+item cookie 64 Item - 0 -
+item crafter 64 BlockItem crafter 0 -
+item filled_map 64 MapItem - 0 -
+item shears 1 ShearsItem - 1 -
+item melon_slice 64 Item - 0 -
+item dried_kelp 64 Item - 0 -
+item pumpkin_seeds 64 BlockItem pumpkin_stem 0 -
+item melon_seeds 64 BlockItem melon_stem 0 -
+item beef 64 Item - 0 -
+item cooked_beef 64 Item - 0 -
+item chicken 64 Item - 0 -
+item cooked_chicken 64 Item - 0 -
+item rotten_flesh 64 Item - 0 -
+item ender_pearl 16 EnderpearlItem - 0 -
+item blaze_rod 64 Item - 0 -
+item ghast_tear 64 Item - 0 -
+item gold_nugget 64 Item - 0 -
+item nether_wart 64 BlockItem nether_wart 0 -
+item glass_bottle 64 BottleItem - 1 -
+item potion 1 PotionItem - 1 -
+item spider_eye 64 Item - 0 -
+item fermented_spider_eye 64 Item - 0 -
+item blaze_powder 64 Item - 0 -
+item magma_cream 64 Item - 0 -
+item brewing_stand 64 BlockItem brewing_stand 0 -
+item cauldron 64 BlockItem cauldron 0 -
+item ender_eye 64 EnderEyeItem - 0 -
+item glistering_melon_slice 64 Item - 0 -
+item chicken_spawn_egg 64 SpawnEggItem - 1 -
+item cow_spawn_egg 64 SpawnEggItem - 1 -
+item pig_spawn_egg 64 SpawnEggItem - 1 -
+item sheep_spawn_egg 64 SpawnEggItem - 1 -
+item camel_spawn_egg 64 SpawnEggItem - 1 -
+item donkey_spawn_egg 64 SpawnEggItem - 1 -
+item horse_spawn_egg 64 SpawnEggItem - 1 -
+item mule_spawn_egg 64 SpawnEggItem - 1 -
+item cat_spawn_egg 64 SpawnEggItem - 1 -
+item parrot_spawn_egg 64 SpawnEggItem - 1 -
+item wolf_spawn_egg 64 SpawnEggItem - 1 -
+item armadillo_spawn_egg 64 SpawnEggItem - 1 -
+item bat_spawn_egg 64 SpawnEggItem - 1 -
+item bee_spawn_egg 64 SpawnEggItem - 1 -
+item fox_spawn_egg 64 SpawnEggItem - 1 -
+item goat_spawn_egg 64 SpawnEggItem - 1 -
+item llama_spawn_egg 64 SpawnEggItem - 1 -
+item ocelot_spawn_egg 64 SpawnEggItem - 1 -
+item panda_spawn_egg 64 SpawnEggItem - 1 -
+item polar_bear_spawn_egg 64 SpawnEggItem - 1 -
+item rabbit_spawn_egg 64 SpawnEggItem - 1 -
+item axolotl_spawn_egg 64 SpawnEggItem - 1 -
+item cod_spawn_egg 64 SpawnEggItem - 1 -
+item dolphin_spawn_egg 64 SpawnEggItem - 1 -
+item frog_spawn_egg 64 SpawnEggItem - 1 -
+item glow_squid_spawn_egg 64 SpawnEggItem - 1 -
+item nautilus_spawn_egg 64 SpawnEggItem - 1 -
+item pufferfish_spawn_egg 64 SpawnEggItem - 1 -
+item salmon_spawn_egg 64 SpawnEggItem - 1 -
+item squid_spawn_egg 64 SpawnEggItem - 1 -
+item tadpole_spawn_egg 64 SpawnEggItem - 1 -
+item tropical_fish_spawn_egg 64 SpawnEggItem - 1 -
+item turtle_spawn_egg 64 SpawnEggItem - 1 -
+item allay_spawn_egg 64 SpawnEggItem - 1 -
+item mooshroom_spawn_egg 64 SpawnEggItem - 1 -
+item sniffer_spawn_egg 64 SpawnEggItem - 1 -
+item copper_golem_spawn_egg 64 SpawnEggItem - 1 -
+item iron_golem_spawn_egg 64 SpawnEggItem - 1 -
+item snow_golem_spawn_egg 64 SpawnEggItem - 1 -
+item trader_llama_spawn_egg 64 SpawnEggItem - 1 -
+item villager_spawn_egg 64 SpawnEggItem - 1 -
+item wandering_trader_spawn_egg 64 SpawnEggItem - 1 -
+item bogged_spawn_egg 64 SpawnEggItem - 1 -
+item camel_husk_spawn_egg 64 SpawnEggItem - 1 -
+item drowned_spawn_egg 64 SpawnEggItem - 1 -
+item husk_spawn_egg 64 SpawnEggItem - 1 -
+item parched_spawn_egg 64 SpawnEggItem - 1 -
+item skeleton_spawn_egg 64 SpawnEggItem - 1 -
+item skeleton_horse_spawn_egg 64 SpawnEggItem - 1 -
+item stray_spawn_egg 64 SpawnEggItem - 1 -
+item wither_spawn_egg 64 SpawnEggItem - 1 -
+item wither_skeleton_spawn_egg 64 SpawnEggItem - 1 -
+item zombie_spawn_egg 64 SpawnEggItem - 1 -
+item zombie_horse_spawn_egg 64 SpawnEggItem - 1 -
+item zombie_nautilus_spawn_egg 64 SpawnEggItem - 1 -
+item zombie_villager_spawn_egg 64 SpawnEggItem - 1 -
+item cave_spider_spawn_egg 64 SpawnEggItem - 1 -
+item spider_spawn_egg 64 SpawnEggItem - 1 -
+item breeze_spawn_egg 64 SpawnEggItem - 1 -
+item creaking_spawn_egg 64 SpawnEggItem - 1 -
+item creeper_spawn_egg 64 SpawnEggItem - 1 -
+item elder_guardian_spawn_egg 64 SpawnEggItem - 1 -
+item guardian_spawn_egg 64 SpawnEggItem - 1 -
+item phantom_spawn_egg 64 SpawnEggItem - 1 -
+item silverfish_spawn_egg 64 SpawnEggItem - 1 -
+item slime_spawn_egg 64 SpawnEggItem - 1 -
+item warden_spawn_egg 64 SpawnEggItem - 1 -
+item witch_spawn_egg 64 SpawnEggItem - 1 -
+item evoker_spawn_egg 64 SpawnEggItem - 1 -
+item pillager_spawn_egg 64 SpawnEggItem - 1 -
+item ravager_spawn_egg 64 SpawnEggItem - 1 -
+item vindicator_spawn_egg 64 SpawnEggItem - 1 -
+item vex_spawn_egg 64 SpawnEggItem - 1 -
+item blaze_spawn_egg 64 SpawnEggItem - 1 -
+item ghast_spawn_egg 64 SpawnEggItem - 1 -
+item happy_ghast_spawn_egg 64 SpawnEggItem - 1 -
+item hoglin_spawn_egg 64 SpawnEggItem - 1 -
+item magma_cube_spawn_egg 64 SpawnEggItem - 1 -
+item piglin_spawn_egg 64 SpawnEggItem - 1 -
+item piglin_brute_spawn_egg 64 SpawnEggItem - 1 -
+item strider_spawn_egg 64 SpawnEggItem - 1 -
+item zoglin_spawn_egg 64 SpawnEggItem - 1 -
+item zombified_piglin_spawn_egg 64 SpawnEggItem - 1 -
+item ender_dragon_spawn_egg 64 SpawnEggItem - 1 -
+item enderman_spawn_egg 64 SpawnEggItem - 1 -
+item endermite_spawn_egg 64 SpawnEggItem - 1 -
+item shulker_spawn_egg 64 SpawnEggItem - 1 -
+item experience_bottle 64 ExperienceBottleItem - 1 -
+item fire_charge 64 FireChargeItem - 1 -
+item wind_charge 64 WindChargeItem - 1 -
+item writable_book 1 WritableBookItem - 0 lectern_books
+item written_book 16 WrittenBookItem - 0 lectern_books
+item breeze_rod 64 Item - 0 -
+item mace 1 MaceItem - 0 -
+item item_frame 64 ItemFrameItem - 0 -
+item glow_item_frame 64 ItemFrameItem - 0 -
+item flower_pot 64 BlockItem flower_pot 0 -
+item carrot 64 BlockItem carrots 0 -
+item potato 64 BlockItem potatoes 0 -
+item baked_potato 64 Item - 0 -
+item poisonous_potato 64 Item - 0 -
+item map 64 EmptyMapItem - 0 -
+item golden_carrot 64 Item - 0 -
+item skeleton_skull 64 StandingAndWallBlockItem skeleton_skull 0 -
+item wither_skeleton_skull 64 StandingAndWallBlockItem wither_skeleton_skull 1 -
+item player_head 64 PlayerHeadItem player_head 0 -
+item zombie_head 64 StandingAndWallBlockItem zombie_head 0 -
+item creeper_head 64 StandingAndWallBlockItem creeper_head 0 -
+item dragon_head 64 StandingAndWallBlockItem dragon_head 0 -
+item piglin_head 64 StandingAndWallBlockItem piglin_head 0 -
+item nether_star 64 Item - 0 -
+item pumpkin_pie 64 Item - 0 -
+item firework_rocket 64 FireworkRocketItem - 1 -
+item firework_star 64 Item - 0 -
+item enchanted_book 1 Item - 0 -
+item nether_brick 64 Item - 0 -
+item resin_brick 64 Item - 0 -
+item prismarine_shard 64 Item - 0 -
+item prismarine_crystals 64 Item - 0 -
+item rabbit 64 Item - 0 -
+item cooked_rabbit 64 Item - 0 -
+item rabbit_stew 1 Item - 0 -
+item rabbit_foot 64 Item - 0 -
+item rabbit_hide 64 Item - 0 -
+item armor_stand 16 ArmorStandItem - 1 -
+item copper_horse_armor 1 Item - 0 -
+item iron_horse_armor 1 Item - 0 -
+item golden_horse_armor 1 Item - 0 -
+item diamond_horse_armor 1 Item - 0 -
+item netherite_horse_armor 1 Item - 0 -
+item leather_horse_armor 1 Item - 0 -
+item lead 64 LeadItem - 0 -
+item name_tag 64 NameTagItem - 0 -
+item command_block_minecart 1 MinecartItem - 1 -
+item mutton 64 Item - 0 -
+item cooked_mutton 64 Item - 0 -
+item white_banner 16 BannerItem white_banner 0 -
+item orange_banner 16 BannerItem orange_banner 0 -
+item magenta_banner 16 BannerItem magenta_banner 0 -
+item light_blue_banner 16 BannerItem light_blue_banner 0 -
+item yellow_banner 16 BannerItem yellow_banner 0 -
+item lime_banner 16 BannerItem lime_banner 0 -
+item pink_banner 16 BannerItem pink_banner 0 -
+item gray_banner 16 BannerItem gray_banner 0 -
+item light_gray_banner 16 BannerItem light_gray_banner 0 -
+item cyan_banner 16 BannerItem cyan_banner 0 -
+item purple_banner 16 BannerItem purple_banner 0 -
+item blue_banner 16 BannerItem blue_banner 0 -
+item brown_banner 16 BannerItem brown_banner 0 -
+item green_banner 16 BannerItem green_banner 0 -
+item red_banner 16 BannerItem red_banner 0 -
+item black_banner 16 BannerItem black_banner 0 -
+item end_crystal 64 EndCrystalItem - 0 -
+item chorus_fruit 64 Item - 0 -
+item popped_chorus_fruit 64 Item - 0 -
+item torchflower_seeds 64 BlockItem torchflower_crop 0 -
+item pitcher_pod 64 BlockItem pitcher_crop 0 -
+item beetroot 64 Item - 0 -
+item beetroot_seeds 64 BlockItem beetroots 0 -
+item beetroot_soup 1 Item - 0 -
+item dragon_breath 64 Item - 0 -
+item splash_potion 1 SplashPotionItem - 1 -
+item spectral_arrow 64 SpectralArrowItem - 1 -
+item tipped_arrow 64 TippedArrowItem - 1 -
+item lingering_potion 1 LingeringPotionItem - 1 -
+item shield 1 ShieldItem - 0 -
+item wooden_spear 1 Item - 0 -
+item stone_spear 1 Item - 0 -
+item copper_spear 1 Item - 0 -
+item iron_spear 1 Item - 0 -
+item golden_spear 1 Item - 0 -
+item diamond_spear 1 Item - 0 -
+item netherite_spear 1 Item - 0 -
+item totem_of_undying 1 Item - 0 -
+item shulker_shell 64 Item - 0 -
+item iron_nugget 64 Item - 0 -
+item copper_nugget 64 Item - 0 -
+item knowledge_book 1 KnowledgeBookItem - 0 -
+item debug_stick 1 DebugStickItem - 0 -
+item music_disc_13 1 Item - 0 -
+item music_disc_cat 1 Item - 0 -
+item music_disc_blocks 1 Item - 0 -
+item music_disc_chirp 1 Item - 0 -
+item music_disc_creator 1 Item - 0 -
+item music_disc_creator_music_box 1 Item - 0 -
+item music_disc_far 1 Item - 0 -
+item music_disc_lava_chicken 1 Item - 0 -
+item music_disc_mall 1 Item - 0 -
+item music_disc_mellohi 1 Item - 0 -
+item music_disc_stal 1 Item - 0 -
+item music_disc_strad 1 Item - 0 -
+item music_disc_ward 1 Item - 0 -
+item music_disc_11 1 Item - 0 -
+item music_disc_wait 1 Item - 0 -
+item music_disc_otherside 1 Item - 0 -
+item music_disc_relic 1 Item - 0 -
+item music_disc_5 1 Item - 0 -
+item music_disc_pigstep 1 Item - 0 -
+item music_disc_precipice 1 Item - 0 -
+item music_disc_tears 1 Item - 0 -
+item disc_fragment_5 64 DiscFragmentItem - 0 -
+item trident 1 TridentItem - 0 -
+item nautilus_shell 64 Item - 0 -
+item iron_nautilus_armor 1 Item - 0 -
+item golden_nautilus_armor 1 Item - 0 -
+item diamond_nautilus_armor 1 Item - 0 -
+item netherite_nautilus_armor 1 Item - 0 -
+item copper_nautilus_armor 1 Item - 0 -
+item heart_of_the_sea 64 Item - 0 -
+item crossbow 1 CrossbowItem - 0 -
+item suspicious_stew 1 Item - 0 -
+item loom 64 BlockItem loom 0 -
+item flower_banner_pattern 1 Item - 0 -
+item creeper_banner_pattern 1 Item - 0 -
+item skull_banner_pattern 1 Item - 0 -
+item mojang_banner_pattern 1 Item - 0 -
+item globe_banner_pattern 1 Item - 0 -
+item piglin_banner_pattern 1 Item - 0 -
+item flow_banner_pattern 1 Item - 0 -
+item guster_banner_pattern 1 Item - 0 -
+item field_masoned_banner_pattern 1 Item - 0 -
+item bordure_indented_banner_pattern 1 Item - 0 -
+item goat_horn 1 InstrumentItem - 0 -
+item composter 64 BlockItem composter 0 -
+item barrel 64 BlockItem barrel 0 -
+item smoker 64 BlockItem smoker 0 -
+item blast_furnace 64 BlockItem blast_furnace 0 -
+item cartography_table 64 BlockItem cartography_table 0 -
+item fletching_table 64 BlockItem fletching_table 0 -
+item grindstone 64 BlockItem grindstone 0 -
+item smithing_table 64 BlockItem smithing_table 0 -
+item stonecutter 64 BlockItem stonecutter 0 -
+item bell 64 BlockItem bell 0 -
+item lantern 64 BlockItem lantern 0 -
+item soul_lantern 64 BlockItem soul_lantern 0 -
+item copper_lantern 64 BlockItem copper_lantern 0 -
+item exposed_copper_lantern 64 BlockItem exposed_copper_lantern 0 -
+item weathered_copper_lantern 64 BlockItem weathered_copper_lantern 0 -
+item oxidized_copper_lantern 64 BlockItem oxidized_copper_lantern 0 -
+item waxed_copper_lantern 64 BlockItem waxed_copper_lantern 0 -
+item waxed_exposed_copper_lantern 64 BlockItem waxed_exposed_copper_lantern 0 -
+item waxed_weathered_copper_lantern 64 BlockItem waxed_weathered_copper_lantern 0 -
+item waxed_oxidized_copper_lantern 64 BlockItem waxed_oxidized_copper_lantern 0 -
+item sweet_berries 64 BlockItem sweet_berry_bush 0 -
+item glow_berries 64 BlockItem cave_vines 0 -
+item campfire 64 BlockItem campfire 0 -
+item soul_campfire 64 BlockItem soul_campfire 0 -
+item shroomlight 64 BlockItem shroomlight 0 -
+item honeycomb 64 HoneycombItem - 1 -
+item bee_nest 64 BlockItem bee_nest 0 -
+item beehive 64 BlockItem beehive 0 -
+item honey_bottle 16 Item - 0 -
+item honeycomb_block 64 BlockItem honeycomb_block 0 -
+item lodestone 64 BlockItem lodestone 0 -
+item crying_obsidian 64 BlockItem crying_obsidian 0 -
+item blackstone 64 BlockItem blackstone 0 -
+item blackstone_slab 64 BlockItem blackstone_slab 0 -
+item blackstone_stairs 64 BlockItem blackstone_stairs 0 -
+item gilded_blackstone 64 BlockItem gilded_blackstone 0 -
+item polished_blackstone 64 BlockItem polished_blackstone 0 -
+item polished_blackstone_slab 64 BlockItem polished_blackstone_slab 0 -
+item polished_blackstone_stairs 64 BlockItem polished_blackstone_stairs 0 -
+item chiseled_polished_blackstone 64 BlockItem chiseled_polished_blackstone 0 -
+item polished_blackstone_bricks 64 BlockItem polished_blackstone_bricks 0 -
+item polished_blackstone_brick_slab 64 BlockItem polished_blackstone_brick_slab 0 -
+item polished_blackstone_brick_stairs 64 BlockItem polished_blackstone_brick_stairs 0 -
+item cracked_polished_blackstone_bricks 64 BlockItem cracked_polished_blackstone_bricks 0 -
+item respawn_anchor 64 BlockItem respawn_anchor 0 -
+item candle 64 BlockItem candle 0 -
+item white_candle 64 BlockItem white_candle 0 -
+item orange_candle 64 BlockItem orange_candle 0 -
+item magenta_candle 64 BlockItem magenta_candle 0 -
+item light_blue_candle 64 BlockItem light_blue_candle 0 -
+item yellow_candle 64 BlockItem yellow_candle 0 -
+item lime_candle 64 BlockItem lime_candle 0 -
+item pink_candle 64 BlockItem pink_candle 0 -
+item gray_candle 64 BlockItem gray_candle 0 -
+item light_gray_candle 64 BlockItem light_gray_candle 0 -
+item cyan_candle 64 BlockItem cyan_candle 0 -
+item purple_candle 64 BlockItem purple_candle 0 -
+item blue_candle 64 BlockItem blue_candle 0 -
+item brown_candle 64 BlockItem brown_candle 0 -
+item green_candle 64 BlockItem green_candle 0 -
+item red_candle 64 BlockItem red_candle 0 -
+item black_candle 64 BlockItem black_candle 0 -
+item small_amethyst_bud 64 BlockItem small_amethyst_bud 0 -
+item medium_amethyst_bud 64 BlockItem medium_amethyst_bud 0 -
+item large_amethyst_bud 64 BlockItem large_amethyst_bud 0 -
+item amethyst_cluster 64 BlockItem amethyst_cluster 0 -
+item pointed_dripstone 64 BlockItem pointed_dripstone 0 -
+item ochre_froglight 64 BlockItem ochre_froglight 0 -
+item verdant_froglight 64 BlockItem verdant_froglight 0 -
+item pearlescent_froglight 64 BlockItem pearlescent_froglight 0 -
+item frogspawn 64 PlaceOnWaterBlockItem frogspawn 0 -
+item echo_shard 64 Item - 0 -
+item brush 1 BrushItem - 1 -
+item netherite_upgrade_smithing_template 64 SmithingTemplateItem - 0 -
+item sentry_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item dune_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item coast_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item wild_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item ward_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item eye_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item vex_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item tide_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item snout_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item rib_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item spire_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item wayfinder_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item shaper_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item silence_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item raiser_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item host_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item flow_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item bolt_armor_trim_smithing_template 64 SmithingTemplateItem - 0 -
+item angler_pottery_sherd 64 Item - 0 -
+item archer_pottery_sherd 64 Item - 0 -
+item arms_up_pottery_sherd 64 Item - 0 -
+item blade_pottery_sherd 64 Item - 0 -
+item brewer_pottery_sherd 64 Item - 0 -
+item burn_pottery_sherd 64 Item - 0 -
+item danger_pottery_sherd 64 Item - 0 -
+item explorer_pottery_sherd 64 Item - 0 -
+item flow_pottery_sherd 64 Item - 0 -
+item friend_pottery_sherd 64 Item - 0 -
+item guster_pottery_sherd 64 Item - 0 -
+item heart_pottery_sherd 64 Item - 0 -
+item heartbreak_pottery_sherd 64 Item - 0 -
+item howl_pottery_sherd 64 Item - 0 -
+item miner_pottery_sherd 64 Item - 0 -
+item mourner_pottery_sherd 64 Item - 0 -
+item plenty_pottery_sherd 64 Item - 0 -
+item prize_pottery_sherd 64 Item - 0 -
+item scrape_pottery_sherd 64 Item - 0 -
+item sheaf_pottery_sherd 64 Item - 0 -
+item shelter_pottery_sherd 64 Item - 0 -
+item skull_pottery_sherd 64 Item - 0 -
+item snort_pottery_sherd 64 Item - 0 -
+item copper_grate 64 BlockItem copper_grate 0 -
+item exposed_copper_grate 64 BlockItem exposed_copper_grate 0 -
+item weathered_copper_grate 64 BlockItem weathered_copper_grate 0 -
+item oxidized_copper_grate 64 BlockItem oxidized_copper_grate 0 -
+item waxed_copper_grate 64 BlockItem waxed_copper_grate 0 -
+item waxed_exposed_copper_grate 64 BlockItem waxed_exposed_copper_grate 0 -
+item waxed_weathered_copper_grate 64 BlockItem waxed_weathered_copper_grate 0 -
+item waxed_oxidized_copper_grate 64 BlockItem waxed_oxidized_copper_grate 0 -
+item copper_bulb 64 BlockItem copper_bulb 0 -
+item exposed_copper_bulb 64 BlockItem exposed_copper_bulb 0 -
+item weathered_copper_bulb 64 BlockItem weathered_copper_bulb 0 -
+item oxidized_copper_bulb 64 BlockItem oxidized_copper_bulb 0 -
+item waxed_copper_bulb 64 BlockItem waxed_copper_bulb 0 -
+item waxed_exposed_copper_bulb 64 BlockItem waxed_exposed_copper_bulb 0 -
+item waxed_weathered_copper_bulb 64 BlockItem waxed_weathered_copper_bulb 0 -
+item waxed_oxidized_copper_bulb 64 BlockItem waxed_oxidized_copper_bulb 0 -
+item copper_chest 64 BlockItem copper_chest 0 -
+item exposed_copper_chest 64 BlockItem exposed_copper_chest 0 -
+item weathered_copper_chest 64 BlockItem weathered_copper_chest 0 -
+item oxidized_copper_chest 64 BlockItem oxidized_copper_chest 0 -
+item waxed_copper_chest 64 BlockItem waxed_copper_chest 0 -
+item waxed_exposed_copper_chest 64 BlockItem waxed_exposed_copper_chest 0 -
+item waxed_weathered_copper_chest 64 BlockItem waxed_weathered_copper_chest 0 -
+item waxed_oxidized_copper_chest 64 BlockItem waxed_oxidized_copper_chest 0 -
+item copper_golem_statue 64 BlockItem copper_golem_statue 0 -
+item exposed_copper_golem_statue 64 BlockItem exposed_copper_golem_statue 0 -
+item weathered_copper_golem_statue 64 BlockItem weathered_copper_golem_statue 0 -
+item oxidized_copper_golem_statue 64 BlockItem oxidized_copper_golem_statue 0 -
+item waxed_copper_golem_statue 64 BlockItem waxed_copper_golem_statue 0 -
+item waxed_exposed_copper_golem_statue 64 BlockItem waxed_exposed_copper_golem_statue 0 -
+item waxed_weathered_copper_golem_statue 64 BlockItem waxed_weathered_copper_golem_statue 0 -
+item waxed_oxidized_copper_golem_statue 64 BlockItem waxed_oxidized_copper_golem_statue 0 -
+item trial_spawner 64 BlockItem trial_spawner 0 -
+item trial_key 64 Item - 0 -
+item ominous_trial_key 64 Item - 0 -
+item vault 64 BlockItem vault 0 -
+item ominous_bottle 64 Item - 0 -
 block_entity furnace furnace
 block_entity chest chest copper_chest exposed_copper_chest weathered_copper_chest oxidized_copper_chest waxed_copper_chest waxed_exposed_copper_chest waxed_weathered_copper_chest waxed_oxidized_copper_chest
 block_entity trapped_chest trapped_chest
@@ -4874,7 +4874,6 @@ block oak_leaves 252 28 279 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0010000001000000000000000000
   flag push_destroy
   collision 1
   support 0
@@ -4883,7 +4882,7 @@ block spruce_leaves 280 28 307 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000000000000000001000000000
+  flag drops 0000000100000000010000000000
   flag push_destroy
   collision 1
   support 0
@@ -4900,7 +4899,7 @@ block jungle_leaves 336 28 363 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000000100000000000000000000
+  flag drops 0000000001000010000000000000
   flag push_destroy
   collision 1
   support 0
@@ -4909,7 +4908,7 @@ block acacia_leaves 364 28 391 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000100000000000000000000000
+  flag drops 0000001000000000000000000000
   flag push_destroy
   collision 1
   support 0
@@ -4918,7 +4917,7 @@ block cherry_leaves 392 28 419 UntintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0010000000000000101000100000
+  flag drops 1000000000000000000000000000
   flag push_destroy
   collision 1
   support 0
@@ -4927,6 +4926,7 @@ block dark_oak_leaves 420 28 447 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
+  flag drops 0100100000000000000000100000
   flag push_destroy
   collision 1
   support 0
@@ -4935,7 +4935,7 @@ block pale_oak_leaves 448 28 475 UntintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000001000000000000000000000
+  flag drops 0000000010000010000100000000
   flag push_destroy
   collision 1
   support 0
@@ -4944,7 +4944,7 @@ block mangrove_leaves 476 28 503 MangroveLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000000000000000110000000000
+  flag drops 0000000000000100000000000000
   flag push_destroy
   collision 1
   support 0
@@ -4953,7 +4953,7 @@ block azalea_leaves 504 28 531 UntintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0100000000000000000100000010
+  flag drops 0000000000100000000000000000
   flag push_destroy
   collision 1
   support 0
@@ -4962,7 +4962,7 @@ block flowering_azalea_leaves 532 28 559 UntintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000001001001010000010000000
+  flag drops 0100000000000001000000000000
   flag push_destroy
   collision 1
   support 0
@@ -17660,7 +17660,7 @@ block shroomlight 20774 1 20774 -
 block weeping_vines 20775 26 20775 WeepingVinesBlock
   prop AGE_25
   field GrowingPlantBlock.scheduleFluidTicks 0
-  flag drops 00010111111111011000010101
+  flag drops 00101110100100010000010010
   flag push_destroy
   collision 0
   support 0
@@ -17672,7 +17672,7 @@ block weeping_vines_plant 20801 1 20801 WeepingVinesPlantBlock
 block twisting_vines 20802 26 20802 TwistingVinesBlock
   prop AGE_25
   field GrowingPlantBlock.scheduleFluidTicks 0
-  flag drops 00000111001110010000100110
+  flag drops 11100100011000010100011010
   flag push_destroy
   collision 0
   support 0
