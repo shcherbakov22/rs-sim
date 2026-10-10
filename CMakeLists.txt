@@ -32,11 +32,7 @@ add_library(tmc STATIC
     blocks/hopper.cpp
     blocks/jukebox.cpp
     blocks/minecart-dispense-item-behavior.cpp
-    blocks/moving-piston.cpp
-    blocks/piston-base.cpp
-    blocks/piston-head.cpp
-    blocks/piston-moving-block-entity.cpp
-    blocks/piston-structure-resolver.cpp
+    blocks/piston.cpp
     blocks/powered.cpp
     blocks/projectile-dispense-behavior.cpp
     blocks/rail.cpp

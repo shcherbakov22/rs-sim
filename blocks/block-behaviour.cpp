@@ -14,8 +14,8 @@ static void hook_unsupported(level & lv, state_id st, hook h) {
 
 // each vanilla class is in one family
 static const std::vector<block_hooks> * const block_hook_families[] = {
-    &diode_hooks, &redstone_hooks, &rail_hooks,       &terrain_hooks,
-    &fire_hooks,  &powered_hooks,  &connecting_hooks, &attached_hooks,
+    &piston_hooks, &diode_hooks,   &redstone_hooks,   &rail_hooks,     &terrain_hooks,
+    &fire_hooks,   &powered_hooks, &connecting_hooks, &attached_hooks,
 };
 
 static const block_hooks * block_hooks_of(int32_t vclass) {
@@ -181,9 +181,6 @@ state_id block_update_shape(level &   lv,
             case VCLASS_COPPER_CHEST_BLOCK:
                 result = copper_chest_update_shape(st, dir, neighbor);
                 break;
-            case VCLASS_PISTON_HEAD_BLOCK:
-                result = piston_head_update_shape(lv, st, pos, dir);
-                break;
             default:
                 hook_unsupported(lv, st, HOOK_UPDATE_SHAPE);
         }
@@ -203,12 +200,6 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
     } else {
         switch (hook_owner(st, HOOK_NEIGHBOR_CHANGED)) {
             case VCLASS_NONE:
-                break;
-            case VCLASS_PISTON_BASE_BLOCK:
-                piston_base_neighbor_changed(lv, st, pos);
-                break;
-            case VCLASS_PISTON_HEAD_BLOCK:
-                piston_head_neighbor_changed(lv, st, pos, block);
                 break;
             case VCLASS_HOPPER_BLOCK:
                 hopper_neighbor_changed(lv, st, pos);
@@ -236,9 +227,6 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
         switch (hook_owner(st, HOOK_ON_PLACE)) {
             case VCLASS_NONE:
                 break;
-            case VCLASS_PISTON_BASE_BLOCK:
-                piston_base_on_place(lv, st, pos, old);
-                break;
             case VCLASS_HOPPER_BLOCK:
                 hopper_on_place(lv, st, pos, old);
                 break;
@@ -260,9 +248,6 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
     } else {
         switch (hook_owner(st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL)) {
             case VCLASS_NONE:
-                break;
-            case VCLASS_PISTON_HEAD_BLOCK:
-                piston_head_affect_neighbors_after_removal(lv, st, pos);
                 break;
             case VCLASS_SHELF_BLOCK:
                 shelf_affect_neighbors_after_removal(lv, st, pos);
@@ -314,8 +299,6 @@ bool block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a
     switch (hook_owner(st, HOOK_TRIGGER_EVENT)) {
         case VCLASS_NONE:
             return false;
-        case VCLASS_PISTON_BASE_BLOCK:
-            return piston_base_trigger_event(lv, st, pos, param_a, param_b);
         case VCLASS_BASE_ENTITY_BLOCK:
             return base_entity_block_trigger_event(lv, st, pos, param_a, param_b);
         default:

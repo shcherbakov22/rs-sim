@@ -7,6 +7,7 @@
 #include <vector>
 
 // hook tables, one per family file
+extern const std::vector<block_hooks> piston_hooks;
 extern const std::vector<block_hooks> diode_hooks;
 extern const std::vector<block_hooks> redstone_hooks;
 extern const std::vector<block_hooks> rail_hooks;
@@ -141,40 +142,9 @@ void lever_pull(level & lv, state_id st, block_pos pos);
 // MovingPistonBlock
 voxel_shape moving_piston_get_collision_shape(level & lv, block_pos pos);
 
-// PistonBaseBlock
-void piston_base_neighbor_changed(level & lv, state_id st, block_pos pos);
-void piston_base_on_place(level & lv, state_id st, block_pos pos, state_id old);
-bool piston_base_trigger_event(level & lv, state_id st, block_pos pos, int32_t b0, int32_t b1);
-bool piston_base_is_pushable(state_id  st,
-                             block_pos pos,
-                             direction dir,
-                             bool      allow_destroyable,
-                             direction connection_direction);
-
-// PistonHeadBlock
-void     piston_head_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
-state_id piston_head_update_shape(level & lv, state_id st, block_pos pos, direction dir);
-bool     piston_head_can_survive(level & lv, state_id st, block_pos pos);
-void     piston_head_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block);
-
 // PistonMovingBlockEntity
-void        piston_moving_block_entity_final_tick(level & lv, block_entity * be);
-void        piston_moving_block_entity_tick(level & lv, block_entity * be);
-voxel_shape piston_moving_block_entity_get_collision_shape(level & lv, const block_entity * be);
-
-// PistonStructureResolver
-struct piston_structure_resolver {
-    block_pos              piston_pos;
-    direction              piston_direction;
-    bool                   extending;
-    direction              push_direction;
-    block_pos              start_pos;
-    std::vector<block_pos> to_push;
-    std::vector<block_pos> to_destroy;
-};
-
-piston_structure_resolver piston_structure_resolver_init(block_pos piston_pos, direction dir, bool extending);
-bool                      piston_structure_resolver_resolve(level & lv, piston_structure_resolver & r);
+void piston_moving_block_entity_final_tick(level & lv, block_entity * be);
+void piston_moving_block_entity_tick(level & lv, block_entity * be);
 
 // BaseFireBlock
 state_id base_fire_get_state(level & lv, block_pos pos);
