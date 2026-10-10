@@ -7,6 +7,7 @@
 #include <vector>
 
 // hook tables, one per family file
+extern const std::vector<block_hooks> rail_hooks;
 extern const std::vector<block_hooks> terrain_hooks;
 extern const std::vector<block_hooks> fire_hooks;
 extern const std::vector<block_hooks> powered_hooks;
@@ -152,25 +153,9 @@ void    shelf_neighbor_changed(level & lv, state_id st, block_pos pos);
 void    shelf_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
 int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
 
-// BaseRailBlock and RailState of the straight rails
-struct rail_state {
-    block_pos              pos;
-    state_id               state;
-    std::vector<block_pos> connections;
-};
-
-bool       base_rail_is_rail(level & lv, state_id st);
-bool       base_rail_is_slope(int32_t shape);
-state_id   base_rail_update_dir(level & lv, block_pos pos, state_id st, bool first);
-state_id   base_rail_update_state(level & lv, state_id st, block_pos pos, bool moved_by_piston);
-void       base_rail_on_place(level & lv, state_id st, block_pos pos, state_id old, bool moved_by_piston);
-void       base_rail_neighbor_changed(level & lv, state_id st, block_pos pos, bool moved_by_piston);
-void       base_rail_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
-rail_state rail_state_init(state_id st, block_pos pos);
-void       rail_state_place(level & lv, rail_state & rs, bool first, int32_t default_shape);
-
-// PoweredRailBlock
-void powered_rail_update_state(level & lv, state_id st, block_pos pos);
+// BaseRailBlock
+bool base_rail_is_rail(level & lv, state_id st);
+bool base_rail_is_slope(int32_t shape);
 
 // LightningRodBlock
 void    lightning_rod_on_place(level & lv, state_id st, block_pos pos, state_id old);

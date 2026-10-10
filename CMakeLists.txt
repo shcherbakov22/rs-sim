@@ -14,7 +14,6 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 add_library(tmc STATIC
     blocks/attached.cpp
     blocks/base-entity-block.cpp
-    blocks/base-rail.cpp
     blocks/block-behaviour.cpp
     blocks/boat-dispense-item-behavior.cpp
     blocks/chest-block-entity.cpp
@@ -43,10 +42,9 @@ add_library(tmc STATIC
     blocks/piston-head.cpp
     blocks/piston-moving-block-entity.cpp
     blocks/piston-structure-resolver.cpp
-    blocks/powered-rail.cpp
     blocks/powered.cpp
     blocks/projectile-dispense-behavior.cpp
-    blocks/rail-state.cpp
+    blocks/rail.cpp
     blocks/red-stone-wire.cpp
     blocks/redstone-lamp.cpp
     blocks/redstone-torch.cpp

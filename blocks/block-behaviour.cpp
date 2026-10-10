@@ -14,7 +14,7 @@ static void hook_unsupported(level & lv, state_id st, hook h) {
 
 // each vanilla class is in one family
 static const std::vector<block_hooks> * const block_hook_families[] = {
-    &terrain_hooks, &fire_hooks, &powered_hooks, &connecting_hooks, &attached_hooks,
+    &rail_hooks, &terrain_hooks, &fire_hooks, &powered_hooks, &connecting_hooks, &attached_hooks,
 };
 
 static const block_hooks * block_hooks_of(int32_t vclass) {
@@ -183,7 +183,6 @@ state_id block_update_shape(level &   lv,
             case VCLASS_SHELF_BLOCK:
             case VCLASS_SLAB_BLOCK:
             case VCLASS_CHAIN_BLOCK:
-            case VCLASS_BASE_RAIL_BLOCK:
             case VCLASS_CANDLE_BLOCK:
             case VCLASS_HEAVY_CORE_BLOCK:
             case VCLASS_WATERLOGGED_TRANSPARENT_BLOCK:
@@ -225,9 +224,6 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
                 break;
             case VCLASS_COPPER_BULB_BLOCK:
                 copper_bulb_check_and_flip(lv, st, pos);
-                break;
-            case VCLASS_BASE_RAIL_BLOCK:
-                base_rail_neighbor_changed(lv, st, pos, moved_by_piston);
                 break;
             case VCLASS_REDSTONE_TORCH_BLOCK:
                 redstone_torch_neighbor_changed(lv, st, pos);
@@ -291,9 +287,6 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
             case VCLASS_SHELF_BLOCK:
                 shelf_on_place(lv, st, pos, old);
                 break;
-            case VCLASS_BASE_RAIL_BLOCK:
-                base_rail_on_place(lv, st, pos, old, moved_by_piston);
-                break;
             case VCLASS_LIGHTNING_ROD_BLOCK:
                 lightning_rod_on_place(lv, st, pos, old);
                 break;
@@ -324,9 +317,6 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
                 break;
             case VCLASS_LEVER_BLOCK:
                 lever_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
-                break;
-            case VCLASS_BASE_RAIL_BLOCK:
-                base_rail_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
                 break;
             case VCLASS_LIGHTNING_ROD_BLOCK:
                 lightning_rod_affect_neighbors_after_removal(lv, st, pos);
