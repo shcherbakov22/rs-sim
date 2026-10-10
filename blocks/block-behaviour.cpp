@@ -434,15 +434,6 @@ void block_tick(level & lv, state_id st, block_pos pos) {
         case VCLASS_COMPARATOR_BLOCK:
             comparator_tick(lv, st, pos);
             break;
-        case VCLASS_CHEST_BLOCK:
-            chest_tick(lv, pos);
-            break;
-        case VCLASS_ENDER_CHEST_BLOCK:
-            ender_chest_tick(lv, pos);
-            break;
-        case VCLASS_BARREL_BLOCK:
-            barrel_tick(lv, pos);
-            break;
         case VCLASS_DISPENSER_BLOCK:
             dispenser_tick(lv, st, pos);
             break;

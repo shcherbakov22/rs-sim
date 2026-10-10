@@ -102,9 +102,6 @@ int32_t      container_get_redstone_signal(const container * c);
 void         containers_drop_contents(level & lv, block_pos pos, const container & c);
 int32_t      container_get_redstone_signal_from_block_entity(level & lv, block_pos pos);
 
-// EnderChestBlock
-void ender_chest_tick(level & lv, block_pos pos);
-
 // AbstractSkullBlock
 void abstract_skull_neighbor_changed(level & lv, state_id st, block_pos pos);
 
@@ -115,9 +112,6 @@ state_id snowy_dirt_update_shape(state_id st, direction dir, state_id neighbor);
 bool     dirt_path_can_survive(level & lv, block_pos pos);
 state_id dirt_path_update_shape(level & lv, state_id st, block_pos pos, direction dir);
 void     dirt_path_tick(level & lv, block_pos pos);
-
-// BarrelBlock
-void barrel_tick(level & lv, block_pos pos);
 
 // HopperBlock
 void hopper_on_place(level & lv, state_id st, block_pos pos, state_id old);
@@ -311,10 +305,8 @@ bool     chest_get_container(level & lv, state_id st, block_pos pos, bool ignore
 state_id chest_update_shape(state_id st, direction dir, state_id neighbor);
 state_id copper_chest_update_shape(state_id st, direction dir, state_id neighbor);
 int32_t  chest_get_analog_output_signal(level & lv, state_id st, block_pos pos);
-void     chest_tick(level & lv, block_pos pos);
 
 // ChestBlockEntity
-void    chest_block_entity_recheck_open(level & lv, block_entity * be);
 int32_t chest_block_entity_get_open_count(level & lv, state_id st, block_pos pos);
 
 // TrappedChestBlock

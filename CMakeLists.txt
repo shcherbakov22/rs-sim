@@ -14,7 +14,6 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 add_library(tmc STATIC
     blocks/abstract-skull.cpp
     blocks/amethyst-cluster.cpp
-    blocks/barrel.cpp
     blocks/base-entity-block.cpp
     blocks/base-fire.cpp
     blocks/base-rail.cpp
@@ -39,7 +38,6 @@ add_library(tmc STATIC
     blocks/dispenser.cpp
     blocks/door.cpp
     blocks/dropper.cpp
-    blocks/ender-chest.cpp
     blocks/face-attached-horizontal-directional.cpp
     blocks/falling-block.cpp
     blocks/fence-gate.cpp

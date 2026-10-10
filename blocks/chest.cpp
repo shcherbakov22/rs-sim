@@ -93,10 +93,3 @@ int32_t chest_get_analog_output_signal(level & lv, state_id st, block_pos pos) {
     bool      found = chest_get_container(lv, st, pos, false, c);
     return container_get_redstone_signal(found ? &c : nullptr);
 }
-
-void chest_tick(level & lv, block_pos pos) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    if (be != nullptr && (be->type == BLOCK_ENTITY_TYPE_CHEST || be->type == BLOCK_ENTITY_TYPE_TRAPPED_CHEST)) {
-        chest_block_entity_recheck_open(lv, be);
-    }
-}
