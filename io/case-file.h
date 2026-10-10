@@ -3,6 +3,7 @@
 #include "core/common.h"
 #include "core/direction.h"
 #include "core/state.h"
+#include "io/snbt.h"
 
 #include <string>
 #include <vector>
@@ -27,10 +28,10 @@ struct case_input {
     int32_t     count = 0;
 };
 
-// block entity NBT exactly as written in the key; parsed when block entities are simulated
+// block entity NBT from the key, with the oracle's hidden state under "tmc:hidden"
 struct case_nbt {
-    block_pos   pos;
-    std::string snbt;
+    block_pos  pos;
+    snbt_value tag;
 };
 
 struct case_tick {

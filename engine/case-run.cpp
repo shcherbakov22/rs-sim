@@ -3,25 +3,58 @@
 #include "blocks/block-behaviour.h"
 #include "engine/level.h"
 
+#include <algorithm>
+
 // Batch.SURROUND: the oracle clears and traces this margin around the region
 static constexpr int32_t CASE_SURROUND = 13;
 
-// Snapshot.restore: silent placement, then pending ticks, block events, torch toggles and block entity tickers
+// Snapshot.place: a silent setBlock, which creates the block entity even when the case gives no NBT
+static void case_place_block(level & lv, const case_file & f, block_pos pos) {
+    state_id st = f.states[pos.x + f.size.x * (pos.z + f.size.z * pos.y)];
+    level_set_state_raw(lv, pos, st);
+    if (state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
+        level_get_block_entity(lv, pos);
+    }
+}
+
+// BlockEntity.loadWithComponents
+static void case_load_block_entity(level & lv, block_entity * be, const snbt_value & tag) {
+    for (const snbt_entry & entry : tag.compound) {
+        const snbt_value & value = entry.value;
+        if (entry.key == "components" && value.compound.empty()) {
+            continue;
+        }
+        if (be->type == BLOCK_ENTITY_TYPE_COMPARATOR && entry.key == "OutputSignal" && value.type == SNBT_INT) {
+            be->output_signal = (int32_t) value.i;
+            continue;
+        }
+        level_unsupported(lv, "block entity data %s %s", block_entity_type_names[be->type], entry.key.c_str());
+        return;
+    }
+}
+
+// Snapshot.restore: silent placement with ticking block entities last, then NBT, pending ticks, block events and torch toggles
 static void case_place(level & lv, const case_file & f) {
     for (int32_t y = 0; y < f.size.y; y++) {
         for (int32_t z = 0; z < f.size.z; z++) {
             for (int32_t x = 0; x < f.size.x; x++) {
-                state_id st = f.states[x + f.size.x * (z + f.size.z * y)];
-                level_set_state_raw(lv, { x, y, z }, st);
-                // vanilla creates the block entity even when the case gives no NBT
-                if (state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
-                    level_unsupported(lv, "block entity of %s", block_defs[state_block(st)].name);
+                block_pos pos = { x, y, z };
+                if (std::find(f.tickers.begin(), f.tickers.end(), pos) == f.tickers.end()) {
+                    case_place_block(lv, f, pos);
                 }
             }
         }
     }
-    if (!f.nbt.empty() || !f.tickers.empty()) {
-        level_unsupported(lv, "block entities");
+    for (block_pos pos : f.tickers) {
+        case_place_block(lv, f, pos);
+    }
+    for (const case_nbt & n : f.nbt) {
+        block_entity * be = level_get_block_entity(lv, n.pos);
+        if (be == nullptr) {
+            level_unsupported(lv, "block entity data of %s", block_defs[state_block(level_get_state(lv, n.pos))].name);
+            break;
+        }
+        case_load_block_entity(lv, be, n.tag);
     }
     // fresh sub-tick numbers in file order keep the execution order
     for (const case_tick & t : f.ticks) {

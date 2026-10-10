@@ -16,6 +16,7 @@ add_library(tmc STATIC
     blocks/base-torch.cpp
     blocks/block-behaviour.cpp
     blocks/button.cpp
+    blocks/comparator.cpp
     blocks/diode.cpp
     blocks/face-attached-horizontal-directional.cpp
     blocks/lever.cpp
@@ -42,6 +43,7 @@ add_library(tmc STATIC
     engine/neighbor-updater.cpp
     gen/blocks.cpp
     io/case-file.cpp
+    io/snbt.cpp
 )
 target_include_directories(tmc PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 

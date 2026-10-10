@@ -59,9 +59,12 @@ int32_t  redstone_wall_torch_get_signal(state_id st, direction dir);
 bool    diode_can_survive(level & lv, block_pos pos);
 bool    diode_can_survive_on(level & lv, block_pos neighbor_pos, state_id neighbor);
 void    diode_tick(level & lv, state_id st, block_pos pos);
-int32_t diode_get_signal(state_id st, direction dir);
+int32_t diode_get_signal(level & lv, state_id st, block_pos pos, direction dir);
 void    diode_neighbor_changed(level & lv, state_id st, block_pos pos);
+int32_t diode_get_input_signal(level & lv, state_id st, block_pos pos);
 int32_t diode_get_alternate_signal(level & lv, state_id st, block_pos pos);
+bool    diode_should_prioritize(level & lv, state_id st, block_pos pos);
+void    diode_update_neighbors_in_front(level & lv, state_id st, block_pos pos);
 void    diode_on_place(level & lv, state_id st, block_pos pos);
 void    diode_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
 
@@ -75,6 +78,15 @@ state_id           repeater_update_shape(level &   lv,
                                          block_pos neighbor_pos,
                                          state_id  neighbor);
 bool               repeater_is_locked(level & lv, state_id st, block_pos pos);
+
+// ComparatorBlock
+state_id comparator_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor);
+int32_t  comparator_get_output_signal(level & lv, block_pos pos);
+bool     comparator_should_turn_on(level & lv, state_id st, block_pos pos);
+interaction_result comparator_use_without_item(level & lv, state_id st, block_pos pos);
+void               comparator_check_tick_on_neighbor(level & lv, state_id st, block_pos pos);
+void               comparator_tick(level & lv, state_id st, block_pos pos);
+bool               comparator_trigger_event(level & lv, block_pos pos);
 
 // FaceAttachedHorizontalDirectionalBlock
 bool      face_attached_horizontal_directional_can_survive(level & lv, state_id st, block_pos pos);

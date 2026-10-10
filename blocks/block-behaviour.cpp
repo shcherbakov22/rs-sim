@@ -77,6 +77,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_REPEATER_BLOCK:
             result = repeater_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
+        case VCLASS_COMPARATOR_BLOCK:
+            result = comparator_update_shape(lv, st, dir, neighbor_pos, neighbor);
+            break;
         case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
             result = face_attached_horizontal_directional_update_shape(lv, st, pos, dir);
             break;
@@ -197,6 +200,9 @@ void block_tick(level & lv, state_id st, block_pos pos) {
         case VCLASS_DIODE_BLOCK:
             diode_tick(lv, st, pos);
             break;
+        case VCLASS_COMPARATOR_BLOCK:
+            comparator_tick(lv, st, pos);
+            break;
         case VCLASS_REDSTONE_LAMP_BLOCK:
             redstone_lamp_tick(lv, st, pos);
             break;
@@ -214,6 +220,8 @@ bool block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a
             return false;
         case VCLASS_PISTON_BASE_BLOCK:
             return piston_base_trigger_event(lv, st, pos, param_a, param_b);
+        case VCLASS_COMPARATOR_BLOCK:
+            return comparator_trigger_event(lv, pos);
         default:
             hook_unsupported(lv, st, HOOK_TRIGGER_EVENT);
             return false;
@@ -264,6 +272,8 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return button_use_without_item(lv, st, pos);
         case VCLASS_REPEATER_BLOCK:
             return repeater_use_without_item(lv, st, pos);
+        case VCLASS_COMPARATOR_BLOCK:
+            return comparator_use_without_item(lv, st, pos);
         case VCLASS_MOVING_PISTON_BLOCK:
             return moving_piston_use_without_item(lv, pos);
         default:
@@ -315,7 +325,7 @@ int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) 
         case VCLASS_BUTTON_BLOCK:
             return button_get_signal(st);
         case VCLASS_DIODE_BLOCK:
-            return diode_get_signal(st, dir);
+            return diode_get_signal(lv, st, pos, dir);
         case VCLASS_POWERED_BLOCK:
             return 15;
         case VCLASS_OBSERVER_BLOCK:
@@ -396,4 +406,10 @@ void block_update_or_destroy(level & lv, state_id old, state_id updated, block_p
     } else {
         level_set_block(lv, pos, updated, flags & ~UPDATE_FLAG_SUPPRESS_DROPS, limit);
     }
+}
+
+// no analog output source is ported yet; the ports will add pos and direction
+int32_t block_get_analog_output_signal(level & lv, state_id st) {
+    hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
+    return 0;
 }

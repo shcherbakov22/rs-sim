@@ -89,11 +89,16 @@ block_entity * level_new_block_entity(level & lv, block_entity_type type, block_
 }
 
 // EntityBlock.newBlockEntity; MovingPistonBlock makes none, its block entity comes from the piston
-static block_entity * entity_block_new_block_entity(level & lv, state_id st) {
-    if (!state_is(st, BLOCK_MOVING_PISTON)) {
-        level_unsupported(lv, "block entity of %s", block_defs[state_block(st)].name);
+static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, state_id st) {
+    int32_t type = block_defs[state_block(st)].entity_new;
+    if (type < 0) {
+        return nullptr;
     }
-    return nullptr;
+    if (type != BLOCK_ENTITY_TYPE_COMPARATOR) {
+        level_unsupported(lv, "block entity of %s", block_defs[state_block(st)].name);
+        return nullptr;
+    }
+    return level_new_block_entity(lv, (block_entity_type) type, pos, st);
 }
 
 static void level_remove_block_entity_ticker(level & lv, block_pos pos) {
@@ -129,7 +134,7 @@ static block_entity * level_chunk_get_block_entity(level & lv, block_pos pos, bo
         state_id       st = level_get_state(lv, pos);
         block_entity * be = nullptr;
         if (create && state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
-            be = entity_block_new_block_entity(lv, st);
+            be = entity_block_new_block_entity(lv, pos, st);
             if (be != nullptr) {
                 level_set_block_entity(lv, be);
             }
@@ -206,9 +211,9 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
     bool    moved_by_piston = (flags & UPDATE_FLAG_MOVE_BY_PISTON) != 0;
     if (block_changed && state_has(old, STATE_FLAG_BLOCK_ENTITY)) {
         if ((flags & UPDATE_FLAG_SKIP_BLOCK_ENTITY_SIDEEFFECTS) == 0) {
-            // BlockEntity.preRemoveSideEffects
+            // BlockEntity.preRemoveSideEffects; comparators are no Container, so only pistons do something
             block_entity * be = level_get_block_entity(lv, pos);
-            if (be != nullptr) {
+            if (be != nullptr && be->type == BLOCK_ENTITY_TYPE_PISTON) {
                 piston_moving_block_entity_final_tick(lv, be);
             }
         }
@@ -231,7 +236,7 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
             be = nullptr;
         }
         if (be == nullptr) {
-            be = entity_block_new_block_entity(lv, st);
+            be = entity_block_new_block_entity(lv, pos, st);
             if (be != nullptr) {
                 level_set_block_entity(lv, be);
             }

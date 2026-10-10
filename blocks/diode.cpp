@@ -1,4 +1,4 @@
-// DiodeBlock. Repeaters are the only diodes: comparators have block entities, which the sim does not place yet.
+// DiodeBlock; RepeaterBlock and ComparatorBlock override parts of it
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -18,18 +18,16 @@ bool diode_can_survive(level & lv, block_pos pos) {
     return diode_can_survive_on(lv, below, level_get_state(lv, below));
 }
 
-// virtual: RepeaterBlock overrides it
+// only repeaters lock
 static bool diode_is_locked(level & lv, state_id st, block_pos pos) {
-    TMC_ASSERT(state_is(st, BLOCK_REPEATER));
-    return repeater_is_locked(lv, st, pos);
+    return state_is(st, BLOCK_REPEATER) && repeater_is_locked(lv, st, pos);
 }
 
 static int32_t diode_get_delay(state_id st) {
-    TMC_ASSERT(state_is(st, BLOCK_REPEATER));
-    return repeater_get_delay(st);
+    return state_is(st, BLOCK_COMPARATOR) ? 2 : repeater_get_delay(st);
 }
 
-static int32_t diode_get_input_signal(level & lv, state_id st, block_pos pos) {
+int32_t diode_get_input_signal(level & lv, state_id st, block_pos pos) {
     direction dir    = diode_facing(st);
     block_pos target = pos_relative(pos, dir);
     int32_t   input  = level_get_signal(lv, target, dir);
@@ -41,6 +39,9 @@ static int32_t diode_get_input_signal(level & lv, state_id st, block_pos pos) {
 }
 
 static bool diode_should_turn_on(level & lv, state_id st, block_pos pos) {
+    if (state_is(st, BLOCK_COMPARATOR)) {
+        return comparator_should_turn_on(lv, st, pos);
+    }
     return diode_get_input_signal(lv, st, pos) > 0;
 }
 
@@ -61,17 +62,24 @@ void diode_tick(level & lv, state_id st, block_pos pos) {
 }
 
 // DiodeBlock.getOutputSignal is 15 for repeaters
-int32_t diode_get_signal(state_id st, direction dir) {
-    return state_get(st, PROP_POWERED) && diode_facing(st) == dir ? 15 : 0;
+int32_t diode_get_signal(level & lv, state_id st, block_pos pos, direction dir) {
+    if (!state_get(st, PROP_POWERED) || diode_facing(st) != dir) {
+        return 0;
+    }
+    return state_is(st, BLOCK_COMPARATOR) ? comparator_get_output_signal(lv, pos) : 15;
 }
 
-static bool diode_should_prioritize(level & lv, state_id st, block_pos pos) {
+bool diode_should_prioritize(level & lv, state_id st, block_pos pos) {
     direction dir      = direction_opposite(diode_facing(st));
     state_id  opposite = level_get_state(lv, pos_relative(pos, dir));
     return block_instanceof(state_block(opposite), VCLASS_DIODE_BLOCK) && diode_facing(opposite) != dir;
 }
 
 static void diode_check_tick_on_neighbor(level & lv, state_id st, block_pos pos) {
+    if (state_is(st, BLOCK_COMPARATOR)) {
+        comparator_check_tick_on_neighbor(lv, st, pos);
+        return;
+    }
     if (diode_is_locked(lv, st, pos)) {
         return;
     }
@@ -93,7 +101,8 @@ void diode_neighbor_changed(level & lv, state_id st, block_pos pos) {
         diode_check_tick_on_neighbor(lv, st, pos);
         return;
     }
-    level_drop_resources(lv, st, pos, nullptr);
+    level_drop_resources(lv, st, pos,
+                         state_has(st, STATE_FLAG_BLOCK_ENTITY) ? level_get_block_entity(lv, pos) : nullptr);
     level_remove_block(lv, pos, false);
     for (int32_t d = 0; d < 6; d++) {
         level_update_neighbors_at(lv, pos_relative(pos, (direction) d), state_block(st));
@@ -102,14 +111,15 @@ void diode_neighbor_changed(level & lv, state_id st, block_pos pos) {
 
 // repeaters only take side input from diodes (sideInputDiodesOnly)
 int32_t diode_get_alternate_signal(level & lv, state_id st, block_pos pos) {
-    direction dir = diode_facing(st);
-    direction cw  = direction_clockwise(dir);
-    direction ccw = direction_counter_clockwise(dir);
-    return std::max(level_get_control_input_signal(lv, pos_relative(pos, cw), cw, true),
-                    level_get_control_input_signal(lv, pos_relative(pos, ccw), ccw, true));
+    direction dir                    = diode_facing(st);
+    direction cw                     = direction_clockwise(dir);
+    direction ccw                    = direction_counter_clockwise(dir);
+    bool      side_input_diodes_only = state_is(st, BLOCK_REPEATER);
+    return std::max(level_get_control_input_signal(lv, pos_relative(pos, cw), cw, side_input_diodes_only),
+                    level_get_control_input_signal(lv, pos_relative(pos, ccw), ccw, side_input_diodes_only));
 }
 
-static void diode_update_neighbors_in_front(level & lv, state_id st, block_pos pos) {
+void diode_update_neighbors_in_front(level & lv, state_id st, block_pos pos) {
     direction dir          = diode_facing(st);
     block_pos opposite_pos = pos_relative(pos, direction_opposite(dir));
     level_neighbor_changed(lv, opposite_pos, state_block(st));

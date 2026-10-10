@@ -132,7 +132,7 @@ struct case_parser {
     std::map<std::string, state_id, std::less<>> key_state = {
         { ".", STATE_AIR }
     };
-    std::map<std::string, std::string, std::less<>> key_nbt;
+    std::map<std::string, snbt_value, std::less<>> key_nbt;
 };
 
 static bool case_parse_line(case_file & f, case_parser & p, std::string_view line, std::string & err) {
@@ -209,8 +209,9 @@ static bool case_parse_line(case_file & f, case_parser & p, std::string_view lin
             return false;
         }
         p.key_state[name] = st;
-        if (!snbt.empty()) {
-            p.key_nbt[name] = snbt;
+        if (!snbt.empty() && !snbt_parse(snbt, p.key_nbt[name], err)) {
+            err = "nbt: " + err;
+            return false;
         }
         return true;
     }

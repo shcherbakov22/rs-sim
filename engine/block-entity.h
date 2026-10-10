@@ -18,6 +18,9 @@ struct block_entity {
     float     progress         = 0.0f;
     float     progress_o       = 0.0f;
     int64_t   last_ticked      = 0;
+
+    // ComparatorBlockEntity
+    int32_t output_signal = 0;
 };
 
 // LevelChunk.RebindableTickingBlockEntityWrapper; a null block entity is NULL_TICKER, which counts as removed
