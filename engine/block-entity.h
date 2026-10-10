@@ -11,7 +11,6 @@ struct block_entity {
     block_entity_type type;
     block_pos         pos;
     state_id          state;
-    bool              removed = false;
 
     // PistonMovingBlockEntity
     state_id  moved_state      = STATE_AIR;

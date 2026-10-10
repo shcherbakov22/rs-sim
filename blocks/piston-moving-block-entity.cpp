@@ -41,7 +41,6 @@ void piston_moving_block_entity_final_tick(level & lv, block_entity * be) {
     be->progress   = 1.0f;
     be->progress_o = be->progress;
     level_remove_block_entity(lv, be->pos);
-    be->removed = true;
     if (state_is(level_get_state(lv, be->pos), BLOCK_MOVING_PISTON)) {
         state_id st =
             be->is_source_piston ? STATE_AIR : block_update_from_neighbour_shapes(lv, be->moved_state, be->pos);
@@ -60,7 +59,6 @@ void piston_moving_block_entity_tick(level & lv, block_entity * be) {
     }
     block_pos pos = be->pos;
     level_remove_block_entity(lv, pos);
-    be->removed = true;
     if (!state_is(level_get_state(lv, pos), BLOCK_MOVING_PISTON)) {
         return;
     }

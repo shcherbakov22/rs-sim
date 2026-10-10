@@ -148,7 +148,7 @@ static void level_update_block_entity_ticker(level & lv, block_entity * be) {
     (lv.ticking_block_entities ? lv.pending_block_entity_tickers : lv.block_entity_tickers).push_back(ticker);
 }
 
-// LevelChunk.getBlockEntity: IMMEDIATE (create) makes a missing one, but a removed one only goes away
+// LevelChunk.getBlockEntity with IMMEDIATE: makes a missing one
 static block_entity * level_chunk_get_block_entity(level & lv, block_pos pos, bool create) {
     auto it = lv.block_entities.find(pos_key(pos));
     if (it == lv.block_entities.end()) {
@@ -161,10 +161,6 @@ static block_entity * level_chunk_get_block_entity(level & lv, block_pos pos, bo
             }
         }
         return be;
-    }
-    if (it->second->removed) {
-        lv.block_entities.erase(it);
-        return nullptr;
     }
     return it->second;
 }
@@ -188,13 +184,7 @@ static void level_chunk_set_block_entity(level & lv, block_entity * be) {
         }
         be->state = st;
     }
-    be->removed              = false;
-    block_entity *& entry    = lv.block_entities[pos_key(be->pos)];
-    block_entity *  previous = entry;
-    entry                    = be;
-    if (previous != nullptr && previous != be) {
-        previous->removed = true;
-    }
+    lv.block_entities[pos_key(be->pos)] = be;
 }
 
 void level_set_block_entity(level & lv, block_entity * be) {
@@ -210,11 +200,7 @@ void level_remove_block_entity(level & lv, block_pos pos) {
     if (!level_in_valid_bounds(pos)) {
         return;
     }
-    auto it = lv.block_entities.find(pos_key(pos));
-    if (it != lv.block_entities.end()) {
-        it->second->removed = true;
-        lv.block_entities.erase(it);
-    }
+    lv.block_entities.erase(pos_key(pos));
     level_remove_block_entity_ticker(lv, pos);
 }
 
@@ -561,7 +547,7 @@ static void level_tick_block_entities(level & lv) {
     size_t                               kept    = 0;
     for (size_t i = 0; i < tickers.size(); i++) {
         block_entity_ticker * ticker = tickers[i];
-        if (ticker->be == nullptr || ticker->be->removed) {
+        if (ticker->be == nullptr) {
             continue;
         }
         tickers[kept++]    = ticker;
