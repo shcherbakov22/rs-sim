@@ -28,6 +28,9 @@ interaction_result shears_item_use_on(level & lv, const use_on_context & hit);
 // ShovelItem
 interaction_result shovel_item_use_on(level & lv, const use_on_context & hit);
 interaction_result hoe_item_use_on(level & lv, const use_on_context & hit);
+bool               bone_meal_item_grow_crop(level & lv, block_pos pos);
+bool               bone_meal_item_grow_water_plant(level & lv, block_pos pos);
+interaction_result bone_meal_item_use_on(level & lv, const use_on_context & hit);
 interaction_result end_crystal_item_use_on(level & lv, const use_on_context & hit);
 interaction_result minecart_item_use_on(level & lv, const use_on_context & hit);
 interaction_result firework_rocket_item_use_on(level & lv, const use_on_context & hit);

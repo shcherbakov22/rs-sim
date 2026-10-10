@@ -140,6 +140,7 @@ add_library(tmc STATIC
     items/banner-duplicate-recipe.cpp
     items/block-item.cpp
     items/block-place-context.cpp
+    items/bone-meal-item.cpp
     items/book-cloning-recipe.cpp
     items/decorated-pot-recipe.cpp
     items/double-high-block-item.cpp

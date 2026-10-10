@@ -50,13 +50,11 @@ static item_stack dispense_item_behavior_flint_and_steel(level & lv, state_id st
     return dispensed;
 }
 
-// BoneMealItem.growCrop and growWaterPlant; bonemealing itself is not ported
+// both growths stop the run, and a failure changes nothing
 static item_stack dispense_item_behavior_bone_meal(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    state_id at = level_get_state(lv, pos_relative(pos, dispenser_facing(st)));
-    if (state_has(at, STATE_FLAG_BONEMEALABLE)) {
-        level_unsupported(lv, "bone meal on %s", block_defs[state_block(at)].name);
-    } else if (state_is(at, BLOCK_WATER)) {
-        level_unsupported(lv, "fluids");
+    block_pos target = pos_relative(pos, dispenser_facing(st));
+    if (!bone_meal_item_grow_crop(lv, target)) {
+        bone_meal_item_grow_water_plant(lv, target);
     }
     return dispensed;
 }

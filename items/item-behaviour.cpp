@@ -33,6 +33,8 @@ interaction_result item_use_on(level & lv, const use_on_context & hit) {
             return shovel_item_use_on(lv, hit);
         case ICLASS_HOE_ITEM:
             return hoe_item_use_on(lv, hit);
+        case ICLASS_BONE_MEAL_ITEM:
+            return bone_meal_item_use_on(lv, hit);
         case ICLASS_END_CRYSTAL_ITEM:
             return end_crystal_item_use_on(lv, hit);
         case ICLASS_MINECART_ITEM:
