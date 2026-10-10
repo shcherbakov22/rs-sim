@@ -1,0 +1,88 @@
+// Checks for what traces cannot show: the RNG port and state id <-> string.
+
+#include "core/rng.h"
+#include "core/state.h"
+
+#include <cstring>
+
+static int32_t n_fail = 0;
+
+#define CHECK(x)                                                           \
+    do {                                                                   \
+        if (!(x)) {                                                        \
+            fprintf(stderr, "%s:%d: CHECK(%s)\n", __FILE__, __LINE__, #x); \
+            n_fail++;                                                      \
+        }                                                                  \
+    } while (0)
+
+// expected values come from the same formulas run in jshell (Java long/int/float semantics)
+static void test_rng() {
+    rng r;
+    rng_set_seed(r, 1942537005037828938LL);
+    CHECK(rng_next(r, 32) == -1124186588);
+    CHECK(rng_next(r, 31) == 1972581383);
+    CHECK(rng_next(r, 24) == 4594910);
+    CHECK(rng_next(r, 1) == 0);
+    CHECK(rng_next_int(r, 16) == 8);
+    CHECK(rng_next_int(r, 24) == 15);
+    CHECK(rng_next_int(r, 1000000007) == 636993617);
+    CHECK(rng_next_int(r, 1 << 30) == 625765879);
+    CHECK(rng_next_int(r, 3) == 0);
+    CHECK(rng_next_long(r) == 8073734555421851965LL);
+    CHECK(rng_next_long(r) == -1242101365187779280LL);
+
+    float   f = rng_next_float(r);
+    int32_t fbits;
+    memcpy(&fbits, &f, 4);
+    CHECK(fbits == 1062747648);
+    f = rng_next_float(r);
+    memcpy(&fbits, &f, 4);
+    CHECK(fbits == 1057998740);
+
+    double  d = rng_next_double(r);
+    int64_t dbits;
+    memcpy(&dbits, &d, 8);
+    CHECK(dbits == 4607083901377052672LL);
+    d = rng_next_double(r);
+    memcpy(&dbits, &d, 8);
+    CHECK(dbits == 4600814190259601408LL);
+
+    rng_set_seed(r, -1);
+    CHECK(r.seed == 281449761806738LL);
+    CHECK(rng_next(r, 32) == 1155099827);
+}
+
+static void test_states() {
+    std::string err;
+    for (int32_t st = 0; st < n_states; st++) {
+        state_id back = STATE_AIR;
+        bool     ok   = state_parse(state_to_string((state_id) st), back, err);
+        CHECK(ok && back == st);
+        if (!ok || back != st) {
+            break;
+        }
+    }
+    CHECK(state_to_string(STATE_AIR) == "air");
+
+    // missing properties take the block's default, order does not matter
+    state_id st;
+    CHECK(state_parse("minecraft:redstone_wire[power=3,west=side]", st, err));
+    CHECK(state_to_string(st) == "redstone_wire[east=none,north=none,power=3,south=none,west=side]");
+    CHECK(state_parse("redstone_wire", st, err));
+    CHECK(st == block_defs[block_find("redstone_wire")].state_default);
+
+    CHECK(!state_parse("redstone_wire[power=16]", st, err));
+    CHECK(!state_parse("redstone_wire[facing=up]", st, err));
+    CHECK(!state_parse("not_a_block", st, err));
+}
+
+int main() {
+    test_rng();
+    test_states();
+    if (n_fail > 0) {
+        fprintf(stderr, "%d checks failed\n", n_fail);
+        return 1;
+    }
+    printf("all checks passed\n");
+    return 0;
+}

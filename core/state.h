@@ -1,0 +1,48 @@
+#pragma once
+
+#include "core/common.h"
+
+#include <string>
+#include <string_view>
+
+// Block state id, equal to vanilla's Block.BLOCK_STATE_REGISTRY id. 0 is air.
+using state_id = uint16_t;
+
+struct prop_def {
+    const char *         name;
+    int32_t              n_values;
+    const char * const * values;
+};
+
+// Within a block, state = state_first + sum(value index * stride).
+struct block_prop {
+    int32_t prop;
+    int32_t stride;
+};
+
+struct block_def {
+    const char * name;
+    int32_t      state_first;
+    int32_t      n_states;
+    int32_t      state_default;
+    int32_t      props_first;
+    int32_t      n_props;
+};
+
+// generated in gen/blocks.cpp
+extern const prop_def   prop_defs[];
+extern const block_prop block_props[];
+extern const block_def  block_defs[];
+extern const int32_t    n_block_defs;
+extern const int32_t    n_states;
+
+constexpr state_id STATE_AIR = 0;
+
+int32_t block_find(std::string_view name);  // -1 if unknown
+int32_t state_block(state_id st);
+
+// trace form: "redstone_wire[east=side,...]", no namespace
+std::string state_to_string(state_id st);
+
+// /setblock syntax without NBT: optional "minecraft:", properties in any order, missing ones take the default
+bool state_parse(std::string_view text, state_id & out, std::string & err);
