@@ -274,7 +274,7 @@ void red_stone_wire_neighbor_changed(level & lv, state_id st, block_pos pos) {
     if (block_can_survive(lv, st, pos)) {
         red_stone_wire_update_power_strength(lv, pos, st);
     } else {
-        level_drop_resources(lv, st, pos);
+        level_drop_resources(lv, st, pos, nullptr);
         level_remove_block(lv, pos, false);
     }
 }

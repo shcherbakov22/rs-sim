@@ -18,7 +18,12 @@ add_library(tmc STATIC
     blocks/diode.cpp
     blocks/face-attached-horizontal-directional.cpp
     blocks/lever.cpp
+    blocks/moving-piston.cpp
     blocks/observer.cpp
+    blocks/piston-base.cpp
+    blocks/piston-head.cpp
+    blocks/piston-moving-block-entity.cpp
+    blocks/piston-structure-resolver.cpp
     blocks/red-stone-wire.cpp
     blocks/redstone-lamp.cpp
     blocks/redstone-torch.cpp

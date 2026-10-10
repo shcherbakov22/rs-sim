@@ -4,6 +4,7 @@
 #include "core/direction.h"
 #include "core/rng.h"
 #include "core/state.h"
+#include "engine/block-entity.h"
 #include "engine/level-ticks.h"
 #include "engine/neighbor-updater.h"
 
@@ -60,12 +61,23 @@ struct redstone_torch_toggle {
 struct level {
     std::unordered_map<int64_t, std::unique_ptr<level_section>> sections;
 
-    int64_t                            game_time      = 0;  // relative to the case placement; case data is relative too
-    int64_t                            sub_tick_count = 0;
-    rng                                random;
-    neighbor_updater                   updater;
-    level_ticks                        block_ticks;
-    std::vector<block_event>           block_events;  // insertion-ordered set
+    int64_t                  game_time      = 0;  // relative to the case placement; case data is relative too
+    int64_t                  sub_tick_count = 0;
+    rng                      random;
+    neighbor_updater         updater;
+    level_ticks              block_ticks;
+    std::vector<block_event> block_events;  // insertion-ordered set
+    bool handling_tick = false;             // ServerLevel.handlingTick: from tick start to the end of block events
+
+    // Block entities are never freed during a run: vanilla keeps using removed ones it still holds.
+    std::vector<std::unique_ptr<block_entity>>         block_entity_store;
+    std::unordered_map<int64_t, block_entity *>        block_entities;  // LevelChunk.blockEntities
+    std::vector<std::unique_ptr<block_entity_ticker>>  block_entity_ticker_store;
+    std::unordered_map<int64_t, block_entity_ticker *> tickers_in_level;
+    std::vector<block_entity_ticker *>                 block_entity_tickers;
+    std::vector<block_entity_ticker *>                 pending_block_entity_tickers;
+    bool                                               ticking_block_entities = false;
+
     // RedStoneWireBlock.shouldSignal lives on the block object, RECENT_TOGGLES in a static map keyed by level
     bool                               red_stone_wire_should_signal = true;
     std::vector<redstone_torch_toggle> redstone_torch_recent_toggles;
@@ -85,8 +97,16 @@ bool level_set_block(level & lv, block_pos pos, state_id st, int32_t flags, int3
 bool level_remove_block(level & lv, block_pos pos, bool moved_by_piston);
 bool level_destroy_block(level & lv, block_pos pos, bool drop, int32_t limit = UPDATE_LIMIT);
 
-// Block.dropResources without a block entity or tool
-void level_drop_resources(level & lv, state_id st, block_pos pos);
+// a new block entity owned by the level, not yet in the world
+block_entity * level_new_block_entity(level & lv, block_entity_type type, block_pos pos, state_id st);
+// Level.getBlockEntity
+block_entity * level_get_block_entity(level & lv, block_pos pos);
+// Level.setBlockEntity (LevelChunk.addAndRegisterBlockEntity)
+void           level_set_block_entity(level & lv, block_entity * be);
+void           level_remove_block_entity(level & lv, block_pos pos);
+
+// Block.dropResources without a tool
+void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be);
 
 void level_update_neighbors_at(level & lv, block_pos pos, int32_t block);
 void level_update_neighbors_at_except_from_facing(level & lv, block_pos pos, int32_t block, direction skip);

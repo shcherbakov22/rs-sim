@@ -92,7 +92,7 @@ void diode_neighbor_changed(level & lv, state_id st, block_pos pos) {
         diode_check_tick_on_neighbor(lv, st, pos);
         return;
     }
-    level_drop_resources(lv, st, pos);
+    level_drop_resources(lv, st, pos, nullptr);
     level_remove_block(lv, pos, false);
     for (int32_t d = 0; d < 6; d++) {
         level_update_neighbors_at(lv, pos_relative(pos, (direction) d), state_block(st));

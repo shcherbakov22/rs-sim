@@ -4,6 +4,9 @@
 // hooks to them; the other functions are vanilla's non-hook methods that other classes call.
 
 #include "blocks/block-behaviour.h"
+#include "engine/block-entity.h"
+
+#include <vector>
 
 // BaseTorchBlock
 state_id base_torch_update_shape(level & lv, state_id st, block_pos pos, direction dir);
@@ -86,3 +89,40 @@ state_id observer_update_shape(level & lv, state_id st, block_pos pos, direction
 int32_t  observer_get_signal(state_id st, direction dir);
 void     observer_on_place(level & lv, state_id st, block_pos pos, state_id old);
 void     observer_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
+
+// MovingPistonBlock
+interaction_result moving_piston_use_without_item(level & lv, block_pos pos);
+
+// PistonBaseBlock
+void piston_base_neighbor_changed(level & lv, state_id st, block_pos pos);
+void piston_base_on_place(level & lv, state_id st, block_pos pos, state_id old);
+bool piston_base_trigger_event(level & lv, state_id st, block_pos pos, int32_t b0, int32_t b1);
+bool piston_base_is_pushable(state_id  st,
+                             block_pos pos,
+                             direction dir,
+                             bool      allow_destroyable,
+                             direction connection_direction);
+
+// PistonHeadBlock
+void     piston_head_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
+state_id piston_head_update_shape(level & lv, state_id st, block_pos pos, direction dir);
+bool     piston_head_can_survive(level & lv, state_id st, block_pos pos);
+void     piston_head_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block);
+
+// PistonMovingBlockEntity
+void piston_moving_block_entity_final_tick(level & lv, block_entity * be);
+void piston_moving_block_entity_tick(level & lv, block_entity * be);
+
+// PistonStructureResolver
+struct piston_structure_resolver {
+    block_pos              piston_pos;
+    direction              piston_direction;
+    bool                   extending;
+    direction              push_direction;
+    block_pos              start_pos;
+    std::vector<block_pos> to_push;
+    std::vector<block_pos> to_destroy;
+};
+
+piston_structure_resolver piston_structure_resolver_init(block_pos piston_pos, direction dir, bool extending);
+bool                      piston_structure_resolver_resolve(level & lv, piston_structure_resolver & r);

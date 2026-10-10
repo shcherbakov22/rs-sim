@@ -1,6 +1,7 @@
 #include "engine/level.h"
 
 #include "blocks/block-behaviour.h"
+#include "blocks/handlers.h"
 #include "core/trace.h"
 
 #include <algorithm>
@@ -26,6 +27,11 @@ static int64_t section_key(block_pos pos) {
     int64_t y = pos.y >> 4;
     int64_t z = pos.z >> 4;
     return (x & 0x3FFFFF) << 42 | (z & 0x3FFFFF) << 20 | (y & 0xFFFFF);
+}
+
+// BlockPos.asLong
+static int64_t pos_key(block_pos pos) {
+    return ((int64_t) pos.x & 0x3FFFFFF) << 38 | ((int64_t) pos.z & 0x3FFFFFF) << 12 | ((int64_t) pos.y & 0xFFF);
 }
 
 static int32_t section_index(block_pos pos) {
@@ -73,6 +79,119 @@ void level_set_state_raw(level & lv, block_pos pos, state_id st) {
     section_set(lv, pos, st);
 }
 
+block_entity * level_new_block_entity(level & lv, block_entity_type type, block_pos pos, state_id st) {
+    lv.block_entity_store.push_back(std::make_unique<block_entity>());
+    block_entity * be = lv.block_entity_store.back().get();
+    be->type          = type;
+    be->pos           = pos;
+    be->state         = st;
+    return be;
+}
+
+// EntityBlock.newBlockEntity; MovingPistonBlock makes none, its block entity comes from the piston
+static block_entity * entity_block_new_block_entity(level & lv, state_id st) {
+    if (!state_is(st, BLOCK_MOVING_PISTON)) {
+        level_unsupported(lv, "block entities");
+    }
+    return nullptr;
+}
+
+static void level_remove_block_entity_ticker(level & lv, block_pos pos) {
+    auto it = lv.tickers_in_level.find(pos_key(pos));
+    if (it != lv.tickers_in_level.end()) {
+        it->second->be = nullptr;
+        lv.tickers_in_level.erase(it);
+    }
+}
+
+// LevelChunk.updateBlockEntityTicker: one wrapper per position keeps its place in the ticker list when rebound
+static void level_update_block_entity_ticker(level & lv, block_entity * be) {
+    // BlockState.getTicker: only MovingPistonBlock ticks a piston block entity
+    if (!state_is(be->state, BLOCK_MOVING_PISTON)) {
+        level_remove_block_entity_ticker(lv, be->pos);
+        return;
+    }
+    block_entity_ticker *& ticker = lv.tickers_in_level[pos_key(be->pos)];
+    if (ticker != nullptr) {
+        ticker->be = be;
+        return;
+    }
+    lv.block_entity_ticker_store.push_back(std::make_unique<block_entity_ticker>());
+    ticker     = lv.block_entity_ticker_store.back().get();
+    ticker->be = be;
+    (lv.ticking_block_entities ? lv.pending_block_entity_tickers : lv.block_entity_tickers).push_back(ticker);
+}
+
+// LevelChunk.getBlockEntity: IMMEDIATE (create) makes a missing one, but a removed one only goes away
+static block_entity * level_chunk_get_block_entity(level & lv, block_pos pos, bool create) {
+    auto it = lv.block_entities.find(pos_key(pos));
+    if (it == lv.block_entities.end()) {
+        state_id       st = level_get_state(lv, pos);
+        block_entity * be = nullptr;
+        if (create && state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
+            be = entity_block_new_block_entity(lv, st);
+            if (be != nullptr) {
+                level_set_block_entity(lv, be);
+            }
+        }
+        return be;
+    }
+    if (it->second->removed) {
+        lv.block_entities.erase(it);
+        return nullptr;
+    }
+    return it->second;
+}
+
+block_entity * level_get_block_entity(level & lv, block_pos pos) {
+    if (level_outside_height(pos)) {
+        return nullptr;
+    }
+    return level_chunk_get_block_entity(lv, pos, true);
+}
+
+// LevelChunk.setBlockEntity
+static void level_chunk_set_block_entity(level & lv, block_entity * be) {
+    state_id st = level_get_state(lv, be->pos);
+    if (!state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
+        return;
+    }
+    if (st != be->state) {
+        if (!block_entity_type_is_valid(be->type, st)) {
+            return;
+        }
+        be->state = st;
+    }
+    be->removed              = false;
+    block_entity *& entry    = lv.block_entities[pos_key(be->pos)];
+    block_entity *  previous = entry;
+    entry                    = be;
+    if (previous != nullptr && previous != be) {
+        previous->removed = true;
+    }
+}
+
+void level_set_block_entity(level & lv, block_entity * be) {
+    if (!level_in_valid_bounds(be->pos)) {
+        return;
+    }
+    // the ticker is updated even when the chunk refused the block entity
+    level_chunk_set_block_entity(lv, be);
+    level_update_block_entity_ticker(lv, be);
+}
+
+void level_remove_block_entity(level & lv, block_pos pos) {
+    if (!level_in_valid_bounds(pos)) {
+        return;
+    }
+    auto it = lv.block_entities.find(pos_key(pos));
+    if (it != lv.block_entities.end()) {
+        it->second->removed = true;
+        lv.block_entities.erase(it);
+    }
+    level_remove_block_entity_ticker(lv, pos);
+}
+
 // LevelChunk.setBlockState: returns false where vanilla returns null (nothing changed or the block was replaced meanwhile)
 static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_t flags, state_id & old) {
     if (section_only_air(lv, pos) && state_has(st, STATE_FLAG_AIR)) {
@@ -85,8 +204,15 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
     int32_t block           = state_block(st);
     bool    block_changed   = state_block(old) != block;
     bool    moved_by_piston = (flags & UPDATE_FLAG_MOVE_BY_PISTON) != 0;
-    if (state_has(old, STATE_FLAG_BLOCK_ENTITY) || state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
-        level_unsupported(lv, "block entities");
+    if (block_changed && state_has(old, STATE_FLAG_BLOCK_ENTITY)) {
+        if ((flags & UPDATE_FLAG_SKIP_BLOCK_ENTITY_SIDEEFFECTS) == 0) {
+            // BlockEntity.preRemoveSideEffects
+            block_entity * be = level_get_block_entity(lv, pos);
+            if (be != nullptr) {
+                piston_moving_block_entity_final_tick(lv, be);
+            }
+        }
+        level_remove_block_entity(lv, pos);
     }
     if ((block_changed || block_instanceof(block, VCLASS_BASE_RAIL_BLOCK)) &&
         ((flags & UPDATE_FLAG_NEIGHBORS) != 0 || moved_by_piston)) {
@@ -97,6 +223,22 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
     }
     if ((flags & UPDATE_FLAG_SKIP_ON_PLACE) == 0) {
         block_on_place(lv, st, pos, old, moved_by_piston);
+    }
+    if (state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
+        block_entity * be = level_chunk_get_block_entity(lv, pos, false);
+        if (be != nullptr && !block_entity_type_is_valid(be->type, st)) {
+            level_remove_block_entity(lv, pos);
+            be = nullptr;
+        }
+        if (be == nullptr) {
+            be = entity_block_new_block_entity(lv, st);
+            if (be != nullptr) {
+                level_set_block_entity(lv, be);
+            }
+        } else {
+            be->state = st;
+            level_update_block_entity_ticker(lv, be);
+        }
     }
     return true;
 }
@@ -151,12 +293,17 @@ static double rng_next_double_between(rng & r, double min, double max) {
 }
 
 // The first item entity ends the traced contract.
-void level_drop_resources(level & lv, state_id st, block_pos pos) {
-    if (state_has(st, STATE_FLAG_DROPS_RANDOM)) {
+void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be) {
+    // MovingPistonBlock.getDrops: the moved block drops, or nothing without a block entity
+    state_id loot = st;
+    if (state_is(st, BLOCK_MOVING_PISTON)) {
+        loot = be != nullptr ? be->moved_state : STATE_AIR;
+    }
+    if (state_has(loot, STATE_FLAG_DROPS_RANDOM)) {
         level_unsupported(lv, "random loot");
         return;
     }
-    if (state_has(st, STATE_FLAG_DROPS)) {
+    if (state_has(loot, STATE_FLAG_DROPS)) {
         // Block.popResource: random offset in the block, then ItemEntity's random motion
         for (int32_t i = 0; i < 3; i++) {
             rng_next_double_between(lv.random, -0.25, 0.25);
@@ -175,10 +322,8 @@ bool level_destroy_block(level & lv, block_pos pos, bool drop, int32_t limit) {
     }
     state_id fluid = level_fluid_block(lv, pos);
     if (drop) {
-        if (state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
-            level_unsupported(lv, "block entities");
-        }
-        level_drop_resources(lv, st, pos);
+        level_drop_resources(lv, st, pos,
+                             state_has(st, STATE_FLAG_BLOCK_ENTITY) ? level_get_block_entity(lv, pos) : nullptr);
     }
     return level_set_block(lv, pos, fluid, UPDATE_FLAG_ALL, limit);
 }
@@ -371,8 +516,36 @@ static void level_run_block_events(level & lv) {
     }
 }
 
+// Level.tickBlockEntities; vanilla traces each ticker it calls, even when the ticker then skips its block entity
+static void level_tick_block_entities(level & lv) {
+    lv.ticking_block_entities = true;
+    lv.block_entity_tickers.insert(lv.block_entity_tickers.end(), lv.pending_block_entity_tickers.begin(),
+                                   lv.pending_block_entity_tickers.end());
+    lv.pending_block_entity_tickers.clear();
+    std::vector<block_entity_ticker *> & tickers = lv.block_entity_tickers;
+    size_t                               kept    = 0;
+    for (size_t i = 0; i < tickers.size(); i++) {
+        block_entity_ticker * ticker = tickers[i];
+        if (ticker->be == nullptr || ticker->be->removed) {
+            continue;
+        }
+        tickers[kept++]    = ticker;
+        block_entity * be  = ticker->be;
+        block_pos      pos = be->pos;
+        trace_enter(lv.tr, &pos, "be %d %d %d %s", pos.x, pos.y, pos.z, block_entity_type_names[be->type]);
+        // LevelChunk.BoundTickingBlockEntity.tick
+        if (block_entity_type_is_valid(be->type, level_get_state(lv, pos))) {
+            piston_moving_block_entity_tick(lv, be);
+        }
+        trace_exit(lv.tr);
+    }
+    tickers.resize(kept);
+    lv.ticking_block_entities = false;
+}
+
 void level_tick(level & lv) {
     trace_begin_tick(lv.tr);
+    lv.handling_tick = true;
     // world border, weather, sleep, sky: off by game rules or no-ops for a void world
     lv.game_time++;
 
@@ -389,8 +562,10 @@ void level_tick(level & lv) {
     trace_phase(lv.tr, "chunkSource");
     trace_phase(lv.tr, "blockEvents");
     level_run_block_events(lv);
+    lv.handling_tick = false;
     trace_phase(lv.tr, "entities");
     trace_phase(lv.tr, "blockEntities");
+    level_tick_block_entities(lv);
     trace_phase(lv.tr, "entityManagement");
     trace_phase(lv.tr, "between");
 }

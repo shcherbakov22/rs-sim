@@ -59,5 +59,7 @@ bool               block_can_survive(level & lv, state_id st, block_pos pos);
 // BlockStateBase.updateNeighbourShapes
 void block_update_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit);
 
+// Block.updateFromNeighbourShapes
+state_id block_update_from_neighbour_shapes(level & lv, state_id st, block_pos pos);
 // Block.updateOrDestroy
 void block_update_or_destroy(level & lv, state_id old, state_id updated, block_pos pos, int32_t flags, int32_t limit);

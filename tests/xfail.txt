@@ -1,13 +1,9 @@
 # Cases allowed to fail (paths relative to oracle/cases, no .case). Only remove lines.
-active/button-piston
 active/hopper-chain
 active/hopper-order
 active/note-bell
-active/pushed-observer-clock
-active/qc-bud
 active/trapped-chest
 block-entities
-corpus/0001
 corpus/0002
 corpus/0003
 corpus/0004
@@ -74,7 +70,6 @@ corpus/0064
 corpus/0065
 corpus/0066
 corpus/0067
-corpus/0068
 corpus/0069
 corpus/0070
 corpus/0071
@@ -102,7 +97,6 @@ corpus/0092
 corpus/0093
 corpus/0094
 corpus/0095
-corpus/0096
 corpus/0097
 corpus/0098
 corpus/0099
@@ -113,8 +107,6 @@ corpus/0103
 corpus/0104
 corpus/0105
 corpus/0106
-corpus/0107
-corpus/0108
 corpus/0109
 corpus/0110
 corpus/0111
@@ -161,7 +153,6 @@ corpus/0152
 corpus/0153
 corpus/0154
 corpus/0155
-corpus/0156
 corpus/0157
 corpus/0158
 corpus/0159
@@ -224,7 +215,6 @@ corpus/0218
 corpus/0219
 corpus/0220
 corpus/0221
-corpus/0223
 corpus/0224
 corpus/0225
 corpus/0226
@@ -253,7 +243,6 @@ corpus/0249
 corpus/0250
 corpus/0251
 corpus/0252
-corpus/0253
 corpus/0254
 corpus/0255
 corpus/0256
@@ -270,13 +259,11 @@ corpus/0266
 corpus/0267
 corpus/0268
 corpus/0269
-corpus/0270
 corpus/0271
 corpus/0272
 corpus/0273
 corpus/0274
 corpus/0275
-corpus/0276
 corpus/0277
 corpus/0278
 corpus/0279
@@ -285,7 +272,6 @@ corpus/0281
 corpus/0282
 corpus/0283
 corpus/0284
-corpus/0285
 corpus/0286
 corpus/0287
 corpus/0288
@@ -319,7 +305,6 @@ corpus/0315
 corpus/0316
 corpus/0317
 corpus/0318
-corpus/0319
 corpus/0320
 corpus/0321
 corpus/0322
@@ -330,5 +315,4 @@ corpus/0326
 corpus/0327
 corpus/0329
 corpus/0330
-corpus/0332
 pending-ticks

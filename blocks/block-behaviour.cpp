@@ -52,6 +52,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
             result = face_attached_horizontal_directional_update_shape(lv, st, pos, dir);
             break;
+        case VCLASS_PISTON_HEAD_BLOCK:
+            result = piston_head_update_shape(lv, st, pos, dir);
+            break;
         case VCLASS_OBSERVER_BLOCK:
             result = observer_update_shape(lv, st, pos, dir);
             break;
@@ -83,6 +86,12 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
         case VCLASS_REDSTONE_LAMP_BLOCK:
             redstone_lamp_neighbor_changed(lv, st, pos);
             break;
+        case VCLASS_PISTON_BASE_BLOCK:
+            piston_base_neighbor_changed(lv, st, pos);
+            break;
+        case VCLASS_PISTON_HEAD_BLOCK:
+            piston_head_neighbor_changed(lv, st, pos, block);
+            break;
         default:
             hook_unsupported(lv, st, HOOK_NEIGHBOR_CHANGED);
     }
@@ -105,6 +114,9 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
             break;
         case VCLASS_OBSERVER_BLOCK:
             observer_on_place(lv, st, pos, old);
+            break;
+        case VCLASS_PISTON_BASE_BLOCK:
+            piston_base_on_place(lv, st, pos, old);
             break;
         default:
             hook_unsupported(lv, st, HOOK_ON_PLACE);
@@ -132,6 +144,9 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
             break;
         case VCLASS_OBSERVER_BLOCK:
             observer_affect_neighbors_after_removal(lv, st, pos);
+            break;
+        case VCLASS_PISTON_HEAD_BLOCK:
+            piston_head_affect_neighbors_after_removal(lv, st, pos);
             break;
         default:
             hook_unsupported(lv, st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL);
@@ -163,12 +178,11 @@ void block_tick(level & lv, state_id st, block_pos pos) {
 }
 
 bool block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a, int32_t param_b) {
-    (void) pos;
-    (void) param_a;
-    (void) param_b;
     switch (hook_owner(st, HOOK_TRIGGER_EVENT)) {
         case VCLASS_NONE:
             return false;
+        case VCLASS_PISTON_BASE_BLOCK:
+            return piston_base_trigger_event(lv, st, pos, param_a, param_b);
         default:
             hook_unsupported(lv, st, HOOK_TRIGGER_EVENT);
             return false;
@@ -219,6 +233,8 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return button_use_without_item(lv, st, pos);
         case VCLASS_REPEATER_BLOCK:
             return repeater_use_without_item(lv, st, pos);
+        case VCLASS_MOVING_PISTON_BLOCK:
+            return moving_piston_use_without_item(lv, pos);
         default:
             hook_unsupported(lv, st, HOOK_USE_WITHOUT_ITEM);
             return INTERACTION_RESULT_PASS;
@@ -316,6 +332,8 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return face_attached_horizontal_directional_can_survive(lv, st, pos);
         case VCLASS_DIODE_BLOCK:
             return diode_can_survive(lv, pos);
+        case VCLASS_PISTON_HEAD_BLOCK:
+            return piston_head_can_survive(lv, st, pos);
         default:
             hook_unsupported(lv, st, HOOK_CAN_SURVIVE);
             return true;
@@ -326,6 +344,14 @@ void block_update_neighbour_shapes(level & lv, state_id st, block_pos pos, int32
     for (direction dir : UPDATE_SHAPE_ORDER) {
         level_neighbor_shape_changed(lv, direction_opposite(dir), pos_relative(pos, dir), pos, st, flags, limit);
     }
+}
+
+state_id block_update_from_neighbour_shapes(level & lv, state_id st, block_pos pos) {
+    for (direction dir : UPDATE_SHAPE_ORDER) {
+        block_pos neighbor_pos = pos_relative(pos, dir);
+        st                     = block_update_shape(lv, st, pos, dir, neighbor_pos, level_get_state(lv, neighbor_pos));
+    }
+    return st;
 }
 
 void block_update_or_destroy(level & lv, state_id old, state_id updated, block_pos pos, int32_t flags, int32_t limit) {
