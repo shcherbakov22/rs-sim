@@ -44,10 +44,19 @@ struct block_entity {
     int32_t  crafting_ticks_remaining = 0;
 };
 
-// Container: one block entity, or two chest halves as a CompoundContainer
+// ComposterBlock's InputContainer and OutputContainer, a fresh one-slot SimpleContainer per lookup; level 7 gives the EmptyContainer with no slots
+struct composter_container {
+    state_id   state;
+    block_pos  pos;
+    bool       changed = false;
+    item_stack item;
+};
+
+// Container: one block entity, two chest halves as a CompoundContainer, or a composter's container (no block entity)
 struct container {
-    block_entity * first  = nullptr;
-    block_entity * second = nullptr;
+    block_entity *        first     = nullptr;
+    block_entity *        second    = nullptr;
+    composter_container * composter = nullptr;
 };
 
 // LevelChunk.RebindableTickingBlockEntityWrapper; a null block entity is NULL_TICKER, which counts as removed

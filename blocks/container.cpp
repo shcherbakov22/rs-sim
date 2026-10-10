@@ -1,5 +1,5 @@
 // Container for the block entities that hold items: BaseContainerBlockEntity, the HopperBlockEntity overrides
-// and CompoundContainer for double chests
+// and CompoundContainer for double chests; SimpleContainer for the composter's containers
 
 #include "blocks/handlers.h"
 #include "core/trace.h"
@@ -36,6 +36,9 @@ bool block_entity_is_container(const block_entity * be) {
 }
 
 int32_t container_get_container_size(const container & c) {
+    if (c.composter != nullptr) {
+        return composter_container_get_container_size(*c.composter);
+    }
     return (int32_t) c.first->items.size() + (c.second != nullptr ? (int32_t) c.second->items.size() : 0);
 }
 
@@ -50,6 +53,9 @@ static block_entity * container_half(const container & c, int32_t & slot) {
 }
 
 item_stack & container_get_item(const container & c, int32_t slot) {
+    if (c.composter != nullptr) {
+        return c.composter->item;
+    }
     block_entity * be = container_half(c, slot);
     return be->items[slot];
 }
@@ -70,6 +76,14 @@ int32_t container_get_max_stack_size(const item_stack & s) {
 
 // HopperBlockEntity and ContainerSingleItem (the decorated pot) override removeItem and setItem without setChanged
 item_stack container_remove_item(level & lv, const container & c, int32_t slot, int32_t count) {
+    if (c.composter != nullptr) {
+        item_stack & stack  = c.composter->item;
+        item_stack   result = !item_stack_is_empty(stack) && count > 0 ? item_stack_split(stack, count) : item_stack();
+        if (!item_stack_is_empty(result)) {
+            composter_container_set_changed(lv, *c.composter);
+        }
+        return result;
+    }
     block_entity * be = container_half(c, slot);
     // JukeboxBlockEntity.splitTheItem hands out the whole record
     if (be->type == BLOCK_ENTITY_TYPE_JUKEBOX) {
@@ -90,6 +104,13 @@ item_stack container_remove_item(level & lv, const container & c, int32_t slot, 
 }
 
 void container_set_item(level & lv, const container & c, int32_t slot, item_stack s) {
+    // the composter's containers hold one item
+    if (c.composter != nullptr) {
+        c.composter->item = s;
+        item_stack_limit_size(c.composter->item, 1);
+        composter_container_set_changed(lv, *c.composter);
+        return;
+    }
     block_entity * be = container_half(c, slot);
     if (be->type == BLOCK_ENTITY_TYPE_JUKEBOX) {
         jukebox_block_entity_set_the_item(lv, be, s);
@@ -111,6 +132,10 @@ void container_set_item(level & lv, const container & c, int32_t slot, item_stac
 }
 
 void container_set_changed(level & lv, const container & c) {
+    if (c.composter != nullptr) {
+        composter_container_set_changed(lv, *c.composter);
+        return;
+    }
     block_entity_set_changed(lv, c.first->pos, c.first->state);
     if (c.second != nullptr) {
         block_entity_set_changed(lv, c.second->pos, c.second->state);

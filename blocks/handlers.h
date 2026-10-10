@@ -126,9 +126,13 @@ void     hopper_neighbor_changed(level & lv, state_id st, block_pos pos);
 state_id hopper_get_state_for_placement(int32_t block, const block_place_context & ctx);
 
 // HopperBlockEntity
-void       hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st, block_entity * be);
-bool       hopper_block_entity_get_container_at(level & lv, block_pos pos, container & out);
-item_stack hopper_block_entity_add_item(level & lv, const container * from, const container & to, item_stack s);
+void hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st, block_entity * be);
+bool hopper_block_entity_get_container_at(level & lv, block_pos pos, container & out, composter_container & composter);
+item_stack hopper_block_entity_add_item(level &           lv,
+                                        const container * from,
+                                        const container & to,
+                                        item_stack        s,
+                                        const direction * face);
 
 // DispenserBlock, DispenserBlockEntity, DefaultDispenseItemBehavior
 int32_t    dispenser_block_entity_get_random_slot(level & lv, const block_entity * be);
@@ -426,6 +430,16 @@ interaction_result composter_use_item_on(level & lv, state_id st, block_pos pos,
 interaction_result composter_use_without_item(level & lv, state_id st, block_pos pos);
 void               composter_tick(level & lv, state_id st, block_pos pos);
 int32_t            composter_get_analog_output_signal(state_id st);
+void               composter_get_container(state_id st, block_pos pos, composter_container & out);
+int32_t            composter_container_get_container_size(const composter_container & c);
+int32_t            composter_container_get_slots_for_face(const composter_container & c, direction face);
+bool               composter_container_can_place_item_through_face(const composter_container & c,
+                                                                   const item_stack &          s,
+                                                                   const direction *           face);
+bool               composter_container_can_take_item_through_face(const composter_container & c,
+                                                                  const item_stack &          s,
+                                                                  direction                   face);
+void               composter_container_set_changed(level & lv, composter_container & c);
 
 // DoorBlock
 bool               door_can_survive(level & lv, state_id st, block_pos pos);
