@@ -151,13 +151,6 @@ void shelf_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
     shelf_update_neighbors_after_powering_down(lv, pos, st);
 }
 
-state_id shelf_update_shape(level & lv, state_id st) {
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
-    return st;
-}
-
 // one bit per filled slot, only toward the back
 int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir) {
     block_entity * be = level_get_block_entity(lv, pos);

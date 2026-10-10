@@ -3,13 +3,6 @@
 #include "blocks/handlers.h"
 #include "engine/level.h"
 
-state_id ender_chest_update_shape(level & lv, state_id st) {
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
-    return st;
-}
-
 // EnderChestBlockEntity.recheckOpen: openerCountChanged sends the count even when it did not change
 void ender_chest_tick(level & lv, block_pos pos) {
     block_entity * be = level_get_block_entity(lv, pos);

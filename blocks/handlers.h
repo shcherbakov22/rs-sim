@@ -105,7 +105,6 @@ void         containers_drop_contents(level & lv, block_pos pos, const container
 int32_t      container_get_redstone_signal_from_block_entity(level & lv, block_pos pos);
 
 // EnderChestBlock
-state_id           ender_chest_update_shape(level & lv, state_id st);
 void               ender_chest_tick(level & lv, block_pos pos);
 interaction_result ender_chest_use_without_item(level & lv, block_pos pos);
 
@@ -159,7 +158,6 @@ void    crafter_neighbor_changed(level & lv, state_id st, block_pos pos);
 void    crafter_tick(level & lv, block_pos pos);
 
 // DecoratedPotBlock
-state_id           decorated_pot_update_shape(level & lv, state_id st);
 interaction_result decorated_pot_use_item_on(level & lv, block_pos pos, const item_stack & stack);
 interaction_result decorated_pot_use_without_item(level & lv, block_pos pos);
 
@@ -190,7 +188,6 @@ interaction_result chiseled_book_shelf_use_without_item(level & lv, state_id st,
 void               shelf_on_place(level & lv, state_id st, block_pos pos, state_id old);
 void               shelf_neighbor_changed(level & lv, state_id st, block_pos pos);
 void               shelf_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
-state_id           shelf_update_shape(level & lv, state_id st);
 int32_t            shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
 interaction_result shelf_use_item_on(level & lv, state_id st, block_pos pos, direction face, const item_stack & stack);
 
@@ -200,7 +197,6 @@ interaction_result beehive_use_item_on(level & lv, state_id st, block_pos pos, c
 
 // CopperGolemStatueBlock, WeatheringCopperGolemStatueBlock
 int32_t            copper_golem_statue_get_analog_output_signal(state_id st);
-state_id           copper_golem_statue_update_shape(level & lv, state_id st);
 interaction_result copper_golem_statue_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
 interaction_result weathering_copper_golem_statue_use_item_on(level &            lv,
                                                               state_id           st,

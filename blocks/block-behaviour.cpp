@@ -96,20 +96,17 @@ state_id block_update_shape(level &   lv,
         case VCLASS_CHEST_BLOCK:
             result = chest_update_shape(lv, st, dir, neighbor);
             break;
-        case VCLASS_ENDER_CHEST_BLOCK:
-            result = ender_chest_update_shape(lv, st);
-            break;
-        case VCLASS_DECORATED_POT_BLOCK:
-            result = decorated_pot_update_shape(lv, st);
-            break;
-        case VCLASS_SHELF_BLOCK:
-            result = shelf_update_shape(lv, st);
-            break;
         case VCLASS_BEEHIVE_BLOCK:
             // a fire beside an empty hive has no bees to drive out
             break;
+        // these classes only schedule the water tick of a waterlogged block
+        case VCLASS_ENDER_CHEST_BLOCK:
+        case VCLASS_DECORATED_POT_BLOCK:
+        case VCLASS_SHELF_BLOCK:
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
-            result = copper_golem_statue_update_shape(lv, st);
+            if (state_get(st, PROP_WATERLOGGED)) {
+                level_unsupported(lv, "fluids");
+            }
             break;
         case VCLASS_IRON_BARS_BLOCK:
             result = iron_bars_update_shape(lv, st, dir, neighbor_pos, neighbor);

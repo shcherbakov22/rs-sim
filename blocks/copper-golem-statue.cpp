@@ -14,13 +14,6 @@ int32_t copper_golem_statue_get_analog_output_signal(state_id st) {
     return state_get(st, PROP_COPPER_GOLEM_POSE) + 1;
 }
 
-state_id copper_golem_statue_update_shape(level & lv, state_id st) {
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
-    return st;
-}
-
 interaction_result copper_golem_statue_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack) {
     if (item_defs[stack.item].tags & ITEM_TAG_AXES) {
         return INTERACTION_RESULT_PASS;

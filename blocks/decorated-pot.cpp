@@ -8,13 +8,6 @@ static block_entity * decorated_pot_block_entity(level & lv, block_pos pos) {
     return be != nullptr && be->type == BLOCK_ENTITY_TYPE_DECORATED_POT ? be : nullptr;
 }
 
-state_id decorated_pot_update_shape(level & lv, state_id st) {
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
-    return st;
-}
-
 // the pot takes one item from the stack while its own stack has room by the item's own limit
 interaction_result decorated_pot_use_item_on(level & lv, block_pos pos, const item_stack & stack) {
     block_entity * be = decorated_pot_block_entity(lv, pos);
