@@ -7,6 +7,7 @@
 #include <vector>
 
 // hook tables, one per family file
+extern const std::vector<block_hooks> fire_hooks;
 extern const std::vector<block_hooks> powered_hooks;
 extern const std::vector<block_hooks> connecting_hooks;
 extern const std::vector<block_hooks> attached_hooks;
@@ -304,20 +305,7 @@ bool                      piston_structure_resolver_resolve(level & lv, piston_s
 
 // BaseFireBlock
 state_id base_fire_get_state(level & lv, block_pos pos);
-void     base_fire_on_place(level & lv, state_id st, block_pos pos, state_id old);
 bool     base_fire_can_be_placed_at(level & lv, block_pos pos, direction forward);
-
-// FireBlock
-state_id fire_get_state_for_placement(level & lv, block_pos pos);
-state_id fire_update_shape(level & lv, state_id st, block_pos pos);
-bool     fire_can_survive(level & lv, block_pos pos);
-void     fire_on_place(level & lv, state_id st, block_pos pos, state_id old);
-void     fire_tick(level & lv, block_pos pos);
-
-// SoulFireBlock
-state_id soul_fire_update_shape(level & lv, state_id st, block_pos pos);
-bool     soul_fire_can_survive(level & lv, block_pos pos);
-bool     soul_fire_can_survive_on_block(state_id st);
 
 // TntBlock
 void tnt_prime(level & lv, block_pos pos);
@@ -330,20 +318,4 @@ state_id falling_block_update_shape(level & lv, state_id st, block_pos pos);
 void     falling_block_tick(level & lv, block_pos pos);
 state_id concrete_powder_update_shape(level & lv, state_id st, block_pos pos);
 
-// PortalShape
-struct portal_shape {
-    direction_axis axis;
-    int32_t        num_portal_blocks;
-    direction      right_dir;
-    block_pos      bottom_left;
-    int32_t        height;
-    int32_t        width;
-};
-
-portal_shape portal_shape_find_any_shape(level & lv, block_pos pos, direction_axis axis);
-bool portal_shape_find_empty_portal_shape(level & lv, block_pos pos, direction_axis preferred_axis, portal_shape & out);
-bool portal_shape_is_complete(const portal_shape & s);
-void portal_shape_create_portal_blocks(level & lv, const portal_shape & s);
-
 // NetherPortalBlock
-state_id nether_portal_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);

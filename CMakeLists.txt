@@ -14,7 +14,6 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 add_library(tmc STATIC
     blocks/attached.cpp
     blocks/base-entity-block.cpp
-    blocks/base-fire.cpp
     blocks/base-rail.cpp
     blocks/block-behaviour.cpp
     blocks/boat-dispense-item-behavior.cpp
@@ -43,13 +42,11 @@ add_library(tmc STATIC
     blocks/lightning-rod.cpp
     blocks/minecart-dispense-item-behavior.cpp
     blocks/moving-piston.cpp
-    blocks/nether-portal.cpp
     blocks/observer.cpp
     blocks/piston-base.cpp
     blocks/piston-head.cpp
     blocks/piston-moving-block-entity.cpp
     blocks/piston-structure-resolver.cpp
-    blocks/portal-shape.cpp
     blocks/powered-rail.cpp
     blocks/powered.cpp
     blocks/projectile-dispense-behavior.cpp
@@ -62,7 +59,6 @@ add_library(tmc STATIC
     blocks/scaffolding.cpp
     blocks/shelf.cpp
     blocks/snowy-dirt.cpp
-    blocks/soul-fire.cpp
     blocks/soul-sand.cpp
     blocks/target.cpp
     blocks/tnt.cpp

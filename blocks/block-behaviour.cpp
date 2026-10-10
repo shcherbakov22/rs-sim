@@ -14,6 +14,7 @@ static void hook_unsupported(level & lv, state_id st, hook h) {
 
 // each vanilla class is in one family
 static const std::vector<block_hooks> * const block_hook_families[] = {
+    &fire_hooks,
     &powered_hooks,
     &connecting_hooks,
     &attached_hooks,
@@ -208,15 +209,6 @@ state_id block_update_shape(level &   lv,
             case VCLASS_DIRT_PATH_BLOCK:
                 result = dirt_path_update_shape(lv, st, pos, dir);
                 break;
-            case VCLASS_FIRE_BLOCK:
-                result = fire_update_shape(lv, st, pos);
-                break;
-            case VCLASS_SOUL_FIRE_BLOCK:
-                result = soul_fire_update_shape(lv, st, pos);
-                break;
-            case VCLASS_NETHER_PORTAL_BLOCK:
-                result = nether_portal_update_shape(lv, st, pos, dir, neighbor);
-                break;
             case VCLASS_SNOWY_DIRT_BLOCK:
                 result = snowy_dirt_update_shape(st, dir, neighbor);
                 break;
@@ -353,12 +345,6 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
             case VCLASS_COMPOSTER_BLOCK:
                 composter_on_place(lv, st, pos);
                 break;
-            case VCLASS_BASE_FIRE_BLOCK:
-                base_fire_on_place(lv, st, pos, old);
-                break;
-            case VCLASS_FIRE_BLOCK:
-                fire_on_place(lv, st, pos, old);
-                break;
             default:
                 hook_unsupported(lv, st, HOOK_ON_PLACE);
         }
@@ -429,9 +415,6 @@ void block_tick(level & lv, state_id st, block_pos pos) {
                 break;
             case VCLASS_DIRT_PATH_BLOCK:
                 dirt_path_tick(lv, pos);
-                break;
-            case VCLASS_FIRE_BLOCK:
-                fire_tick(lv, pos);
                 break;
             case VCLASS_LEAVES_BLOCK:
                 leaves_tick(lv, st, pos);
@@ -605,10 +588,6 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return diode_can_survive(lv, pos);
         case VCLASS_DIRT_PATH_BLOCK:
             return dirt_path_can_survive(lv, pos);
-        case VCLASS_FIRE_BLOCK:
-            return fire_can_survive(lv, pos);
-        case VCLASS_SOUL_FIRE_BLOCK:
-            return soul_fire_can_survive(lv, pos);
         default:
             hook_unsupported(lv, st, HOOK_CAN_SURVIVE);
             return true;
