@@ -12,6 +12,71 @@ static void hook_unsupported(level & lv, state_id st, hook h) {
     level_unsupported(lv, "%s.%s", vclass_names[hook_owner(st, h)], hook_names[h]);
 }
 
+// each vanilla class is in one family
+static const std::vector<block_hooks> * const block_hook_families[] = {
+    &connecting_hooks,
+};
+
+static const block_hooks * block_hooks_of(int32_t vclass) {
+    static const std::vector<const block_hooks *> table = [] {
+        std::vector<const block_hooks *> t(VCLASS_COUNT, nullptr);
+        for (const std::vector<block_hooks> * family : block_hook_families) {
+            for (const block_hooks & b : *family) {
+                TMC_ASSERT(t[b.vclass] == nullptr);
+                t[b.vclass] = &b;
+            }
+        }
+        return t;
+    }();
+    return table[vclass];
+}
+
+static bool block_hooks_has(const block_hooks & b, hook h) {
+    switch (h) {
+        case HOOK_UPDATE_SHAPE:
+            return b.update_shape != nullptr;
+        case HOOK_NEIGHBOR_CHANGED:
+            return b.neighbor_changed != nullptr;
+        case HOOK_ON_PLACE:
+            return b.on_place != nullptr;
+        case HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL:
+            return b.affect_neighbors_after_removal != nullptr;
+        case HOOK_TICK:
+            return b.tick != nullptr;
+        case HOOK_TRIGGER_EVENT:
+            return b.trigger_event != nullptr;
+        case HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES:
+            return b.update_indirect_neighbour_shapes != nullptr;
+        case HOOK_SPAWN_AFTER_BREAK:
+            return false;
+        case HOOK_GET_SIGNAL:
+            return b.get_signal != nullptr;
+        case HOOK_GET_DIRECT_SIGNAL:
+            return b.get_direct_signal != nullptr;
+        case HOOK_CAN_SURVIVE:
+            return b.can_survive != nullptr;
+        case HOOK_GET_ANALOG_OUTPUT_SIGNAL:
+            return b.get_analog_output_signal != nullptr;
+        case HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY:
+            return b.should_changed_state_keep_block_entity != nullptr;
+        case HOOK_COUNT:
+            break;
+    }
+    TMC_ASSERT(false);
+    return false;
+}
+
+// The hooks of the class that overrides h for st: null for vanilla's default, and for an override the sim lacks,
+// which stops the run.
+static const block_hooks * block_hooks_for(level & lv, state_id st, hook h) {
+    const block_hooks * b = block_hooks_of(hook_owner(st, h));
+    if (b != nullptr && !block_hooks_has(*b, h)) {
+        hook_unsupported(lv, st, h);
+        return nullptr;
+    }
+    return b;
+}
+
 bool support_type_is_supporting(const voxel_shape & support_shape, direction dir, support_type type) {
     voxel_shape face = voxel_shape_get_face_shape(support_shape, dir);
     switch (type) {
@@ -87,7 +152,9 @@ state_id block_update_shape(level &   lv,
         trace_exit(lv.tr);
         return st;
     }
-    switch (hook_owner(st, HOOK_UPDATE_SHAPE)) {
+    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_UPDATE_SHAPE)) {
+        result = b->update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
+    } else switch (hook_owner(st, HOOK_UPDATE_SHAPE)) {
         case VCLASS_NONE:
             break;
         case VCLASS_BASE_TORCH_BLOCK:
@@ -125,9 +192,6 @@ state_id block_update_shape(level &   lv,
         case VCLASS_LIGHTNING_ROD_BLOCK:
         case VCLASS_BARRIER_BLOCK:
         case VCLASS_LIGHT_BLOCK:
-            break;
-        case VCLASS_IRON_BARS_BLOCK:
-            result = iron_bars_update_shape(lv, st, dir, neighbor_pos, neighbor);
             break;
         case VCLASS_CARPET_BLOCK:
             result = carpet_update_shape(lv, st, pos);
@@ -168,17 +232,8 @@ state_id block_update_shape(level &   lv,
         case VCLASS_LADDER_BLOCK:
             result = ladder_update_shape(lv, st, pos, dir);
             break;
-        case VCLASS_WALL_BLOCK:
-            result = wall_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
-            break;
         case VCLASS_FENCE_GATE_BLOCK:
             result = fence_gate_update_shape(lv, st, pos, dir, neighbor);
-            break;
-        case VCLASS_FENCE_BLOCK:
-            result = fence_update_shape(lv, st, dir, neighbor_pos, neighbor);
-            break;
-        case VCLASS_STAIR_BLOCK:
-            result = stair_update_shape(lv, st, pos, dir);
             break;
         case VCLASS_LEAVES_BLOCK:
             result = leaves_update_shape(lv, st, pos, neighbor);

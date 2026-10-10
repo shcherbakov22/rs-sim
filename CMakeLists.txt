@@ -28,10 +28,10 @@ add_library(tmc STATIC
     blocks/comparator.cpp
     blocks/composter.cpp
     blocks/concrete-powder.cpp
+    blocks/connecting.cpp
     blocks/container.cpp
     blocks/copper-bulb.cpp
     blocks/crafter.cpp
-    blocks/cross-collision.cpp
     blocks/diode.cpp
     blocks/dirt-path.cpp
     blocks/dispense-item-behavior.cpp
@@ -41,11 +41,9 @@ add_library(tmc STATIC
     blocks/face-attached-horizontal-directional.cpp
     blocks/falling-block.cpp
     blocks/fence-gate.cpp
-    blocks/fence.cpp
     blocks/fire.cpp
     blocks/hopper-block-entity.cpp
     blocks/hopper.cpp
-    blocks/iron-bars.cpp
     blocks/jukebox.cpp
     blocks/ladder.cpp
     blocks/lantern.cpp
@@ -75,13 +73,11 @@ add_library(tmc STATIC
     blocks/snowy-dirt.cpp
     blocks/soul-fire.cpp
     blocks/soul-sand.cpp
-    blocks/stair.cpp
     blocks/target.cpp
     blocks/tnt.cpp
     blocks/trap-door.cpp
     blocks/trapped-chest.cpp
     blocks/wall-torch.cpp
-    blocks/wall.cpp
     core/rng.cpp
     core/state.cpp
     core/trace.cpp

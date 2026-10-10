@@ -9,6 +9,9 @@
 
 #include <vector>
 
+// hook tables, one per family file
+extern const std::vector<block_hooks> connecting_hooks;
+
 // AmethystClusterBlock
 state_id amethyst_cluster_update_shape(level & lv, state_id st, block_pos pos, direction dir);
 bool     amethyst_cluster_can_survive(level & lv, state_id st, block_pos pos);
@@ -183,30 +186,12 @@ void    shelf_neighbor_changed(level & lv, state_id st, block_pos pos);
 void    shelf_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
 int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
 
-// CrossCollisionBlock, FenceBlock
-prop_id  cross_collision_property_by_direction(direction dir);
-state_id fence_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor);
-
-// IronBarsBlock
-state_id iron_bars_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor);
-
 // LeavesBlock
 void     leaves_tick(level & lv, state_id st, block_pos pos);
 state_id leaves_update_shape(level & lv, state_id st, block_pos pos, state_id neighbor);
 
-// StairBlock
-state_id stair_update_shape(level & lv, state_id st, block_pos pos, direction dir);
-
 // TrapDoorBlock
 void trap_door_neighbor_changed(level & lv, state_id st, block_pos pos);
-
-// WallBlock
-state_id wall_update_shape(level &   lv,
-                           state_id  st,
-                           block_pos pos,
-                           direction dir,
-                           block_pos neighbor_pos,
-                           state_id  neighbor);
 
 // FenceGateBlock
 state_id fence_gate_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
