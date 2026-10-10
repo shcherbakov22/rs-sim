@@ -30,13 +30,13 @@ static int32_t comparator_get_input_signal(level & lv, state_id st, block_pos po
     block_pos target    = pos_relative(pos, dir);
     state_id  target_st = level_get_state(lv, target);
     if (state_has(target_st, STATE_FLAG_ANALOG_OUTPUT)) {
-        return block_get_analog_output_signal(lv, target_st);
+        return block_get_analog_output_signal(lv, target_st, target);
     }
     if (result < 15 && state_has(target_st, STATE_FLAG_CONDUCTOR)) {
         target    = pos_relative(target, dir);
         target_st = level_get_state(lv, target);
         if (state_has(target_st, STATE_FLAG_ANALOG_OUTPUT)) {
-            return block_get_analog_output_signal(lv, target_st);
+            return block_get_analog_output_signal(lv, target_st, target);
         }
     }
     return result;
@@ -106,10 +106,4 @@ void comparator_check_tick_on_neighbor(level & lv, state_id st, block_pos pos) {
 
 void comparator_tick(level & lv, state_id st, block_pos pos) {
     comparator_refresh_output_state(lv, st, pos);
-}
-
-// BlockEntity.triggerEvent is false for comparators, but the lookup still creates a missing block entity
-bool comparator_trigger_event(level & lv, block_pos pos) {
-    level_get_block_entity(lv, pos);
-    return false;
 }

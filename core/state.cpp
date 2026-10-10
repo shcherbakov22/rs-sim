@@ -12,6 +12,18 @@ int32_t block_find(std::string_view name) {
     return -1;
 }
 
+int32_t item_find(std::string_view name) {
+    if (name.starts_with("minecraft:")) {
+        name.remove_prefix(10);
+    }
+    for (int32_t i = 0; i < ITEM_COUNT; i++) {
+        if (name == item_defs[i].name) {
+            return i;
+        }
+    }
+    return -1;
+}
+
 int32_t state_block(state_id st) {
     TMC_ASSERT(st < n_states);
     int32_t lo = 0;

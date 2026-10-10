@@ -94,11 +94,21 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
     if (type < 0) {
         return nullptr;
     }
-    if (type != BLOCK_ENTITY_TYPE_COMPARATOR) {
+    // copper chests share the chest type but override parts of ChestBlock
+    int32_t cls       = block_defs[state_block(st)].cls;
+    bool    chest     = cls == VCLASS_CHEST_BLOCK || cls == VCLASS_TRAPPED_CHEST_BLOCK;
+    bool    supported = type == BLOCK_ENTITY_TYPE_COMPARATOR || type == BLOCK_ENTITY_TYPE_HOPPER || chest;
+    if (!supported) {
         level_unsupported(lv, "block entity of %s", block_defs[state_block(st)].name);
         return nullptr;
     }
-    return level_new_block_entity(lv, (block_entity_type) type, pos, st);
+    block_entity * be = level_new_block_entity(lv, (block_entity_type) type, pos, st);
+    if (type == BLOCK_ENTITY_TYPE_HOPPER) {
+        be->items.resize(5);
+    } else if (chest) {
+        be->items.resize(27);
+    }
+    return be;
 }
 
 static void level_remove_block_entity_ticker(level & lv, block_pos pos) {
@@ -211,10 +221,12 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
     bool    moved_by_piston = (flags & UPDATE_FLAG_MOVE_BY_PISTON) != 0;
     if (block_changed && state_has(old, STATE_FLAG_BLOCK_ENTITY)) {
         if ((flags & UPDATE_FLAG_SKIP_BLOCK_ENTITY_SIDEEFFECTS) == 0) {
-            // BlockEntity.preRemoveSideEffects; comparators are no Container, so only pistons do something
+            // BlockEntity.preRemoveSideEffects: containers drop their items, moving pistons finish their move
             block_entity * be = level_get_block_entity(lv, pos);
             if (be != nullptr && be->type == BLOCK_ENTITY_TYPE_PISTON) {
                 piston_moving_block_entity_final_tick(lv, be);
+            } else if (be != nullptr && block_entity_is_container(be)) {
+                containers_drop_contents(lv, pos, { be, nullptr });
             }
         }
         level_remove_block_entity(lv, pos);
@@ -539,8 +551,13 @@ static void level_tick_block_entities(level & lv) {
         block_pos      pos = be->pos;
         trace_enter(lv.tr, &pos, "be %d %d %d %s", pos.x, pos.y, pos.z, block_entity_type_names[be->type]);
         // LevelChunk.BoundTickingBlockEntity.tick
-        if (block_entity_type_is_valid(be->type, level_get_state(lv, pos))) {
-            piston_moving_block_entity_tick(lv, be);
+        state_id st = level_get_state(lv, pos);
+        if (block_entity_type_is_valid(be->type, st)) {
+            if (be->type == BLOCK_ENTITY_TYPE_HOPPER) {
+                hopper_block_entity_push_items_tick(lv, pos, st, be);
+            } else {
+                piston_moving_block_entity_tick(lv, be);
+            }
         }
         trace_exit(lv.tr);
     }

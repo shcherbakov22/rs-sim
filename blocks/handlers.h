@@ -86,7 +86,44 @@ bool     comparator_should_turn_on(level & lv, state_id st, block_pos pos);
 interaction_result comparator_use_without_item(level & lv, state_id st, block_pos pos);
 void               comparator_check_tick_on_neighbor(level & lv, state_id st, block_pos pos);
 void               comparator_tick(level & lv, state_id st, block_pos pos);
-bool               comparator_trigger_event(level & lv, block_pos pos);
+
+// BaseEntityBlock
+bool base_entity_block_trigger_event(level & lv, block_pos pos, int32_t param_a);
+
+// Container
+void         block_entity_set_changed(level & lv, block_pos pos, state_id st);
+bool         block_entity_is_container(const block_entity * be);
+int32_t      container_get_container_size(const container & c);
+item_stack & container_get_item(const container & c, int32_t slot);
+bool         container_is_empty(const container & c);
+int32_t      container_get_max_stack_size(const item_stack & s);
+item_stack   container_remove_item(level & lv, const container & c, int32_t slot, int32_t count);
+void         container_set_item(level & lv, const container & c, int32_t slot, item_stack s);
+void         container_set_changed(level & lv, const container & c);
+int32_t      container_get_redstone_signal(const container * c);
+void         containers_drop_contents(level & lv, block_pos pos, const container & c);
+
+// HopperBlock
+void    hopper_on_place(level & lv, state_id st, block_pos pos, state_id old);
+void    hopper_neighbor_changed(level & lv, state_id st, block_pos pos);
+int32_t hopper_get_analog_output_signal(level & lv, block_pos pos);
+
+// HopperBlockEntity
+void hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st, block_entity * be);
+
+// ChestBlock
+bool     chest_get_container(level & lv, state_id st, block_pos pos, bool ignore_being_blocked, container & out);
+state_id chest_update_shape(level & lv, state_id st, direction dir, state_id neighbor);
+int32_t  chest_get_analog_output_signal(level & lv, state_id st, block_pos pos);
+void     chest_tick(level & lv, block_pos pos);
+
+// ChestBlockEntity
+void    chest_block_entity_recheck_open(level & lv, block_entity * be);
+int32_t chest_block_entity_get_open_count(level & lv, state_id st, block_pos pos);
+
+// TrappedChestBlock
+int32_t trapped_chest_get_signal(level & lv, state_id st, block_pos pos);
+int32_t trapped_chest_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir);
 
 // FaceAttachedHorizontalDirectionalBlock
 bool      face_attached_horizontal_directional_can_survive(level & lv, state_id st, block_pos pos);

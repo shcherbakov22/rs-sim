@@ -1,6 +1,7 @@
 #include "engine/case-run.h"
 
 #include "blocks/block-behaviour.h"
+#include "blocks/handlers.h"
 #include "engine/level.h"
 
 #include <algorithm>
@@ -17,6 +18,47 @@ static void case_place_block(level & lv, const case_file & f, block_pos pos) {
     }
 }
 
+// ContainerHelper.loadAllItems; slots outside the container are skipped
+static void case_load_items(level & lv, block_entity * be, const snbt_value & items) {
+    for (const snbt_value & tag : items.list) {
+        int32_t     slot = -1;
+        std::string id;
+        item_stack  s = { ITEM_AIR, 1 };
+        for (const snbt_entry & entry : tag.compound) {
+            if (entry.key == "Slot") {
+                slot = (int32_t) entry.value.i;
+            } else if (entry.key == "id") {
+                id     = entry.value.s;
+                s.item = item_find(id);
+            } else if (entry.key == "count") {
+                s.count = (int32_t) entry.value.i;
+            } else {
+                level_unsupported(lv, "item data %s", entry.key.c_str());
+                return;
+            }
+        }
+        if (s.item < 0) {
+            level_unsupported(lv, "item %s", id.c_str());
+            return;
+        }
+        if (slot >= 0 && slot < (int32_t) be->items.size()) {
+            be->items[slot] = s;
+        }
+    }
+}
+
+// Snapshot.restore's HiddenState.apply; game times are relative to the start
+static void case_load_hidden(level & lv, block_entity * be, const snbt_value & hidden) {
+    for (const snbt_entry & entry : hidden.compound) {
+        if (be->type == BLOCK_ENTITY_TYPE_HOPPER && entry.key == "tickedGameTime") {
+            be->ticked_game_time = lv.game_time + entry.value.i;
+        } else {
+            level_unsupported(lv, "hidden state %s %s", block_entity_type_names[be->type], entry.key.c_str());
+            return;
+        }
+    }
+}
+
 // BlockEntity.loadWithComponents
 static void case_load_block_entity(level & lv, block_entity * be, const snbt_value & tag) {
     for (const snbt_entry & entry : tag.compound) {
@@ -24,12 +66,18 @@ static void case_load_block_entity(level & lv, block_entity * be, const snbt_val
         if (entry.key == "components" && value.compound.empty()) {
             continue;
         }
-        if (be->type == BLOCK_ENTITY_TYPE_COMPARATOR && entry.key == "OutputSignal" && value.type == SNBT_INT) {
+        if (entry.key == "tmc:hidden") {
+            case_load_hidden(lv, be, value);
+        } else if (be->type == BLOCK_ENTITY_TYPE_COMPARATOR && entry.key == "OutputSignal") {
             be->output_signal = (int32_t) value.i;
-            continue;
+        } else if (block_entity_is_container(be) && entry.key == "Items") {
+            case_load_items(lv, be, value);
+        } else if (be->type == BLOCK_ENTITY_TYPE_HOPPER && entry.key == "TransferCooldown") {
+            be->cooldown_time = (int32_t) value.i;
+        } else {
+            level_unsupported(lv, "block entity data %s %s", block_entity_type_names[be->type], entry.key.c_str());
+            return;
         }
-        level_unsupported(lv, "block entity data %s %s", block_entity_type_names[be->type], entry.key.c_str());
-        return;
     }
 }
 

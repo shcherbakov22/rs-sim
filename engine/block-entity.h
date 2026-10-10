@@ -1,7 +1,10 @@
 #pragma once
 
 #include "core/direction.h"
+#include "core/item-stack.h"
 #include "core/state.h"
+
+#include <vector>
 
 // BlockEntity as a tagged struct: the fields after the common ones belong to one type.
 struct block_entity {
@@ -21,6 +24,19 @@ struct block_entity {
 
     // ComparatorBlockEntity
     int32_t output_signal = 0;
+
+    // BaseContainerBlockEntity items, sized by the type
+    std::vector<item_stack> items;
+
+    // HopperBlockEntity
+    int32_t cooldown_time    = -1;
+    int64_t ticked_game_time = 0;
+};
+
+// Container: one block entity, or two chest halves as a CompoundContainer
+struct container {
+    block_entity * first  = nullptr;
+    block_entity * second = nullptr;
 };
 
 // LevelChunk.RebindableTickingBlockEntityWrapper; a null block entity is NULL_TICKER, which counts as removed

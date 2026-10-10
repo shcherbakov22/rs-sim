@@ -80,6 +80,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_COMPARATOR_BLOCK:
             result = comparator_update_shape(lv, st, dir, neighbor_pos, neighbor);
             break;
+        case VCLASS_CHEST_BLOCK:
+            result = chest_update_shape(lv, st, dir, neighbor);
+            break;
         case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
             result = face_attached_horizontal_directional_update_shape(lv, st, pos, dir);
             break;
@@ -126,6 +129,9 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
         case VCLASS_PISTON_HEAD_BLOCK:
             piston_head_neighbor_changed(lv, st, pos, block);
             break;
+        case VCLASS_HOPPER_BLOCK:
+            hopper_neighbor_changed(lv, st, pos);
+            break;
         default:
             hook_unsupported(lv, st, HOOK_NEIGHBOR_CHANGED);
     }
@@ -151,6 +157,9 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
             break;
         case VCLASS_PISTON_BASE_BLOCK:
             piston_base_on_place(lv, st, pos, old);
+            break;
+        case VCLASS_HOPPER_BLOCK:
+            hopper_on_place(lv, st, pos, old);
             break;
         default:
             hook_unsupported(lv, st, HOOK_ON_PLACE);
@@ -182,6 +191,11 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
         case VCLASS_PISTON_HEAD_BLOCK:
             piston_head_affect_neighbors_after_removal(lv, st, pos);
             break;
+        case VCLASS_CHEST_BLOCK:
+        case VCLASS_HOPPER_BLOCK:
+            // Containers.updateNeighboursAfterDestroy
+            level_update_neighbour_for_output_signal(lv, pos, state_block(st));
+            break;
         default:
             hook_unsupported(lv, st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL);
     }
@@ -203,6 +217,9 @@ void block_tick(level & lv, state_id st, block_pos pos) {
         case VCLASS_COMPARATOR_BLOCK:
             comparator_tick(lv, st, pos);
             break;
+        case VCLASS_CHEST_BLOCK:
+            chest_tick(lv, pos);
+            break;
         case VCLASS_REDSTONE_LAMP_BLOCK:
             redstone_lamp_tick(lv, st, pos);
             break;
@@ -220,8 +237,10 @@ bool block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a
             return false;
         case VCLASS_PISTON_BASE_BLOCK:
             return piston_base_trigger_event(lv, st, pos, param_a, param_b);
+        // ComparatorBlock.triggerEvent does the same
+        case VCLASS_BASE_ENTITY_BLOCK:
         case VCLASS_COMPARATOR_BLOCK:
-            return comparator_trigger_event(lv, pos);
+            return base_entity_block_trigger_event(lv, pos, param_a);
         default:
             hook_unsupported(lv, st, HOOK_TRIGGER_EVENT);
             return false;
@@ -274,6 +293,11 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return repeater_use_without_item(lv, st, pos);
         case VCLASS_COMPARATOR_BLOCK:
             return comparator_use_without_item(lv, st, pos);
+        case VCLASS_CHEST_BLOCK:
+        case VCLASS_HOPPER_BLOCK:
+            // player.openMenu: virtual players holding containers open are not ported
+            level_unsupported(lv, "container menus");
+            return INTERACTION_RESULT_SUCCESS;
         case VCLASS_MOVING_PISTON_BLOCK:
             return moving_piston_use_without_item(lv, pos);
         default:
@@ -303,6 +327,7 @@ bool block_is_signal_source(level & lv, state_id st) {
         case VCLASS_DIODE_BLOCK:
         case VCLASS_POWERED_BLOCK:
         case VCLASS_OBSERVER_BLOCK:
+        case VCLASS_TRAPPED_CHEST_BLOCK:
             return true;
         default:
             hook_unsupported(lv, st, HOOK_IS_SIGNAL_SOURCE);
@@ -330,6 +355,8 @@ int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) 
             return 15;
         case VCLASS_OBSERVER_BLOCK:
             return observer_get_signal(st, dir);
+        case VCLASS_TRAPPED_CHEST_BLOCK:
+            return trapped_chest_get_signal(lv, st, pos);
         default:
             hook_unsupported(lv, st, HOOK_GET_SIGNAL);
             return 0;
@@ -351,6 +378,8 @@ int32_t block_get_direct_signal(level & lv, state_id st, block_pos pos, directio
         case VCLASS_DIODE_BLOCK:
         case VCLASS_OBSERVER_BLOCK:
             return block_get_signal(lv, st, pos, dir);
+        case VCLASS_TRAPPED_CHEST_BLOCK:
+            return trapped_chest_get_direct_signal(lv, st, pos, dir);
         default:
             hook_unsupported(lv, st, HOOK_GET_DIRECT_SIGNAL);
             return 0;
@@ -408,8 +437,15 @@ void block_update_or_destroy(level & lv, state_id old, state_id updated, block_p
     }
 }
 
-// no analog output source is ported yet; the ports will add pos and direction
-int32_t block_get_analog_output_signal(level & lv, state_id st) {
-    hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
-    return 0;
+// the ported sources ignore the direction
+int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos) {
+    switch (hook_owner(st, HOOK_GET_ANALOG_OUTPUT_SIGNAL)) {
+        case VCLASS_CHEST_BLOCK:
+            return chest_get_analog_output_signal(lv, st, pos);
+        case VCLASS_HOPPER_BLOCK:
+            return hopper_get_analog_output_signal(lv, pos);
+        default:
+            hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
+            return 0;
+    }
 }

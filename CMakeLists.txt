@@ -13,12 +13,18 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_library(tmc STATIC
     blocks/amethyst-cluster.cpp
+    blocks/base-entity-block.cpp
     blocks/base-torch.cpp
     blocks/block-behaviour.cpp
     blocks/button.cpp
+    blocks/chest-block-entity.cpp
+    blocks/chest.cpp
     blocks/comparator.cpp
+    blocks/container.cpp
     blocks/diode.cpp
     blocks/face-attached-horizontal-directional.cpp
+    blocks/hopper-block-entity.cpp
+    blocks/hopper.cpp
     blocks/lever.cpp
     blocks/moving-piston.cpp
     blocks/observer.cpp
@@ -31,6 +37,7 @@ add_library(tmc STATIC
     blocks/redstone-torch.cpp
     blocks/redstone-wall-torch.cpp
     blocks/repeater.cpp
+    blocks/trapped-chest.cpp
     blocks/wall-torch.cpp
     core/rng.cpp
     core/state.cpp

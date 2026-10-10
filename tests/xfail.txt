@@ -1,6 +1,4 @@
 # Cases allowed to fail (paths relative to oracle/cases, no .case). Only remove lines.
-active/hopper-chain
-active/hopper-order
 active/note-bell
 active/trapped-chest
 block-entities
@@ -146,7 +144,6 @@ corpus/0145
 corpus/0146
 corpus/0147
 corpus/0148
-corpus/0149
 corpus/0150
 corpus/0151
 corpus/0152
@@ -212,7 +209,6 @@ corpus/0215
 corpus/0216
 corpus/0217
 corpus/0218
-corpus/0219
 corpus/0220
 corpus/0221
 corpus/0224
@@ -308,8 +304,5 @@ corpus/0321
 corpus/0322
 corpus/0323
 corpus/0324
-corpus/0325
 corpus/0326
-corpus/0327
 corpus/0329
-corpus/0330
