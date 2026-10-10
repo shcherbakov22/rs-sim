@@ -479,6 +479,7 @@ state_id scaffolding_get_state_for_placement(level & lv, int32_t block, const bl
 
 // AbstractCauldronBlock
 interaction_result abstract_cauldron_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
+void               abstract_cauldron_tick(level & lv, block_pos pos);
 
 // LayeredCauldronBlock
 int32_t layered_cauldron_get_analog_output_signal(state_id st);

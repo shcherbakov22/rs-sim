@@ -483,6 +483,9 @@ void block_tick(level & lv, state_id st, block_pos pos) {
         case VCLASS_FALLING_BLOCK:
             falling_block_tick(lv, pos);
             break;
+        case VCLASS_ABSTRACT_CAULDRON_BLOCK:
+            abstract_cauldron_tick(lv, pos);
+            break;
         case VCLASS_TRIP_WIRE_BLOCK:
             trip_wire_tick(lv, pos);
             break;
