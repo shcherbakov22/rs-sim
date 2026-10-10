@@ -11,12 +11,44 @@
 static constexpr int32_t CASE_SURROUND = 13;
 
 // Snapshot.place: a silent setBlock, which creates the block entity even when the case gives no NBT
+// A block that makes no block entity itself (moving_piston) gets one of the first valid type when the case gives NBT
 static void case_place_block(level & lv, const case_file & f, block_pos pos) {
     state_id st = f.states[pos.x + f.size.x * (pos.z + f.size.z * pos.y)];
     level_set_state_raw(lv, pos, st);
-    if (state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
-        level_get_block_entity(lv, pos);
+    if (!state_has(st, STATE_FLAG_BLOCK_ENTITY) || level_get_block_entity(lv, pos) != nullptr) {
+        return;
     }
+    int32_t type = block_defs[state_block(st)].entity_valid;
+    for (const case_nbt & n : f.nbt) {
+        if (n.pos == pos && type >= 0) {
+            level_set_block_entity(lv, level_new_block_entity(lv, (block_entity_type) type, pos, st));
+            return;
+        }
+    }
+}
+
+// NbtUtils.readBlockState
+static bool case_load_block_state(level & lv, const snbt_value & tag, state_id & out) {
+    std::string text;
+    std::string properties;
+    for (const snbt_entry & entry : tag.compound) {
+        if (entry.key == "Name") {
+            text = entry.value.s;
+        } else if (entry.key == "Properties") {
+            for (const snbt_entry & p : entry.value.compound) {
+                properties += (properties.empty() ? "" : ",") + p.key + "=" + p.value.s;
+            }
+        }
+    }
+    if (!properties.empty()) {
+        text += "[" + properties + "]";
+    }
+    std::string err;
+    if (!state_parse(text, out, err)) {
+        level_unsupported(lv, "block state %s", text.c_str());
+        return false;
+    }
+    return true;
 }
 
 // ContainerHelper.loadAllItems; slots outside the container are skipped
@@ -77,6 +109,15 @@ static void case_load_hidden(level & lv, block_entity * be, const snbt_value & h
         } else if (be->type == BLOCK_ENTITY_TYPE_JUKEBOX && entry.key == "song") {
             // a song past its end that no tick has stopped yet
             be->song_playing = be->song_playing || entry.value.i != 0;
+        } else if (be->type == BLOCK_ENTITY_TYPE_PISTON && entry.key == "progress") {
+            be->progress = (float) entry.value.d;
+        } else if (be->type == BLOCK_ENTITY_TYPE_PISTON && entry.key == "progressO") {
+            be->progress_o = (float) entry.value.d;
+        } else if (be->type == BLOCK_ENTITY_TYPE_PISTON && entry.key == "lastTicked") {
+            be->last_ticked = lv.game_time + entry.value.i;
+        } else if (be->type == BLOCK_ENTITY_TYPE_PISTON && entry.key == "deathTicks") {
+            // only the client counts death ticks
+            continue;
         } else {
             level_unsupported(lv, "hidden state %s %s", block_entity_type_names[be->type], entry.key.c_str());
             return;
@@ -94,6 +135,20 @@ static void case_load_block_entity(level & lv, block_entity * be, const snbt_val
         }
         if (entry.key == "tmc:hidden") {
             hidden = &value;
+        } else if (be->type == BLOCK_ENTITY_TYPE_PISTON && entry.key == "blockState") {
+            if (!case_load_block_state(lv, value, be->moved_state)) {
+                return;
+            }
+        } else if (be->type == BLOCK_ENTITY_TYPE_PISTON && entry.key == "facing") {
+            be->dir = (direction) value.i;
+        } else if (be->type == BLOCK_ENTITY_TYPE_PISTON && entry.key == "progress") {
+            // PistonMovingBlockEntity.loadAdditional sets progressO to progress too
+            be->progress   = (float) value.d;
+            be->progress_o = be->progress;
+        } else if (be->type == BLOCK_ENTITY_TYPE_PISTON && entry.key == "extending") {
+            be->extending = value.i != 0;
+        } else if (be->type == BLOCK_ENTITY_TYPE_PISTON && entry.key == "source") {
+            be->is_source_piston = value.i != 0;
         } else if (be->type == BLOCK_ENTITY_TYPE_COMPARATOR && entry.key == "OutputSignal") {
             be->output_signal = (int32_t) value.i;
         } else if (block_entity_is_container(be) && entry.key == "Items") {

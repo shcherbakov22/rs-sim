@@ -1,6 +1,5 @@
 # Cases allowed to fail (paths relative to oracle/cases, no .case). Only remove lines.
 active/trapped-chest
-block-entities
 corpus/0005
 corpus/0012
 corpus/0014
