@@ -6,8 +6,7 @@ static constexpr int64_t RNG_MULTIPLIER = 25214903917LL;
 static constexpr int64_t RNG_MASK       = (1LL << 48) - 1;
 
 void rng_set_seed(rng & r, int64_t seed) {
-    r.seed         = (seed ^ RNG_MULTIPLIER) & RNG_MASK;
-    r.has_gaussian = false;
+    r.seed = (seed ^ RNG_MULTIPLIER) & RNG_MASK;
 }
 
 int32_t rng_next(rng & r, int32_t bits) {

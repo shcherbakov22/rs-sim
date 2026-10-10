@@ -83,20 +83,6 @@ static bool parse_input(const std::vector<std::string_view> & t, case_input & in
     return true;
 }
 
-// "minecraft:chest[facing=west,type=single]{Items:[]}": state, then optional NBT
-static bool parse_key_block(std::string_view text, state_id & st, std::string & snbt, std::string & err) {
-    size_t open  = text.find('[');
-    size_t brace = text.find('{');
-    if (open != std::string_view::npos && open < brace) {
-        brace = text.find('{', text.find(']', open));
-    }
-    if (brace != std::string_view::npos) {
-        snbt = text.substr(brace);
-        text = text.substr(0, brace);
-    }
-    return state_parse(text, st, err);
-}
-
 // parse position: current section, layer and row, and the key seen so far
 struct case_parser {
     std::string section;
@@ -106,13 +92,12 @@ struct case_parser {
     std::map<std::string, state_id, std::less<>> key_state = {
         { ".", STATE_AIR }
     };
-    std::map<std::string, snbt_value, std::less<>> key_nbt;
 };
 
 static bool case_parse_line(case_file & f, case_parser & p, std::string_view line, std::string & err) {
     std::vector<std::string_view> t = split_ws(line);
     if (t[0] == "tmc-case") {
-        if (t.size() != 2 || t[1] != "1") {
+        if (t.size() != 2 || t[1] != "2") {
             err = "unsupported version";
             return false;
         }
@@ -133,17 +118,6 @@ static bool case_parse_line(case_file & f, case_parser & p, std::string_view lin
         }
         return true;
     }
-    if (t[0] == "gaussian") {
-        std::string s(t.size() == 2 ? t[1] : "");
-        char *      end = nullptr;
-        f.gaussian      = strtod(s.c_str(), &end);
-        f.has_gaussian  = true;
-        if (s.empty() || *end != '\0') {
-            err = "bad gaussian";
-            return false;
-        }
-        return true;
-    }
     if (t[0] == "run") {
         p.section = "";
         if (t.size() != 2 || !parse_i32(t[1], f.run)) {
@@ -152,8 +126,8 @@ static bool case_parse_line(case_file & f, case_parser & p, std::string_view lin
         }
         return true;
     }
-    if (t[0] == "key" || t[0] == "ticks" || t[0] == "events" || t[0] == "toggles" || t[0] == "tickers" ||
-        t[0] == "inputs") {
+    if (t[0] == "key" || t[0] == "items" || t[0] == "data" || t[0] == "hidden" || t[0] == "ticks" || t[0] == "events" ||
+        t[0] == "toggles" || t[0] == "tickers" || t[0] == "inputs") {
         p.section = t[0];
         return true;
     }
@@ -176,18 +150,7 @@ static bool case_parse_line(case_file & f, case_parser & p, std::string_view lin
             err = "expected '<key> = <block>'";
             return false;
         }
-        std::string name(strip(line.substr(0, eq)));
-        state_id    st;
-        std::string snbt;
-        if (!parse_key_block(strip(line.substr(eq + 1)), st, snbt, err)) {
-            return false;
-        }
-        p.key_state[name] = st;
-        if (!snbt.empty() && !snbt_parse(snbt, p.key_nbt[name], err)) {
-            err = "nbt: " + err;
-            return false;
-        }
-        return true;
+        return state_parse(strip(line.substr(eq + 1)), p.key_state[std::string(strip(line.substr(0, eq)))], err);
     }
     if (p.section == "layer") {
         if ((int32_t) t.size() != f.size.x) {
@@ -205,15 +168,29 @@ static bool case_parse_line(case_file & f, case_parser & p, std::string_view lin
                 return false;
             }
             f.states[x + f.size.x * (p.row + f.size.z * p.layer_y)] = it->second;
-            auto nbt                                                = p.key_nbt.find(t[x]);
-            if (nbt != p.key_nbt.end()) {
-                f.nbt.push_back({
-                    { x, p.layer_y, p.row },
-                    nbt->second
-                });
-            }
         }
         p.row++;
+        return true;
+    }
+    if (p.section == "items") {
+        case_item it = { {}, 0, t.size() >= 5 ? item_find(t[4]) : -1, 0, -1 };
+        if (t.size() < 6 || t.size() > 7 || !parse_pos(t, 0, it.pos) || !parse_i32(t[3], it.slot) || it.item < 0 ||
+            !parse_i32(t[5], it.count) || (t.size() == 7 && !parse_i32(t[6], it.damage))) {
+            err = "expected 'x y z <slot> <item> <count> [damage]'";
+            return false;
+        }
+        f.items.push_back(it);
+        return true;
+    }
+    // the oracle reads values with TagParser, so a case that has a trace holds only valid ones
+    if (p.section == "data" || p.section == "hidden") {
+        case_data d = { {}, t.size() >= 5 ? std::string(t[3]) : "", "", p.section == "hidden" };
+        if (t.size() < 5 || !parse_pos(t, 0, d.pos)) {
+            err = "expected 'x y z <key> <value>'";
+            return false;
+        }
+        d.value = line.substr(t[4].data() - line.data());
+        f.data.push_back(d);
         return true;
     }
     if (p.section == "ticks") {

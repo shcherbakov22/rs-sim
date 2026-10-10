@@ -38,7 +38,6 @@ add_library(tmc STATIC
     items/item.cpp
     items/recipes.cpp
     io/case-file.cpp
-    io/snbt.cpp
 )
 target_include_directories(tmc PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 

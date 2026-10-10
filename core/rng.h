@@ -4,12 +4,10 @@
 
 struct trace;
 
-// Port of LegacyRandomSource (BitRandomSource defaults, MarsagliaPolarGaussian state).
+// Port of LegacyRandomSource (BitRandomSource defaults); nothing in scope draws a Gaussian sample.
 struct rng {
-    int64_t seed         = 0;  // 48-bit LCG state
-    bool    has_gaussian = false;
-    double  gaussian     = 0;
-    trace * tr           = nullptr;  // set for the level RNG: every draw is traced
+    int64_t seed = 0;        // 48-bit LCG state
+    trace * tr   = nullptr;  // set for the level RNG: every draw is traced
 };
 
 void    rng_set_seed(rng & r, int64_t seed);
