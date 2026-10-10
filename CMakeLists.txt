@@ -55,6 +55,7 @@ add_library(tmc STATIC
     blocks/shelf.cpp
     blocks/trapped-chest.cpp
     blocks/wall-torch.cpp
+    blocks/wall.cpp
     core/rng.cpp
     core/state.cpp
     core/trace.cpp

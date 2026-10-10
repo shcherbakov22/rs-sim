@@ -37,21 +37,29 @@ bool support_type_is_supporting(const voxel_shape & support_shape, direction dir
     return false;
 }
 
+// BlockState.getCollisionShape with the empty collision context
+voxel_shape block_get_collision_shape(level & lv, state_id st, block_pos pos) {
+    if (!state_has(st, STATE_FLAG_DYNAMIC_SHAPE)) {
+        return voxel_shape_collision(st);
+    }
+    // a shulker box never opens without players, and a closed box is a full block
+    if (block_instanceof(state_block(st), VCLASS_SHULKER_BOX_BLOCK)) {
+        return shapes_block();
+    }
+    if (!state_is(st, BLOCK_MOVING_PISTON)) {
+        level_unsupported(lv, "dynamic shape of %s", state_to_string(st).c_str());
+        return voxel_shape();
+    }
+    return moving_piston_get_collision_shape(lv, pos);
+}
+
 bool block_is_face_sturdy(level & lv, state_id st, block_pos pos, direction dir, support_type type) {
     static_assert(STATE_FLAG_STURDY_RIGID_EAST == STATE_FLAG_STURDY_FULL_DOWN << 17);
     if (!state_has(st, STATE_FLAG_DYNAMIC_SHAPE)) {
         return (state_flags[st] & STATE_FLAG_STURDY_FULL_DOWN << (type * 6 + dir)) != 0;
     }
-    // a shulker box never opens without players, and a closed box is a full block
-    if (block_instanceof(state_block(st), VCLASS_SHULKER_BOX_BLOCK)) {
-        return true;
-    }
     // without a shape cache the support shape comes from the world; BlockBehaviour.getBlockSupportShape is the collision shape
-    if (!state_is(st, BLOCK_MOVING_PISTON)) {
-        level_unsupported(lv, "dynamic shape of %s", state_to_string(st).c_str());
-        return false;
-    }
-    return support_type_is_supporting(moving_piston_get_collision_shape(lv, pos), dir, type);
+    return support_type_is_supporting(block_get_collision_shape(lv, st, pos), dir, type);
 }
 
 // Block.canSupportCenter
@@ -104,12 +112,16 @@ state_id block_update_shape(level &   lv,
         case VCLASS_DECORATED_POT_BLOCK:
         case VCLASS_SHELF_BLOCK:
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
+        case VCLASS_SLAB_BLOCK:
             if (state_get(st, PROP_WATERLOGGED)) {
                 level_unsupported(lv, "fluids");
             }
             break;
         case VCLASS_IRON_BARS_BLOCK:
             result = iron_bars_update_shape(lv, st, dir, neighbor_pos, neighbor);
+            break;
+        case VCLASS_WALL_BLOCK:
+            result = wall_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
         case VCLASS_BELL_BLOCK:
             result = bell_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);

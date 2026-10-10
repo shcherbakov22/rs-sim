@@ -33,10 +33,11 @@ inline bool interaction_result_consumes_action(interaction_result r) {
 }
 
 // SupportType.isSupporting
-bool support_type_is_supporting(const voxel_shape & support_shape, direction dir, support_type type);
+bool        support_type_is_supporting(const voxel_shape & support_shape, direction dir, support_type type);
 // BlockStateBase.isFaceSturdy
-bool block_is_face_sturdy(level & lv, state_id st, block_pos pos, direction dir, support_type type);
-bool block_can_support_center(level & lv, block_pos pos, direction dir);
+voxel_shape block_get_collision_shape(level & lv, state_id st, block_pos pos);
+bool        block_is_face_sturdy(level & lv, state_id st, block_pos pos, direction dir, support_type type);
+bool        block_can_support_center(level & lv, block_pos pos, direction dir);
 
 // BlockStateBase dispatch to the block's vanilla class. A hook the class overrides but the sim
 // does not port yet stops the run as unsupported.

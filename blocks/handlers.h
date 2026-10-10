@@ -211,6 +211,14 @@ interaction_result respawn_anchor_use_without_item(level & lv, state_id st, bloc
 // IronBarsBlock
 state_id iron_bars_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor);
 
+// WallBlock
+state_id wall_update_shape(level &   lv,
+                           state_id  st,
+                           block_pos pos,
+                           direction dir,
+                           block_pos neighbor_pos,
+                           state_id  neighbor);
+
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 
