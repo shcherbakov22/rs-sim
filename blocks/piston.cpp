@@ -30,18 +30,12 @@ static bool piston_base_is_sticky(state_id st) {
 // quasi-connectivity: the block above the piston counts as a power source position too
 static bool piston_base_get_neighbor_signal(level & lv, block_pos pos, direction push_direction) {
     for (int32_t d = 0; d < 6; d++) {
-        if (d != push_direction && level_has_signal(lv, pos_relative(pos, (direction) d), (direction) d)) {
-            return true;
-        }
+        if (d != push_direction && level_has_signal(lv, pos_relative(pos, (direction) d), (direction) d)) return true;
     }
-    if (level_has_signal(lv, pos, DIRECTION_DOWN)) {
-        return true;
-    }
+    if (level_has_signal(lv, pos, DIRECTION_DOWN)) return true;
     block_pos above = pos_relative(pos, DIRECTION_UP);
     for (int32_t d = 0; d < 6; d++) {
-        if (d != DIRECTION_DOWN && level_has_signal(lv, pos_relative(above, (direction) d), (direction) d)) {
-            return true;
-        }
+        if (d != DIRECTION_DOWN && level_has_signal(lv, pos_relative(above, (direction) d), (direction) d)) return true;
     }
     return false;
 }
@@ -52,29 +46,17 @@ static bool piston_base_is_pushable(state_id  st,
                                     direction dir,
                                     bool      allow_destroyable,
                                     direction connection_direction) {
-    if (pos.y < LEVEL_Y_MIN || pos.y > LEVEL_Y_MAX) {
-        return false;
-    }
-    if (state_has(st, STATE_FLAG_AIR)) {
-        return true;
-    }
+    if (pos.y < LEVEL_Y_MIN || pos.y > LEVEL_Y_MAX) return false;
+    if (state_has(st, STATE_FLAG_AIR)) return true;
     if (state_is(st, BLOCK_OBSIDIAN) || state_is(st, BLOCK_CRYING_OBSIDIAN) || state_is(st, BLOCK_RESPAWN_ANCHOR) ||
         state_is(st, BLOCK_REINFORCED_DEEPSLATE)) {
         return false;
     }
-    if ((dir == DIRECTION_DOWN && pos.y == LEVEL_Y_MIN) || (dir == DIRECTION_UP && pos.y == LEVEL_Y_MAX)) {
-        return false;
-    }
+    if ((dir == DIRECTION_DOWN && pos.y == LEVEL_Y_MIN) || (dir == DIRECTION_UP && pos.y == LEVEL_Y_MAX)) return false;
     if (!piston_base_is_piston(st)) {
-        if (state_has(st, STATE_FLAG_UNBREAKABLE) || state_has(st, STATE_FLAG_PUSH_BLOCK)) {
-            return false;
-        }
-        if (state_has(st, STATE_FLAG_PUSH_DESTROY)) {
-            return allow_destroyable;
-        }
-        if (state_has(st, STATE_FLAG_PUSH_PUSH_ONLY)) {
-            return dir == connection_direction;
-        }
+        if (state_has(st, STATE_FLAG_UNBREAKABLE) || state_has(st, STATE_FLAG_PUSH_BLOCK)) return false;
+        if (state_has(st, STATE_FLAG_PUSH_DESTROY)) return allow_destroyable;
+        if (state_has(st, STATE_FLAG_PUSH_PUSH_ONLY)) return dir == connection_direction;
     } else if (state_get(st, PROP_EXTENDED)) {
         return false;
     }
@@ -102,20 +84,14 @@ static bool piston_structure_resolver_is_sticky(state_id st) {
 
 // slime and honey do not stick to each other
 static bool piston_structure_resolver_can_stick_to_each_other(state_id a, state_id b) {
-    if (state_is(a, BLOCK_HONEY_BLOCK) && state_is(b, BLOCK_SLIME_BLOCK)) {
-        return false;
-    }
-    if (state_is(a, BLOCK_SLIME_BLOCK) && state_is(b, BLOCK_HONEY_BLOCK)) {
-        return false;
-    }
+    if (state_is(a, BLOCK_HONEY_BLOCK) && state_is(b, BLOCK_SLIME_BLOCK)) return false;
+    if (state_is(a, BLOCK_SLIME_BLOCK) && state_is(b, BLOCK_HONEY_BLOCK)) return false;
     return piston_structure_resolver_is_sticky(a) || piston_structure_resolver_is_sticky(b);
 }
 
 static int32_t piston_structure_resolver_index_of(const std::vector<block_pos> & list, block_pos pos) {
     for (size_t i = 0; i < list.size(); i++) {
-        if (list[i] == pos) {
-            return (int32_t) i;
-        }
+        if (list[i] == pos) return (int32_t) i;
     }
     return -1;
 }
@@ -129,9 +105,7 @@ static bool piston_structure_resolver_add_branching_blocks(level & lv, piston_st
     state_id from_st = level_get_state(lv, from);
     for (int32_t d = 0; d < 6; d++) {
         direction dir = (direction) d;
-        if (direction_get_axis(dir) == direction_get_axis(r.push_direction)) {
-            continue;
-        }
+        if (direction_get_axis(dir) == direction_get_axis(r.push_direction)) continue;
         block_pos neighbor_pos = pos_relative(from, dir);
         state_id  neighbor     = level_get_state(lv, neighbor_pos);
         if (piston_structure_resolver_can_stick_to_each_other(neighbor, from_st) &&
@@ -155,20 +129,12 @@ static bool piston_structure_resolver_add_block_line(level &                    
                                                      block_pos                   start,
                                                      direction                   dir) {
     state_id next = level_get_state(lv, start);
-    if (state_has(next, STATE_FLAG_AIR)) {
-        return true;
-    }
-    if (!piston_base_is_pushable(next, start, r.push_direction, false, dir)) {
-        return true;
-    }
-    if (start == r.piston_pos || piston_structure_resolver_index_of(r.to_push, start) >= 0) {
-        return true;
-    }
+    if (state_has(next, STATE_FLAG_AIR)) return true;
+    if (!piston_base_is_pushable(next, start, r.push_direction, false, dir)) return true;
+    if (start == r.piston_pos || piston_structure_resolver_index_of(r.to_push, start) >= 0) return true;
     direction back        = direction_opposite(r.push_direction);
     int32_t   block_count = 1;
-    if (block_count + r.to_push.size() > PISTON_STRUCTURE_RESOLVER_MAX_PUSH_DEPTH) {
-        return false;
-    }
+    if (block_count + r.to_push.size() > PISTON_STRUCTURE_RESOLVER_MAX_PUSH_DEPTH) return false;
     // the sticky blocks behind start come along
     while (piston_structure_resolver_is_sticky(next)) {
         block_pos pos      = pos_relative_steps(start, back, block_count);
@@ -178,9 +144,7 @@ static bool piston_structure_resolver_add_block_line(level &                    
             !piston_base_is_pushable(next, pos, r.push_direction, false, back) || pos == r.piston_pos) {
             break;
         }
-        if (++block_count + r.to_push.size() > PISTON_STRUCTURE_RESOLVER_MAX_PUSH_DEPTH) {
-            return false;
-        }
+        if (++block_count + r.to_push.size() > PISTON_STRUCTURE_RESOLVER_MAX_PUSH_DEPTH) return false;
     }
     size_t blocks_added = 0;
     for (int32_t i = block_count - 1; i >= 0; i--) {
@@ -202,9 +166,7 @@ static bool piston_structure_resolver_add_block_line(level &                    
             return true;
         }
         next = level_get_state(lv, pos);
-        if (state_has(next, STATE_FLAG_AIR)) {
-            return true;
-        }
+        if (state_has(next, STATE_FLAG_AIR)) return true;
         if (!piston_base_is_pushable(next, pos, r.push_direction, true, r.push_direction) || pos == r.piston_pos) {
             return false;
         }
@@ -212,9 +174,7 @@ static bool piston_structure_resolver_add_block_line(level &                    
             r.to_destroy.push_back(pos);
             return true;
         }
-        if (r.to_push.size() >= PISTON_STRUCTURE_RESOLVER_MAX_PUSH_DEPTH) {
-            return false;
-        }
+        if (r.to_push.size() >= PISTON_STRUCTURE_RESOLVER_MAX_PUSH_DEPTH) return false;
         r.to_push.push_back(pos);
         blocks_added++;
     }
@@ -241,9 +201,7 @@ static bool piston_structure_resolver_resolve(level & lv, piston_structure_resol
         }
         return false;
     }
-    if (!piston_structure_resolver_add_block_line(lv, r, r.start_pos, r.push_direction)) {
-        return false;
-    }
+    if (!piston_structure_resolver_add_block_line(lv, r, r.start_pos, r.push_direction)) return false;
     // the list grows while it is walked
     for (size_t i = 0; i < r.to_push.size(); i++) {
         block_pos pos = r.to_push[i];
@@ -287,9 +245,7 @@ static shape piston_moving_block_entity_get_collision_shape(level & lv, const bl
 
 // Ends the move at once: the moved block lands in its new place.
 void piston_moving_block_entity_final_tick(level & lv, block_entity * be) {
-    if (be->progress_o >= 1.0f) {
-        return;
-    }
+    if (be->progress_o >= 1.0f) return;
     be->progress   = 1.0f;
     be->progress_o = be->progress;
     level_remove_block_entity(lv, be->pos);
@@ -311,9 +267,7 @@ void piston_moving_block_entity_tick(level & lv, block_entity * be) {
     }
     block_pos pos = be->pos;
     level_remove_block_entity(lv, pos);
-    if (!state_is(level_get_state(lv, pos), BLOCK_MOVING_PISTON)) {
-        return;
-    }
+    if (!state_is(level_get_state(lv, pos), BLOCK_MOVING_PISTON)) return;
     state_id st = block_update_from_neighbour_shapes(lv, be->moved_state, pos);
     if (state_has(st, STATE_FLAG_AIR)) {
         // the block lands silently, then breaks as if a shape update removed it
@@ -357,9 +311,7 @@ static void piston_base_check_if_extend(level & lv, state_id st, block_pos pos) 
     int32_t   block  = state_block(st);
     if (extend && !state_get(st, PROP_EXTENDED)) {
         piston_structure_resolver r = piston_structure_resolver_init(pos, dir, true);
-        if (piston_structure_resolver_resolve(lv, r)) {
-            level_block_event(lv, pos, block, PISTON_TRIGGER_EXTEND, dir);
-        }
+        if (piston_structure_resolver_resolve(lv, r)) level_block_event(lv, pos, block, PISTON_TRIGGER_EXTEND, dir);
     } else if (!extend && state_get(st, PROP_EXTENDED)) {
         // a retraction while the pushed block is still early in its move drops it (no pulling back)
         block_pos      pushed_pos = pos_relative_steps(pos, dir, 2);
@@ -413,9 +365,7 @@ static bool piston_base_move_blocks(level & lv, state_id piston, block_pos pisto
                         UPDATE_FLAG_INVISIBLE | UPDATE_FLAG_KNOWN_SHAPE | UPDATE_FLAG_SKIP_BLOCK_ENTITY_SIDEEFFECTS);
     }
     piston_structure_resolver r = piston_structure_resolver_init(piston_pos, dir, extending);
-    if (!piston_structure_resolver_resolve(lv, r)) {
-        return false;
-    }
+    if (!piston_structure_resolver_resolve(lv, r)) return false;
     java_hash_map         delete_after_move;
     std::vector<state_id> to_push_shapes;
     for (block_pos pos : r.to_push) {
@@ -476,9 +426,7 @@ static bool piston_base_move_blocks(level & lv, state_id piston, block_pos pisto
     for (size_t i = r.to_push.size(); i-- > 0;) {
         level_update_neighbors_at(lv, r.to_push[i], state_block(to_update[update_index++]));
     }
-    if (extending) {
-        level_update_neighbors_at(lv, arm_pos, BLOCK_PISTON_HEAD);
-    }
+    if (extending) level_update_neighbors_at(lv, arm_pos, BLOCK_PISTON_HEAD);
     return true;
 }
 
@@ -491,20 +439,14 @@ static bool piston_base_trigger_event(level & lv, state_id st, block_pos pos, in
         level_set_block(lv, pos, extended, UPDATE_FLAG_CLIENTS);
         return false;
     }
-    if (!extend && b0 == PISTON_TRIGGER_EXTEND) {
-        return false;
-    }
+    if (!extend && b0 == PISTON_TRIGGER_EXTEND) return false;
     if (b0 == PISTON_TRIGGER_EXTEND) {
-        if (!piston_base_move_blocks(lv, st, pos, dir, true)) {
-            return false;
-        }
+        if (!piston_base_move_blocks(lv, st, pos, dir, true)) return false;
         level_set_block(lv, pos, extended, UPDATE_FLAG_CLIENTS | UPDATE_FLAG_MOVE_BY_PISTON | UPDATE_FLAG_NEIGHBORS);
         rng_next_float(lv.random);
         return true;
     }
-    if (b0 != PISTON_TRIGGER_CONTRACT && b0 != PISTON_TRIGGER_DROP) {
-        return true;
-    }
+    if (b0 != PISTON_TRIGGER_CONTRACT && b0 != PISTON_TRIGGER_DROP) return true;
     block_entity * previous = level_get_block_entity(lv, pos_relative(pos, dir));
     if (previous != nullptr && previous->type == BLOCK_ENTITY_TYPE_PISTON) {
         piston_moving_block_entity_final_tick(lv, previous);
@@ -561,9 +503,7 @@ static block_pos piston_head_base_pos(state_id st, block_pos pos) {
 // breaking the head breaks the base, with drops
 static void piston_head_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool) {
     block_pos base_pos = piston_head_base_pos(st, pos);
-    if (piston_head_is_fitting_base(st, level_get_state(lv, base_pos))) {
-        level_destroy_block(lv, base_pos, true);
-    }
+    if (piston_head_is_fitting_base(st, level_get_state(lv, base_pos))) level_destroy_block(lv, base_pos, true);
 }
 
 // a base that is still moving in counts too
@@ -575,9 +515,7 @@ static bool piston_head_can_survive(level & lv, state_id st, block_pos pos) {
 
 // the head passes updates on to its base
 static void piston_head_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block, bool) {
-    if (piston_head_can_survive(lv, st, pos)) {
-        level_neighbor_changed(lv, piston_head_base_pos(st, pos), block);
-    }
+    if (piston_head_can_survive(lv, st, pos)) level_neighbor_changed(lv, piston_head_base_pos(st, pos), block);
 }
 
 static state_id piston_head_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id) {

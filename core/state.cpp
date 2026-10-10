@@ -1,25 +1,17 @@
 #include "core/state.h"
 
 int32_t block_find(std::string_view name) {
-    if (name.starts_with("minecraft:")) {
-        name.remove_prefix(10);
-    }
+    if (name.starts_with("minecraft:")) name.remove_prefix(10);
     for (int32_t i = 0; i < n_block_defs; i++) {
-        if (name == block_defs[i].name) {
-            return i;
-        }
+        if (name == block_defs[i].name) return i;
     }
     return -1;
 }
 
 int32_t item_find(std::string_view name) {
-    if (name.starts_with("minecraft:")) {
-        name.remove_prefix(10);
-    }
+    if (name.starts_with("minecraft:")) name.remove_prefix(10);
     for (int32_t i = 0; i < ITEM_COUNT; i++) {
-        if (name == item_defs[i].name) {
-            return i;
-        }
+        if (name == item_defs[i].name) return i;
     }
     return -1;
 }
@@ -41,18 +33,14 @@ int32_t state_block(state_id st) {
 
 bool block_instanceof(int32_t block, vclass cls) {
     for (int32_t c = block_defs[block].cls; c != VCLASS_NONE; c = vclass_super[c]) {
-        if (c == cls) {
-            return true;
-        }
+        if (c == cls) return true;
     }
     return false;
 }
 
 bool item_instanceof(int32_t item, item_class cls) {
     for (int32_t c = item_defs[item].cls; c != ICLASS_NONE; c = iclass_super[c]) {
-        if (c == cls) {
-            return true;
-        }
+        if (c == cls) return true;
     }
     return false;
 }
@@ -60,9 +48,7 @@ bool item_instanceof(int32_t item, item_class cls) {
 int32_t block_field_get(int32_t block, object_field field) {
     const block_def & b = block_defs[block];
     for (int32_t i = 0; i < b.n_fields; i++) {
-        if (block_field_values[b.fields_first + i].field == field) {
-            return block_field_values[b.fields_first + i].value;
-        }
+        if (block_field_values[b.fields_first + i].field == field) return block_field_values[b.fields_first + i].value;
     }
     TMC_ABORT("%s has no field %d", b.name, field);
 }
@@ -70,18 +56,14 @@ int32_t block_field_get(int32_t block, object_field field) {
 static const block_prop * state_find_prop(state_id st, prop_id prop) {
     const block_def & b = block_defs[state_block(st)];
     for (int32_t i = 0; i < b.n_props; i++) {
-        if (block_props[b.props_first + i].prop == prop) {
-            return &block_props[b.props_first + i];
-        }
+        if (block_props[b.props_first + i].prop == prop) return &block_props[b.props_first + i];
     }
     return nullptr;
 }
 
 static const block_prop & state_need_prop(state_id st, prop_id prop) {
     const block_prop * bp = state_find_prop(st, prop);
-    if (bp == nullptr) {
-        TMC_ABORT("%s has no property %s", state_to_string(st).c_str(), prop_defs[prop].name);
-    }
+    if (bp == nullptr) TMC_ABORT("%s has no property %s", state_to_string(st).c_str(), prop_defs[prop].name);
     return *bp;
 }
 
@@ -107,9 +89,7 @@ state_id state_set(state_id st, prop_id prop, int32_t value) {
     const block_prop & bp = state_need_prop(st, prop);
     const prop_def &   p  = prop_defs[prop];
     for (int32_t i = 0; i < p.n_values; i++) {
-        if (p.codes[i] == value) {
-            return state_with_index(st, bp, i);
-        }
+        if (p.codes[i] == value) return state_with_index(st, bp, i);
     }
     TMC_ABORT("no value %d for property %s", value, p.name);
 }
@@ -131,9 +111,7 @@ std::string state_to_string(state_id st) {
         out += "=";
         out += p.values[index / bp.stride % p.n_values];
     }
-    if (b.n_props > 0) {
-        out += "]";
-    }
+    if (b.n_props > 0) out += "]";
     return out;
 }
 
@@ -170,9 +148,7 @@ bool state_parse(std::string_view text, state_id & out, std::string & err) {
         for (int32_t i = 0; i < b.n_props && !found; i++) {
             const block_prop & bp = block_props[b.props_first + i];
             const prop_def &   p  = prop_defs[bp.prop];
-            if (name != p.name) {
-                continue;
-            }
+            if (name != p.name) continue;
             for (int32_t v = 0; v < p.n_values; v++) {
                 if (value == p.values[v]) {
                     index += (v - index / bp.stride % p.n_values) * bp.stride;
@@ -199,9 +175,7 @@ state_id block_with_properties_of(int32_t block, state_id st) {
     const block_def & b   = block_defs[block];
     for (int32_t i = 0; i < b.n_props; i++) {
         prop_id prop = (prop_id) block_props[b.props_first + i].prop;
-        if (state_has_prop(st, prop)) {
-            out = state_set(out, prop, state_get(st, prop));
-        }
+        if (state_has_prop(st, prop)) out = state_set(out, prop, state_get(st, prop));
     }
     return out;
 }

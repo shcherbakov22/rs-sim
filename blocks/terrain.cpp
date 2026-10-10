@@ -43,9 +43,7 @@ static void falling_block_tick(level & lv, state_id st, block_pos pos) {
 // the face test runs on the neighbor's state but with the powder's position, as vanilla passes it
 static bool concrete_powder_touches_liquid(level & lv, block_pos pos) {
     for (int32_t dir = DIRECTION_DOWN; dir <= DIRECTION_EAST; dir++) {
-        if (dir == DIRECTION_DOWN && !state_has(level_get_state(lv, pos), STATE_FLAG_WATER)) {
-            continue;
-        }
+        if (dir == DIRECTION_DOWN && !state_has(level_get_state(lv, pos), STATE_FLAG_WATER)) continue;
         state_id neighbor = level_get_state(lv, pos_relative(pos, (direction) dir));
         if (state_has(neighbor, STATE_FLAG_WATER) &&
             !block_is_face_sturdy(lv, neighbor, pos, direction_opposite((direction) dir), SUPPORT_TYPE_FULL)) {
@@ -82,9 +80,7 @@ static int32_t scaffolding_get_distance(level & lv, block_pos pos) {
         state_id neighbor = level_get_state(lv, pos_relative(pos, dir));
         if (state_is(neighbor, BLOCK_SCAFFOLDING)) {
             distance = std::min(distance, state_get(neighbor, PROP_STABILITY_DISTANCE) + 1);
-            if (distance == 1) {
-                break;
-            }
+            if (distance == 1) break;
         }
     }
     return distance;
@@ -122,9 +118,7 @@ static void scaffolding_tick(level & lv, state_id st, block_pos pos) {
 
 // getOptionalDistanceAt, 7 when the state has no distance
 static int32_t leaves_get_distance_at(state_id st) {
-    if (state_has(st, STATE_FLAG_TAG_LOGS)) {
-        return 0;
-    }
+    if (state_has(st, STATE_FLAG_TAG_LOGS)) return 0;
     return state_has_prop(st, PROP_DISTANCE) ? state_get(st, PROP_DISTANCE) : 7;
 }
 
@@ -157,15 +151,11 @@ void tnt_prime(level & lv, block_pos pos) {
 
 // the spawn ends the run, so the removal of the block after priming is left out
 static void tnt_on_place(level & lv, state_id st, block_pos pos, state_id old, bool) {
-    if (!state_is(old, state_block(st)) && level_has_neighbor_signal(lv, pos)) {
-        tnt_prime(lv, pos);
-    }
+    if (!state_is(old, state_block(st)) && level_has_neighbor_signal(lv, pos)) tnt_prime(lv, pos);
 }
 
 static void tnt_neighbor_changed(level & lv, state_id, block_pos pos, int32_t, bool) {
-    if (level_has_neighbor_signal(lv, pos)) {
-        tnt_prime(lv, pos);
-    }
+    if (level_has_neighbor_signal(lv, pos)) tnt_prime(lv, pos);
 }
 
 // SoulSandBlock: keeps a bubble column above it, which only water can hold
@@ -180,9 +170,7 @@ static state_id soul_sand_update_shape(level &   lv,
                                        direction dir,
                                        block_pos,
                                        state_id neighbor) {
-    if (dir == DIRECTION_UP && state_is(neighbor, BLOCK_WATER)) {
-        level_schedule_tick(lv, pos, state_block(st), 20);
-    }
+    if (dir == DIRECTION_UP && state_is(neighbor, BLOCK_WATER)) level_schedule_tick(lv, pos, state_block(st), 20);
     return st;
 }
 
@@ -207,9 +195,7 @@ static bool dirt_path_can_survive(level & lv, state_id, block_pos pos) {
 }
 
 static state_id dirt_path_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id) {
-    if (dir == DIRECTION_UP && !block_can_survive(lv, st, pos)) {
-        level_schedule_tick(lv, pos, state_block(st), 1);
-    }
+    if (dir == DIRECTION_UP && !block_can_survive(lv, st, pos)) level_schedule_tick(lv, pos, state_block(st), 1);
     return st;
 }
 

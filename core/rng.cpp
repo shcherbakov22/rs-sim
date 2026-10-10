@@ -12,9 +12,7 @@ void rng_set_seed(rng & r, int64_t seed) {
 int32_t rng_next(rng & r, int32_t bits) {
     r.seed        = (int64_t) ((uint64_t) r.seed * RNG_MULTIPLIER + 11) & RNG_MASK;
     int32_t value = (int32_t) (r.seed >> (48 - bits));
-    if (trace_wants(r.tr, nullptr)) {
-        trace_add(r.tr, "rng %d %d", bits, value);
-    }
+    if (trace_wants(r.tr, nullptr)) trace_add(r.tr, "rng %d %d", bits, value);
     return value;
 }
 
@@ -24,9 +22,7 @@ int32_t rng_next_int(rng & r) {
 
 int32_t rng_next_int(rng & r, int32_t bound) {
     TMC_ASSERT(bound > 0);
-    if ((bound & (bound - 1)) == 0) {
-        return (int32_t) ((int64_t) bound * rng_next(r, 31) >> 31);
-    }
+    if ((bound & (bound - 1)) == 0) return (int32_t) ((int64_t) bound * rng_next(r, 31) >> 31);
     int32_t sample;
     int32_t modulo;
     do {

@@ -29,9 +29,7 @@ static state_id fence_update_shape(level &  lv,
                                    direction dir,
                                    block_pos neighbor_pos,
                                    state_id  neighbor) {
-    if (!direction_is_horizontal(dir)) {
-        return st;
-    }
+    if (!direction_is_horizontal(dir)) return st;
     bool same_fence = state_has(neighbor, STATE_FLAG_TAG_FENCES) &&
                       state_has(neighbor, STATE_FLAG_TAG_WOODEN_FENCES) == state_has(st, STATE_FLAG_TAG_WOODEN_FENCES);
     bool connects   = connecting_face_solid(lv, neighbor_pos, neighbor, dir) || same_fence ||
@@ -46,9 +44,7 @@ static state_id iron_bars_update_shape(level &  lv,
                                        direction dir,
                                        block_pos neighbor_pos,
                                        state_id  neighbor) {
-    if (!direction_is_horizontal(dir)) {
-        return st;
-    }
+    if (!direction_is_horizontal(dir)) return st;
     bool attaches = connecting_face_solid(lv, neighbor_pos, neighbor, dir) ||
                     block_instanceof(state_block(neighbor), VCLASS_IRON_BARS_BLOCK) ||
                     state_has(neighbor, STATE_FLAG_TAG_WALLS);
@@ -72,9 +68,7 @@ static shape_box wall_test_shape_wall(direction dir) {
 }
 
 static bool wall_should_raise_post(state_id st, state_id top, const shape_face & above_shape) {
-    if (block_instanceof(state_block(top), VCLASS_WALL_BLOCK) && state_get(top, PROP_UP)) {
-        return true;
-    }
+    if (block_instanceof(state_block(top), VCLASS_WALL_BLOCK) && state_get(top, PROP_UP)) return true;
     int32_t north      = state_get(st, PROP_NORTH_WALL);
     int32_t south      = state_get(st, PROP_SOUTH_WALL);
     int32_t east       = state_get(st, PROP_EAST_WALL);
@@ -85,14 +79,10 @@ static bool wall_should_raise_post(state_id st, state_id top, const shape_face &
     bool    north_none = north == WALL_SIDE_NONE;
     bool    has_corner =
         (north_none && south_none && west_none && east_none) || north_none != south_none || west_none != east_none;
-    if (has_corner) {
-        return true;
-    }
+    if (has_corner) return true;
     bool has_high_wall =
         (north == WALL_SIDE_TALL && south == WALL_SIDE_TALL) || (east == WALL_SIDE_TALL && west == WALL_SIDE_TALL);
-    if (has_high_wall) {
-        return false;
-    }
+    if (has_high_wall) return false;
     return state_has(top, STATE_FLAG_TAG_WALL_POST_OVERRIDE) ||
            shape_face_covers(above_shape, block_box(7, 0, 7, 9, 16, 9));
 }
@@ -120,16 +110,12 @@ static state_id wall_update_shape(level &   lv,
                                   direction dir,
                                   block_pos neighbor_pos,
                                   state_id  neighbor) {
-    if (dir == DIRECTION_DOWN) {
-        return st;
-    }
+    if (dir == DIRECTION_DOWN) return st;
     bool connected[6] = {};
     for (direction side : DIRECTION_HORIZONTAL) {
         connected[side] = state_get(st, WALL_PROPERTY_BY_DIRECTION[side]) != WALL_SIDE_NONE;
     }
-    if (dir == DIRECTION_UP) {
-        return wall_update_shape_from(lv, st, neighbor_pos, neighbor, connected);
-    }
+    if (dir == DIRECTION_UP) return wall_update_shape_from(lv, st, neighbor_pos, neighbor, connected);
     // sideUpdate: WallBlock.connectsTo
     bool face_solid = connecting_face_solid(lv, neighbor_pos, neighbor, dir);
     connected[dir]  = state_has(neighbor, STATE_FLAG_TAG_WALLS) || face_solid ||
@@ -180,9 +166,7 @@ static int32_t stair_get_stairs_shape(level & lv, state_id st, block_pos pos) {
 }
 
 static state_id stair_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id) {
-    if (!direction_is_horizontal(dir)) {
-        return st;
-    }
+    if (!direction_is_horizontal(dir)) return st;
     return state_set(st, PROP_STAIRS_SHAPE, stair_get_stairs_shape(lv, st, pos));
 }
 

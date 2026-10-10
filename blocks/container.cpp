@@ -13,9 +13,7 @@
 
 // BlockEntity.setChanged
 void block_entity_set_changed(level & lv, block_pos pos, state_id st) {
-    if (!state_has(st, STATE_FLAG_AIR)) {
-        level_update_neighbour_for_output_signal(lv, pos, state_block(st));
-    }
+    if (!state_has(st, STATE_FLAG_AIR)) level_update_neighbour_for_output_signal(lv, pos, state_block(st));
 }
 
 bool block_entity_is_container(const block_entity * be) {
@@ -23,9 +21,7 @@ bool block_entity_is_container(const block_entity * be) {
 }
 
 int32_t container_get_container_size(const container & c) {
-    if (c.composter != nullptr) {
-        return composter_container_get_container_size(*c.composter);
-    }
+    if (c.composter != nullptr) return composter_container_get_container_size(*c.composter);
     return (int32_t) c.first->items.size() + (c.second != nullptr ? (int32_t) c.second->items.size() : 0);
 }
 
@@ -40,18 +36,14 @@ static block_entity * container_half(const container & c, int32_t & slot) {
 }
 
 item_stack & container_get_item(const container & c, int32_t slot) {
-    if (c.composter != nullptr) {
-        return c.composter->item;
-    }
+    if (c.composter != nullptr) return c.composter->item;
     block_entity * be = container_half(c, slot);
     return be->items[slot];
 }
 
 bool container_is_empty(const container & c) {
     for (int32_t slot = 0; slot < container_get_container_size(c); slot++) {
-        if (!item_stack_is_empty(container_get_item(c, slot))) {
-            return false;
-        }
+        if (!item_stack_is_empty(container_get_item(c, slot))) return false;
     }
     return true;
 }
@@ -73,9 +65,7 @@ item_stack container_remove_item(level & lv, const container & c, int32_t slot, 
     if (c.composter != nullptr) {
         item_stack & stack  = c.composter->item;
         item_stack   result = !item_stack_is_empty(stack) && count > 0 ? item_stack_split(stack, count) : item_stack();
-        if (!item_stack_is_empty(result)) {
-            composter_container_set_changed(lv, *c.composter);
-        }
+        if (!item_stack_is_empty(result)) composter_container_set_changed(lv, *c.composter);
         return result;
     }
     block_entity * be = container_half(c, slot);
@@ -91,9 +81,7 @@ item_stack container_remove_item(level & lv, const container & c, int32_t slot, 
     item_stack & stack  = be->items[slot];
     item_stack   result = !item_stack_is_empty(stack) && count > 0 ? item_stack_split(stack, count) : item_stack();
     bool         quiet  = be->type == BLOCK_ENTITY_TYPE_HOPPER || be->type == BLOCK_ENTITY_TYPE_DECORATED_POT;
-    if (!quiet && !item_stack_is_empty(result)) {
-        block_entity_set_changed(lv, be->pos, be->state);
-    }
+    if (!quiet && !item_stack_is_empty(result)) block_entity_set_changed(lv, be->pos, be->state);
     return result;
 }
 
@@ -116,13 +104,9 @@ void container_set_item(level & lv, const container & c, int32_t slot, item_stac
     }
     be->items[slot] = s;
     // ContainerSingleItem.setItem does not limit the stack either
-    if (be->type == BLOCK_ENTITY_TYPE_DECORATED_POT) {
-        return;
-    }
+    if (be->type == BLOCK_ENTITY_TYPE_DECORATED_POT) return;
     item_stack_limit_size(be->items[slot], container_get_max_stack_size(s));
-    if (be->type != BLOCK_ENTITY_TYPE_HOPPER) {
-        block_entity_set_changed(lv, be->pos, be->state);
-    }
+    if (be->type != BLOCK_ENTITY_TYPE_HOPPER) block_entity_set_changed(lv, be->pos, be->state);
 }
 
 void container_set_changed(level & lv, const container & c) {
@@ -131,16 +115,12 @@ void container_set_changed(level & lv, const container & c) {
         return;
     }
     block_entity_set_changed(lv, c.first->pos, c.first->state);
-    if (c.second != nullptr) {
-        block_entity_set_changed(lv, c.second->pos, c.second->state);
-    }
+    if (c.second != nullptr) block_entity_set_changed(lv, c.second->pos, c.second->state);
 }
 
 // AbstractContainerMenu.getRedstoneSignalFromContainer
 int32_t container_get_redstone_signal(const container * c) {
-    if (c == nullptr) {
-        return 0;
-    }
+    if (c == nullptr) return 0;
     float total_percent = 0.0f;
     for (int32_t slot = 0; slot < container_get_container_size(*c); slot++) {
         const item_stack & s = container_get_item(*c, slot);
@@ -156,9 +136,7 @@ int32_t container_get_redstone_signal(const container * c) {
 // AbstractContainerMenu.getRedstoneSignalFromBlockEntity, the getAnalogOutputSignal of most containers
 int32_t container_get_redstone_signal_from_block_entity(level & lv, state_id, block_pos pos, direction) {
     block_entity * be = level_get_block_entity(lv, pos);
-    if (be == nullptr || !block_entity_is_container(be)) {
-        return 0;
-    }
+    if (be == nullptr || !block_entity_is_container(be)) return 0;
     container c = { be, nullptr };
     return container_get_redstone_signal(&c);
 }
@@ -166,15 +144,11 @@ int32_t container_get_redstone_signal_from_block_entity(level & lv, state_id, bl
 // Containers.dropContents: every slot draws its position, even an empty one; the first stack spawns an entity
 void containers_drop_contents(level & lv, block_pos pos, const container & c) {
     for (int32_t slot = 0; slot < container_get_container_size(c); slot++) {
-        for (int32_t i = 0; i < 3; i++) {
-            rng_next_double(lv.random);
-        }
+        for (int32_t i = 0; i < 3; i++) rng_next_double(lv.random);
         if (!item_stack_is_empty(container_get_item(c, slot))) {
             // the split size, the ItemEntity constructor's motion, then three triangle draws of two doubles each
             rng_next_int(lv.random, 21);
-            for (int32_t i = 0; i < 8; i++) {
-                rng_next_double(lv.random);
-            }
+            for (int32_t i = 0; i < 8; i++) rng_next_double(lv.random);
             trace_boundary(lv.tr, "spawn item %d %d %d", pos.x, pos.y, pos.z);
             return;
         }
@@ -191,9 +165,7 @@ void containers_update_neighbours_after_destroy(level & lv, state_id st, block_p
 // BlockEntity.triggerEvent: event 1 moves chest, ender chest and shulker box lids, swings bells and wobbles decorated pots
 bool base_entity_block_trigger_event(level & lv, state_id, block_pos pos, int32_t param_a, int32_t param_b) {
     block_entity * be = level_get_block_entity(lv, pos);
-    if (be == nullptr || param_a != 1) {
-        return false;
-    }
+    if (be == nullptr || param_a != 1) return false;
     switch (be->type) {
         case BLOCK_ENTITY_TYPE_CHEST:
         case BLOCK_ENTITY_TYPE_TRAPPED_CHEST:
@@ -237,21 +209,15 @@ static block_entity * chest_get_typed_block_entity(level & lv, state_id st, bloc
 // ChestBlock.combine (DoubleBlockCombiner.combineWithNeigbour) with CHEST_COMBINER; false is acceptNone
 bool chest_get_container(level & lv, state_id st, block_pos pos, bool ignore_being_blocked, container & out) {
     block_entity * be = chest_get_typed_block_entity(lv, st, pos);
-    if (be == nullptr || (!ignore_being_blocked && chest_is_blocked_at(lv, pos))) {
-        return false;
-    }
+    if (be == nullptr || (!ignore_being_blocked && chest_is_blocked_at(lv, pos))) return false;
     out             = { be, nullptr };
     chest_type type = chest_get_type(st);
-    if (type == CHEST_TYPE_SINGLE) {
-        return true;
-    }
+    if (type == CHEST_TYPE_SINGLE) return true;
     block_pos neighbor_pos = pos_relative(pos, chest_get_connected_direction(st));
     state_id  neighbor     = level_get_state(lv, neighbor_pos);
     if (state_is(neighbor, state_block(st)) && chest_get_type(neighbor) != CHEST_TYPE_SINGLE &&
         chest_get_type(neighbor) != type && chest_facing(neighbor) == chest_facing(st)) {
-        if (!ignore_being_blocked && chest_is_blocked_at(lv, neighbor_pos)) {
-            return false;
-        }
+        if (!ignore_being_blocked && chest_is_blocked_at(lv, neighbor_pos)) return false;
         block_entity * neighbor_be = chest_get_typed_block_entity(lv, neighbor, neighbor_pos);
         if (neighbor_be != nullptr) {
             // the RIGHT half comes first
@@ -313,9 +279,7 @@ static bool copper_chest_should_changed_state_keep_block_entity(state_id, state_
 
 // ChestBlockEntity.getOpenCount. Openers are players, and there are none: the count stays 0.
 static int32_t chest_block_entity_get_open_count(level & lv, state_id st, block_pos pos) {
-    if (state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
-        level_get_block_entity(lv, pos);
-    }
+    if (state_has(st, STATE_FLAG_BLOCK_ENTITY)) level_get_block_entity(lv, pos);
     return 0;
 }
 
@@ -368,9 +332,7 @@ void jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack
 
 // JukeboxBlockEntity.popOutTheItem: the record pops out on top
 void jukebox_block_entity_pop_out_the_item(level & lv, block_entity * be) {
-    if (item_stack_is_empty(be->items[0])) {
-        return;
-    }
+    if (item_stack_is_empty(be->items[0])) return;
     jukebox_block_entity_set_the_item(lv, be, item_stack());
     // Vec3.offsetRandomXZ, then the ItemEntity constructor's motion
     rng_next_float(lv.random);
@@ -384,16 +346,12 @@ void jukebox_block_entity_pop_out_the_item(level & lv, block_entity * be) {
 
 // JukeboxSongPlayer.tick: the note particle color comes from the level random every 20 ticks
 void jukebox_block_entity_tick(level & lv, block_entity * be) {
-    if (!be->song_playing) {
-        return;
-    }
+    if (!be->song_playing) return;
     if (jukebox_song_has_finished(be->items[0].item, be->ticks_since_song_started)) {
         jukebox_song_player_stop(lv, be);
         return;
     }
-    if (be->ticks_since_song_started % 20 == 0) {
-        rng_next_int(lv.random, 4);
-    }
+    if (be->ticks_since_song_started % 20 == 0) rng_next_int(lv.random, 4);
     be->ticks_since_song_started++;
 }
 
@@ -427,9 +385,7 @@ static void chiseled_book_shelf_block_entity_update_state(level & lv, block_enti
 item_stack chiseled_book_shelf_block_entity_remove_item(level & lv, block_entity * be, int32_t slot) {
     item_stack retrieved = be->items[slot];
     be->items[slot]      = item_stack();
-    if (!item_stack_is_empty(retrieved)) {
-        chiseled_book_shelf_block_entity_update_state(lv, be, slot);
-    }
+    if (!item_stack_is_empty(retrieved)) chiseled_book_shelf_block_entity_update_state(lv, be, slot);
     return retrieved;
 }
 
@@ -502,9 +458,7 @@ static int32_t side_chain_part_when_connected_to_the_left(int32_t part) {
 // SideChainPartBlock.getAllBlocksConnectedTo, left end first
 static std::vector<block_pos> shelf_get_all_blocks_connected_to(level & lv, block_pos pos) {
     state_id st = level_get_state(lv, pos);
-    if (!shelf_is_connectable(st)) {
-        return {};
-    }
+    if (!shelf_is_connectable(st)) return {};
     direction              facing  = shelf_facing(st);
     std::vector<block_pos> results = { pos };
     for (int32_t side = 0; side < 2; side++) {
@@ -516,9 +470,7 @@ static std::vector<block_pos> shelf_get_all_blocks_connected_to(level & lv, bloc
             if (part == SIDE_CHAIN_PART_CENTER || (part >= 0 && part == end_part)) {
                 results.insert(left ? results.begin() : results.end(), neighbor);
             }
-            if (part != SIDE_CHAIN_PART_CENTER) {
-                break;
-            }
+            if (part != SIDE_CHAIN_PART_CENTER) break;
         }
     }
     return results;
@@ -559,9 +511,7 @@ static bool shelf_can_connect(int32_t new_blocks_to_connect_to, int32_t current_
 
 // SideChainPartBlock.updateSelfAndNeighborsOnPoweringUp: both neighbor parts are read before either changes
 static void shelf_update_self_and_neighbors_on_powering_up(level & lv, block_pos pos, state_id st, state_id old) {
-    if (!shelf_is_connectable(st)) {
-        return;
-    }
+    if (!shelf_is_connectable(st)) return;
     // isBeingUpdatedByNeighbor
     if (state_get(st, PROP_SIDE_CHAIN_PART) != SIDE_CHAIN_PART_UNCONNECTED ||
         (shelf_is_connectable(old) && state_get(old, PROP_SIDE_CHAIN_PART) != SIDE_CHAIN_PART_UNCONNECTED)) {
@@ -598,13 +548,9 @@ static void shelf_on_place(level & lv, state_id st, block_pos pos, state_id old,
 
 static void shelf_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
     bool signal = level_has_neighbor_signal(lv, pos);
-    if (state_get(st, PROP_POWERED) == signal) {
-        return;
-    }
+    if (state_get(st, PROP_POWERED) == signal) return;
     state_id new_state = state_set(st, PROP_POWERED, signal);
-    if (!signal) {
-        new_state = state_set(new_state, PROP_SIDE_CHAIN_PART, SIDE_CHAIN_PART_UNCONNECTED);
-    }
+    if (!signal) new_state = state_set(new_state, PROP_SIDE_CHAIN_PART, SIDE_CHAIN_PART_UNCONNECTED);
     level_set_block(lv, pos, new_state, UPDATE_FLAG_ALL);
 }
 
@@ -616,13 +562,9 @@ static void shelf_affect_neighbors_after_removal(level & lv, state_id st, block_
 // one bit per filled slot, only toward the back
 static int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir) {
     block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_SHELF);
-    if (dir != direction_opposite(shelf_facing(st)) || be == nullptr) {
-        return 0;
-    }
+    if (dir != direction_opposite(shelf_facing(st)) || be == nullptr) return 0;
     int32_t bits = 0;
-    for (int32_t slot = 0; slot < 3; slot++) {
-        bits |= (item_stack_is_empty(be->items[slot]) ? 0 : 1) << slot;
-    }
+    for (int32_t slot = 0; slot < 3; slot++) bits |= (item_stack_is_empty(be->items[slot]) ? 0 : 1) << slot;
     return bits;
 }
 
@@ -632,19 +574,13 @@ static int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos
 static void composter_add_item(level & lv, state_id st, block_pos pos, const item_stack & stack) {
     int32_t level_value = state_get(st, PROP_LEVEL_COMPOSTER);
     float   chance      = item_defs[stack.item].compost_chance;
-    if ((level_value != 0 || !(chance > 0.0f)) && !(rng_next_double(lv.random) < (double) chance)) {
-        return;
-    }
+    if ((level_value != 0 || !(chance > 0.0f)) && !(rng_next_double(lv.random) < (double) chance)) return;
     level_set_block(lv, pos, state_set(st, PROP_LEVEL_COMPOSTER, level_value + 1), UPDATE_FLAG_ALL);
-    if (level_value + 1 == 7) {
-        level_schedule_tick(lv, pos, state_block(st), 20);
-    }
+    if (level_value + 1 == 7) level_schedule_tick(lv, pos, state_block(st), 20);
 }
 
 static void composter_on_place(level & lv, state_id st, block_pos pos, state_id, bool) {
-    if (state_get(st, PROP_LEVEL_COMPOSTER) == 7) {
-        level_schedule_tick(lv, pos, state_block(st), 20);
-    }
+    if (state_get(st, PROP_LEVEL_COMPOSTER) == 7) level_schedule_tick(lv, pos, state_block(st), 20);
 }
 
 static void composter_tick(level & lv, state_id st, block_pos pos) {

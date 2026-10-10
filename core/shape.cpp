@@ -57,15 +57,11 @@ shape_face shape_get_face(const shape & s, direction dir) {
     const block_pos & step = direction_defs[dir].step;
     double            p    = step.x + step.y + step.z > 0 ? 0.9999999 : 1.0E-7;
     for (const shape_box & b : s.boxes) {
-        if (b.min[f.axis] > p || b.max[f.axis] <= p) {
-            continue;
-        }
+        if (b.min[f.axis] > p || b.max[f.axis] <= p) continue;
         f.outside |= b.min[u] < 0.0 || b.max[u] > 1.0 || b.min[v] < 0.0 || b.max[v] > 1.0;
         uint32_t mask = shape_face_mask(b.min[v], b.max[v]);
         for (int32_t i = 0; i < 32; i++) {
-            if (shape_face_mask(b.min[u], b.max[u]) >> i & 1) {
-                f.rows[i] |= mask;
-            }
+            if (shape_face_mask(b.min[u], b.max[u]) >> i & 1) f.rows[i] |= mask;
         }
     }
     return f;
@@ -73,9 +69,7 @@ shape_face shape_get_face(const shape & s, direction dir) {
 
 bool shape_face_is_full(const shape_face & f) {
     for (uint32_t row : f.rows) {
-        if (row != UINT32_MAX) {
-            return false;
-        }
+        if (row != UINT32_MAX) return false;
     }
     return !f.outside;
 }
@@ -86,9 +80,7 @@ bool shape_face_covers(const shape_face & f, const shape_box & b) {
     shape_face_axes(f.axis, u, v);
     uint32_t mask = shape_face_mask(b.min[v], b.max[v]);
     for (int32_t i = 0; i < 32; i++) {
-        if ((shape_face_mask(b.min[u], b.max[u]) >> i & 1) && (f.rows[i] & mask) != mask) {
-            return false;
-        }
+        if ((shape_face_mask(b.min[u], b.max[u]) >> i & 1) && (f.rows[i] & mask) != mask) return false;
     }
     return true;
 }

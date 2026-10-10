@@ -26,9 +26,7 @@ crafting_input crafting_input_of(int32_t width, int32_t height, const item_stack
         }
     }
     crafting_input in = { 0, 0, {}, 0 };
-    if (right - left + 1 <= 0 || bottom - top + 1 <= 0) {
-        return in;
-    }
+    if (right - left + 1 <= 0 || bottom - top + 1 <= 0) return in;
     in.width  = right - left + 1;
     in.height = bottom - top + 1;
     for (int32_t y = 0; y < in.height; y++) {
@@ -50,9 +48,7 @@ static bool ingredient_test(int32_t ingredient, const item_stack & s) {
     int32_t                item = item_stack_get_item(s);
     const ingredient_def & def  = ingredient_defs[ingredient];
     for (int32_t i = 0; i < def.count; i++) {
-        if (ingredient_items[def.first + i] == item) {
-            return true;
-        }
+        if (ingredient_items[def.first + i] == item) return true;
     }
     return false;
 }
@@ -68,9 +64,7 @@ static bool shaped_recipe_matches_flip(const recipe_def & def, const crafting_in
             item_stack actual   = crafting_input_get_item(in, x, y);
             // Ingredient.testOptionalIngredient
             bool       ok       = expected < 0 ? item_stack_is_empty(actual) : ingredient_test(expected, actual);
-            if (!ok) {
-                return false;
-            }
+            if (!ok) return false;
         }
     }
     return true;
@@ -80,12 +74,8 @@ static bool shaped_recipe_matches_flip(const recipe_def & def, const crafting_in
 static bool shaped_recipe_matches(int32_t recipe, const crafting_input & in) {
     const recipe_def & def              = recipe_defs[recipe];
     int32_t            ingredient_count = 0;
-    for (int32_t i = 0; i < def.n_ingredients; i++) {
-        ingredient_count += recipe_ingredients[def.first + i] < 0 ? 0 : 1;
-    }
-    if (in.ingredient_count != ingredient_count || in.width != def.width || in.height != def.height) {
-        return false;
-    }
+    for (int32_t i = 0; i < def.n_ingredients; i++) ingredient_count += recipe_ingredients[def.first + i] < 0 ? 0 : 1;
+    if (in.ingredient_count != ingredient_count || in.width != def.width || in.height != def.height) return false;
     return shaped_recipe_matches_flip(def, in, true) || shaped_recipe_matches_flip(def, in, false);
 }
 
@@ -98,9 +88,7 @@ static bool shapeless_recipe_try_assign(const recipe_def &     def,
                                         std::vector<bool> &    visited,
                                         std::vector<int32_t> & slot_owner) {
     for (size_t slot = 0; slot < in.items.size(); slot++) {
-        if (visited[slot] || !ingredient_test(recipe_ingredients[def.first + ingredient], in.items[slot])) {
-            continue;
-        }
+        if (visited[slot] || !ingredient_test(recipe_ingredients[def.first + ingredient], in.items[slot])) continue;
         visited[slot] = true;
         if (slot_owner[slot] < 0 || shapeless_recipe_try_assign(def, in, slot_owner[slot], visited, slot_owner)) {
             slot_owner[slot] = ingredient;
@@ -115,18 +103,14 @@ static bool shapeless_recipe_can_craft(const recipe_def & def, const crafting_in
     std::vector<int32_t> slot_owner(in.items.size(), -1);
     for (int32_t ingredient = 0; ingredient < def.n_ingredients; ingredient++) {
         std::vector<bool> visited(in.items.size(), false);
-        if (!shapeless_recipe_try_assign(def, in, ingredient, visited, slot_owner)) {
-            return false;
-        }
+        if (!shapeless_recipe_try_assign(def, in, ingredient, visited, slot_owner)) return false;
     }
     return true;
 }
 
 static bool shapeless_recipe_matches(int32_t recipe, const crafting_input & in) {
     const recipe_def & def = recipe_defs[recipe];
-    if (in.ingredient_count != def.n_ingredients) {
-        return false;
-    }
+    if (in.ingredient_count != def.n_ingredients) return false;
     if (in.items.size() == 1 && def.n_ingredients == 1) {
         return ingredient_test(recipe_ingredients[def.first], in.items[0]);
     }
@@ -145,32 +129,22 @@ static int32_t transmute_recipe_material(const recipe_def & def) {
 
 // TransmuteResult.isResultUnchanged: the input's data components carry over, so with no added components only the item and count differ
 static bool transmute_recipe_is_result_unchanged(level & lv, const recipe_def & def, const item_stack & input) {
-    if (def.result_components) {
-        level_unsupported(lv, "recipe %s: result data components", def.name);
-    }
+    if (def.result_components) level_unsupported(lv, "recipe %s: result data components", def.name);
     return def.count == 1 && def.result == item_stack_get_item(input);
 }
 
 static bool transmute_recipe_matches(level & lv, int32_t recipe, const crafting_input & in) {
     const recipe_def & def = recipe_defs[recipe];
-    if (in.ingredient_count != 2) {
-        return false;
-    }
+    if (in.ingredient_count != 2) return false;
     bool found_input    = false;
     bool found_material = false;
     for (const item_stack & s : in.items) {
-        if (item_stack_is_empty(s)) {
-            continue;
-        }
+        if (item_stack_is_empty(s)) continue;
         if (!found_input && ingredient_test(transmute_recipe_input(def), s)) {
-            if (transmute_recipe_is_result_unchanged(lv, def, s)) {
-                return false;
-            }
+            if (transmute_recipe_is_result_unchanged(lv, def, s)) return false;
             found_input = true;
         } else {
-            if (found_material || !ingredient_test(transmute_recipe_material(def), s)) {
-                return false;
-            }
+            if (found_material || !ingredient_test(transmute_recipe_material(def), s)) return false;
             found_material = true;
         }
     }
@@ -192,9 +166,7 @@ static item_stack transmute_recipe_assemble(int32_t recipe, const crafting_input
 
 // a fresh filled map has no MAP_ID, so MapItem.getSavedData finds no data
 static bool map_extending_recipe_matches(level & lv, int32_t recipe, const crafting_input & in) {
-    if (!shaped_recipe_matches(recipe, in)) {
-        return false;
-    }
+    if (!shaped_recipe_matches(recipe, in)) return false;
     for (const item_stack & s : in.items) {
         if (!item_stack_is_empty(s) && (item_defs[s.item].components & ITEM_COMPONENT_MAP_ID)) {
             level_unsupported(lv, "MapItem.getSavedData");
@@ -210,19 +182,13 @@ static bool map_extending_recipe_matches(level & lv, int32_t recipe, const craft
 static bool custom_recipe_matches_one_and_some(const crafting_input & in,
                                                bool (*is_one)(const item_stack & s),
                                                bool (*is_some)(const item_stack & s)) {
-    if (in.ingredient_count < 2) {
-        return false;
-    }
+    if (in.ingredient_count < 2) return false;
     bool has_one  = false;
     bool has_some = false;
     for (const item_stack & s : in.items) {
-        if (item_stack_is_empty(s)) {
-            continue;
-        }
+        if (item_stack_is_empty(s)) continue;
         if (is_one(s)) {
-            if (has_one) {
-                return false;
-            }
+            if (has_one) return false;
             has_one = true;
         } else if (is_some(s)) {
             has_some = true;
@@ -282,19 +248,13 @@ static bool shield_decoration_recipe_matches(const crafting_input & in) {
 // BannerDuplicateRecipe: a patterned banner copies onto a blank one of the same color
 
 static bool banner_duplicate_recipe_matches(const crafting_input & in) {
-    if (in.ingredient_count != 2) {
-        return false;
-    }
+    if (in.ingredient_count != 2) return false;
     int32_t color      = -1;
     bool    has_target = false;
     bool    has_source = false;
     for (const item_stack & s : in.items) {
-        if (item_stack_is_empty(s)) {
-            continue;
-        }
-        if (!item_instanceof(s.item, ICLASS_BANNER_ITEM)) {
-            return false;
-        }
+        if (item_stack_is_empty(s)) continue;
+        if (!item_instanceof(s.item, ICLASS_BANNER_ITEM)) return false;
         // BannerItem.getColor
         int32_t banner_color = block_field_get(item_defs[s.item].block, FIELD_ABSTRACT_BANNER_BLOCK_COLOR);
         if (color < 0) {
@@ -304,14 +264,10 @@ static bool banner_duplicate_recipe_matches(const crafting_input & in) {
         }
         // only the item's default patterns, never more than 6 layers
         if (item_defs[s.item].components & ITEM_COMPONENT_BANNER_PATTERNS) {
-            if (has_source) {
-                return false;
-            }
+            if (has_source) return false;
             has_source = true;
         } else {
-            if (has_target) {
-                return false;
-            }
+            if (has_target) return false;
             has_target = true;
         }
     }
@@ -326,9 +282,7 @@ static bool decorated_pot_recipe_is_ingredient(const item_stack & s) {
 
 // back, left, right and front
 static bool decorated_pot_recipe_matches(const crafting_input & in) {
-    if (in.width != 3 || in.height != 3 || in.ingredient_count != 4) {
-        return false;
-    }
+    if (in.width != 3 || in.height != 3 || in.ingredient_count != 4) return false;
     return decorated_pot_recipe_is_ingredient(crafting_input_get_item(in, 1, 0)) &&
            decorated_pot_recipe_is_ingredient(crafting_input_get_item(in, 0, 1)) &&
            decorated_pot_recipe_is_ingredient(crafting_input_get_item(in, 2, 1)) &&
@@ -351,25 +305,17 @@ static item_stack decorated_pot_recipe_assemble(level & lv, const crafting_input
 // FireworkRocketRecipe: paper, 1..3 gunpowder and any firework stars
 
 static bool firework_rocket_recipe_matches(const crafting_input & in) {
-    if (in.ingredient_count < 2) {
-        return false;
-    }
+    if (in.ingredient_count < 2) return false;
     bool    paper      = false;
     int32_t gun_powder = 0;
     for (const item_stack & s : in.items) {
-        if (item_stack_is_empty(s)) {
-            continue;
-        }
+        if (item_stack_is_empty(s)) continue;
         if (ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_ROCKET_RECIPE_PAPER_INGREDIENT], s)) {
-            if (paper) {
-                return false;
-            }
+            if (paper) return false;
             paper = true;
         } else if (ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_ROCKET_RECIPE_GUNPOWDER_INGREDIENT],
                                    s)) {
-            if (++gun_powder > 3) {
-                return false;
-            }
+            if (++gun_powder > 3) return false;
         } else if (!ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_ROCKET_RECIPE_STAR_INGREDIENT], s)) {
             return false;
         }
@@ -380,43 +326,29 @@ static bool firework_rocket_recipe_matches(const crafting_input & in) {
 // FireworkStarRecipe: gunpowder and dyes, with at most one shape, twinkle and trail item each
 
 static bool firework_star_recipe_matches(const crafting_input & in) {
-    if (in.ingredient_count < 2) {
-        return false;
-    }
+    if (in.ingredient_count < 2) return false;
     bool gun_powder = false;
     bool colors     = false;
     bool shape      = false;
     bool trail      = false;
     bool twinkle    = false;
     for (const item_stack & s : in.items) {
-        if (item_stack_is_empty(s)) {
-            continue;
-        }
+        if (item_stack_is_empty(s)) continue;
         if (ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_STAR_RECIPE_SHAPE_BY_ITEM], s)) {
-            if (shape) {
-                return false;
-            }
+            if (shape) return false;
             shape = true;
         } else if (ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_STAR_RECIPE_TWINKLE_INGREDIENT], s)) {
-            if (twinkle) {
-                return false;
-            }
+            if (twinkle) return false;
             twinkle = true;
         } else if (ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_STAR_RECIPE_TRAIL_INGREDIENT], s)) {
-            if (trail) {
-                return false;
-            }
+            if (trail) return false;
             trail = true;
         } else if (ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_STAR_RECIPE_GUNPOWDER_INGREDIENT],
                                    s)) {
-            if (gun_powder) {
-                return false;
-            }
+            if (gun_powder) return false;
             gun_powder = true;
         } else {
-            if (!item_instanceof(s.item, ICLASS_DYE_ITEM)) {
-                return false;
-            }
+            if (!item_instanceof(s.item, ICLASS_DYE_ITEM)) return false;
             colors = true;
         }
     }
@@ -435,14 +367,10 @@ static bool repair_item_recipe_can_combine(const item_stack & first, const item_
 static bool repair_item_recipe_get_items_to_combine(const crafting_input & in,
                                                     const item_stack *&    first,
                                                     const item_stack *&    second) {
-    if (in.ingredient_count != 2) {
-        return false;
-    }
+    if (in.ingredient_count != 2) return false;
     first = nullptr;
     for (const item_stack & s : in.items) {
-        if (item_stack_is_empty(s)) {
-            continue;
-        }
+        if (item_stack_is_empty(s)) continue;
         if (first != nullptr) {
             second = &s;
             return repair_item_recipe_can_combine(*first, s);
@@ -462,9 +390,7 @@ static bool repair_item_recipe_matches(const crafting_input & in) {
 static item_stack repair_item_recipe_assemble(const crafting_input & in) {
     const item_stack * first;
     const item_stack * second;
-    if (!repair_item_recipe_get_items_to_combine(in, first, second)) {
-        return item_stack();
-    }
+    if (!repair_item_recipe_get_items_to_combine(in, first, second)) return item_stack();
     int32_t durability = item_defs[first->item].max_damage;
     int32_t remaining  = durability - first->damage + durability - second->damage + durability * 5 / 100;
     return item_stack{ first->item, 1, std::max(durability - remaining, 0) };
@@ -473,19 +399,13 @@ static item_stack repair_item_recipe_assemble(const crafting_input & in) {
 // TippedArrowRecipe: a lingering potion in a ring of 8 arrows
 
 static bool tipped_arrow_recipe_matches(const crafting_input & in) {
-    if (in.width != 3 || in.height != 3 || in.ingredient_count != 9) {
-        return false;
-    }
+    if (in.width != 3 || in.height != 3 || in.ingredient_count != 9) return false;
     for (int32_t y = 0; y < in.height; y++) {
         for (int32_t x = 0; x < in.width; x++) {
             item_stack ingredient = crafting_input_get_item(in, x, y);
-            if (item_stack_is_empty(ingredient)) {
-                return false;
-            }
+            if (item_stack_is_empty(ingredient)) return false;
             int32_t expected = x == 1 && y == 1 ? ITEM_LINGERING_POTION : ITEM_ARROW;
-            if (ingredient.item != expected) {
-                return false;
-            }
+            if (ingredient.item != expected) return false;
         }
     }
     return true;
@@ -532,16 +452,10 @@ static bool recipe_matches(level & lv, int32_t recipe, const crafting_input & in
 
 // CrafterBlock.RECIPE_CACHE only remembers earlier answers, so it is left out
 int32_t recipe_manager_get_recipe_for(level & lv, const crafting_input & in) {
-    if (in.ingredient_count == 0) {
-        return -1;
-    }
+    if (in.ingredient_count == 0) return -1;
     for (int32_t r = 0; r < n_recipe_defs; r++) {
-        if (recipe_matches(lv, r, in)) {
-            return r;
-        }
-        if (!lv.unsupported.empty()) {
-            return -1;
-        }
+        if (recipe_matches(lv, r, in)) return r;
+        if (!lv.unsupported.empty()) return -1;
     }
     return -1;
 }

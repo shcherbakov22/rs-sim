@@ -14,14 +14,10 @@ static constexpr int32_t CASE_SURROUND = 13;
 // the case gives block entity data for pos
 static bool case_has_data(const case_file & f, block_pos pos) {
     for (const case_item & it : f.items) {
-        if (it.pos == pos) {
-            return true;
-        }
+        if (it.pos == pos) return true;
     }
     for (const case_data & d : f.data) {
-        if (d.pos == pos) {
-            return true;
-        }
+        if (d.pos == pos) return true;
     }
     return false;
 }
@@ -31,9 +27,7 @@ static bool case_has_data(const case_file & f, block_pos pos) {
 static void case_place_block(level & lv, const case_file & f, block_pos pos) {
     state_id st = f.states[pos.x + f.size.x * (pos.z + f.size.z * pos.y)];
     level_set_state_raw(lv, pos, st);
-    if (!state_has(st, STATE_FLAG_BLOCK_ENTITY) || level_get_block_entity(lv, pos) != nullptr) {
-        return;
-    }
+    if (!state_has(st, STATE_FLAG_BLOCK_ENTITY) || level_get_block_entity(lv, pos) != nullptr) return;
     int32_t type = block_defs[state_block(st)].entity_valid;
     if (type >= 0 && case_has_data(f, pos)) {
         level_set_block_entity(lv, level_new_block_entity(lv, (block_entity_type) type, pos, st));
@@ -60,9 +54,7 @@ static float case_data_float(const case_data & d) {
 // ContainerHelper.loadAllItems, which skips slots outside the container; of the item components only DAMAGE is supported
 static void case_load_item(level & lv, const case_item & it) {
     block_entity * be = case_get_block_entity(lv, it.pos);
-    if (be == nullptr) {
-        return;
-    }
+    if (be == nullptr) return;
     if (!block_entity_is_container(be)) {
         level_unsupported(lv, "block entity data %s items", block_entity_type_names[be->type]);
         return;
@@ -76,22 +68,16 @@ static void case_load_item(level & lv, const case_item & it) {
         // getDamageValue clamps the stored value
         s.damage = std::clamp(it.damage, 0, item_defs[it.item].max_damage);
     }
-    if (it.slot >= 0 && it.slot < (int32_t) be->items.size()) {
-        be->items[it.slot] = s;
-    }
+    if (it.slot >= 0 && it.slot < (int32_t) be->items.size()) be->items[it.slot] = s;
 }
 
 // BlockEntity.loadWithComponents for one field
 static void case_load_data(level & lv, const case_data & d) {
     block_entity * be = case_get_block_entity(lv, d.pos);
-    if (be == nullptr) {
-        return;
-    }
+    if (be == nullptr) return;
     if (be->type == BLOCK_ENTITY_TYPE_PISTON && d.key == "blockState") {
         std::string err;
-        if (!state_parse(d.value, be->moved_state, err)) {
-            level_unsupported(lv, "block state %s", d.value.c_str());
-        }
+        if (!state_parse(d.value, be->moved_state, err)) level_unsupported(lv, "block state %s", d.value.c_str());
     } else if (be->type == BLOCK_ENTITY_TYPE_PISTON && d.key == "facing") {
         be->dir = (direction) case_data_int(d);
     } else if (be->type == BLOCK_ENTITY_TYPE_PISTON && d.key == "progress") {
@@ -120,12 +106,8 @@ static void case_load_data(level & lv, const case_data & d) {
         for (const char * p = strchr(d.value.c_str(), ';'); p != nullptr && *p != ']';) {
             char *  end;
             int64_t slot = strtoll(p + 1, &end, 10);
-            if (end == p + 1) {
-                break;
-            }
-            if (slot >= 0 && slot < 9) {
-                be->disabled_slots |= 1u << slot;
-            }
+            if (end == p + 1) break;
+            if (slot >= 0 && slot < 9) be->disabled_slots |= 1u << slot;
             p = end;
         }
     } else if (be->type == BLOCK_ENTITY_TYPE_CRAFTER && d.key == "triggered") {
@@ -154,9 +136,7 @@ static void case_load_finish(block_entity * be) {
 // Snapshot.restore's HiddenState.apply; game times are relative to the start
 static void case_load_hidden(level & lv, const case_data & d) {
     block_entity * be = case_get_block_entity(lv, d.pos);
-    if (be == nullptr) {
-        return;
-    }
+    if (be == nullptr) return;
     // the sim has no openers, so only a closed shulker box can be loaded
     bool shulker_closed = d.key == "animationStatus" ? d.value == "\"closed\"" : case_data_float(d) == 0;
     // the last ring time only gates entity searches, and a still bell has nothing else to keep
@@ -190,40 +170,26 @@ static void case_place(level & lv, const case_file & f) {
         for (int32_t z = 0; z < f.size.z; z++) {
             for (int32_t x = 0; x < f.size.x; x++) {
                 block_pos pos = { x, y, z };
-                if (std::find(f.tickers.begin(), f.tickers.end(), pos) == f.tickers.end()) {
-                    case_place_block(lv, f, pos);
-                }
+                if (std::find(f.tickers.begin(), f.tickers.end(), pos) == f.tickers.end()) case_place_block(lv, f, pos);
             }
         }
     }
-    for (block_pos pos : f.tickers) {
-        case_place_block(lv, f, pos);
-    }
+    for (block_pos pos : f.tickers) case_place_block(lv, f, pos);
     // BlockEntity.loadWithComponents, then HiddenState.apply
-    for (const case_item & it : f.items) {
-        case_load_item(lv, it);
-    }
+    for (const case_item & it : f.items) case_load_item(lv, it);
     for (const case_data & d : f.data) {
-        if (!d.hidden) {
-            case_load_data(lv, d);
-        }
+        if (!d.hidden) case_load_data(lv, d);
     }
-    for (const auto & [key, be] : lv.block_entities) {
-        case_load_finish(be);
-    }
+    for (const auto & [key, be] : lv.block_entities) case_load_finish(be);
     for (const case_data & d : f.data) {
-        if (d.hidden) {
-            case_load_hidden(lv, d);
-        }
+        if (d.hidden) case_load_hidden(lv, d);
     }
     // fresh sub-tick numbers in file order keep the execution order
     for (const case_tick & t : f.ticks) {
         level_ticks_schedule(lv.block_ticks,
                              { t.block, t.pos, lv.game_time + t.delay, t.priority, lv.sub_tick_count++ });
     }
-    for (const case_event & e : f.events) {
-        lv.block_events.push_back({ e.pos, e.block, e.param_a, e.param_b });
-    }
+    for (const case_event & e : f.events) lv.block_events.push_back({ e.pos, e.block, e.param_a, e.param_b });
     for (const case_toggle & t : f.toggles) {
         lv.redstone_torch_recent_toggles.push_back({ t.pos, lv.game_time + t.when });
     }
@@ -236,9 +202,7 @@ static const char * const case_verb_names[] = { "place", "break", "pull" };
 static void case_apply_input(level & lv, const case_input & in) {
     std::string text = std::string("input ") + case_verb_names[in.verb] + " " + std::to_string(in.pos.x) + " " +
                        std::to_string(in.pos.y) + " " + std::to_string(in.pos.z);
-    if (in.verb == CASE_VERB_PLACE) {
-        text += " " + state_to_string(in.state);
-    }
+    if (in.verb == CASE_VERB_PLACE) text += " " + state_to_string(in.state);
     trace_enter(lv.tr, nullptr, "%s", text.c_str());
     switch (in.verb) {
         case CASE_VERB_PLACE:
@@ -250,9 +214,7 @@ static void case_apply_input(level & lv, const case_input & in) {
         case CASE_VERB_PULL:
             {
                 state_id st = level_get_state(lv, in.pos);
-                if (block_instanceof(state_block(st), VCLASS_LEVER_BLOCK)) {
-                    lever_pull(lv, st, in.pos);
-                }
+                if (block_instanceof(state_block(st), VCLASS_LEVER_BLOCK)) lever_pull(lv, st, in.pos);
             }
             break;
     }
@@ -261,9 +223,7 @@ static void case_apply_input(level & lv, const case_input & in) {
 
 static void case_apply_inputs(level & lv, const case_file & f, int32_t gap) {
     for (const case_input & in : f.inputs) {
-        if (in.at == gap) {
-            case_apply_input(lv, in);
-        }
+        if (in.at == gap) case_apply_input(lv, in);
     }
 }
 
@@ -282,9 +242,7 @@ bool case_run(const case_file & f, trace & tr, std::string & err) {
     int32_t gap = 0;
     while (lv.unsupported.empty() && !tr.boundary) {
         level_tick(lv);
-        if (tr.boundary || ++gap >= f.run) {
-            break;
-        }
+        if (tr.boundary || ++gap >= f.run) break;
         case_apply_inputs(lv, f, gap);
     }
     if (!lv.unsupported.empty()) {

@@ -9,28 +9,18 @@ static std::vector<std::string_view> split_ws(std::string_view line) {
     std::vector<std::string_view> out;
     size_t                        i = 0;
     while (i < line.size()) {
-        while (i < line.size() && (line[i] == ' ' || line[i] == '\t')) {
-            i++;
-        }
+        while (i < line.size() && (line[i] == ' ' || line[i] == '\t')) i++;
         size_t j = i;
-        while (j < line.size() && line[j] != ' ' && line[j] != '\t') {
-            j++;
-        }
-        if (j > i) {
-            out.push_back(line.substr(i, j - i));
-        }
+        while (j < line.size() && line[j] != ' ' && line[j] != '\t') j++;
+        if (j > i) out.push_back(line.substr(i, j - i));
         i = j;
     }
     return out;
 }
 
 static std::string_view strip(std::string_view s) {
-    while (!s.empty() && (s.front() == ' ' || s.front() == '\t')) {
-        s.remove_prefix(1);
-    }
-    while (!s.empty() && (s.back() == ' ' || s.back() == '\t' || s.back() == '\r')) {
-        s.remove_suffix(1);
-    }
+    while (!s.empty() && (s.front() == ' ' || s.front() == '\t')) s.remove_prefix(1);
+    while (!s.empty() && (s.back() == ' ' || s.back() == '\t' || s.back() == '\r')) s.remove_suffix(1);
     return s;
 }
 
@@ -44,9 +34,7 @@ static bool parse_i64(std::string_view s, int64_t & out) {
 
 static bool parse_i32(std::string_view s, int32_t & out) {
     int64_t v;
-    if (!parse_i64(s, v) || v < INT32_MIN || v > INT32_MAX) {
-        return false;
-    }
+    if (!parse_i64(s, v) || v < INT32_MIN || v > INT32_MAX) return false;
     out = (int32_t) v;
     return true;
 }
@@ -234,9 +222,7 @@ static bool case_parse_line(case_file & f, case_parser & p, std::string_view lin
     }
     if (p.section == "inputs") {
         case_input in;
-        if (!parse_input(t, in, err)) {
-            return false;
-        }
+        if (!parse_input(t, in, err)) return false;
         f.inputs.push_back(in);
         return true;
     }
@@ -251,17 +237,13 @@ bool case_parse(const std::string & text, case_file & out, std::string & err) {
     size_t      start = 0;
     while (start < text.size()) {
         size_t end = text.find('\n', start);
-        if (end == std::string::npos) {
-            end = text.size();
-        }
+        if (end == std::string::npos) end = text.size();
         std::string_view line(text.data() + start, end - start);
         start = end + 1;
         n++;
         // '#' starts a comment; block strings never contain it
         line = strip(line.substr(0, line.find('#')));
-        if (line.empty()) {
-            continue;
-        }
+        if (line.empty()) continue;
         if (!case_parse_line(out, p, line, err)) {
             err = "line " + std::to_string(n) + ": " + err;
             return false;

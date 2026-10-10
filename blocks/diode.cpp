@@ -51,9 +51,7 @@ static int32_t diode_get_input_signal(level & lv, state_id st, block_pos pos) {
     direction dir    = diode_facing(st);
     block_pos target = pos_relative(pos, dir);
     int32_t   input  = level_get_signal(lv, target, dir);
-    if (input >= 15) {
-        return input;
-    }
+    if (input >= 15) return input;
     state_id target_st = level_get_state(lv, target);
     return std::max(input, state_is(target_st, BLOCK_REDSTONE_WIRE) ? state_get(target_st, PROP_POWER) : 0);
 }
@@ -96,21 +94,15 @@ static int32_t comparator_get_input_signal(level & lv, state_id st, block_pos po
 
 static int32_t comparator_calculate_output_signal(level & lv, state_id st, block_pos pos) {
     int32_t input = comparator_get_input_signal(lv, st, pos);
-    if (input == 0) {
-        return 0;
-    }
+    if (input == 0) return 0;
     int32_t alternate = diode_get_alternate_signal(lv, st, pos);
-    if (alternate > input) {
-        return 0;
-    }
+    if (alternate > input) return 0;
     return comparator_is_subtract(st) ? input - alternate : input;
 }
 
 static bool comparator_should_turn_on(level & lv, state_id st, block_pos pos) {
     int32_t input = comparator_get_input_signal(lv, st, pos);
-    if (input == 0) {
-        return false;
-    }
+    if (input == 0) return false;
     int32_t side = diode_get_alternate_signal(lv, st, pos);
     return input > side || (input == side && !comparator_is_subtract(st));
 }
@@ -135,9 +127,7 @@ static void comparator_tick(level & lv, state_id st, block_pos pos) {
 
 static void comparator_check_tick_on_neighbor(level & lv, state_id st, block_pos pos) {
     int32_t block = state_block(st);
-    if (level_ticks_will_tick_this_tick(lv.block_ticks, pos, block)) {
-        return;
-    }
+    if (level_ticks_will_tick_this_tick(lv.block_ticks, pos, block)) return;
     int32_t output = comparator_calculate_output_signal(lv, st, pos);
     if (output != comparator_get_output_signal(lv, pos) ||
         (state_get(st, PROP_POWERED) != 0) != comparator_should_turn_on(lv, st, pos)) {
@@ -158,16 +148,12 @@ static state_id comparator_update_shape(level &  lv,
 // DiodeBlock again, with the overrides of its subclasses
 
 static bool diode_should_turn_on(level & lv, state_id st, block_pos pos) {
-    if (state_is(st, BLOCK_COMPARATOR)) {
-        return comparator_should_turn_on(lv, st, pos);
-    }
+    if (state_is(st, BLOCK_COMPARATOR)) return comparator_should_turn_on(lv, st, pos);
     return diode_get_input_signal(lv, st, pos) > 0;
 }
 
 static void diode_tick(level & lv, state_id st, block_pos pos) {
-    if (diode_is_locked(lv, st, pos)) {
-        return;
-    }
+    if (diode_is_locked(lv, st, pos)) return;
     bool on             = state_get(st, PROP_POWERED);
     bool should_turn_on = diode_should_turn_on(lv, st, pos);
     if (on && !should_turn_on) {
@@ -182,9 +168,7 @@ static void diode_tick(level & lv, state_id st, block_pos pos) {
 
 // getOutputSignal is 15 for repeaters; getDirectSignal is the same
 static int32_t diode_get_signal(level & lv, state_id st, block_pos pos, direction dir) {
-    if (!state_get(st, PROP_POWERED) || diode_facing(st) != dir) {
-        return 0;
-    }
+    if (!state_get(st, PROP_POWERED) || diode_facing(st) != dir) return 0;
     return state_is(st, BLOCK_COMPARATOR) ? comparator_get_output_signal(lv, pos) : 15;
 }
 
@@ -193,9 +177,7 @@ static void diode_check_tick_on_neighbor(level & lv, state_id st, block_pos pos)
         comparator_check_tick_on_neighbor(lv, st, pos);
         return;
     }
-    if (diode_is_locked(lv, st, pos)) {
-        return;
-    }
+    if (diode_is_locked(lv, st, pos)) return;
     bool    on    = state_get(st, PROP_POWERED);
     int32_t block = state_block(st);
     if (on != diode_should_turn_on(lv, st, pos) && !level_ticks_will_tick_this_tick(lv.block_ticks, pos, block)) {
@@ -225,9 +207,7 @@ static void diode_on_place(level & lv, state_id st, block_pos pos, state_id, boo
 }
 
 static void diode_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston) {
-    if (!moved_by_piston) {
-        diode_update_neighbors_in_front(lv, state_block(st), pos, diode_facing(st));
-    }
+    if (!moved_by_piston) diode_update_neighbors_in_front(lv, state_block(st), pos, diode_facing(st));
 }
 
 // RepeaterBlock: a powered diode beside it locks it
@@ -237,9 +217,7 @@ static state_id repeater_update_shape(level &   lv,
                                       direction dir,
                                       block_pos neighbor_pos,
                                       state_id  neighbor) {
-    if (dir == DIRECTION_DOWN && !diode_can_survive_on(lv, neighbor_pos, neighbor)) {
-        return STATE_AIR;
-    }
+    if (dir == DIRECTION_DOWN && !diode_can_survive_on(lv, neighbor_pos, neighbor)) return STATE_AIR;
     if (direction_get_axis(dir) != direction_get_axis(diode_facing(st))) {
         return state_set(st, PROP_LOCKED, diode_is_locked(lv, st, pos));
     }

@@ -36,24 +36,24 @@ struct block_def {
     int32_t      n_props;
     int32_t      fields_first;
     int32_t      n_fields;
-    int32_t      cls;                  // vanilla class, VCLASS_NONE for plain Block
-    int32_t      entity_new;           // block_entity_type of EntityBlock.newBlockEntity, -1 for none
-    int32_t      entity_valid;         // block_entity_type valid for the block (BlockEntityType.isValid), -1 for none
-    int32_t      instrument;           // note_block_instrument of BlockState.instrument
-    int32_t      waxed;                // HoneycombItem.WAXABLES, -1 for none
+    int32_t      cls;           // vanilla class, VCLASS_NONE for plain Block
+    int32_t      entity_new;    // block_entity_type of EntityBlock.newBlockEntity, -1 for none
+    int32_t      entity_valid;  // block_entity_type valid for the block (BlockEntityType.isValid), -1 for none
+    int32_t      instrument;    // note_block_instrument of BlockState.instrument
+    int32_t      waxed;         // HoneycombItem.WAXABLES, -1 for none
 };
 
 struct item_def {
     const char * name;
-    int32_t      max_stack_size;   // default MAX_STACK_SIZE component
-    int32_t      cls;              // item_class
-    int32_t      block;            // BlockItem.getBlock, -1 for other items
-    int32_t      dispense;         // dispense_behavior
-    uint32_t     tags;             // item_tag bits
-    int32_t      song_ticks;       // JukeboxSong.lengthInTicks of the JUKEBOX_PLAYABLE song, -1 for none
-    int32_t      song_comparator;  // JukeboxSong.comparatorOutput
-    float        compost_chance;   // ComposterBlock.COMPOSTABLES, -1 for items that do not compost
-    uint32_t     components;       // item_component bits of the default data components
+    int32_t      max_stack_size;      // default MAX_STACK_SIZE component
+    int32_t      cls;                 // item_class
+    int32_t      block;               // BlockItem.getBlock, -1 for other items
+    int32_t      dispense;            // dispense_behavior
+    uint32_t     tags;                // item_tag bits
+    int32_t      song_ticks;          // JukeboxSong.lengthInTicks of the JUKEBOX_PLAYABLE song, -1 for none
+    int32_t      song_comparator;     // JukeboxSong.comparatorOutput
+    float        compost_chance;      // ComposterBlock.COMPOSTABLES, -1 for items that do not compost
+    uint32_t     components;          // item_component bits of the default data components
     int32_t      crafting_remainder;  // Item.getCraftingRemainder (count 1), -1 for none
     const char * dispense_entity;     // entity type a projectile, boat or minecart behaviour spawns, nullptr for others
     int32_t      max_damage;          // MAX_DAMAGE component of a fresh stack, 0 for none
@@ -99,9 +99,9 @@ extern const field_value  block_field_values[];
 extern const block_def    block_defs[];
 extern const item_def     item_defs[];
 extern const char * const block_entity_type_names[];
-extern const int32_t      block_entity_type_container_sizes[];  // Container.getContainerSize of a fresh one, -1 for none
-extern const int16_t      vclass_super[];
-extern const int16_t      vclass_hooks[][HOOK_COUNT];  // class that overrides each hook, VCLASS_NONE for the default
+extern const int32_t block_entity_type_container_sizes[];  // Container.getContainerSize of a fresh one, -1 for none
+extern const int16_t vclass_super[];
+extern const int16_t vclass_hooks[][HOOK_COUNT];  // class that overrides each hook, VCLASS_NONE for the default
 extern const char * const vclass_names[];
 extern const char * const hook_names[];
 extern const int16_t      iclass_super[];

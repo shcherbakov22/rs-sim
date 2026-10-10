@@ -20,9 +20,7 @@ static int32_t dispenser_block_entity_get_random_slot(level & lv, const block_en
     int32_t replace_slot = -1;
     int32_t replace_odds = 1;
     for (int32_t i = 0; i < (int32_t) be->items.size(); i++) {
-        if (!item_stack_is_empty(be->items[i]) && rng_next_int(lv.random, replace_odds++) == 0) {
-            replace_slot = i;
-        }
+        if (!item_stack_is_empty(be->items[i]) && rng_next_int(lv.random, replace_odds++) == 0) replace_slot = i;
     }
     return replace_slot;
 }
@@ -30,9 +28,7 @@ static int32_t dispenser_block_entity_get_random_slot(level & lv, const block_en
 // DefaultDispenseItemBehavior.spawnItem from 0.7 blocks out of the center: the item entity lands in the block in front
 static void default_dispense_item_behavior_spawn_item(level & lv, block_pos pos, direction dir) {
     // the ItemEntity constructor's motion, the throw power, then three triangle draws of two doubles each
-    for (int32_t i = 0; i < 9; i++) {
-        rng_next_double(lv.random);
-    }
+    for (int32_t i = 0; i < 9; i++) rng_next_double(lv.random);
     block_pos at = pos_relative(pos, dir);
     trace_boundary(lv.tr, "spawn item %d %d %d", at.x, at.y, at.z);
 }
@@ -53,9 +49,7 @@ static item_stack dispenser_block_entity_insert_item(level & lv, block_pos pos, 
     int32_t        max_stack_size = container_get_max_stack_size(s);
     for (int32_t i = 0; i < (int32_t) be->items.size(); i++) {
         item_stack & target = be->items[i];
-        if (!item_stack_is_empty(target) && !item_stack_is_same_item_same_components(s, target)) {
-            continue;
-        }
+        if (!item_stack_is_empty(target) && !item_stack_is_same_item_same_components(s, target)) continue;
         int32_t transfer = std::min(item_stack_get_count(s), max_stack_size - item_stack_get_count(target));
         if (transfer > 0 && item_stack_is_empty(target)) {
             container_set_item(lv, { be, nullptr }, i, item_stack_split(s, transfer));
@@ -63,9 +57,7 @@ static item_stack dispenser_block_entity_insert_item(level & lv, block_pos pos, 
             item_stack_grow(s, -transfer);
             item_stack_grow(target, transfer);
         }
-        if (item_stack_is_empty(s)) {
-            break;
-        }
+        if (item_stack_is_empty(s)) break;
     }
     return s;
 }
@@ -77,9 +69,7 @@ static item_stack default_dispense_item_behavior_consume_with_remainder(level & 
                                                                         item_stack dispensed,
                                                                         item_stack remainder) {
     item_stack_grow(dispensed, -1);
-    if (item_stack_is_empty(dispensed)) {
-        return remainder;
-    }
+    if (item_stack_is_empty(dispensed)) return remainder;
     if (!item_stack_is_empty(dispenser_block_entity_insert_item(lv, pos, remainder))) {
         default_dispense_item_behavior_spawn_item(lv, pos, dispenser_facing(st));
     }
@@ -111,9 +101,7 @@ static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, 
     double z = pos.z + 0.5 + (scale * step.z);
     // asProjectile of a fire or wind charge draws three triangle distributed direction components
     if (item_defs[item].cls == ICLASS_FIRE_CHARGE_ITEM || item_defs[item].cls == ICLASS_WIND_CHARGE_ITEM) {
-        for (int32_t i = 0; i < 6; i++) {
-            rng_next_double(lv.random);
-        }
+        for (int32_t i = 0; i < 6; i++) rng_next_double(lv.random);
     }
     trace_boundary(lv.tr, "spawn %s %d %d %d", item_defs[item].dispense_entity, (int32_t) std::floor(x),
                    (int32_t) std::floor(y), (int32_t) std::floor(z));
@@ -228,9 +216,7 @@ static item_stack dispense_item_behavior_flint_and_steel(level & lv, state_id st
 // both growths stop the run, and a failure changes nothing
 static item_stack dispense_item_behavior_bone_meal(level & lv, state_id st, block_pos pos, item_stack dispensed) {
     block_pos target = pos_relative(pos, dispenser_facing(st));
-    if (!bone_meal_item_grow_crop(lv, target)) {
-        bone_meal_item_grow_water_plant(lv, target);
-    }
+    if (!bone_meal_item_grow_crop(lv, target)) bone_meal_item_grow_water_plant(lv, target);
     return dispensed;
 }
 
@@ -253,9 +239,7 @@ static item_stack dispense_item_behavior_glass_bottle(level & lv, state_id st, b
 static item_stack dispense_item_behavior_glowstone(level & lv, state_id st, block_pos pos, item_stack dispensed) {
     block_pos target = pos_relative(pos, dispenser_facing(st));
     state_id  at     = level_get_state(lv, target);
-    if (!state_is(at, BLOCK_RESPAWN_ANCHOR)) {
-        return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
-    }
+    if (!state_is(at, BLOCK_RESPAWN_ANCHOR)) return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
     level_unsupported(lv, "respawn anchor");
     return dispensed;
 }
@@ -264,9 +248,7 @@ static item_stack dispense_item_behavior_honeycomb(level & lv, state_id st, bloc
     block_pos target = pos_relative(pos, dispenser_facing(st));
     state_id  at     = level_get_state(lv, target);
     int32_t   waxed  = block_defs[state_block(at)].waxed;
-    if (waxed < 0) {
-        return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
-    }
+    if (waxed < 0) return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
     level_set_block(lv, target, block_with_properties_of(waxed, at), UPDATE_FLAG_ALL);
     item_stack_grow(dispensed, -1);
     return dispensed;
@@ -347,9 +329,7 @@ static void dispenser_tick(level & lv, state_id st, block_pos pos) {
     block_entity * be =
         level_get_block_entity_of_type(lv, pos, dropper ? BLOCK_ENTITY_TYPE_DROPPER : BLOCK_ENTITY_TYPE_DISPENSER);
     int32_t slot = be != nullptr ? dispenser_block_entity_get_random_slot(lv, be) : -1;
-    if (slot < 0) {
-        return;
-    }
+    if (slot < 0) return;
     item_stack s = be->items[slot];
     container_set_item(
         lv, { be, nullptr }, slot,
@@ -382,9 +362,7 @@ bool crafter_block_entity_can_place_item(const block_entity * be, int32_t slot) 
         item_stack_get_count(current) >= item_stack_get_max_stack_size(current)) {
         return false;
     }
-    if (item_stack_is_empty(current)) {
-        return true;
-    }
+    if (item_stack_is_empty(current)) return true;
     for (int32_t i = slot + 1; i < 9; i++) {
         const item_stack & s = be->items[i];
         if (!crafter_block_entity_is_slot_disabled(be, i) &&
@@ -400,22 +378,16 @@ void crafter_block_entity_server_tick(level & lv, block_pos pos, state_id st, bl
     int32_t crafting_ticks_remaining = be->crafting_ticks_remaining - 1;
     if (crafting_ticks_remaining >= 0) {
         be->crafting_ticks_remaining = crafting_ticks_remaining;
-        if (crafting_ticks_remaining == 0) {
-            level_set_block(lv, pos, state_set(st, PROP_CRAFTING, 0), UPDATE_FLAG_ALL);
-        }
+        if (crafting_ticks_remaining == 0) level_set_block(lv, pos, state_set(st, PROP_CRAFTING, 0), UPDATE_FLAG_ALL);
     }
 }
 
 static int32_t crafter_get_analog_output_signal(level & lv, state_id, block_pos pos, direction) {
     block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_CRAFTER);
-    if (be == nullptr) {
-        return 0;
-    }
+    if (be == nullptr) return 0;
     int32_t count = 0;
     for (int32_t i = 0; i < 9; i++) {
-        if (!item_stack_is_empty(be->items[i]) || crafter_block_entity_is_slot_disabled(be, i)) {
-            count++;
-        }
+        if (!item_stack_is_empty(be->items[i]) || crafter_block_entity_is_slot_disabled(be, i)) count++;
     }
     return count;
 }
@@ -439,9 +411,7 @@ static direction crafter_front(state_id st) {
     for (int32_t i = 0; i < p.n_values; i++) {
         std::string_view name = p.values[i];
         direction        front;
-        if (p.codes[i] == code && direction_parse(name.substr(0, name.find('_')), front)) {
-            return front;
-        }
+        if (p.codes[i] == code && direction_parse(name.substr(0, name.find('_')), front)) return front;
     }
     TMC_ASSERT(false);
     return DIRECTION_DOWN;
@@ -464,53 +434,37 @@ static void crafter_dispense_item(level &            lv,
                   item_stack_get_count(results) > container_get_max_stack_size_in(into, results))) {
         while (!item_stack_is_empty(remaining)) {
             item_stack copy = item_stack_copy_with_count(remaining, 1);
-            if (!item_stack_is_empty(hopper_block_entity_add_item(lv, &self, into, copy, &face))) {
-                break;
-            }
+            if (!item_stack_is_empty(hopper_block_entity_add_item(lv, &self, into, copy, &face))) break;
             item_stack_grow(remaining, -1);
         }
     } else if (found) {
         while (!item_stack_is_empty(remaining)) {
             int32_t old_size = item_stack_get_count(remaining);
             remaining        = hopper_block_entity_add_item(lv, &self, into, remaining, &face);
-            if (old_size == item_stack_get_count(remaining)) {
-                break;
-            }
+            if (old_size == item_stack_get_count(remaining)) break;
         }
     }
-    if (!item_stack_is_empty(remaining)) {
-        default_dispense_item_behavior_spawn_item(lv, pos, dir);
-    }
+    if (!item_stack_is_empty(remaining)) default_dispense_item_behavior_spawn_item(lv, pos, dir);
 }
 
 // CrafterBlock.dispenseFrom; the fail sound level event is not in the trace
 static void crafter_tick(level & lv, state_id st, block_pos pos) {
     block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_CRAFTER);
-    if (be == nullptr) {
-        return;
-    }
+    if (be == nullptr) return;
     crafting_input in     = crafting_input_of(3, 3, be->items.data());
     int32_t        recipe = recipe_manager_get_recipe_for(lv, in);
-    if (recipe < 0) {
-        return;
-    }
+    if (recipe < 0) return;
     item_stack results = recipe_assemble(lv, recipe, in);
-    if (!lv.unsupported.empty() || item_stack_is_empty(results)) {
-        return;
-    }
+    if (!lv.unsupported.empty() || item_stack_is_empty(results)) return;
     be->crafting_ticks_remaining = 6;
     level_set_block(lv, pos, state_set(st, PROP_CRAFTING, 1), UPDATE_FLAG_CLIENTS);
     item_on_crafted_post_process(lv, results);
     crafter_dispense_item(lv, st, pos, be, results);
     for (const item_stack & remaining : recipe_get_remaining_items(in)) {
-        if (!item_stack_is_empty(remaining)) {
-            crafter_dispense_item(lv, st, pos, be, remaining);
-        }
+        if (!item_stack_is_empty(remaining)) crafter_dispense_item(lv, st, pos, be, remaining);
     }
     for (item_stack & s : be->items) {
-        if (!item_stack_is_empty(s)) {
-            item_stack_grow(s, -1);
-        }
+        if (!item_stack_is_empty(s)) item_stack_grow(s, -1);
     }
     block_entity_set_changed(lv, pos, be->state);
 }

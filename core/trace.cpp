@@ -3,12 +3,8 @@
 #include <cstdarg>
 
 bool trace_wants(const trace * tr, const block_pos * pos) {
-    if (tr == nullptr || tr->boundary) {
-        return false;
-    }
-    if (pos == nullptr) {
-        return true;
-    }
+    if (tr == nullptr || tr->boundary) return false;
+    if (pos == nullptr) return true;
     return pos->x >= tr->box_min.x && pos->x <= tr->box_max.x && pos->y >= tr->box_min.y && pos->y <= tr->box_max.y &&
            pos->z >= tr->box_min.z && pos->z <= tr->box_max.z;
 }
@@ -37,9 +33,7 @@ void trace_add(trace * tr, const char * fmt, ...) {
 }
 
 void trace_begin_tick(trace * tr) {
-    if (tr == nullptr) {
-        return;
-    }
+    if (tr == nullptr) return;
     tr->tick++;
     tr->tick_shown = false;
     tr->depth      = 0;
@@ -47,17 +41,13 @@ void trace_begin_tick(trace * tr) {
 }
 
 void trace_phase(trace * tr, const char * name) {
-    if (tr == nullptr) {
-        return;
-    }
+    if (tr == nullptr) return;
     tr->phase       = name;
     tr->phase_shown = false;
 }
 
 void trace_enter(trace * tr, const block_pos * pos, const char * fmt, ...) {
-    if (tr == nullptr) {
-        return;
-    }
+    if (tr == nullptr) return;
     if (trace_wants(tr, pos)) {
         va_list args;
         va_start(args, fmt);
@@ -68,16 +58,12 @@ void trace_enter(trace * tr, const block_pos * pos, const char * fmt, ...) {
 }
 
 void trace_exit(trace * tr) {
-    if (tr == nullptr) {
-        return;
-    }
+    if (tr == nullptr) return;
     tr->depth--;
 }
 
 void trace_boundary(trace * tr, const char * fmt, ...) {
-    if (!trace_wants(tr, nullptr)) {
-        return;
-    }
+    if (!trace_wants(tr, nullptr)) return;
     va_list args;
     va_start(args, fmt);
     trace_vadd(tr, fmt, args);

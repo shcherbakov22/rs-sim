@@ -34,14 +34,10 @@ static int32_t portal_shape_get_distance_until_edge_above_frame(level & lv, bloc
         block_pos at = pos_relative_steps(pos, dir, width);
         state_id  st = level_get_state(lv, at);
         if (!portal_shape_is_empty(st)) {
-            if (portal_shape_is_frame(st)) {
-                return width;
-            }
+            if (portal_shape_is_frame(st)) return width;
             break;
         }
-        if (!portal_shape_is_frame(level_get_state(lv, pos_relative(at, DIRECTION_DOWN)))) {
-            break;
-        }
+        if (!portal_shape_is_frame(level_get_state(lv, pos_relative(at, DIRECTION_DOWN)))) break;
     }
     return 0;
 }
@@ -54,9 +50,7 @@ static bool portal_shape_calculate_bottom_left(level & lv, direction right_dir, 
     }
     direction left_dir = direction_opposite(right_dir);
     int32_t   edge     = portal_shape_get_distance_until_edge_above_frame(lv, pos, left_dir) - 1;
-    if (edge < 0) {
-        return false;
-    }
+    if (edge < 0) return false;
     out = pos_relative_steps(pos, left_dir, edge);
     return true;
 }
@@ -80,12 +74,8 @@ static int32_t portal_shape_get_distance_until_top(level &   lv,
         }
         for (int32_t i = 0; i < width; i++) {
             state_id st = level_get_state(lv, portal_shape_at(bottom_left, right_dir, height, i));
-            if (!portal_shape_is_empty(st)) {
-                return height;
-            }
-            if (state_is(st, BLOCK_NETHER_PORTAL)) {
-                portal_block_count++;
-            }
+            if (!portal_shape_is_empty(st)) return height;
+            if (state_is(st, BLOCK_NETHER_PORTAL)) portal_block_count++;
         }
     }
     return PORTAL_SHAPE_MAX_SIZE;
@@ -118,13 +108,9 @@ static int32_t portal_shape_calculate_height(level &   lv,
 static portal_shape portal_shape_find_any_shape(level & lv, block_pos pos, direction_axis axis) {
     direction right_dir = axis == DIRECTION_AXIS_X ? DIRECTION_WEST : DIRECTION_SOUTH;
     block_pos bottom_left;
-    if (!portal_shape_calculate_bottom_left(lv, right_dir, pos, bottom_left)) {
-        return { axis, 0, right_dir, pos, 0, 0 };
-    }
+    if (!portal_shape_calculate_bottom_left(lv, right_dir, pos, bottom_left)) return { axis, 0, right_dir, pos, 0, 0 };
     int32_t width = portal_shape_calculate_width(lv, bottom_left, right_dir);
-    if (width == 0) {
-        return { axis, 0, right_dir, bottom_left, 0, 0 };
-    }
+    if (width == 0) return { axis, 0, right_dir, bottom_left, 0, 0 };
     int32_t portal_block_count = 0;
     int32_t height             = portal_shape_calculate_height(lv, bottom_left, right_dir, width, portal_block_count);
     return { axis, portal_block_count, right_dir, bottom_left, height, width };
@@ -143,9 +129,7 @@ static bool portal_shape_find_empty_portal_shape(level &        lv,
                                preferred_axis == DIRECTION_AXIS_X ? DIRECTION_AXIS_Z : DIRECTION_AXIS_X };
     for (direction_axis axis : axes) {
         out = portal_shape_find_any_shape(lv, pos, axis);
-        if (portal_shape_is_valid(out) && out.num_portal_blocks == 0) {
-            return true;
-        }
+        if (portal_shape_is_valid(out) && out.num_portal_blocks == 0) return true;
     }
     return false;
 }
@@ -172,17 +156,13 @@ static void portal_shape_create_portal_blocks(level & lv, const portal_shape & s
 
 // BaseFireBlock.onPlace: the oracle level is the overworld, a portal dimension
 static void base_fire_on_place(level & lv, state_id st, block_pos pos, state_id old, bool) {
-    if (state_is(old, state_block(st))) {
-        return;
-    }
+    if (state_is(old, state_block(st))) return;
     portal_shape shape;
     if (portal_shape_find_empty_portal_shape(lv, pos, DIRECTION_AXIS_X, shape)) {
         portal_shape_create_portal_blocks(lv, shape);
         return;
     }
-    if (!block_can_survive(lv, st, pos)) {
-        level_remove_block(lv, pos, false);
-    }
+    if (!block_can_survive(lv, st, pos)) level_remove_block(lv, pos, false);
 }
 
 // SoulFireBlock: fire that lives only on soul fire base blocks
@@ -246,9 +226,7 @@ static state_id fire_get_state_with_age(level & lv, block_pos pos, int32_t age) 
 
 static bool fire_is_valid_fire_location(level & lv, block_pos pos) {
     for (int32_t d = 0; d < 6; d++) {
-        if (fire_can_burn(level_get_state(lv, pos_relative(pos, (direction) d)))) {
-            return true;
-        }
+        if (fire_can_burn(level_get_state(lv, pos_relative(pos, (direction) d)))) return true;
     }
     return false;
 }
@@ -293,9 +271,7 @@ static bool base_fire_is_portal(level & lv, block_pos pos, direction forward) {
             break;
         }
     }
-    if (!has_obsidian) {
-        return false;
-    }
+    if (!has_obsidian) return false;
     direction_axis axis;
     if (direction_is_horizontal(forward)) {
         axis = direction_get_axis(direction_counter_clockwise(forward));
@@ -308,9 +284,7 @@ static bool base_fire_is_portal(level & lv, block_pos pos, direction forward) {
 }
 
 bool base_fire_can_be_placed_at(level & lv, block_pos pos, direction forward) {
-    if (!state_has(level_get_state(lv, pos), STATE_FLAG_AIR)) {
-        return false;
-    }
+    if (!state_has(level_get_state(lv, pos), STATE_FLAG_AIR)) return false;
     return block_can_survive(lv, base_fire_get_state(lv, pos), pos) || base_fire_is_portal(lv, pos, forward);
 }
 

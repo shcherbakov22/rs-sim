@@ -42,16 +42,12 @@ static bool red_stone_wire_is_conductor(level & lv, block_pos pos) {
 
 // dir -1 is vanilla's null
 static bool red_stone_wire_should_connect_to(level & lv, state_id st, int32_t dir) {
-    if (state_is(st, BLOCK_REDSTONE_WIRE)) {
-        return true;
-    }
+    if (state_is(st, BLOCK_REDSTONE_WIRE)) return true;
     if (state_is(st, BLOCK_REPEATER)) {
         direction facing = (direction) state_get(st, PROP_HORIZONTAL_FACING);
         return facing == dir || direction_opposite(facing) == dir;
     }
-    if (state_is(st, BLOCK_OBSERVER)) {
-        return dir == state_get(st, PROP_FACING);
-    }
+    if (state_is(st, BLOCK_OBSERVER)) return dir == state_get(st, PROP_FACING);
     return block_is_signal_source(lv, st) && dir >= 0;
 }
 
@@ -96,27 +92,17 @@ static state_id red_stone_wire_get_connection_state(level & lv, state_id st, blo
     bool was_dot = red_stone_wire_is_dot(st);
     st           = red_stone_wire_get_missing_connections(
         lv, state_set(block_default(BLOCK_REDSTONE_WIRE), PROP_POWER, state_get(st, PROP_POWER)), pos);
-    if (was_dot && red_stone_wire_is_dot(st)) {
-        return st;
-    }
+    if (was_dot && red_stone_wire_is_dot(st)) return st;
     bool north            = red_stone_wire_connected(st, DIRECTION_NORTH);
     bool south            = red_stone_wire_connected(st, DIRECTION_SOUTH);
     bool east             = red_stone_wire_connected(st, DIRECTION_EAST);
     bool west             = red_stone_wire_connected(st, DIRECTION_WEST);
     bool north_south_none = !north && !south;
     bool east_west_none   = !east && !west;
-    if (!west && north_south_none) {
-        st = state_set(st, PROP_WEST_REDSTONE, REDSTONE_SIDE_SIDE);
-    }
-    if (!east && north_south_none) {
-        st = state_set(st, PROP_EAST_REDSTONE, REDSTONE_SIDE_SIDE);
-    }
-    if (!north && east_west_none) {
-        st = state_set(st, PROP_NORTH_REDSTONE, REDSTONE_SIDE_SIDE);
-    }
-    if (!south && east_west_none) {
-        st = state_set(st, PROP_SOUTH_REDSTONE, REDSTONE_SIDE_SIDE);
-    }
+    if (!west && north_south_none) st = state_set(st, PROP_WEST_REDSTONE, REDSTONE_SIDE_SIDE);
+    if (!east && north_south_none) st = state_set(st, PROP_EAST_REDSTONE, REDSTONE_SIDE_SIDE);
+    if (!north && east_west_none) st = state_set(st, PROP_NORTH_REDSTONE, REDSTONE_SIDE_SIDE);
+    if (!south && east_west_none) st = state_set(st, PROP_SOUTH_REDSTONE, REDSTONE_SIDE_SIDE);
     return st;
 }
 
@@ -126,12 +112,8 @@ static state_id red_stone_wire_update_shape(level &   lv,
                                             direction dir,
                                             block_pos neighbor_pos,
                                             state_id  neighbor) {
-    if (dir == DIRECTION_DOWN) {
-        return red_stone_wire_can_survive_on(lv, neighbor_pos, neighbor) ? st : STATE_AIR;
-    }
-    if (dir == DIRECTION_UP) {
-        return red_stone_wire_get_connection_state(lv, st, pos);
-    }
+    if (dir == DIRECTION_DOWN) return red_stone_wire_can_survive_on(lv, neighbor_pos, neighbor) ? st : STATE_AIR;
+    if (dir == DIRECTION_UP) return red_stone_wire_get_connection_state(lv, st, pos);
     bool          can_connect_up = !red_stone_wire_is_conductor(lv, pos_relative(pos, DIRECTION_UP));
     redstone_side side           = red_stone_wire_get_connecting_side(lv, pos, dir, can_connect_up);
     prop_id       prop           = RED_STONE_WIRE_PROPERTY_BY_DIRECTION[dir];
@@ -149,9 +131,7 @@ static void red_stone_wire_update_indirect_neighbour_shapes(level &   lv,
                                                             int32_t   limit) {
     for (direction dir : DIRECTION_HORIZONTAL) {
         block_pos side = pos_relative(pos, dir);
-        if (!red_stone_wire_connected(st, dir) || state_is(level_get_state(lv, side), BLOCK_REDSTONE_WIRE)) {
-            continue;
-        }
+        if (!red_stone_wire_connected(st, dir) || state_is(level_get_state(lv, side), BLOCK_REDSTONE_WIRE)) continue;
         for (direction vertical : { DIRECTION_DOWN, DIRECTION_UP }) {
             block_pos wire = pos_relative(side, vertical);
             if (state_is(level_get_state(lv, wire), BLOCK_REDSTONE_WIRE)) {
@@ -204,35 +184,27 @@ static void red_stone_wire_update_power_strength(level & lv, block_pos pos, stat
     int32_t block_signal = red_stone_wire_get_block_signal(lv, pos);
     int32_t target =
         block_signal == 15 ? block_signal : std::max(block_signal, red_stone_wire_get_incoming_wire_signal(lv, pos));
-    if (state_get(st, PROP_POWER) == target) {
-        return;
-    }
+    if (state_get(st, PROP_POWER) == target) return;
     if (level_get_state(lv, pos) == st) {
         level_set_block(lv, pos, state_set(st, PROP_POWER, target), UPDATE_FLAG_CLIENTS);
     }
     // vanilla walks a HashSet, so the order depends on the world positions
     java_hash_map to_update;
     java_hash_map_put(to_update, pos, 0);
-    for (int32_t d = 0; d < 6; d++) {
-        java_hash_map_put(to_update, pos_relative(pos, (direction) d), 0);
-    }
+    for (int32_t d = 0; d < 6; d++) java_hash_map_put(to_update, pos_relative(pos, (direction) d), 0);
     for (const java_hash_map_entry & e : java_hash_map_entries(to_update)) {
         level_update_neighbors_at(lv, e.key, BLOCK_REDSTONE_WIRE);
     }
 }
 
 static void red_stone_wire_check_corner_change_at(level & lv, block_pos pos) {
-    if (!state_is(level_get_state(lv, pos), BLOCK_REDSTONE_WIRE)) {
-        return;
-    }
+    if (!state_is(level_get_state(lv, pos), BLOCK_REDSTONE_WIRE)) return;
     level_update_neighbors_at(lv, pos, BLOCK_REDSTONE_WIRE);
     level_update_neighbors_around(lv, pos, BLOCK_REDSTONE_WIRE);
 }
 
 static void red_stone_wire_update_neighbors_of_neighboring_wires(level & lv, block_pos pos) {
-    for (direction dir : DIRECTION_HORIZONTAL) {
-        red_stone_wire_check_corner_change_at(lv, pos_relative(pos, dir));
-    }
+    for (direction dir : DIRECTION_HORIZONTAL) red_stone_wire_check_corner_change_at(lv, pos_relative(pos, dir));
     for (direction dir : DIRECTION_HORIZONTAL) {
         block_pos target = pos_relative(pos, dir);
         if (red_stone_wire_is_conductor(lv, target)) {
@@ -244,13 +216,9 @@ static void red_stone_wire_update_neighbors_of_neighboring_wires(level & lv, blo
 }
 
 static void red_stone_wire_on_place(level & lv, state_id st, block_pos pos, state_id old, bool) {
-    if (state_is(old, BLOCK_REDSTONE_WIRE)) {
-        return;
-    }
+    if (state_is(old, BLOCK_REDSTONE_WIRE)) return;
     red_stone_wire_update_power_strength(lv, pos, st);
-    for (direction dir : DIRECTION_VERTICAL) {
-        level_update_neighbors_at(lv, pos_relative(pos, dir), BLOCK_REDSTONE_WIRE);
-    }
+    for (direction dir : DIRECTION_VERTICAL) level_update_neighbors_at(lv, pos_relative(pos, dir), BLOCK_REDSTONE_WIRE);
     red_stone_wire_update_neighbors_of_neighboring_wires(lv, pos);
 }
 
@@ -258,9 +226,7 @@ static void red_stone_wire_affect_neighbors_after_removal(level &   lv,
                                                           state_id  st,
                                                           block_pos pos,
                                                           bool      moved_by_piston) {
-    if (moved_by_piston) {
-        return;
-    }
+    if (moved_by_piston) return;
     level_update_neighbors_around(lv, pos, BLOCK_REDSTONE_WIRE);
     red_stone_wire_update_power_strength(lv, pos, st);
     red_stone_wire_update_neighbors_of_neighboring_wires(lv, pos);
@@ -280,13 +246,9 @@ static int32_t red_stone_wire_get_direct_signal(level & lv, state_id st, block_p
 }
 
 static int32_t red_stone_wire_get_signal(level & lv, state_id st, block_pos pos, direction dir) {
-    if (!lv.red_stone_wire_should_signal || dir == DIRECTION_DOWN) {
-        return 0;
-    }
+    if (!lv.red_stone_wire_should_signal || dir == DIRECTION_DOWN) return 0;
     int32_t power = state_get(st, PROP_POWER);
-    if (power == 0) {
-        return 0;
-    }
+    if (power == 0) return 0;
     if (dir != DIRECTION_UP &&
         !red_stone_wire_connected(red_stone_wire_get_connection_state(lv, st, pos), direction_opposite(dir))) {
         return 0;
@@ -310,9 +272,7 @@ static void redstone_torch_affect_neighbors_after_removal(level &   lv,
                                                           state_id  st,
                                                           block_pos pos,
                                                           bool      moved_by_piston) {
-    if (!moved_by_piston) {
-        level_update_neighbors_around(lv, pos, state_block(st));
-    }
+    if (!moved_by_piston) level_update_neighbors_around(lv, pos, state_block(st));
 }
 
 static int32_t redstone_torch_get_signal(level &, state_id st, block_pos, direction dir) {
@@ -338,14 +298,10 @@ static bool redstone_torch_has_neighbor_signal(level & lv, state_id st, block_po
 
 static bool redstone_torch_is_toggled_too_frequently(level & lv, block_pos pos, bool add) {
     std::vector<redstone_torch_toggle> & toggles = lv.redstone_torch_recent_toggles;
-    if (add) {
-        toggles.push_back({ pos, lv.game_time });
-    }
+    if (add) toggles.push_back({ pos, lv.game_time });
     int32_t count = 0;
     for (const redstone_torch_toggle & toggle : toggles) {
-        if (toggle.pos == pos && ++count >= REDSTONE_TORCH_MAX_RECENT_TOGGLES) {
-            return true;
-        }
+        if (toggle.pos == pos && ++count >= REDSTONE_TORCH_MAX_RECENT_TOGGLES) return true;
     }
     return false;
 }
@@ -393,9 +349,7 @@ void lever_pull(level & lv, state_id st, block_pos pos) {
 }
 
 static void lever_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston) {
-    if (!moved_by_piston && state_get(st, PROP_POWERED)) {
-        lever_update_neighbours(lv, st, pos);
-    }
+    if (!moved_by_piston && state_get(st, PROP_POWERED)) lever_update_neighbours(lv, st, pos);
 }
 
 static int32_t lever_get_signal(level &, state_id st, block_pos, direction) {
@@ -411,9 +365,7 @@ static int32_t lever_get_direct_signal(level &, state_id st, block_pos, directio
 
 static void redstone_lamp_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
     bool lit = state_get(st, PROP_LIT);
-    if (lit == level_has_neighbor_signal(lv, pos)) {
-        return;
-    }
+    if (lit == level_has_neighbor_signal(lv, pos)) return;
     if (lit) {
         level_schedule_tick(lv, pos, state_block(st), 4);
     } else {
@@ -430,9 +382,7 @@ static void redstone_lamp_tick(level & lv, state_id st, block_pos pos) {
 // TargetBlock: no projectiles here, so the power only comes from case data and goes away
 
 static void target_tick(level & lv, state_id st, block_pos pos) {
-    if (state_get(st, PROP_POWER) != 0) {
-        level_set_block(lv, pos, state_set(st, PROP_POWER, 0), UPDATE_FLAG_ALL);
-    }
+    if (state_get(st, PROP_POWER) != 0) level_set_block(lv, pos, state_set(st, PROP_POWER, 0), UPDATE_FLAG_ALL);
 }
 
 static int32_t target_get_signal(level &, state_id st, block_pos, direction) {
@@ -468,9 +418,7 @@ static void lightning_rod_tick(level & lv, state_id st, block_pos pos) {
 }
 
 static void lightning_rod_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool) {
-    if (state_get(st, PROP_POWERED)) {
-        lightning_rod_update_neighbours(lv, st, pos);
-    }
+    if (state_get(st, PROP_POWERED)) lightning_rod_update_neighbours(lv, st, pos);
 }
 
 static int32_t lightning_rod_get_signal(level &, state_id st, block_pos, direction) {
@@ -486,13 +434,9 @@ static int32_t lightning_rod_get_direct_signal(level &, state_id st, block_pos, 
 // checkAndFlip
 static void copper_bulb_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
     bool signal = level_has_neighbor_signal(lv, pos);
-    if (signal == (bool) state_get(st, PROP_POWERED)) {
-        return;
-    }
+    if (signal == (bool) state_get(st, PROP_POWERED)) return;
     state_id next = st;
-    if (!state_get(st, PROP_POWERED)) {
-        next = state_set(next, PROP_LIT, !state_get(next, PROP_LIT));
-    }
+    if (!state_get(st, PROP_POWERED)) next = state_set(next, PROP_LIT, !state_get(next, PROP_LIT));
     level_set_block(lv, pos, state_set(next, PROP_POWERED, signal), UPDATE_FLAG_ALL);
 }
 

@@ -9,9 +9,7 @@
 
 void level_unsupported(level & lv, const char * fmt, ...) {
     // past a boundary nothing is traced, so nothing the sim does there can be wrong
-    if (!lv.unsupported.empty() || (lv.tr != nullptr && lv.tr->boundary)) {
-        return;
-    }
+    if (!lv.unsupported.empty() || (lv.tr != nullptr && lv.tr->boundary)) return;
     char    buf[256];
     va_list args;
     va_start(args, fmt);
@@ -49,9 +47,7 @@ static bool level_in_valid_bounds(block_pos pos) {
 }
 
 state_id level_get_state(const level & lv, block_pos pos) {
-    if (level_outside_height(pos)) {
-        return block_default(BLOCK_VOID_AIR);
-    }
+    if (level_outside_height(pos)) return block_default(BLOCK_VOID_AIR);
     auto it = lv.sections.find(section_key(pos));
     return it == lv.sections.end() ? STATE_AIR : it->second->states[section_index(pos)];
 }
@@ -59,9 +55,7 @@ state_id level_get_state(const level & lv, block_pos pos) {
 // LevelChunkSection.setBlockState: returns the old state
 static state_id section_set(level & lv, block_pos pos, state_id st) {
     std::unique_ptr<level_section> & s = lv.sections[section_key(pos)];
-    if (!s) {
-        s = std::make_unique<level_section>();
-    }
+    if (!s) s = std::make_unique<level_section>();
     state_id & cell = s->states[section_index(pos)];
     state_id   old  = cell;
     s->n_non_air += (state_has(old, STATE_FLAG_AIR) ? 0 : -1) + (state_has(st, STATE_FLAG_AIR) ? 0 : 1);
@@ -91,9 +85,7 @@ block_entity * level_new_block_entity(level & lv, block_entity_type type, block_
 // EntityBlock.newBlockEntity; MovingPistonBlock makes none, its block entity comes from the piston
 static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, state_id st) {
     int32_t type = block_defs[state_block(st)].entity_new;
-    if (type < 0) {
-        return nullptr;
-    }
+    if (type < 0) return nullptr;
     switch (type) {
         case BLOCK_ENTITY_TYPE_HOPPER:
         case BLOCK_ENTITY_TYPE_DISPENSER:
@@ -156,9 +148,7 @@ static block_entity * level_chunk_get_block_entity(level & lv, block_pos pos, bo
         block_entity * be = nullptr;
         if (create && state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
             be = entity_block_new_block_entity(lv, pos, st);
-            if (be != nullptr) {
-                level_set_block_entity(lv, be);
-            }
+            if (be != nullptr) level_set_block_entity(lv, be);
         }
         return be;
     }
@@ -166,9 +156,7 @@ static block_entity * level_chunk_get_block_entity(level & lv, block_pos pos, bo
 }
 
 block_entity * level_get_block_entity(level & lv, block_pos pos) {
-    if (level_outside_height(pos)) {
-        return nullptr;
-    }
+    if (level_outside_height(pos)) return nullptr;
     return level_chunk_get_block_entity(lv, pos, true);
 }
 
@@ -181,44 +169,32 @@ block_entity * level_get_block_entity_of_type(level & lv, block_pos pos, int32_t
 // LevelChunk.setBlockEntity
 static void level_chunk_set_block_entity(level & lv, block_entity * be) {
     state_id st = level_get_state(lv, be->pos);
-    if (!state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
-        return;
-    }
+    if (!state_has(st, STATE_FLAG_BLOCK_ENTITY)) return;
     if (st != be->state) {
-        if (!block_entity_type_is_valid(be->type, st)) {
-            return;
-        }
+        if (!block_entity_type_is_valid(be->type, st)) return;
         be->state = st;
     }
     lv.block_entities[pos_key(be->pos)] = be;
 }
 
 void level_set_block_entity(level & lv, block_entity * be) {
-    if (!level_in_valid_bounds(be->pos)) {
-        return;
-    }
+    if (!level_in_valid_bounds(be->pos)) return;
     // the ticker is updated even when the chunk refused the block entity
     level_chunk_set_block_entity(lv, be);
     level_update_block_entity_ticker(lv, be);
 }
 
 void level_remove_block_entity(level & lv, block_pos pos) {
-    if (!level_in_valid_bounds(pos)) {
-        return;
-    }
+    if (!level_in_valid_bounds(pos)) return;
     lv.block_entities.erase(pos_key(pos));
     level_remove_block_entity_ticker(lv, pos);
 }
 
 // LevelChunk.setBlockState: returns false where vanilla returns null (nothing changed or the block was replaced meanwhile)
 static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_t flags, state_id & old) {
-    if (section_only_air(lv, pos) && state_has(st, STATE_FLAG_AIR)) {
-        return false;
-    }
+    if (section_only_air(lv, pos) && state_has(st, STATE_FLAG_AIR)) return false;
     old = section_set(lv, pos, st);
-    if (old == st) {
-        return false;
-    }
+    if (old == st) return false;
     int32_t block           = state_block(st);
     bool    block_changed   = state_block(old) != block;
     bool    moved_by_piston = (flags & UPDATE_FLAG_MOVE_BY_PISTON) != 0;
@@ -241,12 +217,8 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
         ((flags & UPDATE_FLAG_NEIGHBORS) != 0 || moved_by_piston)) {
         block_affect_neighbors_after_removal(lv, old, pos, moved_by_piston);
     }
-    if (!state_is(level_get_state(lv, pos), block)) {
-        return false;
-    }
-    if ((flags & UPDATE_FLAG_SKIP_ON_PLACE) == 0) {
-        block_on_place(lv, st, pos, old, moved_by_piston);
-    }
+    if (!state_is(level_get_state(lv, pos), block)) return false;
+    if ((flags & UPDATE_FLAG_SKIP_ON_PLACE) == 0) block_on_place(lv, st, pos, old, moved_by_piston);
     if (state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
         block_entity * be = level_chunk_get_block_entity(lv, pos, false);
         if (be != nullptr && !block_entity_type_is_valid(be->type, st)) {
@@ -255,9 +227,7 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
         }
         if (be == nullptr) {
             be = entity_block_new_block_entity(lv, pos, st);
-            if (be != nullptr) {
-                level_set_block_entity(lv, be);
-            }
+            if (be != nullptr) level_set_block_entity(lv, be);
         } else {
             be->state = st;
             level_update_block_entity_ticker(lv, be);
@@ -268,9 +238,7 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
 
 bool level_set_block(level & lv, block_pos pos, state_id st, int32_t flags, int32_t limit) {
     char limit_text[32] = "";
-    if (limit != UPDATE_LIMIT) {
-        snprintf(limit_text, sizeof(limit_text), " limit %d", limit);
-    }
+    if (limit != UPDATE_LIMIT) snprintf(limit_text, sizeof(limit_text), " limit %d", limit);
     trace_enter(lv.tr, &pos, "set %d %d %d %s flags %d%s was %s", pos.x, pos.y, pos.z, state_to_string(st).c_str(),
                 flags, limit_text, state_to_string(level_get_state(lv, pos)).c_str());
     bool done = false;
@@ -299,9 +267,7 @@ bool level_set_block(level & lv, block_pos pos, state_id st, int32_t flags, int3
 
 // FluidState.createLegacyBlock of the state at pos; fluids are out of scope
 static state_id level_fluid_block(level & lv, block_pos pos) {
-    if (state_has(level_get_state(lv, pos), STATE_FLAG_FLUID)) {
-        level_unsupported(lv, "fluids");
-    }
+    if (state_has(level_get_state(lv, pos), STATE_FLAG_FLUID)) level_unsupported(lv, "fluids");
     return STATE_AIR;
 }
 
@@ -317,9 +283,7 @@ static double rng_next_double_between(rng & r, double min, double max) {
 
 // Block.popResource: random offset in the block, then ItemEntity's random motion; the item entity ends the traced contract
 void level_pop_resource(level & lv, block_pos pos) {
-    for (int32_t i = 0; i < 3; i++) {
-        rng_next_double_between(lv.random, -0.25, 0.25);
-    }
+    for (int32_t i = 0; i < 3; i++) rng_next_double_between(lv.random, -0.25, 0.25);
     rng_next_double(lv.random);
     rng_next_double(lv.random);
     trace_boundary(lv.tr, "spawn item %d %d %d", pos.x, pos.y, pos.z);
@@ -328,24 +292,18 @@ void level_pop_resource(level & lv, block_pos pos) {
 void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be) {
     // MovingPistonBlock.getDrops: the moved block drops, or nothing without a block entity
     state_id loot = st;
-    if (state_is(st, BLOCK_MOVING_PISTON)) {
-        loot = be != nullptr ? be->moved_state : STATE_AIR;
-    }
+    if (state_is(st, BLOCK_MOVING_PISTON)) loot = be != nullptr ? be->moved_state : STATE_AIR;
     if (state_has(loot, STATE_FLAG_DROPS_RANDOM)) {
         level_unsupported(lv, "random loot");
         return;
     }
-    if (state_has(loot, STATE_FLAG_DROPS)) {
-        level_pop_resource(lv, pos);
-    }
+    if (state_has(loot, STATE_FLAG_DROPS)) level_pop_resource(lv, pos);
     block_spawn_after_break(lv, st, pos);
 }
 
 bool level_destroy_block(level & lv, block_pos pos, bool drop, int32_t limit) {
     state_id st = level_get_state(lv, pos);
-    if (state_has(st, STATE_FLAG_AIR)) {
-        return false;
-    }
+    if (state_has(st, STATE_FLAG_AIR)) return false;
     state_id fluid = level_fluid_block(lv, pos);
     if (drop) {
         level_drop_resources(lv, st, pos,
@@ -364,9 +322,7 @@ void level_update_neighbors_at(level & lv, block_pos pos, int32_t block) {
 }
 
 void level_update_neighbors_around(level & lv, block_pos pos, int32_t block) {
-    for (int32_t d = 0; d < 6; d++) {
-        level_update_neighbors_at(lv, pos_relative(pos, (direction) d), block);
-    }
+    for (int32_t d = 0; d < 6; d++) level_update_neighbors_at(lv, pos_relative(pos, (direction) d), block);
 }
 
 void level_update_neighbors_at_except_from_facing(level & lv, block_pos pos, int32_t block, direction skip) {
@@ -375,9 +331,7 @@ void level_update_neighbors_at_except_from_facing(level & lv, block_pos pos, int
     u.pos             = pos;
     u.block           = block;
     u.skip            = skip;
-    if (NEIGHBOR_UPDATE_ORDER[0] == skip) {
-        u.idx = 1;
-    }
+    if (NEIGHBOR_UPDATE_ORDER[0] == skip) u.idx = 1;
     neighbor_updater_add(lv, u);
 }
 
@@ -426,9 +380,7 @@ void level_update_neighbour_for_output_signal(level & lv, block_pos pos, int32_t
         } else if (state_has(st, STATE_FLAG_CONDUCTOR)) {
             rel = pos_relative(rel, dir);
             st  = level_get_state(lv, rel);
-            if (state_is(st, BLOCK_COMPARATOR)) {
-                level_neighbor_changed(lv, st, rel, block, false);
-            }
+            if (state_is(st, BLOCK_COMPARATOR)) level_neighbor_changed(lv, st, rel, block, false);
         }
     }
 }
@@ -452,16 +404,12 @@ static bool block_event_equals(const block_event & a, const block_event & b) {
 void level_block_event(level & lv, block_pos pos, int32_t block, int32_t param_a, int32_t param_b) {
     block_event e   = { pos, block, param_a, param_b };
     bool        dup = false;
-    for (const block_event & other : lv.block_events) {
-        dup = dup || block_event_equals(other, e);
-    }
+    for (const block_event & other : lv.block_events) dup = dup || block_event_equals(other, e);
     if (trace_wants(lv.tr, &pos)) {
         trace_add(lv.tr, "queue %d %d %d %s %d %d%s", pos.x, pos.y, pos.z, block_defs[block].name, param_a, param_b,
                   dup ? " dup" : "");
     }
-    if (!dup) {
-        lv.block_events.push_back(e);
-    }
+    if (!dup) lv.block_events.push_back(e);
 }
 
 int32_t level_get_direct_signal(level & lv, block_pos pos, direction dir) {
@@ -482,12 +430,8 @@ int32_t level_get_control_input_signal(level & lv, block_pos pos, direction dir,
     if (only_diodes) {
         return block_instanceof(state_block(st), VCLASS_DIODE_BLOCK) ? level_get_direct_signal(lv, pos, dir) : 0;
     }
-    if (state_is(st, BLOCK_REDSTONE_BLOCK)) {
-        return 15;
-    }
-    if (state_is(st, BLOCK_REDSTONE_WIRE)) {
-        return state_get(st, PROP_POWER);
-    }
+    if (state_is(st, BLOCK_REDSTONE_BLOCK)) return 15;
+    if (state_is(st, BLOCK_REDSTONE_WIRE)) return state_get(st, PROP_POWER);
     return block_is_signal_source(lv, st) ? level_get_direct_signal(lv, pos, dir) : 0;
 }
 
@@ -503,9 +447,7 @@ int32_t level_get_signal(level & lv, block_pos pos, direction dir) {
 
 bool level_has_neighbor_signal(level & lv, block_pos pos) {
     for (int32_t d = 0; d < 6; d++) {
-        if (level_has_signal(lv, pos_relative(pos, (direction) d), (direction) d)) {
-            return true;
-        }
+        if (level_has_signal(lv, pos_relative(pos, (direction) d), (direction) d)) return true;
     }
     return false;
 }
@@ -514,9 +456,7 @@ int32_t level_get_best_neighbor_signal(level & lv, block_pos pos) {
     int32_t best = 0;
     for (int32_t d = 0; d < 6; d++) {
         int32_t signal = level_get_signal(lv, pos_relative(pos, (direction) d), (direction) d);
-        if (signal >= 15) {
-            return 15;
-        }
+        if (signal >= 15) return 15;
         best = std::max(best, signal);
     }
     return best;
@@ -527,9 +467,7 @@ static void level_tick_block(level & lv, block_pos pos, int32_t block) {
     state_id st = level_get_state(lv, pos);
     trace_enter(lv.tr, &pos, "tick %d %d %d %s%s", pos.x, pos.y, pos.z, block_defs[block].name,
                 state_is(st, block) ? "" : " stale");
-    if (state_is(st, block)) {
-        block_tick(lv, st, pos);
-    }
+    if (state_is(st, block)) block_tick(lv, st, pos);
     trace_exit(lv.tr);
 }
 
@@ -542,9 +480,7 @@ static void level_run_block_events(level & lv) {
         bool     stale = !state_is(st, e.block);
         trace_enter(lv.tr, &e.pos, "event %d %d %d %s %d %d%s", e.pos.x, e.pos.y, e.pos.z, block_defs[e.block].name,
                     e.param_a, e.param_b, stale ? " stale" : "");
-        if (!stale) {
-            block_trigger_event(lv, st, e.pos, e.param_a, e.param_b);
-        }
+        if (!stale) block_trigger_event(lv, st, e.pos, e.param_a, e.param_b);
         trace_exit(lv.tr);
     }
 }
@@ -559,9 +495,7 @@ static void level_tick_block_entities(level & lv) {
     size_t                               kept    = 0;
     for (size_t i = 0; i < tickers.size(); i++) {
         block_entity_ticker * ticker = tickers[i];
-        if (ticker->be == nullptr) {
-            continue;
-        }
+        if (ticker->be == nullptr) continue;
         tickers[kept++]    = ticker;
         block_entity * be  = ticker->be;
         block_pos      pos = be->pos;
@@ -600,9 +534,7 @@ void level_tick(level & lv) {
         return;
     }
     scheduled_tick t;
-    while (level_ticks_poll(lv.block_ticks, t)) {
-        level_tick_block(lv, t.pos, t.block);
-    }
+    while (level_ticks_poll(lv.block_ticks, t)) level_tick_block(lv, t.pos, t.block);
 
     trace_phase(lv.tr, "fluidTicks");
     trace_phase(lv.tr, "raid");

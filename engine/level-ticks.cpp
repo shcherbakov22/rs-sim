@@ -56,9 +56,7 @@ void level_ticks_collect(level_ticks & lt, int64_t current_tick) {
 }
 
 bool level_ticks_poll(level_ticks & lt, scheduled_tick & out) {
-    if (lt.to_run.empty()) {
-        return false;
-    }
+    if (lt.to_run.empty()) return false;
     out = lt.to_run.front();
     lt.to_run.erase(lt.to_run.begin());
     return true;

@@ -29,9 +29,7 @@ static void java_hash_map_resize(java_hash_map & m) {
 }
 
 void java_hash_map_put(java_hash_map & m, block_pos key, int32_t value) {
-    if (m.table.empty()) {
-        java_hash_map_resize(m);
-    }
+    if (m.table.empty()) java_hash_map_resize(m);
     std::vector<java_hash_map_entry> & bin = m.table[java_hash_map_hash(key) & (m.table.size() - 1)];
     for (java_hash_map_entry & e : bin) {
         if (e.key == key) {
@@ -45,15 +43,11 @@ void java_hash_map_put(java_hash_map & m, block_pos key, int32_t value) {
         TMC_ASSERT(m.table.size() < JAVA_HASH_MAP_MIN_TREEIFY);
         java_hash_map_resize(m);
     }
-    if ((size_t) ++m.size > m.table.size() * 3 / 4) {
-        java_hash_map_resize(m);
-    }
+    if ((size_t) ++m.size > m.table.size() * 3 / 4) java_hash_map_resize(m);
 }
 
 void java_hash_map_remove(java_hash_map & m, block_pos key) {
-    if (m.table.empty()) {
-        return;
-    }
+    if (m.table.empty()) return;
     std::vector<java_hash_map_entry> & bin = m.table[java_hash_map_hash(key) & (m.table.size() - 1)];
     for (size_t i = 0; i < bin.size(); i++) {
         if (bin[i].key == key) {
@@ -66,8 +60,6 @@ void java_hash_map_remove(java_hash_map & m, block_pos key) {
 
 std::vector<java_hash_map_entry> java_hash_map_entries(const java_hash_map & m) {
     std::vector<java_hash_map_entry> out;
-    for (const std::vector<java_hash_map_entry> & bin : m.table) {
-        out.insert(out.end(), bin.begin(), bin.end());
-    }
+    for (const std::vector<java_hash_map_entry> & bin : m.table) out.insert(out.end(), bin.begin(), bin.end());
     return out;
 }

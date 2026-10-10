@@ -89,9 +89,7 @@ static bool block_hooks_has(const block_hooks & b, hook h) {
 // which stops the run.
 static const block_hooks * block_hooks_for(level & lv, state_id st, hook h) {
     int16_t owner = hook_owner(st, h);
-    if (owner == VCLASS_NONE) {
-        return nullptr;
-    }
+    if (owner == VCLASS_NONE) return nullptr;
     const block_hooks * b = block_hooks_of(owner);
     if (b == nullptr || !block_hooks_has(*b, h)) {
         hook_unsupported(lv, st, h);
@@ -114,9 +112,7 @@ bool support_type_is_supporting(const shape & support_shape, direction dir, supp
             return shape_face_covers(face, center);
         case SUPPORT_TYPE_RIGID:
             for (const shape_box & b : rigid) {
-                if (!shape_face_covers(face, b)) {
-                    return false;
-                }
+                if (!shape_face_covers(face, b)) return false;
             }
             return true;
     }
@@ -126,13 +122,9 @@ bool support_type_is_supporting(const shape & support_shape, direction dir, supp
 
 // BlockState.getCollisionShape with the empty collision context
 shape block_get_collision_shape(level & lv, state_id st, block_pos pos) {
-    if (state_collision_shapes[st] != SHAPE_NONE) {
-        return shape_collision(st);
-    }
+    if (state_collision_shapes[st] != SHAPE_NONE) return shape_collision(st);
     // a shulker box never opens without players, and a closed box is a full block
-    if (block_instanceof(state_block(st), VCLASS_SHULKER_BOX_BLOCK)) {
-        return shape_block();
-    }
+    if (block_instanceof(state_block(st), VCLASS_SHULKER_BOX_BLOCK)) return shape_block();
     if (!state_is(st, BLOCK_MOVING_PISTON)) {
         level_unsupported(lv, "dynamic shape of %s", state_to_string(st).c_str());
         return {};
@@ -152,9 +144,7 @@ bool block_is_face_sturdy(level & lv, state_id st, block_pos pos, direction dir,
 // Block.canSupportCenter
 bool block_can_support_center(level & lv, block_pos pos, direction dir) {
     state_id st = level_get_state(lv, pos);
-    if (dir == DIRECTION_DOWN && state_has(st, STATE_FLAG_TAG_UNSTABLE_BOTTOM_CENTER)) {
-        return false;
-    }
+    if (dir == DIRECTION_DOWN && state_has(st, STATE_FLAG_TAG_UNSTABLE_BOTTOM_CENTER)) return false;
     return block_is_face_sturdy(lv, st, pos, dir, SUPPORT_TYPE_CENTER);
 }
 
@@ -177,9 +167,7 @@ state_id block_update_shape(level &   lv,
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_UPDATE_SHAPE)) {
         result = b->update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
     }
-    if (result != st && trace_wants(lv.tr, &pos)) {
-        trace_add(lv.tr, "=> %s", state_to_string(result).c_str());
-    }
+    if (result != st && trace_wants(lv.tr, &pos)) trace_add(lv.tr, "=> %s", state_to_string(result).c_str());
     trace_exit(lv.tr);
     return result;
 }
@@ -194,9 +182,7 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
 }
 
 void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool moved_by_piston) {
-    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_ON_PLACE)) {
-        b->on_place(lv, st, pos, old, moved_by_piston);
-    }
+    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_ON_PLACE)) b->on_place(lv, st, pos, old, moved_by_piston);
 }
 
 void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston) {
@@ -206,9 +192,7 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
 }
 
 void block_tick(level & lv, state_id st, block_pos pos) {
-    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_TICK)) {
-        b->tick(lv, st, pos);
-    }
+    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_TICK)) b->tick(lv, st, pos);
 }
 
 bool block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a, int32_t param_b) {
@@ -236,9 +220,7 @@ bool block_is_signal_source(level & lv, state_id st) {
 }
 
 int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) {
-    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_GET_SIGNAL)) {
-        return b->get_signal(lv, st, pos, dir);
-    }
+    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_GET_SIGNAL)) return b->get_signal(lv, st, pos, dir);
     return 0;
 }
 
@@ -250,9 +232,7 @@ int32_t block_get_direct_signal(level & lv, state_id st, block_pos pos, directio
 }
 
 bool block_can_survive(level & lv, state_id st, block_pos pos) {
-    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_CAN_SURVIVE)) {
-        return b->can_survive(lv, st, pos);
-    }
+    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_CAN_SURVIVE)) return b->can_survive(lv, st, pos);
     return true;
 }
 
@@ -271,9 +251,7 @@ state_id block_update_from_neighbour_shapes(level & lv, state_id st, block_pos p
 }
 
 void block_update_or_destroy(level & lv, state_id old, state_id updated, block_pos pos, int32_t flags, int32_t limit) {
-    if (updated == old) {
-        return;
-    }
+    if (updated == old) return;
     if (state_has(updated, STATE_FLAG_AIR)) {
         level_destroy_block(lv, pos, (flags & UPDATE_FLAG_SUPPRESS_DROPS) == 0, limit);
     } else {

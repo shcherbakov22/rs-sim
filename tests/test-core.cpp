@@ -60,9 +60,7 @@ static void test_states() {
         state_id back = STATE_AIR;
         bool     ok   = state_parse(state_to_string((state_id) st), back, err);
         CHECK(ok && back == st);
-        if (!ok || back != st) {
-            break;
-        }
+        if (!ok || back != st) break;
     }
     CHECK(state_to_string(STATE_AIR) == "air");
 
@@ -109,18 +107,14 @@ static void test_java_hash_map() {
     static const int32_t expected[]          = { 9, 11, 14, 16, 18, 19, 7, 12, 0, 17, 5, 10, 13, 15, 1, 3, 6, 8, 99 };
     std::vector<java_hash_map_entry> entries = java_hash_map_entries(m);
     CHECK(entries.size() == 19);
-    for (size_t i = 0; i < entries.size() && i < 19; i++) {
-        CHECK(entries[i].value == expected[i]);
-    }
+    for (size_t i = 0; i < entries.size() && i < 19; i++) CHECK(entries[i].value == expected[i]);
 }
 
 // the face logic against vanilla's cached isFaceSturdy answers for every state with a fixed shape
 static void test_shape_support() {
     int32_t wrong = 0;
     for (int32_t st = 0; st < n_states; st++) {
-        if (state_support_shapes[st] == SHAPE_NONE) {
-            continue;
-        }
+        if (state_support_shapes[st] == SHAPE_NONE) continue;
         shape support = shape_from_table(state_support_shapes[st]);
         for (int32_t type = 0; type < 3; type++) {
             for (int32_t dir = 0; dir < 6; dir++) {

@@ -34,9 +34,7 @@ static state_id door_update_shape(level & lv, state_id st, block_pos pos, direct
 static void door_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block, bool) {
     direction other  = state_get(st, PROP_DOUBLE_BLOCK_HALF) == DOUBLE_BLOCK_HALF_LOWER ? DIRECTION_UP : DIRECTION_DOWN;
     bool      signal = level_has_neighbor_signal(lv, pos) || level_has_neighbor_signal(lv, pos_relative(pos, other));
-    if (block == state_block(st) || signal == (bool) state_get(st, PROP_POWERED)) {
-        return;
-    }
+    if (block == state_block(st) || signal == (bool) state_get(st, PROP_POWERED)) return;
     if (signal != (bool) state_get(st, PROP_OPEN)) {
         rng_next_float(lv.random);  // the sound pitch
     }
@@ -46,17 +44,13 @@ static void door_neighbor_changed(level & lv, state_id st, block_pos pos, int32_
 // TrapDoorBlock: the sound plays before the block is set, and the water tick after
 static void trap_door_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
     bool signal = level_has_neighbor_signal(lv, pos);
-    if (signal == (bool) state_get(st, PROP_POWERED)) {
-        return;
-    }
+    if (signal == (bool) state_get(st, PROP_POWERED)) return;
     if ((bool) state_get(st, PROP_OPEN) != signal) {
         st = state_set(st, PROP_OPEN, signal);
         rng_next_float(lv.random);  // the sound pitch
     }
     level_set_block(lv, pos, state_set(st, PROP_POWERED, signal), UPDATE_FLAG_CLIENTS);
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
+    if (state_get(st, PROP_WATERLOGGED)) level_unsupported(lv, "fluids");
 }
 
 // FenceGateBlock: in_wall follows walls on the sides; only the neighbors along the gate's width decide it
@@ -67,9 +61,7 @@ static state_id fence_gate_update_shape(level &   lv,
                                         block_pos,
                                         state_id neighbor) {
     direction facing = (direction) state_get(st, PROP_HORIZONTAL_FACING);
-    if (direction_get_axis(direction_clockwise(facing)) != direction_get_axis(dir)) {
-        return st;
-    }
+    if (direction_get_axis(direction_clockwise(facing)) != direction_get_axis(dir)) return st;
     bool in_wall = state_has(neighbor, STATE_FLAG_TAG_WALLS) ||
                    state_has(level_get_state(lv, pos_relative(pos, direction_opposite(dir))), STATE_FLAG_TAG_WALLS);
     return state_set(st, PROP_IN_WALL, in_wall);
@@ -78,9 +70,7 @@ static state_id fence_gate_update_shape(level &   lv,
 // the sound plays after the block is set
 static void fence_gate_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
     bool signal = level_has_neighbor_signal(lv, pos);
-    if (state_get(st, PROP_POWERED) == signal) {
-        return;
-    }
+    if (state_get(st, PROP_POWERED) == signal) return;
     level_set_block(lv, pos, state_set(state_set(st, PROP_POWERED, signal), PROP_OPEN, signal), UPDATE_FLAG_CLIENTS);
     if (state_get(st, PROP_OPEN) != signal) {
         rng_next_float(lv.random);  // the sound pitch
@@ -105,14 +95,10 @@ static bool note_block_instrument_works_above(int32_t instrument) {
 }
 
 static state_id note_block_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id) {
-    if (direction_get_axis(dir) != DIRECTION_AXIS_Y) {
-        return st;
-    }
+    if (direction_get_axis(dir) != DIRECTION_AXIS_Y) return st;
     // setInstrument
     int32_t above = block_defs[state_block(level_get_state(lv, pos_relative(pos, DIRECTION_UP)))].instrument;
-    if (note_block_instrument_works_above(above)) {
-        return state_set(st, PROP_NOTEBLOCK_INSTRUMENT, above);
-    }
+    if (note_block_instrument_works_above(above)) return state_set(st, PROP_NOTEBLOCK_INSTRUMENT, above);
     int32_t below = block_defs[state_block(level_get_state(lv, pos_relative(pos, DIRECTION_DOWN)))].instrument;
     return state_set(st, PROP_NOTEBLOCK_INSTRUMENT,
                      note_block_instrument_works_above(below) ? NOTE_BLOCK_INSTRUMENT_HARP : below);
@@ -121,9 +107,7 @@ static state_id note_block_update_shape(level & lv, state_id st, block_pos pos, 
 // playNote: a base block instrument needs air above to play
 static void note_block_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
     bool signal = level_has_neighbor_signal(lv, pos);
-    if (signal == (bool) state_get(st, PROP_POWERED)) {
-        return;
-    }
+    if (signal == (bool) state_get(st, PROP_POWERED)) return;
     if (signal && (!state_has(st, STATE_FLAG_NOTE_TUNABLE) ||
                    state_has(level_get_state(lv, pos_relative(pos, DIRECTION_UP)), STATE_FLAG_AIR))) {
         level_block_event(lv, pos, state_block(st), 0, 0);
@@ -133,9 +117,7 @@ static void note_block_neighbor_changed(level & lv, state_id st, block_pos pos, 
 
 // the sound seed is the only level random draw; skulls here never carry a note_block_sound, so custom heads stay silent
 static bool note_block_trigger_event(level & lv, state_id st, block_pos, int32_t, int32_t) {
-    if (state_has(st, STATE_FLAG_NOTE_CUSTOM_SOUND)) {
-        return false;
-    }
+    if (state_has(st, STATE_FLAG_NOTE_CUSTOM_SOUND)) return false;
     rng_next_long(lv.random);
     return true;
 }

@@ -22,13 +22,9 @@ static direction attached_support_side(state_id st) {
         return direction_opposite(face_attached_horizontal_directional_get_connected_direction(st));
     }
     // LanternBlock
-    if (state_has_prop(st, PROP_HANGING)) {
-        return state_get(st, PROP_HANGING) ? DIRECTION_UP : DIRECTION_DOWN;
-    }
+    if (state_has_prop(st, PROP_HANGING)) return state_get(st, PROP_HANGING) ? DIRECTION_UP : DIRECTION_DOWN;
     // AmethystClusterBlock
-    if (state_has_prop(st, PROP_FACING)) {
-        return direction_opposite((direction) state_get(st, PROP_FACING));
-    }
+    if (state_has_prop(st, PROP_FACING)) return direction_opposite((direction) state_get(st, PROP_FACING));
     // WallTorchBlock, RedstoneWallTorchBlock, LadderBlock
     if (state_has_prop(st, PROP_HORIZONTAL_FACING)) {
         return direction_opposite((direction) state_get(st, PROP_HORIZONTAL_FACING));
@@ -65,9 +61,7 @@ static state_id ladder_update_shape(level &   lv,
                                     block_pos neighbor_pos,
                                     state_id  neighbor) {
     state_id result = attached_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
-    if (result == st && state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
+    if (result == st && state_get(st, PROP_WATERLOGGED)) level_unsupported(lv, "fluids");
     return result;
 }
 
@@ -100,9 +94,7 @@ static direction bell_get_connected_direction(state_id st) {
 
 static bool bell_can_survive(level & lv, state_id st, block_pos pos) {
     direction dir = direction_opposite(bell_get_connected_direction(st));
-    if (dir == DIRECTION_UP) {
-        return block_can_support_center(lv, pos_relative(pos, DIRECTION_UP), DIRECTION_DOWN);
-    }
+    if (dir == DIRECTION_UP) return block_can_support_center(lv, pos_relative(pos, DIRECTION_UP), DIRECTION_DOWN);
     return face_attached_horizontal_directional_can_attach(lv, pos, dir);
 }
 
@@ -142,9 +134,7 @@ static void bell_attempt_to_ring(level & lv, block_pos pos, direction dir) {
 static void bell_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
     bool signal = level_has_neighbor_signal(lv, pos);
     if (signal != (state_get(st, PROP_POWERED) != 0)) {
-        if (signal) {
-            bell_attempt_to_ring(lv, pos, bell_facing(level_get_state(lv, pos)));
-        }
+        if (signal) bell_attempt_to_ring(lv, pos, bell_facing(level_get_state(lv, pos)));
         level_set_block(lv, pos, state_set(st, PROP_POWERED, signal), UPDATE_FLAG_ALL);
     }
 }
