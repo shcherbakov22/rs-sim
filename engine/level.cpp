@@ -3,6 +3,7 @@
 #include "blocks/block-behaviour.h"
 #include "core/trace.h"
 
+#include <algorithm>
 #include <cstdarg>
 
 void level_unsupported(level & lv, const char * fmt, ...) {
@@ -149,8 +150,8 @@ static double rng_next_double_between(rng & r, double min, double max) {
     return min >= max ? min : rng_next_double(r) * (max - min) + min;
 }
 
-// Block.dropResources with an empty hand. The first item entity ends the traced contract.
-static void level_drop_resources(level & lv, state_id st, block_pos pos) {
+// The first item entity ends the traced contract.
+void level_drop_resources(level & lv, state_id st, block_pos pos) {
     if (state_has(st, STATE_FLAG_DROPS_RANDOM)) {
         level_unsupported(lv, "random loot");
         return;
@@ -283,6 +284,64 @@ void level_block_event(level & lv, block_pos pos, int32_t block, int32_t param_a
     if (!dup) {
         lv.block_events.push_back(e);
     }
+}
+
+int32_t level_get_direct_signal(level & lv, block_pos pos, direction dir) {
+    return block_get_direct_signal(lv, level_get_state(lv, pos), pos, dir);
+}
+
+int32_t level_get_direct_signal_to(level & lv, block_pos pos) {
+    int32_t result = 0;
+    for (int32_t d = 0; d < 6 && result < 15; d++) {
+        direction dir = (direction) d;
+        result        = std::max(result, level_get_direct_signal(lv, pos_relative(pos, dir), dir));
+    }
+    return result;
+}
+
+int32_t level_get_control_input_signal(level & lv, block_pos pos, direction dir, bool only_diodes) {
+    state_id st = level_get_state(lv, pos);
+    if (only_diodes) {
+        return block_instanceof(state_block(st), VCLASS_DIODE_BLOCK) ? level_get_direct_signal(lv, pos, dir) : 0;
+    }
+    if (state_is(st, BLOCK_REDSTONE_BLOCK)) {
+        return 15;
+    }
+    if (state_is(st, BLOCK_REDSTONE_WIRE)) {
+        return state_get(st, PROP_POWER);
+    }
+    return block_is_signal_source(lv, st) ? level_get_direct_signal(lv, pos, dir) : 0;
+}
+
+bool level_has_signal(level & lv, block_pos pos, direction dir) {
+    return level_get_signal(lv, pos, dir) > 0;
+}
+
+int32_t level_get_signal(level & lv, block_pos pos, direction dir) {
+    state_id st     = level_get_state(lv, pos);
+    int32_t  signal = block_get_signal(lv, st, pos, dir);
+    return state_has(st, STATE_FLAG_CONDUCTOR) ? std::max(signal, level_get_direct_signal_to(lv, pos)) : signal;
+}
+
+bool level_has_neighbor_signal(level & lv, block_pos pos) {
+    for (int32_t d = 0; d < 6; d++) {
+        if (level_has_signal(lv, pos_relative(pos, (direction) d), (direction) d)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+int32_t level_get_best_neighbor_signal(level & lv, block_pos pos) {
+    int32_t best = 0;
+    for (int32_t d = 0; d < 6; d++) {
+        int32_t signal = level_get_signal(lv, pos_relative(pos, (direction) d), (direction) d);
+        if (signal >= 15) {
+            return 15;
+        }
+        best = std::max(best, signal);
+    }
+    return best;
 }
 
 // ServerLevel.tickBlock

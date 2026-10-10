@@ -1,5 +1,6 @@
 #include "engine/case-run.h"
 
+#include "blocks/block-behaviour.h"
 #include "engine/level.h"
 
 // Batch.SURROUND: the oracle clears and traces this margin around the region
@@ -35,6 +36,22 @@ static void case_place(level & lv, const case_file & f) {
     lv.random.gaussian     = f.gaussian;
 }
 
+// ServerPlayerGameMode.useItemOn for a player that is not sneaking; Inputs.use gives each use a fresh stack
+static void case_use(level & lv, const case_input & in) {
+    state_id           st     = level_get_state(lv, in.pos);
+    interaction_result result = block_use_item_on(lv, st);
+    if (interaction_result_consumes_action(result)) {
+        return;
+    }
+    if (result == INTERACTION_RESULT_TRY_WITH_EMPTY_HAND &&
+        interaction_result_consumes_action(block_use_without_item(lv, st, in.pos))) {
+        return;
+    }
+    if (!in.item.empty()) {
+        level_unsupported(lv, "item useOn");
+    }
+}
+
 static const char * const case_verb_names[] = { "use", "attack", "place", "break", "close" };
 
 // Inputs.apply: the block-side effect of a player action
@@ -61,6 +78,12 @@ static void case_apply_input(level & lv, const case_input & in) {
             break;
         case CASE_VERB_BREAK:
             level_destroy_block(lv, in.pos, false);
+            break;
+        case CASE_VERB_USE:
+            case_use(lv, in);
+            break;
+        case CASE_VERB_ATTACK:
+            block_attack(lv, level_get_state(lv, in.pos));
             break;
         default:
             level_unsupported(lv, "input %s", case_verb_names[in.verb]);

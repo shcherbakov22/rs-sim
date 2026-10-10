@@ -2,7 +2,6 @@
 active/button-piston
 active/hopper-chain
 active/hopper-order
-active/lever-lamp
 active/note-bell
 active/pushed-observer-clock
 active/qc-bud
@@ -146,7 +145,6 @@ corpus/0135
 corpus/0136
 corpus/0137
 corpus/0138
-corpus/0139
 corpus/0140
 corpus/0141
 corpus/0142
@@ -176,7 +174,6 @@ corpus/0165
 corpus/0166
 corpus/0167
 corpus/0168
-corpus/0169
 corpus/0170
 corpus/0171
 corpus/0172
@@ -188,7 +185,6 @@ corpus/0177
 corpus/0178
 corpus/0179
 corpus/0180
-corpus/0181
 corpus/0182
 corpus/0183
 corpus/0184
@@ -197,7 +193,6 @@ corpus/0186
 corpus/0187
 corpus/0188
 corpus/0189
-corpus/0190
 corpus/0191
 corpus/0192
 corpus/0193
@@ -229,7 +224,6 @@ corpus/0218
 corpus/0219
 corpus/0220
 corpus/0221
-corpus/0222
 corpus/0223
 corpus/0224
 corpus/0225
@@ -239,7 +233,6 @@ corpus/0228
 corpus/0229
 corpus/0230
 corpus/0231
-corpus/0232
 corpus/0233
 corpus/0234
 corpus/0235
@@ -335,9 +328,7 @@ corpus/0324
 corpus/0325
 corpus/0326
 corpus/0327
-corpus/0328
 corpus/0329
 corpus/0330
-corpus/0331
 corpus/0332
 pending-ticks

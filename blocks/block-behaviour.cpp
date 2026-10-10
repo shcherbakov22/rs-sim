@@ -1,5 +1,6 @@
 #include "blocks/block-behaviour.h"
 
+#include "blocks/handlers.h"
 #include "core/trace.h"
 #include "engine/level.h"
 
@@ -11,6 +12,15 @@ static void hook_unsupported(level & lv, state_id st, hook h) {
     level_unsupported(lv, "%s.%s", vclass_names[hook_owner(st, h)], hook_names[h]);
 }
 
+bool block_is_face_sturdy(level & lv, state_id st, direction dir, support_type type) {
+    static_assert(STATE_FLAG_STURDY_RIGID_EAST == STATE_FLAG_STURDY_FULL_DOWN << 17);
+    // without a shape cache the answer depends on the world (block entity or position offset)
+    if (state_has(st, STATE_FLAG_DYNAMIC_SHAPE)) {
+        level_unsupported(lv, "dynamic shape of %s", state_to_string(st).c_str());
+    }
+    return (state_flags[st] & STATE_FLAG_STURDY_FULL_DOWN << (type * 6 + dir)) != 0;
+}
+
 state_id block_update_shape(level &   lv,
                             state_id  st,
                             block_pos pos,
@@ -19,14 +29,35 @@ state_id block_update_shape(level &   lv,
                             state_id  neighbor) {
     trace_enter(lv.tr, &pos, "shape %d %d %d %s %s %s", pos.x, pos.y, pos.z, state_to_string(st).c_str(),
                 direction_defs[dir].name, state_to_string(neighbor).c_str());
+    (void) neighbor_pos;
     state_id result = st;
     switch (hook_owner(st, HOOK_UPDATE_SHAPE)) {
         case VCLASS_NONE:
             break;
+        case VCLASS_BASE_TORCH_BLOCK:
+            result = base_torch_update_shape(lv, st, pos, dir);
+            break;
+        case VCLASS_WALL_TORCH_BLOCK:
+            result = wall_torch_update_shape(lv, st, pos, dir);
+            break;
+        case VCLASS_RED_STONE_WIRE_BLOCK:
+            result = red_stone_wire_update_shape(lv, st, pos, dir, neighbor);
+            break;
+        case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
+            result = redstone_wall_torch_update_shape(lv, st, pos, dir);
+            break;
+        case VCLASS_REPEATER_BLOCK:
+            result = repeater_update_shape(lv, st, pos, dir, neighbor);
+            break;
+        case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
+            result = face_attached_horizontal_directional_update_shape(lv, st, pos, dir);
+            break;
+        case VCLASS_OBSERVER_BLOCK:
+            result = observer_update_shape(lv, st, pos, dir);
+            break;
         default:
             hook_unsupported(lv, st, HOOK_UPDATE_SHAPE);
     }
-    (void) neighbor_pos;
     if (result != st && trace_wants(lv.tr, &pos)) {
         trace_add(lv.tr, "=> %s", state_to_string(result).c_str());
     }
@@ -40,6 +71,18 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
     switch (hook_owner(st, HOOK_NEIGHBOR_CHANGED)) {
         case VCLASS_NONE:
             break;
+        case VCLASS_RED_STONE_WIRE_BLOCK:
+            red_stone_wire_neighbor_changed(lv, st, pos);
+            break;
+        case VCLASS_REDSTONE_TORCH_BLOCK:
+            redstone_torch_neighbor_changed(lv, st, pos);
+            break;
+        case VCLASS_DIODE_BLOCK:
+            diode_neighbor_changed(lv, st, pos);
+            break;
+        case VCLASS_REDSTONE_LAMP_BLOCK:
+            redstone_lamp_neighbor_changed(lv, st, pos);
+            break;
         default:
             hook_unsupported(lv, st, HOOK_NEIGHBOR_CHANGED);
     }
@@ -47,11 +90,21 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
 }
 
 void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool moved_by_piston) {
-    (void) pos;
-    (void) old;
     (void) moved_by_piston;
     switch (hook_owner(st, HOOK_ON_PLACE)) {
         case VCLASS_NONE:
+            break;
+        case VCLASS_RED_STONE_WIRE_BLOCK:
+            red_stone_wire_on_place(lv, st, pos, old);
+            break;
+        case VCLASS_REDSTONE_TORCH_BLOCK:
+            redstone_torch_on_place(lv, st, pos);
+            break;
+        case VCLASS_DIODE_BLOCK:
+            diode_on_place(lv, st, pos);
+            break;
+        case VCLASS_OBSERVER_BLOCK:
+            observer_on_place(lv, st, pos, old);
             break;
         default:
             hook_unsupported(lv, st, HOOK_ON_PLACE);
@@ -59,10 +112,26 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
 }
 
 void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston) {
-    (void) pos;
-    (void) moved_by_piston;
     switch (hook_owner(st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL)) {
         case VCLASS_NONE:
+            break;
+        case VCLASS_RED_STONE_WIRE_BLOCK:
+            red_stone_wire_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+            break;
+        case VCLASS_LEVER_BLOCK:
+            lever_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+            break;
+        case VCLASS_REDSTONE_TORCH_BLOCK:
+            redstone_torch_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+            break;
+        case VCLASS_BUTTON_BLOCK:
+            button_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+            break;
+        case VCLASS_DIODE_BLOCK:
+            diode_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+            break;
+        case VCLASS_OBSERVER_BLOCK:
+            observer_affect_neighbors_after_removal(lv, st, pos);
             break;
         default:
             hook_unsupported(lv, st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL);
@@ -70,9 +139,23 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
 }
 
 void block_tick(level & lv, state_id st, block_pos pos) {
-    (void) pos;
     switch (hook_owner(st, HOOK_TICK)) {
         case VCLASS_NONE:
+            break;
+        case VCLASS_REDSTONE_TORCH_BLOCK:
+            redstone_torch_tick(lv, st, pos);
+            break;
+        case VCLASS_BUTTON_BLOCK:
+            button_tick(lv, st, pos);
+            break;
+        case VCLASS_DIODE_BLOCK:
+            diode_tick(lv, st, pos);
+            break;
+        case VCLASS_REDSTONE_LAMP_BLOCK:
+            redstone_lamp_tick(lv, st, pos);
+            break;
+        case VCLASS_OBSERVER_BLOCK:
+            observer_tick(lv, st, pos);
             break;
         default:
             hook_unsupported(lv, st, HOOK_TICK);
@@ -93,11 +176,11 @@ bool block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a
 }
 
 void block_update_indirect_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit) {
-    (void) pos;
-    (void) flags;
-    (void) limit;
     switch (hook_owner(st, HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES)) {
         case VCLASS_NONE:
+            break;
+        case VCLASS_RED_STONE_WIRE_BLOCK:
+            red_stone_wire_update_indirect_neighbour_shapes(lv, st, pos, flags, limit);
             break;
         default:
             hook_unsupported(lv, st, HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES);
@@ -111,6 +194,131 @@ void block_spawn_after_break(level & lv, state_id st, block_pos pos) {
             break;
         default:
             hook_unsupported(lv, st, HOOK_SPAWN_AFTER_BREAK);
+    }
+}
+
+interaction_result block_use_item_on(level & lv, state_id st) {
+    switch (hook_owner(st, HOOK_USE_ITEM_ON)) {
+        case VCLASS_NONE:
+            return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;
+        default:
+            hook_unsupported(lv, st, HOOK_USE_ITEM_ON);
+            return INTERACTION_RESULT_PASS;
+    }
+}
+
+interaction_result block_use_without_item(level & lv, state_id st, block_pos pos) {
+    switch (hook_owner(st, HOOK_USE_WITHOUT_ITEM)) {
+        case VCLASS_NONE:
+            return INTERACTION_RESULT_PASS;
+        case VCLASS_RED_STONE_WIRE_BLOCK:
+            return red_stone_wire_use_without_item(lv, st, pos);
+        case VCLASS_LEVER_BLOCK:
+            return lever_use_without_item(lv, st, pos);
+        case VCLASS_BUTTON_BLOCK:
+            return button_use_without_item(lv, st, pos);
+        case VCLASS_REPEATER_BLOCK:
+            return repeater_use_without_item(lv, st, pos);
+        default:
+            hook_unsupported(lv, st, HOOK_USE_WITHOUT_ITEM);
+            return INTERACTION_RESULT_PASS;
+    }
+}
+
+void block_attack(level & lv, state_id st) {
+    switch (hook_owner(st, HOOK_ATTACK)) {
+        case VCLASS_NONE:
+            break;
+        default:
+            hook_unsupported(lv, st, HOOK_ATTACK);
+    }
+}
+
+bool block_is_signal_source(level & lv, state_id st) {
+    switch (hook_owner(st, HOOK_IS_SIGNAL_SOURCE)) {
+        case VCLASS_NONE:
+            return false;
+        case VCLASS_RED_STONE_WIRE_BLOCK:
+            return lv.red_stone_wire_should_signal;
+        case VCLASS_LEVER_BLOCK:
+        case VCLASS_REDSTONE_TORCH_BLOCK:
+        case VCLASS_BUTTON_BLOCK:
+        case VCLASS_DIODE_BLOCK:
+        case VCLASS_POWERED_BLOCK:
+        case VCLASS_OBSERVER_BLOCK:
+            return true;
+        default:
+            hook_unsupported(lv, st, HOOK_IS_SIGNAL_SOURCE);
+            return false;
+    }
+}
+
+int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) {
+    switch (hook_owner(st, HOOK_GET_SIGNAL)) {
+        case VCLASS_NONE:
+            return 0;
+        case VCLASS_RED_STONE_WIRE_BLOCK:
+            return red_stone_wire_get_signal(lv, st, pos, dir);
+        case VCLASS_LEVER_BLOCK:
+            return lever_get_signal(st);
+        case VCLASS_REDSTONE_TORCH_BLOCK:
+            return redstone_torch_get_signal(st, dir);
+        case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
+            return redstone_wall_torch_get_signal(st, dir);
+        case VCLASS_BUTTON_BLOCK:
+            return button_get_signal(st);
+        case VCLASS_DIODE_BLOCK:
+            return diode_get_signal(st, dir);
+        case VCLASS_POWERED_BLOCK:
+            return 15;
+        case VCLASS_OBSERVER_BLOCK:
+            return observer_get_signal(st, dir);
+        default:
+            hook_unsupported(lv, st, HOOK_GET_SIGNAL);
+            return 0;
+    }
+}
+
+int32_t block_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir) {
+    switch (hook_owner(st, HOOK_GET_DIRECT_SIGNAL)) {
+        case VCLASS_NONE:
+            return 0;
+        case VCLASS_RED_STONE_WIRE_BLOCK:
+            return red_stone_wire_get_direct_signal(lv, st, pos, dir);
+        case VCLASS_LEVER_BLOCK:
+            return lever_get_direct_signal(st, dir);
+        case VCLASS_REDSTONE_TORCH_BLOCK:
+            return redstone_torch_get_direct_signal(lv, st, pos, dir);
+        case VCLASS_BUTTON_BLOCK:
+            return button_get_direct_signal(st, dir);
+        case VCLASS_DIODE_BLOCK:
+        case VCLASS_OBSERVER_BLOCK:
+            return block_get_signal(lv, st, pos, dir);
+        default:
+            hook_unsupported(lv, st, HOOK_GET_DIRECT_SIGNAL);
+            return 0;
+    }
+}
+
+bool block_can_survive(level & lv, state_id st, block_pos pos) {
+    switch (hook_owner(st, HOOK_CAN_SURVIVE)) {
+        case VCLASS_NONE:
+            return true;
+        case VCLASS_BASE_TORCH_BLOCK:
+            return base_torch_can_survive(lv, pos);
+        case VCLASS_WALL_TORCH_BLOCK:
+            return wall_torch_can_survive(lv, pos, (direction) state_get(st, PROP_HORIZONTAL_FACING));
+        case VCLASS_RED_STONE_WIRE_BLOCK:
+            return red_stone_wire_can_survive(lv, pos);
+        case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
+            return redstone_wall_torch_can_survive(lv, st, pos);
+        case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
+            return face_attached_horizontal_directional_can_survive(lv, st, pos);
+        case VCLASS_DIODE_BLOCK:
+            return diode_can_survive(lv, pos);
+        default:
+            hook_unsupported(lv, st, HOOK_CAN_SURVIVE);
+            return true;
     }
 }
 

@@ -12,7 +12,11 @@
 #include <unordered_map>
 #include <vector>
 
-// Build height relative to the case origin (overworld -64..319, oracle origin at y 64).
+// World position of the case origin in the oracle (TmcOracle.BATCH_ORIGIN). Sim positions are relative to it,
+// but vanilla hash orders depend on world positions.
+constexpr block_pos LEVEL_ORIGIN = { 0, 64, 0 };
+
+// Build height relative to the case origin (overworld -64..319).
 constexpr int32_t LEVEL_Y_MIN = -128;
 constexpr int32_t LEVEL_Y_MAX = 255;
 
@@ -46,19 +50,28 @@ struct block_event {
     int32_t   param_b;
 };
 
+// RedstoneTorchBlock.Toggle
+struct redstone_torch_toggle {
+    block_pos pos;
+    int64_t   when;
+};
+
 // One world (ServerLevel). Everything outside the stored sections is air.
 struct level {
     std::unordered_map<int64_t, std::unique_ptr<level_section>> sections;
 
-    int64_t                  game_time      = 0;  // relative to the case placement; case data is relative too
-    int64_t                  sub_tick_count = 0;
-    rng                      random;
-    neighbor_updater         updater;
-    level_ticks              block_ticks;
-    std::vector<block_event> block_events;          // insertion-ordered set
-    trace *                  tr = nullptr;
-    std::string              unsupported;           // first unsupported mechanic hit; the run stops at the next check
-    size_t                   unsupported_line = 0;  // trace lines before it, all still exact
+    int64_t                            game_time      = 0;  // relative to the case placement; case data is relative too
+    int64_t                            sub_tick_count = 0;
+    rng                                random;
+    neighbor_updater                   updater;
+    level_ticks                        block_ticks;
+    std::vector<block_event>           block_events;  // insertion-ordered set
+    // RedStoneWireBlock.shouldSignal lives on the block object, RECENT_TOGGLES in a static map keyed by level
+    bool                               red_stone_wire_should_signal = true;
+    std::vector<redstone_torch_toggle> redstone_torch_recent_toggles;
+    trace *                            tr = nullptr;
+    std::string                        unsupported;  // first unsupported mechanic hit; the run stops at the next check
+    size_t                             unsupported_line = 0;  // trace lines before it, all still exact
 };
 
 void level_unsupported(level & lv, const char * fmt, ...) __attribute__((format(printf, 2, 3)));
@@ -71,6 +84,9 @@ void level_set_state_raw(level & lv, block_pos pos, state_id st);
 bool level_set_block(level & lv, block_pos pos, state_id st, int32_t flags, int32_t limit = UPDATE_LIMIT);
 bool level_remove_block(level & lv, block_pos pos, bool moved_by_piston);
 bool level_destroy_block(level & lv, block_pos pos, bool drop, int32_t limit = UPDATE_LIMIT);
+
+// Block.dropResources without a block entity or tool
+void level_drop_resources(level & lv, state_id st, block_pos pos);
 
 void level_update_neighbors_at(level & lv, block_pos pos, int32_t block);
 void level_update_neighbors_at_except_from_facing(level & lv, block_pos pos, int32_t block, direction skip);
@@ -91,6 +107,15 @@ void level_schedule_tick(level &   lv,
                          int32_t   delay,
                          int32_t   priority = TICK_PRIORITY_NORMAL);
 void level_block_event(level & lv, block_pos pos, int32_t block, int32_t param_a, int32_t param_b);
+
+// SignalGetter
+int32_t level_get_direct_signal(level & lv, block_pos pos, direction dir);
+int32_t level_get_direct_signal_to(level & lv, block_pos pos);
+int32_t level_get_control_input_signal(level & lv, block_pos pos, direction dir, bool only_diodes);
+bool    level_has_signal(level & lv, block_pos pos, direction dir);
+int32_t level_get_signal(level & lv, block_pos pos, direction dir);
+bool    level_has_neighbor_signal(level & lv, block_pos pos);
+int32_t level_get_best_neighbor_signal(level & lv, block_pos pos);
 
 // ServerLevel.tick
 void level_tick(level & lv);

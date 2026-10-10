@@ -12,7 +12,19 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_library(tmc STATIC
+    blocks/base-torch.cpp
     blocks/block-behaviour.cpp
+    blocks/button.cpp
+    blocks/diode.cpp
+    blocks/face-attached-horizontal-directional.cpp
+    blocks/lever.cpp
+    blocks/observer.cpp
+    blocks/red-stone-wire.cpp
+    blocks/redstone-lamp.cpp
+    blocks/redstone-torch.cpp
+    blocks/redstone-wall-torch.cpp
+    blocks/repeater.cpp
+    blocks/wall-torch.cpp
     core/rng.cpp
     core/state.cpp
     core/trace.cpp
