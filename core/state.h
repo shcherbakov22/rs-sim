@@ -66,6 +66,7 @@ struct item_def {
     uint32_t     components;          // item_component bits of the default data components
     uint32_t     cauldron_maps;       // bit per cauldron_map with an interaction for the item
     int32_t      crafting_remainder;  // Item.getCraftingRemainder (count 1), -1 for none
+    const char * block_state;         // BLOCK_STATE component of a fresh stack as name=value,..., nullptr for none
 };
 
 // Ingredient: a set of items, as a range of ingredient_items
