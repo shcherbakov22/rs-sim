@@ -129,6 +129,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_FENCE_BLOCK:
             result = fence_update_shape(lv, st, dir, neighbor_pos, neighbor);
             break;
+        case VCLASS_STAIR_BLOCK:
+            result = stair_update_shape(lv, st, pos, dir);
+            break;
         case VCLASS_BELL_BLOCK:
             result = bell_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;

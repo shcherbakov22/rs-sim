@@ -215,6 +215,9 @@ state_id fence_update_shape(level & lv, state_id st, direction dir, block_pos ne
 // IronBarsBlock
 state_id iron_bars_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor);
 
+// StairBlock
+state_id stair_update_shape(level & lv, state_id st, block_pos pos, direction dir);
+
 // WallBlock
 state_id wall_update_shape(level &   lv,
                            state_id  st,
