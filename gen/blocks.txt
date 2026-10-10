@@ -4874,6 +4874,7 @@ block oak_leaves 252 28 279 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
+  flag drops 0010000000000000000000000000
   flag push_destroy
   collision 1
   support 0
@@ -4882,7 +4883,7 @@ block spruce_leaves 280 28 307 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000000100000000010000000000
+  flag drops 0000000000010000000001000000
   flag push_destroy
   collision 1
   support 0
@@ -4891,6 +4892,7 @@ block birch_leaves 308 28 335 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
+  flag drops 0010000000000000000000000000
   flag push_destroy
   collision 1
   support 0
@@ -4899,7 +4901,7 @@ block jungle_leaves 336 28 363 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000000001000010000000000000
+  flag drops 0000000000000100100000000001
   flag push_destroy
   collision 1
   support 0
@@ -4908,7 +4910,7 @@ block acacia_leaves 364 28 391 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000001000000000000000000000
+  flag drops 1000000010000000000100000100
   flag push_destroy
   collision 1
   support 0
@@ -4917,7 +4919,7 @@ block cherry_leaves 392 28 419 UntintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 1000000000000000000000000000
+  flag drops 1001000000000000000100000000
   flag push_destroy
   collision 1
   support 0
@@ -4926,7 +4928,7 @@ block dark_oak_leaves 420 28 447 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0100100000000000000000100000
+  flag drops 0000000000001000000000010000
   flag push_destroy
   collision 1
   support 0
@@ -4935,7 +4937,6 @@ block pale_oak_leaves 448 28 475 UntintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000000010000010000100000000
   flag push_destroy
   collision 1
   support 0
@@ -4944,7 +4945,7 @@ block mangrove_leaves 476 28 503 MangroveLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000000000000100000000000000
+  flag drops 0000000000000000000000010000
   flag push_destroy
   collision 1
   support 0
@@ -4953,7 +4954,7 @@ block azalea_leaves 504 28 531 UntintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000000000100000000000000000
+  flag drops 0000010010001110001000000000
   flag push_destroy
   collision 1
   support 0
@@ -4962,7 +4963,7 @@ block flowering_azalea_leaves 532 28 559 UntintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0100000000000001000000000000
+  flag drops 0000000000000000100000001000
   flag push_destroy
   collision 1
   support 0
@@ -17660,7 +17661,7 @@ block shroomlight 20774 1 20774 -
 block weeping_vines 20775 26 20775 WeepingVinesBlock
   prop AGE_25
   field GrowingPlantBlock.scheduleFluidTicks 0
-  flag drops 00101110100100010000010010
+  flag drops 10000010000001011100000010
   flag push_destroy
   collision 0
   support 0
@@ -17672,7 +17673,7 @@ block weeping_vines_plant 20801 1 20801 WeepingVinesPlantBlock
 block twisting_vines 20802 26 20802 TwistingVinesBlock
   prop AGE_25
   field GrowingPlantBlock.scheduleFluidTicks 0
-  flag drops 11100100011000010100011010
+  flag drops 01000000010011000001011010
   flag push_destroy
   collision 0
   support 0
@@ -22781,7 +22782,7 @@ block decorated_pot 29391 16 29400 DecoratedPotBlock
   flag block_entity
   flag analog_output
   flag fluid 1010101010101010
-  flag drops 0000000011111111
+  flag drops
   flag push_destroy
   flag sturdy_center_down
   flag sturdy_center_up
