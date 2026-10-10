@@ -35,6 +35,7 @@ inline bool interaction_result_consumes_action(interaction_result r) {
 bool support_type_is_supporting(const voxel_shape & support_shape, direction dir, support_type type);
 // BlockStateBase.isFaceSturdy
 bool block_is_face_sturdy(level & lv, state_id st, block_pos pos, direction dir, support_type type);
+bool block_can_support_center(level & lv, block_pos pos, direction dir);
 
 // BlockStateBase dispatch to the block's vanilla class. A hook the class overrides but the sim
 // does not port yet stops the run as unsupported.
@@ -52,7 +53,7 @@ bool     block_trigger_event(level & lv, state_id st, block_pos pos, int32_t par
 void     block_update_indirect_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit);
 void     block_spawn_after_break(level & lv, state_id st, block_pos pos);
 interaction_result block_use_item_on(level & lv, state_id st);
-interaction_result block_use_without_item(level & lv, state_id st, block_pos pos);
+interaction_result block_use_without_item(level & lv, state_id st, block_pos pos, direction face);
 void               block_attack(level & lv, state_id st);
 bool               block_is_signal_source(level & lv, state_id st);
 int32_t            block_get_signal(level & lv, state_id st, block_pos pos, direction dir);

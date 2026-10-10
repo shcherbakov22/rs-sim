@@ -7,8 +7,6 @@ state_id base_torch_update_shape(level & lv, state_id st, block_pos pos, directi
     return dir == DIRECTION_DOWN && !block_can_survive(lv, st, pos) ? STATE_AIR : st;
 }
 
-// Block.canSupportCenter; UNSTABLE_BOTTOM_CENTER only matters for a downward face
 bool base_torch_can_survive(level & lv, block_pos pos) {
-    block_pos below = pos_relative(pos, DIRECTION_DOWN);
-    return block_is_face_sturdy(lv, level_get_state(lv, below), below, DIRECTION_UP, SUPPORT_TYPE_CENTER);
+    return block_can_support_center(lv, pos_relative(pos, DIRECTION_DOWN), DIRECTION_UP);
 }

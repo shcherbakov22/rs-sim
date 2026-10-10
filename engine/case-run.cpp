@@ -53,9 +53,13 @@ static void case_load_hidden(level & lv, block_entity * be, const snbt_value & h
         // the sim has no openers, so only a closed shulker box can be loaded
         bool shulker_closed =
             entry.key == "animationStatus" ? entry.value.s == "closed" : entry.value.i == 0 && entry.value.d == 0;
+        // the last ring time only gates entity searches, and a still bell has nothing else to keep
+        bool bell_idle = entry.key == "lastRingTimestamp" || entry.key == "clickDirection" || entry.value.i == 0;
         if (be->type == BLOCK_ENTITY_TYPE_HOPPER && entry.key == "tickedGameTime") {
             be->ticked_game_time = lv.game_time + entry.value.i;
         } else if (be->type == BLOCK_ENTITY_TYPE_SHULKER_BOX && shulker_closed) {
+            continue;
+        } else if (be->type == BLOCK_ENTITY_TYPE_BELL && bell_idle) {
             continue;
         } else {
             level_unsupported(lv, "hidden state %s %s", block_entity_type_names[be->type], entry.key.c_str());
@@ -133,7 +137,7 @@ static void case_use(level & lv, const case_input & in) {
         return;
     }
     if (result == INTERACTION_RESULT_TRY_WITH_EMPTY_HAND &&
-        interaction_result_consumes_action(block_use_without_item(lv, st, in.pos))) {
+        interaction_result_consumes_action(block_use_without_item(lv, st, in.pos, in.face))) {
         return;
     }
     if (!in.item.empty()) {

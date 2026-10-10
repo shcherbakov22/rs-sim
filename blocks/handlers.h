@@ -130,6 +130,17 @@ item_stack default_dispense_item_behavior_dispense(level & lv, state_id st, bloc
 void       dispenser_tick(level & lv, state_id st, block_pos pos);
 void       dispenser_neighbor_changed(level & lv, state_id st, block_pos pos);
 
+// BellBlock
+bool               bell_can_survive(level & lv, state_id st, block_pos pos);
+state_id           bell_update_shape(level &   lv,
+                                     state_id  st,
+                                     block_pos pos,
+                                     direction dir,
+                                     block_pos neighbor_pos,
+                                     state_id  neighbor);
+void               bell_neighbor_changed(level & lv, state_id st, block_pos pos);
+interaction_result bell_use_without_item(level & lv, state_id st, block_pos pos, direction face);
+
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 

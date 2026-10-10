@@ -111,6 +111,7 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
             n_items = 27;
             break;
         case BLOCK_ENTITY_TYPE_COMPARATOR:
+        case BLOCK_ENTITY_TYPE_BELL:
         case BLOCK_ENTITY_TYPE_ENDER_CHEST:
         case BLOCK_ENTITY_TYPE_SKULL:
             break;
@@ -574,7 +575,7 @@ static void level_tick_block_entities(level & lv) {
             } else if (be->type == BLOCK_ENTITY_TYPE_PISTON) {
                 piston_moving_block_entity_tick(lv, be);
             }
-            // ShulkerBoxBlockEntity.tick: with no openers the box stays closed and does nothing
+            // shulker boxes without openers and bells without entities tick without effect
         }
         trace_exit(lv.tr);
     }

@@ -54,6 +54,15 @@ bool block_is_face_sturdy(level & lv, state_id st, block_pos pos, direction dir,
     return support_type_is_supporting(moving_piston_get_collision_shape(lv, pos), dir, type);
 }
 
+// Block.canSupportCenter
+bool block_can_support_center(level & lv, block_pos pos, direction dir) {
+    state_id st = level_get_state(lv, pos);
+    if (dir == DIRECTION_DOWN && state_has(st, STATE_FLAG_TAG_UNSTABLE_BOTTOM_CENTER)) {
+        return false;
+    }
+    return block_is_face_sturdy(lv, st, pos, dir, SUPPORT_TYPE_CENTER);
+}
+
 state_id block_update_shape(level &   lv,
                             state_id  st,
                             block_pos pos,
@@ -89,6 +98,9 @@ state_id block_update_shape(level &   lv,
             break;
         case VCLASS_ENDER_CHEST_BLOCK:
             result = ender_chest_update_shape(lv, st);
+            break;
+        case VCLASS_BELL_BLOCK:
+            result = bell_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
         case VCLASS_COPPER_CHEST_BLOCK:
             result = copper_chest_update_shape(lv, st, dir, neighbor);
@@ -147,6 +159,9 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
             break;
         case VCLASS_DISPENSER_BLOCK:
             dispenser_neighbor_changed(lv, st, pos);
+            break;
+        case VCLASS_BELL_BLOCK:
+            bell_neighbor_changed(lv, st, pos);
             break;
         default:
             hook_unsupported(lv, st, HOOK_NEIGHBOR_CHANGED);
@@ -307,12 +322,14 @@ interaction_result block_use_item_on(level & lv, state_id st) {
     }
 }
 
-interaction_result block_use_without_item(level & lv, state_id st, block_pos pos) {
+interaction_result block_use_without_item(level & lv, state_id st, block_pos pos, direction face) {
     switch (hook_owner(st, HOOK_USE_WITHOUT_ITEM)) {
         case VCLASS_NONE:
             return INTERACTION_RESULT_PASS;
         case VCLASS_RED_STONE_WIRE_BLOCK:
             return red_stone_wire_use_without_item(lv, st, pos);
+        case VCLASS_BELL_BLOCK:
+            return bell_use_without_item(lv, st, pos, face);
         case VCLASS_LEVER_BLOCK:
             return lever_use_without_item(lv, st, pos);
         case VCLASS_BUTTON_BLOCK:
@@ -429,6 +446,8 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return wall_torch_can_survive(lv, pos, (direction) state_get(st, PROP_HORIZONTAL_FACING));
         case VCLASS_RED_STONE_WIRE_BLOCK:
             return red_stone_wire_can_survive(lv, pos);
+        case VCLASS_BELL_BLOCK:
+            return bell_can_survive(lv, st, pos);
         case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
             return redstone_wall_torch_can_survive(lv, st, pos);
         case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
