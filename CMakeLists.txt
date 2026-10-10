@@ -12,6 +12,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_library(tmc STATIC
+    blocks/abstract-candle.cpp
     blocks/abstract-skull.cpp
     blocks/amethyst-cluster.cpp
     blocks/barrel.cpp
@@ -22,6 +23,9 @@ add_library(tmc STATIC
     blocks/bell.cpp
     blocks/block-behaviour.cpp
     blocks/button.cpp
+    blocks/cake.cpp
+    blocks/candle-cake.cpp
+    blocks/candle.cpp
     blocks/chest-block-entity.cpp
     blocks/chest.cpp
     blocks/chiseled-book-shelf.cpp

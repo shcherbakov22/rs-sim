@@ -115,12 +115,19 @@ state_id block_update_shape(level &   lv,
         case VCLASS_SLAB_BLOCK:
         case VCLASS_TRAP_DOOR_BLOCK:
         case VCLASS_BASE_RAIL_BLOCK:
+        case VCLASS_CANDLE_BLOCK:
             if (state_get(st, PROP_WATERLOGGED)) {
                 level_unsupported(lv, "fluids");
             }
             break;
         case VCLASS_IRON_BARS_BLOCK:
             result = iron_bars_update_shape(lv, st, dir, neighbor_pos, neighbor);
+            break;
+        case VCLASS_CAKE_BLOCK:
+            result = cake_update_shape(lv, st, pos, dir);
+            break;
+        case VCLASS_CANDLE_CAKE_BLOCK:
+            result = candle_cake_update_shape(lv, st, pos, dir);
             break;
         case VCLASS_WALL_BLOCK:
             result = wall_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
@@ -433,6 +440,12 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, dir
             return respawn_anchor_use_item_on(lv, st, pos, stack);
         case VCLASS_COMPOSTER_BLOCK:
             return composter_use_item_on(lv, st, pos, stack);
+        case VCLASS_CANDLE_BLOCK:
+            return candle_use_item_on(lv, st, pos, stack);
+        case VCLASS_CANDLE_CAKE_BLOCK:
+            return candle_cake_use_item_on(lv, st, pos, face, stack);
+        case VCLASS_CAKE_BLOCK:
+            return cake_use_item_on(lv, st, pos, stack);
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
             return copper_golem_statue_use_item_on(lv, st, pos, stack);
         case VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK:
@@ -471,6 +484,10 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return door_use_without_item(lv, st, pos);
         case VCLASS_COMPOSTER_BLOCK:
             return composter_use_without_item(lv, st, pos);
+        case VCLASS_CANDLE_CAKE_BLOCK:
+            return candle_cake_use_without_item();
+        case VCLASS_CAKE_BLOCK:
+            return cake_eat();
         case VCLASS_FENCE_BLOCK:
             // LeadItem.bindPlayerMobs: no mob is ever leashed to the virtual player
             return INTERACTION_RESULT_PASS;
@@ -618,6 +635,10 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return piston_head_can_survive(lv, st, pos);
         case VCLASS_AMETHYST_CLUSTER_BLOCK:
             return amethyst_cluster_can_survive(lv, st, pos);
+        case VCLASS_CAKE_BLOCK:
+            return cake_can_survive(lv, pos);
+        case VCLASS_CANDLE_CAKE_BLOCK:
+            return candle_cake_can_survive(lv, pos);
         default:
             hook_unsupported(lv, st, HOOK_CAN_SURVIVE);
             return true;
@@ -674,6 +695,10 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
             return respawn_anchor_get_analog_output_signal(st);
         case VCLASS_COMPOSTER_BLOCK:
             return composter_get_analog_output_signal(st);
+        case VCLASS_CAKE_BLOCK:
+            return cake_get_analog_output_signal(st);
+        case VCLASS_CANDLE_CAKE_BLOCK:
+            return candle_cake_get_analog_output_signal();
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
             return copper_golem_statue_get_analog_output_signal(st);
         case VCLASS_CRAFTER_BLOCK:
