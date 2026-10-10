@@ -95,17 +95,17 @@ static void test_states() {
     CHECK(!block_instanceof(block_find("redstone_torch"), VCLASS_DIODE_BLOCK));
 }
 
-// expected order from java.util.HashMap in jshell, with world y = sim y + 64; 20 keys force a resize
+// expected order from java.util.HashMap in jshell, with world y = sim y + 64; 20 keys force a resize, and the keys order differently in 16 and 32 bins
 static void test_java_hash_map() {
     java_hash_map m;
     block_pos     keys[20];
     for (int32_t i = 0; i < 20; i++) {
-        keys[i] = { (i * 7) % 5 - 2, (i * 3) % 4, (i * 11) % 6 - 3 };
+        keys[i] = { (i * 7) % 17 - 8, (i * 3) % 4, (i * 5) % 9 - 4 };
         java_hash_map_put(m, keys[i], i);
     }
     java_hash_map_remove(m, keys[4]);
     java_hash_map_put(m, keys[2], 99);
-    static const int32_t expected[]          = { 8, 12, 14, 99, 19, 7, 0, 6, 18, 5, 10, 11, 15, 17, 3, 9, 13, 1, 16 };
+    static const int32_t expected[]          = { 9, 11, 14, 16, 18, 19, 7, 12, 0, 17, 5, 10, 13, 15, 1, 3, 6, 8, 99 };
     std::vector<java_hash_map_entry> entries = java_hash_map_entries(m);
     CHECK(entries.size() == 19);
     for (size_t i = 0; i < entries.size() && i < 19; i++) {
