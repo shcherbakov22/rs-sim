@@ -1,5 +1,7 @@
 #include "engine/level-ticks.h"
 
+#include "engine/level.h"
+
 static const char * const tick_priority_names[] = {
     "extremely_high", "very_high", "high", "normal", "low", "very_low", "extremely_low",
 };
@@ -19,10 +21,10 @@ bool tick_priority_parse(std::string_view name, int32_t & out) {
     return false;
 }
 
-// ChunkPos.asLong
+// ChunkPos.asLong of the world position
 static int64_t chunk_key(block_pos pos) {
-    int64_t x = pos.x >> 4;
-    int64_t z = pos.z >> 4;
+    int64_t x = (pos.x + LEVEL_ORIGIN.x) >> 4;
+    int64_t z = (pos.z + LEVEL_ORIGIN.z) >> 4;
     return (x & 0xFFFFFFFFLL) | (z & 0xFFFFFFFFLL) << 32;
 }
 
