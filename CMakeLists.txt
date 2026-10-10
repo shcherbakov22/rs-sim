@@ -13,13 +13,8 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_library(tmc STATIC
     blocks/attached.cpp
-    blocks/base-entity-block.cpp
     blocks/block-behaviour.cpp
     blocks/boat-dispense-item-behavior.cpp
-    blocks/chest-block-entity.cpp
-    blocks/chest.cpp
-    blocks/chiseled-book-shelf.cpp
-    blocks/composter.cpp
     blocks/connecting.cpp
     blocks/container.cpp
     blocks/crafter.cpp
@@ -30,16 +25,13 @@ add_library(tmc STATIC
     blocks/fire.cpp
     blocks/hopper-block-entity.cpp
     blocks/hopper.cpp
-    blocks/jukebox.cpp
     blocks/minecart-dispense-item-behavior.cpp
     blocks/piston.cpp
     blocks/powered.cpp
     blocks/projectile-dispense-behavior.cpp
     blocks/rail.cpp
     blocks/redstone.cpp
-    blocks/shelf.cpp
     blocks/terrain.cpp
-    blocks/trapped-chest.cpp
     core/rng.cpp
     core/state.cpp
     core/trace.cpp

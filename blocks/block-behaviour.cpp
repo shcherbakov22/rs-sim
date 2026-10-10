@@ -14,8 +14,8 @@ static void hook_unsupported(level & lv, state_id st, hook h) {
 
 // each vanilla class is in one family
 static const std::vector<block_hooks> * const block_hook_families[] = {
-    &piston_hooks, &diode_hooks,   &redstone_hooks,   &rail_hooks,     &terrain_hooks,
-    &fire_hooks,   &powered_hooks, &connecting_hooks, &attached_hooks,
+    &container_hooks, &piston_hooks, &diode_hooks,   &redstone_hooks,   &rail_hooks,
+    &terrain_hooks,   &fire_hooks,   &powered_hooks, &connecting_hooks, &attached_hooks,
 };
 
 static const block_hooks * block_hooks_of(int32_t vclass) {
@@ -163,13 +163,7 @@ state_id block_update_shape(level &   lv,
         switch (hook_owner(st, HOOK_UPDATE_SHAPE)) {
             case VCLASS_NONE:
                 break;
-            case VCLASS_CHEST_BLOCK:
-                result = chest_update_shape(st, dir, neighbor);
-                break;
             // these classes only schedule the water tick, checked above
-            case VCLASS_ENDER_CHEST_BLOCK:
-            case VCLASS_DECORATED_POT_BLOCK:
-            case VCLASS_SHELF_BLOCK:
             case VCLASS_SLAB_BLOCK:
             case VCLASS_CHAIN_BLOCK:
             case VCLASS_CANDLE_BLOCK:
@@ -177,9 +171,6 @@ state_id block_update_shape(level &   lv,
             case VCLASS_WATERLOGGED_TRANSPARENT_BLOCK:
             case VCLASS_BARRIER_BLOCK:
             case VCLASS_LIGHT_BLOCK:
-                break;
-            case VCLASS_COPPER_CHEST_BLOCK:
-                result = copper_chest_update_shape(st, dir, neighbor);
                 break;
             default:
                 hook_unsupported(lv, st, HOOK_UPDATE_SHAPE);
@@ -210,9 +201,6 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
             case VCLASS_CRAFTER_BLOCK:
                 crafter_neighbor_changed(lv, st, pos);
                 break;
-            case VCLASS_SHELF_BLOCK:
-                shelf_neighbor_changed(lv, st, pos);
-                break;
             default:
                 hook_unsupported(lv, st, HOOK_NEIGHBOR_CHANGED);
         }
@@ -230,12 +218,6 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
             case VCLASS_HOPPER_BLOCK:
                 hopper_on_place(lv, st, pos, old);
                 break;
-            case VCLASS_SHELF_BLOCK:
-                shelf_on_place(lv, st, pos, old);
-                break;
-            case VCLASS_COMPOSTER_BLOCK:
-                composter_on_place(lv, st, pos);
-                break;
             default:
                 hook_unsupported(lv, st, HOOK_ON_PLACE);
         }
@@ -249,18 +231,9 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
         switch (hook_owner(st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL)) {
             case VCLASS_NONE:
                 break;
-            case VCLASS_SHELF_BLOCK:
-                shelf_affect_neighbors_after_removal(lv, st, pos);
-                break;
-            case VCLASS_CHEST_BLOCK:
             case VCLASS_HOPPER_BLOCK:
-            case VCLASS_BARREL_BLOCK:
-            case VCLASS_SHULKER_BOX_BLOCK:
             case VCLASS_DISPENSER_BLOCK:
             case VCLASS_CRAFTER_BLOCK:
-            case VCLASS_DECORATED_POT_BLOCK:
-            case VCLASS_JUKEBOX_BLOCK:
-            case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
                 // Containers.updateNeighboursAfterDestroy
                 level_update_neighbour_for_output_signal(lv, pos, state_block(st));
                 break;
@@ -276,9 +249,6 @@ void block_tick(level & lv, state_id st, block_pos pos) {
     } else {
         switch (hook_owner(st, HOOK_TICK)) {
             case VCLASS_NONE:
-                break;
-            case VCLASS_COMPOSTER_BLOCK:
-                composter_tick(lv, st, pos);
                 break;
             case VCLASS_DISPENSER_BLOCK:
                 dispenser_tick(lv, st, pos);
@@ -299,8 +269,6 @@ bool block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a
     switch (hook_owner(st, HOOK_TRIGGER_EVENT)) {
         case VCLASS_NONE:
             return false;
-        case VCLASS_BASE_ENTITY_BLOCK:
-            return base_entity_block_trigger_event(lv, st, pos, param_a, param_b);
         default:
             hook_unsupported(lv, st, HOOK_TRIGGER_EVENT);
             return false;
@@ -343,12 +311,8 @@ int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) 
     switch (hook_owner(st, HOOK_GET_SIGNAL)) {
         case VCLASS_NONE:
             return 0;
-        case VCLASS_JUKEBOX_BLOCK:
-            return jukebox_get_signal(lv, pos);
         case VCLASS_POWERED_BLOCK:
             return 15;
-        case VCLASS_TRAPPED_CHEST_BLOCK:
-            return trapped_chest_get_signal(lv, st, pos);
         default:
             hook_unsupported(lv, st, HOOK_GET_SIGNAL);
             return 0;
@@ -362,8 +326,6 @@ int32_t block_get_direct_signal(level & lv, state_id st, block_pos pos, directio
     switch (hook_owner(st, HOOK_GET_DIRECT_SIGNAL)) {
         case VCLASS_NONE:
             return 0;
-        case VCLASS_TRAPPED_CHEST_BLOCK:
-            return trapped_chest_get_direct_signal(lv, st, pos, dir);
         default:
             hook_unsupported(lv, st, HOOK_GET_DIRECT_SIGNAL);
             return 0;
@@ -416,22 +378,9 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
     switch (hook_owner(st, HOOK_GET_ANALOG_OUTPUT_SIGNAL)) {
         case VCLASS_NONE:
             return 0;
-        case VCLASS_CHEST_BLOCK:
-            return chest_get_analog_output_signal(lv, st, pos);
         case VCLASS_HOPPER_BLOCK:
-        case VCLASS_BARREL_BLOCK:
-        case VCLASS_SHULKER_BOX_BLOCK:
         case VCLASS_DISPENSER_BLOCK:
-        case VCLASS_DECORATED_POT_BLOCK:
-            return container_get_redstone_signal_from_block_entity(lv, pos);
-        case VCLASS_JUKEBOX_BLOCK:
-            return jukebox_get_analog_output_signal(lv, pos);
-        case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
-            return chiseled_book_shelf_get_analog_output_signal(lv, pos);
-        case VCLASS_SHELF_BLOCK:
-            return shelf_get_analog_output_signal(lv, st, pos, dir);
-        case VCLASS_COMPOSTER_BLOCK:
-            return composter_get_analog_output_signal(st);
+            return container_get_redstone_signal_from_block_entity(lv, st, pos, dir);
         case VCLASS_CRAFTER_BLOCK:
             return crafter_get_analog_output_signal(lv, pos);
         default:
@@ -447,8 +396,6 @@ bool block_should_changed_state_keep_block_entity(level & lv, state_id st, state
     switch (hook_owner(st, HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY)) {
         case VCLASS_NONE:
             return false;
-        case VCLASS_COPPER_CHEST_BLOCK:
-            return state_has(old, STATE_FLAG_TAG_COPPER_CHESTS);
         default:
             hook_unsupported(lv, st, HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY);
             return false;

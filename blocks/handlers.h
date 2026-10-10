@@ -7,6 +7,7 @@
 #include <vector>
 
 // hook tables, one per family file
+extern const std::vector<block_hooks> container_hooks;
 extern const std::vector<block_hooks> piston_hooks;
 extern const std::vector<block_hooks> diode_hooks;
 extern const std::vector<block_hooks> redstone_hooks;
@@ -33,7 +34,9 @@ void         container_set_item(level & lv, const container & c, int32_t slot, i
 void         container_set_changed(level & lv, const container & c);
 int32_t      container_get_redstone_signal(const container * c);
 void         containers_drop_contents(level & lv, block_pos pos, const container & c);
-int32_t      container_get_redstone_signal_from_block_entity(level & lv, block_pos pos);
+// the getAnalogOutputSignal and affectNeighborsAfterRemoval of most containers
+int32_t      container_get_redstone_signal_from_block_entity(level & lv, state_id st, block_pos pos, direction dir);
+void         containers_update_neighbours_after_destroy(level & lv, state_id st, block_pos pos, bool moved_by_piston);
 
 // HopperBlock
 void hopper_on_place(level & lv, state_id st, block_pos pos, state_id old);
@@ -75,34 +78,22 @@ void    crafter_neighbor_changed(level & lv, state_id st, block_pos pos);
 void    crafter_tick(level & lv, state_id st, block_pos pos);
 
 // JukeboxBlock, JukeboxBlockEntity, JukeboxSongPlayer
-bool    jukebox_song_has_finished(int32_t record, int64_t ticks);
-void    jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack s);
-void    jukebox_block_entity_pop_out_the_item(level & lv, block_entity * be);
-void    jukebox_block_entity_tick(level & lv, block_entity * be);
-int32_t jukebox_get_signal(level & lv, block_pos pos);
-int32_t jukebox_get_analog_output_signal(level & lv, block_pos pos);
+bool jukebox_song_has_finished(int32_t record, int64_t ticks);
+void jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack s);
+void jukebox_block_entity_pop_out_the_item(level & lv, block_entity * be);
+void jukebox_block_entity_tick(level & lv, block_entity * be);
 
 // ChiseledBookShelfBlock, ChiseledBookShelfBlockEntity
 item_stack chiseled_book_shelf_block_entity_remove_item(level & lv, block_entity * be, int32_t slot);
 void       chiseled_book_shelf_block_entity_set_item(level & lv, block_entity * be, int32_t slot, item_stack s);
 bool       chiseled_book_shelf_block_entity_can_place_item(const block_entity * be, int32_t slot, const item_stack & s);
 bool       chiseled_book_shelf_block_entity_can_take_item(const container & into, const item_stack & s);
-int32_t    chiseled_book_shelf_get_analog_output_signal(level & lv, block_pos pos);
-
-// ShelfBlock, ShelfBlockEntity, SideChainPartBlock
-void    shelf_on_place(level & lv, state_id st, block_pos pos, state_id old);
-void    shelf_neighbor_changed(level & lv, state_id st, block_pos pos);
-void    shelf_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
-int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
 
 // BaseRailBlock
 bool base_rail_is_rail(level & lv, state_id st);
 bool base_rail_is_slope(int32_t shape);
 
 // ComposterBlock
-void    composter_on_place(level & lv, state_id st, block_pos pos);
-void    composter_tick(level & lv, state_id st, block_pos pos);
-int32_t composter_get_analog_output_signal(state_id st);
 void    composter_get_container(state_id st, block_pos pos, composter_container & out);
 int32_t composter_container_get_container_size(const composter_container & c);
 int32_t composter_container_get_slots_for_face(const composter_container & c, direction face);
@@ -118,17 +109,7 @@ void    composter_container_set_changed(level & lv, composter_container & c);
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 
 // ChestBlock
-bool     chest_get_container(level & lv, state_id st, block_pos pos, bool ignore_being_blocked, container & out);
-state_id chest_update_shape(state_id st, direction dir, state_id neighbor);
-state_id copper_chest_update_shape(state_id st, direction dir, state_id neighbor);
-int32_t  chest_get_analog_output_signal(level & lv, state_id st, block_pos pos);
-
-// ChestBlockEntity
-int32_t chest_block_entity_get_open_count(level & lv, state_id st, block_pos pos);
-
-// TrappedChestBlock
-int32_t trapped_chest_get_signal(level & lv, state_id st, block_pos pos);
-int32_t trapped_chest_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir);
+bool chest_get_container(level & lv, state_id st, block_pos pos, bool ignore_being_blocked, container & out);
 
 // attached.cpp
 direction face_attached_horizontal_directional_get_connected_direction(state_id st);
