@@ -3724,7 +3724,7 @@ block red_sand 123 1 123 SandBlock
   support 1
 block gravel 124 1 124 ColoredFallingBlock
   flag conductor
-  flag drops
+  flag drops_random
   flag sturdy_full_down
   flag sturdy_full_up
   flag sturdy_full_north
@@ -3911,7 +3911,7 @@ block deepslate_coal_ore 134 1 134 DropExperienceBlock
   support 1
 block nether_gold_ore 135 1 135 DropExperienceBlock
   flag conductor
-  flag drops
+  flag drops_random
   flag sturdy_full_down
   flag sturdy_full_up
   flag sturdy_full_north
@@ -4874,7 +4874,7 @@ block oak_leaves 252 28 279 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0010000000000000000000000000
+  flag drops_random
   flag push_destroy
   collision 1
   support 0
@@ -4883,7 +4883,7 @@ block spruce_leaves 280 28 307 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000000000010000000001000000
+  flag drops_random
   flag push_destroy
   collision 1
   support 0
@@ -4892,7 +4892,7 @@ block birch_leaves 308 28 335 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0010000000000000000000000000
+  flag drops_random
   flag push_destroy
   collision 1
   support 0
@@ -4901,7 +4901,7 @@ block jungle_leaves 336 28 363 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000000000000100100000000001
+  flag drops_random
   flag push_destroy
   collision 1
   support 0
@@ -4910,7 +4910,7 @@ block acacia_leaves 364 28 391 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 1000000010000000000100000100
+  flag drops_random
   flag push_destroy
   collision 1
   support 0
@@ -4919,7 +4919,7 @@ block cherry_leaves 392 28 419 UntintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 1001000000000000000100000000
+  flag drops_random
   flag push_destroy
   collision 1
   support 0
@@ -4928,7 +4928,7 @@ block dark_oak_leaves 420 28 447 TintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000000000001000000000010000
+  flag drops_random
   flag push_destroy
   collision 1
   support 0
@@ -4937,6 +4937,7 @@ block pale_oak_leaves 448 28 475 UntintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
+  flag drops_random
   flag push_destroy
   collision 1
   support 0
@@ -4945,7 +4946,7 @@ block mangrove_leaves 476 28 503 MangroveLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000000000000000000000010000
+  flag drops_random
   flag push_destroy
   collision 1
   support 0
@@ -4954,7 +4955,7 @@ block azalea_leaves 504 28 531 UntintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000010010001110001000000000
+  flag drops_random
   flag push_destroy
   collision 1
   support 0
@@ -4963,7 +4964,7 @@ block flowering_azalea_leaves 532 28 559 UntintedParticleLeavesBlock
   prop PERSISTENT
   prop WATERLOGGED
   flag fluid 1010101010101010101010101010
-  flag drops 0000000000000000100000001000
+  flag drops_random
   flag push_destroy
   collision 1
   support 0
@@ -5036,7 +5037,7 @@ block glass 562 1 562 TransparentBlock
   support 1
 block lapis_ore 563 1 563 DropExperienceBlock
   flag conductor
-  flag drops
+  flag drops_random
   flag sturdy_full_down
   flag sturdy_full_up
   flag sturdy_full_north
@@ -5059,7 +5060,7 @@ block lapis_ore 563 1 563 DropExperienceBlock
   support 1
 block deepslate_lapis_ore 564 1 564 DropExperienceBlock
   flag conductor
-  flag drops
+  flag drops_random
   flag sturdy_full_down
   flag sturdy_full_up
   flag sturdy_full_north
@@ -5437,15 +5438,17 @@ block cobweb 2047 1 2047 WebBlock
   collision 0
   support 0
 block short_grass 2048 1 2048 TallGrassBlock
+  flag drops_random
   flag push_destroy
   collision 0
   support 0
 block fern 2049 1 2049 TallGrassBlock
+  flag drops_random
   flag push_destroy
   collision 0
   support 0
 block dead_bush 2050 1 2050 DryVegetationBlock
-  flag drops
+  flag drops_random
   flag push_destroy
   collision 0
   support 0
@@ -6521,7 +6524,7 @@ block creaking_heart 3688 18 3695 CreakingHeartBlock
   flag block_entity
   flag analog_output
   flag conductor
-  flag drops
+  flag drops_random
   flag ticker 001111001111001111
   flag sturdy_full_down
   flag sturdy_full_up
@@ -6691,7 +6694,8 @@ block crafting_table 5109 1 5109 CraftingTableBlock
   support 1
 block wheat 5110 8 5110 CropBlock
   prop AGE_7
-  flag drops
+  flag drops 11111110
+  flag drops_random 00000001
   flag push_destroy
   collision 0
   support 0
@@ -7412,7 +7416,7 @@ block bamboo_pressure_plate 6678 2 6679 PressurePlateBlock
 block redstone_ore 6680 2 6681 RedStoneOreBlock
   prop LIT
   flag conductor
-  flag drops
+  flag drops_random
   flag sturdy_full_down
   flag sturdy_full_up
   flag sturdy_full_north
@@ -7436,7 +7440,7 @@ block redstone_ore 6680 2 6681 RedStoneOreBlock
 block deepslate_redstone_ore 6682 2 6683 RedStoneOreBlock
   prop LIT
   flag conductor
-  flag drops
+  flag drops_random
   flag sturdy_full_down
   flag sturdy_full_up
   flag sturdy_full_north
@@ -7771,7 +7775,7 @@ block copper_wall_torch 6811 4 6811 WallTorchBlock
   collision 0
   support 0
 block glowstone 6815 1 6815 -
-  flag drops
+  flag drops_random
   flag sturdy_full_down
   flag sturdy_full_up
   flag sturdy_full_north
@@ -8761,7 +8765,7 @@ block brown_mushroom_block 7565 64 7565 HugeMushroomBlock
   prop UP
   prop WEST
   flag conductor
-  flag drops
+  flag drops_random
   flag sturdy_full_down
   flag sturdy_full_up
   flag sturdy_full_north
@@ -8790,7 +8794,7 @@ block red_mushroom_block 7629 64 7629 HugeMushroomBlock
   prop UP
   prop WEST
   flag conductor
-  flag drops
+  flag drops_random
   flag sturdy_full_down
   flag sturdy_full_up
   flag sturdy_full_north
@@ -9105,7 +9109,7 @@ block pumpkin 8131 1 8131 PumpkinBlock
   support 1
 block melon 8132 1 8132 -
   flag conductor
-  flag drops
+  flag drops_random
   flag push_destroy
   flag sturdy_full_down
   flag sturdy_full_up
@@ -9129,25 +9133,25 @@ block melon 8132 1 8132 -
   support 1
 block attached_pumpkin_stem 8133 4 8133 AttachedStemBlock
   prop HORIZONTAL_FACING
-  flag drops
+  flag drops_random
   flag push_destroy
   collision 0
   support 0
 block attached_melon_stem 8137 4 8137 AttachedStemBlock
   prop HORIZONTAL_FACING
-  flag drops
+  flag drops_random
   flag push_destroy
   collision 0
   support 0
 block pumpkin_stem 8141 8 8141 StemBlock
   prop AGE_7
-  flag drops
+  flag drops_random
   flag push_destroy
   collision 0
   support 0
 block melon_stem 8149 8 8149 StemBlock
   prop AGE_7
-  flag drops
+  flag drops_random
   flag push_destroy
   collision 0
   support 0
@@ -9519,7 +9523,8 @@ block nether_brick_stairs 9166 80 9177 StairBlock
   support 28 28 29 29 30 30 31 31 32 32 33 33 34 34 35 35 36 36 37 37 38 38 39 39 40 40 41 41 42 42 43 43 44 44 45 45 46 46 47 47 48 48 40 40 29 29 42 42 31 31 49 49 45 45 34 34 47 47 36 36 50 50 30 30 39 39 32 32 41 41 51 51 35 35 44 44 37 37 46 46
 block nether_wart 9246 4 9246 NetherWartBlock
   prop AGE_3
-  flag drops
+  flag drops 1110
+  flag drops_random 0001
   flag push_destroy
   collision 0
   support 0
@@ -10128,13 +10133,15 @@ block potted_cactus 10456 1 10456 FlowerPotBlock
   support 172
 block carrots 10457 8 10457 CarrotBlock
   prop AGE_7
-  flag drops
+  flag drops 11111110
+  flag drops_random 00000001
   flag push_destroy
   collision 0
   support 0
 block potatoes 10465 8 10465 PotatoBlock
   prop AGE_7
-  flag drops
+  flag drops 11111110
+  flag drops_random 00000001
   flag push_destroy
   collision 0
   support 0
@@ -11741,7 +11748,7 @@ block dark_prismarine_slab 12684 6 12687 SlabBlock
   collision 123 123 72 72 1 1
   support 123 123 72 72 1 1
 block sea_lantern 12690 1 12690 -
-  flag drops
+  flag drops_random
   flag sturdy_full_down
   flag sturdy_full_up
   flag sturdy_full_north
@@ -13508,7 +13515,7 @@ block chorus_plant 14440 64 14503 ChorusPlantBlock
   prop SOUTH
   prop UP
   prop WEST
-  flag drops
+  flag drops_random
   flag push_destroy
   flag sturdy_center_down 1111111111111111111111111111111100000000000000000000000000000000
   flag sturdy_center_up 1100110011001100110011001100110011001100110011001100110011001100
@@ -13639,7 +13646,8 @@ block pitcher_plant 14607 2 14608 DoublePlantBlock
   support 0
 block beetroots 14609 4 14609 BeetrootBlock
   prop AGE_3
-  flag drops
+  flag drops 1110
+  flag drops_random 0001
   flag push_destroy
   collision 0
   support 0
@@ -17351,7 +17359,7 @@ block soul_campfire 20707 32 20710 CampfireBlock
   support 289
 block sweet_berry_bush 20739 4 20739 SweetBerryBushBlock
   prop AGE_3
-  flag drops 0011
+  flag drops_random 0011
   flag push_destroy
   collision 0
   support 0
@@ -17661,24 +17669,26 @@ block shroomlight 20774 1 20774 -
 block weeping_vines 20775 26 20775 WeepingVinesBlock
   prop AGE_25
   field GrowingPlantBlock.scheduleFluidTicks 0
-  flag drops 10000010000001011100000010
+  flag drops_random
   flag push_destroy
   collision 0
   support 0
 block weeping_vines_plant 20801 1 20801 WeepingVinesPlantBlock
   field GrowingPlantBlock.scheduleFluidTicks 0
+  flag drops_random
   flag push_destroy
   collision 0
   support 0
 block twisting_vines 20802 26 20802 TwistingVinesBlock
   prop AGE_25
   field GrowingPlantBlock.scheduleFluidTicks 0
-  flag drops 01000000010011000001011010
+  flag drops_random
   flag push_destroy
   collision 0
   support 0
 block twisting_vines_plant 20828 1 20828 TwistingVinesPlantBlock
   field GrowingPlantBlock.scheduleFluidTicks 0
+  flag drops_random
   flag push_destroy
   collision 0
   support 0
@@ -18694,7 +18704,7 @@ block polished_blackstone_brick_wall 22130 324 22133 WallBlock
   support 124 125 125 124 125 125 0 126 126 0 126 126 127 128 128 127 128 128 129 130 130 129 130 130 127 128 128 127 128 128 129 130 130 129 130 130 131 132 132 131 132 132 133 134 134 133 134 134 135 136 136 135 136 136 137 138 138 137 138 138 135 136 136 135 136 136 137 138 138 137 138 138 131 132 132 131 132 132 133 134 134 133 134 134 135 136 136 135 136 136 137 138 138 137 138 138 135 136 136 135 136 136 137 138 138 137 138 138 139 140 140 139 140 140 141 142 142 141 142 142 143 144 144 143 144 144 145 146 146 145 146 146 143 144 144 143 144 144 145 146 146 145 146 146 147 148 148 147 148 148 149 150 150 149 150 150 151 152 152 151 152 152 153 154 154 153 154 154 151 152 152 151 152 152 153 154 154 153 154 154 147 148 148 147 148 148 149 150 150 149 150 150 151 152 152 151 152 152 153 154 154 153 154 154 151 152 152 151 152 152 153 154 154 153 154 154 139 140 140 139 140 140 141 142 142 141 142 142 143 144 144 143 144 144 145 146 146 145 146 146 143 144 144 143 144 144 145 146 146 145 146 146 147 148 148 147 148 148 149 150 150 149 150 150 151 152 152 151 152 152 153 154 154 153 154 154 151 152 152 151 152 152 153 154 154 153 154 154 147 148 148 147 148 148 149 150 150 149 150 150 151 152 152 151 152 152 153 154 154 153 154 154 151 152 152 151 152 152 153 154 154 153 154 154
 block gilded_blackstone 22454 1 22454 -
   flag conductor
-  flag drops
+  flag drops_random
   flag sturdy_full_down
   flag sturdy_full_up
   flag sturdy_full_north
@@ -19831,7 +19841,7 @@ block oxidized_copper 25110 1 25110 WeatheringCopperFullBlock
   support 1
 block copper_ore 25111 1 25111 DropExperienceBlock
   flag conductor
-  flag drops
+  flag drops_random
   flag sturdy_full_down
   flag sturdy_full_up
   flag sturdy_full_north
@@ -19854,7 +19864,7 @@ block copper_ore 25111 1 25111 DropExperienceBlock
   support 1
 block deepslate_copper_ore 25112 1 25112 DropExperienceBlock
   flag conductor
-  flag drops
+  flag drops_random
   flag sturdy_full_down
   flag sturdy_full_up
   flag sturdy_full_north
