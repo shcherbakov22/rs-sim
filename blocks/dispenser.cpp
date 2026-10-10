@@ -48,7 +48,8 @@ static void dispenser_dispense_from(level & lv, state_id st, block_pos pos) {
     }
     item_stack s = be->items[slot];
     // equippable items fall back to the default behaviour when no entity is in front
-    if (item_defs[item_stack_get_item(s)].dispense) {
+    int32_t behavior = item_defs[item_stack_get_item(s)].dispense;
+    if (behavior != DISPENSE_BEHAVIOR_DEFAULT && behavior != DISPENSE_BEHAVIOR_EQUIPMENT) {
         level_unsupported(lv, "dispense behaviour of %s", item_defs[item_stack_get_item(s)].name);
         return;
     }

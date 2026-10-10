@@ -56,7 +56,7 @@ struct item_def {
     int32_t      max_stack_size;   // default MAX_STACK_SIZE component
     int32_t      cls;              // item_class
     int32_t      block;            // BlockItem.getBlock, -1 for other items
-    bool         dispense;         // has a DispenserBlock.DISPENSER_REGISTRY behaviour
+    int32_t      dispense;         // dispense_behavior
     uint32_t     tags;             // item_tag bits
     int32_t      song_ticks;       // JukeboxSong.lengthInTicks of the JUKEBOX_PLAYABLE song, -1 for none
     int32_t      song_comparator;  // JukeboxSong.comparatorOutput
@@ -67,6 +67,9 @@ struct item_def {
     uint32_t     cauldron_maps;       // bit per cauldron_map with an interaction for the item
     int32_t      crafting_remainder;  // Item.getCraftingRemainder (count 1), -1 for none
     const char * block_state;         // BLOCK_STATE component of a fresh stack as name=value,..., nullptr for none
+    const char * dispense_entity;        // entity type a projectile, boat or minecart behaviour spawns, nullptr for others
+    float        dispense_entity_width;  // EntityType.getWidth of dispense_entity
+    int32_t      max_damage;             // MAX_DAMAGE component of a fresh stack, 0 for none
 };
 
 // Ingredient: a set of items, as a range of ingredient_items
