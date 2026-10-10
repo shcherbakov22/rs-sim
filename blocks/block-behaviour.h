@@ -76,9 +76,6 @@ bool     block_can_survive(level & lv, state_id st, block_pos pos);
 int32_t  block_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
 bool     block_should_changed_state_keep_block_entity(level & lv, state_id st, state_id old);
 
-// BlockBehaviour.canBeReplaced: a replaceable block, unless the hand holds its own item
-// BlockStateBase.isCollisionShapeFullBlock
-
 // BlockStateBase.updateNeighbourShapes
 void block_update_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit);
 

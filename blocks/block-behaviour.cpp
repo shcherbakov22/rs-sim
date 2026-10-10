@@ -12,10 +12,28 @@ static void hook_unsupported(level & lv, state_id st, hook h) {
     level_unsupported(lv, "%s.%s", vclass_names[hook_owner(st, h)], hook_names[h]);
 }
 
+state_id block_behaviour_update_shape(level &, state_id st, block_pos, direction, block_pos, state_id) {
+    return st;
+}
+
+// classes whose updateShape override only schedules the water tick, which block_update_shape does first
+static // clang-format off
+const std::vector<block_hooks> water_hooks = {
+    { .vclass = VCLASS_SLAB_BLOCK, .update_shape = block_behaviour_update_shape },
+    { .vclass = VCLASS_CHAIN_BLOCK, .update_shape = block_behaviour_update_shape },
+    { .vclass = VCLASS_CANDLE_BLOCK, .update_shape = block_behaviour_update_shape },
+    { .vclass = VCLASS_HEAVY_CORE_BLOCK, .update_shape = block_behaviour_update_shape },
+    { .vclass = VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, .update_shape = block_behaviour_update_shape },
+    { .vclass = VCLASS_BARRIER_BLOCK, .update_shape = block_behaviour_update_shape },
+    { .vclass = VCLASS_LIGHT_BLOCK, .update_shape = block_behaviour_update_shape },
+};
+// clang-format on
+
 // each vanilla class is in one family
 static const std::vector<block_hooks> * const block_hook_families[] = {
-    &dispenser_hooks, &hopper_hooks,  &container_hooks, &piston_hooks,  &diode_hooks,      &redstone_hooks,
-    &rail_hooks,      &terrain_hooks, &fire_hooks,      &powered_hooks, &connecting_hooks, &attached_hooks,
+    &water_hooks,   &dispenser_hooks,  &hopper_hooks,   &container_hooks, &piston_hooks,
+    &diode_hooks,   &redstone_hooks,   &rail_hooks,     &terrain_hooks,   &fire_hooks,
+    &powered_hooks, &connecting_hooks, &attached_hooks,
 };
 
 static const block_hooks * block_hooks_of(int32_t vclass) {
@@ -70,8 +88,12 @@ static bool block_hooks_has(const block_hooks & b, hook h) {
 // The hooks of the class that overrides h for st: null for vanilla's default, and for an override the sim lacks,
 // which stops the run.
 static const block_hooks * block_hooks_for(level & lv, state_id st, hook h) {
-    const block_hooks * b = block_hooks_of(hook_owner(st, h));
-    if (b != nullptr && !block_hooks_has(*b, h)) {
+    int16_t owner = hook_owner(st, h);
+    if (owner == VCLASS_NONE) {
+        return nullptr;
+    }
+    const block_hooks * b = block_hooks_of(owner);
+    if (b == nullptr || !block_hooks_has(*b, h)) {
         hook_unsupported(lv, st, h);
         return nullptr;
     }
@@ -137,10 +159,6 @@ bool block_can_support_center(level & lv, block_pos pos, direction dir) {
     return block_is_face_sturdy(lv, st, pos, dir, SUPPORT_TYPE_CENTER);
 }
 
-state_id block_behaviour_update_shape(level &, state_id st, block_pos, direction, block_pos, state_id) {
-    return st;
-}
-
 state_id block_update_shape(level &   lv,
                             state_id  st,
                             block_pos pos,
@@ -159,22 +177,6 @@ state_id block_update_shape(level &   lv,
     }
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_UPDATE_SHAPE)) {
         result = b->update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
-    } else {
-        switch (hook_owner(st, HOOK_UPDATE_SHAPE)) {
-            case VCLASS_NONE:
-                break;
-            // these classes only schedule the water tick, checked above
-            case VCLASS_SLAB_BLOCK:
-            case VCLASS_CHAIN_BLOCK:
-            case VCLASS_CANDLE_BLOCK:
-            case VCLASS_HEAVY_CORE_BLOCK:
-            case VCLASS_WATERLOGGED_TRANSPARENT_BLOCK:
-            case VCLASS_BARRIER_BLOCK:
-            case VCLASS_LIGHT_BLOCK:
-                break;
-            default:
-                hook_unsupported(lv, st, HOOK_UPDATE_SHAPE);
-        }
     }
     if (result != st && trace_wants(lv.tr, &pos)) {
         trace_add(lv.tr, "=> %s", state_to_string(result).c_str());
@@ -188,13 +190,6 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
                 block_defs[block].name, moved_by_piston ? " piston" : "");
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_NEIGHBOR_CHANGED)) {
         b->neighbor_changed(lv, st, pos, block, moved_by_piston);
-    } else {
-        switch (hook_owner(st, HOOK_NEIGHBOR_CHANGED)) {
-            case VCLASS_NONE:
-                break;
-            default:
-                hook_unsupported(lv, st, HOOK_NEIGHBOR_CHANGED);
-        }
     }
     trace_exit(lv.tr);
 }
@@ -202,39 +197,18 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
 void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool moved_by_piston) {
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_ON_PLACE)) {
         b->on_place(lv, st, pos, old, moved_by_piston);
-    } else {
-        switch (hook_owner(st, HOOK_ON_PLACE)) {
-            case VCLASS_NONE:
-                break;
-            default:
-                hook_unsupported(lv, st, HOOK_ON_PLACE);
-        }
     }
 }
 
 void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston) {
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL)) {
         b->affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
-    } else {
-        switch (hook_owner(st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL)) {
-            case VCLASS_NONE:
-                break;
-            default:
-                hook_unsupported(lv, st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL);
-        }
     }
 }
 
 void block_tick(level & lv, state_id st, block_pos pos) {
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_TICK)) {
         b->tick(lv, st, pos);
-    } else {
-        switch (hook_owner(st, HOOK_TICK)) {
-            case VCLASS_NONE:
-                break;
-            default:
-                hook_unsupported(lv, st, HOOK_TICK);
-        }
     }
 }
 
@@ -242,36 +216,18 @@ bool block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_TRIGGER_EVENT)) {
         return b->trigger_event(lv, st, pos, param_a, param_b);
     }
-    switch (hook_owner(st, HOOK_TRIGGER_EVENT)) {
-        case VCLASS_NONE:
-            return false;
-        default:
-            hook_unsupported(lv, st, HOOK_TRIGGER_EVENT);
-            return false;
-    }
+    return false;
 }
 
 void block_update_indirect_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit) {
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES)) {
         b->update_indirect_neighbour_shapes(lv, st, pos, flags, limit);
-    } else {
-        switch (hook_owner(st, HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES)) {
-            case VCLASS_NONE:
-                break;
-            default:
-                hook_unsupported(lv, st, HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES);
-        }
     }
 }
 
-void block_spawn_after_break(level & lv, state_id st, block_pos pos) {
-    (void) pos;
-    switch (hook_owner(st, HOOK_SPAWN_AFTER_BREAK)) {
-        case VCLASS_NONE:
-            break;
-        default:
-            hook_unsupported(lv, st, HOOK_SPAWN_AFTER_BREAK);
-    }
+// no ported class overrides spawnAfterBreak, so any override stops the run
+void block_spawn_after_break(level & lv, state_id st, block_pos) {
+    block_hooks_for(lv, st, HOOK_SPAWN_AFTER_BREAK);
 }
 
 // BlockState.isSignalSource; redstone wire turns it off while it computes its own power
@@ -284,41 +240,21 @@ int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) 
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_GET_SIGNAL)) {
         return b->get_signal(lv, st, pos, dir);
     }
-    switch (hook_owner(st, HOOK_GET_SIGNAL)) {
-        case VCLASS_NONE:
-            return 0;
-        case VCLASS_POWERED_BLOCK:
-            return 15;
-        default:
-            hook_unsupported(lv, st, HOOK_GET_SIGNAL);
-            return 0;
-    }
+    return 0;
 }
 
 int32_t block_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir) {
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_GET_DIRECT_SIGNAL)) {
         return b->get_direct_signal(lv, st, pos, dir);
     }
-    switch (hook_owner(st, HOOK_GET_DIRECT_SIGNAL)) {
-        case VCLASS_NONE:
-            return 0;
-        default:
-            hook_unsupported(lv, st, HOOK_GET_DIRECT_SIGNAL);
-            return 0;
-    }
+    return 0;
 }
 
 bool block_can_survive(level & lv, state_id st, block_pos pos) {
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_CAN_SURVIVE)) {
         return b->can_survive(lv, st, pos);
     }
-    switch (hook_owner(st, HOOK_CAN_SURVIVE)) {
-        case VCLASS_NONE:
-            return true;
-        default:
-            hook_unsupported(lv, st, HOOK_CAN_SURVIVE);
-            return true;
-    }
+    return true;
 }
 
 void block_update_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit) {
@@ -346,29 +282,16 @@ void block_update_or_destroy(level & lv, state_id old, state_id updated, block_p
     }
 }
 
-// the ported sources ignore the direction
 int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir) {
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL)) {
         return b->get_analog_output_signal(lv, st, pos, dir);
     }
-    switch (hook_owner(st, HOOK_GET_ANALOG_OUTPUT_SIGNAL)) {
-        case VCLASS_NONE:
-            return 0;
-        default:
-            hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
-            return 0;
-    }
+    return 0;
 }
 
 bool block_should_changed_state_keep_block_entity(level & lv, state_id st, state_id old) {
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY)) {
         return b->should_changed_state_keep_block_entity(st, old);
     }
-    switch (hook_owner(st, HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY)) {
-        case VCLASS_NONE:
-            return false;
-        default:
-            hook_unsupported(lv, st, HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY);
-            return false;
-    }
+    return false;
 }

@@ -508,7 +508,14 @@ static int32_t copper_bulb_get_analog_output_signal(level & lv, state_id, block_
 }
 
 // clang-format off
+// PoweredBlock: the redstone block
+static int32_t powered_block_get_signal(level &, state_id, block_pos, direction) {
+    return 15;
+}
+
+// clang-format off
 const std::vector<block_hooks> redstone_hooks = {
+    { .vclass = VCLASS_POWERED_BLOCK, .get_signal = powered_block_get_signal },
     { .vclass = VCLASS_RED_STONE_WIRE_BLOCK,
       .update_shape = red_stone_wire_update_shape,
       .neighbor_changed = red_stone_wire_neighbor_changed,
