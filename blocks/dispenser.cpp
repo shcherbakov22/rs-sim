@@ -5,7 +5,6 @@
 #include "core/trace.h"
 #include "engine/level.h"
 #include "items/handlers.h"
-#include "items/item-behaviour.h"
 #include "items/recipes.h"
 
 #include <cmath>

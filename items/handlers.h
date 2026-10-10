@@ -1,6 +1,9 @@
 #pragma once
 
-#include "items/item-behaviour.h"
+#include "blocks/block-behaviour.h"
+
+// ItemStack.onCraftedBySystem, dispatched to the item's vanilla class
+void item_on_crafted_post_process(level & lv, const item_stack & s);
 
 // BoneMealItem
 bool bone_meal_item_grow_crop(level & lv, block_pos pos);

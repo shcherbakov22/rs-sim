@@ -1,7 +1,17 @@
-// BoneMealItem: bonemealing plants and growing seagrass in water are out of scope, so reaching either stops the run
+// Item behaviour: the item hooks the sim dispatches, and BoneMealItem for dispensers
 
 #include "engine/level.h"
 #include "items/handlers.h"
+
+// ItemStack.onCraftedBySystem; no ported item class overrides onCraftedPostProcess, so any override stops the run
+void item_on_crafted_post_process(level & lv, const item_stack & s) {
+    int16_t owner = iclass_hooks[item_defs[s.item].cls][ITEM_HOOK_ON_CRAFTED_POST_PROCESS];
+    if (owner != ICLASS_NONE) {
+        level_unsupported(lv, "%s.%s", iclass_names[owner], item_hook_names[ITEM_HOOK_ON_CRAFTED_POST_PROCESS]);
+    }
+}
+
+// BoneMealItem: bonemealing plants and growing seagrass in water are out of scope, so reaching either stops the run
 
 // isValidBonemealTarget is not ported, so every bonemealable block stops the run
 bool bone_meal_item_grow_crop(level & lv, block_pos pos) {

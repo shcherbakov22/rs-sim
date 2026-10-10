@@ -35,26 +35,10 @@ add_library(tmc STATIC
     engine/level.cpp
     engine/neighbor-updater.cpp
     gen/blocks.cpp
+    items/item.cpp
+    items/recipes.cpp
     io/case-file.cpp
     io/snbt.cpp
-    items/armor-dye-recipe.cpp
-    items/banner-duplicate-recipe.cpp
-    items/bone-meal-item.cpp
-    items/book-cloning-recipe.cpp
-    items/decorated-pot-recipe.cpp
-    items/firework-rocket-recipe.cpp
-    items/firework-star-fade-recipe.cpp
-    items/firework-star-recipe.cpp
-    items/item-behaviour.cpp
-    items/map-cloning-recipe.cpp
-    items/map-extending-recipe.cpp
-    items/recipe-manager.cpp
-    items/repair-item-recipe.cpp
-    items/shaped-recipe.cpp
-    items/shapeless-recipe.cpp
-    items/shield-decoration-recipe.cpp
-    items/tipped-arrow-recipe.cpp
-    items/transmute-recipe.cpp
 )
 target_include_directories(tmc PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 

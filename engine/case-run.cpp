@@ -3,7 +3,7 @@
 #include "blocks/block-behaviour.h"
 #include "blocks/handlers.h"
 #include "engine/level.h"
-#include "items/item-behaviour.h"
+#include "items/handlers.h"
 
 #include <algorithm>
 
@@ -55,7 +55,7 @@ static bool case_load_block_state(level & lv, const snbt_value & tag, state_id &
 // ItemStack.CODEC plus the Slot of ContainerHelper; of the item components only DAMAGE is supported
 static bool case_load_item(level & lv, const snbt_value & tag, item_stack & s, int32_t & slot) {
     const snbt_value * components = nullptr;
-    std::string id;
+    std::string        id;
     s = { ITEM_AIR, 1 };
     for (const snbt_entry & entry : tag.compound) {
         if (entry.key == "Slot") {
