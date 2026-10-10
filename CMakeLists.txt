@@ -41,6 +41,7 @@ add_library(tmc STATIC
     blocks/hopper.cpp
     blocks/iron-bars.cpp
     blocks/jukebox.cpp
+    blocks/leaves.cpp
     blocks/lectern.cpp
     blocks/lever.cpp
     blocks/moving-piston.cpp

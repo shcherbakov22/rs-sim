@@ -19,7 +19,6 @@ corpus/0016
 corpus/0017
 corpus/0019
 corpus/0021
-corpus/0022
 corpus/0024
 corpus/0026
 corpus/0027
@@ -35,7 +34,6 @@ corpus/0038
 corpus/0039
 corpus/0040
 corpus/0041
-corpus/0042
 corpus/0043
 corpus/0044
 corpus/0045
@@ -138,7 +136,6 @@ corpus/0183
 corpus/0184
 corpus/0185
 corpus/0186
-corpus/0187
 corpus/0191
 corpus/0193
 corpus/0194
@@ -185,7 +182,6 @@ corpus/0252
 corpus/0254
 corpus/0256
 corpus/0259
-corpus/0260
 corpus/0262
 corpus/0263
 corpus/0264
@@ -201,8 +197,6 @@ corpus/0275
 corpus/0278
 corpus/0279
 corpus/0281
-corpus/0283
-corpus/0284
 corpus/0286
 corpus/0287
 corpus/0289
@@ -225,7 +219,6 @@ corpus/0307
 corpus/0308
 corpus/0310
 corpus/0312
-corpus/0313
 corpus/0314
 corpus/0316
 corpus/0317

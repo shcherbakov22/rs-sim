@@ -132,6 +132,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_STAIR_BLOCK:
             result = stair_update_shape(lv, st, pos, dir);
             break;
+        case VCLASS_LEAVES_BLOCK:
+            result = leaves_update_shape(lv, st, pos, neighbor);
+            break;
         case VCLASS_BELL_BLOCK:
             result = bell_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
@@ -302,6 +305,9 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             break;
         case VCLASS_BUTTON_BLOCK:
             button_tick(lv, st, pos);
+            break;
+        case VCLASS_LEAVES_BLOCK:
+            leaves_tick(lv, st, pos);
             break;
         case VCLASS_DIODE_BLOCK:
             diode_tick(lv, st, pos);
