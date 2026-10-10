@@ -256,8 +256,9 @@ static void case_apply_input(level & lv, const case_input & in) {
         case CASE_VERB_ATTACK:
             block_attack(lv, level_get_state(lv, in.pos), in.pos);
             break;
-        default:
-            level_unsupported(lv, "input %s", case_verb_names[in.verb]);
+        case CASE_VERB_CLOSE:
+            // opening a container menu is unsupported, so no player holds one to close
+            break;
     }
     trace_exit(lv.tr);
 }
