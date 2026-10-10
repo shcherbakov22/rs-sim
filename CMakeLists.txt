@@ -22,22 +22,18 @@ add_library(tmc STATIC
     blocks/chiseled-book-shelf.cpp
     blocks/comparator.cpp
     blocks/composter.cpp
-    blocks/concrete-powder.cpp
     blocks/connecting.cpp
     blocks/container.cpp
     blocks/copper-bulb.cpp
     blocks/crafter.cpp
     blocks/diode.cpp
-    blocks/dirt-path.cpp
     blocks/dispense-item-behavior.cpp
     blocks/dispenser.cpp
     blocks/dropper.cpp
-    blocks/falling-block.cpp
     blocks/fire.cpp
     blocks/hopper-block-entity.cpp
     blocks/hopper.cpp
     blocks/jukebox.cpp
-    blocks/leaves.cpp
     blocks/lever.cpp
     blocks/lightning-rod.cpp
     blocks/minecart-dispense-item-behavior.cpp
@@ -56,12 +52,9 @@ add_library(tmc STATIC
     blocks/redstone-torch.cpp
     blocks/redstone-wall-torch.cpp
     blocks/repeater.cpp
-    blocks/scaffolding.cpp
     blocks/shelf.cpp
-    blocks/snowy-dirt.cpp
-    blocks/soul-sand.cpp
     blocks/target.cpp
-    blocks/tnt.cpp
+    blocks/terrain.cpp
     blocks/trapped-chest.cpp
     core/rng.cpp
     core/state.cpp

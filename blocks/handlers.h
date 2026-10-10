@@ -7,6 +7,7 @@
 #include <vector>
 
 // hook tables, one per family file
+extern const std::vector<block_hooks> terrain_hooks;
 extern const std::vector<block_hooks> fire_hooks;
 extern const std::vector<block_hooks> powered_hooks;
 extern const std::vector<block_hooks> connecting_hooks;
@@ -91,14 +92,6 @@ int32_t      container_get_redstone_signal(const container * c);
 void         containers_drop_contents(level & lv, block_pos pos, const container & c);
 int32_t      container_get_redstone_signal_from_block_entity(level & lv, block_pos pos);
 
-// SnowyDirtBlock
-state_id snowy_dirt_update_shape(state_id st, direction dir, state_id neighbor);
-
-// DirtPathBlock
-bool     dirt_path_can_survive(level & lv, block_pos pos);
-state_id dirt_path_update_shape(level & lv, state_id st, block_pos pos, direction dir);
-void     dirt_path_tick(level & lv, block_pos pos);
-
 // HopperBlock
 void hopper_on_place(level & lv, state_id st, block_pos pos, state_id old);
 void hopper_neighbor_changed(level & lv, state_id st, block_pos pos);
@@ -159,10 +152,6 @@ void    shelf_neighbor_changed(level & lv, state_id st, block_pos pos);
 void    shelf_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
 int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
 
-// LeavesBlock
-void     leaves_tick(level & lv, state_id st, block_pos pos);
-state_id leaves_update_shape(level & lv, state_id st, block_pos pos, state_id neighbor);
-
 // BaseRailBlock and RailState of the straight rails
 struct rail_state {
     block_pos              pos;
@@ -199,17 +188,6 @@ int32_t copper_bulb_get_analog_output_signal(level & lv, block_pos pos);
 void    target_tick(level & lv, state_id st, block_pos pos);
 int32_t target_get_signal(state_id st);
 void    target_on_place(level & lv, state_id st, block_pos pos, state_id old);
-
-// SoulSandBlock
-void soul_sand_on_place(level & lv, state_id st, block_pos pos);
-void soul_sand_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
-void soul_sand_tick(level & lv, block_pos pos);
-
-// ScaffoldingBlock
-int32_t scaffolding_get_distance(level & lv, block_pos pos);
-void    scaffolding_on_place(level & lv, state_id st, block_pos pos);
-void    scaffolding_update_shape(level & lv, state_id st, block_pos pos);
-void    scaffolding_tick(level & lv, state_id st, block_pos pos);
 
 // ComposterBlock
 void    composter_on_place(level & lv, state_id st, block_pos pos);
@@ -309,13 +287,5 @@ bool     base_fire_can_be_placed_at(level & lv, block_pos pos, direction forward
 
 // TntBlock
 void tnt_prime(level & lv, block_pos pos);
-void tnt_on_place(level & lv, state_id st, block_pos pos, state_id old);
-void tnt_neighbor_changed(level & lv, block_pos pos);
-
-// FallingBlock, ConcretePowderBlock
-void     falling_block_on_place(level & lv, state_id st, block_pos pos);
-state_id falling_block_update_shape(level & lv, state_id st, block_pos pos);
-void     falling_block_tick(level & lv, block_pos pos);
-state_id concrete_powder_update_shape(level & lv, state_id st, block_pos pos);
 
 // NetherPortalBlock

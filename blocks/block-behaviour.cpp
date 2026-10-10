@@ -14,10 +14,7 @@ static void hook_unsupported(level & lv, state_id st, hook h) {
 
 // each vanilla class is in one family
 static const std::vector<block_hooks> * const block_hook_families[] = {
-    &fire_hooks,
-    &powered_hooks,
-    &connecting_hooks,
-    &attached_hooks,
+    &terrain_hooks, &fire_hooks, &powered_hooks, &connecting_hooks, &attached_hooks,
 };
 
 static const block_hooks * block_hooks_of(int32_t vclass) {
@@ -194,27 +191,6 @@ state_id block_update_shape(level &   lv,
             case VCLASS_BARRIER_BLOCK:
             case VCLASS_LIGHT_BLOCK:
                 break;
-            case VCLASS_SOUL_SAND_BLOCK:
-                soul_sand_update_shape(lv, st, pos, dir, neighbor);
-                break;
-            case VCLASS_FALLING_BLOCK:
-                result = falling_block_update_shape(lv, st, pos);
-                break;
-            case VCLASS_CONCRETE_POWDER_BLOCK:
-                result = concrete_powder_update_shape(lv, st, pos);
-                break;
-            case VCLASS_SCAFFOLDING_BLOCK:
-                scaffolding_update_shape(lv, st, pos);
-                break;
-            case VCLASS_DIRT_PATH_BLOCK:
-                result = dirt_path_update_shape(lv, st, pos, dir);
-                break;
-            case VCLASS_SNOWY_DIRT_BLOCK:
-                result = snowy_dirt_update_shape(st, dir, neighbor);
-                break;
-            case VCLASS_LEAVES_BLOCK:
-                result = leaves_update_shape(lv, st, pos, neighbor);
-                break;
             case VCLASS_COPPER_CHEST_BLOCK:
                 result = copper_chest_update_shape(st, dir, neighbor);
                 break;
@@ -274,9 +250,6 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
             case VCLASS_DISPENSER_BLOCK:
                 dispenser_neighbor_changed(lv, st, pos);
                 break;
-            case VCLASS_TNT_BLOCK:
-                tnt_neighbor_changed(lv, pos);
-                break;
             case VCLASS_CRAFTER_BLOCK:
                 crafter_neighbor_changed(lv, st, pos);
                 break;
@@ -329,18 +302,6 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
                 break;
             case VCLASS_TARGET_BLOCK:
                 target_on_place(lv, st, pos, old);
-                break;
-            case VCLASS_SOUL_SAND_BLOCK:
-                soul_sand_on_place(lv, st, pos);
-                break;
-            case VCLASS_FALLING_BLOCK:
-                falling_block_on_place(lv, st, pos);
-                break;
-            case VCLASS_TNT_BLOCK:
-                tnt_on_place(lv, st, pos, old);
-                break;
-            case VCLASS_SCAFFOLDING_BLOCK:
-                scaffolding_on_place(lv, st, pos);
                 break;
             case VCLASS_COMPOSTER_BLOCK:
                 composter_on_place(lv, st, pos);
@@ -413,26 +374,11 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             case VCLASS_REDSTONE_TORCH_BLOCK:
                 redstone_torch_tick(lv, st, pos);
                 break;
-            case VCLASS_DIRT_PATH_BLOCK:
-                dirt_path_tick(lv, pos);
-                break;
-            case VCLASS_LEAVES_BLOCK:
-                leaves_tick(lv, st, pos);
-                break;
             case VCLASS_LIGHTNING_ROD_BLOCK:
                 lightning_rod_tick(lv, st, pos);
                 break;
             case VCLASS_TARGET_BLOCK:
                 target_tick(lv, st, pos);
-                break;
-            case VCLASS_SOUL_SAND_BLOCK:
-                soul_sand_tick(lv, pos);
-                break;
-            case VCLASS_FALLING_BLOCK:
-                falling_block_tick(lv, pos);
-                break;
-            case VCLASS_SCAFFOLDING_BLOCK:
-                scaffolding_tick(lv, st, pos);
                 break;
             case VCLASS_COMPOSTER_BLOCK:
                 composter_tick(lv, st, pos);
@@ -586,8 +532,6 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return attached_can_survive(lv, st, pos);
         case VCLASS_DIODE_BLOCK:
             return diode_can_survive(lv, pos);
-        case VCLASS_DIRT_PATH_BLOCK:
-            return dirt_path_can_survive(lv, pos);
         default:
             hook_unsupported(lv, st, HOOK_CAN_SURVIVE);
             return true;
