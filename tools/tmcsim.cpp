@@ -86,41 +86,56 @@ static int cmd_run(const std::string & path) {
     return 0;
 }
 
-static int cmd_check(const std::vector<std::string> & paths) {
-    int32_t n_pass = 0;
+enum check_result {
+    CHECK_RESULT_PASS,
+    CHECK_RESULT_UNSUPPORTED,  // stopped at something not simulated yet; the trace up to there matches
+    CHECK_RESULT_WRONG,        // the trace differs from the oracle, or the case cannot be read
+};
+
+static check_result check_case(const std::string & path, bool verbose) {
+    std::string golden_path = path.substr(0, path.size() - (path.ends_with(".case") ? 5 : 0)) + ".trace";
+    std::string golden;
+    case_file   f;
+    if (!load_case(path, f)) {
+        return CHECK_RESULT_WRONG;
+    }
+    if (!read_file(golden_path, golden)) {
+        printf("WRONG %s: no golden trace %s\n", path.c_str(), golden_path.c_str());
+        return CHECK_RESULT_WRONG;
+    }
+    trace                    tr;
+    std::string              err;
+    bool                     ok   = case_run(f, tr, err);
+    std::vector<std::string> want = split_lines(golden);
+    int64_t                  diff = trace_first_diff(want, tr.lines);
+    // an unsupported run only produced a prefix, which must match
+    if (!ok && (diff < 0 || (size_t) diff == tr.lines.size())) {
+        printf("UNSUPPORTED %s: %s (%zu lines match)\n", path.c_str(), err.c_str(), tr.lines.size());
+        return CHECK_RESULT_UNSUPPORTED;
+    }
+    if (diff >= 0) {
+        printf("WRONG %s: trace differs%s%s\n", path.c_str(), ok ? "" : " before ", ok ? "" : err.c_str());
+        if (verbose) {
+            trace_print_diff(want, tr.lines, (size_t) diff);
+        }
+        return CHECK_RESULT_WRONG;
+    }
+    printf("PASS %s\n", path.c_str());
+    return CHECK_RESULT_PASS;
+}
+
+// exit 0 if every case passes (with xfail: is unsupported with a matching prefix)
+static int cmd_check(const std::vector<std::string> & paths, bool xfail) {
+    int32_t n[3] = {};
     for (const std::string & path : paths) {
-        std::string golden_path = path.substr(0, path.size() - (path.ends_with(".case") ? 5 : 0)) + ".trace";
-        std::string golden;
-        case_file   f;
-        if (!load_case(path, f)) {
-            continue;
-        }
-        if (!read_file(golden_path, golden)) {
-            printf("FAIL %s: no golden trace %s\n", path.c_str(), golden_path.c_str());
-            continue;
-        }
-        trace       tr;
-        std::string err;
-        if (!case_run(f, tr, err)) {
-            printf("FAIL %s: %s\n", path.c_str(), err.c_str());
-            continue;
-        }
-        std::vector<std::string> want = split_lines(golden);
-        int64_t                  diff = trace_first_diff(want, tr.lines);
-        if (diff >= 0) {
-            printf("FAIL %s: trace differs\n", path.c_str());
-            if (paths.size() == 1) {
-                trace_print_diff(want, tr.lines, (size_t) diff);
-            }
-            continue;
-        }
-        printf("PASS %s\n", path.c_str());
-        n_pass++;
+        n[check_case(path, paths.size() == 1)]++;
     }
     if (paths.size() > 1) {
-        printf("%d/%zu pass\n", n_pass, paths.size());
+        printf("%d pass, %d unsupported, %d wrong\n", n[CHECK_RESULT_PASS], n[CHECK_RESULT_UNSUPPORTED],
+               n[CHECK_RESULT_WRONG]);
     }
-    return n_pass == (int32_t) paths.size() ? 0 : 1;
+    check_result expected = xfail ? CHECK_RESULT_UNSUPPORTED : CHECK_RESULT_PASS;
+    return n[expected] == (int32_t) paths.size() ? 0 : 1;
 }
 
 int main(int argc, char ** argv) {
@@ -128,10 +143,11 @@ int main(int argc, char ** argv) {
         return cmd_run(argv[2]);
     }
     if (argc >= 3 && strcmp(argv[1], "check") == 0) {
-        std::vector<std::string> paths(argv + 2, argv + argc);
-        return cmd_check(paths);
+        bool                     xfail = strcmp(argv[2], "--xfail") == 0;
+        std::vector<std::string> paths(argv + (xfail ? 3 : 2), argv + argc);
+        return cmd_check(paths, xfail);
     }
     fprintf(stderr, "usage: tmcsim run <file.case>\n");
-    fprintf(stderr, "       tmcsim check <file.case>...   (compares with <file.trace>)\n");
+    fprintf(stderr, "       tmcsim check [--xfail] <file.case>...   (compares with <file.trace>)\n");
     return 2;
 }

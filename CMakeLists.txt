@@ -8,14 +8,18 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE RelWithDebInfo)
 endif()
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_library(tmc STATIC
+    blocks/block-behaviour.cpp
     core/rng.cpp
     core/state.cpp
     core/trace.cpp
     engine/case-run.cpp
+    engine/level-ticks.cpp
     engine/level.cpp
+    engine/neighbor-updater.cpp
     gen/blocks.cpp
     io/case-file.cpp
 )
@@ -30,8 +34,8 @@ target_link_libraries(test-core tmc)
 enable_testing()
 add_test(NAME core COMMAND test-core)
 
-# One test per oracle case with a golden trace. Cases in tests/xfail.txt must fail: a passing one
-# fails the test, so the list only shrinks.
+# One test per oracle case with a golden trace. Cases in tests/xfail.txt must stop as unsupported with
+# the trace so far matching: a wrong trace fails, and so does a pass, so the list only shrinks.
 set(CASES_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../oracle/cases)
 file(GLOB CASES CONFIGURE_DEPENDS ${CASES_DIR}/*.case ${CASES_DIR}/*/*.case)
 file(STRINGS tests/xfail.txt XFAIL REGEX "^[^#]")
@@ -42,8 +46,9 @@ foreach (CASE ${CASES})
     endif()
     file(RELATIVE_PATH NAME ${CASES_DIR} ${CASE})
     string(REGEX REPLACE "\\.case$" "" NAME ${NAME})
-    add_test(NAME case/${NAME} COMMAND tmcsim check ${CASE})
     if (NAME IN_LIST XFAIL)
-        set_tests_properties(case/${NAME} PROPERTIES WILL_FAIL TRUE)
+        add_test(NAME case/${NAME} COMMAND tmcsim check --xfail ${CASE})
+    else()
+        add_test(NAME case/${NAME} COMMAND tmcsim check ${CASE})
     endif()
 endforeach()

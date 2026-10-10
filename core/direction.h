@@ -37,3 +37,12 @@ inline bool direction_parse(std::string_view name, direction & out) {
     }
     return false;
 }
+
+inline direction direction_opposite(direction dir) {
+    return (direction) (dir ^ 1);
+}
+
+inline block_pos pos_relative(block_pos pos, direction dir) {
+    const block_pos & s = direction_defs[dir].step;
+    return { pos.x + s.x, pos.y + s.y, pos.z + s.z };
+}

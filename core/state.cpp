@@ -27,6 +27,16 @@ int32_t state_block(state_id st) {
     return lo;
 }
 
+bool block_instanceof(int32_t block, vclass cls) {
+    const block_def & b = block_defs[block];
+    for (int32_t i = 0; i < b.n_chain; i++) {
+        if (block_chains[b.chain_first + i] == cls) {
+            return true;
+        }
+    }
+    return false;
+}
+
 std::string state_to_string(state_id st) {
     const block_def & b     = block_defs[state_block(st)];
     std::string       out   = b.name;

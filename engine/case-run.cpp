@@ -10,28 +10,68 @@ static void case_place(level & lv, const case_file & f) {
     for (int32_t y = 0; y < f.size.y; y++) {
         for (int32_t z = 0; z < f.size.z; z++) {
             for (int32_t x = 0; x < f.size.x; x++) {
-                level_set_state_raw(lv, { x, y, z }, f.states[x + f.size.x * (z + f.size.z * y)]);
+                state_id st = f.states[x + f.size.x * (z + f.size.z * y)];
+                level_set_state_raw(lv, { x, y, z }, st);
+                // vanilla creates the block entity even when the case gives no NBT
+                if (state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
+                    level_unsupported(lv, "block entities");
+                }
             }
         }
     }
     if (!f.nbt.empty() || !f.tickers.empty()) {
         level_unsupported(lv, "block entities");
     }
-    if (!f.ticks.empty()) {
-        level_unsupported(lv, "scheduled ticks in case");
+    // fresh sub-tick numbers in file order keep the execution order
+    for (const case_tick & t : f.ticks) {
+        level_ticks_schedule(lv.block_ticks,
+                             { t.block, t.pos, lv.game_time + t.delay, t.priority, lv.sub_tick_count++ });
     }
-    if (!f.events.empty()) {
-        level_unsupported(lv, "block events in case");
+    for (const case_event & e : f.events) {
+        lv.block_events.push_back({ e.pos, e.block, e.param_a, e.param_b });
     }
     rng_set_seed(lv.random, f.seed);
     lv.random.has_gaussian = f.has_gaussian;
     lv.random.gaussian     = f.gaussian;
 }
 
+static const char * const case_verb_names[] = { "use", "attack", "place", "break", "close" };
+
+// Inputs.apply: the block-side effect of a player action
+static void case_apply_input(level & lv, const case_input & in) {
+    std::string text = std::string("input ") + case_verb_names[in.verb] + " " + std::to_string(in.pos.x) + " " +
+                       std::to_string(in.pos.y) + " " + std::to_string(in.pos.z);
+    if (in.verb == CASE_VERB_PLACE) {
+        text += " " + state_to_string(in.state);
+    }
+    if (in.verb == CASE_VERB_USE) {
+        text += std::string(" ") + direction_defs[in.face].name;
+        if (!in.item.empty()) {
+            std::string_view item = in.item;
+            if (item.starts_with("minecraft:")) {
+                item.remove_prefix(10);
+            }
+            text += " with " + std::string(item) + " " + std::to_string(in.count);
+        }
+    }
+    trace_enter(lv.tr, nullptr, "%s", text.c_str());
+    switch (in.verb) {
+        case CASE_VERB_PLACE:
+            level_set_block(lv, in.pos, in.state, UPDATE_FLAG_ALL_IMMEDIATE);
+            break;
+        case CASE_VERB_BREAK:
+            level_destroy_block(lv, in.pos, false);
+            break;
+        default:
+            level_unsupported(lv, "input %s", case_verb_names[in.verb]);
+    }
+    trace_exit(lv.tr);
+}
+
 static void case_apply_inputs(level & lv, const case_file & f, int32_t gap) {
     for (const case_input & in : f.inputs) {
         if (in.at == gap) {
-            level_unsupported(lv, "inputs");
+            case_apply_input(lv, in);
         }
     }
 }
@@ -57,6 +97,8 @@ bool case_run(const case_file & f, trace & tr, std::string & err) {
         case_apply_inputs(lv, f, gap);
     }
     if (!lv.unsupported.empty()) {
+        // keep the exact prefix: callers can still check it against the oracle
+        tr.lines.resize(lv.unsupported_line);
         err = "unsupported: " + lv.unsupported;
         return false;
     }

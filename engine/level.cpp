@@ -1,11 +1,26 @@
 #include "engine/level.h"
 
+#include "blocks/block-behaviour.h"
 #include "core/trace.h"
 
 #include <cstdarg>
 
+void level_unsupported(level & lv, const char * fmt, ...) {
+    // past a boundary nothing is traced, so nothing the sim does there can be wrong
+    if (!lv.unsupported.empty() || (lv.tr != nullptr && lv.tr->boundary)) {
+        return;
+    }
+    char    buf[256];
+    va_list args;
+    va_start(args, fmt);
+    vsnprintf(buf, sizeof(buf), fmt, args);
+    va_end(args);
+    lv.unsupported      = buf;
+    lv.unsupported_line = lv.tr != nullptr ? lv.tr->lines.size() : 0;
+}
+
+// SectionPos.asLong
 static int64_t section_key(block_pos pos) {
-    // SectionPos.asLong layout
     int64_t x = pos.x >> 4;
     int64_t y = pos.y >> 4;
     int64_t z = pos.z >> 4;
@@ -16,35 +31,286 @@ static int32_t section_index(block_pos pos) {
     return (pos.y & 15) << 8 | (pos.z & 15) << 4 | (pos.x & 15);
 }
 
-state_id level_get_state(level & lv, block_pos pos) {
-    if (pos.y < LEVEL_Y_MIN || pos.y > LEVEL_Y_MAX) {
-        // vanilla answers void_air here
-        level_unsupported(lv, "read outside build height");
-        return STATE_AIR;
+static bool level_outside_height(block_pos pos) {
+    return pos.y < LEVEL_Y_MIN || pos.y > LEVEL_Y_MAX;
+}
+
+// Level.isInValidBounds
+static bool level_in_valid_bounds(block_pos pos) {
+    return !level_outside_height(pos) && pos.x >= -30000000 && pos.z >= -30000000 && pos.x < 30000000 &&
+           pos.z < 30000000;
+}
+
+state_id level_get_state(const level & lv, block_pos pos) {
+    if (level_outside_height(pos)) {
+        return block_default(BLOCK_VOID_AIR);
     }
     auto it = lv.sections.find(section_key(pos));
     return it == lv.sections.end() ? STATE_AIR : it->second->states[section_index(pos)];
 }
 
-void level_set_state_raw(level & lv, block_pos pos, state_id st) {
-    TMC_ASSERT(pos.y >= LEVEL_Y_MIN && pos.y <= LEVEL_Y_MAX);
+// LevelChunkSection.setBlockState: returns the old state
+static state_id section_set(level & lv, block_pos pos, state_id st) {
     std::unique_ptr<level_section> & s = lv.sections[section_key(pos)];
     if (!s) {
         s = std::make_unique<level_section>();
     }
-    s->states[section_index(pos)] = st;
+    state_id & cell = s->states[section_index(pos)];
+    state_id   old  = cell;
+    s->n_non_air += (state_has(old, STATE_FLAG_AIR) ? 0 : -1) + (state_has(st, STATE_FLAG_AIR) ? 0 : 1);
+    cell = st;
+    return old;
 }
 
-void level_unsupported(level & lv, const char * fmt, ...) {
-    if (!lv.unsupported.empty()) {
+static bool section_only_air(const level & lv, block_pos pos) {
+    auto it = lv.sections.find(section_key(pos));
+    return it == lv.sections.end() || it->second->n_non_air == 0;
+}
+
+void level_set_state_raw(level & lv, block_pos pos, state_id st) {
+    TMC_ASSERT(!level_outside_height(pos));
+    section_set(lv, pos, st);
+}
+
+// LevelChunk.setBlockState: returns false where vanilla returns null (nothing changed or the block was replaced meanwhile)
+static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_t flags, state_id & old) {
+    if (section_only_air(lv, pos) && state_has(st, STATE_FLAG_AIR)) {
+        return false;
+    }
+    old = section_set(lv, pos, st);
+    if (old == st) {
+        return false;
+    }
+    int32_t block           = state_block(st);
+    bool    block_changed   = state_block(old) != block;
+    bool    moved_by_piston = (flags & UPDATE_FLAG_MOVE_BY_PISTON) != 0;
+    if (state_has(old, STATE_FLAG_BLOCK_ENTITY) || state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
+        level_unsupported(lv, "block entities");
+    }
+    if ((block_changed || block_instanceof(block, VCLASS_BASE_RAIL_BLOCK)) &&
+        ((flags & UPDATE_FLAG_NEIGHBORS) != 0 || moved_by_piston)) {
+        block_affect_neighbors_after_removal(lv, old, pos, moved_by_piston);
+    }
+    if (!state_is(level_get_state(lv, pos), block)) {
+        return false;
+    }
+    if ((flags & UPDATE_FLAG_SKIP_ON_PLACE) == 0) {
+        block_on_place(lv, st, pos, old, moved_by_piston);
+    }
+    return true;
+}
+
+bool level_set_block(level & lv, block_pos pos, state_id st, int32_t flags, int32_t limit) {
+    char limit_text[32] = "";
+    if (limit != UPDATE_LIMIT) {
+        snprintf(limit_text, sizeof(limit_text), " limit %d", limit);
+    }
+    trace_enter(lv.tr, &pos, "set %d %d %d %s flags %d%s was %s", pos.x, pos.y, pos.z, state_to_string(st).c_str(),
+                flags, limit_text, state_to_string(level_get_state(lv, pos)).c_str());
+    bool done = false;
+    if (level_in_valid_bounds(pos)) {
+        state_id old;
+        done = chunk_set_block_state(lv, pos, st, flags, old);
+        // sendBlockUpdated, light, heightmaps and POI have no effect on the simulated mechanics
+        if (done && level_get_state(lv, pos) == st) {
+            if ((flags & UPDATE_FLAG_NEIGHBORS) != 0) {
+                level_update_neighbors_at(lv, pos, state_block(old));
+                if (state_has(st, STATE_FLAG_ANALOG_OUTPUT)) {
+                    level_update_neighbour_for_output_signal(lv, pos, state_block(st));
+                }
+            }
+            if ((flags & UPDATE_FLAG_KNOWN_SHAPE) == 0 && limit > 0) {
+                int32_t neighbour_flags = flags & ~(UPDATE_FLAG_NEIGHBORS | UPDATE_FLAG_SUPPRESS_DROPS);
+                block_update_indirect_neighbour_shapes(lv, old, pos, neighbour_flags, limit - 1);
+                block_update_neighbour_shapes(lv, st, pos, neighbour_flags, limit - 1);
+                block_update_indirect_neighbour_shapes(lv, st, pos, neighbour_flags, limit - 1);
+            }
+        }
+    }
+    trace_exit(lv.tr);
+    return done;
+}
+
+// FluidState.createLegacyBlock of the state at pos; fluids are out of scope
+static state_id level_fluid_block(level & lv, block_pos pos) {
+    if (state_has(level_get_state(lv, pos), STATE_FLAG_FLUID)) {
+        level_unsupported(lv, "fluids");
+    }
+    return STATE_AIR;
+}
+
+bool level_remove_block(level & lv, block_pos pos, bool moved_by_piston) {
+    state_id fluid = level_fluid_block(lv, pos);
+    return level_set_block(lv, pos, fluid, UPDATE_FLAG_ALL | (moved_by_piston ? UPDATE_FLAG_MOVE_BY_PISTON : 0));
+}
+
+// Mth.nextDouble
+static double rng_next_double_between(rng & r, double min, double max) {
+    return min >= max ? min : rng_next_double(r) * (max - min) + min;
+}
+
+// Block.dropResources with an empty hand. The first item entity ends the traced contract.
+static void level_drop_resources(level & lv, state_id st, block_pos pos) {
+    if (state_has(st, STATE_FLAG_DROPS_RANDOM)) {
+        level_unsupported(lv, "random loot");
         return;
     }
-    char    buf[256];
-    va_list args;
-    va_start(args, fmt);
-    vsnprintf(buf, sizeof(buf), fmt, args);
-    va_end(args);
-    lv.unsupported = buf;
+    if (state_has(st, STATE_FLAG_DROPS)) {
+        // Block.popResource: random offset in the block, then ItemEntity's random motion
+        for (int32_t i = 0; i < 3; i++) {
+            rng_next_double_between(lv.random, -0.25, 0.25);
+        }
+        rng_next_double(lv.random);
+        rng_next_double(lv.random);
+        trace_boundary(lv.tr, "spawn item %d %d %d", pos.x, pos.y, pos.z);
+    }
+    block_spawn_after_break(lv, st, pos);
+}
+
+bool level_destroy_block(level & lv, block_pos pos, bool drop, int32_t limit) {
+    state_id st = level_get_state(lv, pos);
+    if (state_has(st, STATE_FLAG_AIR)) {
+        return false;
+    }
+    state_id fluid = level_fluid_block(lv, pos);
+    if (drop) {
+        if (state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
+            level_unsupported(lv, "block entities");
+        }
+        level_drop_resources(lv, st, pos);
+    }
+    return level_set_block(lv, pos, fluid, UPDATE_FLAG_ALL, limit);
+}
+
+void level_update_neighbors_at(level & lv, block_pos pos, int32_t block) {
+    neighbor_update u = {};
+    u.type            = NEIGHBOR_UPDATE_MULTI;
+    u.pos             = pos;
+    u.block           = block;
+    u.skip            = -1;
+    neighbor_updater_add(lv, u);
+}
+
+void level_update_neighbors_at_except_from_facing(level & lv, block_pos pos, int32_t block, direction skip) {
+    neighbor_update u = {};
+    u.type            = NEIGHBOR_UPDATE_MULTI;
+    u.pos             = pos;
+    u.block           = block;
+    u.skip            = skip;
+    if (NEIGHBOR_UPDATE_ORDER[0] == skip) {
+        u.idx = 1;
+    }
+    neighbor_updater_add(lv, u);
+}
+
+void level_neighbor_changed(level & lv, block_pos pos, int32_t block) {
+    neighbor_update u = {};
+    u.type            = NEIGHBOR_UPDATE_SIMPLE;
+    u.pos             = pos;
+    u.block           = block;
+    neighbor_updater_add(lv, u);
+}
+
+void level_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block, bool moved_by_piston) {
+    neighbor_update u = {};
+    u.type            = NEIGHBOR_UPDATE_FULL;
+    u.pos             = pos;
+    u.state           = st;
+    u.block           = block;
+    u.moved_by_piston = moved_by_piston;
+    neighbor_updater_add(lv, u);
+}
+
+void level_neighbor_shape_changed(level &   lv,
+                                  direction dir,
+                                  block_pos pos,
+                                  block_pos neighbor_pos,
+                                  state_id  neighbor,
+                                  int32_t   flags,
+                                  int32_t   limit) {
+    neighbor_update u = {};
+    u.type            = NEIGHBOR_UPDATE_SHAPE;
+    u.pos             = pos;
+    u.neighbor_pos    = neighbor_pos;
+    u.state           = neighbor;
+    u.dir             = dir;
+    u.flags           = flags;
+    u.limit           = limit;
+    neighbor_updater_add(lv, u);
+}
+
+void level_update_neighbour_for_output_signal(level & lv, block_pos pos, int32_t block) {
+    static constexpr direction horizontal[4] = { DIRECTION_NORTH, DIRECTION_EAST, DIRECTION_SOUTH, DIRECTION_WEST };
+    for (direction dir : horizontal) {
+        block_pos rel = pos_relative(pos, dir);
+        state_id  st  = level_get_state(lv, rel);
+        if (state_is(st, BLOCK_COMPARATOR)) {
+            level_neighbor_changed(lv, st, rel, block, false);
+        } else if (state_has(st, STATE_FLAG_CONDUCTOR)) {
+            rel = pos_relative(rel, dir);
+            st  = level_get_state(lv, rel);
+            if (state_is(st, BLOCK_COMPARATOR)) {
+                level_neighbor_changed(lv, st, rel, block, false);
+            }
+        }
+    }
+}
+
+void level_schedule_tick(level & lv, block_pos pos, int32_t block, int32_t delay, int32_t priority) {
+    // LevelAccessor.createTick takes a sub-tick number even if the tick turns out to be a duplicate
+    scheduled_tick tick = { block, pos, lv.game_time + delay, priority, lv.sub_tick_count++ };
+    if (trace_wants(lv.tr, &pos)) {
+        bool dup = level_ticks_has_scheduled(lv.block_ticks, pos, block);
+        trace_add(lv.tr, "sched %d %d %d %s +%d %s%s", pos.x, pos.y, pos.z, block_defs[block].name, delay,
+                  tick_priority_name(priority), dup ? " dup" : "");
+    }
+    level_ticks_schedule(lv.block_ticks, tick);
+}
+
+static bool block_event_equals(const block_event & a, const block_event & b) {
+    return a.pos == b.pos && a.block == b.block && a.param_a == b.param_a && a.param_b == b.param_b;
+}
+
+void level_block_event(level & lv, block_pos pos, int32_t block, int32_t param_a, int32_t param_b) {
+    block_event e   = { pos, block, param_a, param_b };
+    bool        dup = false;
+    for (const block_event & other : lv.block_events) {
+        dup = dup || block_event_equals(other, e);
+    }
+    if (trace_wants(lv.tr, &pos)) {
+        trace_add(lv.tr, "queue %d %d %d %s %d %d%s", pos.x, pos.y, pos.z, block_defs[block].name, param_a, param_b,
+                  dup ? " dup" : "");
+    }
+    if (!dup) {
+        lv.block_events.push_back(e);
+    }
+}
+
+// ServerLevel.tickBlock
+static void level_tick_block(level & lv, block_pos pos, int32_t block) {
+    state_id st = level_get_state(lv, pos);
+    trace_enter(lv.tr, &pos, "tick %d %d %d %s%s", pos.x, pos.y, pos.z, block_defs[block].name,
+                state_is(st, block) ? "" : " stale");
+    if (state_is(st, block)) {
+        block_tick(lv, st, pos);
+    }
+    trace_exit(lv.tr);
+}
+
+// ServerLevel.runBlockEvents and doBlockEvent; events queued meanwhile run in the same loop
+static void level_run_block_events(level & lv) {
+    while (!lv.block_events.empty()) {
+        block_event e = lv.block_events.front();
+        lv.block_events.erase(lv.block_events.begin());
+        state_id st    = level_get_state(lv, e.pos);
+        bool     stale = !state_is(st, e.block);
+        trace_enter(lv.tr, &e.pos, "event %d %d %d %s %d %d%s", e.pos.x, e.pos.y, e.pos.z, block_defs[e.block].name,
+                    e.param_a, e.param_b, stale ? " stale" : "");
+        if (!stale) {
+            block_trigger_event(lv, st, e.pos, e.param_a, e.param_b);
+        }
+        trace_exit(lv.tr);
+    }
 }
 
 void level_tick(level & lv) {
@@ -53,10 +319,18 @@ void level_tick(level & lv) {
     lv.game_time++;
 
     trace_phase(lv.tr, "blockTicks");
+    level_ticks_collect(lv.block_ticks, lv.game_time, 65536);
+    scheduled_tick t;
+    while (level_ticks_poll(lv.block_ticks, t)) {
+        level_tick_block(lv, t.pos, t.block);
+    }
+    level_ticks_cleanup(lv.block_ticks);
+
     trace_phase(lv.tr, "fluidTicks");
     trace_phase(lv.tr, "raid");
     trace_phase(lv.tr, "chunkSource");
     trace_phase(lv.tr, "blockEvents");
+    level_run_block_events(lv);
     trace_phase(lv.tr, "entities");
     trace_phase(lv.tr, "blockEntities");
     trace_phase(lv.tr, "entityManagement");

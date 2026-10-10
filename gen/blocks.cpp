@@ -1026,1173 +1026,3342 @@ const block_prop block_props[] = {
     { 119, 1 },  // pale_hanging_moss
 };
 
+const char * const hook_names[] = { "updateShape", "neighborChanged", "onPlace", "affectNeighborsAfterRemoval", "tick", "triggerEvent", "updateIndirectNeighbourShapes", "spawnAfterBreak", "useItemOn", "useWithoutItem", "attack" };
+const char * const vclass_names[] = { "BlockBehaviour", "AbstractBannerBlock", "AbstractCandleBlock", "AbstractCauldronBlock", "AbstractChestBlock", "AbstractFurnaceBlock", "AbstractSkullBlock", "AirBlock", "AmethystBlock", "AmethystClusterBlock", "AnvilBlock", "AttachedStemBlock", "AzaleaBlock", "BambooSaplingBlock", "BambooStalkBlock", "BannerBlock", "BarrelBlock", "BarrierBlock", "BaseCoralFanBlock", "BaseCoralPlantBlock", "BaseCoralPlantTypeBlock", "BaseCoralWallFanBlock", "BaseEntityBlock", "BaseFireBlock", "BasePressurePlateBlock", "BaseRailBlock", "BaseTorchBlock", "BeaconBlock", "BedBlock", "BeehiveBlock", "BeetrootBlock", "BellBlock", "BigDripleafBlock", "BigDripleafStemBlock", "BlastFurnaceBlock", "BonemealableFeaturePlacerBlock", "BrewingStandBlock", "BrushableBlock", "BubbleColumnBlock", "BuddingAmethystBlock", "BushBlock", "ButtonBlock", "CactusBlock", "CactusFlowerBlock", "CakeBlock", "CalibratedSculkSensorBlock", "CampfireBlock", "CandleBlock", "CandleCakeBlock", "CarpetBlock", "CarrotBlock", "CartographyTableBlock", "CarvedPumpkinBlock", "CauldronBlock", "CaveVinesBlock", "CaveVinesPlantBlock", "CeilingHangingSignBlock", "ChainBlock", "ChestBlock", "ChiseledBookShelfBlock", "ChorusFlowerBlock", "ChorusPlantBlock", "CocoaBlock", "ColoredFallingBlock", "CommandBlock", "ComparatorBlock", "ComposterBlock", "ConcretePowderBlock", "ConduitBlock", "CopperBulbBlock", "CopperChestBlock", "CopperGolemStatueBlock", "CoralBlock", "CoralFanBlock", "CoralPlantBlock", "CoralWallFanBlock", "CrafterBlock", "CraftingTableBlock", "CreakingHeartBlock", "CropBlock", "CrossCollisionBlock", "CryingObsidianBlock", "DaylightDetectorBlock", "DecoratedPotBlock", "DetectorRailBlock", "DiodeBlock", "DirectionalBlock", "DirtPathBlock", "DispenserBlock", "DoorBlock", "DoublePlantBlock", "DragonEggBlock", "DriedGhastBlock", "DropExperienceBlock", "DropperBlock", "DryVegetationBlock", "EnchantingTableBlock", "EndGatewayBlock", "EndPortalBlock", "EndPortalFrameBlock", "EndRodBlock", "EnderChestBlock", "EyeblossomBlock", "FaceAttachedHorizontalDirectionalBlock", "FallingBlock", "FarmBlock", "FenceBlock", "FenceGateBlock", "FireBlock", "FireflyBushBlock", "FlowerBedBlock", "FlowerBlock", "FlowerPotBlock", "FrogspawnBlock", "FrostedIceBlock", "FungusBlock", "FurnaceBlock", "GlazedTerracottaBlock", "GlowLichenBlock", "GrassBlock", "GrindstoneBlock", "GrowingPlantBlock", "GrowingPlantBodyBlock", "GrowingPlantHeadBlock", "HalfTransparentBlock", "HangingMossBlock", "HangingRootsBlock", "HayBlock", "HeavyCoreBlock", "HoneyBlock", "HopperBlock", "HorizontalDirectionalBlock", "HugeMushroomBlock", "IceBlock", "InfestedBlock", "InfestedRotatedPillarBlock", "IronBarsBlock", "JigsawBlock", "JukeboxBlock", "KelpBlock", "KelpPlantBlock", "LadderBlock", "LanternBlock", "LavaCauldronBlock", "LayeredCauldronBlock", "LeafLitterBlock", "LeavesBlock", "LecternBlock", "LeverBlock", "LightBlock", "LightningRodBlock", "LiquidBlock", "LoomBlock", "MagmaBlock", "MangroveLeavesBlock", "MangrovePropaguleBlock", "MangroveRootsBlock", "MossyCarpetBlock", "MovingPistonBlock", "MudBlock", "MultifaceBlock", "MultifaceSpreadeableBlock", "MushroomBlock", "MyceliumBlock", "NetherPortalBlock", "NetherSproutsBlock", "NetherWartBlock", "NetherrackBlock", "NoteBlock", "NyliumBlock", "ObserverBlock", "PiglinWallSkullBlock", "PipeBlock", "PistonBaseBlock", "PistonHeadBlock", "PitcherCropBlock", "PlayerHeadBlock", "PlayerWallHeadBlock", "PointedDripstoneBlock", "PotatoBlock", "PowderSnowBlock", "PoweredBlock", "PoweredRailBlock", "PressurePlateBlock", "PumpkinBlock", "RailBlock", "RedStoneOreBlock", "RedStoneWireBlock", "RedstoneLampBlock", "RedstoneTorchBlock", "RedstoneWallTorchBlock", "RepeaterBlock", "RespawnAnchorBlock", "RodBlock", "RootedDirtBlock", "RootsBlock", "RotatedPillarBlock", "SandBlock", "SaplingBlock", "ScaffoldingBlock", "SculkBlock", "SculkCatalystBlock", "SculkSensorBlock", "SculkShriekerBlock", "SculkVeinBlock", "SeaPickleBlock", "SeagrassBlock", "ShelfBlock", "ShortDryGrassBlock", "ShulkerBoxBlock", "SignBlock", "SkullBlock", "SlabBlock", "SlimeBlock", "SmallDripleafBlock", "SmithingTableBlock", "SmokerBlock", "SnifferEggBlock", "SnowLayerBlock", "SnowyDirtBlock", "SoulFireBlock", "SoulSandBlock", "SpawnerBlock", "SpongeBlock", "SporeBlossomBlock", "SpreadingSnowyDirtBlock", "StainedGlassBlock", "StainedGlassPaneBlock", "StairBlock", "StandingSignBlock", "StemBlock", "StonecutterBlock", "StructureBlock", "StructureVoidBlock", "SugarCaneBlock", "SweetBerryBushBlock", "TallDryGrassBlock", "TallFlowerBlock", "TallGrassBlock", "TallSeagrassBlock", "TargetBlock", "TestBlock", "TestInstanceBlock", "TintedGlassBlock", "TintedParticleLeavesBlock", "TntBlock", "TorchBlock", "TorchflowerCropBlock", "TransparentBlock", "TrapDoorBlock", "TrappedChestBlock", "TrialSpawnerBlock", "TripWireBlock", "TripWireHookBlock", "TurtleEggBlock", "TwistingVinesBlock", "TwistingVinesPlantBlock", "UntintedParticleLeavesBlock", "VaultBlock", "VegetationBlock", "VineBlock", "WallBannerBlock", "WallBlock", "WallHangingSignBlock", "WallSignBlock", "WallSkullBlock", "WallTorchBlock", "WaterlilyBlock", "WaterloggedTransparentBlock", "WeatheringCopperBarsBlock", "WeatheringCopperBulbBlock", "WeatheringCopperChainBlock", "WeatheringCopperChestBlock", "WeatheringCopperDoorBlock", "WeatheringCopperFullBlock", "WeatheringCopperGolemStatueBlock", "WeatheringCopperGrateBlock", "WeatheringCopperSlabBlock", "WeatheringCopperStairBlock", "WeatheringCopperTrapDoorBlock", "WeatheringLanternBlock", "WeatheringLightningRodBlock", "WebBlock", "WeepingVinesBlock", "WeepingVinesPlantBlock", "WeightedPressurePlateBlock", "WetSpongeBlock", "WitherRoseBlock", "WitherSkullBlock", "WitherWallSkullBlock", "WoolCarpetBlock" };
+
+const int16_t block_chains[] = {
+    VCLASS_AIR_BLOCK,  // air
+    VCLASS_GRASS_BLOCK, VCLASS_SPREADING_SNOWY_DIRT_BLOCK, VCLASS_SNOWY_DIRT_BLOCK,  // grass_block
+    VCLASS_SNOWY_DIRT_BLOCK,  // podzol
+    VCLASS_ROTATED_PILLAR_BLOCK,  // pale_oak_wood
+    VCLASS_SAPLING_BLOCK, VCLASS_VEGETATION_BLOCK,  // oak_sapling
+    VCLASS_SAPLING_BLOCK, VCLASS_VEGETATION_BLOCK,  // spruce_sapling
+    VCLASS_SAPLING_BLOCK, VCLASS_VEGETATION_BLOCK,  // birch_sapling
+    VCLASS_SAPLING_BLOCK, VCLASS_VEGETATION_BLOCK,  // jungle_sapling
+    VCLASS_SAPLING_BLOCK, VCLASS_VEGETATION_BLOCK,  // acacia_sapling
+    VCLASS_SAPLING_BLOCK, VCLASS_VEGETATION_BLOCK,  // cherry_sapling
+    VCLASS_SAPLING_BLOCK, VCLASS_VEGETATION_BLOCK,  // dark_oak_sapling
+    VCLASS_SAPLING_BLOCK, VCLASS_VEGETATION_BLOCK,  // pale_oak_sapling
+    VCLASS_MANGROVE_PROPAGULE_BLOCK, VCLASS_SAPLING_BLOCK, VCLASS_VEGETATION_BLOCK,  // mangrove_propagule
+    VCLASS_LIQUID_BLOCK,  // water
+    VCLASS_LIQUID_BLOCK,  // lava
+    VCLASS_SAND_BLOCK, VCLASS_COLORED_FALLING_BLOCK, VCLASS_FALLING_BLOCK,  // sand
+    VCLASS_BRUSHABLE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // suspicious_sand
+    VCLASS_SAND_BLOCK, VCLASS_COLORED_FALLING_BLOCK, VCLASS_FALLING_BLOCK,  // red_sand
+    VCLASS_COLORED_FALLING_BLOCK, VCLASS_FALLING_BLOCK,  // gravel
+    VCLASS_BRUSHABLE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // suspicious_gravel
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // gold_ore
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // deepslate_gold_ore
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // iron_ore
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // deepslate_iron_ore
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // coal_ore
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // deepslate_coal_ore
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // nether_gold_ore
+    VCLASS_ROTATED_PILLAR_BLOCK,  // oak_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // spruce_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // birch_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // jungle_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // acacia_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // cherry_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // dark_oak_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // pale_oak_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // mangrove_log
+    VCLASS_MANGROVE_ROOTS_BLOCK,  // mangrove_roots
+    VCLASS_ROTATED_PILLAR_BLOCK,  // muddy_mangrove_roots
+    VCLASS_ROTATED_PILLAR_BLOCK,  // bamboo_block
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_spruce_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_birch_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_jungle_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_acacia_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_cherry_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_dark_oak_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_pale_oak_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_oak_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_mangrove_log
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_bamboo_block
+    VCLASS_ROTATED_PILLAR_BLOCK,  // oak_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // spruce_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // birch_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // jungle_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // acacia_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // cherry_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // dark_oak_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // mangrove_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_oak_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_spruce_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_birch_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_jungle_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_acacia_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_cherry_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_dark_oak_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_pale_oak_wood
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_mangrove_wood
+    VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, VCLASS_LEAVES_BLOCK,  // oak_leaves
+    VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, VCLASS_LEAVES_BLOCK,  // spruce_leaves
+    VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, VCLASS_LEAVES_BLOCK,  // birch_leaves
+    VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, VCLASS_LEAVES_BLOCK,  // jungle_leaves
+    VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, VCLASS_LEAVES_BLOCK,  // acacia_leaves
+    VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, VCLASS_LEAVES_BLOCK,  // cherry_leaves
+    VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, VCLASS_LEAVES_BLOCK,  // dark_oak_leaves
+    VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, VCLASS_LEAVES_BLOCK,  // pale_oak_leaves
+    VCLASS_MANGROVE_LEAVES_BLOCK, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, VCLASS_LEAVES_BLOCK,  // mangrove_leaves
+    VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, VCLASS_LEAVES_BLOCK,  // azalea_leaves
+    VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, VCLASS_LEAVES_BLOCK,  // flowering_azalea_leaves
+    VCLASS_SPONGE_BLOCK,  // sponge
+    VCLASS_WET_SPONGE_BLOCK,  // wet_sponge
+    VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // glass
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // lapis_ore
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // deepslate_lapis_ore
+    VCLASS_DISPENSER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // dispenser
+    VCLASS_NOTE_BLOCK,  // note_block
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // white_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // orange_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // magenta_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // light_blue_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // yellow_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // lime_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // pink_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // gray_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // light_gray_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // cyan_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // purple_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // blue_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // brown_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // green_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // red_bed
+    VCLASS_BED_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // black_bed
+    VCLASS_POWERED_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK,  // powered_rail
+    VCLASS_DETECTOR_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK,  // detector_rail
+    VCLASS_PISTON_BASE_BLOCK, VCLASS_DIRECTIONAL_BLOCK,  // sticky_piston
+    VCLASS_WEB_BLOCK,  // cobweb
+    VCLASS_TALL_GRASS_BLOCK, VCLASS_VEGETATION_BLOCK,  // short_grass
+    VCLASS_TALL_GRASS_BLOCK, VCLASS_VEGETATION_BLOCK,  // fern
+    VCLASS_DRY_VEGETATION_BLOCK, VCLASS_VEGETATION_BLOCK,  // dead_bush
+    VCLASS_BUSH_BLOCK, VCLASS_VEGETATION_BLOCK,  // bush
+    VCLASS_SHORT_DRY_GRASS_BLOCK, VCLASS_DRY_VEGETATION_BLOCK, VCLASS_VEGETATION_BLOCK,  // short_dry_grass
+    VCLASS_TALL_DRY_GRASS_BLOCK, VCLASS_DRY_VEGETATION_BLOCK, VCLASS_VEGETATION_BLOCK,  // tall_dry_grass
+    VCLASS_SEAGRASS_BLOCK, VCLASS_VEGETATION_BLOCK,  // seagrass
+    VCLASS_TALL_SEAGRASS_BLOCK, VCLASS_DOUBLE_PLANT_BLOCK, VCLASS_VEGETATION_BLOCK,  // tall_seagrass
+    VCLASS_PISTON_BASE_BLOCK, VCLASS_DIRECTIONAL_BLOCK,  // piston
+    VCLASS_PISTON_HEAD_BLOCK, VCLASS_DIRECTIONAL_BLOCK,  // piston_head
+    VCLASS_MOVING_PISTON_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // moving_piston
+    VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // dandelion
+    VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // torchflower
+    VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // poppy
+    VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // blue_orchid
+    VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // allium
+    VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // azure_bluet
+    VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // red_tulip
+    VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // orange_tulip
+    VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // white_tulip
+    VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // pink_tulip
+    VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // oxeye_daisy
+    VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // cornflower
+    VCLASS_WITHER_ROSE_BLOCK, VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // wither_rose
+    VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // lily_of_the_valley
+    VCLASS_MUSHROOM_BLOCK, VCLASS_VEGETATION_BLOCK,  // brown_mushroom
+    VCLASS_MUSHROOM_BLOCK, VCLASS_VEGETATION_BLOCK,  // red_mushroom
+    VCLASS_TNT_BLOCK,  // tnt
+    VCLASS_CHISELED_BOOK_SHELF_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // chiseled_bookshelf
+    VCLASS_SHELF_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // acacia_shelf
+    VCLASS_SHELF_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // bamboo_shelf
+    VCLASS_SHELF_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // birch_shelf
+    VCLASS_SHELF_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // cherry_shelf
+    VCLASS_SHELF_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // crimson_shelf
+    VCLASS_SHELF_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // dark_oak_shelf
+    VCLASS_SHELF_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // jungle_shelf
+    VCLASS_SHELF_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // mangrove_shelf
+    VCLASS_SHELF_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // oak_shelf
+    VCLASS_SHELF_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // pale_oak_shelf
+    VCLASS_SHELF_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // spruce_shelf
+    VCLASS_SHELF_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // warped_shelf
+    VCLASS_TORCH_BLOCK, VCLASS_BASE_TORCH_BLOCK,  // torch
+    VCLASS_WALL_TORCH_BLOCK, VCLASS_TORCH_BLOCK, VCLASS_BASE_TORCH_BLOCK,  // wall_torch
+    VCLASS_FIRE_BLOCK, VCLASS_BASE_FIRE_BLOCK,  // fire
+    VCLASS_SOUL_FIRE_BLOCK, VCLASS_BASE_FIRE_BLOCK,  // soul_fire
+    VCLASS_SPAWNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // spawner
+    VCLASS_CREAKING_HEART_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // creaking_heart
+    VCLASS_STAIR_BLOCK,  // oak_stairs
+    VCLASS_CHEST_BLOCK, VCLASS_ABSTRACT_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // chest
+    VCLASS_RED_STONE_WIRE_BLOCK,  // redstone_wire
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // diamond_ore
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // deepslate_diamond_ore
+    VCLASS_CRAFTING_TABLE_BLOCK,  // crafting_table
+    VCLASS_CROP_BLOCK, VCLASS_VEGETATION_BLOCK,  // wheat
+    VCLASS_FARM_BLOCK,  // farmland
+    VCLASS_FURNACE_BLOCK, VCLASS_ABSTRACT_FURNACE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // furnace
+    VCLASS_STANDING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // oak_sign
+    VCLASS_STANDING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // spruce_sign
+    VCLASS_STANDING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // birch_sign
+    VCLASS_STANDING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // acacia_sign
+    VCLASS_STANDING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // cherry_sign
+    VCLASS_STANDING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // jungle_sign
+    VCLASS_STANDING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // dark_oak_sign
+    VCLASS_STANDING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // pale_oak_sign
+    VCLASS_STANDING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // mangrove_sign
+    VCLASS_STANDING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // bamboo_sign
+    VCLASS_DOOR_BLOCK,  // oak_door
+    VCLASS_LADDER_BLOCK,  // ladder
+    VCLASS_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK,  // rail
+    VCLASS_STAIR_BLOCK,  // cobblestone_stairs
+    VCLASS_WALL_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // oak_wall_sign
+    VCLASS_WALL_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // spruce_wall_sign
+    VCLASS_WALL_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // birch_wall_sign
+    VCLASS_WALL_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // acacia_wall_sign
+    VCLASS_WALL_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // cherry_wall_sign
+    VCLASS_WALL_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // jungle_wall_sign
+    VCLASS_WALL_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // dark_oak_wall_sign
+    VCLASS_WALL_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // pale_oak_wall_sign
+    VCLASS_WALL_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // mangrove_wall_sign
+    VCLASS_WALL_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // bamboo_wall_sign
+    VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // oak_hanging_sign
+    VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // spruce_hanging_sign
+    VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // birch_hanging_sign
+    VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // acacia_hanging_sign
+    VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // cherry_hanging_sign
+    VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // jungle_hanging_sign
+    VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // dark_oak_hanging_sign
+    VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // pale_oak_hanging_sign
+    VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // crimson_hanging_sign
+    VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // warped_hanging_sign
+    VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // mangrove_hanging_sign
+    VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // bamboo_hanging_sign
+    VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // oak_wall_hanging_sign
+    VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // spruce_wall_hanging_sign
+    VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // birch_wall_hanging_sign
+    VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // acacia_wall_hanging_sign
+    VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // cherry_wall_hanging_sign
+    VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // jungle_wall_hanging_sign
+    VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // dark_oak_wall_hanging_sign
+    VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // pale_oak_wall_hanging_sign
+    VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // mangrove_wall_hanging_sign
+    VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // crimson_wall_hanging_sign
+    VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // warped_wall_hanging_sign
+    VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // bamboo_wall_hanging_sign
+    VCLASS_LEVER_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // lever
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // stone_pressure_plate
+    VCLASS_DOOR_BLOCK,  // iron_door
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // oak_pressure_plate
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // spruce_pressure_plate
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // birch_pressure_plate
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // jungle_pressure_plate
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // acacia_pressure_plate
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // cherry_pressure_plate
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // dark_oak_pressure_plate
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // pale_oak_pressure_plate
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // mangrove_pressure_plate
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // bamboo_pressure_plate
+    VCLASS_RED_STONE_ORE_BLOCK,  // redstone_ore
+    VCLASS_RED_STONE_ORE_BLOCK,  // deepslate_redstone_ore
+    VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_BASE_TORCH_BLOCK,  // redstone_torch
+    VCLASS_REDSTONE_WALL_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_BASE_TORCH_BLOCK,  // redstone_wall_torch
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // stone_button
+    VCLASS_SNOW_LAYER_BLOCK,  // snow
+    VCLASS_ICE_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // ice
+    VCLASS_CACTUS_BLOCK,  // cactus
+    VCLASS_CACTUS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // cactus_flower
+    VCLASS_SUGAR_CANE_BLOCK,  // sugar_cane
+    VCLASS_JUKEBOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // jukebox
+    VCLASS_FENCE_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // oak_fence
+    VCLASS_NETHERRACK_BLOCK,  // netherrack
+    VCLASS_SOUL_SAND_BLOCK,  // soul_sand
+    VCLASS_ROTATED_PILLAR_BLOCK,  // basalt
+    VCLASS_ROTATED_PILLAR_BLOCK,  // polished_basalt
+    VCLASS_TORCH_BLOCK, VCLASS_BASE_TORCH_BLOCK,  // soul_torch
+    VCLASS_WALL_TORCH_BLOCK, VCLASS_TORCH_BLOCK, VCLASS_BASE_TORCH_BLOCK,  // soul_wall_torch
+    VCLASS_TORCH_BLOCK, VCLASS_BASE_TORCH_BLOCK,  // copper_torch
+    VCLASS_WALL_TORCH_BLOCK, VCLASS_TORCH_BLOCK, VCLASS_BASE_TORCH_BLOCK,  // copper_wall_torch
+    VCLASS_NETHER_PORTAL_BLOCK,  // nether_portal
+    VCLASS_CARVED_PUMPKIN_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // carved_pumpkin
+    VCLASS_CARVED_PUMPKIN_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // jack_o_lantern
+    VCLASS_CAKE_BLOCK,  // cake
+    VCLASS_REPEATER_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // repeater
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // white_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // orange_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // magenta_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // light_blue_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // yellow_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // lime_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // pink_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // gray_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // light_gray_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // cyan_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // purple_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // blue_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // brown_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // green_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // red_stained_glass
+    VCLASS_STAINED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // black_stained_glass
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // oak_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // spruce_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // birch_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // jungle_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // acacia_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // cherry_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // dark_oak_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // pale_oak_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // mangrove_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // bamboo_trapdoor
+    VCLASS_INFESTED_BLOCK,  // infested_stone
+    VCLASS_INFESTED_BLOCK,  // infested_cobblestone
+    VCLASS_INFESTED_BLOCK,  // infested_stone_bricks
+    VCLASS_INFESTED_BLOCK,  // infested_mossy_stone_bricks
+    VCLASS_INFESTED_BLOCK,  // infested_cracked_stone_bricks
+    VCLASS_INFESTED_BLOCK,  // infested_chiseled_stone_bricks
+    VCLASS_HUGE_MUSHROOM_BLOCK,  // brown_mushroom_block
+    VCLASS_HUGE_MUSHROOM_BLOCK,  // red_mushroom_block
+    VCLASS_HUGE_MUSHROOM_BLOCK,  // mushroom_stem
+    VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // iron_bars
+    VCLASS_WEATHERING_COPPER_BARS_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // copper_bars
+    VCLASS_WEATHERING_COPPER_BARS_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // exposed_copper_bars
+    VCLASS_WEATHERING_COPPER_BARS_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // weathered_copper_bars
+    VCLASS_WEATHERING_COPPER_BARS_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // oxidized_copper_bars
+    VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // waxed_copper_bars
+    VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // waxed_exposed_copper_bars
+    VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // waxed_weathered_copper_bars
+    VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // waxed_oxidized_copper_bars
+    VCLASS_CHAIN_BLOCK, VCLASS_ROTATED_PILLAR_BLOCK,  // iron_chain
+    VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, VCLASS_CHAIN_BLOCK, VCLASS_ROTATED_PILLAR_BLOCK,  // copper_chain
+    VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, VCLASS_CHAIN_BLOCK, VCLASS_ROTATED_PILLAR_BLOCK,  // exposed_copper_chain
+    VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, VCLASS_CHAIN_BLOCK, VCLASS_ROTATED_PILLAR_BLOCK,  // weathered_copper_chain
+    VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, VCLASS_CHAIN_BLOCK, VCLASS_ROTATED_PILLAR_BLOCK,  // oxidized_copper_chain
+    VCLASS_CHAIN_BLOCK, VCLASS_ROTATED_PILLAR_BLOCK,  // waxed_copper_chain
+    VCLASS_CHAIN_BLOCK, VCLASS_ROTATED_PILLAR_BLOCK,  // waxed_exposed_copper_chain
+    VCLASS_CHAIN_BLOCK, VCLASS_ROTATED_PILLAR_BLOCK,  // waxed_weathered_copper_chain
+    VCLASS_CHAIN_BLOCK, VCLASS_ROTATED_PILLAR_BLOCK,  // waxed_oxidized_copper_chain
+    VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // glass_pane
+    VCLASS_PUMPKIN_BLOCK,  // pumpkin
+    VCLASS_ATTACHED_STEM_BLOCK, VCLASS_VEGETATION_BLOCK,  // attached_pumpkin_stem
+    VCLASS_ATTACHED_STEM_BLOCK, VCLASS_VEGETATION_BLOCK,  // attached_melon_stem
+    VCLASS_STEM_BLOCK, VCLASS_VEGETATION_BLOCK,  // pumpkin_stem
+    VCLASS_STEM_BLOCK, VCLASS_VEGETATION_BLOCK,  // melon_stem
+    VCLASS_VINE_BLOCK,  // vine
+    VCLASS_GLOW_LICHEN_BLOCK, VCLASS_MULTIFACE_SPREADEABLE_BLOCK, VCLASS_MULTIFACE_BLOCK,  // glow_lichen
+    VCLASS_MULTIFACE_BLOCK,  // resin_clump
+    VCLASS_FENCE_GATE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // oak_fence_gate
+    VCLASS_STAIR_BLOCK,  // brick_stairs
+    VCLASS_STAIR_BLOCK,  // stone_brick_stairs
+    VCLASS_STAIR_BLOCK,  // mud_brick_stairs
+    VCLASS_MYCELIUM_BLOCK, VCLASS_SPREADING_SNOWY_DIRT_BLOCK, VCLASS_SNOWY_DIRT_BLOCK,  // mycelium
+    VCLASS_WATERLILY_BLOCK, VCLASS_VEGETATION_BLOCK,  // lily_pad
+    VCLASS_STAIR_BLOCK,  // resin_brick_stairs
+    VCLASS_SLAB_BLOCK,  // resin_brick_slab
+    VCLASS_WALL_BLOCK,  // resin_brick_wall
+    VCLASS_FENCE_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // nether_brick_fence
+    VCLASS_STAIR_BLOCK,  // nether_brick_stairs
+    VCLASS_NETHER_WART_BLOCK, VCLASS_VEGETATION_BLOCK,  // nether_wart
+    VCLASS_ENCHANTING_TABLE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // enchanting_table
+    VCLASS_BREWING_STAND_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // brewing_stand
+    VCLASS_CAULDRON_BLOCK, VCLASS_ABSTRACT_CAULDRON_BLOCK,  // cauldron
+    VCLASS_LAYERED_CAULDRON_BLOCK, VCLASS_ABSTRACT_CAULDRON_BLOCK,  // water_cauldron
+    VCLASS_LAVA_CAULDRON_BLOCK, VCLASS_ABSTRACT_CAULDRON_BLOCK,  // lava_cauldron
+    VCLASS_LAYERED_CAULDRON_BLOCK, VCLASS_ABSTRACT_CAULDRON_BLOCK,  // powder_snow_cauldron
+    VCLASS_END_PORTAL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // end_portal
+    VCLASS_END_PORTAL_FRAME_BLOCK,  // end_portal_frame
+    VCLASS_DRAGON_EGG_BLOCK, VCLASS_FALLING_BLOCK,  // dragon_egg
+    VCLASS_REDSTONE_LAMP_BLOCK,  // redstone_lamp
+    VCLASS_COCOA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // cocoa
+    VCLASS_STAIR_BLOCK,  // sandstone_stairs
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // emerald_ore
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // deepslate_emerald_ore
+    VCLASS_ENDER_CHEST_BLOCK, VCLASS_ABSTRACT_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // ender_chest
+    VCLASS_TRIP_WIRE_HOOK_BLOCK,  // tripwire_hook
+    VCLASS_TRIP_WIRE_BLOCK,  // tripwire
+    VCLASS_STAIR_BLOCK,  // spruce_stairs
+    VCLASS_STAIR_BLOCK,  // birch_stairs
+    VCLASS_STAIR_BLOCK,  // jungle_stairs
+    VCLASS_COMMAND_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // command_block
+    VCLASS_BEACON_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // beacon
+    VCLASS_WALL_BLOCK,  // cobblestone_wall
+    VCLASS_WALL_BLOCK,  // mossy_cobblestone_wall
+    VCLASS_FLOWER_POT_BLOCK,  // flower_pot
+    VCLASS_FLOWER_POT_BLOCK,  // potted_torchflower
+    VCLASS_FLOWER_POT_BLOCK,  // potted_oak_sapling
+    VCLASS_FLOWER_POT_BLOCK,  // potted_spruce_sapling
+    VCLASS_FLOWER_POT_BLOCK,  // potted_birch_sapling
+    VCLASS_FLOWER_POT_BLOCK,  // potted_jungle_sapling
+    VCLASS_FLOWER_POT_BLOCK,  // potted_acacia_sapling
+    VCLASS_FLOWER_POT_BLOCK,  // potted_cherry_sapling
+    VCLASS_FLOWER_POT_BLOCK,  // potted_dark_oak_sapling
+    VCLASS_FLOWER_POT_BLOCK,  // potted_pale_oak_sapling
+    VCLASS_FLOWER_POT_BLOCK,  // potted_mangrove_propagule
+    VCLASS_FLOWER_POT_BLOCK,  // potted_fern
+    VCLASS_FLOWER_POT_BLOCK,  // potted_dandelion
+    VCLASS_FLOWER_POT_BLOCK,  // potted_poppy
+    VCLASS_FLOWER_POT_BLOCK,  // potted_blue_orchid
+    VCLASS_FLOWER_POT_BLOCK,  // potted_allium
+    VCLASS_FLOWER_POT_BLOCK,  // potted_azure_bluet
+    VCLASS_FLOWER_POT_BLOCK,  // potted_red_tulip
+    VCLASS_FLOWER_POT_BLOCK,  // potted_orange_tulip
+    VCLASS_FLOWER_POT_BLOCK,  // potted_white_tulip
+    VCLASS_FLOWER_POT_BLOCK,  // potted_pink_tulip
+    VCLASS_FLOWER_POT_BLOCK,  // potted_oxeye_daisy
+    VCLASS_FLOWER_POT_BLOCK,  // potted_cornflower
+    VCLASS_FLOWER_POT_BLOCK,  // potted_lily_of_the_valley
+    VCLASS_FLOWER_POT_BLOCK,  // potted_wither_rose
+    VCLASS_FLOWER_POT_BLOCK,  // potted_red_mushroom
+    VCLASS_FLOWER_POT_BLOCK,  // potted_brown_mushroom
+    VCLASS_FLOWER_POT_BLOCK,  // potted_dead_bush
+    VCLASS_FLOWER_POT_BLOCK,  // potted_cactus
+    VCLASS_CARROT_BLOCK, VCLASS_CROP_BLOCK, VCLASS_VEGETATION_BLOCK,  // carrots
+    VCLASS_POTATO_BLOCK, VCLASS_CROP_BLOCK, VCLASS_VEGETATION_BLOCK,  // potatoes
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // oak_button
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // spruce_button
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // birch_button
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // jungle_button
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // acacia_button
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // cherry_button
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // dark_oak_button
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // pale_oak_button
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // mangrove_button
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // bamboo_button
+    VCLASS_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // skeleton_skull
+    VCLASS_WALL_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // skeleton_wall_skull
+    VCLASS_WITHER_SKULL_BLOCK, VCLASS_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // wither_skeleton_skull
+    VCLASS_WITHER_WALL_SKULL_BLOCK, VCLASS_WALL_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // wither_skeleton_wall_skull
+    VCLASS_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // zombie_head
+    VCLASS_WALL_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // zombie_wall_head
+    VCLASS_PLAYER_HEAD_BLOCK, VCLASS_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // player_head
+    VCLASS_PLAYER_WALL_HEAD_BLOCK, VCLASS_WALL_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // player_wall_head
+    VCLASS_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // creeper_head
+    VCLASS_WALL_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // creeper_wall_head
+    VCLASS_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // dragon_head
+    VCLASS_WALL_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // dragon_wall_head
+    VCLASS_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // piglin_head
+    VCLASS_PIGLIN_WALL_SKULL_BLOCK, VCLASS_WALL_SKULL_BLOCK, VCLASS_ABSTRACT_SKULL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // piglin_wall_head
+    VCLASS_ANVIL_BLOCK, VCLASS_FALLING_BLOCK,  // anvil
+    VCLASS_ANVIL_BLOCK, VCLASS_FALLING_BLOCK,  // chipped_anvil
+    VCLASS_ANVIL_BLOCK, VCLASS_FALLING_BLOCK,  // damaged_anvil
+    VCLASS_TRAPPED_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_ABSTRACT_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // trapped_chest
+    VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // light_weighted_pressure_plate
+    VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // heavy_weighted_pressure_plate
+    VCLASS_COMPARATOR_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // comparator
+    VCLASS_DAYLIGHT_DETECTOR_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // daylight_detector
+    VCLASS_POWERED_BLOCK,  // redstone_block
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // nether_quartz_ore
+    VCLASS_HOPPER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // hopper
+    VCLASS_ROTATED_PILLAR_BLOCK,  // quartz_pillar
+    VCLASS_STAIR_BLOCK,  // quartz_stairs
+    VCLASS_POWERED_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK,  // activator_rail
+    VCLASS_DROPPER_BLOCK, VCLASS_DISPENSER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // dropper
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // white_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // orange_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // magenta_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // light_blue_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // yellow_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // lime_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // pink_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // gray_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // light_gray_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // cyan_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // purple_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // blue_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // brown_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // green_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // red_stained_glass_pane
+    VCLASS_STAINED_GLASS_PANE_BLOCK, VCLASS_IRON_BARS_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // black_stained_glass_pane
+    VCLASS_STAIR_BLOCK,  // acacia_stairs
+    VCLASS_STAIR_BLOCK,  // cherry_stairs
+    VCLASS_STAIR_BLOCK,  // dark_oak_stairs
+    VCLASS_STAIR_BLOCK,  // pale_oak_stairs
+    VCLASS_STAIR_BLOCK,  // mangrove_stairs
+    VCLASS_STAIR_BLOCK,  // bamboo_stairs
+    VCLASS_STAIR_BLOCK,  // bamboo_mosaic_stairs
+    VCLASS_SLIME_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // slime_block
+    VCLASS_BARRIER_BLOCK,  // barrier
+    VCLASS_LIGHT_BLOCK,  // light
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // iron_trapdoor
+    VCLASS_STAIR_BLOCK,  // prismarine_stairs
+    VCLASS_STAIR_BLOCK,  // prismarine_brick_stairs
+    VCLASS_STAIR_BLOCK,  // dark_prismarine_stairs
+    VCLASS_SLAB_BLOCK,  // prismarine_slab
+    VCLASS_SLAB_BLOCK,  // prismarine_brick_slab
+    VCLASS_SLAB_BLOCK,  // dark_prismarine_slab
+    VCLASS_HAY_BLOCK, VCLASS_ROTATED_PILLAR_BLOCK,  // hay_block
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // white_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // orange_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // magenta_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // light_blue_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // yellow_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // lime_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // pink_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // gray_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // light_gray_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // cyan_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // purple_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // blue_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // brown_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // green_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // red_carpet
+    VCLASS_WOOL_CARPET_BLOCK, VCLASS_CARPET_BLOCK,  // black_carpet
+    VCLASS_TALL_FLOWER_BLOCK, VCLASS_DOUBLE_PLANT_BLOCK, VCLASS_VEGETATION_BLOCK,  // sunflower
+    VCLASS_TALL_FLOWER_BLOCK, VCLASS_DOUBLE_PLANT_BLOCK, VCLASS_VEGETATION_BLOCK,  // lilac
+    VCLASS_TALL_FLOWER_BLOCK, VCLASS_DOUBLE_PLANT_BLOCK, VCLASS_VEGETATION_BLOCK,  // rose_bush
+    VCLASS_TALL_FLOWER_BLOCK, VCLASS_DOUBLE_PLANT_BLOCK, VCLASS_VEGETATION_BLOCK,  // peony
+    VCLASS_DOUBLE_PLANT_BLOCK, VCLASS_VEGETATION_BLOCK,  // tall_grass
+    VCLASS_DOUBLE_PLANT_BLOCK, VCLASS_VEGETATION_BLOCK,  // large_fern
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // white_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // orange_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // magenta_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // light_blue_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // yellow_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // lime_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // pink_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // gray_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // light_gray_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // cyan_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // purple_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // blue_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // brown_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // green_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // red_banner
+    VCLASS_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // black_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // white_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // orange_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // magenta_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // light_blue_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // yellow_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // lime_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // pink_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // gray_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // light_gray_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // cyan_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // purple_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // blue_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // brown_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // green_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // red_wall_banner
+    VCLASS_WALL_BANNER_BLOCK, VCLASS_ABSTRACT_BANNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // black_wall_banner
+    VCLASS_STAIR_BLOCK,  // red_sandstone_stairs
+    VCLASS_SLAB_BLOCK,  // oak_slab
+    VCLASS_SLAB_BLOCK,  // spruce_slab
+    VCLASS_SLAB_BLOCK,  // birch_slab
+    VCLASS_SLAB_BLOCK,  // jungle_slab
+    VCLASS_SLAB_BLOCK,  // acacia_slab
+    VCLASS_SLAB_BLOCK,  // cherry_slab
+    VCLASS_SLAB_BLOCK,  // dark_oak_slab
+    VCLASS_SLAB_BLOCK,  // pale_oak_slab
+    VCLASS_SLAB_BLOCK,  // mangrove_slab
+    VCLASS_SLAB_BLOCK,  // bamboo_slab
+    VCLASS_SLAB_BLOCK,  // bamboo_mosaic_slab
+    VCLASS_SLAB_BLOCK,  // stone_slab
+    VCLASS_SLAB_BLOCK,  // smooth_stone_slab
+    VCLASS_SLAB_BLOCK,  // sandstone_slab
+    VCLASS_SLAB_BLOCK,  // cut_sandstone_slab
+    VCLASS_SLAB_BLOCK,  // petrified_oak_slab
+    VCLASS_SLAB_BLOCK,  // cobblestone_slab
+    VCLASS_SLAB_BLOCK,  // brick_slab
+    VCLASS_SLAB_BLOCK,  // stone_brick_slab
+    VCLASS_SLAB_BLOCK,  // mud_brick_slab
+    VCLASS_SLAB_BLOCK,  // nether_brick_slab
+    VCLASS_SLAB_BLOCK,  // quartz_slab
+    VCLASS_SLAB_BLOCK,  // red_sandstone_slab
+    VCLASS_SLAB_BLOCK,  // cut_red_sandstone_slab
+    VCLASS_SLAB_BLOCK,  // purpur_slab
+    VCLASS_FENCE_GATE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // spruce_fence_gate
+    VCLASS_FENCE_GATE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // birch_fence_gate
+    VCLASS_FENCE_GATE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // jungle_fence_gate
+    VCLASS_FENCE_GATE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // acacia_fence_gate
+    VCLASS_FENCE_GATE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // cherry_fence_gate
+    VCLASS_FENCE_GATE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // dark_oak_fence_gate
+    VCLASS_FENCE_GATE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // pale_oak_fence_gate
+    VCLASS_FENCE_GATE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // mangrove_fence_gate
+    VCLASS_FENCE_GATE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // bamboo_fence_gate
+    VCLASS_FENCE_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // spruce_fence
+    VCLASS_FENCE_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // birch_fence
+    VCLASS_FENCE_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // jungle_fence
+    VCLASS_FENCE_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // acacia_fence
+    VCLASS_FENCE_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // cherry_fence
+    VCLASS_FENCE_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // dark_oak_fence
+    VCLASS_FENCE_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // pale_oak_fence
+    VCLASS_FENCE_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // mangrove_fence
+    VCLASS_FENCE_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // bamboo_fence
+    VCLASS_DOOR_BLOCK,  // spruce_door
+    VCLASS_DOOR_BLOCK,  // birch_door
+    VCLASS_DOOR_BLOCK,  // jungle_door
+    VCLASS_DOOR_BLOCK,  // acacia_door
+    VCLASS_DOOR_BLOCK,  // cherry_door
+    VCLASS_DOOR_BLOCK,  // dark_oak_door
+    VCLASS_DOOR_BLOCK,  // pale_oak_door
+    VCLASS_DOOR_BLOCK,  // mangrove_door
+    VCLASS_DOOR_BLOCK,  // bamboo_door
+    VCLASS_END_ROD_BLOCK, VCLASS_ROD_BLOCK, VCLASS_DIRECTIONAL_BLOCK,  // end_rod
+    VCLASS_CHORUS_PLANT_BLOCK, VCLASS_PIPE_BLOCK,  // chorus_plant
+    VCLASS_CHORUS_FLOWER_BLOCK,  // chorus_flower
+    VCLASS_ROTATED_PILLAR_BLOCK,  // purpur_pillar
+    VCLASS_STAIR_BLOCK,  // purpur_stairs
+    VCLASS_TORCHFLOWER_CROP_BLOCK, VCLASS_CROP_BLOCK, VCLASS_VEGETATION_BLOCK,  // torchflower_crop
+    VCLASS_PITCHER_CROP_BLOCK, VCLASS_DOUBLE_PLANT_BLOCK, VCLASS_VEGETATION_BLOCK,  // pitcher_crop
+    VCLASS_DOUBLE_PLANT_BLOCK, VCLASS_VEGETATION_BLOCK,  // pitcher_plant
+    VCLASS_BEETROOT_BLOCK, VCLASS_CROP_BLOCK, VCLASS_VEGETATION_BLOCK,  // beetroots
+    VCLASS_DIRT_PATH_BLOCK,  // dirt_path
+    VCLASS_END_GATEWAY_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // end_gateway
+    VCLASS_COMMAND_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // repeating_command_block
+    VCLASS_COMMAND_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // chain_command_block
+    VCLASS_FROSTED_ICE_BLOCK, VCLASS_ICE_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // frosted_ice
+    VCLASS_MAGMA_BLOCK,  // magma_block
+    VCLASS_ROTATED_PILLAR_BLOCK,  // bone_block
+    VCLASS_STRUCTURE_VOID_BLOCK,  // structure_void
+    VCLASS_OBSERVER_BLOCK, VCLASS_DIRECTIONAL_BLOCK,  // observer
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // white_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // orange_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // magenta_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // light_blue_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // yellow_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // lime_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // pink_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // gray_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // light_gray_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // cyan_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // purple_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // blue_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // brown_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // green_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // red_shulker_box
+    VCLASS_SHULKER_BOX_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // black_shulker_box
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // white_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // orange_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // magenta_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // light_blue_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // yellow_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // lime_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // pink_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // gray_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // light_gray_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // cyan_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // purple_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // blue_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // brown_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // green_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // red_glazed_terracotta
+    VCLASS_GLAZED_TERRACOTTA_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // black_glazed_terracotta
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // white_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // orange_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // magenta_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // light_blue_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // yellow_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // lime_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // pink_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // gray_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // light_gray_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // cyan_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // purple_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // blue_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // brown_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // green_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // red_concrete_powder
+    VCLASS_CONCRETE_POWDER_BLOCK, VCLASS_FALLING_BLOCK,  // black_concrete_powder
+    VCLASS_KELP_BLOCK, VCLASS_GROWING_PLANT_HEAD_BLOCK, VCLASS_GROWING_PLANT_BLOCK,  // kelp
+    VCLASS_KELP_PLANT_BLOCK, VCLASS_GROWING_PLANT_BODY_BLOCK, VCLASS_GROWING_PLANT_BLOCK,  // kelp_plant
+    VCLASS_TURTLE_EGG_BLOCK,  // turtle_egg
+    VCLASS_SNIFFER_EGG_BLOCK,  // sniffer_egg
+    VCLASS_DRIED_GHAST_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // dried_ghast
+    VCLASS_CORAL_BLOCK,  // tube_coral_block
+    VCLASS_CORAL_BLOCK,  // brain_coral_block
+    VCLASS_CORAL_BLOCK,  // bubble_coral_block
+    VCLASS_CORAL_BLOCK,  // fire_coral_block
+    VCLASS_CORAL_BLOCK,  // horn_coral_block
+    VCLASS_BASE_CORAL_PLANT_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_tube_coral
+    VCLASS_BASE_CORAL_PLANT_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_brain_coral
+    VCLASS_BASE_CORAL_PLANT_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_bubble_coral
+    VCLASS_BASE_CORAL_PLANT_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_fire_coral
+    VCLASS_BASE_CORAL_PLANT_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_horn_coral
+    VCLASS_CORAL_PLANT_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // tube_coral
+    VCLASS_CORAL_PLANT_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // brain_coral
+    VCLASS_CORAL_PLANT_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // bubble_coral
+    VCLASS_CORAL_PLANT_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // fire_coral
+    VCLASS_CORAL_PLANT_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // horn_coral
+    VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_tube_coral_fan
+    VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_brain_coral_fan
+    VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_bubble_coral_fan
+    VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_fire_coral_fan
+    VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_horn_coral_fan
+    VCLASS_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // tube_coral_fan
+    VCLASS_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // brain_coral_fan
+    VCLASS_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // bubble_coral_fan
+    VCLASS_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // fire_coral_fan
+    VCLASS_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // horn_coral_fan
+    VCLASS_BASE_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_tube_coral_wall_fan
+    VCLASS_BASE_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_brain_coral_wall_fan
+    VCLASS_BASE_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_bubble_coral_wall_fan
+    VCLASS_BASE_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_fire_coral_wall_fan
+    VCLASS_BASE_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // dead_horn_coral_wall_fan
+    VCLASS_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // tube_coral_wall_fan
+    VCLASS_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // brain_coral_wall_fan
+    VCLASS_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // bubble_coral_wall_fan
+    VCLASS_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // fire_coral_wall_fan
+    VCLASS_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, VCLASS_BASE_CORAL_FAN_BLOCK, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,  // horn_coral_wall_fan
+    VCLASS_SEA_PICKLE_BLOCK, VCLASS_VEGETATION_BLOCK,  // sea_pickle
+    VCLASS_HALF_TRANSPARENT_BLOCK,  // blue_ice
+    VCLASS_CONDUIT_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // conduit
+    VCLASS_BAMBOO_SAPLING_BLOCK,  // bamboo_sapling
+    VCLASS_BAMBOO_STALK_BLOCK,  // bamboo
+    VCLASS_FLOWER_POT_BLOCK,  // potted_bamboo
+    VCLASS_AIR_BLOCK,  // void_air
+    VCLASS_AIR_BLOCK,  // cave_air
+    VCLASS_BUBBLE_COLUMN_BLOCK,  // bubble_column
+    VCLASS_STAIR_BLOCK,  // polished_granite_stairs
+    VCLASS_STAIR_BLOCK,  // smooth_red_sandstone_stairs
+    VCLASS_STAIR_BLOCK,  // mossy_stone_brick_stairs
+    VCLASS_STAIR_BLOCK,  // polished_diorite_stairs
+    VCLASS_STAIR_BLOCK,  // mossy_cobblestone_stairs
+    VCLASS_STAIR_BLOCK,  // end_stone_brick_stairs
+    VCLASS_STAIR_BLOCK,  // stone_stairs
+    VCLASS_STAIR_BLOCK,  // smooth_sandstone_stairs
+    VCLASS_STAIR_BLOCK,  // smooth_quartz_stairs
+    VCLASS_STAIR_BLOCK,  // granite_stairs
+    VCLASS_STAIR_BLOCK,  // andesite_stairs
+    VCLASS_STAIR_BLOCK,  // red_nether_brick_stairs
+    VCLASS_STAIR_BLOCK,  // polished_andesite_stairs
+    VCLASS_STAIR_BLOCK,  // diorite_stairs
+    VCLASS_SLAB_BLOCK,  // polished_granite_slab
+    VCLASS_SLAB_BLOCK,  // smooth_red_sandstone_slab
+    VCLASS_SLAB_BLOCK,  // mossy_stone_brick_slab
+    VCLASS_SLAB_BLOCK,  // polished_diorite_slab
+    VCLASS_SLAB_BLOCK,  // mossy_cobblestone_slab
+    VCLASS_SLAB_BLOCK,  // end_stone_brick_slab
+    VCLASS_SLAB_BLOCK,  // smooth_sandstone_slab
+    VCLASS_SLAB_BLOCK,  // smooth_quartz_slab
+    VCLASS_SLAB_BLOCK,  // granite_slab
+    VCLASS_SLAB_BLOCK,  // andesite_slab
+    VCLASS_SLAB_BLOCK,  // red_nether_brick_slab
+    VCLASS_SLAB_BLOCK,  // polished_andesite_slab
+    VCLASS_SLAB_BLOCK,  // diorite_slab
+    VCLASS_WALL_BLOCK,  // brick_wall
+    VCLASS_WALL_BLOCK,  // prismarine_wall
+    VCLASS_WALL_BLOCK,  // red_sandstone_wall
+    VCLASS_WALL_BLOCK,  // mossy_stone_brick_wall
+    VCLASS_WALL_BLOCK,  // granite_wall
+    VCLASS_WALL_BLOCK,  // stone_brick_wall
+    VCLASS_WALL_BLOCK,  // mud_brick_wall
+    VCLASS_WALL_BLOCK,  // nether_brick_wall
+    VCLASS_WALL_BLOCK,  // andesite_wall
+    VCLASS_WALL_BLOCK,  // red_nether_brick_wall
+    VCLASS_WALL_BLOCK,  // sandstone_wall
+    VCLASS_WALL_BLOCK,  // end_stone_brick_wall
+    VCLASS_WALL_BLOCK,  // diorite_wall
+    VCLASS_SCAFFOLDING_BLOCK,  // scaffolding
+    VCLASS_LOOM_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // loom
+    VCLASS_BARREL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // barrel
+    VCLASS_SMOKER_BLOCK, VCLASS_ABSTRACT_FURNACE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // smoker
+    VCLASS_BLAST_FURNACE_BLOCK, VCLASS_ABSTRACT_FURNACE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // blast_furnace
+    VCLASS_CARTOGRAPHY_TABLE_BLOCK,  // cartography_table
+    VCLASS_GRINDSTONE_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // grindstone
+    VCLASS_LECTERN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // lectern
+    VCLASS_SMITHING_TABLE_BLOCK, VCLASS_CRAFTING_TABLE_BLOCK,  // smithing_table
+    VCLASS_STONECUTTER_BLOCK,  // stonecutter
+    VCLASS_BELL_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // bell
+    VCLASS_LANTERN_BLOCK,  // lantern
+    VCLASS_LANTERN_BLOCK,  // soul_lantern
+    VCLASS_WEATHERING_LANTERN_BLOCK, VCLASS_LANTERN_BLOCK,  // copper_lantern
+    VCLASS_WEATHERING_LANTERN_BLOCK, VCLASS_LANTERN_BLOCK,  // exposed_copper_lantern
+    VCLASS_WEATHERING_LANTERN_BLOCK, VCLASS_LANTERN_BLOCK,  // weathered_copper_lantern
+    VCLASS_WEATHERING_LANTERN_BLOCK, VCLASS_LANTERN_BLOCK,  // oxidized_copper_lantern
+    VCLASS_LANTERN_BLOCK,  // waxed_copper_lantern
+    VCLASS_LANTERN_BLOCK,  // waxed_exposed_copper_lantern
+    VCLASS_LANTERN_BLOCK,  // waxed_weathered_copper_lantern
+    VCLASS_LANTERN_BLOCK,  // waxed_oxidized_copper_lantern
+    VCLASS_CAMPFIRE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // campfire
+    VCLASS_CAMPFIRE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // soul_campfire
+    VCLASS_SWEET_BERRY_BUSH_BLOCK, VCLASS_VEGETATION_BLOCK,  // sweet_berry_bush
+    VCLASS_ROTATED_PILLAR_BLOCK,  // warped_stem
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_warped_stem
+    VCLASS_ROTATED_PILLAR_BLOCK,  // warped_hyphae
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_warped_hyphae
+    VCLASS_NYLIUM_BLOCK,  // warped_nylium
+    VCLASS_FUNGUS_BLOCK, VCLASS_VEGETATION_BLOCK,  // warped_fungus
+    VCLASS_ROOTS_BLOCK, VCLASS_VEGETATION_BLOCK,  // warped_roots
+    VCLASS_NETHER_SPROUTS_BLOCK, VCLASS_VEGETATION_BLOCK,  // nether_sprouts
+    VCLASS_ROTATED_PILLAR_BLOCK,  // crimson_stem
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_crimson_stem
+    VCLASS_ROTATED_PILLAR_BLOCK,  // crimson_hyphae
+    VCLASS_ROTATED_PILLAR_BLOCK,  // stripped_crimson_hyphae
+    VCLASS_NYLIUM_BLOCK,  // crimson_nylium
+    VCLASS_FUNGUS_BLOCK, VCLASS_VEGETATION_BLOCK,  // crimson_fungus
+    VCLASS_WEEPING_VINES_BLOCK, VCLASS_GROWING_PLANT_HEAD_BLOCK, VCLASS_GROWING_PLANT_BLOCK,  // weeping_vines
+    VCLASS_WEEPING_VINES_PLANT_BLOCK, VCLASS_GROWING_PLANT_BODY_BLOCK, VCLASS_GROWING_PLANT_BLOCK,  // weeping_vines_plant
+    VCLASS_TWISTING_VINES_BLOCK, VCLASS_GROWING_PLANT_HEAD_BLOCK, VCLASS_GROWING_PLANT_BLOCK,  // twisting_vines
+    VCLASS_TWISTING_VINES_PLANT_BLOCK, VCLASS_GROWING_PLANT_BODY_BLOCK, VCLASS_GROWING_PLANT_BLOCK,  // twisting_vines_plant
+    VCLASS_ROOTS_BLOCK, VCLASS_VEGETATION_BLOCK,  // crimson_roots
+    VCLASS_SLAB_BLOCK,  // crimson_slab
+    VCLASS_SLAB_BLOCK,  // warped_slab
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // crimson_pressure_plate
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // warped_pressure_plate
+    VCLASS_FENCE_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // crimson_fence
+    VCLASS_FENCE_BLOCK, VCLASS_CROSS_COLLISION_BLOCK,  // warped_fence
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // crimson_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // warped_trapdoor
+    VCLASS_FENCE_GATE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // crimson_fence_gate
+    VCLASS_FENCE_GATE_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // warped_fence_gate
+    VCLASS_STAIR_BLOCK,  // crimson_stairs
+    VCLASS_STAIR_BLOCK,  // warped_stairs
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // crimson_button
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // warped_button
+    VCLASS_DOOR_BLOCK,  // crimson_door
+    VCLASS_DOOR_BLOCK,  // warped_door
+    VCLASS_STANDING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // crimson_sign
+    VCLASS_STANDING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // warped_sign
+    VCLASS_WALL_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // crimson_wall_sign
+    VCLASS_WALL_SIGN_BLOCK, VCLASS_SIGN_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // warped_wall_sign
+    VCLASS_STRUCTURE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // structure_block
+    VCLASS_JIGSAW_BLOCK,  // jigsaw
+    VCLASS_TEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // test_block
+    VCLASS_TEST_INSTANCE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // test_instance_block
+    VCLASS_COMPOSTER_BLOCK,  // composter
+    VCLASS_TARGET_BLOCK,  // target
+    VCLASS_BEEHIVE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // bee_nest
+    VCLASS_BEEHIVE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // beehive
+    VCLASS_HONEY_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // honey_block
+    VCLASS_CRYING_OBSIDIAN_BLOCK,  // crying_obsidian
+    VCLASS_RESPAWN_ANCHOR_BLOCK,  // respawn_anchor
+    VCLASS_FLOWER_POT_BLOCK,  // potted_crimson_fungus
+    VCLASS_FLOWER_POT_BLOCK,  // potted_warped_fungus
+    VCLASS_FLOWER_POT_BLOCK,  // potted_crimson_roots
+    VCLASS_FLOWER_POT_BLOCK,  // potted_warped_roots
+    VCLASS_STAIR_BLOCK,  // blackstone_stairs
+    VCLASS_WALL_BLOCK,  // blackstone_wall
+    VCLASS_SLAB_BLOCK,  // blackstone_slab
+    VCLASS_SLAB_BLOCK,  // polished_blackstone_brick_slab
+    VCLASS_STAIR_BLOCK,  // polished_blackstone_brick_stairs
+    VCLASS_WALL_BLOCK,  // polished_blackstone_brick_wall
+    VCLASS_STAIR_BLOCK,  // polished_blackstone_stairs
+    VCLASS_SLAB_BLOCK,  // polished_blackstone_slab
+    VCLASS_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK,  // polished_blackstone_pressure_plate
+    VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // polished_blackstone_button
+    VCLASS_WALL_BLOCK,  // polished_blackstone_wall
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // white_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // orange_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // magenta_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // light_blue_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // yellow_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // lime_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // pink_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // gray_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // light_gray_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // cyan_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // purple_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // blue_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // brown_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // green_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // red_candle
+    VCLASS_CANDLE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // black_candle
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // white_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // orange_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // magenta_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // light_blue_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // yellow_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // lime_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // pink_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // gray_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // light_gray_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // cyan_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // purple_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // blue_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // brown_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // green_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // red_candle_cake
+    VCLASS_CANDLE_CAKE_BLOCK, VCLASS_ABSTRACT_CANDLE_BLOCK,  // black_candle_cake
+    VCLASS_AMETHYST_BLOCK,  // amethyst_block
+    VCLASS_BUDDING_AMETHYST_BLOCK, VCLASS_AMETHYST_BLOCK,  // budding_amethyst
+    VCLASS_AMETHYST_CLUSTER_BLOCK, VCLASS_AMETHYST_BLOCK,  // amethyst_cluster
+    VCLASS_AMETHYST_CLUSTER_BLOCK, VCLASS_AMETHYST_BLOCK,  // large_amethyst_bud
+    VCLASS_AMETHYST_CLUSTER_BLOCK, VCLASS_AMETHYST_BLOCK,  // medium_amethyst_bud
+    VCLASS_AMETHYST_CLUSTER_BLOCK, VCLASS_AMETHYST_BLOCK,  // small_amethyst_bud
+    VCLASS_SLAB_BLOCK,  // tuff_slab
+    VCLASS_STAIR_BLOCK,  // tuff_stairs
+    VCLASS_WALL_BLOCK,  // tuff_wall
+    VCLASS_SLAB_BLOCK,  // polished_tuff_slab
+    VCLASS_STAIR_BLOCK,  // polished_tuff_stairs
+    VCLASS_WALL_BLOCK,  // polished_tuff_wall
+    VCLASS_SLAB_BLOCK,  // tuff_brick_slab
+    VCLASS_STAIR_BLOCK,  // tuff_brick_stairs
+    VCLASS_WALL_BLOCK,  // tuff_brick_wall
+    VCLASS_TINTED_GLASS_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // tinted_glass
+    VCLASS_POWDER_SNOW_BLOCK,  // powder_snow
+    VCLASS_SCULK_SENSOR_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // sculk_sensor
+    VCLASS_CALIBRATED_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // calibrated_sculk_sensor
+    VCLASS_SCULK_BLOCK, VCLASS_DROP_EXPERIENCE_BLOCK,  // sculk
+    VCLASS_SCULK_VEIN_BLOCK, VCLASS_MULTIFACE_SPREADEABLE_BLOCK, VCLASS_MULTIFACE_BLOCK,  // sculk_vein
+    VCLASS_SCULK_CATALYST_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // sculk_catalyst
+    VCLASS_SCULK_SHRIEKER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // sculk_shrieker
+    VCLASS_WEATHERING_COPPER_FULL_BLOCK,  // copper_block
+    VCLASS_WEATHERING_COPPER_FULL_BLOCK,  // exposed_copper
+    VCLASS_WEATHERING_COPPER_FULL_BLOCK,  // weathered_copper
+    VCLASS_WEATHERING_COPPER_FULL_BLOCK,  // oxidized_copper
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // copper_ore
+    VCLASS_DROP_EXPERIENCE_BLOCK,  // deepslate_copper_ore
+    VCLASS_WEATHERING_COPPER_FULL_BLOCK,  // oxidized_cut_copper
+    VCLASS_WEATHERING_COPPER_FULL_BLOCK,  // weathered_cut_copper
+    VCLASS_WEATHERING_COPPER_FULL_BLOCK,  // exposed_cut_copper
+    VCLASS_WEATHERING_COPPER_FULL_BLOCK,  // cut_copper
+    VCLASS_WEATHERING_COPPER_FULL_BLOCK,  // oxidized_chiseled_copper
+    VCLASS_WEATHERING_COPPER_FULL_BLOCK,  // weathered_chiseled_copper
+    VCLASS_WEATHERING_COPPER_FULL_BLOCK,  // exposed_chiseled_copper
+    VCLASS_WEATHERING_COPPER_FULL_BLOCK,  // chiseled_copper
+    VCLASS_WEATHERING_COPPER_STAIR_BLOCK, VCLASS_STAIR_BLOCK,  // oxidized_cut_copper_stairs
+    VCLASS_WEATHERING_COPPER_STAIR_BLOCK, VCLASS_STAIR_BLOCK,  // weathered_cut_copper_stairs
+    VCLASS_WEATHERING_COPPER_STAIR_BLOCK, VCLASS_STAIR_BLOCK,  // exposed_cut_copper_stairs
+    VCLASS_WEATHERING_COPPER_STAIR_BLOCK, VCLASS_STAIR_BLOCK,  // cut_copper_stairs
+    VCLASS_WEATHERING_COPPER_SLAB_BLOCK, VCLASS_SLAB_BLOCK,  // oxidized_cut_copper_slab
+    VCLASS_WEATHERING_COPPER_SLAB_BLOCK, VCLASS_SLAB_BLOCK,  // weathered_cut_copper_slab
+    VCLASS_WEATHERING_COPPER_SLAB_BLOCK, VCLASS_SLAB_BLOCK,  // exposed_cut_copper_slab
+    VCLASS_WEATHERING_COPPER_SLAB_BLOCK, VCLASS_SLAB_BLOCK,  // cut_copper_slab
+    VCLASS_STAIR_BLOCK,  // waxed_oxidized_cut_copper_stairs
+    VCLASS_STAIR_BLOCK,  // waxed_weathered_cut_copper_stairs
+    VCLASS_STAIR_BLOCK,  // waxed_exposed_cut_copper_stairs
+    VCLASS_STAIR_BLOCK,  // waxed_cut_copper_stairs
+    VCLASS_SLAB_BLOCK,  // waxed_oxidized_cut_copper_slab
+    VCLASS_SLAB_BLOCK,  // waxed_weathered_cut_copper_slab
+    VCLASS_SLAB_BLOCK,  // waxed_exposed_cut_copper_slab
+    VCLASS_SLAB_BLOCK,  // waxed_cut_copper_slab
+    VCLASS_WEATHERING_COPPER_DOOR_BLOCK, VCLASS_DOOR_BLOCK,  // copper_door
+    VCLASS_WEATHERING_COPPER_DOOR_BLOCK, VCLASS_DOOR_BLOCK,  // exposed_copper_door
+    VCLASS_WEATHERING_COPPER_DOOR_BLOCK, VCLASS_DOOR_BLOCK,  // oxidized_copper_door
+    VCLASS_WEATHERING_COPPER_DOOR_BLOCK, VCLASS_DOOR_BLOCK,  // weathered_copper_door
+    VCLASS_DOOR_BLOCK,  // waxed_copper_door
+    VCLASS_DOOR_BLOCK,  // waxed_exposed_copper_door
+    VCLASS_DOOR_BLOCK,  // waxed_oxidized_copper_door
+    VCLASS_DOOR_BLOCK,  // waxed_weathered_copper_door
+    VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // copper_trapdoor
+    VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // exposed_copper_trapdoor
+    VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // oxidized_copper_trapdoor
+    VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // weathered_copper_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // waxed_copper_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // waxed_exposed_copper_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // waxed_oxidized_copper_trapdoor
+    VCLASS_TRAP_DOOR_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // waxed_weathered_copper_trapdoor
+    VCLASS_WEATHERING_COPPER_GRATE_BLOCK, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // copper_grate
+    VCLASS_WEATHERING_COPPER_GRATE_BLOCK, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // exposed_copper_grate
+    VCLASS_WEATHERING_COPPER_GRATE_BLOCK, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // weathered_copper_grate
+    VCLASS_WEATHERING_COPPER_GRATE_BLOCK, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // oxidized_copper_grate
+    VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // waxed_copper_grate
+    VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // waxed_exposed_copper_grate
+    VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // waxed_weathered_copper_grate
+    VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, VCLASS_TRANSPARENT_BLOCK, VCLASS_HALF_TRANSPARENT_BLOCK,  // waxed_oxidized_copper_grate
+    VCLASS_WEATHERING_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK,  // copper_bulb
+    VCLASS_WEATHERING_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK,  // exposed_copper_bulb
+    VCLASS_WEATHERING_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK,  // weathered_copper_bulb
+    VCLASS_WEATHERING_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK,  // oxidized_copper_bulb
+    VCLASS_COPPER_BULB_BLOCK,  // waxed_copper_bulb
+    VCLASS_COPPER_BULB_BLOCK,  // waxed_exposed_copper_bulb
+    VCLASS_COPPER_BULB_BLOCK,  // waxed_weathered_copper_bulb
+    VCLASS_COPPER_BULB_BLOCK,  // waxed_oxidized_copper_bulb
+    VCLASS_WEATHERING_COPPER_CHEST_BLOCK, VCLASS_COPPER_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_ABSTRACT_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // copper_chest
+    VCLASS_WEATHERING_COPPER_CHEST_BLOCK, VCLASS_COPPER_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_ABSTRACT_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // exposed_copper_chest
+    VCLASS_WEATHERING_COPPER_CHEST_BLOCK, VCLASS_COPPER_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_ABSTRACT_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // weathered_copper_chest
+    VCLASS_WEATHERING_COPPER_CHEST_BLOCK, VCLASS_COPPER_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_ABSTRACT_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // oxidized_copper_chest
+    VCLASS_COPPER_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_ABSTRACT_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // waxed_copper_chest
+    VCLASS_COPPER_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_ABSTRACT_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // waxed_exposed_copper_chest
+    VCLASS_COPPER_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_ABSTRACT_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // waxed_weathered_copper_chest
+    VCLASS_COPPER_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_ABSTRACT_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // waxed_oxidized_copper_chest
+    VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, VCLASS_COPPER_GOLEM_STATUE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // copper_golem_statue
+    VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, VCLASS_COPPER_GOLEM_STATUE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // exposed_copper_golem_statue
+    VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, VCLASS_COPPER_GOLEM_STATUE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // weathered_copper_golem_statue
+    VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, VCLASS_COPPER_GOLEM_STATUE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // oxidized_copper_golem_statue
+    VCLASS_COPPER_GOLEM_STATUE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // waxed_copper_golem_statue
+    VCLASS_COPPER_GOLEM_STATUE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // waxed_exposed_copper_golem_statue
+    VCLASS_COPPER_GOLEM_STATUE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // waxed_weathered_copper_golem_statue
+    VCLASS_COPPER_GOLEM_STATUE_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // waxed_oxidized_copper_golem_statue
+    VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_ROD_BLOCK, VCLASS_DIRECTIONAL_BLOCK,  // lightning_rod
+    VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_ROD_BLOCK, VCLASS_DIRECTIONAL_BLOCK,  // exposed_lightning_rod
+    VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_ROD_BLOCK, VCLASS_DIRECTIONAL_BLOCK,  // weathered_lightning_rod
+    VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_ROD_BLOCK, VCLASS_DIRECTIONAL_BLOCK,  // oxidized_lightning_rod
+    VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_ROD_BLOCK, VCLASS_DIRECTIONAL_BLOCK,  // waxed_lightning_rod
+    VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_ROD_BLOCK, VCLASS_DIRECTIONAL_BLOCK,  // waxed_exposed_lightning_rod
+    VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_ROD_BLOCK, VCLASS_DIRECTIONAL_BLOCK,  // waxed_weathered_lightning_rod
+    VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_ROD_BLOCK, VCLASS_DIRECTIONAL_BLOCK,  // waxed_oxidized_lightning_rod
+    VCLASS_POINTED_DRIPSTONE_BLOCK,  // pointed_dripstone
+    VCLASS_CAVE_VINES_BLOCK, VCLASS_GROWING_PLANT_HEAD_BLOCK, VCLASS_GROWING_PLANT_BLOCK,  // cave_vines
+    VCLASS_CAVE_VINES_PLANT_BLOCK, VCLASS_GROWING_PLANT_BODY_BLOCK, VCLASS_GROWING_PLANT_BLOCK,  // cave_vines_plant
+    VCLASS_SPORE_BLOSSOM_BLOCK,  // spore_blossom
+    VCLASS_AZALEA_BLOCK, VCLASS_VEGETATION_BLOCK,  // azalea
+    VCLASS_AZALEA_BLOCK, VCLASS_VEGETATION_BLOCK,  // flowering_azalea
+    VCLASS_CARPET_BLOCK,  // moss_carpet
+    VCLASS_FLOWER_BED_BLOCK, VCLASS_VEGETATION_BLOCK,  // pink_petals
+    VCLASS_FLOWER_BED_BLOCK, VCLASS_VEGETATION_BLOCK,  // wildflowers
+    VCLASS_LEAF_LITTER_BLOCK, VCLASS_VEGETATION_BLOCK,  // leaf_litter
+    VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK,  // moss_block
+    VCLASS_BIG_DRIPLEAF_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // big_dripleaf
+    VCLASS_BIG_DRIPLEAF_STEM_BLOCK, VCLASS_HORIZONTAL_DIRECTIONAL_BLOCK,  // big_dripleaf_stem
+    VCLASS_SMALL_DRIPLEAF_BLOCK, VCLASS_DOUBLE_PLANT_BLOCK, VCLASS_VEGETATION_BLOCK,  // small_dripleaf
+    VCLASS_HANGING_ROOTS_BLOCK,  // hanging_roots
+    VCLASS_ROOTED_DIRT_BLOCK,  // rooted_dirt
+    VCLASS_MUD_BLOCK,  // mud
+    VCLASS_ROTATED_PILLAR_BLOCK,  // deepslate
+    VCLASS_STAIR_BLOCK,  // cobbled_deepslate_stairs
+    VCLASS_SLAB_BLOCK,  // cobbled_deepslate_slab
+    VCLASS_WALL_BLOCK,  // cobbled_deepslate_wall
+    VCLASS_STAIR_BLOCK,  // polished_deepslate_stairs
+    VCLASS_SLAB_BLOCK,  // polished_deepslate_slab
+    VCLASS_WALL_BLOCK,  // polished_deepslate_wall
+    VCLASS_STAIR_BLOCK,  // deepslate_tile_stairs
+    VCLASS_SLAB_BLOCK,  // deepslate_tile_slab
+    VCLASS_WALL_BLOCK,  // deepslate_tile_wall
+    VCLASS_STAIR_BLOCK,  // deepslate_brick_stairs
+    VCLASS_SLAB_BLOCK,  // deepslate_brick_slab
+    VCLASS_WALL_BLOCK,  // deepslate_brick_wall
+    VCLASS_INFESTED_ROTATED_PILLAR_BLOCK, VCLASS_INFESTED_BLOCK,  // infested_deepslate
+    VCLASS_FLOWER_POT_BLOCK,  // potted_azalea_bush
+    VCLASS_FLOWER_POT_BLOCK,  // potted_flowering_azalea_bush
+    VCLASS_ROTATED_PILLAR_BLOCK,  // ochre_froglight
+    VCLASS_ROTATED_PILLAR_BLOCK,  // verdant_froglight
+    VCLASS_ROTATED_PILLAR_BLOCK,  // pearlescent_froglight
+    VCLASS_FROGSPAWN_BLOCK,  // frogspawn
+    VCLASS_DECORATED_POT_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // decorated_pot
+    VCLASS_CRAFTER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // crafter
+    VCLASS_TRIAL_SPAWNER_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // trial_spawner
+    VCLASS_VAULT_BLOCK, VCLASS_BASE_ENTITY_BLOCK,  // vault
+    VCLASS_HEAVY_CORE_BLOCK,  // heavy_core
+    VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK,  // pale_moss_block
+    VCLASS_MOSSY_CARPET_BLOCK,  // pale_moss_carpet
+    VCLASS_HANGING_MOSS_BLOCK,  // pale_hanging_moss
+    VCLASS_EYEBLOSSOM_BLOCK, VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // open_eyeblossom
+    VCLASS_EYEBLOSSOM_BLOCK, VCLASS_FLOWER_BLOCK, VCLASS_VEGETATION_BLOCK,  // closed_eyeblossom
+    VCLASS_FLOWER_POT_BLOCK,  // potted_open_eyeblossom
+    VCLASS_FLOWER_POT_BLOCK,  // potted_closed_eyeblossom
+    VCLASS_FIREFLY_BUSH_BLOCK, VCLASS_VEGETATION_BLOCK,  // firefly_bush
+};
+
 const block_def block_defs[] = {
-    { "air", 0, 1, 0, 0, 0 },
-    { "stone", 1, 1, 1, 0, 0 },
-    { "granite", 2, 1, 2, 0, 0 },
-    { "polished_granite", 3, 1, 3, 0, 0 },
-    { "diorite", 4, 1, 4, 0, 0 },
-    { "polished_diorite", 5, 1, 5, 0, 0 },
-    { "andesite", 6, 1, 6, 0, 0 },
-    { "polished_andesite", 7, 1, 7, 0, 0 },
-    { "grass_block", 8, 2, 9, 0, 1 },
-    { "dirt", 10, 1, 10, 1, 0 },
-    { "coarse_dirt", 11, 1, 11, 1, 0 },
-    { "podzol", 12, 2, 13, 1, 1 },
-    { "cobblestone", 14, 1, 14, 2, 0 },
-    { "oak_planks", 15, 1, 15, 2, 0 },
-    { "spruce_planks", 16, 1, 16, 2, 0 },
-    { "birch_planks", 17, 1, 17, 2, 0 },
-    { "jungle_planks", 18, 1, 18, 2, 0 },
-    { "acacia_planks", 19, 1, 19, 2, 0 },
-    { "cherry_planks", 20, 1, 20, 2, 0 },
-    { "dark_oak_planks", 21, 1, 21, 2, 0 },
-    { "pale_oak_wood", 22, 3, 23, 2, 1 },
-    { "pale_oak_planks", 25, 1, 25, 3, 0 },
-    { "mangrove_planks", 26, 1, 26, 3, 0 },
-    { "bamboo_planks", 27, 1, 27, 3, 0 },
-    { "bamboo_mosaic", 28, 1, 28, 3, 0 },
-    { "oak_sapling", 29, 2, 29, 3, 1 },
-    { "spruce_sapling", 31, 2, 31, 4, 1 },
-    { "birch_sapling", 33, 2, 33, 5, 1 },
-    { "jungle_sapling", 35, 2, 35, 6, 1 },
-    { "acacia_sapling", 37, 2, 37, 7, 1 },
-    { "cherry_sapling", 39, 2, 39, 8, 1 },
-    { "dark_oak_sapling", 41, 2, 41, 9, 1 },
-    { "pale_oak_sapling", 43, 2, 43, 10, 1 },
-    { "mangrove_propagule", 45, 40, 50, 11, 4 },
-    { "bedrock", 85, 1, 85, 15, 0 },
-    { "water", 86, 16, 86, 15, 1 },
-    { "lava", 102, 16, 102, 16, 1 },
-    { "sand", 118, 1, 118, 17, 0 },
-    { "suspicious_sand", 119, 4, 119, 17, 1 },
-    { "red_sand", 123, 1, 123, 18, 0 },
-    { "gravel", 124, 1, 124, 18, 0 },
-    { "suspicious_gravel", 125, 4, 125, 18, 1 },
-    { "gold_ore", 129, 1, 129, 19, 0 },
-    { "deepslate_gold_ore", 130, 1, 130, 19, 0 },
-    { "iron_ore", 131, 1, 131, 19, 0 },
-    { "deepslate_iron_ore", 132, 1, 132, 19, 0 },
-    { "coal_ore", 133, 1, 133, 19, 0 },
-    { "deepslate_coal_ore", 134, 1, 134, 19, 0 },
-    { "nether_gold_ore", 135, 1, 135, 19, 0 },
-    { "oak_log", 136, 3, 137, 19, 1 },
-    { "spruce_log", 139, 3, 140, 20, 1 },
-    { "birch_log", 142, 3, 143, 21, 1 },
-    { "jungle_log", 145, 3, 146, 22, 1 },
-    { "acacia_log", 148, 3, 149, 23, 1 },
-    { "cherry_log", 151, 3, 152, 24, 1 },
-    { "dark_oak_log", 154, 3, 155, 25, 1 },
-    { "pale_oak_log", 157, 3, 158, 26, 1 },
-    { "mangrove_log", 160, 3, 161, 27, 1 },
-    { "mangrove_roots", 163, 2, 164, 28, 1 },
-    { "muddy_mangrove_roots", 165, 3, 166, 29, 1 },
-    { "bamboo_block", 168, 3, 169, 30, 1 },
-    { "stripped_spruce_log", 171, 3, 172, 31, 1 },
-    { "stripped_birch_log", 174, 3, 175, 32, 1 },
-    { "stripped_jungle_log", 177, 3, 178, 33, 1 },
-    { "stripped_acacia_log", 180, 3, 181, 34, 1 },
-    { "stripped_cherry_log", 183, 3, 184, 35, 1 },
-    { "stripped_dark_oak_log", 186, 3, 187, 36, 1 },
-    { "stripped_pale_oak_log", 189, 3, 190, 37, 1 },
-    { "stripped_oak_log", 192, 3, 193, 38, 1 },
-    { "stripped_mangrove_log", 195, 3, 196, 39, 1 },
-    { "stripped_bamboo_block", 198, 3, 199, 40, 1 },
-    { "oak_wood", 201, 3, 202, 41, 1 },
-    { "spruce_wood", 204, 3, 205, 42, 1 },
-    { "birch_wood", 207, 3, 208, 43, 1 },
-    { "jungle_wood", 210, 3, 211, 44, 1 },
-    { "acacia_wood", 213, 3, 214, 45, 1 },
-    { "cherry_wood", 216, 3, 217, 46, 1 },
-    { "dark_oak_wood", 219, 3, 220, 47, 1 },
-    { "mangrove_wood", 222, 3, 223, 48, 1 },
-    { "stripped_oak_wood", 225, 3, 226, 49, 1 },
-    { "stripped_spruce_wood", 228, 3, 229, 50, 1 },
-    { "stripped_birch_wood", 231, 3, 232, 51, 1 },
-    { "stripped_jungle_wood", 234, 3, 235, 52, 1 },
-    { "stripped_acacia_wood", 237, 3, 238, 53, 1 },
-    { "stripped_cherry_wood", 240, 3, 241, 54, 1 },
-    { "stripped_dark_oak_wood", 243, 3, 244, 55, 1 },
-    { "stripped_pale_oak_wood", 246, 3, 247, 56, 1 },
-    { "stripped_mangrove_wood", 249, 3, 250, 57, 1 },
-    { "oak_leaves", 252, 28, 279, 58, 3 },
-    { "spruce_leaves", 280, 28, 307, 61, 3 },
-    { "birch_leaves", 308, 28, 335, 64, 3 },
-    { "jungle_leaves", 336, 28, 363, 67, 3 },
-    { "acacia_leaves", 364, 28, 391, 70, 3 },
-    { "cherry_leaves", 392, 28, 419, 73, 3 },
-    { "dark_oak_leaves", 420, 28, 447, 76, 3 },
-    { "pale_oak_leaves", 448, 28, 475, 79, 3 },
-    { "mangrove_leaves", 476, 28, 503, 82, 3 },
-    { "azalea_leaves", 504, 28, 531, 85, 3 },
-    { "flowering_azalea_leaves", 532, 28, 559, 88, 3 },
-    { "sponge", 560, 1, 560, 91, 0 },
-    { "wet_sponge", 561, 1, 561, 91, 0 },
-    { "glass", 562, 1, 562, 91, 0 },
-    { "lapis_ore", 563, 1, 563, 91, 0 },
-    { "deepslate_lapis_ore", 564, 1, 564, 91, 0 },
-    { "lapis_block", 565, 1, 565, 91, 0 },
-    { "dispenser", 566, 12, 567, 91, 2 },
-    { "sandstone", 578, 1, 578, 93, 0 },
-    { "chiseled_sandstone", 579, 1, 579, 93, 0 },
-    { "cut_sandstone", 580, 1, 580, 93, 0 },
-    { "note_block", 581, 1150, 582, 93, 3 },
-    { "white_bed", 1731, 16, 1734, 96, 3 },
-    { "orange_bed", 1747, 16, 1750, 99, 3 },
-    { "magenta_bed", 1763, 16, 1766, 102, 3 },
-    { "light_blue_bed", 1779, 16, 1782, 105, 3 },
-    { "yellow_bed", 1795, 16, 1798, 108, 3 },
-    { "lime_bed", 1811, 16, 1814, 111, 3 },
-    { "pink_bed", 1827, 16, 1830, 114, 3 },
-    { "gray_bed", 1843, 16, 1846, 117, 3 },
-    { "light_gray_bed", 1859, 16, 1862, 120, 3 },
-    { "cyan_bed", 1875, 16, 1878, 123, 3 },
-    { "purple_bed", 1891, 16, 1894, 126, 3 },
-    { "blue_bed", 1907, 16, 1910, 129, 3 },
-    { "brown_bed", 1923, 16, 1926, 132, 3 },
-    { "green_bed", 1939, 16, 1942, 135, 3 },
-    { "red_bed", 1955, 16, 1958, 138, 3 },
-    { "black_bed", 1971, 16, 1974, 141, 3 },
-    { "powered_rail", 1987, 24, 2000, 144, 3 },
-    { "detector_rail", 2011, 24, 2024, 147, 3 },
-    { "sticky_piston", 2035, 12, 2041, 150, 2 },
-    { "cobweb", 2047, 1, 2047, 152, 0 },
-    { "short_grass", 2048, 1, 2048, 152, 0 },
-    { "fern", 2049, 1, 2049, 152, 0 },
-    { "dead_bush", 2050, 1, 2050, 152, 0 },
-    { "bush", 2051, 1, 2051, 152, 0 },
-    { "short_dry_grass", 2052, 1, 2052, 152, 0 },
-    { "tall_dry_grass", 2053, 1, 2053, 152, 0 },
-    { "seagrass", 2054, 1, 2054, 152, 0 },
-    { "tall_seagrass", 2055, 2, 2056, 152, 1 },
-    { "piston", 2057, 12, 2063, 153, 2 },
-    { "piston_head", 2069, 24, 2071, 155, 3 },
-    { "white_wool", 2093, 1, 2093, 158, 0 },
-    { "orange_wool", 2094, 1, 2094, 158, 0 },
-    { "magenta_wool", 2095, 1, 2095, 158, 0 },
-    { "light_blue_wool", 2096, 1, 2096, 158, 0 },
-    { "yellow_wool", 2097, 1, 2097, 158, 0 },
-    { "lime_wool", 2098, 1, 2098, 158, 0 },
-    { "pink_wool", 2099, 1, 2099, 158, 0 },
-    { "gray_wool", 2100, 1, 2100, 158, 0 },
-    { "light_gray_wool", 2101, 1, 2101, 158, 0 },
-    { "cyan_wool", 2102, 1, 2102, 158, 0 },
-    { "purple_wool", 2103, 1, 2103, 158, 0 },
-    { "blue_wool", 2104, 1, 2104, 158, 0 },
-    { "brown_wool", 2105, 1, 2105, 158, 0 },
-    { "green_wool", 2106, 1, 2106, 158, 0 },
-    { "red_wool", 2107, 1, 2107, 158, 0 },
-    { "black_wool", 2108, 1, 2108, 158, 0 },
-    { "moving_piston", 2109, 12, 2109, 158, 2 },
-    { "dandelion", 2121, 1, 2121, 160, 0 },
-    { "torchflower", 2122, 1, 2122, 160, 0 },
-    { "poppy", 2123, 1, 2123, 160, 0 },
-    { "blue_orchid", 2124, 1, 2124, 160, 0 },
-    { "allium", 2125, 1, 2125, 160, 0 },
-    { "azure_bluet", 2126, 1, 2126, 160, 0 },
-    { "red_tulip", 2127, 1, 2127, 160, 0 },
-    { "orange_tulip", 2128, 1, 2128, 160, 0 },
-    { "white_tulip", 2129, 1, 2129, 160, 0 },
-    { "pink_tulip", 2130, 1, 2130, 160, 0 },
-    { "oxeye_daisy", 2131, 1, 2131, 160, 0 },
-    { "cornflower", 2132, 1, 2132, 160, 0 },
-    { "wither_rose", 2133, 1, 2133, 160, 0 },
-    { "lily_of_the_valley", 2134, 1, 2134, 160, 0 },
-    { "brown_mushroom", 2135, 1, 2135, 160, 0 },
-    { "red_mushroom", 2136, 1, 2136, 160, 0 },
-    { "gold_block", 2137, 1, 2137, 160, 0 },
-    { "iron_block", 2138, 1, 2138, 160, 0 },
-    { "bricks", 2139, 1, 2139, 160, 0 },
-    { "tnt", 2140, 2, 2141, 160, 1 },
-    { "bookshelf", 2142, 1, 2142, 161, 0 },
-    { "chiseled_bookshelf", 2143, 256, 2206, 161, 7 },
-    { "acacia_shelf", 2399, 64, 2408, 168, 4 },
-    { "bamboo_shelf", 2463, 64, 2472, 172, 4 },
-    { "birch_shelf", 2527, 64, 2536, 176, 4 },
-    { "cherry_shelf", 2591, 64, 2600, 180, 4 },
-    { "crimson_shelf", 2655, 64, 2664, 184, 4 },
-    { "dark_oak_shelf", 2719, 64, 2728, 188, 4 },
-    { "jungle_shelf", 2783, 64, 2792, 192, 4 },
-    { "mangrove_shelf", 2847, 64, 2856, 196, 4 },
-    { "oak_shelf", 2911, 64, 2920, 200, 4 },
-    { "pale_oak_shelf", 2975, 64, 2984, 204, 4 },
-    { "spruce_shelf", 3039, 64, 3048, 208, 4 },
-    { "warped_shelf", 3103, 64, 3112, 212, 4 },
-    { "mossy_cobblestone", 3167, 1, 3167, 216, 0 },
-    { "obsidian", 3168, 1, 3168, 216, 0 },
-    { "torch", 3169, 1, 3169, 216, 0 },
-    { "wall_torch", 3170, 4, 3170, 216, 1 },
-    { "fire", 3174, 512, 3205, 217, 6 },
-    { "soul_fire", 3686, 1, 3686, 223, 0 },
-    { "spawner", 3687, 1, 3687, 223, 0 },
-    { "creaking_heart", 3688, 18, 3695, 223, 3 },
-    { "oak_stairs", 3706, 80, 3717, 226, 4 },
-    { "chest", 3786, 24, 3787, 230, 3 },
-    { "redstone_wire", 3810, 1296, 4970, 233, 5 },
-    { "diamond_ore", 5106, 1, 5106, 238, 0 },
-    { "deepslate_diamond_ore", 5107, 1, 5107, 238, 0 },
-    { "diamond_block", 5108, 1, 5108, 238, 0 },
-    { "crafting_table", 5109, 1, 5109, 238, 0 },
-    { "wheat", 5110, 8, 5110, 238, 1 },
-    { "farmland", 5118, 8, 5118, 239, 1 },
-    { "furnace", 5126, 8, 5127, 240, 2 },
-    { "oak_sign", 5134, 32, 5135, 242, 2 },
-    { "spruce_sign", 5166, 32, 5167, 244, 2 },
-    { "birch_sign", 5198, 32, 5199, 246, 2 },
-    { "acacia_sign", 5230, 32, 5231, 248, 2 },
-    { "cherry_sign", 5262, 32, 5263, 250, 2 },
-    { "jungle_sign", 5294, 32, 5295, 252, 2 },
-    { "dark_oak_sign", 5326, 32, 5327, 254, 2 },
-    { "pale_oak_sign", 5358, 32, 5359, 256, 2 },
-    { "mangrove_sign", 5390, 32, 5391, 258, 2 },
-    { "bamboo_sign", 5422, 32, 5423, 260, 2 },
-    { "oak_door", 5454, 64, 5465, 262, 5 },
-    { "ladder", 5518, 8, 5519, 267, 2 },
-    { "rail", 5526, 20, 5527, 269, 2 },
-    { "cobblestone_stairs", 5546, 80, 5557, 271, 4 },
-    { "oak_wall_sign", 5626, 8, 5627, 275, 2 },
-    { "spruce_wall_sign", 5634, 8, 5635, 277, 2 },
-    { "birch_wall_sign", 5642, 8, 5643, 279, 2 },
-    { "acacia_wall_sign", 5650, 8, 5651, 281, 2 },
-    { "cherry_wall_sign", 5658, 8, 5659, 283, 2 },
-    { "jungle_wall_sign", 5666, 8, 5667, 285, 2 },
-    { "dark_oak_wall_sign", 5674, 8, 5675, 287, 2 },
-    { "pale_oak_wall_sign", 5682, 8, 5683, 289, 2 },
-    { "mangrove_wall_sign", 5690, 8, 5691, 291, 2 },
-    { "bamboo_wall_sign", 5698, 8, 5699, 293, 2 },
-    { "oak_hanging_sign", 5706, 64, 5739, 295, 3 },
-    { "spruce_hanging_sign", 5770, 64, 5803, 298, 3 },
-    { "birch_hanging_sign", 5834, 64, 5867, 301, 3 },
-    { "acacia_hanging_sign", 5898, 64, 5931, 304, 3 },
-    { "cherry_hanging_sign", 5962, 64, 5995, 307, 3 },
-    { "jungle_hanging_sign", 6026, 64, 6059, 310, 3 },
-    { "dark_oak_hanging_sign", 6090, 64, 6123, 313, 3 },
-    { "pale_oak_hanging_sign", 6154, 64, 6187, 316, 3 },
-    { "crimson_hanging_sign", 6218, 64, 6251, 319, 3 },
-    { "warped_hanging_sign", 6282, 64, 6315, 322, 3 },
-    { "mangrove_hanging_sign", 6346, 64, 6379, 325, 3 },
-    { "bamboo_hanging_sign", 6410, 64, 6443, 328, 3 },
-    { "oak_wall_hanging_sign", 6474, 8, 6475, 331, 2 },
-    { "spruce_wall_hanging_sign", 6482, 8, 6483, 333, 2 },
-    { "birch_wall_hanging_sign", 6490, 8, 6491, 335, 2 },
-    { "acacia_wall_hanging_sign", 6498, 8, 6499, 337, 2 },
-    { "cherry_wall_hanging_sign", 6506, 8, 6507, 339, 2 },
-    { "jungle_wall_hanging_sign", 6514, 8, 6515, 341, 2 },
-    { "dark_oak_wall_hanging_sign", 6522, 8, 6523, 343, 2 },
-    { "pale_oak_wall_hanging_sign", 6530, 8, 6531, 345, 2 },
-    { "mangrove_wall_hanging_sign", 6538, 8, 6539, 347, 2 },
-    { "crimson_wall_hanging_sign", 6546, 8, 6547, 349, 2 },
-    { "warped_wall_hanging_sign", 6554, 8, 6555, 351, 2 },
-    { "bamboo_wall_hanging_sign", 6562, 8, 6563, 353, 2 },
-    { "lever", 6570, 24, 6579, 355, 3 },
-    { "stone_pressure_plate", 6594, 2, 6595, 358, 1 },
-    { "iron_door", 6596, 64, 6607, 359, 5 },
-    { "oak_pressure_plate", 6660, 2, 6661, 364, 1 },
-    { "spruce_pressure_plate", 6662, 2, 6663, 365, 1 },
-    { "birch_pressure_plate", 6664, 2, 6665, 366, 1 },
-    { "jungle_pressure_plate", 6666, 2, 6667, 367, 1 },
-    { "acacia_pressure_plate", 6668, 2, 6669, 368, 1 },
-    { "cherry_pressure_plate", 6670, 2, 6671, 369, 1 },
-    { "dark_oak_pressure_plate", 6672, 2, 6673, 370, 1 },
-    { "pale_oak_pressure_plate", 6674, 2, 6675, 371, 1 },
-    { "mangrove_pressure_plate", 6676, 2, 6677, 372, 1 },
-    { "bamboo_pressure_plate", 6678, 2, 6679, 373, 1 },
-    { "redstone_ore", 6680, 2, 6681, 374, 1 },
-    { "deepslate_redstone_ore", 6682, 2, 6683, 375, 1 },
-    { "redstone_torch", 6684, 2, 6684, 376, 1 },
-    { "redstone_wall_torch", 6686, 8, 6686, 377, 2 },
-    { "stone_button", 6694, 24, 6703, 379, 3 },
-    { "snow", 6718, 8, 6718, 382, 1 },
-    { "ice", 6726, 1, 6726, 383, 0 },
-    { "snow_block", 6727, 1, 6727, 383, 0 },
-    { "cactus", 6728, 16, 6728, 383, 1 },
-    { "cactus_flower", 6744, 1, 6744, 384, 0 },
-    { "clay", 6745, 1, 6745, 384, 0 },
-    { "sugar_cane", 6746, 16, 6746, 384, 1 },
-    { "jukebox", 6762, 2, 6763, 385, 1 },
-    { "oak_fence", 6764, 32, 6795, 386, 5 },
-    { "netherrack", 6796, 1, 6796, 391, 0 },
-    { "soul_sand", 6797, 1, 6797, 391, 0 },
-    { "soul_soil", 6798, 1, 6798, 391, 0 },
-    { "basalt", 6799, 3, 6800, 391, 1 },
-    { "polished_basalt", 6802, 3, 6803, 392, 1 },
-    { "soul_torch", 6805, 1, 6805, 393, 0 },
-    { "soul_wall_torch", 6806, 4, 6806, 393, 1 },
-    { "copper_torch", 6810, 1, 6810, 394, 0 },
-    { "copper_wall_torch", 6811, 4, 6811, 394, 1 },
-    { "glowstone", 6815, 1, 6815, 395, 0 },
-    { "nether_portal", 6816, 2, 6816, 395, 1 },
-    { "carved_pumpkin", 6818, 4, 6818, 396, 1 },
-    { "jack_o_lantern", 6822, 4, 6822, 397, 1 },
-    { "cake", 6826, 7, 6826, 398, 1 },
-    { "repeater", 6833, 64, 6836, 399, 4 },
-    { "white_stained_glass", 6897, 1, 6897, 403, 0 },
-    { "orange_stained_glass", 6898, 1, 6898, 403, 0 },
-    { "magenta_stained_glass", 6899, 1, 6899, 403, 0 },
-    { "light_blue_stained_glass", 6900, 1, 6900, 403, 0 },
-    { "yellow_stained_glass", 6901, 1, 6901, 403, 0 },
-    { "lime_stained_glass", 6902, 1, 6902, 403, 0 },
-    { "pink_stained_glass", 6903, 1, 6903, 403, 0 },
-    { "gray_stained_glass", 6904, 1, 6904, 403, 0 },
-    { "light_gray_stained_glass", 6905, 1, 6905, 403, 0 },
-    { "cyan_stained_glass", 6906, 1, 6906, 403, 0 },
-    { "purple_stained_glass", 6907, 1, 6907, 403, 0 },
-    { "blue_stained_glass", 6908, 1, 6908, 403, 0 },
-    { "brown_stained_glass", 6909, 1, 6909, 403, 0 },
-    { "green_stained_glass", 6910, 1, 6910, 403, 0 },
-    { "red_stained_glass", 6911, 1, 6911, 403, 0 },
-    { "black_stained_glass", 6912, 1, 6912, 403, 0 },
-    { "oak_trapdoor", 6913, 64, 6928, 403, 5 },
-    { "spruce_trapdoor", 6977, 64, 6992, 408, 5 },
-    { "birch_trapdoor", 7041, 64, 7056, 413, 5 },
-    { "jungle_trapdoor", 7105, 64, 7120, 418, 5 },
-    { "acacia_trapdoor", 7169, 64, 7184, 423, 5 },
-    { "cherry_trapdoor", 7233, 64, 7248, 428, 5 },
-    { "dark_oak_trapdoor", 7297, 64, 7312, 433, 5 },
-    { "pale_oak_trapdoor", 7361, 64, 7376, 438, 5 },
-    { "mangrove_trapdoor", 7425, 64, 7440, 443, 5 },
-    { "bamboo_trapdoor", 7489, 64, 7504, 448, 5 },
-    { "stone_bricks", 7553, 1, 7553, 453, 0 },
-    { "mossy_stone_bricks", 7554, 1, 7554, 453, 0 },
-    { "cracked_stone_bricks", 7555, 1, 7555, 453, 0 },
-    { "chiseled_stone_bricks", 7556, 1, 7556, 453, 0 },
-    { "packed_mud", 7557, 1, 7557, 453, 0 },
-    { "mud_bricks", 7558, 1, 7558, 453, 0 },
-    { "infested_stone", 7559, 1, 7559, 453, 0 },
-    { "infested_cobblestone", 7560, 1, 7560, 453, 0 },
-    { "infested_stone_bricks", 7561, 1, 7561, 453, 0 },
-    { "infested_mossy_stone_bricks", 7562, 1, 7562, 453, 0 },
-    { "infested_cracked_stone_bricks", 7563, 1, 7563, 453, 0 },
-    { "infested_chiseled_stone_bricks", 7564, 1, 7564, 453, 0 },
-    { "brown_mushroom_block", 7565, 64, 7565, 453, 6 },
-    { "red_mushroom_block", 7629, 64, 7629, 459, 6 },
-    { "mushroom_stem", 7693, 64, 7693, 465, 6 },
-    { "iron_bars", 7757, 32, 7788, 471, 5 },
-    { "copper_bars", 7789, 32, 7820, 476, 5 },
-    { "exposed_copper_bars", 7821, 32, 7852, 481, 5 },
-    { "weathered_copper_bars", 7853, 32, 7884, 486, 5 },
-    { "oxidized_copper_bars", 7885, 32, 7916, 491, 5 },
-    { "waxed_copper_bars", 7917, 32, 7948, 496, 5 },
-    { "waxed_exposed_copper_bars", 7949, 32, 7980, 501, 5 },
-    { "waxed_weathered_copper_bars", 7981, 32, 8012, 506, 5 },
-    { "waxed_oxidized_copper_bars", 8013, 32, 8044, 511, 5 },
-    { "iron_chain", 8045, 6, 8048, 516, 2 },
-    { "copper_chain", 8051, 6, 8054, 518, 2 },
-    { "exposed_copper_chain", 8057, 6, 8060, 520, 2 },
-    { "weathered_copper_chain", 8063, 6, 8066, 522, 2 },
-    { "oxidized_copper_chain", 8069, 6, 8072, 524, 2 },
-    { "waxed_copper_chain", 8075, 6, 8078, 526, 2 },
-    { "waxed_exposed_copper_chain", 8081, 6, 8084, 528, 2 },
-    { "waxed_weathered_copper_chain", 8087, 6, 8090, 530, 2 },
-    { "waxed_oxidized_copper_chain", 8093, 6, 8096, 532, 2 },
-    { "glass_pane", 8099, 32, 8130, 534, 5 },
-    { "pumpkin", 8131, 1, 8131, 539, 0 },
-    { "melon", 8132, 1, 8132, 539, 0 },
-    { "attached_pumpkin_stem", 8133, 4, 8133, 539, 1 },
-    { "attached_melon_stem", 8137, 4, 8137, 540, 1 },
-    { "pumpkin_stem", 8141, 8, 8141, 541, 1 },
-    { "melon_stem", 8149, 8, 8149, 542, 1 },
-    { "vine", 8157, 32, 8188, 543, 5 },
-    { "glow_lichen", 8189, 128, 8316, 548, 7 },
-    { "resin_clump", 8317, 128, 8444, 555, 7 },
-    { "oak_fence_gate", 8445, 32, 8452, 562, 4 },
-    { "brick_stairs", 8477, 80, 8488, 566, 4 },
-    { "stone_brick_stairs", 8557, 80, 8568, 570, 4 },
-    { "mud_brick_stairs", 8637, 80, 8648, 574, 4 },
-    { "mycelium", 8717, 2, 8718, 578, 1 },
-    { "lily_pad", 8719, 1, 8719, 579, 0 },
-    { "resin_block", 8720, 1, 8720, 579, 0 },
-    { "resin_bricks", 8721, 1, 8721, 579, 0 },
-    { "resin_brick_stairs", 8722, 80, 8733, 579, 4 },
-    { "resin_brick_slab", 8802, 6, 8805, 583, 2 },
-    { "resin_brick_wall", 8808, 324, 8811, 585, 6 },
-    { "chiseled_resin_bricks", 9132, 1, 9132, 591, 0 },
-    { "nether_bricks", 9133, 1, 9133, 591, 0 },
-    { "nether_brick_fence", 9134, 32, 9165, 591, 5 },
-    { "nether_brick_stairs", 9166, 80, 9177, 596, 4 },
-    { "nether_wart", 9246, 4, 9246, 600, 1 },
-    { "enchanting_table", 9250, 1, 9250, 601, 0 },
-    { "brewing_stand", 9251, 8, 9258, 601, 3 },
-    { "cauldron", 9259, 1, 9259, 604, 0 },
-    { "water_cauldron", 9260, 3, 9260, 604, 1 },
-    { "lava_cauldron", 9263, 1, 9263, 605, 0 },
-    { "powder_snow_cauldron", 9264, 3, 9264, 605, 1 },
-    { "end_portal", 9267, 1, 9267, 606, 0 },
-    { "end_portal_frame", 9268, 8, 9272, 606, 2 },
-    { "end_stone", 9276, 1, 9276, 608, 0 },
-    { "dragon_egg", 9277, 1, 9277, 608, 0 },
-    { "redstone_lamp", 9278, 2, 9279, 608, 1 },
-    { "cocoa", 9280, 12, 9280, 609, 2 },
-    { "sandstone_stairs", 9292, 80, 9303, 611, 4 },
-    { "emerald_ore", 9372, 1, 9372, 615, 0 },
-    { "deepslate_emerald_ore", 9373, 1, 9373, 615, 0 },
-    { "ender_chest", 9374, 8, 9375, 615, 2 },
-    { "tripwire_hook", 9382, 16, 9391, 617, 3 },
-    { "tripwire", 9398, 128, 9525, 620, 7 },
-    { "emerald_block", 9526, 1, 9526, 627, 0 },
-    { "spruce_stairs", 9527, 80, 9538, 627, 4 },
-    { "birch_stairs", 9607, 80, 9618, 631, 4 },
-    { "jungle_stairs", 9687, 80, 9698, 635, 4 },
-    { "command_block", 9767, 12, 9773, 639, 2 },
-    { "beacon", 9779, 1, 9779, 641, 0 },
-    { "cobblestone_wall", 9780, 324, 9783, 641, 6 },
-    { "mossy_cobblestone_wall", 10104, 324, 10107, 647, 6 },
-    { "flower_pot", 10428, 1, 10428, 653, 0 },
-    { "potted_torchflower", 10429, 1, 10429, 653, 0 },
-    { "potted_oak_sapling", 10430, 1, 10430, 653, 0 },
-    { "potted_spruce_sapling", 10431, 1, 10431, 653, 0 },
-    { "potted_birch_sapling", 10432, 1, 10432, 653, 0 },
-    { "potted_jungle_sapling", 10433, 1, 10433, 653, 0 },
-    { "potted_acacia_sapling", 10434, 1, 10434, 653, 0 },
-    { "potted_cherry_sapling", 10435, 1, 10435, 653, 0 },
-    { "potted_dark_oak_sapling", 10436, 1, 10436, 653, 0 },
-    { "potted_pale_oak_sapling", 10437, 1, 10437, 653, 0 },
-    { "potted_mangrove_propagule", 10438, 1, 10438, 653, 0 },
-    { "potted_fern", 10439, 1, 10439, 653, 0 },
-    { "potted_dandelion", 10440, 1, 10440, 653, 0 },
-    { "potted_poppy", 10441, 1, 10441, 653, 0 },
-    { "potted_blue_orchid", 10442, 1, 10442, 653, 0 },
-    { "potted_allium", 10443, 1, 10443, 653, 0 },
-    { "potted_azure_bluet", 10444, 1, 10444, 653, 0 },
-    { "potted_red_tulip", 10445, 1, 10445, 653, 0 },
-    { "potted_orange_tulip", 10446, 1, 10446, 653, 0 },
-    { "potted_white_tulip", 10447, 1, 10447, 653, 0 },
-    { "potted_pink_tulip", 10448, 1, 10448, 653, 0 },
-    { "potted_oxeye_daisy", 10449, 1, 10449, 653, 0 },
-    { "potted_cornflower", 10450, 1, 10450, 653, 0 },
-    { "potted_lily_of_the_valley", 10451, 1, 10451, 653, 0 },
-    { "potted_wither_rose", 10452, 1, 10452, 653, 0 },
-    { "potted_red_mushroom", 10453, 1, 10453, 653, 0 },
-    { "potted_brown_mushroom", 10454, 1, 10454, 653, 0 },
-    { "potted_dead_bush", 10455, 1, 10455, 653, 0 },
-    { "potted_cactus", 10456, 1, 10456, 653, 0 },
-    { "carrots", 10457, 8, 10457, 653, 1 },
-    { "potatoes", 10465, 8, 10465, 654, 1 },
-    { "oak_button", 10473, 24, 10482, 655, 3 },
-    { "spruce_button", 10497, 24, 10506, 658, 3 },
-    { "birch_button", 10521, 24, 10530, 661, 3 },
-    { "jungle_button", 10545, 24, 10554, 664, 3 },
-    { "acacia_button", 10569, 24, 10578, 667, 3 },
-    { "cherry_button", 10593, 24, 10602, 670, 3 },
-    { "dark_oak_button", 10617, 24, 10626, 673, 3 },
-    { "pale_oak_button", 10641, 24, 10650, 676, 3 },
-    { "mangrove_button", 10665, 24, 10674, 679, 3 },
-    { "bamboo_button", 10689, 24, 10698, 682, 3 },
-    { "skeleton_skull", 10713, 32, 10729, 685, 2 },
-    { "skeleton_wall_skull", 10745, 8, 10746, 687, 2 },
-    { "wither_skeleton_skull", 10753, 32, 10769, 689, 2 },
-    { "wither_skeleton_wall_skull", 10785, 8, 10786, 691, 2 },
-    { "zombie_head", 10793, 32, 10809, 693, 2 },
-    { "zombie_wall_head", 10825, 8, 10826, 695, 2 },
-    { "player_head", 10833, 32, 10849, 697, 2 },
-    { "player_wall_head", 10865, 8, 10866, 699, 2 },
-    { "creeper_head", 10873, 32, 10889, 701, 2 },
-    { "creeper_wall_head", 10905, 8, 10906, 703, 2 },
-    { "dragon_head", 10913, 32, 10929, 705, 2 },
-    { "dragon_wall_head", 10945, 8, 10946, 707, 2 },
-    { "piglin_head", 10953, 32, 10969, 709, 2 },
-    { "piglin_wall_head", 10985, 8, 10986, 711, 2 },
-    { "anvil", 10993, 4, 10993, 713, 1 },
-    { "chipped_anvil", 10997, 4, 10997, 714, 1 },
-    { "damaged_anvil", 11001, 4, 11001, 715, 1 },
-    { "trapped_chest", 11005, 24, 11006, 716, 3 },
-    { "light_weighted_pressure_plate", 11029, 16, 11029, 719, 1 },
-    { "heavy_weighted_pressure_plate", 11045, 16, 11045, 720, 1 },
-    { "comparator", 11061, 16, 11062, 721, 3 },
-    { "daylight_detector", 11077, 32, 11093, 724, 2 },
-    { "redstone_block", 11109, 1, 11109, 726, 0 },
-    { "nether_quartz_ore", 11110, 1, 11110, 726, 0 },
-    { "hopper", 11111, 10, 11111, 726, 2 },
-    { "quartz_block", 11121, 1, 11121, 728, 0 },
-    { "chiseled_quartz_block", 11122, 1, 11122, 728, 0 },
-    { "quartz_pillar", 11123, 3, 11124, 728, 1 },
-    { "quartz_stairs", 11126, 80, 11137, 729, 4 },
-    { "activator_rail", 11206, 24, 11219, 733, 3 },
-    { "dropper", 11230, 12, 11231, 736, 2 },
-    { "white_terracotta", 11242, 1, 11242, 738, 0 },
-    { "orange_terracotta", 11243, 1, 11243, 738, 0 },
-    { "magenta_terracotta", 11244, 1, 11244, 738, 0 },
-    { "light_blue_terracotta", 11245, 1, 11245, 738, 0 },
-    { "yellow_terracotta", 11246, 1, 11246, 738, 0 },
-    { "lime_terracotta", 11247, 1, 11247, 738, 0 },
-    { "pink_terracotta", 11248, 1, 11248, 738, 0 },
-    { "gray_terracotta", 11249, 1, 11249, 738, 0 },
-    { "light_gray_terracotta", 11250, 1, 11250, 738, 0 },
-    { "cyan_terracotta", 11251, 1, 11251, 738, 0 },
-    { "purple_terracotta", 11252, 1, 11252, 738, 0 },
-    { "blue_terracotta", 11253, 1, 11253, 738, 0 },
-    { "brown_terracotta", 11254, 1, 11254, 738, 0 },
-    { "green_terracotta", 11255, 1, 11255, 738, 0 },
-    { "red_terracotta", 11256, 1, 11256, 738, 0 },
-    { "black_terracotta", 11257, 1, 11257, 738, 0 },
-    { "white_stained_glass_pane", 11258, 32, 11289, 738, 5 },
-    { "orange_stained_glass_pane", 11290, 32, 11321, 743, 5 },
-    { "magenta_stained_glass_pane", 11322, 32, 11353, 748, 5 },
-    { "light_blue_stained_glass_pane", 11354, 32, 11385, 753, 5 },
-    { "yellow_stained_glass_pane", 11386, 32, 11417, 758, 5 },
-    { "lime_stained_glass_pane", 11418, 32, 11449, 763, 5 },
-    { "pink_stained_glass_pane", 11450, 32, 11481, 768, 5 },
-    { "gray_stained_glass_pane", 11482, 32, 11513, 773, 5 },
-    { "light_gray_stained_glass_pane", 11514, 32, 11545, 778, 5 },
-    { "cyan_stained_glass_pane", 11546, 32, 11577, 783, 5 },
-    { "purple_stained_glass_pane", 11578, 32, 11609, 788, 5 },
-    { "blue_stained_glass_pane", 11610, 32, 11641, 793, 5 },
-    { "brown_stained_glass_pane", 11642, 32, 11673, 798, 5 },
-    { "green_stained_glass_pane", 11674, 32, 11705, 803, 5 },
-    { "red_stained_glass_pane", 11706, 32, 11737, 808, 5 },
-    { "black_stained_glass_pane", 11738, 32, 11769, 813, 5 },
-    { "acacia_stairs", 11770, 80, 11781, 818, 4 },
-    { "cherry_stairs", 11850, 80, 11861, 822, 4 },
-    { "dark_oak_stairs", 11930, 80, 11941, 826, 4 },
-    { "pale_oak_stairs", 12010, 80, 12021, 830, 4 },
-    { "mangrove_stairs", 12090, 80, 12101, 834, 4 },
-    { "bamboo_stairs", 12170, 80, 12181, 838, 4 },
-    { "bamboo_mosaic_stairs", 12250, 80, 12261, 842, 4 },
-    { "slime_block", 12330, 1, 12330, 846, 0 },
-    { "barrier", 12331, 2, 12332, 846, 1 },
-    { "light", 12333, 32, 12364, 847, 2 },
-    { "iron_trapdoor", 12365, 64, 12380, 849, 5 },
-    { "prismarine", 12429, 1, 12429, 854, 0 },
-    { "prismarine_bricks", 12430, 1, 12430, 854, 0 },
-    { "dark_prismarine", 12431, 1, 12431, 854, 0 },
-    { "prismarine_stairs", 12432, 80, 12443, 854, 4 },
-    { "prismarine_brick_stairs", 12512, 80, 12523, 858, 4 },
-    { "dark_prismarine_stairs", 12592, 80, 12603, 862, 4 },
-    { "prismarine_slab", 12672, 6, 12675, 866, 2 },
-    { "prismarine_brick_slab", 12678, 6, 12681, 868, 2 },
-    { "dark_prismarine_slab", 12684, 6, 12687, 870, 2 },
-    { "sea_lantern", 12690, 1, 12690, 872, 0 },
-    { "hay_block", 12691, 3, 12692, 872, 1 },
-    { "white_carpet", 12694, 1, 12694, 873, 0 },
-    { "orange_carpet", 12695, 1, 12695, 873, 0 },
-    { "magenta_carpet", 12696, 1, 12696, 873, 0 },
-    { "light_blue_carpet", 12697, 1, 12697, 873, 0 },
-    { "yellow_carpet", 12698, 1, 12698, 873, 0 },
-    { "lime_carpet", 12699, 1, 12699, 873, 0 },
-    { "pink_carpet", 12700, 1, 12700, 873, 0 },
-    { "gray_carpet", 12701, 1, 12701, 873, 0 },
-    { "light_gray_carpet", 12702, 1, 12702, 873, 0 },
-    { "cyan_carpet", 12703, 1, 12703, 873, 0 },
-    { "purple_carpet", 12704, 1, 12704, 873, 0 },
-    { "blue_carpet", 12705, 1, 12705, 873, 0 },
-    { "brown_carpet", 12706, 1, 12706, 873, 0 },
-    { "green_carpet", 12707, 1, 12707, 873, 0 },
-    { "red_carpet", 12708, 1, 12708, 873, 0 },
-    { "black_carpet", 12709, 1, 12709, 873, 0 },
-    { "terracotta", 12710, 1, 12710, 873, 0 },
-    { "coal_block", 12711, 1, 12711, 873, 0 },
-    { "packed_ice", 12712, 1, 12712, 873, 0 },
-    { "sunflower", 12713, 2, 12714, 873, 1 },
-    { "lilac", 12715, 2, 12716, 874, 1 },
-    { "rose_bush", 12717, 2, 12718, 875, 1 },
-    { "peony", 12719, 2, 12720, 876, 1 },
-    { "tall_grass", 12721, 2, 12722, 877, 1 },
-    { "large_fern", 12723, 2, 12724, 878, 1 },
-    { "white_banner", 12725, 16, 12725, 879, 1 },
-    { "orange_banner", 12741, 16, 12741, 880, 1 },
-    { "magenta_banner", 12757, 16, 12757, 881, 1 },
-    { "light_blue_banner", 12773, 16, 12773, 882, 1 },
-    { "yellow_banner", 12789, 16, 12789, 883, 1 },
-    { "lime_banner", 12805, 16, 12805, 884, 1 },
-    { "pink_banner", 12821, 16, 12821, 885, 1 },
-    { "gray_banner", 12837, 16, 12837, 886, 1 },
-    { "light_gray_banner", 12853, 16, 12853, 887, 1 },
-    { "cyan_banner", 12869, 16, 12869, 888, 1 },
-    { "purple_banner", 12885, 16, 12885, 889, 1 },
-    { "blue_banner", 12901, 16, 12901, 890, 1 },
-    { "brown_banner", 12917, 16, 12917, 891, 1 },
-    { "green_banner", 12933, 16, 12933, 892, 1 },
-    { "red_banner", 12949, 16, 12949, 893, 1 },
-    { "black_banner", 12965, 16, 12965, 894, 1 },
-    { "white_wall_banner", 12981, 4, 12981, 895, 1 },
-    { "orange_wall_banner", 12985, 4, 12985, 896, 1 },
-    { "magenta_wall_banner", 12989, 4, 12989, 897, 1 },
-    { "light_blue_wall_banner", 12993, 4, 12993, 898, 1 },
-    { "yellow_wall_banner", 12997, 4, 12997, 899, 1 },
-    { "lime_wall_banner", 13001, 4, 13001, 900, 1 },
-    { "pink_wall_banner", 13005, 4, 13005, 901, 1 },
-    { "gray_wall_banner", 13009, 4, 13009, 902, 1 },
-    { "light_gray_wall_banner", 13013, 4, 13013, 903, 1 },
-    { "cyan_wall_banner", 13017, 4, 13017, 904, 1 },
-    { "purple_wall_banner", 13021, 4, 13021, 905, 1 },
-    { "blue_wall_banner", 13025, 4, 13025, 906, 1 },
-    { "brown_wall_banner", 13029, 4, 13029, 907, 1 },
-    { "green_wall_banner", 13033, 4, 13033, 908, 1 },
-    { "red_wall_banner", 13037, 4, 13037, 909, 1 },
-    { "black_wall_banner", 13041, 4, 13041, 910, 1 },
-    { "red_sandstone", 13045, 1, 13045, 911, 0 },
-    { "chiseled_red_sandstone", 13046, 1, 13046, 911, 0 },
-    { "cut_red_sandstone", 13047, 1, 13047, 911, 0 },
-    { "red_sandstone_stairs", 13048, 80, 13059, 911, 4 },
-    { "oak_slab", 13128, 6, 13131, 915, 2 },
-    { "spruce_slab", 13134, 6, 13137, 917, 2 },
-    { "birch_slab", 13140, 6, 13143, 919, 2 },
-    { "jungle_slab", 13146, 6, 13149, 921, 2 },
-    { "acacia_slab", 13152, 6, 13155, 923, 2 },
-    { "cherry_slab", 13158, 6, 13161, 925, 2 },
-    { "dark_oak_slab", 13164, 6, 13167, 927, 2 },
-    { "pale_oak_slab", 13170, 6, 13173, 929, 2 },
-    { "mangrove_slab", 13176, 6, 13179, 931, 2 },
-    { "bamboo_slab", 13182, 6, 13185, 933, 2 },
-    { "bamboo_mosaic_slab", 13188, 6, 13191, 935, 2 },
-    { "stone_slab", 13194, 6, 13197, 937, 2 },
-    { "smooth_stone_slab", 13200, 6, 13203, 939, 2 },
-    { "sandstone_slab", 13206, 6, 13209, 941, 2 },
-    { "cut_sandstone_slab", 13212, 6, 13215, 943, 2 },
-    { "petrified_oak_slab", 13218, 6, 13221, 945, 2 },
-    { "cobblestone_slab", 13224, 6, 13227, 947, 2 },
-    { "brick_slab", 13230, 6, 13233, 949, 2 },
-    { "stone_brick_slab", 13236, 6, 13239, 951, 2 },
-    { "mud_brick_slab", 13242, 6, 13245, 953, 2 },
-    { "nether_brick_slab", 13248, 6, 13251, 955, 2 },
-    { "quartz_slab", 13254, 6, 13257, 957, 2 },
-    { "red_sandstone_slab", 13260, 6, 13263, 959, 2 },
-    { "cut_red_sandstone_slab", 13266, 6, 13269, 961, 2 },
-    { "purpur_slab", 13272, 6, 13275, 963, 2 },
-    { "smooth_stone", 13278, 1, 13278, 965, 0 },
-    { "smooth_sandstone", 13279, 1, 13279, 965, 0 },
-    { "smooth_quartz", 13280, 1, 13280, 965, 0 },
-    { "smooth_red_sandstone", 13281, 1, 13281, 965, 0 },
-    { "spruce_fence_gate", 13282, 32, 13289, 965, 4 },
-    { "birch_fence_gate", 13314, 32, 13321, 969, 4 },
-    { "jungle_fence_gate", 13346, 32, 13353, 973, 4 },
-    { "acacia_fence_gate", 13378, 32, 13385, 977, 4 },
-    { "cherry_fence_gate", 13410, 32, 13417, 981, 4 },
-    { "dark_oak_fence_gate", 13442, 32, 13449, 985, 4 },
-    { "pale_oak_fence_gate", 13474, 32, 13481, 989, 4 },
-    { "mangrove_fence_gate", 13506, 32, 13513, 993, 4 },
-    { "bamboo_fence_gate", 13538, 32, 13545, 997, 4 },
-    { "spruce_fence", 13570, 32, 13601, 1001, 5 },
-    { "birch_fence", 13602, 32, 13633, 1006, 5 },
-    { "jungle_fence", 13634, 32, 13665, 1011, 5 },
-    { "acacia_fence", 13666, 32, 13697, 1016, 5 },
-    { "cherry_fence", 13698, 32, 13729, 1021, 5 },
-    { "dark_oak_fence", 13730, 32, 13761, 1026, 5 },
-    { "pale_oak_fence", 13762, 32, 13793, 1031, 5 },
-    { "mangrove_fence", 13794, 32, 13825, 1036, 5 },
-    { "bamboo_fence", 13826, 32, 13857, 1041, 5 },
-    { "spruce_door", 13858, 64, 13869, 1046, 5 },
-    { "birch_door", 13922, 64, 13933, 1051, 5 },
-    { "jungle_door", 13986, 64, 13997, 1056, 5 },
-    { "acacia_door", 14050, 64, 14061, 1061, 5 },
-    { "cherry_door", 14114, 64, 14125, 1066, 5 },
-    { "dark_oak_door", 14178, 64, 14189, 1071, 5 },
-    { "pale_oak_door", 14242, 64, 14253, 1076, 5 },
-    { "mangrove_door", 14306, 64, 14317, 1081, 5 },
-    { "bamboo_door", 14370, 64, 14381, 1086, 5 },
-    { "end_rod", 14434, 6, 14438, 1091, 1 },
-    { "chorus_plant", 14440, 64, 14503, 1092, 6 },
-    { "chorus_flower", 14504, 6, 14504, 1098, 1 },
-    { "purpur_block", 14510, 1, 14510, 1099, 0 },
-    { "purpur_pillar", 14511, 3, 14512, 1099, 1 },
-    { "purpur_stairs", 14514, 80, 14525, 1100, 4 },
-    { "end_stone_bricks", 14594, 1, 14594, 1104, 0 },
-    { "torchflower_crop", 14595, 2, 14595, 1104, 1 },
-    { "pitcher_crop", 14597, 10, 14598, 1105, 2 },
-    { "pitcher_plant", 14607, 2, 14608, 1107, 1 },
-    { "beetroots", 14609, 4, 14609, 1108, 1 },
-    { "dirt_path", 14613, 1, 14613, 1109, 0 },
-    { "end_gateway", 14614, 1, 14614, 1109, 0 },
-    { "repeating_command_block", 14615, 12, 14621, 1109, 2 },
-    { "chain_command_block", 14627, 12, 14633, 1111, 2 },
-    { "frosted_ice", 14639, 4, 14639, 1113, 1 },
-    { "magma_block", 14643, 1, 14643, 1114, 0 },
-    { "nether_wart_block", 14644, 1, 14644, 1114, 0 },
-    { "red_nether_bricks", 14645, 1, 14645, 1114, 0 },
-    { "bone_block", 14646, 3, 14647, 1114, 1 },
-    { "structure_void", 14649, 1, 14649, 1115, 0 },
-    { "observer", 14650, 12, 14655, 1115, 2 },
-    { "shulker_box", 14662, 6, 14666, 1117, 1 },
-    { "white_shulker_box", 14668, 6, 14672, 1118, 1 },
-    { "orange_shulker_box", 14674, 6, 14678, 1119, 1 },
-    { "magenta_shulker_box", 14680, 6, 14684, 1120, 1 },
-    { "light_blue_shulker_box", 14686, 6, 14690, 1121, 1 },
-    { "yellow_shulker_box", 14692, 6, 14696, 1122, 1 },
-    { "lime_shulker_box", 14698, 6, 14702, 1123, 1 },
-    { "pink_shulker_box", 14704, 6, 14708, 1124, 1 },
-    { "gray_shulker_box", 14710, 6, 14714, 1125, 1 },
-    { "light_gray_shulker_box", 14716, 6, 14720, 1126, 1 },
-    { "cyan_shulker_box", 14722, 6, 14726, 1127, 1 },
-    { "purple_shulker_box", 14728, 6, 14732, 1128, 1 },
-    { "blue_shulker_box", 14734, 6, 14738, 1129, 1 },
-    { "brown_shulker_box", 14740, 6, 14744, 1130, 1 },
-    { "green_shulker_box", 14746, 6, 14750, 1131, 1 },
-    { "red_shulker_box", 14752, 6, 14756, 1132, 1 },
-    { "black_shulker_box", 14758, 6, 14762, 1133, 1 },
-    { "white_glazed_terracotta", 14764, 4, 14764, 1134, 1 },
-    { "orange_glazed_terracotta", 14768, 4, 14768, 1135, 1 },
-    { "magenta_glazed_terracotta", 14772, 4, 14772, 1136, 1 },
-    { "light_blue_glazed_terracotta", 14776, 4, 14776, 1137, 1 },
-    { "yellow_glazed_terracotta", 14780, 4, 14780, 1138, 1 },
-    { "lime_glazed_terracotta", 14784, 4, 14784, 1139, 1 },
-    { "pink_glazed_terracotta", 14788, 4, 14788, 1140, 1 },
-    { "gray_glazed_terracotta", 14792, 4, 14792, 1141, 1 },
-    { "light_gray_glazed_terracotta", 14796, 4, 14796, 1142, 1 },
-    { "cyan_glazed_terracotta", 14800, 4, 14800, 1143, 1 },
-    { "purple_glazed_terracotta", 14804, 4, 14804, 1144, 1 },
-    { "blue_glazed_terracotta", 14808, 4, 14808, 1145, 1 },
-    { "brown_glazed_terracotta", 14812, 4, 14812, 1146, 1 },
-    { "green_glazed_terracotta", 14816, 4, 14816, 1147, 1 },
-    { "red_glazed_terracotta", 14820, 4, 14820, 1148, 1 },
-    { "black_glazed_terracotta", 14824, 4, 14824, 1149, 1 },
-    { "white_concrete", 14828, 1, 14828, 1150, 0 },
-    { "orange_concrete", 14829, 1, 14829, 1150, 0 },
-    { "magenta_concrete", 14830, 1, 14830, 1150, 0 },
-    { "light_blue_concrete", 14831, 1, 14831, 1150, 0 },
-    { "yellow_concrete", 14832, 1, 14832, 1150, 0 },
-    { "lime_concrete", 14833, 1, 14833, 1150, 0 },
-    { "pink_concrete", 14834, 1, 14834, 1150, 0 },
-    { "gray_concrete", 14835, 1, 14835, 1150, 0 },
-    { "light_gray_concrete", 14836, 1, 14836, 1150, 0 },
-    { "cyan_concrete", 14837, 1, 14837, 1150, 0 },
-    { "purple_concrete", 14838, 1, 14838, 1150, 0 },
-    { "blue_concrete", 14839, 1, 14839, 1150, 0 },
-    { "brown_concrete", 14840, 1, 14840, 1150, 0 },
-    { "green_concrete", 14841, 1, 14841, 1150, 0 },
-    { "red_concrete", 14842, 1, 14842, 1150, 0 },
-    { "black_concrete", 14843, 1, 14843, 1150, 0 },
-    { "white_concrete_powder", 14844, 1, 14844, 1150, 0 },
-    { "orange_concrete_powder", 14845, 1, 14845, 1150, 0 },
-    { "magenta_concrete_powder", 14846, 1, 14846, 1150, 0 },
-    { "light_blue_concrete_powder", 14847, 1, 14847, 1150, 0 },
-    { "yellow_concrete_powder", 14848, 1, 14848, 1150, 0 },
-    { "lime_concrete_powder", 14849, 1, 14849, 1150, 0 },
-    { "pink_concrete_powder", 14850, 1, 14850, 1150, 0 },
-    { "gray_concrete_powder", 14851, 1, 14851, 1150, 0 },
-    { "light_gray_concrete_powder", 14852, 1, 14852, 1150, 0 },
-    { "cyan_concrete_powder", 14853, 1, 14853, 1150, 0 },
-    { "purple_concrete_powder", 14854, 1, 14854, 1150, 0 },
-    { "blue_concrete_powder", 14855, 1, 14855, 1150, 0 },
-    { "brown_concrete_powder", 14856, 1, 14856, 1150, 0 },
-    { "green_concrete_powder", 14857, 1, 14857, 1150, 0 },
-    { "red_concrete_powder", 14858, 1, 14858, 1150, 0 },
-    { "black_concrete_powder", 14859, 1, 14859, 1150, 0 },
-    { "kelp", 14860, 26, 14860, 1150, 1 },
-    { "kelp_plant", 14886, 1, 14886, 1151, 0 },
-    { "dried_kelp_block", 14887, 1, 14887, 1151, 0 },
-    { "turtle_egg", 14888, 12, 14888, 1151, 2 },
-    { "sniffer_egg", 14900, 3, 14900, 1153, 1 },
-    { "dried_ghast", 14903, 32, 14904, 1154, 3 },
-    { "dead_tube_coral_block", 14935, 1, 14935, 1157, 0 },
-    { "dead_brain_coral_block", 14936, 1, 14936, 1157, 0 },
-    { "dead_bubble_coral_block", 14937, 1, 14937, 1157, 0 },
-    { "dead_fire_coral_block", 14938, 1, 14938, 1157, 0 },
-    { "dead_horn_coral_block", 14939, 1, 14939, 1157, 0 },
-    { "tube_coral_block", 14940, 1, 14940, 1157, 0 },
-    { "brain_coral_block", 14941, 1, 14941, 1157, 0 },
-    { "bubble_coral_block", 14942, 1, 14942, 1157, 0 },
-    { "fire_coral_block", 14943, 1, 14943, 1157, 0 },
-    { "horn_coral_block", 14944, 1, 14944, 1157, 0 },
-    { "dead_tube_coral", 14945, 2, 14945, 1157, 1 },
-    { "dead_brain_coral", 14947, 2, 14947, 1158, 1 },
-    { "dead_bubble_coral", 14949, 2, 14949, 1159, 1 },
-    { "dead_fire_coral", 14951, 2, 14951, 1160, 1 },
-    { "dead_horn_coral", 14953, 2, 14953, 1161, 1 },
-    { "tube_coral", 14955, 2, 14955, 1162, 1 },
-    { "brain_coral", 14957, 2, 14957, 1163, 1 },
-    { "bubble_coral", 14959, 2, 14959, 1164, 1 },
-    { "fire_coral", 14961, 2, 14961, 1165, 1 },
-    { "horn_coral", 14963, 2, 14963, 1166, 1 },
-    { "dead_tube_coral_fan", 14965, 2, 14965, 1167, 1 },
-    { "dead_brain_coral_fan", 14967, 2, 14967, 1168, 1 },
-    { "dead_bubble_coral_fan", 14969, 2, 14969, 1169, 1 },
-    { "dead_fire_coral_fan", 14971, 2, 14971, 1170, 1 },
-    { "dead_horn_coral_fan", 14973, 2, 14973, 1171, 1 },
-    { "tube_coral_fan", 14975, 2, 14975, 1172, 1 },
-    { "brain_coral_fan", 14977, 2, 14977, 1173, 1 },
-    { "bubble_coral_fan", 14979, 2, 14979, 1174, 1 },
-    { "fire_coral_fan", 14981, 2, 14981, 1175, 1 },
-    { "horn_coral_fan", 14983, 2, 14983, 1176, 1 },
-    { "dead_tube_coral_wall_fan", 14985, 8, 14985, 1177, 2 },
-    { "dead_brain_coral_wall_fan", 14993, 8, 14993, 1179, 2 },
-    { "dead_bubble_coral_wall_fan", 15001, 8, 15001, 1181, 2 },
-    { "dead_fire_coral_wall_fan", 15009, 8, 15009, 1183, 2 },
-    { "dead_horn_coral_wall_fan", 15017, 8, 15017, 1185, 2 },
-    { "tube_coral_wall_fan", 15025, 8, 15025, 1187, 2 },
-    { "brain_coral_wall_fan", 15033, 8, 15033, 1189, 2 },
-    { "bubble_coral_wall_fan", 15041, 8, 15041, 1191, 2 },
-    { "fire_coral_wall_fan", 15049, 8, 15049, 1193, 2 },
-    { "horn_coral_wall_fan", 15057, 8, 15057, 1195, 2 },
-    { "sea_pickle", 15065, 8, 15065, 1197, 2 },
-    { "blue_ice", 15073, 1, 15073, 1199, 0 },
-    { "conduit", 15074, 2, 15074, 1199, 1 },
-    { "bamboo_sapling", 15076, 1, 15076, 1200, 0 },
-    { "bamboo", 15077, 12, 15077, 1200, 3 },
-    { "potted_bamboo", 15089, 1, 15089, 1203, 0 },
-    { "void_air", 15090, 1, 15090, 1203, 0 },
-    { "cave_air", 15091, 1, 15091, 1203, 0 },
-    { "bubble_column", 15092, 2, 15092, 1203, 1 },
-    { "polished_granite_stairs", 15094, 80, 15105, 1204, 4 },
-    { "smooth_red_sandstone_stairs", 15174, 80, 15185, 1208, 4 },
-    { "mossy_stone_brick_stairs", 15254, 80, 15265, 1212, 4 },
-    { "polished_diorite_stairs", 15334, 80, 15345, 1216, 4 },
-    { "mossy_cobblestone_stairs", 15414, 80, 15425, 1220, 4 },
-    { "end_stone_brick_stairs", 15494, 80, 15505, 1224, 4 },
-    { "stone_stairs", 15574, 80, 15585, 1228, 4 },
-    { "smooth_sandstone_stairs", 15654, 80, 15665, 1232, 4 },
-    { "smooth_quartz_stairs", 15734, 80, 15745, 1236, 4 },
-    { "granite_stairs", 15814, 80, 15825, 1240, 4 },
-    { "andesite_stairs", 15894, 80, 15905, 1244, 4 },
-    { "red_nether_brick_stairs", 15974, 80, 15985, 1248, 4 },
-    { "polished_andesite_stairs", 16054, 80, 16065, 1252, 4 },
-    { "diorite_stairs", 16134, 80, 16145, 1256, 4 },
-    { "polished_granite_slab", 16214, 6, 16217, 1260, 2 },
-    { "smooth_red_sandstone_slab", 16220, 6, 16223, 1262, 2 },
-    { "mossy_stone_brick_slab", 16226, 6, 16229, 1264, 2 },
-    { "polished_diorite_slab", 16232, 6, 16235, 1266, 2 },
-    { "mossy_cobblestone_slab", 16238, 6, 16241, 1268, 2 },
-    { "end_stone_brick_slab", 16244, 6, 16247, 1270, 2 },
-    { "smooth_sandstone_slab", 16250, 6, 16253, 1272, 2 },
-    { "smooth_quartz_slab", 16256, 6, 16259, 1274, 2 },
-    { "granite_slab", 16262, 6, 16265, 1276, 2 },
-    { "andesite_slab", 16268, 6, 16271, 1278, 2 },
-    { "red_nether_brick_slab", 16274, 6, 16277, 1280, 2 },
-    { "polished_andesite_slab", 16280, 6, 16283, 1282, 2 },
-    { "diorite_slab", 16286, 6, 16289, 1284, 2 },
-    { "brick_wall", 16292, 324, 16295, 1286, 6 },
-    { "prismarine_wall", 16616, 324, 16619, 1292, 6 },
-    { "red_sandstone_wall", 16940, 324, 16943, 1298, 6 },
-    { "mossy_stone_brick_wall", 17264, 324, 17267, 1304, 6 },
-    { "granite_wall", 17588, 324, 17591, 1310, 6 },
-    { "stone_brick_wall", 17912, 324, 17915, 1316, 6 },
-    { "mud_brick_wall", 18236, 324, 18239, 1322, 6 },
-    { "nether_brick_wall", 18560, 324, 18563, 1328, 6 },
-    { "andesite_wall", 18884, 324, 18887, 1334, 6 },
-    { "red_nether_brick_wall", 19208, 324, 19211, 1340, 6 },
-    { "sandstone_wall", 19532, 324, 19535, 1346, 6 },
-    { "end_stone_brick_wall", 19856, 324, 19859, 1352, 6 },
-    { "diorite_wall", 20180, 324, 20183, 1358, 6 },
-    { "scaffolding", 20504, 32, 20535, 1364, 3 },
-    { "loom", 20536, 4, 20536, 1367, 1 },
-    { "barrel", 20540, 12, 20541, 1368, 2 },
-    { "smoker", 20552, 8, 20553, 1370, 2 },
-    { "blast_furnace", 20560, 8, 20561, 1372, 2 },
-    { "cartography_table", 20568, 1, 20568, 1374, 0 },
-    { "fletching_table", 20569, 1, 20569, 1374, 0 },
-    { "grindstone", 20570, 12, 20574, 1374, 2 },
-    { "lectern", 20582, 16, 20585, 1376, 3 },
-    { "smithing_table", 20598, 1, 20598, 1379, 0 },
-    { "stonecutter", 20599, 4, 20599, 1379, 1 },
-    { "bell", 20603, 32, 20604, 1380, 3 },
-    { "lantern", 20635, 4, 20638, 1383, 2 },
-    { "soul_lantern", 20639, 4, 20642, 1385, 2 },
-    { "copper_lantern", 20643, 4, 20646, 1387, 2 },
-    { "exposed_copper_lantern", 20647, 4, 20650, 1389, 2 },
-    { "weathered_copper_lantern", 20651, 4, 20654, 1391, 2 },
-    { "oxidized_copper_lantern", 20655, 4, 20658, 1393, 2 },
-    { "waxed_copper_lantern", 20659, 4, 20662, 1395, 2 },
-    { "waxed_exposed_copper_lantern", 20663, 4, 20666, 1397, 2 },
-    { "waxed_weathered_copper_lantern", 20667, 4, 20670, 1399, 2 },
-    { "waxed_oxidized_copper_lantern", 20671, 4, 20674, 1401, 2 },
-    { "campfire", 20675, 32, 20678, 1403, 4 },
-    { "soul_campfire", 20707, 32, 20710, 1407, 4 },
-    { "sweet_berry_bush", 20739, 4, 20739, 1411, 1 },
-    { "warped_stem", 20743, 3, 20744, 1412, 1 },
-    { "stripped_warped_stem", 20746, 3, 20747, 1413, 1 },
-    { "warped_hyphae", 20749, 3, 20750, 1414, 1 },
-    { "stripped_warped_hyphae", 20752, 3, 20753, 1415, 1 },
-    { "warped_nylium", 20755, 1, 20755, 1416, 0 },
-    { "warped_fungus", 20756, 1, 20756, 1416, 0 },
-    { "warped_wart_block", 20757, 1, 20757, 1416, 0 },
-    { "warped_roots", 20758, 1, 20758, 1416, 0 },
-    { "nether_sprouts", 20759, 1, 20759, 1416, 0 },
-    { "crimson_stem", 20760, 3, 20761, 1416, 1 },
-    { "stripped_crimson_stem", 20763, 3, 20764, 1417, 1 },
-    { "crimson_hyphae", 20766, 3, 20767, 1418, 1 },
-    { "stripped_crimson_hyphae", 20769, 3, 20770, 1419, 1 },
-    { "crimson_nylium", 20772, 1, 20772, 1420, 0 },
-    { "crimson_fungus", 20773, 1, 20773, 1420, 0 },
-    { "shroomlight", 20774, 1, 20774, 1420, 0 },
-    { "weeping_vines", 20775, 26, 20775, 1420, 1 },
-    { "weeping_vines_plant", 20801, 1, 20801, 1421, 0 },
-    { "twisting_vines", 20802, 26, 20802, 1421, 1 },
-    { "twisting_vines_plant", 20828, 1, 20828, 1422, 0 },
-    { "crimson_roots", 20829, 1, 20829, 1422, 0 },
-    { "crimson_planks", 20830, 1, 20830, 1422, 0 },
-    { "warped_planks", 20831, 1, 20831, 1422, 0 },
-    { "crimson_slab", 20832, 6, 20835, 1422, 2 },
-    { "warped_slab", 20838, 6, 20841, 1424, 2 },
-    { "crimson_pressure_plate", 20844, 2, 20845, 1426, 1 },
-    { "warped_pressure_plate", 20846, 2, 20847, 1427, 1 },
-    { "crimson_fence", 20848, 32, 20879, 1428, 5 },
-    { "warped_fence", 20880, 32, 20911, 1433, 5 },
-    { "crimson_trapdoor", 20912, 64, 20927, 1438, 5 },
-    { "warped_trapdoor", 20976, 64, 20991, 1443, 5 },
-    { "crimson_fence_gate", 21040, 32, 21047, 1448, 4 },
-    { "warped_fence_gate", 21072, 32, 21079, 1452, 4 },
-    { "crimson_stairs", 21104, 80, 21115, 1456, 4 },
-    { "warped_stairs", 21184, 80, 21195, 1460, 4 },
-    { "crimson_button", 21264, 24, 21273, 1464, 3 },
-    { "warped_button", 21288, 24, 21297, 1467, 3 },
-    { "crimson_door", 21312, 64, 21323, 1470, 5 },
-    { "warped_door", 21376, 64, 21387, 1475, 5 },
-    { "crimson_sign", 21440, 32, 21441, 1480, 2 },
-    { "warped_sign", 21472, 32, 21473, 1482, 2 },
-    { "crimson_wall_sign", 21504, 8, 21505, 1484, 2 },
-    { "warped_wall_sign", 21512, 8, 21513, 1486, 2 },
-    { "structure_block", 21520, 4, 21521, 1488, 1 },
-    { "jigsaw", 21524, 12, 21534, 1489, 1 },
-    { "test_block", 21536, 4, 21536, 1490, 1 },
-    { "test_instance_block", 21540, 1, 21540, 1491, 0 },
-    { "composter", 21541, 9, 21541, 1491, 1 },
-    { "target", 21550, 16, 21550, 1492, 1 },
-    { "bee_nest", 21566, 24, 21566, 1493, 2 },
-    { "beehive", 21590, 24, 21590, 1495, 2 },
-    { "honey_block", 21614, 1, 21614, 1497, 0 },
-    { "honeycomb_block", 21615, 1, 21615, 1497, 0 },
-    { "netherite_block", 21616, 1, 21616, 1497, 0 },
-    { "ancient_debris", 21617, 1, 21617, 1497, 0 },
-    { "crying_obsidian", 21618, 1, 21618, 1497, 0 },
-    { "respawn_anchor", 21619, 5, 21619, 1497, 1 },
-    { "potted_crimson_fungus", 21624, 1, 21624, 1498, 0 },
-    { "potted_warped_fungus", 21625, 1, 21625, 1498, 0 },
-    { "potted_crimson_roots", 21626, 1, 21626, 1498, 0 },
-    { "potted_warped_roots", 21627, 1, 21627, 1498, 0 },
-    { "lodestone", 21628, 1, 21628, 1498, 0 },
-    { "blackstone", 21629, 1, 21629, 1498, 0 },
-    { "blackstone_stairs", 21630, 80, 21641, 1498, 4 },
-    { "blackstone_wall", 21710, 324, 21713, 1502, 6 },
-    { "blackstone_slab", 22034, 6, 22037, 1508, 2 },
-    { "polished_blackstone", 22040, 1, 22040, 1510, 0 },
-    { "polished_blackstone_bricks", 22041, 1, 22041, 1510, 0 },
-    { "cracked_polished_blackstone_bricks", 22042, 1, 22042, 1510, 0 },
-    { "chiseled_polished_blackstone", 22043, 1, 22043, 1510, 0 },
-    { "polished_blackstone_brick_slab", 22044, 6, 22047, 1510, 2 },
-    { "polished_blackstone_brick_stairs", 22050, 80, 22061, 1512, 4 },
-    { "polished_blackstone_brick_wall", 22130, 324, 22133, 1516, 6 },
-    { "gilded_blackstone", 22454, 1, 22454, 1522, 0 },
-    { "polished_blackstone_stairs", 22455, 80, 22466, 1522, 4 },
-    { "polished_blackstone_slab", 22535, 6, 22538, 1526, 2 },
-    { "polished_blackstone_pressure_plate", 22541, 2, 22542, 1528, 1 },
-    { "polished_blackstone_button", 22543, 24, 22552, 1529, 3 },
-    { "polished_blackstone_wall", 22567, 324, 22570, 1532, 6 },
-    { "chiseled_nether_bricks", 22891, 1, 22891, 1538, 0 },
-    { "cracked_nether_bricks", 22892, 1, 22892, 1538, 0 },
-    { "quartz_bricks", 22893, 1, 22893, 1538, 0 },
-    { "candle", 22894, 16, 22897, 1538, 3 },
-    { "white_candle", 22910, 16, 22913, 1541, 3 },
-    { "orange_candle", 22926, 16, 22929, 1544, 3 },
-    { "magenta_candle", 22942, 16, 22945, 1547, 3 },
-    { "light_blue_candle", 22958, 16, 22961, 1550, 3 },
-    { "yellow_candle", 22974, 16, 22977, 1553, 3 },
-    { "lime_candle", 22990, 16, 22993, 1556, 3 },
-    { "pink_candle", 23006, 16, 23009, 1559, 3 },
-    { "gray_candle", 23022, 16, 23025, 1562, 3 },
-    { "light_gray_candle", 23038, 16, 23041, 1565, 3 },
-    { "cyan_candle", 23054, 16, 23057, 1568, 3 },
-    { "purple_candle", 23070, 16, 23073, 1571, 3 },
-    { "blue_candle", 23086, 16, 23089, 1574, 3 },
-    { "brown_candle", 23102, 16, 23105, 1577, 3 },
-    { "green_candle", 23118, 16, 23121, 1580, 3 },
-    { "red_candle", 23134, 16, 23137, 1583, 3 },
-    { "black_candle", 23150, 16, 23153, 1586, 3 },
-    { "candle_cake", 23166, 2, 23167, 1589, 1 },
-    { "white_candle_cake", 23168, 2, 23169, 1590, 1 },
-    { "orange_candle_cake", 23170, 2, 23171, 1591, 1 },
-    { "magenta_candle_cake", 23172, 2, 23173, 1592, 1 },
-    { "light_blue_candle_cake", 23174, 2, 23175, 1593, 1 },
-    { "yellow_candle_cake", 23176, 2, 23177, 1594, 1 },
-    { "lime_candle_cake", 23178, 2, 23179, 1595, 1 },
-    { "pink_candle_cake", 23180, 2, 23181, 1596, 1 },
-    { "gray_candle_cake", 23182, 2, 23183, 1597, 1 },
-    { "light_gray_candle_cake", 23184, 2, 23185, 1598, 1 },
-    { "cyan_candle_cake", 23186, 2, 23187, 1599, 1 },
-    { "purple_candle_cake", 23188, 2, 23189, 1600, 1 },
-    { "blue_candle_cake", 23190, 2, 23191, 1601, 1 },
-    { "brown_candle_cake", 23192, 2, 23193, 1602, 1 },
-    { "green_candle_cake", 23194, 2, 23195, 1603, 1 },
-    { "red_candle_cake", 23196, 2, 23197, 1604, 1 },
-    { "black_candle_cake", 23198, 2, 23199, 1605, 1 },
-    { "amethyst_block", 23200, 1, 23200, 1606, 0 },
-    { "budding_amethyst", 23201, 1, 23201, 1606, 0 },
-    { "amethyst_cluster", 23202, 12, 23211, 1606, 2 },
-    { "large_amethyst_bud", 23214, 12, 23223, 1608, 2 },
-    { "medium_amethyst_bud", 23226, 12, 23235, 1610, 2 },
-    { "small_amethyst_bud", 23238, 12, 23247, 1612, 2 },
-    { "tuff", 23250, 1, 23250, 1614, 0 },
-    { "tuff_slab", 23251, 6, 23254, 1614, 2 },
-    { "tuff_stairs", 23257, 80, 23268, 1616, 4 },
-    { "tuff_wall", 23337, 324, 23340, 1620, 6 },
-    { "polished_tuff", 23661, 1, 23661, 1626, 0 },
-    { "polished_tuff_slab", 23662, 6, 23665, 1626, 2 },
-    { "polished_tuff_stairs", 23668, 80, 23679, 1628, 4 },
-    { "polished_tuff_wall", 23748, 324, 23751, 1632, 6 },
-    { "chiseled_tuff", 24072, 1, 24072, 1638, 0 },
-    { "tuff_bricks", 24073, 1, 24073, 1638, 0 },
-    { "tuff_brick_slab", 24074, 6, 24077, 1638, 2 },
-    { "tuff_brick_stairs", 24080, 80, 24091, 1640, 4 },
-    { "tuff_brick_wall", 24160, 324, 24163, 1644, 6 },
-    { "chiseled_tuff_bricks", 24484, 1, 24484, 1650, 0 },
-    { "calcite", 24485, 1, 24485, 1650, 0 },
-    { "tinted_glass", 24486, 1, 24486, 1650, 0 },
-    { "powder_snow", 24487, 1, 24487, 1650, 0 },
-    { "sculk_sensor", 24488, 96, 24489, 1650, 3 },
-    { "calibrated_sculk_sensor", 24584, 384, 24585, 1653, 4 },
-    { "sculk", 24968, 1, 24968, 1657, 0 },
-    { "sculk_vein", 24969, 128, 25096, 1657, 7 },
-    { "sculk_catalyst", 25097, 2, 25098, 1664, 1 },
-    { "sculk_shrieker", 25099, 8, 25106, 1665, 3 },
-    { "copper_block", 25107, 1, 25107, 1668, 0 },
-    { "exposed_copper", 25108, 1, 25108, 1668, 0 },
-    { "weathered_copper", 25109, 1, 25109, 1668, 0 },
-    { "oxidized_copper", 25110, 1, 25110, 1668, 0 },
-    { "copper_ore", 25111, 1, 25111, 1668, 0 },
-    { "deepslate_copper_ore", 25112, 1, 25112, 1668, 0 },
-    { "oxidized_cut_copper", 25113, 1, 25113, 1668, 0 },
-    { "weathered_cut_copper", 25114, 1, 25114, 1668, 0 },
-    { "exposed_cut_copper", 25115, 1, 25115, 1668, 0 },
-    { "cut_copper", 25116, 1, 25116, 1668, 0 },
-    { "oxidized_chiseled_copper", 25117, 1, 25117, 1668, 0 },
-    { "weathered_chiseled_copper", 25118, 1, 25118, 1668, 0 },
-    { "exposed_chiseled_copper", 25119, 1, 25119, 1668, 0 },
-    { "chiseled_copper", 25120, 1, 25120, 1668, 0 },
-    { "waxed_oxidized_chiseled_copper", 25121, 1, 25121, 1668, 0 },
-    { "waxed_weathered_chiseled_copper", 25122, 1, 25122, 1668, 0 },
-    { "waxed_exposed_chiseled_copper", 25123, 1, 25123, 1668, 0 },
-    { "waxed_chiseled_copper", 25124, 1, 25124, 1668, 0 },
-    { "oxidized_cut_copper_stairs", 25125, 80, 25136, 1668, 4 },
-    { "weathered_cut_copper_stairs", 25205, 80, 25216, 1672, 4 },
-    { "exposed_cut_copper_stairs", 25285, 80, 25296, 1676, 4 },
-    { "cut_copper_stairs", 25365, 80, 25376, 1680, 4 },
-    { "oxidized_cut_copper_slab", 25445, 6, 25448, 1684, 2 },
-    { "weathered_cut_copper_slab", 25451, 6, 25454, 1686, 2 },
-    { "exposed_cut_copper_slab", 25457, 6, 25460, 1688, 2 },
-    { "cut_copper_slab", 25463, 6, 25466, 1690, 2 },
-    { "waxed_copper_block", 25469, 1, 25469, 1692, 0 },
-    { "waxed_weathered_copper", 25470, 1, 25470, 1692, 0 },
-    { "waxed_exposed_copper", 25471, 1, 25471, 1692, 0 },
-    { "waxed_oxidized_copper", 25472, 1, 25472, 1692, 0 },
-    { "waxed_oxidized_cut_copper", 25473, 1, 25473, 1692, 0 },
-    { "waxed_weathered_cut_copper", 25474, 1, 25474, 1692, 0 },
-    { "waxed_exposed_cut_copper", 25475, 1, 25475, 1692, 0 },
-    { "waxed_cut_copper", 25476, 1, 25476, 1692, 0 },
-    { "waxed_oxidized_cut_copper_stairs", 25477, 80, 25488, 1692, 4 },
-    { "waxed_weathered_cut_copper_stairs", 25557, 80, 25568, 1696, 4 },
-    { "waxed_exposed_cut_copper_stairs", 25637, 80, 25648, 1700, 4 },
-    { "waxed_cut_copper_stairs", 25717, 80, 25728, 1704, 4 },
-    { "waxed_oxidized_cut_copper_slab", 25797, 6, 25800, 1708, 2 },
-    { "waxed_weathered_cut_copper_slab", 25803, 6, 25806, 1710, 2 },
-    { "waxed_exposed_cut_copper_slab", 25809, 6, 25812, 1712, 2 },
-    { "waxed_cut_copper_slab", 25815, 6, 25818, 1714, 2 },
-    { "copper_door", 25821, 64, 25832, 1716, 5 },
-    { "exposed_copper_door", 25885, 64, 25896, 1721, 5 },
-    { "oxidized_copper_door", 25949, 64, 25960, 1726, 5 },
-    { "weathered_copper_door", 26013, 64, 26024, 1731, 5 },
-    { "waxed_copper_door", 26077, 64, 26088, 1736, 5 },
-    { "waxed_exposed_copper_door", 26141, 64, 26152, 1741, 5 },
-    { "waxed_oxidized_copper_door", 26205, 64, 26216, 1746, 5 },
-    { "waxed_weathered_copper_door", 26269, 64, 26280, 1751, 5 },
-    { "copper_trapdoor", 26333, 64, 26348, 1756, 5 },
-    { "exposed_copper_trapdoor", 26397, 64, 26412, 1761, 5 },
-    { "oxidized_copper_trapdoor", 26461, 64, 26476, 1766, 5 },
-    { "weathered_copper_trapdoor", 26525, 64, 26540, 1771, 5 },
-    { "waxed_copper_trapdoor", 26589, 64, 26604, 1776, 5 },
-    { "waxed_exposed_copper_trapdoor", 26653, 64, 26668, 1781, 5 },
-    { "waxed_oxidized_copper_trapdoor", 26717, 64, 26732, 1786, 5 },
-    { "waxed_weathered_copper_trapdoor", 26781, 64, 26796, 1791, 5 },
-    { "copper_grate", 26845, 2, 26846, 1796, 1 },
-    { "exposed_copper_grate", 26847, 2, 26848, 1797, 1 },
-    { "weathered_copper_grate", 26849, 2, 26850, 1798, 1 },
-    { "oxidized_copper_grate", 26851, 2, 26852, 1799, 1 },
-    { "waxed_copper_grate", 26853, 2, 26854, 1800, 1 },
-    { "waxed_exposed_copper_grate", 26855, 2, 26856, 1801, 1 },
-    { "waxed_weathered_copper_grate", 26857, 2, 26858, 1802, 1 },
-    { "waxed_oxidized_copper_grate", 26859, 2, 26860, 1803, 1 },
-    { "copper_bulb", 26861, 4, 26864, 1804, 2 },
-    { "exposed_copper_bulb", 26865, 4, 26868, 1806, 2 },
-    { "weathered_copper_bulb", 26869, 4, 26872, 1808, 2 },
-    { "oxidized_copper_bulb", 26873, 4, 26876, 1810, 2 },
-    { "waxed_copper_bulb", 26877, 4, 26880, 1812, 2 },
-    { "waxed_exposed_copper_bulb", 26881, 4, 26884, 1814, 2 },
-    { "waxed_weathered_copper_bulb", 26885, 4, 26888, 1816, 2 },
-    { "waxed_oxidized_copper_bulb", 26889, 4, 26892, 1818, 2 },
-    { "copper_chest", 26893, 24, 26894, 1820, 3 },
-    { "exposed_copper_chest", 26917, 24, 26918, 1823, 3 },
-    { "weathered_copper_chest", 26941, 24, 26942, 1826, 3 },
-    { "oxidized_copper_chest", 26965, 24, 26966, 1829, 3 },
-    { "waxed_copper_chest", 26989, 24, 26990, 1832, 3 },
-    { "waxed_exposed_copper_chest", 27013, 24, 27014, 1835, 3 },
-    { "waxed_weathered_copper_chest", 27037, 24, 27038, 1838, 3 },
-    { "waxed_oxidized_copper_chest", 27061, 24, 27062, 1841, 3 },
-    { "copper_golem_statue", 27085, 32, 27086, 1844, 3 },
-    { "exposed_copper_golem_statue", 27117, 32, 27118, 1847, 3 },
-    { "weathered_copper_golem_statue", 27149, 32, 27150, 1850, 3 },
-    { "oxidized_copper_golem_statue", 27181, 32, 27182, 1853, 3 },
-    { "waxed_copper_golem_statue", 27213, 32, 27214, 1856, 3 },
-    { "waxed_exposed_copper_golem_statue", 27245, 32, 27246, 1859, 3 },
-    { "waxed_weathered_copper_golem_statue", 27277, 32, 27278, 1862, 3 },
-    { "waxed_oxidized_copper_golem_statue", 27309, 32, 27310, 1865, 3 },
-    { "lightning_rod", 27341, 24, 27360, 1868, 3 },
-    { "exposed_lightning_rod", 27365, 24, 27384, 1871, 3 },
-    { "weathered_lightning_rod", 27389, 24, 27408, 1874, 3 },
-    { "oxidized_lightning_rod", 27413, 24, 27432, 1877, 3 },
-    { "waxed_lightning_rod", 27437, 24, 27456, 1880, 3 },
-    { "waxed_exposed_lightning_rod", 27461, 24, 27480, 1883, 3 },
-    { "waxed_weathered_lightning_rod", 27485, 24, 27504, 1886, 3 },
-    { "waxed_oxidized_lightning_rod", 27509, 24, 27528, 1889, 3 },
-    { "pointed_dripstone", 27533, 20, 27538, 1892, 3 },
-    { "dripstone_block", 27553, 1, 27553, 1895, 0 },
-    { "cave_vines", 27554, 52, 27555, 1895, 2 },
-    { "cave_vines_plant", 27606, 2, 27607, 1897, 1 },
-    { "spore_blossom", 27608, 1, 27608, 1898, 0 },
-    { "azalea", 27609, 1, 27609, 1898, 0 },
-    { "flowering_azalea", 27610, 1, 27610, 1898, 0 },
-    { "moss_carpet", 27611, 1, 27611, 1898, 0 },
-    { "pink_petals", 27612, 16, 27612, 1898, 2 },
-    { "wildflowers", 27628, 16, 27628, 1900, 2 },
-    { "leaf_litter", 27644, 16, 27644, 1902, 2 },
-    { "moss_block", 27660, 1, 27660, 1904, 0 },
-    { "big_dripleaf", 27661, 32, 27662, 1904, 3 },
-    { "big_dripleaf_stem", 27693, 8, 27694, 1907, 2 },
-    { "small_dripleaf", 27701, 16, 27704, 1909, 3 },
-    { "hanging_roots", 27717, 2, 27718, 1912, 1 },
-    { "rooted_dirt", 27719, 1, 27719, 1913, 0 },
-    { "mud", 27720, 1, 27720, 1913, 0 },
-    { "deepslate", 27721, 3, 27722, 1913, 1 },
-    { "cobbled_deepslate", 27724, 1, 27724, 1914, 0 },
-    { "cobbled_deepslate_stairs", 27725, 80, 27736, 1914, 4 },
-    { "cobbled_deepslate_slab", 27805, 6, 27808, 1918, 2 },
-    { "cobbled_deepslate_wall", 27811, 324, 27814, 1920, 6 },
-    { "polished_deepslate", 28135, 1, 28135, 1926, 0 },
-    { "polished_deepslate_stairs", 28136, 80, 28147, 1926, 4 },
-    { "polished_deepslate_slab", 28216, 6, 28219, 1930, 2 },
-    { "polished_deepslate_wall", 28222, 324, 28225, 1932, 6 },
-    { "deepslate_tiles", 28546, 1, 28546, 1938, 0 },
-    { "deepslate_tile_stairs", 28547, 80, 28558, 1938, 4 },
-    { "deepslate_tile_slab", 28627, 6, 28630, 1942, 2 },
-    { "deepslate_tile_wall", 28633, 324, 28636, 1944, 6 },
-    { "deepslate_bricks", 28957, 1, 28957, 1950, 0 },
-    { "deepslate_brick_stairs", 28958, 80, 28969, 1950, 4 },
-    { "deepslate_brick_slab", 29038, 6, 29041, 1954, 2 },
-    { "deepslate_brick_wall", 29044, 324, 29047, 1956, 6 },
-    { "chiseled_deepslate", 29368, 1, 29368, 1962, 0 },
-    { "cracked_deepslate_bricks", 29369, 1, 29369, 1962, 0 },
-    { "cracked_deepslate_tiles", 29370, 1, 29370, 1962, 0 },
-    { "infested_deepslate", 29371, 3, 29372, 1962, 1 },
-    { "smooth_basalt", 29374, 1, 29374, 1963, 0 },
-    { "raw_iron_block", 29375, 1, 29375, 1963, 0 },
-    { "raw_copper_block", 29376, 1, 29376, 1963, 0 },
-    { "raw_gold_block", 29377, 1, 29377, 1963, 0 },
-    { "potted_azalea_bush", 29378, 1, 29378, 1963, 0 },
-    { "potted_flowering_azalea_bush", 29379, 1, 29379, 1963, 0 },
-    { "ochre_froglight", 29380, 3, 29381, 1963, 1 },
-    { "verdant_froglight", 29383, 3, 29384, 1964, 1 },
-    { "pearlescent_froglight", 29386, 3, 29387, 1965, 1 },
-    { "frogspawn", 29389, 1, 29389, 1966, 0 },
-    { "reinforced_deepslate", 29390, 1, 29390, 1966, 0 },
-    { "decorated_pot", 29391, 16, 29400, 1966, 3 },
-    { "crafter", 29407, 48, 29452, 1969, 3 },
-    { "trial_spawner", 29455, 12, 29461, 1972, 2 },
-    { "vault", 29467, 32, 29471, 1974, 3 },
-    { "heavy_core", 29499, 2, 29500, 1977, 1 },
-    { "pale_moss_block", 29501, 1, 29501, 1978, 0 },
-    { "pale_moss_carpet", 29502, 162, 29502, 1978, 5 },
-    { "pale_hanging_moss", 29664, 2, 29664, 1983, 1 },
-    { "open_eyeblossom", 29666, 1, 29666, 1984, 0 },
-    { "closed_eyeblossom", 29667, 1, 29667, 1984, 0 },
-    { "potted_open_eyeblossom", 29668, 1, 29668, 1984, 0 },
-    { "potted_closed_eyeblossom", 29669, 1, 29669, 1984, 0 },
-    { "firefly_bush", 29670, 1, 29670, 1984, 0 },
+    { "air", 0, 1, 0, 0, 0, 0, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stone", 1, 1, 1, 0, 0, 1, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "granite", 2, 1, 2, 0, 0, 1, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_granite", 3, 1, 3, 0, 0, 1, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "diorite", 4, 1, 4, 0, 0, 1, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_diorite", 5, 1, 5, 0, 0, 1, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "andesite", 6, 1, 6, 0, 0, 1, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_andesite", 7, 1, 7, 0, 0, 1, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "grass_block", 8, 2, 9, 0, 1, 1, 3, { VCLASS_SNOWY_DIRT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dirt", 10, 1, 10, 1, 0, 4, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "coarse_dirt", 11, 1, 11, 1, 0, 4, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "podzol", 12, 2, 13, 1, 1, 4, 1, { VCLASS_SNOWY_DIRT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cobblestone", 14, 1, 14, 2, 0, 5, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oak_planks", 15, 1, 15, 2, 0, 5, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "spruce_planks", 16, 1, 16, 2, 0, 5, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "birch_planks", 17, 1, 17, 2, 0, 5, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "jungle_planks", 18, 1, 18, 2, 0, 5, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "acacia_planks", 19, 1, 19, 2, 0, 5, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cherry_planks", 20, 1, 20, 2, 0, 5, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dark_oak_planks", 21, 1, 21, 2, 0, 5, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pale_oak_wood", 22, 3, 23, 2, 1, 5, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pale_oak_planks", 25, 1, 25, 3, 0, 6, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mangrove_planks", 26, 1, 26, 3, 0, 6, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "bamboo_planks", 27, 1, 27, 3, 0, 6, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "bamboo_mosaic", 28, 1, 28, 3, 0, 6, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oak_sapling", 29, 2, 29, 3, 1, 6, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "spruce_sapling", 31, 2, 31, 4, 1, 8, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "birch_sapling", 33, 2, 33, 5, 1, 10, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "jungle_sapling", 35, 2, 35, 6, 1, 12, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "acacia_sapling", 37, 2, 37, 7, 1, 14, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cherry_sapling", 39, 2, 39, 8, 1, 16, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dark_oak_sapling", 41, 2, 41, 9, 1, 18, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pale_oak_sapling", 43, 2, 43, 10, 1, 20, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mangrove_propagule", 45, 40, 50, 11, 4, 22, 3, { VCLASS_MANGROVE_PROPAGULE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "bedrock", 85, 1, 85, 15, 0, 25, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "water", 86, 16, 86, 15, 1, 25, 1, { VCLASS_LIQUID_BLOCK, VCLASS_LIQUID_BLOCK, VCLASS_LIQUID_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "lava", 102, 16, 102, 16, 1, 26, 1, { VCLASS_LIQUID_BLOCK, VCLASS_LIQUID_BLOCK, VCLASS_LIQUID_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "sand", 118, 1, 118, 17, 0, 27, 3, { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "suspicious_sand", 119, 4, 119, 17, 1, 30, 2, { VCLASS_BRUSHABLE_BLOCK, 0, VCLASS_BRUSHABLE_BLOCK, 0, VCLASS_BRUSHABLE_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "red_sand", 123, 1, 123, 18, 0, 32, 3, { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "gravel", 124, 1, 124, 18, 0, 35, 2, { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "suspicious_gravel", 125, 4, 125, 18, 1, 37, 2, { VCLASS_BRUSHABLE_BLOCK, 0, VCLASS_BRUSHABLE_BLOCK, 0, VCLASS_BRUSHABLE_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "gold_ore", 129, 1, 129, 19, 0, 39, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "deepslate_gold_ore", 130, 1, 130, 19, 0, 40, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "iron_ore", 131, 1, 131, 19, 0, 41, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "deepslate_iron_ore", 132, 1, 132, 19, 0, 42, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "coal_ore", 133, 1, 133, 19, 0, 43, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "deepslate_coal_ore", 134, 1, 134, 19, 0, 44, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "nether_gold_ore", 135, 1, 135, 19, 0, 45, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "oak_log", 136, 3, 137, 19, 1, 46, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "spruce_log", 139, 3, 140, 20, 1, 47, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "birch_log", 142, 3, 143, 21, 1, 48, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "jungle_log", 145, 3, 146, 22, 1, 49, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "acacia_log", 148, 3, 149, 23, 1, 50, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cherry_log", 151, 3, 152, 24, 1, 51, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dark_oak_log", 154, 3, 155, 25, 1, 52, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pale_oak_log", 157, 3, 158, 26, 1, 53, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mangrove_log", 160, 3, 161, 27, 1, 54, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mangrove_roots", 163, 2, 164, 28, 1, 55, 1, { VCLASS_MANGROVE_ROOTS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "muddy_mangrove_roots", 165, 3, 166, 29, 1, 56, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "bamboo_block", 168, 3, 169, 30, 1, 57, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_spruce_log", 171, 3, 172, 31, 1, 58, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_birch_log", 174, 3, 175, 32, 1, 59, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_jungle_log", 177, 3, 178, 33, 1, 60, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_acacia_log", 180, 3, 181, 34, 1, 61, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_cherry_log", 183, 3, 184, 35, 1, 62, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_dark_oak_log", 186, 3, 187, 36, 1, 63, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_pale_oak_log", 189, 3, 190, 37, 1, 64, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_oak_log", 192, 3, 193, 38, 1, 65, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_mangrove_log", 195, 3, 196, 39, 1, 66, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_bamboo_block", 198, 3, 199, 40, 1, 67, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oak_wood", 201, 3, 202, 41, 1, 68, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "spruce_wood", 204, 3, 205, 42, 1, 69, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "birch_wood", 207, 3, 208, 43, 1, 70, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "jungle_wood", 210, 3, 211, 44, 1, 71, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "acacia_wood", 213, 3, 214, 45, 1, 72, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cherry_wood", 216, 3, 217, 46, 1, 73, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dark_oak_wood", 219, 3, 220, 47, 1, 74, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mangrove_wood", 222, 3, 223, 48, 1, 75, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_oak_wood", 225, 3, 226, 49, 1, 76, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_spruce_wood", 228, 3, 229, 50, 1, 77, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_birch_wood", 231, 3, 232, 51, 1, 78, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_jungle_wood", 234, 3, 235, 52, 1, 79, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_acacia_wood", 237, 3, 238, 53, 1, 80, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_cherry_wood", 240, 3, 241, 54, 1, 81, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_dark_oak_wood", 243, 3, 244, 55, 1, 82, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_pale_oak_wood", 246, 3, 247, 56, 1, 83, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_mangrove_wood", 249, 3, 250, 57, 1, 84, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oak_leaves", 252, 28, 279, 58, 3, 85, 2, { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "spruce_leaves", 280, 28, 307, 61, 3, 87, 2, { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "birch_leaves", 308, 28, 335, 64, 3, 89, 2, { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "jungle_leaves", 336, 28, 363, 67, 3, 91, 2, { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "acacia_leaves", 364, 28, 391, 70, 3, 93, 2, { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "cherry_leaves", 392, 28, 419, 73, 3, 95, 2, { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "dark_oak_leaves", 420, 28, 447, 76, 3, 97, 2, { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "pale_oak_leaves", 448, 28, 475, 79, 3, 99, 2, { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "mangrove_leaves", 476, 28, 503, 82, 3, 101, 3, { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "azalea_leaves", 504, 28, 531, 85, 3, 104, 2, { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "flowering_azalea_leaves", 532, 28, 559, 88, 3, 106, 2, { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "sponge", 560, 1, 560, 91, 0, 108, 1, { 0, VCLASS_SPONGE_BLOCK, VCLASS_SPONGE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "wet_sponge", 561, 1, 561, 91, 0, 109, 1, { 0, 0, VCLASS_WET_SPONGE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "glass", 562, 1, 562, 91, 0, 110, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "lapis_ore", 563, 1, 563, 91, 0, 112, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "deepslate_lapis_ore", 564, 1, 564, 91, 0, 113, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "lapis_block", 565, 1, 565, 91, 0, 114, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dispenser", 566, 12, 567, 91, 2, 114, 2, { 0, VCLASS_DISPENSER_BLOCK, 0, VCLASS_DISPENSER_BLOCK, VCLASS_DISPENSER_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_DISPENSER_BLOCK, 0 } },
+    { "sandstone", 578, 1, 578, 93, 0, 116, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chiseled_sandstone", 579, 1, 579, 93, 0, 116, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cut_sandstone", 580, 1, 580, 93, 0, 116, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "note_block", 581, 1150, 582, 93, 3, 116, 1, { VCLASS_NOTE_BLOCK, VCLASS_NOTE_BLOCK, 0, 0, 0, VCLASS_NOTE_BLOCK, 0, 0, VCLASS_NOTE_BLOCK, VCLASS_NOTE_BLOCK, VCLASS_NOTE_BLOCK } },
+    { "white_bed", 1731, 16, 1734, 96, 3, 117, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "orange_bed", 1747, 16, 1750, 99, 3, 119, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "magenta_bed", 1763, 16, 1766, 102, 3, 121, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "light_blue_bed", 1779, 16, 1782, 105, 3, 123, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "yellow_bed", 1795, 16, 1798, 108, 3, 125, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "lime_bed", 1811, 16, 1814, 111, 3, 127, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "pink_bed", 1827, 16, 1830, 114, 3, 129, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "gray_bed", 1843, 16, 1846, 117, 3, 131, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "light_gray_bed", 1859, 16, 1862, 120, 3, 133, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "cyan_bed", 1875, 16, 1878, 123, 3, 135, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "purple_bed", 1891, 16, 1894, 126, 3, 137, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "blue_bed", 1907, 16, 1910, 129, 3, 139, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "brown_bed", 1923, 16, 1926, 132, 3, 141, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "green_bed", 1939, 16, 1942, 135, 3, 143, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "red_bed", 1955, 16, 1958, 138, 3, 145, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "black_bed", 1971, 16, 1974, 141, 3, 147, 2, { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, 0 } },
+    { "powered_rail", 1987, 24, 2000, 144, 3, 149, 2, { VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, 0 } },
+    { "detector_rail", 2011, 24, 2024, 147, 3, 151, 2, { VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_DETECTOR_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_DETECTOR_RAIL_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "sticky_piston", 2035, 12, 2041, 150, 2, 153, 2, { 0, VCLASS_PISTON_BASE_BLOCK, VCLASS_PISTON_BASE_BLOCK, 0, 0, VCLASS_PISTON_BASE_BLOCK, 0, 0, 0, 0, 0 } },
+    { "cobweb", 2047, 1, 2047, 152, 0, 155, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "short_grass", 2048, 1, 2048, 152, 0, 156, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "fern", 2049, 1, 2049, 152, 0, 158, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_bush", 2050, 1, 2050, 152, 0, 160, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "bush", 2051, 1, 2051, 152, 0, 162, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "short_dry_grass", 2052, 1, 2052, 152, 0, 164, 3, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tall_dry_grass", 2053, 1, 2053, 152, 0, 167, 3, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "seagrass", 2054, 1, 2054, 152, 0, 170, 2, { VCLASS_SEAGRASS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tall_seagrass", 2055, 2, 2056, 152, 1, 172, 3, { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "piston", 2057, 12, 2063, 153, 2, 175, 2, { 0, VCLASS_PISTON_BASE_BLOCK, VCLASS_PISTON_BASE_BLOCK, 0, 0, VCLASS_PISTON_BASE_BLOCK, 0, 0, 0, 0, 0 } },
+    { "piston_head", 2069, 24, 2071, 155, 3, 177, 2, { VCLASS_PISTON_HEAD_BLOCK, VCLASS_PISTON_HEAD_BLOCK, 0, VCLASS_PISTON_HEAD_BLOCK, 0, 0, 0, 0, 0, 0, 0 } },
+    { "white_wool", 2093, 1, 2093, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "orange_wool", 2094, 1, 2094, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "magenta_wool", 2095, 1, 2095, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_blue_wool", 2096, 1, 2096, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "yellow_wool", 2097, 1, 2097, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "lime_wool", 2098, 1, 2098, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pink_wool", 2099, 1, 2099, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "gray_wool", 2100, 1, 2100, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_gray_wool", 2101, 1, 2101, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cyan_wool", 2102, 1, 2102, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "purple_wool", 2103, 1, 2103, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "blue_wool", 2104, 1, 2104, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "brown_wool", 2105, 1, 2105, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "green_wool", 2106, 1, 2106, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_wool", 2107, 1, 2107, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "black_wool", 2108, 1, 2108, 158, 0, 179, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "moving_piston", 2109, 12, 2109, 158, 2, 179, 2, { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_MOVING_PISTON_BLOCK, 0 } },
+    { "dandelion", 2121, 1, 2121, 160, 0, 181, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "torchflower", 2122, 1, 2122, 160, 0, 183, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "poppy", 2123, 1, 2123, 160, 0, 185, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "blue_orchid", 2124, 1, 2124, 160, 0, 187, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "allium", 2125, 1, 2125, 160, 0, 189, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "azure_bluet", 2126, 1, 2126, 160, 0, 191, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_tulip", 2127, 1, 2127, 160, 0, 193, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "orange_tulip", 2128, 1, 2128, 160, 0, 195, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "white_tulip", 2129, 1, 2129, 160, 0, 197, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pink_tulip", 2130, 1, 2130, 160, 0, 199, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oxeye_daisy", 2131, 1, 2131, 160, 0, 201, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cornflower", 2132, 1, 2132, 160, 0, 203, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "wither_rose", 2133, 1, 2133, 160, 0, 205, 3, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "lily_of_the_valley", 2134, 1, 2134, 160, 0, 208, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "brown_mushroom", 2135, 1, 2135, 160, 0, 210, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_mushroom", 2136, 1, 2136, 160, 0, 212, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "gold_block", 2137, 1, 2137, 160, 0, 214, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "iron_block", 2138, 1, 2138, 160, 0, 214, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "bricks", 2139, 1, 2139, 160, 0, 214, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tnt", 2140, 2, 2141, 160, 1, 214, 1, { 0, VCLASS_TNT_BLOCK, VCLASS_TNT_BLOCK, 0, 0, 0, 0, 0, VCLASS_TNT_BLOCK, 0, 0 } },
+    { "bookshelf", 2142, 1, 2142, 161, 0, 215, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chiseled_bookshelf", 2143, 256, 2206, 161, 7, 215, 2, { 0, 0, 0, VCLASS_CHISELED_BOOK_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CHISELED_BOOK_SHELF_BLOCK, VCLASS_CHISELED_BOOK_SHELF_BLOCK, 0 } },
+    { "acacia_shelf", 2399, 64, 2408, 168, 4, 217, 2, { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SHELF_BLOCK, 0, 0 } },
+    { "bamboo_shelf", 2463, 64, 2472, 172, 4, 219, 2, { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SHELF_BLOCK, 0, 0 } },
+    { "birch_shelf", 2527, 64, 2536, 176, 4, 221, 2, { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SHELF_BLOCK, 0, 0 } },
+    { "cherry_shelf", 2591, 64, 2600, 180, 4, 223, 2, { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SHELF_BLOCK, 0, 0 } },
+    { "crimson_shelf", 2655, 64, 2664, 184, 4, 225, 2, { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SHELF_BLOCK, 0, 0 } },
+    { "dark_oak_shelf", 2719, 64, 2728, 188, 4, 227, 2, { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SHELF_BLOCK, 0, 0 } },
+    { "jungle_shelf", 2783, 64, 2792, 192, 4, 229, 2, { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SHELF_BLOCK, 0, 0 } },
+    { "mangrove_shelf", 2847, 64, 2856, 196, 4, 231, 2, { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SHELF_BLOCK, 0, 0 } },
+    { "oak_shelf", 2911, 64, 2920, 200, 4, 233, 2, { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SHELF_BLOCK, 0, 0 } },
+    { "pale_oak_shelf", 2975, 64, 2984, 204, 4, 235, 2, { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SHELF_BLOCK, 0, 0 } },
+    { "spruce_shelf", 3039, 64, 3048, 208, 4, 237, 2, { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SHELF_BLOCK, 0, 0 } },
+    { "warped_shelf", 3103, 64, 3112, 212, 4, 239, 2, { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SHELF_BLOCK, 0, 0 } },
+    { "mossy_cobblestone", 3167, 1, 3167, 216, 0, 241, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "obsidian", 3168, 1, 3168, 216, 0, 241, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "torch", 3169, 1, 3169, 216, 0, 241, 2, { VCLASS_BASE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "wall_torch", 3170, 4, 3170, 216, 1, 243, 3, { VCLASS_WALL_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "fire", 3174, 512, 3205, 217, 6, 246, 2, { VCLASS_FIRE_BLOCK, 0, VCLASS_FIRE_BLOCK, 0, VCLASS_FIRE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "soul_fire", 3686, 1, 3686, 223, 0, 248, 2, { VCLASS_SOUL_FIRE_BLOCK, 0, VCLASS_BASE_FIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "spawner", 3687, 1, 3687, 223, 0, 250, 2, { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SPAWNER_BLOCK, 0, 0, 0 } },
+    { "creaking_heart", 3688, 18, 3695, 223, 3, 252, 2, { VCLASS_CREAKING_HEART_BLOCK, 0, 0, VCLASS_CREAKING_HEART_BLOCK, VCLASS_CREAKING_HEART_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "oak_stairs", 3706, 80, 3717, 226, 4, 254, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chest", 3786, 24, 3787, 230, 3, 255, 3, { VCLASS_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_CHEST_BLOCK, 0 } },
+    { "redstone_wire", 3810, 1296, 4970, 233, 5, 258, 1, { VCLASS_RED_STONE_WIRE_BLOCK, VCLASS_RED_STONE_WIRE_BLOCK, VCLASS_RED_STONE_WIRE_BLOCK, VCLASS_RED_STONE_WIRE_BLOCK, 0, 0, VCLASS_RED_STONE_WIRE_BLOCK, 0, 0, VCLASS_RED_STONE_WIRE_BLOCK, 0 } },
+    { "diamond_ore", 5106, 1, 5106, 238, 0, 259, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "deepslate_diamond_ore", 5107, 1, 5107, 238, 0, 260, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "diamond_block", 5108, 1, 5108, 238, 0, 261, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "crafting_table", 5109, 1, 5109, 238, 0, 261, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CRAFTING_TABLE_BLOCK, 0 } },
+    { "wheat", 5110, 8, 5110, 238, 1, 262, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "farmland", 5118, 8, 5118, 239, 1, 264, 1, { VCLASS_FARM_BLOCK, 0, 0, 0, VCLASS_FARM_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "furnace", 5126, 8, 5127, 240, 2, 265, 3, { 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0 } },
+    { "oak_sign", 5134, 32, 5135, 242, 2, 268, 3, { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "spruce_sign", 5166, 32, 5167, 244, 2, 271, 3, { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "birch_sign", 5198, 32, 5199, 246, 2, 274, 3, { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "acacia_sign", 5230, 32, 5231, 248, 2, 277, 3, { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "cherry_sign", 5262, 32, 5263, 250, 2, 280, 3, { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "jungle_sign", 5294, 32, 5295, 252, 2, 283, 3, { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "dark_oak_sign", 5326, 32, 5327, 254, 2, 286, 3, { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "pale_oak_sign", 5358, 32, 5359, 256, 2, 289, 3, { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "mangrove_sign", 5390, 32, 5391, 258, 2, 292, 3, { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "bamboo_sign", 5422, 32, 5423, 260, 2, 295, 3, { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "oak_door", 5454, 64, 5465, 262, 5, 298, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "ladder", 5518, 8, 5519, 267, 2, 299, 1, { VCLASS_LADDER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "rail", 5526, 20, 5527, 269, 2, 300, 2, { VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cobblestone_stairs", 5546, 80, 5557, 271, 4, 302, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oak_wall_sign", 5626, 8, 5627, 275, 2, 303, 3, { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "spruce_wall_sign", 5634, 8, 5635, 277, 2, 306, 3, { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "birch_wall_sign", 5642, 8, 5643, 279, 2, 309, 3, { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "acacia_wall_sign", 5650, 8, 5651, 281, 2, 312, 3, { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "cherry_wall_sign", 5658, 8, 5659, 283, 2, 315, 3, { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "jungle_wall_sign", 5666, 8, 5667, 285, 2, 318, 3, { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "dark_oak_wall_sign", 5674, 8, 5675, 287, 2, 321, 3, { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "pale_oak_wall_sign", 5682, 8, 5683, 289, 2, 324, 3, { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "mangrove_wall_sign", 5690, 8, 5691, 291, 2, 327, 3, { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "bamboo_wall_sign", 5698, 8, 5699, 293, 2, 330, 3, { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "oak_hanging_sign", 5706, 64, 5739, 295, 3, 333, 3, { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "spruce_hanging_sign", 5770, 64, 5803, 298, 3, 336, 3, { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "birch_hanging_sign", 5834, 64, 5867, 301, 3, 339, 3, { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "acacia_hanging_sign", 5898, 64, 5931, 304, 3, 342, 3, { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "cherry_hanging_sign", 5962, 64, 5995, 307, 3, 345, 3, { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "jungle_hanging_sign", 6026, 64, 6059, 310, 3, 348, 3, { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "dark_oak_hanging_sign", 6090, 64, 6123, 313, 3, 351, 3, { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "pale_oak_hanging_sign", 6154, 64, 6187, 316, 3, 354, 3, { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "crimson_hanging_sign", 6218, 64, 6251, 319, 3, 357, 3, { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "warped_hanging_sign", 6282, 64, 6315, 322, 3, 360, 3, { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "mangrove_hanging_sign", 6346, 64, 6379, 325, 3, 363, 3, { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "bamboo_hanging_sign", 6410, 64, 6443, 328, 3, 366, 3, { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "oak_wall_hanging_sign", 6474, 8, 6475, 331, 2, 369, 3, { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "spruce_wall_hanging_sign", 6482, 8, 6483, 333, 2, 372, 3, { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "birch_wall_hanging_sign", 6490, 8, 6491, 335, 2, 375, 3, { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "acacia_wall_hanging_sign", 6498, 8, 6499, 337, 2, 378, 3, { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "cherry_wall_hanging_sign", 6506, 8, 6507, 339, 2, 381, 3, { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "jungle_wall_hanging_sign", 6514, 8, 6515, 341, 2, 384, 3, { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "dark_oak_wall_hanging_sign", 6522, 8, 6523, 343, 2, 387, 3, { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "pale_oak_wall_hanging_sign", 6530, 8, 6531, 345, 2, 390, 3, { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "mangrove_wall_hanging_sign", 6538, 8, 6539, 347, 2, 393, 3, { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "crimson_wall_hanging_sign", 6546, 8, 6547, 349, 2, 396, 3, { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "warped_wall_hanging_sign", 6554, 8, 6555, 351, 2, 399, 3, { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "bamboo_wall_hanging_sign", 6562, 8, 6563, 353, 2, 402, 3, { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "lever", 6570, 24, 6579, 355, 3, 405, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_LEVER_BLOCK, 0, 0, 0, 0, 0, VCLASS_LEVER_BLOCK, 0 } },
+    { "stone_pressure_plate", 6594, 2, 6595, 358, 1, 408, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "iron_door", 6596, 64, 6607, 359, 5, 410, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "oak_pressure_plate", 6660, 2, 6661, 364, 1, 411, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "spruce_pressure_plate", 6662, 2, 6663, 365, 1, 413, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "birch_pressure_plate", 6664, 2, 6665, 366, 1, 415, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "jungle_pressure_plate", 6666, 2, 6667, 367, 1, 417, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "acacia_pressure_plate", 6668, 2, 6669, 368, 1, 419, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "cherry_pressure_plate", 6670, 2, 6671, 369, 1, 421, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "dark_oak_pressure_plate", 6672, 2, 6673, 370, 1, 423, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "pale_oak_pressure_plate", 6674, 2, 6675, 371, 1, 425, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "mangrove_pressure_plate", 6676, 2, 6677, 372, 1, 427, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "bamboo_pressure_plate", 6678, 2, 6679, 373, 1, 429, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "redstone_ore", 6680, 2, 6681, 374, 1, 431, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_RED_STONE_ORE_BLOCK, VCLASS_RED_STONE_ORE_BLOCK, 0, VCLASS_RED_STONE_ORE_BLOCK } },
+    { "deepslate_redstone_ore", 6682, 2, 6683, 375, 1, 432, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_RED_STONE_ORE_BLOCK, VCLASS_RED_STONE_ORE_BLOCK, 0, VCLASS_RED_STONE_ORE_BLOCK } },
+    { "redstone_torch", 6684, 2, 6684, 376, 1, 433, 2, { VCLASS_BASE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "redstone_wall_torch", 6686, 8, 6686, 377, 2, 435, 3, { VCLASS_REDSTONE_WALL_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "stone_button", 6694, 24, 6703, 379, 3, 438, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "snow", 6718, 8, 6718, 382, 1, 441, 1, { VCLASS_SNOW_LAYER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "ice", 6726, 1, 6726, 383, 0, 442, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "snow_block", 6727, 1, 6727, 383, 0, 444, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cactus", 6728, 16, 6728, 383, 1, 444, 1, { VCLASS_CACTUS_BLOCK, 0, 0, 0, VCLASS_CACTUS_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "cactus_flower", 6744, 1, 6744, 384, 0, 445, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "clay", 6745, 1, 6745, 384, 0, 447, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "sugar_cane", 6746, 16, 6746, 384, 1, 447, 1, { VCLASS_SUGAR_CANE_BLOCK, 0, 0, 0, VCLASS_SUGAR_CANE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "jukebox", 6762, 2, 6763, 385, 1, 448, 2, { 0, 0, 0, VCLASS_JUKEBOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_JUKEBOX_BLOCK, VCLASS_JUKEBOX_BLOCK, 0 } },
+    { "oak_fence", 6764, 32, 6795, 386, 5, 450, 2, { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_BLOCK, 0 } },
+    { "netherrack", 6796, 1, 6796, 391, 0, 452, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "soul_sand", 6797, 1, 6797, 391, 0, 453, 1, { VCLASS_SOUL_SAND_BLOCK, 0, VCLASS_SOUL_SAND_BLOCK, 0, VCLASS_SOUL_SAND_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "soul_soil", 6798, 1, 6798, 391, 0, 454, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "basalt", 6799, 3, 6800, 391, 1, 454, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_basalt", 6802, 3, 6803, 392, 1, 455, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "soul_torch", 6805, 1, 6805, 393, 0, 456, 2, { VCLASS_BASE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "soul_wall_torch", 6806, 4, 6806, 393, 1, 458, 3, { VCLASS_WALL_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "copper_torch", 6810, 1, 6810, 394, 0, 461, 2, { VCLASS_BASE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "copper_wall_torch", 6811, 4, 6811, 394, 1, 463, 3, { VCLASS_WALL_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "glowstone", 6815, 1, 6815, 395, 0, 466, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "nether_portal", 6816, 2, 6816, 395, 1, 466, 1, { VCLASS_NETHER_PORTAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "carved_pumpkin", 6818, 4, 6818, 396, 1, 467, 2, { 0, 0, VCLASS_CARVED_PUMPKIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "jack_o_lantern", 6822, 4, 6822, 397, 1, 469, 2, { 0, 0, VCLASS_CARVED_PUMPKIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cake", 6826, 7, 6826, 398, 1, 471, 1, { VCLASS_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CAKE_BLOCK, VCLASS_CAKE_BLOCK, 0 } },
+    { "repeater", 6833, 64, 6836, 399, 4, 472, 3, { VCLASS_REPEATER_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, 0, 0, 0, 0, VCLASS_REPEATER_BLOCK, 0 } },
+    { "white_stained_glass", 6897, 1, 6897, 403, 0, 475, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "orange_stained_glass", 6898, 1, 6898, 403, 0, 478, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "magenta_stained_glass", 6899, 1, 6899, 403, 0, 481, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_blue_stained_glass", 6900, 1, 6900, 403, 0, 484, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "yellow_stained_glass", 6901, 1, 6901, 403, 0, 487, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "lime_stained_glass", 6902, 1, 6902, 403, 0, 490, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pink_stained_glass", 6903, 1, 6903, 403, 0, 493, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "gray_stained_glass", 6904, 1, 6904, 403, 0, 496, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_gray_stained_glass", 6905, 1, 6905, 403, 0, 499, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cyan_stained_glass", 6906, 1, 6906, 403, 0, 502, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "purple_stained_glass", 6907, 1, 6907, 403, 0, 505, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "blue_stained_glass", 6908, 1, 6908, 403, 0, 508, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "brown_stained_glass", 6909, 1, 6909, 403, 0, 511, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "green_stained_glass", 6910, 1, 6910, 403, 0, 514, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_stained_glass", 6911, 1, 6911, 403, 0, 517, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "black_stained_glass", 6912, 1, 6912, 403, 0, 520, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oak_trapdoor", 6913, 64, 6928, 403, 5, 523, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "spruce_trapdoor", 6977, 64, 6992, 408, 5, 525, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "birch_trapdoor", 7041, 64, 7056, 413, 5, 527, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "jungle_trapdoor", 7105, 64, 7120, 418, 5, 529, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "acacia_trapdoor", 7169, 64, 7184, 423, 5, 531, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "cherry_trapdoor", 7233, 64, 7248, 428, 5, 533, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "dark_oak_trapdoor", 7297, 64, 7312, 433, 5, 535, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "pale_oak_trapdoor", 7361, 64, 7376, 438, 5, 537, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "mangrove_trapdoor", 7425, 64, 7440, 443, 5, 539, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "bamboo_trapdoor", 7489, 64, 7504, 448, 5, 541, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "stone_bricks", 7553, 1, 7553, 453, 0, 543, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mossy_stone_bricks", 7554, 1, 7554, 453, 0, 543, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cracked_stone_bricks", 7555, 1, 7555, 453, 0, 543, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chiseled_stone_bricks", 7556, 1, 7556, 453, 0, 543, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "packed_mud", 7557, 1, 7557, 453, 0, 543, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mud_bricks", 7558, 1, 7558, 453, 0, 543, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "infested_stone", 7559, 1, 7559, 453, 0, 543, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_INFESTED_BLOCK, 0, 0, 0 } },
+    { "infested_cobblestone", 7560, 1, 7560, 453, 0, 544, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_INFESTED_BLOCK, 0, 0, 0 } },
+    { "infested_stone_bricks", 7561, 1, 7561, 453, 0, 545, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_INFESTED_BLOCK, 0, 0, 0 } },
+    { "infested_mossy_stone_bricks", 7562, 1, 7562, 453, 0, 546, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_INFESTED_BLOCK, 0, 0, 0 } },
+    { "infested_cracked_stone_bricks", 7563, 1, 7563, 453, 0, 547, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_INFESTED_BLOCK, 0, 0, 0 } },
+    { "infested_chiseled_stone_bricks", 7564, 1, 7564, 453, 0, 548, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_INFESTED_BLOCK, 0, 0, 0 } },
+    { "brown_mushroom_block", 7565, 64, 7565, 453, 6, 549, 1, { VCLASS_HUGE_MUSHROOM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_mushroom_block", 7629, 64, 7629, 459, 6, 550, 1, { VCLASS_HUGE_MUSHROOM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mushroom_stem", 7693, 64, 7693, 465, 6, 551, 1, { VCLASS_HUGE_MUSHROOM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "iron_bars", 7757, 32, 7788, 471, 5, 552, 2, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "copper_bars", 7789, 32, 7820, 476, 5, 554, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "exposed_copper_bars", 7821, 32, 7852, 481, 5, 557, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "weathered_copper_bars", 7853, 32, 7884, 486, 5, 560, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oxidized_copper_bars", 7885, 32, 7916, 491, 5, 563, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_copper_bars", 7917, 32, 7948, 496, 5, 566, 2, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_exposed_copper_bars", 7949, 32, 7980, 501, 5, 568, 2, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_weathered_copper_bars", 7981, 32, 8012, 506, 5, 570, 2, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_oxidized_copper_bars", 8013, 32, 8044, 511, 5, 572, 2, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "iron_chain", 8045, 6, 8048, 516, 2, 574, 2, { VCLASS_CHAIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "copper_chain", 8051, 6, 8054, 518, 2, 576, 3, { VCLASS_CHAIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "exposed_copper_chain", 8057, 6, 8060, 520, 2, 579, 3, { VCLASS_CHAIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "weathered_copper_chain", 8063, 6, 8066, 522, 2, 582, 3, { VCLASS_CHAIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oxidized_copper_chain", 8069, 6, 8072, 524, 2, 585, 3, { VCLASS_CHAIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_copper_chain", 8075, 6, 8078, 526, 2, 588, 2, { VCLASS_CHAIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_exposed_copper_chain", 8081, 6, 8084, 528, 2, 590, 2, { VCLASS_CHAIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_weathered_copper_chain", 8087, 6, 8090, 530, 2, 592, 2, { VCLASS_CHAIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_oxidized_copper_chain", 8093, 6, 8096, 532, 2, 594, 2, { VCLASS_CHAIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "glass_pane", 8099, 32, 8130, 534, 5, 596, 2, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pumpkin", 8131, 1, 8131, 539, 0, 598, 1, { 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_PUMPKIN_BLOCK, 0, 0 } },
+    { "melon", 8132, 1, 8132, 539, 0, 599, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "attached_pumpkin_stem", 8133, 4, 8133, 539, 1, 599, 2, { VCLASS_ATTACHED_STEM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "attached_melon_stem", 8137, 4, 8137, 540, 1, 601, 2, { VCLASS_ATTACHED_STEM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pumpkin_stem", 8141, 8, 8141, 541, 1, 603, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "melon_stem", 8149, 8, 8149, 542, 1, 605, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "vine", 8157, 32, 8188, 543, 5, 607, 1, { VCLASS_VINE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "glow_lichen", 8189, 128, 8316, 548, 7, 608, 3, { VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "resin_clump", 8317, 128, 8444, 555, 7, 611, 1, { VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oak_fence_gate", 8445, 32, 8452, 562, 4, 612, 2, { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_GATE_BLOCK, 0 } },
+    { "brick_stairs", 8477, 80, 8488, 566, 4, 614, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stone_brick_stairs", 8557, 80, 8568, 570, 4, 615, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mud_brick_stairs", 8637, 80, 8648, 574, 4, 616, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mycelium", 8717, 2, 8718, 578, 1, 617, 3, { VCLASS_SNOWY_DIRT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "lily_pad", 8719, 1, 8719, 579, 0, 620, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "resin_block", 8720, 1, 8720, 579, 0, 622, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "resin_bricks", 8721, 1, 8721, 579, 0, 622, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "resin_brick_stairs", 8722, 80, 8733, 579, 4, 622, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "resin_brick_slab", 8802, 6, 8805, 583, 2, 623, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "resin_brick_wall", 8808, 324, 8811, 585, 6, 624, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chiseled_resin_bricks", 9132, 1, 9132, 591, 0, 625, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "nether_bricks", 9133, 1, 9133, 591, 0, 625, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "nether_brick_fence", 9134, 32, 9165, 591, 5, 625, 2, { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_BLOCK, 0 } },
+    { "nether_brick_stairs", 9166, 80, 9177, 596, 4, 627, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "nether_wart", 9246, 4, 9246, 600, 1, 628, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "enchanting_table", 9250, 1, 9250, 601, 0, 630, 2, { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_ENCHANTING_TABLE_BLOCK, 0 } },
+    { "brewing_stand", 9251, 8, 9258, 601, 3, 632, 2, { 0, 0, 0, VCLASS_BREWING_STAND_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_BREWING_STAND_BLOCK, 0 } },
+    { "cauldron", 9259, 1, 9259, 604, 0, 634, 2, { 0, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0 } },
+    { "water_cauldron", 9260, 3, 9260, 604, 1, 636, 2, { 0, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0 } },
+    { "lava_cauldron", 9263, 1, 9263, 605, 0, 638, 2, { 0, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0 } },
+    { "powder_snow_cauldron", 9264, 3, 9264, 605, 1, 640, 2, { 0, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0 } },
+    { "end_portal", 9267, 1, 9267, 606, 0, 642, 2, { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "end_portal_frame", 9268, 8, 9272, 606, 2, 644, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "end_stone", 9276, 1, 9276, 608, 0, 645, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dragon_egg", 9277, 1, 9277, 608, 0, 645, 2, { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, VCLASS_DRAGON_EGG_BLOCK, VCLASS_DRAGON_EGG_BLOCK } },
+    { "redstone_lamp", 9278, 2, 9279, 608, 1, 647, 1, { 0, VCLASS_REDSTONE_LAMP_BLOCK, 0, 0, VCLASS_REDSTONE_LAMP_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "cocoa", 9280, 12, 9280, 609, 2, 648, 2, { VCLASS_COCOA_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "sandstone_stairs", 9292, 80, 9303, 611, 4, 650, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "emerald_ore", 9372, 1, 9372, 615, 0, 651, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "deepslate_emerald_ore", 9373, 1, 9373, 615, 0, 652, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "ender_chest", 9374, 8, 9375, 615, 2, 653, 3, { VCLASS_ENDER_CHEST_BLOCK, 0, 0, 0, VCLASS_ENDER_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_ENDER_CHEST_BLOCK, 0 } },
+    { "tripwire_hook", 9382, 16, 9391, 617, 3, 656, 1, { VCLASS_TRIP_WIRE_HOOK_BLOCK, 0, 0, VCLASS_TRIP_WIRE_HOOK_BLOCK, VCLASS_TRIP_WIRE_HOOK_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "tripwire", 9398, 128, 9525, 620, 7, 657, 1, { VCLASS_TRIP_WIRE_BLOCK, 0, VCLASS_TRIP_WIRE_BLOCK, VCLASS_TRIP_WIRE_BLOCK, VCLASS_TRIP_WIRE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "emerald_block", 9526, 1, 9526, 627, 0, 658, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "spruce_stairs", 9527, 80, 9538, 627, 4, 658, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "birch_stairs", 9607, 80, 9618, 631, 4, 659, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "jungle_stairs", 9687, 80, 9698, 635, 4, 660, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "command_block", 9767, 12, 9773, 639, 2, 661, 2, { 0, VCLASS_COMMAND_BLOCK, 0, 0, VCLASS_COMMAND_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_COMMAND_BLOCK, 0 } },
+    { "beacon", 9779, 1, 9779, 641, 0, 663, 2, { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_BEACON_BLOCK, 0 } },
+    { "cobblestone_wall", 9780, 324, 9783, 641, 6, 665, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mossy_cobblestone_wall", 10104, 324, 10107, 647, 6, 666, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "flower_pot", 10428, 1, 10428, 653, 0, 667, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_torchflower", 10429, 1, 10429, 653, 0, 668, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_oak_sapling", 10430, 1, 10430, 653, 0, 669, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_spruce_sapling", 10431, 1, 10431, 653, 0, 670, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_birch_sapling", 10432, 1, 10432, 653, 0, 671, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_jungle_sapling", 10433, 1, 10433, 653, 0, 672, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_acacia_sapling", 10434, 1, 10434, 653, 0, 673, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_cherry_sapling", 10435, 1, 10435, 653, 0, 674, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_dark_oak_sapling", 10436, 1, 10436, 653, 0, 675, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_pale_oak_sapling", 10437, 1, 10437, 653, 0, 676, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_mangrove_propagule", 10438, 1, 10438, 653, 0, 677, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_fern", 10439, 1, 10439, 653, 0, 678, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_dandelion", 10440, 1, 10440, 653, 0, 679, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_poppy", 10441, 1, 10441, 653, 0, 680, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_blue_orchid", 10442, 1, 10442, 653, 0, 681, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_allium", 10443, 1, 10443, 653, 0, 682, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_azure_bluet", 10444, 1, 10444, 653, 0, 683, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_red_tulip", 10445, 1, 10445, 653, 0, 684, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_orange_tulip", 10446, 1, 10446, 653, 0, 685, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_white_tulip", 10447, 1, 10447, 653, 0, 686, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_pink_tulip", 10448, 1, 10448, 653, 0, 687, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_oxeye_daisy", 10449, 1, 10449, 653, 0, 688, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_cornflower", 10450, 1, 10450, 653, 0, 689, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_lily_of_the_valley", 10451, 1, 10451, 653, 0, 690, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_wither_rose", 10452, 1, 10452, 653, 0, 691, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_red_mushroom", 10453, 1, 10453, 653, 0, 692, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_brown_mushroom", 10454, 1, 10454, 653, 0, 693, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_dead_bush", 10455, 1, 10455, 653, 0, 694, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_cactus", 10456, 1, 10456, 653, 0, 695, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "carrots", 10457, 8, 10457, 653, 1, 696, 3, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "potatoes", 10465, 8, 10465, 654, 1, 699, 3, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oak_button", 10473, 24, 10482, 655, 3, 702, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "spruce_button", 10497, 24, 10506, 658, 3, 705, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "birch_button", 10521, 24, 10530, 661, 3, 708, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "jungle_button", 10545, 24, 10554, 664, 3, 711, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "acacia_button", 10569, 24, 10578, 667, 3, 714, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "cherry_button", 10593, 24, 10602, 670, 3, 717, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "dark_oak_button", 10617, 24, 10626, 673, 3, 720, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "pale_oak_button", 10641, 24, 10650, 676, 3, 723, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "mangrove_button", 10665, 24, 10674, 679, 3, 726, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "bamboo_button", 10689, 24, 10698, 682, 3, 729, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "skeleton_skull", 10713, 32, 10729, 685, 2, 732, 3, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "skeleton_wall_skull", 10745, 8, 10746, 687, 2, 735, 3, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "wither_skeleton_skull", 10753, 32, 10769, 689, 2, 738, 4, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "wither_skeleton_wall_skull", 10785, 8, 10786, 691, 2, 742, 4, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "zombie_head", 10793, 32, 10809, 693, 2, 746, 3, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "zombie_wall_head", 10825, 8, 10826, 695, 2, 749, 3, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "player_head", 10833, 32, 10849, 697, 2, 752, 4, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "player_wall_head", 10865, 8, 10866, 699, 2, 756, 4, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "creeper_head", 10873, 32, 10889, 701, 2, 760, 3, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "creeper_wall_head", 10905, 8, 10906, 703, 2, 763, 3, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "dragon_head", 10913, 32, 10929, 705, 2, 766, 3, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "dragon_wall_head", 10945, 8, 10946, 707, 2, 769, 3, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "piglin_head", 10953, 32, 10969, 709, 2, 772, 3, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "piglin_wall_head", 10985, 8, 10986, 711, 2, 775, 4, { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "anvil", 10993, 4, 10993, 713, 1, 779, 2, { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, VCLASS_ANVIL_BLOCK, 0 } },
+    { "chipped_anvil", 10997, 4, 10997, 714, 1, 781, 2, { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, VCLASS_ANVIL_BLOCK, 0 } },
+    { "damaged_anvil", 11001, 4, 11001, 715, 1, 783, 2, { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, VCLASS_ANVIL_BLOCK, 0 } },
+    { "trapped_chest", 11005, 24, 11006, 716, 3, 785, 4, { VCLASS_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_CHEST_BLOCK, 0 } },
+    { "light_weighted_pressure_plate", 11029, 16, 11029, 719, 1, 789, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "heavy_weighted_pressure_plate", 11045, 16, 11045, 720, 1, 791, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "comparator", 11061, 16, 11062, 721, 3, 793, 3, { VCLASS_COMPARATOR_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_COMPARATOR_BLOCK, VCLASS_COMPARATOR_BLOCK, 0, 0, 0, VCLASS_COMPARATOR_BLOCK, 0 } },
+    { "daylight_detector", 11077, 32, 11093, 724, 2, 796, 2, { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_DAYLIGHT_DETECTOR_BLOCK, 0 } },
+    { "redstone_block", 11109, 1, 11109, 726, 0, 798, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "nether_quartz_ore", 11110, 1, 11110, 726, 0, 799, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "hopper", 11111, 10, 11111, 726, 2, 800, 2, { 0, VCLASS_HOPPER_BLOCK, VCLASS_HOPPER_BLOCK, VCLASS_HOPPER_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_HOPPER_BLOCK, 0 } },
+    { "quartz_block", 11121, 1, 11121, 728, 0, 802, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chiseled_quartz_block", 11122, 1, 11122, 728, 0, 802, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "quartz_pillar", 11123, 3, 11124, 728, 1, 802, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "quartz_stairs", 11126, 80, 11137, 729, 4, 803, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "activator_rail", 11206, 24, 11219, 733, 3, 804, 2, { VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dropper", 11230, 12, 11231, 736, 2, 806, 3, { 0, VCLASS_DISPENSER_BLOCK, 0, VCLASS_DISPENSER_BLOCK, VCLASS_DISPENSER_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_DISPENSER_BLOCK, 0 } },
+    { "white_terracotta", 11242, 1, 11242, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "orange_terracotta", 11243, 1, 11243, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "magenta_terracotta", 11244, 1, 11244, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_blue_terracotta", 11245, 1, 11245, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "yellow_terracotta", 11246, 1, 11246, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "lime_terracotta", 11247, 1, 11247, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pink_terracotta", 11248, 1, 11248, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "gray_terracotta", 11249, 1, 11249, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_gray_terracotta", 11250, 1, 11250, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cyan_terracotta", 11251, 1, 11251, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "purple_terracotta", 11252, 1, 11252, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "blue_terracotta", 11253, 1, 11253, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "brown_terracotta", 11254, 1, 11254, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "green_terracotta", 11255, 1, 11255, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_terracotta", 11256, 1, 11256, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "black_terracotta", 11257, 1, 11257, 738, 0, 809, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "white_stained_glass_pane", 11258, 32, 11289, 738, 5, 809, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "orange_stained_glass_pane", 11290, 32, 11321, 743, 5, 812, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "magenta_stained_glass_pane", 11322, 32, 11353, 748, 5, 815, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_blue_stained_glass_pane", 11354, 32, 11385, 753, 5, 818, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "yellow_stained_glass_pane", 11386, 32, 11417, 758, 5, 821, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "lime_stained_glass_pane", 11418, 32, 11449, 763, 5, 824, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pink_stained_glass_pane", 11450, 32, 11481, 768, 5, 827, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "gray_stained_glass_pane", 11482, 32, 11513, 773, 5, 830, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_gray_stained_glass_pane", 11514, 32, 11545, 778, 5, 833, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cyan_stained_glass_pane", 11546, 32, 11577, 783, 5, 836, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "purple_stained_glass_pane", 11578, 32, 11609, 788, 5, 839, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "blue_stained_glass_pane", 11610, 32, 11641, 793, 5, 842, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "brown_stained_glass_pane", 11642, 32, 11673, 798, 5, 845, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "green_stained_glass_pane", 11674, 32, 11705, 803, 5, 848, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_stained_glass_pane", 11706, 32, 11737, 808, 5, 851, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "black_stained_glass_pane", 11738, 32, 11769, 813, 5, 854, 3, { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "acacia_stairs", 11770, 80, 11781, 818, 4, 857, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cherry_stairs", 11850, 80, 11861, 822, 4, 858, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dark_oak_stairs", 11930, 80, 11941, 826, 4, 859, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pale_oak_stairs", 12010, 80, 12021, 830, 4, 860, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mangrove_stairs", 12090, 80, 12101, 834, 4, 861, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "bamboo_stairs", 12170, 80, 12181, 838, 4, 862, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "bamboo_mosaic_stairs", 12250, 80, 12261, 842, 4, 863, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "slime_block", 12330, 1, 12330, 846, 0, 864, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "barrier", 12331, 2, 12332, 846, 1, 866, 1, { VCLASS_BARRIER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light", 12333, 32, 12364, 847, 2, 867, 1, { VCLASS_LIGHT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_LIGHT_BLOCK, 0 } },
+    { "iron_trapdoor", 12365, 64, 12380, 849, 5, 868, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "prismarine", 12429, 1, 12429, 854, 0, 870, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "prismarine_bricks", 12430, 1, 12430, 854, 0, 870, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dark_prismarine", 12431, 1, 12431, 854, 0, 870, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "prismarine_stairs", 12432, 80, 12443, 854, 4, 870, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "prismarine_brick_stairs", 12512, 80, 12523, 858, 4, 871, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dark_prismarine_stairs", 12592, 80, 12603, 862, 4, 872, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "prismarine_slab", 12672, 6, 12675, 866, 2, 873, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "prismarine_brick_slab", 12678, 6, 12681, 868, 2, 874, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dark_prismarine_slab", 12684, 6, 12687, 870, 2, 875, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "sea_lantern", 12690, 1, 12690, 872, 0, 876, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "hay_block", 12691, 3, 12692, 872, 1, 876, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "white_carpet", 12694, 1, 12694, 873, 0, 878, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "orange_carpet", 12695, 1, 12695, 873, 0, 880, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "magenta_carpet", 12696, 1, 12696, 873, 0, 882, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_blue_carpet", 12697, 1, 12697, 873, 0, 884, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "yellow_carpet", 12698, 1, 12698, 873, 0, 886, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "lime_carpet", 12699, 1, 12699, 873, 0, 888, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pink_carpet", 12700, 1, 12700, 873, 0, 890, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "gray_carpet", 12701, 1, 12701, 873, 0, 892, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_gray_carpet", 12702, 1, 12702, 873, 0, 894, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cyan_carpet", 12703, 1, 12703, 873, 0, 896, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "purple_carpet", 12704, 1, 12704, 873, 0, 898, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "blue_carpet", 12705, 1, 12705, 873, 0, 900, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "brown_carpet", 12706, 1, 12706, 873, 0, 902, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "green_carpet", 12707, 1, 12707, 873, 0, 904, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_carpet", 12708, 1, 12708, 873, 0, 906, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "black_carpet", 12709, 1, 12709, 873, 0, 908, 2, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "terracotta", 12710, 1, 12710, 873, 0, 910, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "coal_block", 12711, 1, 12711, 873, 0, 910, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "packed_ice", 12712, 1, 12712, 873, 0, 910, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "sunflower", 12713, 2, 12714, 873, 1, 910, 3, { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "lilac", 12715, 2, 12716, 874, 1, 913, 3, { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "rose_bush", 12717, 2, 12718, 875, 1, 916, 3, { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "peony", 12719, 2, 12720, 876, 1, 919, 3, { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tall_grass", 12721, 2, 12722, 877, 1, 922, 2, { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "large_fern", 12723, 2, 12724, 878, 1, 924, 2, { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "white_banner", 12725, 16, 12725, 879, 1, 926, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "orange_banner", 12741, 16, 12741, 880, 1, 929, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "magenta_banner", 12757, 16, 12757, 881, 1, 932, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "light_blue_banner", 12773, 16, 12773, 882, 1, 935, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "yellow_banner", 12789, 16, 12789, 883, 1, 938, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "lime_banner", 12805, 16, 12805, 884, 1, 941, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "pink_banner", 12821, 16, 12821, 885, 1, 944, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "gray_banner", 12837, 16, 12837, 886, 1, 947, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "light_gray_banner", 12853, 16, 12853, 887, 1, 950, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "cyan_banner", 12869, 16, 12869, 888, 1, 953, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "purple_banner", 12885, 16, 12885, 889, 1, 956, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "blue_banner", 12901, 16, 12901, 890, 1, 959, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "brown_banner", 12917, 16, 12917, 891, 1, 962, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "green_banner", 12933, 16, 12933, 892, 1, 965, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "red_banner", 12949, 16, 12949, 893, 1, 968, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "black_banner", 12965, 16, 12965, 894, 1, 971, 3, { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "white_wall_banner", 12981, 4, 12981, 895, 1, 974, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "orange_wall_banner", 12985, 4, 12985, 896, 1, 977, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "magenta_wall_banner", 12989, 4, 12989, 897, 1, 980, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "light_blue_wall_banner", 12993, 4, 12993, 898, 1, 983, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "yellow_wall_banner", 12997, 4, 12997, 899, 1, 986, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "lime_wall_banner", 13001, 4, 13001, 900, 1, 989, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "pink_wall_banner", 13005, 4, 13005, 901, 1, 992, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "gray_wall_banner", 13009, 4, 13009, 902, 1, 995, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "light_gray_wall_banner", 13013, 4, 13013, 903, 1, 998, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "cyan_wall_banner", 13017, 4, 13017, 904, 1, 1001, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "purple_wall_banner", 13021, 4, 13021, 905, 1, 1004, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "blue_wall_banner", 13025, 4, 13025, 906, 1, 1007, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "brown_wall_banner", 13029, 4, 13029, 907, 1, 1010, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "green_wall_banner", 13033, 4, 13033, 908, 1, 1013, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "red_wall_banner", 13037, 4, 13037, 909, 1, 1016, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "black_wall_banner", 13041, 4, 13041, 910, 1, 1019, 3, { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "red_sandstone", 13045, 1, 13045, 911, 0, 1022, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chiseled_red_sandstone", 13046, 1, 13046, 911, 0, 1022, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cut_red_sandstone", 13047, 1, 13047, 911, 0, 1022, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_sandstone_stairs", 13048, 80, 13059, 911, 4, 1022, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oak_slab", 13128, 6, 13131, 915, 2, 1023, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "spruce_slab", 13134, 6, 13137, 917, 2, 1024, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "birch_slab", 13140, 6, 13143, 919, 2, 1025, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "jungle_slab", 13146, 6, 13149, 921, 2, 1026, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "acacia_slab", 13152, 6, 13155, 923, 2, 1027, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cherry_slab", 13158, 6, 13161, 925, 2, 1028, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dark_oak_slab", 13164, 6, 13167, 927, 2, 1029, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pale_oak_slab", 13170, 6, 13173, 929, 2, 1030, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mangrove_slab", 13176, 6, 13179, 931, 2, 1031, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "bamboo_slab", 13182, 6, 13185, 933, 2, 1032, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "bamboo_mosaic_slab", 13188, 6, 13191, 935, 2, 1033, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stone_slab", 13194, 6, 13197, 937, 2, 1034, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "smooth_stone_slab", 13200, 6, 13203, 939, 2, 1035, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "sandstone_slab", 13206, 6, 13209, 941, 2, 1036, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cut_sandstone_slab", 13212, 6, 13215, 943, 2, 1037, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "petrified_oak_slab", 13218, 6, 13221, 945, 2, 1038, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cobblestone_slab", 13224, 6, 13227, 947, 2, 1039, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "brick_slab", 13230, 6, 13233, 949, 2, 1040, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stone_brick_slab", 13236, 6, 13239, 951, 2, 1041, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mud_brick_slab", 13242, 6, 13245, 953, 2, 1042, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "nether_brick_slab", 13248, 6, 13251, 955, 2, 1043, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "quartz_slab", 13254, 6, 13257, 957, 2, 1044, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_sandstone_slab", 13260, 6, 13263, 959, 2, 1045, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cut_red_sandstone_slab", 13266, 6, 13269, 961, 2, 1046, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "purpur_slab", 13272, 6, 13275, 963, 2, 1047, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "smooth_stone", 13278, 1, 13278, 965, 0, 1048, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "smooth_sandstone", 13279, 1, 13279, 965, 0, 1048, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "smooth_quartz", 13280, 1, 13280, 965, 0, 1048, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "smooth_red_sandstone", 13281, 1, 13281, 965, 0, 1048, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "spruce_fence_gate", 13282, 32, 13289, 965, 4, 1048, 2, { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_GATE_BLOCK, 0 } },
+    { "birch_fence_gate", 13314, 32, 13321, 969, 4, 1050, 2, { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_GATE_BLOCK, 0 } },
+    { "jungle_fence_gate", 13346, 32, 13353, 973, 4, 1052, 2, { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_GATE_BLOCK, 0 } },
+    { "acacia_fence_gate", 13378, 32, 13385, 977, 4, 1054, 2, { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_GATE_BLOCK, 0 } },
+    { "cherry_fence_gate", 13410, 32, 13417, 981, 4, 1056, 2, { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_GATE_BLOCK, 0 } },
+    { "dark_oak_fence_gate", 13442, 32, 13449, 985, 4, 1058, 2, { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_GATE_BLOCK, 0 } },
+    { "pale_oak_fence_gate", 13474, 32, 13481, 989, 4, 1060, 2, { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_GATE_BLOCK, 0 } },
+    { "mangrove_fence_gate", 13506, 32, 13513, 993, 4, 1062, 2, { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_GATE_BLOCK, 0 } },
+    { "bamboo_fence_gate", 13538, 32, 13545, 997, 4, 1064, 2, { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_GATE_BLOCK, 0 } },
+    { "spruce_fence", 13570, 32, 13601, 1001, 5, 1066, 2, { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_BLOCK, 0 } },
+    { "birch_fence", 13602, 32, 13633, 1006, 5, 1068, 2, { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_BLOCK, 0 } },
+    { "jungle_fence", 13634, 32, 13665, 1011, 5, 1070, 2, { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_BLOCK, 0 } },
+    { "acacia_fence", 13666, 32, 13697, 1016, 5, 1072, 2, { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_BLOCK, 0 } },
+    { "cherry_fence", 13698, 32, 13729, 1021, 5, 1074, 2, { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_BLOCK, 0 } },
+    { "dark_oak_fence", 13730, 32, 13761, 1026, 5, 1076, 2, { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_BLOCK, 0 } },
+    { "pale_oak_fence", 13762, 32, 13793, 1031, 5, 1078, 2, { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_BLOCK, 0 } },
+    { "mangrove_fence", 13794, 32, 13825, 1036, 5, 1080, 2, { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_BLOCK, 0 } },
+    { "bamboo_fence", 13826, 32, 13857, 1041, 5, 1082, 2, { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_BLOCK, 0 } },
+    { "spruce_door", 13858, 64, 13869, 1046, 5, 1084, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "birch_door", 13922, 64, 13933, 1051, 5, 1085, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "jungle_door", 13986, 64, 13997, 1056, 5, 1086, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "acacia_door", 14050, 64, 14061, 1061, 5, 1087, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "cherry_door", 14114, 64, 14125, 1066, 5, 1088, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "dark_oak_door", 14178, 64, 14189, 1071, 5, 1089, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "pale_oak_door", 14242, 64, 14253, 1076, 5, 1090, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "mangrove_door", 14306, 64, 14317, 1081, 5, 1091, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "bamboo_door", 14370, 64, 14381, 1086, 5, 1092, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "end_rod", 14434, 6, 14438, 1091, 1, 1093, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chorus_plant", 14440, 64, 14503, 1092, 6, 1096, 2, { VCLASS_CHORUS_PLANT_BLOCK, 0, 0, 0, VCLASS_CHORUS_PLANT_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "chorus_flower", 14504, 6, 14504, 1098, 1, 1098, 1, { VCLASS_CHORUS_FLOWER_BLOCK, 0, 0, 0, VCLASS_CHORUS_FLOWER_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "purpur_block", 14510, 1, 14510, 1099, 0, 1099, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "purpur_pillar", 14511, 3, 14512, 1099, 1, 1099, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "purpur_stairs", 14514, 80, 14525, 1100, 4, 1100, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "end_stone_bricks", 14594, 1, 14594, 1104, 0, 1101, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "torchflower_crop", 14595, 2, 14595, 1104, 1, 1101, 3, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pitcher_crop", 14597, 10, 14598, 1105, 2, 1104, 3, { VCLASS_PITCHER_CROP_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pitcher_plant", 14607, 2, 14608, 1107, 1, 1107, 2, { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "beetroots", 14609, 4, 14609, 1108, 1, 1109, 3, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dirt_path", 14613, 1, 14613, 1109, 0, 1112, 1, { VCLASS_DIRT_PATH_BLOCK, 0, 0, 0, VCLASS_DIRT_PATH_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "end_gateway", 14614, 1, 14614, 1109, 0, 1113, 2, { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "repeating_command_block", 14615, 12, 14621, 1109, 2, 1115, 2, { 0, VCLASS_COMMAND_BLOCK, 0, 0, VCLASS_COMMAND_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_COMMAND_BLOCK, 0 } },
+    { "chain_command_block", 14627, 12, 14633, 1111, 2, 1117, 2, { 0, VCLASS_COMMAND_BLOCK, 0, 0, VCLASS_COMMAND_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_COMMAND_BLOCK, 0 } },
+    { "frosted_ice", 14639, 4, 14639, 1113, 1, 1119, 3, { 0, VCLASS_FROSTED_ICE_BLOCK, VCLASS_FROSTED_ICE_BLOCK, 0, VCLASS_FROSTED_ICE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "magma_block", 14643, 1, 14643, 1114, 0, 1122, 1, { VCLASS_MAGMA_BLOCK, 0, VCLASS_MAGMA_BLOCK, 0, VCLASS_MAGMA_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "nether_wart_block", 14644, 1, 14644, 1114, 0, 1123, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_nether_bricks", 14645, 1, 14645, 1114, 0, 1123, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "bone_block", 14646, 3, 14647, 1114, 1, 1123, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "structure_void", 14649, 1, 14649, 1115, 0, 1124, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "observer", 14650, 12, 14655, 1115, 2, 1125, 2, { VCLASS_OBSERVER_BLOCK, 0, VCLASS_OBSERVER_BLOCK, VCLASS_OBSERVER_BLOCK, VCLASS_OBSERVER_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "shulker_box", 14662, 6, 14666, 1117, 1, 1127, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "white_shulker_box", 14668, 6, 14672, 1118, 1, 1129, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "orange_shulker_box", 14674, 6, 14678, 1119, 1, 1131, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "magenta_shulker_box", 14680, 6, 14684, 1120, 1, 1133, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "light_blue_shulker_box", 14686, 6, 14690, 1121, 1, 1135, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "yellow_shulker_box", 14692, 6, 14696, 1122, 1, 1137, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "lime_shulker_box", 14698, 6, 14702, 1123, 1, 1139, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "pink_shulker_box", 14704, 6, 14708, 1124, 1, 1141, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "gray_shulker_box", 14710, 6, 14714, 1125, 1, 1143, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "light_gray_shulker_box", 14716, 6, 14720, 1126, 1, 1145, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "cyan_shulker_box", 14722, 6, 14726, 1127, 1, 1147, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "purple_shulker_box", 14728, 6, 14732, 1128, 1, 1149, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "blue_shulker_box", 14734, 6, 14738, 1129, 1, 1151, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "brown_shulker_box", 14740, 6, 14744, 1130, 1, 1153, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "green_shulker_box", 14746, 6, 14750, 1131, 1, 1155, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "red_shulker_box", 14752, 6, 14756, 1132, 1, 1157, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "black_shulker_box", 14758, 6, 14762, 1133, 1, 1159, 2, { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0 } },
+    { "white_glazed_terracotta", 14764, 4, 14764, 1134, 1, 1161, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "orange_glazed_terracotta", 14768, 4, 14768, 1135, 1, 1163, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "magenta_glazed_terracotta", 14772, 4, 14772, 1136, 1, 1165, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_blue_glazed_terracotta", 14776, 4, 14776, 1137, 1, 1167, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "yellow_glazed_terracotta", 14780, 4, 14780, 1138, 1, 1169, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "lime_glazed_terracotta", 14784, 4, 14784, 1139, 1, 1171, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pink_glazed_terracotta", 14788, 4, 14788, 1140, 1, 1173, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "gray_glazed_terracotta", 14792, 4, 14792, 1141, 1, 1175, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_gray_glazed_terracotta", 14796, 4, 14796, 1142, 1, 1177, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cyan_glazed_terracotta", 14800, 4, 14800, 1143, 1, 1179, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "purple_glazed_terracotta", 14804, 4, 14804, 1144, 1, 1181, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "blue_glazed_terracotta", 14808, 4, 14808, 1145, 1, 1183, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "brown_glazed_terracotta", 14812, 4, 14812, 1146, 1, 1185, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "green_glazed_terracotta", 14816, 4, 14816, 1147, 1, 1187, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_glazed_terracotta", 14820, 4, 14820, 1148, 1, 1189, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "black_glazed_terracotta", 14824, 4, 14824, 1149, 1, 1191, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "white_concrete", 14828, 1, 14828, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "orange_concrete", 14829, 1, 14829, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "magenta_concrete", 14830, 1, 14830, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_blue_concrete", 14831, 1, 14831, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "yellow_concrete", 14832, 1, 14832, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "lime_concrete", 14833, 1, 14833, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pink_concrete", 14834, 1, 14834, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "gray_concrete", 14835, 1, 14835, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "light_gray_concrete", 14836, 1, 14836, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cyan_concrete", 14837, 1, 14837, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "purple_concrete", 14838, 1, 14838, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "blue_concrete", 14839, 1, 14839, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "brown_concrete", 14840, 1, 14840, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "green_concrete", 14841, 1, 14841, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_concrete", 14842, 1, 14842, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "black_concrete", 14843, 1, 14843, 1150, 0, 1193, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "white_concrete_powder", 14844, 1, 14844, 1150, 0, 1193, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "orange_concrete_powder", 14845, 1, 14845, 1150, 0, 1195, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "magenta_concrete_powder", 14846, 1, 14846, 1150, 0, 1197, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "light_blue_concrete_powder", 14847, 1, 14847, 1150, 0, 1199, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "yellow_concrete_powder", 14848, 1, 14848, 1150, 0, 1201, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "lime_concrete_powder", 14849, 1, 14849, 1150, 0, 1203, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "pink_concrete_powder", 14850, 1, 14850, 1150, 0, 1205, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "gray_concrete_powder", 14851, 1, 14851, 1150, 0, 1207, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "light_gray_concrete_powder", 14852, 1, 14852, 1150, 0, 1209, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "cyan_concrete_powder", 14853, 1, 14853, 1150, 0, 1211, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "purple_concrete_powder", 14854, 1, 14854, 1150, 0, 1213, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "blue_concrete_powder", 14855, 1, 14855, 1150, 0, 1215, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "brown_concrete_powder", 14856, 1, 14856, 1150, 0, 1217, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "green_concrete_powder", 14857, 1, 14857, 1150, 0, 1219, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "red_concrete_powder", 14858, 1, 14858, 1150, 0, 1221, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "black_concrete_powder", 14859, 1, 14859, 1150, 0, 1223, 2, { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "kelp", 14860, 26, 14860, 1150, 1, 1225, 3, { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "kelp_plant", 14886, 1, 14886, 1151, 0, 1228, 3, { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "dried_kelp_block", 14887, 1, 14887, 1151, 0, 1231, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "turtle_egg", 14888, 12, 14888, 1151, 2, 1231, 1, { 0, 0, VCLASS_TURTLE_EGG_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "sniffer_egg", 14900, 3, 14900, 1153, 1, 1232, 1, { 0, 0, VCLASS_SNIFFER_EGG_BLOCK, 0, VCLASS_SNIFFER_EGG_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "dried_ghast", 14903, 32, 14904, 1154, 3, 1233, 2, { VCLASS_DRIED_GHAST_BLOCK, 0, 0, 0, VCLASS_DRIED_GHAST_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "dead_tube_coral_block", 14935, 1, 14935, 1157, 0, 1235, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_brain_coral_block", 14936, 1, 14936, 1157, 0, 1235, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_bubble_coral_block", 14937, 1, 14937, 1157, 0, 1235, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_fire_coral_block", 14938, 1, 14938, 1157, 0, 1235, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_horn_coral_block", 14939, 1, 14939, 1157, 0, 1235, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tube_coral_block", 14940, 1, 14940, 1157, 0, 1235, 1, { VCLASS_CORAL_BLOCK, 0, 0, 0, VCLASS_CORAL_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "brain_coral_block", 14941, 1, 14941, 1157, 0, 1236, 1, { VCLASS_CORAL_BLOCK, 0, 0, 0, VCLASS_CORAL_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "bubble_coral_block", 14942, 1, 14942, 1157, 0, 1237, 1, { VCLASS_CORAL_BLOCK, 0, 0, 0, VCLASS_CORAL_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "fire_coral_block", 14943, 1, 14943, 1157, 0, 1238, 1, { VCLASS_CORAL_BLOCK, 0, 0, 0, VCLASS_CORAL_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "horn_coral_block", 14944, 1, 14944, 1157, 0, 1239, 1, { VCLASS_CORAL_BLOCK, 0, 0, 0, VCLASS_CORAL_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "dead_tube_coral", 14945, 2, 14945, 1157, 1, 1240, 2, { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_brain_coral", 14947, 2, 14947, 1158, 1, 1242, 2, { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_bubble_coral", 14949, 2, 14949, 1159, 1, 1244, 2, { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_fire_coral", 14951, 2, 14951, 1160, 1, 1246, 2, { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_horn_coral", 14953, 2, 14953, 1161, 1, 1248, 2, { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tube_coral", 14955, 2, 14955, 1162, 1, 1250, 2, { VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "brain_coral", 14957, 2, 14957, 1163, 1, 1252, 2, { VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "bubble_coral", 14959, 2, 14959, 1164, 1, 1254, 2, { VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "fire_coral", 14961, 2, 14961, 1165, 1, 1256, 2, { VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "horn_coral", 14963, 2, 14963, 1166, 1, 1258, 2, { VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "dead_tube_coral_fan", 14965, 2, 14965, 1167, 1, 1260, 2, { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_brain_coral_fan", 14967, 2, 14967, 1168, 1, 1262, 2, { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_bubble_coral_fan", 14969, 2, 14969, 1169, 1, 1264, 2, { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_fire_coral_fan", 14971, 2, 14971, 1170, 1, 1266, 2, { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_horn_coral_fan", 14973, 2, 14973, 1171, 1, 1268, 2, { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tube_coral_fan", 14975, 2, 14975, 1172, 1, 1270, 3, { VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "brain_coral_fan", 14977, 2, 14977, 1173, 1, 1273, 3, { VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "bubble_coral_fan", 14979, 2, 14979, 1174, 1, 1276, 3, { VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "fire_coral_fan", 14981, 2, 14981, 1175, 1, 1279, 3, { VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "horn_coral_fan", 14983, 2, 14983, 1176, 1, 1282, 3, { VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "dead_tube_coral_wall_fan", 14985, 8, 14985, 1177, 2, 1285, 3, { VCLASS_BASE_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_brain_coral_wall_fan", 14993, 8, 14993, 1179, 2, 1288, 3, { VCLASS_BASE_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_bubble_coral_wall_fan", 15001, 8, 15001, 1181, 2, 1291, 3, { VCLASS_BASE_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_fire_coral_wall_fan", 15009, 8, 15009, 1183, 2, 1294, 3, { VCLASS_BASE_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "dead_horn_coral_wall_fan", 15017, 8, 15017, 1185, 2, 1297, 3, { VCLASS_BASE_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tube_coral_wall_fan", 15025, 8, 15025, 1187, 2, 1300, 4, { VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "brain_coral_wall_fan", 15033, 8, 15033, 1189, 2, 1304, 4, { VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "bubble_coral_wall_fan", 15041, 8, 15041, 1191, 2, 1308, 4, { VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "fire_coral_wall_fan", 15049, 8, 15049, 1193, 2, 1312, 4, { VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "horn_coral_wall_fan", 15057, 8, 15057, 1195, 2, 1316, 4, { VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "sea_pickle", 15065, 8, 15065, 1197, 2, 1320, 2, { VCLASS_SEA_PICKLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "blue_ice", 15073, 1, 15073, 1199, 0, 1322, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "conduit", 15074, 2, 15074, 1199, 1, 1323, 2, { VCLASS_CONDUIT_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "bamboo_sapling", 15076, 1, 15076, 1200, 0, 1325, 1, { VCLASS_BAMBOO_SAPLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "bamboo", 15077, 12, 15077, 1200, 3, 1326, 1, { VCLASS_BAMBOO_STALK_BLOCK, 0, 0, 0, VCLASS_BAMBOO_STALK_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "potted_bamboo", 15089, 1, 15089, 1203, 0, 1327, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "void_air", 15090, 1, 15090, 1203, 0, 1328, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cave_air", 15091, 1, 15091, 1203, 0, 1329, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "bubble_column", 15092, 2, 15092, 1203, 1, 1330, 1, { VCLASS_BUBBLE_COLUMN_BLOCK, 0, 0, 0, VCLASS_BUBBLE_COLUMN_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "polished_granite_stairs", 15094, 80, 15105, 1204, 4, 1331, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "smooth_red_sandstone_stairs", 15174, 80, 15185, 1208, 4, 1332, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mossy_stone_brick_stairs", 15254, 80, 15265, 1212, 4, 1333, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_diorite_stairs", 15334, 80, 15345, 1216, 4, 1334, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mossy_cobblestone_stairs", 15414, 80, 15425, 1220, 4, 1335, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "end_stone_brick_stairs", 15494, 80, 15505, 1224, 4, 1336, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stone_stairs", 15574, 80, 15585, 1228, 4, 1337, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "smooth_sandstone_stairs", 15654, 80, 15665, 1232, 4, 1338, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "smooth_quartz_stairs", 15734, 80, 15745, 1236, 4, 1339, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "granite_stairs", 15814, 80, 15825, 1240, 4, 1340, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "andesite_stairs", 15894, 80, 15905, 1244, 4, 1341, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_nether_brick_stairs", 15974, 80, 15985, 1248, 4, 1342, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_andesite_stairs", 16054, 80, 16065, 1252, 4, 1343, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "diorite_stairs", 16134, 80, 16145, 1256, 4, 1344, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_granite_slab", 16214, 6, 16217, 1260, 2, 1345, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "smooth_red_sandstone_slab", 16220, 6, 16223, 1262, 2, 1346, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mossy_stone_brick_slab", 16226, 6, 16229, 1264, 2, 1347, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_diorite_slab", 16232, 6, 16235, 1266, 2, 1348, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mossy_cobblestone_slab", 16238, 6, 16241, 1268, 2, 1349, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "end_stone_brick_slab", 16244, 6, 16247, 1270, 2, 1350, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "smooth_sandstone_slab", 16250, 6, 16253, 1272, 2, 1351, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "smooth_quartz_slab", 16256, 6, 16259, 1274, 2, 1352, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "granite_slab", 16262, 6, 16265, 1276, 2, 1353, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "andesite_slab", 16268, 6, 16271, 1278, 2, 1354, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_nether_brick_slab", 16274, 6, 16277, 1280, 2, 1355, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_andesite_slab", 16280, 6, 16283, 1282, 2, 1356, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "diorite_slab", 16286, 6, 16289, 1284, 2, 1357, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "brick_wall", 16292, 324, 16295, 1286, 6, 1358, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "prismarine_wall", 16616, 324, 16619, 1292, 6, 1359, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_sandstone_wall", 16940, 324, 16943, 1298, 6, 1360, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mossy_stone_brick_wall", 17264, 324, 17267, 1304, 6, 1361, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "granite_wall", 17588, 324, 17591, 1310, 6, 1362, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stone_brick_wall", 17912, 324, 17915, 1316, 6, 1363, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mud_brick_wall", 18236, 324, 18239, 1322, 6, 1364, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "nether_brick_wall", 18560, 324, 18563, 1328, 6, 1365, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "andesite_wall", 18884, 324, 18887, 1334, 6, 1366, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "red_nether_brick_wall", 19208, 324, 19211, 1340, 6, 1367, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "sandstone_wall", 19532, 324, 19535, 1346, 6, 1368, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "end_stone_brick_wall", 19856, 324, 19859, 1352, 6, 1369, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "diorite_wall", 20180, 324, 20183, 1358, 6, 1370, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "scaffolding", 20504, 32, 20535, 1364, 3, 1371, 1, { VCLASS_SCAFFOLDING_BLOCK, 0, VCLASS_SCAFFOLDING_BLOCK, 0, VCLASS_SCAFFOLDING_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "loom", 20536, 4, 20536, 1367, 1, 1372, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_LOOM_BLOCK, 0 } },
+    { "barrel", 20540, 12, 20541, 1368, 2, 1374, 2, { 0, 0, 0, VCLASS_BARREL_BLOCK, VCLASS_BARREL_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_BARREL_BLOCK, 0 } },
+    { "smoker", 20552, 8, 20553, 1370, 2, 1376, 3, { 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0 } },
+    { "blast_furnace", 20560, 8, 20561, 1372, 2, 1379, 3, { 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0 } },
+    { "cartography_table", 20568, 1, 20568, 1374, 0, 1382, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CARTOGRAPHY_TABLE_BLOCK, 0 } },
+    { "fletching_table", 20569, 1, 20569, 1374, 0, 1383, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "grindstone", 20570, 12, 20574, 1374, 2, 1383, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_GRINDSTONE_BLOCK, 0 } },
+    { "lectern", 20582, 16, 20585, 1376, 3, 1386, 2, { 0, 0, 0, VCLASS_LECTERN_BLOCK, VCLASS_LECTERN_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_LECTERN_BLOCK, VCLASS_LECTERN_BLOCK, 0 } },
+    { "smithing_table", 20598, 1, 20598, 1379, 0, 1388, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SMITHING_TABLE_BLOCK, 0 } },
+    { "stonecutter", 20599, 4, 20599, 1379, 1, 1390, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_STONECUTTER_BLOCK, 0 } },
+    { "bell", 20603, 32, 20604, 1380, 3, 1391, 2, { VCLASS_BELL_BLOCK, VCLASS_BELL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_BELL_BLOCK, 0 } },
+    { "lantern", 20635, 4, 20638, 1383, 2, 1393, 1, { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "soul_lantern", 20639, 4, 20642, 1385, 2, 1394, 1, { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "copper_lantern", 20643, 4, 20646, 1387, 2, 1395, 2, { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "exposed_copper_lantern", 20647, 4, 20650, 1389, 2, 1397, 2, { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "weathered_copper_lantern", 20651, 4, 20654, 1391, 2, 1399, 2, { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oxidized_copper_lantern", 20655, 4, 20658, 1393, 2, 1401, 2, { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_copper_lantern", 20659, 4, 20662, 1395, 2, 1403, 1, { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_exposed_copper_lantern", 20663, 4, 20666, 1397, 2, 1404, 1, { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_weathered_copper_lantern", 20667, 4, 20670, 1399, 2, 1405, 1, { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_oxidized_copper_lantern", 20671, 4, 20674, 1401, 2, 1406, 1, { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "campfire", 20675, 32, 20678, 1403, 4, 1407, 2, { VCLASS_CAMPFIRE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CAMPFIRE_BLOCK, 0, 0 } },
+    { "soul_campfire", 20707, 32, 20710, 1407, 4, 1409, 2, { VCLASS_CAMPFIRE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_CAMPFIRE_BLOCK, 0, 0 } },
+    { "sweet_berry_bush", 20739, 4, 20739, 1411, 1, 1411, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_SWEET_BERRY_BUSH_BLOCK, VCLASS_SWEET_BERRY_BUSH_BLOCK, 0 } },
+    { "warped_stem", 20743, 3, 20744, 1412, 1, 1413, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_warped_stem", 20746, 3, 20747, 1413, 1, 1414, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "warped_hyphae", 20749, 3, 20750, 1414, 1, 1415, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_warped_hyphae", 20752, 3, 20753, 1415, 1, 1416, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "warped_nylium", 20755, 1, 20755, 1416, 0, 1417, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "warped_fungus", 20756, 1, 20756, 1416, 0, 1418, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "warped_wart_block", 20757, 1, 20757, 1416, 0, 1420, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "warped_roots", 20758, 1, 20758, 1416, 0, 1420, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "nether_sprouts", 20759, 1, 20759, 1416, 0, 1422, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "crimson_stem", 20760, 3, 20761, 1416, 1, 1424, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_crimson_stem", 20763, 3, 20764, 1417, 1, 1425, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "crimson_hyphae", 20766, 3, 20767, 1418, 1, 1426, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "stripped_crimson_hyphae", 20769, 3, 20770, 1419, 1, 1427, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "crimson_nylium", 20772, 1, 20772, 1420, 0, 1428, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "crimson_fungus", 20773, 1, 20773, 1420, 0, 1429, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "shroomlight", 20774, 1, 20774, 1420, 0, 1431, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "weeping_vines", 20775, 26, 20775, 1420, 1, 1431, 3, { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "weeping_vines_plant", 20801, 1, 20801, 1421, 0, 1434, 3, { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "twisting_vines", 20802, 26, 20802, 1421, 1, 1437, 3, { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "twisting_vines_plant", 20828, 1, 20828, 1422, 0, 1440, 3, { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "crimson_roots", 20829, 1, 20829, 1422, 0, 1443, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "crimson_planks", 20830, 1, 20830, 1422, 0, 1445, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "warped_planks", 20831, 1, 20831, 1422, 0, 1445, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "crimson_slab", 20832, 6, 20835, 1422, 2, 1445, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "warped_slab", 20838, 6, 20841, 1424, 2, 1446, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "crimson_pressure_plate", 20844, 2, 20845, 1426, 1, 1447, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "warped_pressure_plate", 20846, 2, 20847, 1427, 1, 1449, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "crimson_fence", 20848, 32, 20879, 1428, 5, 1451, 2, { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_BLOCK, 0 } },
+    { "warped_fence", 20880, 32, 20911, 1433, 5, 1453, 2, { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_BLOCK, 0 } },
+    { "crimson_trapdoor", 20912, 64, 20927, 1438, 5, 1455, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "warped_trapdoor", 20976, 64, 20991, 1443, 5, 1457, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "crimson_fence_gate", 21040, 32, 21047, 1448, 4, 1459, 2, { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_GATE_BLOCK, 0 } },
+    { "warped_fence_gate", 21072, 32, 21079, 1452, 4, 1461, 2, { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_GATE_BLOCK, 0 } },
+    { "crimson_stairs", 21104, 80, 21115, 1456, 4, 1463, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "warped_stairs", 21184, 80, 21195, 1460, 4, 1464, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "crimson_button", 21264, 24, 21273, 1464, 3, 1465, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "warped_button", 21288, 24, 21297, 1467, 3, 1468, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "crimson_door", 21312, 64, 21323, 1470, 5, 1471, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "warped_door", 21376, 64, 21387, 1475, 5, 1472, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "crimson_sign", 21440, 32, 21441, 1480, 2, 1473, 3, { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "warped_sign", 21472, 32, 21473, 1482, 2, 1476, 3, { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "crimson_wall_sign", 21504, 8, 21505, 1484, 2, 1479, 3, { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "warped_wall_sign", 21512, 8, 21513, 1486, 2, 1482, 3, { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_SIGN_BLOCK, VCLASS_SIGN_BLOCK, 0 } },
+    { "structure_block", 21520, 4, 21521, 1488, 1, 1485, 2, { 0, VCLASS_STRUCTURE_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_STRUCTURE_BLOCK, 0 } },
+    { "jigsaw", 21524, 12, 21534, 1489, 1, 1487, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_JIGSAW_BLOCK, 0 } },
+    { "test_block", 21536, 4, 21536, 1490, 1, 1488, 2, { 0, VCLASS_TEST_BLOCK, 0, 0, VCLASS_TEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_TEST_BLOCK, 0 } },
+    { "test_instance_block", 21540, 1, 21540, 1491, 0, 1490, 2, { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_TEST_INSTANCE_BLOCK, 0 } },
+    { "composter", 21541, 9, 21541, 1491, 1, 1492, 1, { 0, 0, VCLASS_COMPOSTER_BLOCK, 0, VCLASS_COMPOSTER_BLOCK, 0, 0, 0, VCLASS_COMPOSTER_BLOCK, VCLASS_COMPOSTER_BLOCK, 0 } },
+    { "target", 21550, 16, 21550, 1492, 1, 1493, 1, { 0, 0, VCLASS_TARGET_BLOCK, 0, VCLASS_TARGET_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "bee_nest", 21566, 24, 21566, 1493, 2, 1494, 2, { VCLASS_BEEHIVE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_BEEHIVE_BLOCK, 0, 0 } },
+    { "beehive", 21590, 24, 21590, 1495, 2, 1496, 2, { VCLASS_BEEHIVE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_BEEHIVE_BLOCK, 0, 0 } },
+    { "honey_block", 21614, 1, 21614, 1497, 0, 1498, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "honeycomb_block", 21615, 1, 21615, 1497, 0, 1500, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "netherite_block", 21616, 1, 21616, 1497, 0, 1500, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "ancient_debris", 21617, 1, 21617, 1497, 0, 1500, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "crying_obsidian", 21618, 1, 21618, 1497, 0, 1500, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "respawn_anchor", 21619, 5, 21619, 1497, 1, 1501, 1, { 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_RESPAWN_ANCHOR_BLOCK, VCLASS_RESPAWN_ANCHOR_BLOCK, 0 } },
+    { "potted_crimson_fungus", 21624, 1, 21624, 1498, 0, 1502, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_warped_fungus", 21625, 1, 21625, 1498, 0, 1503, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_crimson_roots", 21626, 1, 21626, 1498, 0, 1504, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_warped_roots", 21627, 1, 21627, 1498, 0, 1505, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "lodestone", 21628, 1, 21628, 1498, 0, 1506, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "blackstone", 21629, 1, 21629, 1498, 0, 1506, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "blackstone_stairs", 21630, 80, 21641, 1498, 4, 1506, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "blackstone_wall", 21710, 324, 21713, 1502, 6, 1507, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "blackstone_slab", 22034, 6, 22037, 1508, 2, 1508, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_blackstone", 22040, 1, 22040, 1510, 0, 1509, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_blackstone_bricks", 22041, 1, 22041, 1510, 0, 1509, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cracked_polished_blackstone_bricks", 22042, 1, 22042, 1510, 0, 1509, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chiseled_polished_blackstone", 22043, 1, 22043, 1510, 0, 1509, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_blackstone_brick_slab", 22044, 6, 22047, 1510, 2, 1509, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_blackstone_brick_stairs", 22050, 80, 22061, 1512, 4, 1510, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_blackstone_brick_wall", 22130, 324, 22133, 1516, 6, 1511, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "gilded_blackstone", 22454, 1, 22454, 1522, 0, 1512, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_blackstone_stairs", 22455, 80, 22466, 1522, 4, 1512, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_blackstone_slab", 22535, 6, 22538, 1526, 2, 1513, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_blackstone_pressure_plate", 22541, 2, 22542, 1528, 1, 1514, 2, { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "polished_blackstone_button", 22543, 24, 22552, 1529, 3, 1516, 3, { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0 } },
+    { "polished_blackstone_wall", 22567, 324, 22570, 1532, 6, 1519, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chiseled_nether_bricks", 22891, 1, 22891, 1538, 0, 1520, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cracked_nether_bricks", 22892, 1, 22892, 1538, 0, 1520, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "quartz_bricks", 22893, 1, 22893, 1538, 0, 1520, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "candle", 22894, 16, 22897, 1538, 3, 1520, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "white_candle", 22910, 16, 22913, 1541, 3, 1522, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "orange_candle", 22926, 16, 22929, 1544, 3, 1524, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "magenta_candle", 22942, 16, 22945, 1547, 3, 1526, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "light_blue_candle", 22958, 16, 22961, 1550, 3, 1528, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "yellow_candle", 22974, 16, 22977, 1553, 3, 1530, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "lime_candle", 22990, 16, 22993, 1556, 3, 1532, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "pink_candle", 23006, 16, 23009, 1559, 3, 1534, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "gray_candle", 23022, 16, 23025, 1562, 3, 1536, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "light_gray_candle", 23038, 16, 23041, 1565, 3, 1538, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "cyan_candle", 23054, 16, 23057, 1568, 3, 1540, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "purple_candle", 23070, 16, 23073, 1571, 3, 1542, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "blue_candle", 23086, 16, 23089, 1574, 3, 1544, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "brown_candle", 23102, 16, 23105, 1577, 3, 1546, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "green_candle", 23118, 16, 23121, 1580, 3, 1548, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "red_candle", 23134, 16, 23137, 1583, 3, 1550, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "black_candle", 23150, 16, 23153, 1586, 3, 1552, 2, { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0 } },
+    { "candle_cake", 23166, 2, 23167, 1589, 1, 1554, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "white_candle_cake", 23168, 2, 23169, 1590, 1, 1556, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "orange_candle_cake", 23170, 2, 23171, 1591, 1, 1558, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "magenta_candle_cake", 23172, 2, 23173, 1592, 1, 1560, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "light_blue_candle_cake", 23174, 2, 23175, 1593, 1, 1562, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "yellow_candle_cake", 23176, 2, 23177, 1594, 1, 1564, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "lime_candle_cake", 23178, 2, 23179, 1595, 1, 1566, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "pink_candle_cake", 23180, 2, 23181, 1596, 1, 1568, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "gray_candle_cake", 23182, 2, 23183, 1597, 1, 1570, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "light_gray_candle_cake", 23184, 2, 23185, 1598, 1, 1572, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "cyan_candle_cake", 23186, 2, 23187, 1599, 1, 1574, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "purple_candle_cake", 23188, 2, 23189, 1600, 1, 1576, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "blue_candle_cake", 23190, 2, 23191, 1601, 1, 1578, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "brown_candle_cake", 23192, 2, 23193, 1602, 1, 1580, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "green_candle_cake", 23194, 2, 23195, 1603, 1, 1582, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "red_candle_cake", 23196, 2, 23197, 1604, 1, 1584, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "black_candle_cake", 23198, 2, 23199, 1605, 1, 1586, 2, { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0 } },
+    { "amethyst_block", 23200, 1, 23200, 1606, 0, 1588, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "budding_amethyst", 23201, 1, 23201, 1606, 0, 1589, 2, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "amethyst_cluster", 23202, 12, 23211, 1606, 2, 1591, 2, { VCLASS_AMETHYST_CLUSTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "large_amethyst_bud", 23214, 12, 23223, 1608, 2, 1593, 2, { VCLASS_AMETHYST_CLUSTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "medium_amethyst_bud", 23226, 12, 23235, 1610, 2, 1595, 2, { VCLASS_AMETHYST_CLUSTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "small_amethyst_bud", 23238, 12, 23247, 1612, 2, 1597, 2, { VCLASS_AMETHYST_CLUSTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tuff", 23250, 1, 23250, 1614, 0, 1599, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tuff_slab", 23251, 6, 23254, 1614, 2, 1599, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tuff_stairs", 23257, 80, 23268, 1616, 4, 1600, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tuff_wall", 23337, 324, 23340, 1620, 6, 1601, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_tuff", 23661, 1, 23661, 1626, 0, 1602, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_tuff_slab", 23662, 6, 23665, 1626, 2, 1602, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_tuff_stairs", 23668, 80, 23679, 1628, 4, 1603, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_tuff_wall", 23748, 324, 23751, 1632, 6, 1604, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chiseled_tuff", 24072, 1, 24072, 1638, 0, 1605, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tuff_bricks", 24073, 1, 24073, 1638, 0, 1605, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tuff_brick_slab", 24074, 6, 24077, 1638, 2, 1605, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tuff_brick_stairs", 24080, 80, 24091, 1640, 4, 1606, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tuff_brick_wall", 24160, 324, 24163, 1644, 6, 1607, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chiseled_tuff_bricks", 24484, 1, 24484, 1650, 0, 1608, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "calcite", 24485, 1, 24485, 1650, 0, 1608, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "tinted_glass", 24486, 1, 24486, 1650, 0, 1608, 3, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "powder_snow", 24487, 1, 24487, 1650, 0, 1611, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "sculk_sensor", 24488, 96, 24489, 1650, 3, 1612, 2, { VCLASS_SCULK_SENSOR_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, 0, 0, 0 } },
+    { "calibrated_sculk_sensor", 24584, 384, 24585, 1653, 4, 1614, 3, { VCLASS_SCULK_SENSOR_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, 0, 0, 0 } },
+    { "sculk", 24968, 1, 24968, 1657, 0, 1617, 2, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "sculk_vein", 24969, 128, 25096, 1657, 7, 1619, 3, { VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "sculk_catalyst", 25097, 2, 25098, 1664, 1, 1622, 2, { 0, 0, 0, 0, VCLASS_SCULK_CATALYST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SCULK_CATALYST_BLOCK, 0, 0, 0 } },
+    { "sculk_shrieker", 25099, 8, 25106, 1665, 3, 1624, 2, { VCLASS_SCULK_SHRIEKER_BLOCK, 0, 0, 0, VCLASS_SCULK_SHRIEKER_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SCULK_SHRIEKER_BLOCK, 0, 0, 0 } },
+    { "copper_block", 25107, 1, 25107, 1668, 0, 1626, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "exposed_copper", 25108, 1, 25108, 1668, 0, 1627, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "weathered_copper", 25109, 1, 25109, 1668, 0, 1628, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oxidized_copper", 25110, 1, 25110, 1668, 0, 1629, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "copper_ore", 25111, 1, 25111, 1668, 0, 1630, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "deepslate_copper_ore", 25112, 1, 25112, 1668, 0, 1631, 1, { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0 } },
+    { "oxidized_cut_copper", 25113, 1, 25113, 1668, 0, 1632, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "weathered_cut_copper", 25114, 1, 25114, 1668, 0, 1633, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "exposed_cut_copper", 25115, 1, 25115, 1668, 0, 1634, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cut_copper", 25116, 1, 25116, 1668, 0, 1635, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oxidized_chiseled_copper", 25117, 1, 25117, 1668, 0, 1636, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "weathered_chiseled_copper", 25118, 1, 25118, 1668, 0, 1637, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "exposed_chiseled_copper", 25119, 1, 25119, 1668, 0, 1638, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chiseled_copper", 25120, 1, 25120, 1668, 0, 1639, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_oxidized_chiseled_copper", 25121, 1, 25121, 1668, 0, 1640, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_weathered_chiseled_copper", 25122, 1, 25122, 1668, 0, 1640, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_exposed_chiseled_copper", 25123, 1, 25123, 1668, 0, 1640, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_chiseled_copper", 25124, 1, 25124, 1668, 0, 1640, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oxidized_cut_copper_stairs", 25125, 80, 25136, 1668, 4, 1640, 2, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "weathered_cut_copper_stairs", 25205, 80, 25216, 1672, 4, 1642, 2, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "exposed_cut_copper_stairs", 25285, 80, 25296, 1676, 4, 1644, 2, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cut_copper_stairs", 25365, 80, 25376, 1680, 4, 1646, 2, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oxidized_cut_copper_slab", 25445, 6, 25448, 1684, 2, 1648, 2, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "weathered_cut_copper_slab", 25451, 6, 25454, 1686, 2, 1650, 2, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "exposed_cut_copper_slab", 25457, 6, 25460, 1688, 2, 1652, 2, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cut_copper_slab", 25463, 6, 25466, 1690, 2, 1654, 2, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_copper_block", 25469, 1, 25469, 1692, 0, 1656, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_weathered_copper", 25470, 1, 25470, 1692, 0, 1656, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_exposed_copper", 25471, 1, 25471, 1692, 0, 1656, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_oxidized_copper", 25472, 1, 25472, 1692, 0, 1656, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_oxidized_cut_copper", 25473, 1, 25473, 1692, 0, 1656, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_weathered_cut_copper", 25474, 1, 25474, 1692, 0, 1656, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_exposed_cut_copper", 25475, 1, 25475, 1692, 0, 1656, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_cut_copper", 25476, 1, 25476, 1692, 0, 1656, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_oxidized_cut_copper_stairs", 25477, 80, 25488, 1692, 4, 1656, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_weathered_cut_copper_stairs", 25557, 80, 25568, 1696, 4, 1657, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_exposed_cut_copper_stairs", 25637, 80, 25648, 1700, 4, 1658, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_cut_copper_stairs", 25717, 80, 25728, 1704, 4, 1659, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_oxidized_cut_copper_slab", 25797, 6, 25800, 1708, 2, 1660, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_weathered_cut_copper_slab", 25803, 6, 25806, 1710, 2, 1661, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_exposed_cut_copper_slab", 25809, 6, 25812, 1712, 2, 1662, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_cut_copper_slab", 25815, 6, 25818, 1714, 2, 1663, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "copper_door", 25821, 64, 25832, 1716, 5, 1664, 2, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "exposed_copper_door", 25885, 64, 25896, 1721, 5, 1666, 2, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "oxidized_copper_door", 25949, 64, 25960, 1726, 5, 1668, 2, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "weathered_copper_door", 26013, 64, 26024, 1731, 5, 1670, 2, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "waxed_copper_door", 26077, 64, 26088, 1736, 5, 1672, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "waxed_exposed_copper_door", 26141, 64, 26152, 1741, 5, 1673, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "waxed_oxidized_copper_door", 26205, 64, 26216, 1746, 5, 1674, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "waxed_weathered_copper_door", 26269, 64, 26280, 1751, 5, 1675, 1, { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0 } },
+    { "copper_trapdoor", 26333, 64, 26348, 1756, 5, 1676, 3, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "exposed_copper_trapdoor", 26397, 64, 26412, 1761, 5, 1679, 3, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "oxidized_copper_trapdoor", 26461, 64, 26476, 1766, 5, 1682, 3, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "weathered_copper_trapdoor", 26525, 64, 26540, 1771, 5, 1685, 3, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "waxed_copper_trapdoor", 26589, 64, 26604, 1776, 5, 1688, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "waxed_exposed_copper_trapdoor", 26653, 64, 26668, 1781, 5, 1690, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "waxed_oxidized_copper_trapdoor", 26717, 64, 26732, 1786, 5, 1692, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "waxed_weathered_copper_trapdoor", 26781, 64, 26796, 1791, 5, 1694, 2, { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0 } },
+    { "copper_grate", 26845, 2, 26846, 1796, 1, 1696, 4, { VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "exposed_copper_grate", 26847, 2, 26848, 1797, 1, 1700, 4, { VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "weathered_copper_grate", 26849, 2, 26850, 1798, 1, 1704, 4, { VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oxidized_copper_grate", 26851, 2, 26852, 1799, 1, 1708, 4, { VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_copper_grate", 26853, 2, 26854, 1800, 1, 1712, 3, { VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_exposed_copper_grate", 26855, 2, 26856, 1801, 1, 1715, 3, { VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_weathered_copper_grate", 26857, 2, 26858, 1802, 1, 1718, 3, { VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_oxidized_copper_grate", 26859, 2, 26860, 1803, 1, 1721, 3, { VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "copper_bulb", 26861, 4, 26864, 1804, 2, 1724, 2, { 0, VCLASS_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "exposed_copper_bulb", 26865, 4, 26868, 1806, 2, 1726, 2, { 0, VCLASS_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "weathered_copper_bulb", 26869, 4, 26872, 1808, 2, 1728, 2, { 0, VCLASS_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "oxidized_copper_bulb", 26873, 4, 26876, 1810, 2, 1730, 2, { 0, VCLASS_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_copper_bulb", 26877, 4, 26880, 1812, 2, 1732, 1, { 0, VCLASS_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_exposed_copper_bulb", 26881, 4, 26884, 1814, 2, 1733, 1, { 0, VCLASS_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_weathered_copper_bulb", 26885, 4, 26888, 1816, 2, 1734, 1, { 0, VCLASS_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_oxidized_copper_bulb", 26889, 4, 26892, 1818, 2, 1735, 1, { 0, VCLASS_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "copper_chest", 26893, 24, 26894, 1820, 3, 1736, 5, { VCLASS_COPPER_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_CHEST_BLOCK, 0 } },
+    { "exposed_copper_chest", 26917, 24, 26918, 1823, 3, 1741, 5, { VCLASS_COPPER_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_CHEST_BLOCK, 0 } },
+    { "weathered_copper_chest", 26941, 24, 26942, 1826, 3, 1746, 5, { VCLASS_COPPER_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_CHEST_BLOCK, 0 } },
+    { "oxidized_copper_chest", 26965, 24, 26966, 1829, 3, 1751, 5, { VCLASS_COPPER_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_CHEST_BLOCK, 0 } },
+    { "waxed_copper_chest", 26989, 24, 26990, 1832, 3, 1756, 4, { VCLASS_COPPER_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_CHEST_BLOCK, 0 } },
+    { "waxed_exposed_copper_chest", 27013, 24, 27014, 1835, 3, 1760, 4, { VCLASS_COPPER_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_CHEST_BLOCK, 0 } },
+    { "waxed_weathered_copper_chest", 27037, 24, 27038, 1838, 3, 1764, 4, { VCLASS_COPPER_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_CHEST_BLOCK, 0 } },
+    { "waxed_oxidized_copper_chest", 27061, 24, 27062, 1841, 3, 1768, 4, { VCLASS_COPPER_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_CHEST_BLOCK, 0 } },
+    { "copper_golem_statue", 27085, 32, 27086, 1844, 3, 1772, 3, { VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, 0, 0 } },
+    { "exposed_copper_golem_statue", 27117, 32, 27118, 1847, 3, 1775, 3, { VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, 0, 0 } },
+    { "weathered_copper_golem_statue", 27149, 32, 27150, 1850, 3, 1778, 3, { VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, 0, 0 } },
+    { "oxidized_copper_golem_statue", 27181, 32, 27182, 1853, 3, 1781, 3, { VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, 0, 0 } },
+    { "waxed_copper_golem_statue", 27213, 32, 27214, 1856, 3, 1784, 2, { VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0 } },
+    { "waxed_exposed_copper_golem_statue", 27245, 32, 27246, 1859, 3, 1786, 2, { VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0 } },
+    { "waxed_weathered_copper_golem_statue", 27277, 32, 27278, 1862, 3, 1788, 2, { VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0 } },
+    { "waxed_oxidized_copper_golem_statue", 27309, 32, 27310, 1865, 3, 1790, 2, { VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0 } },
+    { "lightning_rod", 27341, 24, 27360, 1868, 3, 1792, 4, { VCLASS_LIGHTNING_ROD_BLOCK, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "exposed_lightning_rod", 27365, 24, 27384, 1871, 3, 1796, 4, { VCLASS_LIGHTNING_ROD_BLOCK, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "weathered_lightning_rod", 27389, 24, 27408, 1874, 3, 1800, 4, { VCLASS_LIGHTNING_ROD_BLOCK, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "oxidized_lightning_rod", 27413, 24, 27432, 1877, 3, 1804, 4, { VCLASS_LIGHTNING_ROD_BLOCK, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_lightning_rod", 27437, 24, 27456, 1880, 3, 1808, 3, { VCLASS_LIGHTNING_ROD_BLOCK, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_exposed_lightning_rod", 27461, 24, 27480, 1883, 3, 1811, 3, { VCLASS_LIGHTNING_ROD_BLOCK, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_weathered_lightning_rod", 27485, 24, 27504, 1886, 3, 1814, 3, { VCLASS_LIGHTNING_ROD_BLOCK, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "waxed_oxidized_lightning_rod", 27509, 24, 27528, 1889, 3, 1817, 3, { VCLASS_LIGHTNING_ROD_BLOCK, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "pointed_dripstone", 27533, 20, 27538, 1892, 3, 1820, 1, { VCLASS_POINTED_DRIPSTONE_BLOCK, 0, 0, 0, VCLASS_POINTED_DRIPSTONE_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "dripstone_block", 27553, 1, 27553, 1895, 0, 1821, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cave_vines", 27554, 52, 27555, 1895, 2, 1821, 3, { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, VCLASS_CAVE_VINES_BLOCK, 0 } },
+    { "cave_vines_plant", 27606, 2, 27607, 1897, 1, 1824, 3, { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, VCLASS_CAVE_VINES_PLANT_BLOCK, 0 } },
+    { "spore_blossom", 27608, 1, 27608, 1898, 0, 1827, 1, { VCLASS_SPORE_BLOSSOM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "azalea", 27609, 1, 27609, 1898, 0, 1828, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "flowering_azalea", 27610, 1, 27610, 1898, 0, 1830, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "moss_carpet", 27611, 1, 27611, 1898, 0, 1832, 1, { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pink_petals", 27612, 16, 27612, 1898, 2, 1833, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "wildflowers", 27628, 16, 27628, 1900, 2, 1835, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "leaf_litter", 27644, 16, 27644, 1902, 2, 1837, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "moss_block", 27660, 1, 27660, 1904, 0, 1839, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "big_dripleaf", 27661, 32, 27662, 1904, 3, 1840, 2, { VCLASS_BIG_DRIPLEAF_BLOCK, VCLASS_BIG_DRIPLEAF_BLOCK, 0, 0, VCLASS_BIG_DRIPLEAF_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "big_dripleaf_stem", 27693, 8, 27694, 1907, 2, 1842, 2, { VCLASS_BIG_DRIPLEAF_STEM_BLOCK, 0, 0, 0, VCLASS_BIG_DRIPLEAF_STEM_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "small_dripleaf", 27701, 16, 27704, 1909, 3, 1844, 3, { VCLASS_SMALL_DRIPLEAF_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "hanging_roots", 27717, 2, 27718, 1912, 1, 1847, 1, { VCLASS_HANGING_ROOTS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "rooted_dirt", 27719, 1, 27719, 1913, 0, 1848, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "mud", 27720, 1, 27720, 1913, 0, 1849, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "deepslate", 27721, 3, 27722, 1913, 1, 1850, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cobbled_deepslate", 27724, 1, 27724, 1914, 0, 1851, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cobbled_deepslate_stairs", 27725, 80, 27736, 1914, 4, 1851, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cobbled_deepslate_slab", 27805, 6, 27808, 1918, 2, 1852, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cobbled_deepslate_wall", 27811, 324, 27814, 1920, 6, 1853, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_deepslate", 28135, 1, 28135, 1926, 0, 1854, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_deepslate_stairs", 28136, 80, 28147, 1926, 4, 1854, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_deepslate_slab", 28216, 6, 28219, 1930, 2, 1855, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "polished_deepslate_wall", 28222, 324, 28225, 1932, 6, 1856, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "deepslate_tiles", 28546, 1, 28546, 1938, 0, 1857, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "deepslate_tile_stairs", 28547, 80, 28558, 1938, 4, 1857, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "deepslate_tile_slab", 28627, 6, 28630, 1942, 2, 1858, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "deepslate_tile_wall", 28633, 324, 28636, 1944, 6, 1859, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "deepslate_bricks", 28957, 1, 28957, 1950, 0, 1860, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "deepslate_brick_stairs", 28958, 80, 28969, 1950, 4, 1860, 1, { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "deepslate_brick_slab", 29038, 6, 29041, 1954, 2, 1861, 1, { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "deepslate_brick_wall", 29044, 324, 29047, 1956, 6, 1862, 1, { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "chiseled_deepslate", 29368, 1, 29368, 1962, 0, 1863, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cracked_deepslate_bricks", 29369, 1, 29369, 1962, 0, 1863, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "cracked_deepslate_tiles", 29370, 1, 29370, 1962, 0, 1863, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "infested_deepslate", 29371, 3, 29372, 1962, 1, 1863, 2, { 0, 0, 0, 0, 0, 0, 0, VCLASS_INFESTED_BLOCK, 0, 0, 0 } },
+    { "smooth_basalt", 29374, 1, 29374, 1963, 0, 1865, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "raw_iron_block", 29375, 1, 29375, 1963, 0, 1865, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "raw_copper_block", 29376, 1, 29376, 1963, 0, 1865, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "raw_gold_block", 29377, 1, 29377, 1963, 0, 1865, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "potted_azalea_bush", 29378, 1, 29378, 1963, 0, 1865, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_flowering_azalea_bush", 29379, 1, 29379, 1963, 0, 1866, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "ochre_froglight", 29380, 3, 29381, 1963, 1, 1867, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "verdant_froglight", 29383, 3, 29384, 1964, 1, 1868, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pearlescent_froglight", 29386, 3, 29387, 1965, 1, 1869, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "frogspawn", 29389, 1, 29389, 1966, 0, 1870, 1, { VCLASS_FROGSPAWN_BLOCK, 0, VCLASS_FROGSPAWN_BLOCK, 0, VCLASS_FROGSPAWN_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "reinforced_deepslate", 29390, 1, 29390, 1966, 0, 1871, 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "decorated_pot", 29391, 16, 29400, 1966, 3, 1871, 2, { VCLASS_DECORATED_POT_BLOCK, 0, 0, VCLASS_DECORATED_POT_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_DECORATED_POT_BLOCK, VCLASS_DECORATED_POT_BLOCK, 0 } },
+    { "crafter", 29407, 48, 29452, 1969, 3, 1873, 2, { 0, VCLASS_CRAFTER_BLOCK, 0, VCLASS_CRAFTER_BLOCK, VCLASS_CRAFTER_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, VCLASS_CRAFTER_BLOCK, 0 } },
+    { "trial_spawner", 29455, 12, 29461, 1972, 2, 1875, 2, { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0 } },
+    { "vault", 29467, 32, 29471, 1974, 3, 1877, 2, { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_VAULT_BLOCK, 0, 0 } },
+    { "heavy_core", 29499, 2, 29500, 1977, 1, 1879, 1, { VCLASS_HEAVY_CORE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pale_moss_block", 29501, 1, 29501, 1978, 0, 1880, 1, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pale_moss_carpet", 29502, 162, 29502, 1978, 5, 1881, 1, { VCLASS_MOSSY_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+    { "pale_hanging_moss", 29664, 2, 29664, 1983, 1, 1882, 1, { VCLASS_HANGING_MOSS_BLOCK, 0, 0, 0, VCLASS_HANGING_MOSS_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "open_eyeblossom", 29666, 1, 29666, 1984, 0, 1883, 3, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, VCLASS_EYEBLOSSOM_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "closed_eyeblossom", 29667, 1, 29667, 1984, 0, 1886, 3, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, VCLASS_EYEBLOSSOM_BLOCK, 0, 0, 0, 0, 0, 0 } },
+    { "potted_open_eyeblossom", 29668, 1, 29668, 1984, 0, 1889, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "potted_closed_eyeblossom", 29669, 1, 29669, 1984, 0, 1890, 1, { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_FLOWER_POT_BLOCK, VCLASS_FLOWER_POT_BLOCK, 0 } },
+    { "firefly_bush", 29670, 1, 29670, 1984, 0, 1891, 2, { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
+};
+
+// state_flag bits per state
+const uint8_t state_flags[] = {
+    1,  // air
+    40,  // stone
+    40,  // granite
+    40,  // polished_granite
+    40,  // diorite
+    40,  // polished_diorite
+    40,  // andesite
+    40,  // polished_andesite
+    40, 40,  // grass_block
+    40,  // dirt
+    40,  // coarse_dirt
+    40, 40,  // podzol
+    40,  // cobblestone
+    40,  // oak_planks
+    40,  // spruce_planks
+    40,  // birch_planks
+    40,  // jungle_planks
+    40,  // acacia_planks
+    40,  // cherry_planks
+    40,  // dark_oak_planks
+    40, 40, 40,  // pale_oak_wood
+    40,  // pale_oak_planks
+    40,  // mangrove_planks
+    40,  // bamboo_planks
+    40,  // bamboo_mosaic
+    32, 32,  // oak_sapling
+    32, 32,  // spruce_sapling
+    32, 32,  // birch_sapling
+    32, 32,  // jungle_sapling
+    32, 32,  // acacia_sapling
+    32, 32,  // cherry_sapling
+    32, 32,  // dark_oak_sapling
+    32, 32,  // pale_oak_sapling
+    16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 48, 32, 48, 32, 48, 32, 48, 32,  // mangrove_propagule
+    8,  // bedrock
+    16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,  // water
+    16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16,  // lava
+    40,  // sand
+    10, 10, 10, 10,  // suspicious_sand
+    40,  // red_sand
+    40,  // gravel
+    10, 10, 10, 10,  // suspicious_gravel
+    40,  // gold_ore
+    40,  // deepslate_gold_ore
+    40,  // iron_ore
+    40,  // deepslate_iron_ore
+    40,  // coal_ore
+    40,  // deepslate_coal_ore
+    40,  // nether_gold_ore
+    40, 40, 40,  // oak_log
+    40, 40, 40,  // spruce_log
+    40, 40, 40,  // birch_log
+    40, 40, 40,  // jungle_log
+    40, 40, 40,  // acacia_log
+    40, 40, 40,  // cherry_log
+    40, 40, 40,  // dark_oak_log
+    40, 40, 40,  // pale_oak_log
+    40, 40, 40,  // mangrove_log
+    56, 40,  // mangrove_roots
+    40, 40, 40,  // muddy_mangrove_roots
+    40, 40, 40,  // bamboo_block
+    40, 40, 40,  // stripped_spruce_log
+    40, 40, 40,  // stripped_birch_log
+    40, 40, 40,  // stripped_jungle_log
+    40, 40, 40,  // stripped_acacia_log
+    40, 40, 40,  // stripped_cherry_log
+    40, 40, 40,  // stripped_dark_oak_log
+    40, 40, 40,  // stripped_pale_oak_log
+    40, 40, 40,  // stripped_oak_log
+    40, 40, 40,  // stripped_mangrove_log
+    40, 40, 40,  // stripped_bamboo_block
+    40, 40, 40,  // oak_wood
+    40, 40, 40,  // spruce_wood
+    40, 40, 40,  // birch_wood
+    40, 40, 40,  // jungle_wood
+    40, 40, 40,  // acacia_wood
+    40, 40, 40,  // cherry_wood
+    40, 40, 40,  // dark_oak_wood
+    40, 40, 40,  // mangrove_wood
+    40, 40, 40,  // stripped_oak_wood
+    40, 40, 40,  // stripped_spruce_wood
+    40, 40, 40,  // stripped_birch_wood
+    40, 40, 40,  // stripped_jungle_wood
+    40, 40, 40,  // stripped_acacia_wood
+    40, 40, 40,  // stripped_cherry_wood
+    40, 40, 40,  // stripped_dark_oak_wood
+    40, 40, 40,  // stripped_pale_oak_wood
+    40, 40, 40,  // stripped_mangrove_wood
+    16, 0, 16, 32, 48, 0, 16, 0, 16, 32, 16, 0, 16, 0, 16, 0, 48, 0, 16, 0, 16, 32, 16, 0, 16, 0, 16, 0,  // oak_leaves
+    16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 48, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0,  // spruce_leaves
+    16, 32, 16, 0, 16, 0, 16, 0, 48, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0,  // birch_leaves
+    16, 0, 16, 0, 16, 0, 16, 32, 16, 0, 16, 32, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0,  // jungle_leaves
+    16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 32, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0,  // acacia_leaves
+    16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 48, 0, 16, 0, 48, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0,  // cherry_leaves
+    16, 32, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 48, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0,  // dark_oak_leaves
+    16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0,  // pale_oak_leaves
+    16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 32, 16, 0,  // mangrove_leaves
+    48, 0, 16, 0, 16, 0, 16, 0, 48, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 32, 16, 0, 16, 0, 48, 0,  // azalea_leaves
+    16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0,  // flowering_azalea_leaves
+    40,  // sponge
+    40,  // wet_sponge
+    0,  // glass
+    40,  // lapis_ore
+    40,  // deepslate_lapis_ore
+    40,  // lapis_block
+    46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46,  // dispenser
+    40,  // sandstone
+    40,  // chiseled_sandstone
+    40,  // cut_sandstone
+    40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40,  // note_block
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // white_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // orange_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // magenta_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // light_blue_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // yellow_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // lime_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // pink_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // gray_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // light_gray_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // cyan_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // purple_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // blue_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // brown_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // green_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // red_bed
+    34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2, 34, 2,  // black_bed
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // powered_rail
+    52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36,  // detector_rail
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // sticky_piston
+    32,  // cobweb
+    0,  // short_grass
+    0,  // fern
+    32,  // dead_bush
+    0,  // bush
+    0,  // short_dry_grass
+    0,  // tall_dry_grass
+    16,  // seagrass
+    16, 16,  // tall_seagrass
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // piston
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  // piston_head
+    40,  // white_wool
+    40,  // orange_wool
+    40,  // magenta_wool
+    40,  // light_blue_wool
+    40,  // yellow_wool
+    40,  // lime_wool
+    40,  // pink_wool
+    40,  // gray_wool
+    40,  // light_gray_wool
+    40,  // cyan_wool
+    40,  // purple_wool
+    40,  // blue_wool
+    40,  // brown_wool
+    40,  // green_wool
+    40,  // red_wool
+    40,  // black_wool
+    2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,  // moving_piston
+    32,  // dandelion
+    32,  // torchflower
+    32,  // poppy
+    32,  // blue_orchid
+    32,  // allium
+    32,  // azure_bluet
+    32,  // red_tulip
+    32,  // orange_tulip
+    32,  // white_tulip
+    32,  // pink_tulip
+    32,  // oxeye_daisy
+    32,  // cornflower
+    32,  // wither_rose
+    32,  // lily_of_the_valley
+    32,  // brown_mushroom
+    32,  // red_mushroom
+    40,  // gold_block
+    40,  // iron_block
+    40,  // bricks
+    0, 32,  // tnt
+    40,  // bookshelf
+    14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,  // chiseled_bookshelf
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // acacia_shelf
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // bamboo_shelf
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // birch_shelf
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // cherry_shelf
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // crimson_shelf
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // dark_oak_shelf
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // jungle_shelf
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // mangrove_shelf
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // oak_shelf
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // pale_oak_shelf
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // spruce_shelf
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // warped_shelf
+    40,  // mossy_cobblestone
+    40,  // obsidian
+    32,  // torch
+    32, 32, 32, 32,  // wall_torch
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  // fire
+    0,  // soul_fire
+    10,  // spawner
+    46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46,  // creaking_heart
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // oak_stairs
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // chest
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // redstone_wire
+    40,  // diamond_ore
+    40,  // deepslate_diamond_ore
+    40,  // diamond_block
+    40,  // crafting_table
+    32, 32, 32, 32, 32, 32, 32, 32,  // wheat
+    32, 32, 32, 32, 32, 32, 32, 32,  // farmland
+    46, 46, 46, 46, 46, 46, 46, 46,  // furnace
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // oak_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // spruce_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // birch_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // acacia_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // cherry_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // jungle_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // dark_oak_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // pale_oak_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // mangrove_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // bamboo_sign
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // oak_door
+    48, 32, 48, 32, 48, 32, 48, 32,  // ladder
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // rail
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // cobblestone_stairs
+    50, 34, 50, 34, 50, 34, 50, 34,  // oak_wall_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // spruce_wall_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // birch_wall_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // acacia_wall_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // cherry_wall_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // jungle_wall_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // dark_oak_wall_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // pale_oak_wall_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // mangrove_wall_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // bamboo_wall_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // oak_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // spruce_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // birch_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // acacia_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // cherry_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // jungle_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // dark_oak_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // pale_oak_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // crimson_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // warped_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // mangrove_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // bamboo_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // oak_wall_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // spruce_wall_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // birch_wall_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // acacia_wall_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // cherry_wall_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // jungle_wall_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // dark_oak_wall_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // pale_oak_wall_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // mangrove_wall_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // crimson_wall_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // warped_wall_hanging_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // bamboo_wall_hanging_sign
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // lever
+    32, 32,  // stone_pressure_plate
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // iron_door
+    32, 32,  // oak_pressure_plate
+    32, 32,  // spruce_pressure_plate
+    32, 32,  // birch_pressure_plate
+    32, 32,  // jungle_pressure_plate
+    32, 32,  // acacia_pressure_plate
+    32, 32,  // cherry_pressure_plate
+    32, 32,  // dark_oak_pressure_plate
+    32, 32,  // pale_oak_pressure_plate
+    32, 32,  // mangrove_pressure_plate
+    32, 32,  // bamboo_pressure_plate
+    40, 40,  // redstone_ore
+    40, 40,  // deepslate_redstone_ore
+    32, 32,  // redstone_torch
+    32, 32, 32, 32, 32, 32, 32, 32,  // redstone_wall_torch
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // stone_button
+    0, 0, 0, 0, 0, 0, 0, 0,  // snow
+    0,  // ice
+    40,  // snow_block
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // cactus
+    32,  // cactus_flower
+    40,  // clay
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // sugar_cane
+    46, 46,  // jukebox
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // oak_fence
+    40,  // netherrack
+    40,  // soul_sand
+    40,  // soul_soil
+    40, 40, 40,  // basalt
+    40, 40, 40,  // polished_basalt
+    32,  // soul_torch
+    32, 32, 32, 32,  // soul_wall_torch
+    32,  // copper_torch
+    32, 32, 32, 32,  // copper_wall_torch
+    32,  // glowstone
+    0, 0,  // nether_portal
+    40, 40, 40, 40,  // carved_pumpkin
+    40, 40, 40, 40,  // jack_o_lantern
+    4, 4, 4, 4, 4, 4, 4,  // cake
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // repeater
+    0,  // white_stained_glass
+    0,  // orange_stained_glass
+    0,  // magenta_stained_glass
+    0,  // light_blue_stained_glass
+    0,  // yellow_stained_glass
+    0,  // lime_stained_glass
+    0,  // pink_stained_glass
+    0,  // gray_stained_glass
+    0,  // light_gray_stained_glass
+    0,  // cyan_stained_glass
+    0,  // purple_stained_glass
+    0,  // blue_stained_glass
+    0,  // brown_stained_glass
+    0,  // green_stained_glass
+    0,  // red_stained_glass
+    0,  // black_stained_glass
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // oak_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // spruce_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // birch_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // jungle_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // acacia_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // cherry_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // dark_oak_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // pale_oak_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // mangrove_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // bamboo_trapdoor
+    40,  // stone_bricks
+    40,  // mossy_stone_bricks
+    40,  // cracked_stone_bricks
+    40,  // chiseled_stone_bricks
+    40,  // packed_mud
+    40,  // mud_bricks
+    8,  // infested_stone
+    8,  // infested_cobblestone
+    8,  // infested_stone_bricks
+    8,  // infested_mossy_stone_bricks
+    8,  // infested_cracked_stone_bricks
+    8,  // infested_chiseled_stone_bricks
+    40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40,  // brown_mushroom_block
+    40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40,  // red_mushroom_block
+    8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,  // mushroom_stem
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // iron_bars
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // copper_bars
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // exposed_copper_bars
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // weathered_copper_bars
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // oxidized_copper_bars
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // waxed_copper_bars
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // waxed_exposed_copper_bars
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // waxed_weathered_copper_bars
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // waxed_oxidized_copper_bars
+    48, 32, 48, 32, 48, 32,  // iron_chain
+    48, 32, 48, 32, 48, 32,  // copper_chain
+    48, 32, 48, 32, 48, 32,  // exposed_copper_chain
+    48, 32, 48, 32, 48, 32,  // weathered_copper_chain
+    48, 32, 48, 32, 48, 32,  // oxidized_copper_chain
+    48, 32, 48, 32, 48, 32,  // waxed_copper_chain
+    48, 32, 48, 32, 48, 32,  // waxed_exposed_copper_chain
+    48, 32, 48, 32, 48, 32,  // waxed_weathered_copper_chain
+    48, 32, 48, 32, 48, 32,  // waxed_oxidized_copper_chain
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // glass_pane
+    40,  // pumpkin
+    40,  // melon
+    32, 32, 32, 32,  // attached_pumpkin_stem
+    32, 32, 32, 32,  // attached_melon_stem
+    32, 32, 32, 32, 32, 32, 32, 32,  // pumpkin_stem
+    32, 32, 32, 32, 32, 32, 32, 32,  // melon_stem
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  // vine
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // glow_lichen
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // resin_clump
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // oak_fence_gate
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // brick_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // stone_brick_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // mud_brick_stairs
+    40, 40,  // mycelium
+    32,  // lily_pad
+    40,  // resin_block
+    40,  // resin_bricks
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // resin_brick_stairs
+    48, 32, 48, 32, 56, 40,  // resin_brick_slab
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // resin_brick_wall
+    40,  // chiseled_resin_bricks
+    40,  // nether_bricks
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // nether_brick_fence
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // nether_brick_stairs
+    32, 32, 32, 32,  // nether_wart
+    34,  // enchanting_table
+    38, 38, 38, 38, 38, 38, 38, 38,  // brewing_stand
+    36,  // cauldron
+    36, 36, 36,  // water_cauldron
+    36,  // lava_cauldron
+    36, 36, 36,  // powder_snow_cauldron
+    2,  // end_portal
+    4, 4, 4, 4, 4, 4, 4, 4,  // end_portal_frame
+    40,  // end_stone
+    32,  // dragon_egg
+    40, 40,  // redstone_lamp
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // cocoa
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // sandstone_stairs
+    40,  // emerald_ore
+    40,  // deepslate_emerald_ore
+    50, 34, 50, 34, 50, 34, 50, 34,  // ender_chest
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // tripwire_hook
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // tripwire
+    40,  // emerald_block
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // spruce_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // birch_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // jungle_stairs
+    14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,  // command_block
+    34,  // beacon
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // cobblestone_wall
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // mossy_cobblestone_wall
+    32,  // flower_pot
+    32,  // potted_torchflower
+    32,  // potted_oak_sapling
+    32,  // potted_spruce_sapling
+    32,  // potted_birch_sapling
+    32,  // potted_jungle_sapling
+    32,  // potted_acacia_sapling
+    32,  // potted_cherry_sapling
+    32,  // potted_dark_oak_sapling
+    32,  // potted_pale_oak_sapling
+    32,  // potted_mangrove_propagule
+    32,  // potted_fern
+    32,  // potted_dandelion
+    32,  // potted_poppy
+    32,  // potted_blue_orchid
+    32,  // potted_allium
+    32,  // potted_azure_bluet
+    32,  // potted_red_tulip
+    32,  // potted_orange_tulip
+    32,  // potted_white_tulip
+    32,  // potted_pink_tulip
+    32,  // potted_oxeye_daisy
+    32,  // potted_cornflower
+    32,  // potted_lily_of_the_valley
+    32,  // potted_wither_rose
+    32,  // potted_red_mushroom
+    32,  // potted_brown_mushroom
+    32,  // potted_dead_bush
+    32,  // potted_cactus
+    32, 32, 32, 32, 32, 32, 32, 32,  // carrots
+    32, 32, 32, 32, 32, 32, 32, 32,  // potatoes
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // oak_button
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // spruce_button
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // birch_button
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // jungle_button
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // acacia_button
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // cherry_button
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // dark_oak_button
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // pale_oak_button
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // mangrove_button
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // bamboo_button
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // skeleton_skull
+    34, 34, 34, 34, 34, 34, 34, 34,  // skeleton_wall_skull
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // wither_skeleton_skull
+    34, 34, 34, 34, 34, 34, 34, 34,  // wither_skeleton_wall_skull
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // zombie_head
+    34, 34, 34, 34, 34, 34, 34, 34,  // zombie_wall_head
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // player_head
+    34, 34, 34, 34, 34, 34, 34, 34,  // player_wall_head
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // creeper_head
+    34, 34, 34, 34, 34, 34, 34, 34,  // creeper_wall_head
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // dragon_head
+    34, 34, 34, 34, 34, 34, 34, 34,  // dragon_wall_head
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // piglin_head
+    34, 34, 34, 34, 34, 34, 34, 34,  // piglin_wall_head
+    32, 32, 32, 32,  // anvil
+    32, 32, 32, 32,  // chipped_anvil
+    32, 32, 32, 32,  // damaged_anvil
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // trapped_chest
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // light_weighted_pressure_plate
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // heavy_weighted_pressure_plate
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // comparator
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // daylight_detector
+    32,  // redstone_block
+    40,  // nether_quartz_ore
+    38, 38, 38, 38, 38, 38, 38, 38, 38, 38,  // hopper
+    40,  // quartz_block
+    40,  // chiseled_quartz_block
+    40, 40, 40,  // quartz_pillar
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // quartz_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // activator_rail
+    46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46,  // dropper
+    40,  // white_terracotta
+    40,  // orange_terracotta
+    40,  // magenta_terracotta
+    40,  // light_blue_terracotta
+    40,  // yellow_terracotta
+    40,  // lime_terracotta
+    40,  // pink_terracotta
+    40,  // gray_terracotta
+    40,  // light_gray_terracotta
+    40,  // cyan_terracotta
+    40,  // purple_terracotta
+    40,  // blue_terracotta
+    40,  // brown_terracotta
+    40,  // green_terracotta
+    40,  // red_terracotta
+    40,  // black_terracotta
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // white_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // orange_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // magenta_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // light_blue_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // yellow_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // lime_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // pink_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // gray_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // light_gray_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // cyan_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // purple_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // blue_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // brown_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // green_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // red_stained_glass_pane
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // black_stained_glass_pane
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // acacia_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // cherry_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // dark_oak_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // pale_oak_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // mangrove_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // bamboo_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // bamboo_mosaic_stairs
+    40,  // slime_block
+    24, 8,  // barrier
+    16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0,  // light
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // iron_trapdoor
+    40,  // prismarine
+    40,  // prismarine_bricks
+    40,  // dark_prismarine
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // prismarine_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // prismarine_brick_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // dark_prismarine_stairs
+    48, 32, 48, 32, 56, 40,  // prismarine_slab
+    48, 32, 48, 32, 56, 40,  // prismarine_brick_slab
+    48, 32, 48, 32, 56, 40,  // dark_prismarine_slab
+    32,  // sea_lantern
+    40, 40, 40,  // hay_block
+    32,  // white_carpet
+    32,  // orange_carpet
+    32,  // magenta_carpet
+    32,  // light_blue_carpet
+    32,  // yellow_carpet
+    32,  // lime_carpet
+    32,  // pink_carpet
+    32,  // gray_carpet
+    32,  // light_gray_carpet
+    32,  // cyan_carpet
+    32,  // purple_carpet
+    32,  // blue_carpet
+    32,  // brown_carpet
+    32,  // green_carpet
+    32,  // red_carpet
+    32,  // black_carpet
+    40,  // terracotta
+    40,  // coal_block
+    8,  // packed_ice
+    0, 32,  // sunflower
+    0, 32,  // lilac
+    0, 32,  // rose_bush
+    0, 32,  // peony
+    0, 0,  // tall_grass
+    0, 0,  // large_fern
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // white_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // orange_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // magenta_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // light_blue_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // yellow_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // lime_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // pink_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // gray_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // light_gray_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // cyan_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // purple_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // blue_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // brown_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // green_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // red_banner
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // black_banner
+    34, 34, 34, 34,  // white_wall_banner
+    34, 34, 34, 34,  // orange_wall_banner
+    34, 34, 34, 34,  // magenta_wall_banner
+    34, 34, 34, 34,  // light_blue_wall_banner
+    34, 34, 34, 34,  // yellow_wall_banner
+    34, 34, 34, 34,  // lime_wall_banner
+    34, 34, 34, 34,  // pink_wall_banner
+    34, 34, 34, 34,  // gray_wall_banner
+    34, 34, 34, 34,  // light_gray_wall_banner
+    34, 34, 34, 34,  // cyan_wall_banner
+    34, 34, 34, 34,  // purple_wall_banner
+    34, 34, 34, 34,  // blue_wall_banner
+    34, 34, 34, 34,  // brown_wall_banner
+    34, 34, 34, 34,  // green_wall_banner
+    34, 34, 34, 34,  // red_wall_banner
+    34, 34, 34, 34,  // black_wall_banner
+    40,  // red_sandstone
+    40,  // chiseled_red_sandstone
+    40,  // cut_red_sandstone
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // red_sandstone_stairs
+    48, 32, 48, 32, 56, 40,  // oak_slab
+    48, 32, 48, 32, 56, 40,  // spruce_slab
+    48, 32, 48, 32, 56, 40,  // birch_slab
+    48, 32, 48, 32, 56, 40,  // jungle_slab
+    48, 32, 48, 32, 56, 40,  // acacia_slab
+    48, 32, 48, 32, 56, 40,  // cherry_slab
+    48, 32, 48, 32, 56, 40,  // dark_oak_slab
+    48, 32, 48, 32, 56, 40,  // pale_oak_slab
+    48, 32, 48, 32, 56, 40,  // mangrove_slab
+    48, 32, 48, 32, 56, 40,  // bamboo_slab
+    48, 32, 48, 32, 56, 40,  // bamboo_mosaic_slab
+    48, 32, 48, 32, 56, 40,  // stone_slab
+    48, 32, 48, 32, 56, 40,  // smooth_stone_slab
+    48, 32, 48, 32, 56, 40,  // sandstone_slab
+    48, 32, 48, 32, 56, 40,  // cut_sandstone_slab
+    48, 32, 48, 32, 56, 40,  // petrified_oak_slab
+    48, 32, 48, 32, 56, 40,  // cobblestone_slab
+    48, 32, 48, 32, 56, 40,  // brick_slab
+    48, 32, 48, 32, 56, 40,  // stone_brick_slab
+    48, 32, 48, 32, 56, 40,  // mud_brick_slab
+    48, 32, 48, 32, 56, 40,  // nether_brick_slab
+    48, 32, 48, 32, 56, 40,  // quartz_slab
+    48, 32, 48, 32, 56, 40,  // red_sandstone_slab
+    48, 32, 48, 32, 56, 40,  // cut_red_sandstone_slab
+    48, 32, 48, 32, 56, 40,  // purpur_slab
+    40,  // smooth_stone
+    40,  // smooth_sandstone
+    40,  // smooth_quartz
+    40,  // smooth_red_sandstone
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // spruce_fence_gate
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // birch_fence_gate
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // jungle_fence_gate
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // acacia_fence_gate
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // cherry_fence_gate
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // dark_oak_fence_gate
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // pale_oak_fence_gate
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // mangrove_fence_gate
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // bamboo_fence_gate
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // spruce_fence
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // birch_fence
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // jungle_fence
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // acacia_fence
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // cherry_fence
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // dark_oak_fence
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // pale_oak_fence
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // mangrove_fence
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // bamboo_fence
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // spruce_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // birch_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // jungle_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // acacia_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // cherry_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // dark_oak_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // pale_oak_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // mangrove_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // bamboo_door
+    32, 32, 32, 32, 32, 32,  // end_rod
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // chorus_plant
+    0, 0, 0, 0, 0, 0,  // chorus_flower
+    40,  // purpur_block
+    40, 40, 40,  // purpur_pillar
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // purpur_stairs
+    40,  // end_stone_bricks
+    32, 32,  // torchflower_crop
+    0, 32, 0, 32, 0, 32, 0, 32, 0, 32,  // pitcher_crop
+    0, 32,  // pitcher_plant
+    32, 32, 32, 32,  // beetroots
+    32,  // dirt_path
+    2,  // end_gateway
+    14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,  // repeating_command_block
+    14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,  // chain_command_block
+    0, 0, 0, 0,  // frosted_ice
+    40,  // magma_block
+    40,  // nether_wart_block
+    40,  // red_nether_bricks
+    40, 40, 40,  // bone_block
+    0,  // structure_void
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // observer
+    46, 46, 46, 46, 46, 46,  // shulker_box
+    46, 46, 46, 46, 46, 46,  // white_shulker_box
+    46, 46, 46, 46, 46, 46,  // orange_shulker_box
+    46, 46, 46, 46, 46, 46,  // magenta_shulker_box
+    46, 46, 46, 46, 46, 46,  // light_blue_shulker_box
+    46, 46, 46, 46, 46, 46,  // yellow_shulker_box
+    46, 46, 46, 46, 46, 46,  // lime_shulker_box
+    46, 46, 46, 46, 46, 46,  // pink_shulker_box
+    46, 46, 46, 46, 46, 46,  // gray_shulker_box
+    46, 46, 46, 46, 46, 46,  // light_gray_shulker_box
+    46, 46, 46, 46, 46, 46,  // cyan_shulker_box
+    46, 46, 46, 46, 46, 46,  // purple_shulker_box
+    46, 46, 46, 46, 46, 46,  // blue_shulker_box
+    46, 46, 46, 46, 46, 46,  // brown_shulker_box
+    46, 46, 46, 46, 46, 46,  // green_shulker_box
+    46, 46, 46, 46, 46, 46,  // red_shulker_box
+    46, 46, 46, 46, 46, 46,  // black_shulker_box
+    40, 40, 40, 40,  // white_glazed_terracotta
+    40, 40, 40, 40,  // orange_glazed_terracotta
+    40, 40, 40, 40,  // magenta_glazed_terracotta
+    40, 40, 40, 40,  // light_blue_glazed_terracotta
+    40, 40, 40, 40,  // yellow_glazed_terracotta
+    40, 40, 40, 40,  // lime_glazed_terracotta
+    40, 40, 40, 40,  // pink_glazed_terracotta
+    40, 40, 40, 40,  // gray_glazed_terracotta
+    40, 40, 40, 40,  // light_gray_glazed_terracotta
+    40, 40, 40, 40,  // cyan_glazed_terracotta
+    40, 40, 40, 40,  // purple_glazed_terracotta
+    40, 40, 40, 40,  // blue_glazed_terracotta
+    40, 40, 40, 40,  // brown_glazed_terracotta
+    40, 40, 40, 40,  // green_glazed_terracotta
+    40, 40, 40, 40,  // red_glazed_terracotta
+    40, 40, 40, 40,  // black_glazed_terracotta
+    40,  // white_concrete
+    40,  // orange_concrete
+    40,  // magenta_concrete
+    40,  // light_blue_concrete
+    40,  // yellow_concrete
+    40,  // lime_concrete
+    40,  // pink_concrete
+    40,  // gray_concrete
+    40,  // light_gray_concrete
+    40,  // cyan_concrete
+    40,  // purple_concrete
+    40,  // blue_concrete
+    40,  // brown_concrete
+    40,  // green_concrete
+    40,  // red_concrete
+    40,  // black_concrete
+    40,  // white_concrete_powder
+    40,  // orange_concrete_powder
+    40,  // magenta_concrete_powder
+    40,  // light_blue_concrete_powder
+    40,  // yellow_concrete_powder
+    40,  // lime_concrete_powder
+    40,  // pink_concrete_powder
+    40,  // gray_concrete_powder
+    40,  // light_gray_concrete_powder
+    40,  // cyan_concrete_powder
+    40,  // purple_concrete_powder
+    40,  // blue_concrete_powder
+    40,  // brown_concrete_powder
+    40,  // green_concrete_powder
+    40,  // red_concrete_powder
+    40,  // black_concrete_powder
+    48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48,  // kelp
+    48,  // kelp_plant
+    40,  // dried_kelp_block
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  // turtle_egg
+    32, 32, 32,  // sniffer_egg
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // dried_ghast
+    40,  // dead_tube_coral_block
+    40,  // dead_brain_coral_block
+    40,  // dead_bubble_coral_block
+    40,  // dead_fire_coral_block
+    40,  // dead_horn_coral_block
+    40,  // tube_coral_block
+    40,  // brain_coral_block
+    40,  // bubble_coral_block
+    40,  // fire_coral_block
+    40,  // horn_coral_block
+    16, 0,  // dead_tube_coral
+    16, 0,  // dead_brain_coral
+    16, 0,  // dead_bubble_coral
+    16, 0,  // dead_fire_coral
+    16, 0,  // dead_horn_coral
+    16, 0,  // tube_coral
+    16, 0,  // brain_coral
+    16, 0,  // bubble_coral
+    16, 0,  // fire_coral
+    16, 0,  // horn_coral
+    16, 0,  // dead_tube_coral_fan
+    16, 0,  // dead_brain_coral_fan
+    16, 0,  // dead_bubble_coral_fan
+    16, 0,  // dead_fire_coral_fan
+    16, 0,  // dead_horn_coral_fan
+    16, 0,  // tube_coral_fan
+    16, 0,  // brain_coral_fan
+    16, 0,  // bubble_coral_fan
+    16, 0,  // fire_coral_fan
+    16, 0,  // horn_coral_fan
+    16, 0, 16, 0, 16, 0, 16, 0,  // dead_tube_coral_wall_fan
+    16, 0, 16, 0, 16, 0, 16, 0,  // dead_brain_coral_wall_fan
+    16, 0, 16, 0, 16, 0, 16, 0,  // dead_bubble_coral_wall_fan
+    16, 0, 16, 0, 16, 0, 16, 0,  // dead_fire_coral_wall_fan
+    16, 0, 16, 0, 16, 0, 16, 0,  // dead_horn_coral_wall_fan
+    16, 0, 16, 0, 16, 0, 16, 0,  // tube_coral_wall_fan
+    16, 0, 16, 0, 16, 0, 16, 0,  // brain_coral_wall_fan
+    16, 0, 16, 0, 16, 0, 16, 0,  // bubble_coral_wall_fan
+    16, 0, 16, 0, 16, 0, 16, 0,  // fire_coral_wall_fan
+    16, 0, 16, 0, 16, 0, 16, 0,  // horn_coral_wall_fan
+    48, 32, 48, 32, 48, 32, 48, 32,  // sea_pickle
+    8,  // blue_ice
+    50, 34,  // conduit
+    32,  // bamboo_sapling
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // bamboo
+    32,  // potted_bamboo
+    1,  // void_air
+    1,  // cave_air
+    16, 16,  // bubble_column
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // polished_granite_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // smooth_red_sandstone_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // mossy_stone_brick_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // polished_diorite_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // mossy_cobblestone_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // end_stone_brick_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // stone_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // smooth_sandstone_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // smooth_quartz_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // granite_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // andesite_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // red_nether_brick_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // polished_andesite_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // diorite_stairs
+    48, 32, 48, 32, 56, 40,  // polished_granite_slab
+    48, 32, 48, 32, 56, 40,  // smooth_red_sandstone_slab
+    48, 32, 48, 32, 56, 40,  // mossy_stone_brick_slab
+    48, 32, 48, 32, 56, 40,  // polished_diorite_slab
+    48, 32, 48, 32, 56, 40,  // mossy_cobblestone_slab
+    48, 32, 48, 32, 56, 40,  // end_stone_brick_slab
+    48, 32, 48, 32, 56, 40,  // smooth_sandstone_slab
+    48, 32, 48, 32, 56, 40,  // smooth_quartz_slab
+    48, 32, 48, 32, 56, 40,  // granite_slab
+    48, 32, 48, 32, 56, 40,  // andesite_slab
+    48, 32, 48, 32, 56, 40,  // red_nether_brick_slab
+    48, 32, 48, 32, 56, 40,  // polished_andesite_slab
+    48, 32, 48, 32, 56, 40,  // diorite_slab
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // brick_wall
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // prismarine_wall
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // red_sandstone_wall
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // mossy_stone_brick_wall
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // granite_wall
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // stone_brick_wall
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // mud_brick_wall
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // nether_brick_wall
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // andesite_wall
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // red_nether_brick_wall
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // sandstone_wall
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // end_stone_brick_wall
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // diorite_wall
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // scaffolding
+    40, 40, 40, 40,  // loom
+    46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46,  // barrel
+    46, 46, 46, 46, 46, 46, 46, 46,  // smoker
+    46, 46, 46, 46, 46, 46, 46, 46,  // blast_furnace
+    40,  // cartography_table
+    40,  // fletching_table
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // grindstone
+    38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38, 38,  // lectern
+    40,  // smithing_table
+    32, 32, 32, 32,  // stonecutter
+    34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // bell
+    48, 32, 48, 32,  // lantern
+    48, 32, 48, 32,  // soul_lantern
+    48, 32, 48, 32,  // copper_lantern
+    48, 32, 48, 32,  // exposed_copper_lantern
+    48, 32, 48, 32,  // weathered_copper_lantern
+    48, 32, 48, 32,  // oxidized_copper_lantern
+    48, 32, 48, 32,  // waxed_copper_lantern
+    48, 32, 48, 32,  // waxed_exposed_copper_lantern
+    48, 32, 48, 32,  // waxed_weathered_copper_lantern
+    48, 32, 48, 32,  // waxed_oxidized_copper_lantern
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // campfire
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // soul_campfire
+    0, 0, 32, 32,  // sweet_berry_bush
+    40, 40, 40,  // warped_stem
+    40, 40, 40,  // stripped_warped_stem
+    40, 40, 40,  // warped_hyphae
+    40, 40, 40,  // stripped_warped_hyphae
+    40,  // warped_nylium
+    32,  // warped_fungus
+    40,  // warped_wart_block
+    32,  // warped_roots
+    0,  // nether_sprouts
+    40, 40, 40,  // crimson_stem
+    40, 40, 40,  // stripped_crimson_stem
+    40, 40, 40,  // crimson_hyphae
+    40, 40, 40,  // stripped_crimson_hyphae
+    40,  // crimson_nylium
+    32,  // crimson_fungus
+    40,  // shroomlight
+    0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 0, 32, 32, 0, 0, 0, 0, 32, 32, 32, 32, 0, 32, 0, 0, 0,  // weeping_vines
+    0,  // weeping_vines_plant
+    0, 0, 0, 0, 32, 32, 0, 0, 32, 0, 0, 0, 0, 32, 32, 0, 32, 0, 32, 0, 0, 32, 0, 32, 32, 0,  // twisting_vines
+    32,  // twisting_vines_plant
+    32,  // crimson_roots
+    40,  // crimson_planks
+    40,  // warped_planks
+    48, 32, 48, 32, 56, 40,  // crimson_slab
+    48, 32, 48, 32, 56, 40,  // warped_slab
+    32, 32,  // crimson_pressure_plate
+    32, 32,  // warped_pressure_plate
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // crimson_fence
+    48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32, 48, 48, 32, 32,  // warped_fence
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // crimson_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // warped_trapdoor
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // crimson_fence_gate
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // warped_fence_gate
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // crimson_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // warped_stairs
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // crimson_button
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // warped_button
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // crimson_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // warped_door
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // crimson_sign
+    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // warped_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // crimson_wall_sign
+    50, 34, 50, 34, 50, 34, 50, 34,  // warped_wall_sign
+    10, 10, 10, 10,  // structure_block
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  // jigsaw
+    10, 10, 10, 10,  // test_block
+    10,  // test_instance_block
+    36, 36, 36, 36, 36, 36, 36, 36, 36,  // composter
+    40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40,  // target
+    14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14,  // bee_nest
+    46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46,  // beehive
+    32,  // honey_block
+    40,  // honeycomb_block
+    40,  // netherite_block
+    40,  // ancient_debris
+    40,  // crying_obsidian
+    44, 44, 44, 44, 44,  // respawn_anchor
+    32,  // potted_crimson_fungus
+    32,  // potted_warped_fungus
+    32,  // potted_crimson_roots
+    32,  // potted_warped_roots
+    40,  // lodestone
+    40,  // blackstone
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // blackstone_stairs
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // blackstone_wall
+    48, 32, 48, 32, 56, 40,  // blackstone_slab
+    40,  // polished_blackstone
+    40,  // polished_blackstone_bricks
+    40,  // cracked_polished_blackstone_bricks
+    40,  // chiseled_polished_blackstone
+    48, 32, 48, 32, 56, 40,  // polished_blackstone_brick_slab
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // polished_blackstone_brick_stairs
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // polished_blackstone_brick_wall
+    40,  // gilded_blackstone
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // polished_blackstone_stairs
+    48, 32, 48, 32, 56, 40,  // polished_blackstone_slab
+    32, 32,  // polished_blackstone_pressure_plate
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // polished_blackstone_button
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // polished_blackstone_wall
+    40,  // chiseled_nether_bricks
+    40,  // cracked_nether_bricks
+    40,  // quartz_bricks
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // white_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // orange_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // magenta_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // light_blue_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // yellow_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // lime_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // pink_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // gray_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // light_gray_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // cyan_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // purple_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // blue_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // brown_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // green_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // red_candle
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // black_candle
+    36, 36,  // candle_cake
+    36, 36,  // white_candle_cake
+    36, 36,  // orange_candle_cake
+    36, 36,  // magenta_candle_cake
+    36, 36,  // light_blue_candle_cake
+    36, 36,  // yellow_candle_cake
+    36, 36,  // lime_candle_cake
+    36, 36,  // pink_candle_cake
+    36, 36,  // gray_candle_cake
+    36, 36,  // light_gray_candle_cake
+    36, 36,  // cyan_candle_cake
+    36, 36,  // purple_candle_cake
+    36, 36,  // blue_candle_cake
+    36, 36,  // brown_candle_cake
+    36, 36,  // green_candle_cake
+    36, 36,  // red_candle_cake
+    36, 36,  // black_candle_cake
+    40,  // amethyst_block
+    8,  // budding_amethyst
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // amethyst_cluster
+    16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0,  // large_amethyst_bud
+    16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0,  // medium_amethyst_bud
+    16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0,  // small_amethyst_bud
+    40,  // tuff
+    48, 32, 48, 32, 56, 40,  // tuff_slab
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // tuff_stairs
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // tuff_wall
+    40,  // polished_tuff
+    48, 32, 48, 32, 56, 40,  // polished_tuff_slab
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // polished_tuff_stairs
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // polished_tuff_wall
+    40,  // chiseled_tuff
+    40,  // tuff_bricks
+    48, 32, 48, 32, 56, 40,  // tuff_brick_slab
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // tuff_brick_stairs
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // tuff_brick_wall
+    40,  // chiseled_tuff_bricks
+    40,  // calcite
+    32,  // tinted_glass
+    0,  // powder_snow
+    22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6,  // sculk_sensor
+    22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6, 22, 6,  // calibrated_sculk_sensor
+    8,  // sculk
+    16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0, 16, 16, 0, 0,  // sculk_vein
+    10, 10,  // sculk_catalyst
+    18, 2, 18, 2, 18, 2, 18, 2,  // sculk_shrieker
+    40,  // copper_block
+    40,  // exposed_copper
+    40,  // weathered_copper
+    40,  // oxidized_copper
+    40,  // copper_ore
+    40,  // deepslate_copper_ore
+    40,  // oxidized_cut_copper
+    40,  // weathered_cut_copper
+    40,  // exposed_cut_copper
+    40,  // cut_copper
+    40,  // oxidized_chiseled_copper
+    40,  // weathered_chiseled_copper
+    40,  // exposed_chiseled_copper
+    40,  // chiseled_copper
+    40,  // waxed_oxidized_chiseled_copper
+    40,  // waxed_weathered_chiseled_copper
+    40,  // waxed_exposed_chiseled_copper
+    40,  // waxed_chiseled_copper
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // oxidized_cut_copper_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // weathered_cut_copper_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // exposed_cut_copper_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // cut_copper_stairs
+    48, 32, 48, 32, 56, 40,  // oxidized_cut_copper_slab
+    48, 32, 48, 32, 56, 40,  // weathered_cut_copper_slab
+    48, 32, 48, 32, 56, 40,  // exposed_cut_copper_slab
+    48, 32, 48, 32, 56, 40,  // cut_copper_slab
+    40,  // waxed_copper_block
+    40,  // waxed_weathered_copper
+    40,  // waxed_exposed_copper
+    40,  // waxed_oxidized_copper
+    40,  // waxed_oxidized_cut_copper
+    40,  // waxed_weathered_cut_copper
+    40,  // waxed_exposed_cut_copper
+    40,  // waxed_cut_copper
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // waxed_oxidized_cut_copper_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // waxed_weathered_cut_copper_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // waxed_exposed_cut_copper_stairs
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // waxed_cut_copper_stairs
+    48, 32, 48, 32, 56, 40,  // waxed_oxidized_cut_copper_slab
+    48, 32, 48, 32, 56, 40,  // waxed_weathered_cut_copper_slab
+    48, 32, 48, 32, 56, 40,  // waxed_exposed_cut_copper_slab
+    48, 32, 48, 32, 56, 40,  // waxed_cut_copper_slab
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // copper_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // exposed_copper_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // oxidized_copper_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // weathered_copper_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // waxed_copper_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // waxed_exposed_copper_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // waxed_oxidized_copper_door
+    0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 32, 32, 32, 32, 32, 32, 32, 32,  // waxed_weathered_copper_door
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // copper_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // exposed_copper_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // oxidized_copper_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // weathered_copper_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // waxed_copper_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // waxed_exposed_copper_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // waxed_oxidized_copper_trapdoor
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // waxed_weathered_copper_trapdoor
+    48, 32,  // copper_grate
+    48, 32,  // exposed_copper_grate
+    48, 32,  // weathered_copper_grate
+    48, 32,  // oxidized_copper_grate
+    48, 32,  // waxed_copper_grate
+    48, 32,  // waxed_exposed_copper_grate
+    48, 32,  // waxed_weathered_copper_grate
+    48, 32,  // waxed_oxidized_copper_grate
+    36, 36, 36, 36,  // copper_bulb
+    36, 36, 36, 36,  // exposed_copper_bulb
+    36, 36, 36, 36,  // weathered_copper_bulb
+    36, 36, 36, 36,  // oxidized_copper_bulb
+    36, 36, 36, 36,  // waxed_copper_bulb
+    36, 36, 36, 36,  // waxed_exposed_copper_bulb
+    36, 36, 36, 36,  // waxed_weathered_copper_bulb
+    36, 36, 36, 36,  // waxed_oxidized_copper_bulb
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // copper_chest
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // exposed_copper_chest
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // weathered_copper_chest
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // oxidized_copper_chest
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // waxed_copper_chest
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // waxed_exposed_copper_chest
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // waxed_weathered_copper_chest
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // waxed_oxidized_copper_chest
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // copper_golem_statue
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // exposed_copper_golem_statue
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // weathered_copper_golem_statue
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // oxidized_copper_golem_statue
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // waxed_copper_golem_statue
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // waxed_exposed_copper_golem_statue
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // waxed_weathered_copper_golem_statue
+    54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38, 54, 38,  // waxed_oxidized_copper_golem_statue
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // exposed_lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // weathered_lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // oxidized_lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // waxed_lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // waxed_exposed_lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // waxed_weathered_lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // waxed_oxidized_lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // pointed_dripstone
+    40,  // dripstone_block
+    32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0, 32, 0,  // cave_vines
+    32, 0,  // cave_vines_plant
+    32,  // spore_blossom
+    32,  // azalea
+    32,  // flowering_azalea
+    32,  // moss_carpet
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // pink_petals
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // wildflowers
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32,  // leaf_litter
+    40,  // moss_block
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // big_dripleaf
+    48, 32, 48, 32, 48, 32, 48, 32,  // big_dripleaf_stem
+    16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0, 16, 0,  // small_dripleaf
+    16, 0,  // hanging_roots
+    40,  // rooted_dirt
+    40,  // mud
+    40, 40, 40,  // deepslate
+    40,  // cobbled_deepslate
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // cobbled_deepslate_stairs
+    48, 32, 48, 32, 56, 40,  // cobbled_deepslate_slab
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // cobbled_deepslate_wall
+    40,  // polished_deepslate
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // polished_deepslate_stairs
+    48, 32, 48, 32, 56, 40,  // polished_deepslate_slab
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // polished_deepslate_wall
+    40,  // deepslate_tiles
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // deepslate_tile_stairs
+    48, 32, 48, 32, 56, 40,  // deepslate_tile_slab
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // deepslate_tile_wall
+    40,  // deepslate_bricks
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // deepslate_brick_stairs
+    48, 32, 48, 32, 56, 40,  // deepslate_brick_slab
+    48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32, 48, 48, 48, 32, 32, 32,  // deepslate_brick_wall
+    40,  // chiseled_deepslate
+    40,  // cracked_deepslate_bricks
+    40,  // cracked_deepslate_tiles
+    8, 8, 8,  // infested_deepslate
+    40,  // smooth_basalt
+    40,  // raw_iron_block
+    40,  // raw_copper_block
+    40,  // raw_gold_block
+    32,  // potted_azalea_bush
+    32,  // potted_flowering_azalea_bush
+    40, 40, 40,  // ochre_froglight
+    40, 40, 40,  // verdant_froglight
+    40, 40, 40,  // pearlescent_froglight
+    0,  // frogspawn
+    8,  // reinforced_deepslate
+    22, 6, 22, 6, 22, 6, 22, 6, 54, 38, 54, 38, 54, 38, 54, 38,  // decorated_pot
+    46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46,  // crafter
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  // trial_spawner
+    10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,  // vault
+    48, 32,  // heavy_core
+    40,  // pale_moss_block
+    32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  // pale_moss_carpet
+    0, 0,  // pale_hanging_moss
+    32,  // open_eyeblossom
+    32,  // closed_eyeblossom
+    32,  // potted_open_eyeblossom
+    32,  // potted_closed_eyeblossom
+    32,  // firefly_bush
 };
 
 const int32_t n_block_defs = 1166;

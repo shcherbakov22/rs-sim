@@ -37,7 +37,7 @@ struct case_tick {
     block_pos pos;
     int32_t   block;
     int64_t   delay;
-    int32_t   priority;  // vanilla TickPriority value, -3 (extremely_high) to 3 (extremely_low)
+    int32_t   priority;  // tick_priority
 };
 
 struct case_event {

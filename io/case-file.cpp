@@ -1,11 +1,9 @@
 #include "io/case-file.h"
 
+#include "engine/level-ticks.h"
+
 #include <cerrno>
 #include <map>
-
-static const char * const tick_priority_names[] = {
-    "extremely_high", "very_high", "high", "normal", "low", "very_low", "extremely_low",
-};
 
 static std::vector<std::string_view> split_ws(std::string_view line) {
     std::vector<std::string_view> out;
@@ -244,14 +242,9 @@ static bool case_parse_line(case_file & f, case_parser & p, std::string_view lin
     }
     if (p.section == "ticks") {
         case_tick tk;
-        tk.block    = t.size() == 6 ? block_find(t[3]) : -1;
-        tk.priority = -4;
-        for (int32_t i = 0; i < 7 && t.size() == 6; i++) {
-            if (t[5] == tick_priority_names[i]) {
-                tk.priority = i - 3;
-            }
-        }
-        if (!parse_pos(t, 0, tk.pos) || tk.block < 0 || !parse_i64(t[4], tk.delay) || tk.priority == -4) {
+        tk.block = t.size() == 6 ? block_find(t[3]) : -1;
+        if (!parse_pos(t, 0, tk.pos) || tk.block < 0 || !parse_i64(t[4], tk.delay) ||
+            !tick_priority_parse(t[5], tk.priority)) {
             err = "expected 'x y z <block> <delay> <priority>'";
             return false;
         }
