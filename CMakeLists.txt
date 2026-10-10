@@ -54,6 +54,8 @@ add_library(tmc STATIC
     blocks/jukebox.cpp
     blocks/ladder.cpp
     blocks/lantern.cpp
+    blocks/lava-cauldron.cpp
+    blocks/layered-cauldron.cpp
     blocks/leaves.cpp
     blocks/lectern.cpp
     blocks/lever.cpp

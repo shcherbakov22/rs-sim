@@ -838,6 +838,10 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
             return 0;
         case VCLASS_COPPER_BULB_BLOCK:
             return copper_bulb_get_analog_output_signal(lv, pos);
+        case VCLASS_LAYERED_CAULDRON_BLOCK:
+            return layered_cauldron_get_analog_output_signal(st);
+        case VCLASS_LAVA_CAULDRON_BLOCK:
+            return lava_cauldron_get_analog_output_signal();
         default:
             hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
             return 0;

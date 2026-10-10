@@ -124,7 +124,6 @@ corpus/0295
 corpus/0296
 corpus/0297
 corpus/0299
-corpus/0300
 corpus/0302
 corpus/0303
 corpus/0304

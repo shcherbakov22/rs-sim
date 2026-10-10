@@ -380,6 +380,12 @@ void scaffolding_update_shape(level & lv, state_id st, block_pos pos);
 void scaffolding_tick(level & lv, state_id st, block_pos pos);
 bool scaffolding_can_survive(level & lv, block_pos pos);
 
+// LayeredCauldronBlock
+int32_t layered_cauldron_get_analog_output_signal(state_id st);
+
+// LavaCauldronBlock
+int32_t lava_cauldron_get_analog_output_signal();
+
 // ComposterBlock
 void               composter_on_place(level & lv, state_id st, block_pos pos);
 interaction_result composter_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
