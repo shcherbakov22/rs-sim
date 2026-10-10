@@ -9,12 +9,11 @@ static void lever_update_neighbours(level & lv, state_id st, block_pos pos) {
     level_update_neighbors_at(lv, pos_relative(pos, front), state_block(st));
 }
 
-// LeverBlock.pull; the click sound and game event have no traced effect
-interaction_result lever_use_without_item(level & lv, state_id st, block_pos pos) {
+// LeverBlock.pull; the sound and game event have no traced effect
+void lever_pull(level & lv, state_id st, block_pos pos) {
     st = state_cycle(st, PROP_POWERED);
     level_set_block(lv, pos, st, UPDATE_FLAG_ALL);
     lever_update_neighbours(lv, st, pos);
-    return INTERACTION_RESULT_SUCCESS;
 }
 
 void lever_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston) {

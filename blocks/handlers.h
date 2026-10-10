@@ -39,7 +39,6 @@ void     red_stone_wire_affect_neighbors_after_removal(level & lv, state_id st, 
 void     red_stone_wire_neighbor_changed(level & lv, state_id st, block_pos pos);
 int32_t  red_stone_wire_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir);
 int32_t  red_stone_wire_get_signal(level & lv, state_id st, block_pos pos, direction dir);
-interaction_result red_stone_wire_use_without_item(level & lv, state_id st, block_pos pos);
 
 // RedstoneTorchBlock
 void    redstone_torch_on_place(level & lv, state_id st, block_pos pos);
@@ -69,7 +68,6 @@ void     diode_on_place(level & lv, state_id st, block_pos pos);
 void     diode_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
 
 // RepeaterBlock
-interaction_result repeater_use_without_item(level & lv, state_id st, block_pos pos);
 int32_t            repeater_get_delay(state_id st);
 state_id           repeater_update_shape(level &   lv,
                                          state_id  st,
@@ -82,8 +80,7 @@ bool               repeater_is_locked(level & lv, state_id st, block_pos pos);
 // ComparatorBlock
 state_id comparator_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor);
 int32_t  comparator_get_output_signal(level & lv, block_pos pos);
-bool     comparator_should_turn_on(level & lv, state_id st, block_pos pos);
-interaction_result comparator_use_without_item(level & lv, state_id st, block_pos pos);
+bool               comparator_should_turn_on(level & lv, state_id st, block_pos pos);
 void               comparator_check_tick_on_neighbor(level & lv, state_id st, block_pos pos);
 void               comparator_tick(level & lv, state_id st, block_pos pos);
 
@@ -106,8 +103,7 @@ void         containers_drop_contents(level & lv, block_pos pos, const container
 int32_t      container_get_redstone_signal_from_block_entity(level & lv, block_pos pos);
 
 // EnderChestBlock
-void               ender_chest_tick(level & lv, block_pos pos);
-interaction_result ender_chest_use_without_item(level & lv, block_pos pos);
+void ender_chest_tick(level & lv, block_pos pos);
 
 // AbstractSkullBlock
 void abstract_skull_neighbor_changed(level & lv, state_id st, block_pos pos);
@@ -164,7 +160,6 @@ state_id           bell_update_shape(level &   lv,
                                      block_pos neighbor_pos,
                                      state_id  neighbor);
 void               bell_neighbor_changed(level & lv, state_id st, block_pos pos);
-interaction_result bell_use_without_item(level & lv, state_id st, block_pos pos, direction face);
 
 // CrafterBlock, CrafterBlockEntity
 bool     crafter_block_entity_can_place_item(const block_entity * be, int32_t slot);
@@ -173,10 +168,6 @@ int32_t  crafter_get_analog_output_signal(level & lv, block_pos pos);
 void     crafter_neighbor_changed(level & lv, state_id st, block_pos pos);
 void     crafter_tick(level & lv, state_id st, block_pos pos);
 
-// DecoratedPotBlock
-interaction_result decorated_pot_use_item_on(level & lv, block_pos pos, const item_stack & stack);
-interaction_result decorated_pot_use_without_item(level & lv, block_pos pos);
-
 // JukeboxBlock, JukeboxBlockEntity, JukeboxSongPlayer
 bool               jukebox_song_has_finished(int32_t record, int64_t ticks);
 void               jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack s);
@@ -184,8 +175,6 @@ void               jukebox_block_entity_pop_out_the_item(level & lv, block_entit
 void               jukebox_block_entity_tick(level & lv, block_entity * be);
 int32_t            jukebox_get_signal(level & lv, block_pos pos);
 int32_t            jukebox_get_analog_output_signal(level & lv, block_pos pos);
-interaction_result jukebox_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
-interaction_result jukebox_use_without_item(level & lv, state_id st, block_pos pos);
 
 // ChiseledBookShelfBlock, ChiseledBookShelfBlockEntity
 item_stack chiseled_book_shelf_block_entity_remove_item(level & lv, block_entity * be, int32_t slot);
@@ -193,19 +182,12 @@ void       chiseled_book_shelf_block_entity_set_item(level & lv, block_entity * 
 bool       chiseled_book_shelf_block_entity_can_place_item(const block_entity * be, int32_t slot, const item_stack & s);
 bool       chiseled_book_shelf_block_entity_can_take_item(const container & into, const item_stack & s);
 int32_t    chiseled_book_shelf_get_analog_output_signal(level & lv, block_pos pos);
-interaction_result chiseled_book_shelf_use_item_on(level &            lv,
-                                                   state_id           st,
-                                                   block_pos          pos,
-                                                   direction          face,
-                                                   const item_stack & stack);
-interaction_result chiseled_book_shelf_use_without_item(level & lv, state_id st, block_pos pos, direction face);
 
 // ShelfBlock, ShelfBlockEntity, SideChainPartBlock
 void               shelf_on_place(level & lv, state_id st, block_pos pos, state_id old);
 void               shelf_neighbor_changed(level & lv, state_id st, block_pos pos);
 void               shelf_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
 int32_t            shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
-interaction_result shelf_use_item_on(level & lv, state_id st, block_pos pos, direction face, const item_stack & stack);
 
 // CrossCollisionBlock, FenceBlock
 prop_id  cross_collision_property_by_direction(direction dir);
@@ -222,7 +204,6 @@ state_id leaves_update_shape(level & lv, state_id st, block_pos pos, state_id ne
 state_id stair_update_shape(level & lv, state_id st, block_pos pos, direction dir);
 
 // TrapDoorBlock
-interaction_result trap_door_use_without_item(level & lv, state_id st, block_pos pos);
 void               trap_door_neighbor_changed(level & lv, state_id st, block_pos pos);
 
 // WallBlock
@@ -235,7 +216,6 @@ state_id wall_update_shape(level &   lv,
 
 // FenceGateBlock
 state_id           fence_gate_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
-interaction_result fence_gate_use_without_item(level & lv, state_id st, block_pos pos);
 void               fence_gate_neighbor_changed(level & lv, state_id st, block_pos pos);
 
 // BaseRailBlock and RailState of the straight rails
@@ -258,15 +238,9 @@ void       rail_state_place(level & lv, rail_state & rs, bool first, int32_t def
 // PoweredRailBlock
 void powered_rail_update_state(level & lv, state_id st, block_pos pos);
 
-// AbstractCandleBlock
-void abstract_candle_extinguish(level & lv, state_id st, block_pos pos);
-
 // CarpetBlock
 state_id carpet_update_shape(level & lv, state_id st, block_pos pos);
 bool     carpet_can_survive(level & lv, block_pos pos);
-
-// CandleBlock
-interaction_result candle_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
 
 // LadderBlock
 bool     ladder_can_survive(level & lv, state_id st, block_pos pos);
@@ -303,9 +277,6 @@ void soul_sand_on_place(level & lv, state_id st, block_pos pos);
 void soul_sand_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
 void soul_sand_tick(level & lv, block_pos pos);
 
-// LightBlock
-interaction_result light_use_without_item();
-
 // ScaffoldingBlock
 int32_t  scaffolding_get_distance(level & lv, block_pos pos);
 void     scaffolding_on_place(level & lv, state_id st, block_pos pos);
@@ -314,8 +285,6 @@ void     scaffolding_tick(level & lv, state_id st, block_pos pos);
 
 // ComposterBlock
 void               composter_on_place(level & lv, state_id st, block_pos pos);
-interaction_result composter_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
-interaction_result composter_use_without_item(level & lv, state_id st, block_pos pos);
 void               composter_tick(level & lv, state_id st, block_pos pos);
 int32_t            composter_get_analog_output_signal(state_id st);
 void               composter_get_container(state_id st, block_pos pos, composter_container & out);
@@ -332,7 +301,6 @@ void               composter_container_set_changed(level & lv, composter_contain
 // DoorBlock
 bool               door_can_survive(level & lv, state_id st, block_pos pos);
 state_id           door_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
-interaction_result door_use_without_item(level & lv, state_id st, block_pos pos);
 void               door_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block);
 
 // DropperBlock
@@ -359,7 +327,7 @@ state_id  face_attached_horizontal_directional_update_shape(level & lv, state_id
 direction face_attached_horizontal_directional_get_connected_direction(state_id st);
 
 // LeverBlock
-interaction_result lever_use_without_item(level & lv, state_id st, block_pos pos);
+void               lever_pull(level & lv, state_id st, block_pos pos);
 void               lever_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
 int32_t            lever_get_signal(state_id st);
 int32_t            lever_get_direct_signal(state_id st, direction dir);
@@ -376,7 +344,6 @@ void     observer_on_place(level & lv, state_id st, block_pos pos, state_id old)
 void     observer_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
 
 // MovingPistonBlock
-interaction_result moving_piston_use_without_item(level & lv, block_pos pos);
 voxel_shape        moving_piston_get_collision_shape(level & lv, block_pos pos);
 
 // PistonBaseBlock
@@ -435,7 +402,6 @@ bool     soul_fire_can_survive_on_block(state_id st);
 void               tnt_prime(level & lv, block_pos pos);
 void               tnt_on_place(level & lv, state_id st, block_pos pos, state_id old);
 void               tnt_neighbor_changed(level & lv, block_pos pos);
-interaction_result tnt_use_item_on(level & lv, block_pos pos, const item_stack & stack);
 
 // FallingBlock, ConcretePowderBlock
 void     falling_block_on_place(level & lv, state_id st, block_pos pos);

@@ -71,27 +71,3 @@ void bell_neighbor_changed(level & lv, state_id st, block_pos pos) {
         level_set_block(lv, pos, state_set(st, PROP_POWERED, signal), UPDATE_FLAG_ALL);
     }
 }
-
-// BellBlock.onHit and isProperHit: Inputs.use clicks the face center, below the 0.8124 rim
-interaction_result bell_use_without_item(level & lv, state_id st, block_pos pos, direction face) {
-    if (direction_get_axis(face) == DIRECTION_AXIS_Y) {
-        return INTERACTION_RESULT_PASS;
-    }
-    bool same_axis = direction_get_axis(bell_facing(st)) == direction_get_axis(face);
-    bool proper    = false;
-    switch (state_get(st, PROP_BELL_ATTACHMENT)) {
-        case BELL_ATTACH_TYPE_FLOOR:
-            proper = same_axis;
-            break;
-        case BELL_ATTACH_TYPE_CEILING:
-            proper = true;
-            break;
-        default:
-            proper = !same_axis;
-    }
-    if (!proper) {
-        return INTERACTION_RESULT_PASS;
-    }
-    bell_attempt_to_ring(lv, pos, face);
-    return INTERACTION_RESULT_SUCCESS;
-}

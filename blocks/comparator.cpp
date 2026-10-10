@@ -83,14 +83,6 @@ static void comparator_refresh_output_state(level & lv, state_id st, block_pos p
     }
 }
 
-// the click sound draws from the thread-safe random, not the level random
-interaction_result comparator_use_without_item(level & lv, state_id st, block_pos pos) {
-    st = state_cycle(st, PROP_MODE_COMPARATOR);
-    level_set_block(lv, pos, st, UPDATE_FLAG_CLIENTS);
-    comparator_refresh_output_state(lv, st, pos);
-    return INTERACTION_RESULT_SUCCESS;
-}
-
 void comparator_check_tick_on_neighbor(level & lv, state_id st, block_pos pos) {
     int32_t block = state_block(st);
     if (level_ticks_will_tick_this_tick(lv.block_ticks, pos, block)) {

@@ -1,4 +1,4 @@
-// FenceGateBlock: in_wall follows walls on the sides; a use or a signal opens it
+// FenceGateBlock: in_wall follows walls on the sides; a signal opens it
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -12,21 +12,6 @@ state_id fence_gate_update_shape(level & lv, state_id st, block_pos pos, directi
     bool in_wall = state_has(neighbor, STATE_FLAG_TAG_WALLS) ||
                    state_has(level_get_state(lv, pos_relative(pos, direction_opposite(dir))), STATE_FLAG_TAG_WALLS);
     return state_set(st, PROP_IN_WALL, in_wall);
-}
-
-// the virtual player keeps yaw 0, so it faces south and swings a gate facing north around; the sound pitch draws a float
-interaction_result fence_gate_use_without_item(level & lv, state_id st, block_pos pos) {
-    if (state_get(st, PROP_OPEN)) {
-        st = state_set(st, PROP_OPEN, 0);
-    } else {
-        if (state_get(st, PROP_HORIZONTAL_FACING) == DIRECTION_NORTH) {
-            st = state_set(st, PROP_HORIZONTAL_FACING, DIRECTION_SOUTH);
-        }
-        st = state_set(st, PROP_OPEN, 1);
-    }
-    level_set_block(lv, pos, st, UPDATE_FLAG_CLIENTS | UPDATE_FLAG_IMMEDIATE);
-    rng_next_float(lv.random);
-    return INTERACTION_RESULT_SUCCESS;
 }
 
 void fence_gate_neighbor_changed(level & lv, state_id st, block_pos pos) {

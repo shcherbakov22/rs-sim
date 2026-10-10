@@ -60,30 +60,6 @@ static bool parse_input(const std::vector<std::string_view> & t, case_input & in
         err = "expected '@<ticks> <verb> x y z ...'";
         return false;
     }
-    if (t[1] == "use") {
-        in.verb  = CASE_VERB_USE;
-        size_t i = 5;
-        if (t.size() > i && t[i] != "with") {
-            if (!direction_parse(t[i], in.face)) {
-                err = "unknown face " + std::string(t[i]);
-                return false;
-            }
-            i++;
-        }
-        if (t.size() > i) {
-            if (t[i] != "with" || t.size() < i + 2) {
-                err = "expected 'with <item> [count]'";
-                return false;
-            }
-            in.item  = t[i + 1];
-            in.count = 1;
-            if (t.size() > i + 2 && !parse_i32(t[i + 2], in.count)) {
-                err = "bad count";
-                return false;
-            }
-        }
-        return true;
-    }
     if (t[1] == "place") {
         in.verb = CASE_VERB_PLACE;
         if (t.size() != 6) {
@@ -96,12 +72,10 @@ static bool parse_input(const std::vector<std::string_view> & t, case_input & in
         err = "unexpected tokens after position";
         return false;
     }
-    if (t[1] == "attack") {
-        in.verb = CASE_VERB_ATTACK;
-    } else if (t[1] == "break") {
+    if (t[1] == "break") {
         in.verb = CASE_VERB_BREAK;
-    } else if (t[1] == "close") {
-        in.verb = CASE_VERB_CLOSE;
+    } else if (t[1] == "pull") {
+        in.verb = CASE_VERB_PULL;
     } else {
         err = "unknown input " + std::string(t[1]);
         return false;

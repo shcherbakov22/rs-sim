@@ -303,29 +303,3 @@ int32_t red_stone_wire_get_signal(level & lv, state_id st, block_pos pos, direct
     }
     return power;
 }
-
-static void red_stone_wire_updates_on_shape_change(level & lv, block_pos pos, state_id old, state_id st) {
-    for (direction dir : DIRECTION_HORIZONTAL) {
-        block_pos rel = pos_relative(pos, dir);
-        if (red_stone_wire_connected(old, dir) != red_stone_wire_connected(st, dir) &&
-            red_stone_wire_is_conductor(lv, rel)) {
-            level_update_neighbors_at_except_from_facing(lv, rel, state_block(st), direction_opposite(dir));
-        }
-    }
-}
-
-// toggles between dot and cross
-interaction_result red_stone_wire_use_without_item(level & lv, state_id st, block_pos pos) {
-    if (!red_stone_wire_is_cross(st) && !red_stone_wire_is_dot(st)) {
-        return INTERACTION_RESULT_PASS;
-    }
-    state_id st_new = red_stone_wire_is_cross(st) ? block_default(BLOCK_REDSTONE_WIRE) : red_stone_wire_cross_state();
-    st_new          = state_set(st_new, PROP_POWER, state_get(st, PROP_POWER));
-    st_new          = red_stone_wire_get_connection_state(lv, st_new, pos);
-    if (st_new == st) {
-        return INTERACTION_RESULT_PASS;
-    }
-    level_set_block(lv, pos, st_new, UPDATE_FLAG_ALL);
-    red_stone_wire_updates_on_shape_change(lv, pos, st, st_new);
-    return INTERACTION_RESULT_SUCCESS;
-}

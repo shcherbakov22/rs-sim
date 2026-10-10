@@ -11,21 +11,16 @@
 // Port of the oracle's CaseFile/CaseFormat (tmc-case 1). Positions are relative to the case origin.
 
 enum case_verb {
-    CASE_VERB_USE,
-    CASE_VERB_ATTACK,
     CASE_VERB_PLACE,
     CASE_VERB_BREAK,
-    CASE_VERB_CLOSE,
+    CASE_VERB_PULL,
 };
 
 struct case_input {
     int32_t     at;  // applied after this many ticks, between ticks
     case_verb   verb;
     block_pos   pos;
-    state_id    state = STATE_AIR;     // place
-    direction   face  = DIRECTION_UP;  // use
-    std::string item;                  // use: empty = empty hand
-    int32_t     count = 0;
+    state_id    state = STATE_AIR;  // place
 };
 
 // block entity NBT from the key, with the oracle's hidden state under "tmc:hidden"

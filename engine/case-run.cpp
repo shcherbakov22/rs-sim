@@ -254,45 +254,14 @@ static void case_place(level & lv, const case_file & f) {
     lv.random.gaussian     = f.gaussian;
 }
 
-// ServerPlayerGameMode.useItemOn for a player that is not sneaking; Inputs.use gives each use a fresh stack
-static void case_use(level & lv, const case_input & in) {
-    state_id   st    = level_get_state(lv, in.pos);
-    item_stack stack = { in.item.empty() ? ITEM_AIR : item_find(in.item), in.count };
-    if (stack.item < 0) {
-        level_unsupported(lv, "item %s", in.item.c_str());
-        return;
-    }
-    interaction_result result = block_use_item_on(lv, st, in.pos, in.face, stack);
-    if (interaction_result_consumes_action(result)) {
-        return;
-    }
-    if (result == INTERACTION_RESULT_TRY_WITH_EMPTY_HAND &&
-        interaction_result_consumes_action(block_use_without_item(lv, st, in.pos, in.face))) {
-        return;
-    }
-    if (!item_stack_is_empty(stack)) {
-        item_use_on(lv, stack);
-    }
-}
+static const char * const case_verb_names[] = { "place", "break", "pull" };
 
-static const char * const case_verb_names[] = { "use", "attack", "place", "break", "close" };
-
-// Inputs.apply: the block-side effect of a player action
+// Inputs.apply: a pull flips a lever like LeverBlock.useWithoutItem and does nothing to other blocks
 static void case_apply_input(level & lv, const case_input & in) {
     std::string text = std::string("input ") + case_verb_names[in.verb] + " " + std::to_string(in.pos.x) + " " +
                        std::to_string(in.pos.y) + " " + std::to_string(in.pos.z);
     if (in.verb == CASE_VERB_PLACE) {
         text += " " + state_to_string(in.state);
-    }
-    if (in.verb == CASE_VERB_USE) {
-        text += std::string(" ") + direction_defs[in.face].name;
-        if (!in.item.empty()) {
-            std::string_view item = in.item;
-            if (item.starts_with("minecraft:")) {
-                item.remove_prefix(10);
-            }
-            text += " with " + std::string(item) + " " + std::to_string(in.count);
-        }
     }
     trace_enter(lv.tr, nullptr, "%s", text.c_str());
     switch (in.verb) {
@@ -302,14 +271,13 @@ static void case_apply_input(level & lv, const case_input & in) {
         case CASE_VERB_BREAK:
             level_destroy_block(lv, in.pos, false);
             break;
-        case CASE_VERB_USE:
-            case_use(lv, in);
-            break;
-        case CASE_VERB_ATTACK:
-            block_attack(lv, level_get_state(lv, in.pos));
-            break;
-        case CASE_VERB_CLOSE:
-            // opening a container menu is unsupported, so no player holds one to close
+        case CASE_VERB_PULL:
+            {
+                state_id st = level_get_state(lv, in.pos);
+                if (block_instanceof(state_block(st), VCLASS_LEVER_BLOCK)) {
+                    lever_pull(lv, st, in.pos);
+                }
+            }
             break;
     }
     trace_exit(lv.tr);

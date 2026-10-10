@@ -1,4 +1,4 @@
-// NoteBlock: the instrument comes from the block above (mob heads) or below; a rising signal plays a note as a block event. Tuning and hitting by hand are not ported.
+// NoteBlock: the instrument comes from the block above (mob heads) or below; a rising signal plays a note as a block event.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"

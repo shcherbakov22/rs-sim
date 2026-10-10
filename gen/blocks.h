@@ -303,9 +303,8 @@ enum item_class {
 };
 
 enum item_hook {
-    ITEM_HOOK_USE_ON                  = 0,
-    ITEM_HOOK_ON_CRAFTED_POST_PROCESS = 1,
-    ITEM_HOOK_COUNT                   = 2,
+    ITEM_HOOK_ON_CRAFTED_POST_PROCESS = 0,
+    ITEM_HOOK_COUNT                   = 1,
 };
 
 enum item_component {
@@ -3423,16 +3422,13 @@ enum hook {
     HOOK_TRIGGER_EVENT                          = 5,
     HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES       = 6,
     HOOK_SPAWN_AFTER_BREAK                      = 7,
-    HOOK_USE_ITEM_ON                            = 8,
-    HOOK_USE_WITHOUT_ITEM                       = 9,
-    HOOK_ATTACK                                 = 10,
-    HOOK_IS_SIGNAL_SOURCE                       = 11,
-    HOOK_GET_SIGNAL                             = 12,
-    HOOK_GET_DIRECT_SIGNAL                      = 13,
-    HOOK_CAN_SURVIVE                            = 14,
-    HOOK_GET_ANALOG_OUTPUT_SIGNAL               = 15,
-    HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY = 16,
-    HOOK_COUNT                                  = 17,
+    HOOK_IS_SIGNAL_SOURCE                       = 8,
+    HOOK_GET_SIGNAL                             = 9,
+    HOOK_GET_DIRECT_SIGNAL                      = 10,
+    HOOK_CAN_SURVIVE                            = 11,
+    HOOK_GET_ANALOG_OUTPUT_SIGNAL               = 12,
+    HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY = 13,
+    HOOK_COUNT                                  = 14,
 };
 
 // vanilla BlockStateProperties fields

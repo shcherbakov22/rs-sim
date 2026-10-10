@@ -1,5 +1,4 @@
-// ChiseledBookShelfBlock and ChiseledBookShelfBlockEntity. The slot properties are kept apart from the items: the use
-// checks read the state, so a slot can show a book it does not hold.
+// ChiseledBookShelfBlock and ChiseledBookShelfBlockEntity. The slot properties are kept apart from the items, so a slot can show a book it does not hold.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -7,11 +6,6 @@
 static block_entity * chiseled_book_shelf_block_entity(level & lv, block_pos pos) {
     block_entity * be = level_get_block_entity(lv, pos);
     return be != nullptr && be->type == BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF ? be : nullptr;
-}
-
-// SelectableSlotContainer.getHitSlot: Inputs.use clicks the face center, which is row 1 (of 2) and column 1 (of 3)
-static int32_t chiseled_book_shelf_get_hit_slot(state_id st, direction face) {
-    return face == (direction) state_get(st, PROP_HORIZONTAL_FACING) ? 4 : -1;
 }
 
 static prop_id chiseled_book_shelf_slot_occupied(int32_t slot) {
@@ -69,45 +63,4 @@ bool chiseled_book_shelf_block_entity_can_take_item(const container & into, cons
 int32_t chiseled_book_shelf_get_analog_output_signal(level & lv, block_pos pos) {
     block_entity * be = chiseled_book_shelf_block_entity(lv, pos);
     return be != nullptr ? be->last_interacted_slot + 1 : 0;
-}
-
-// ChiseledBookShelfBlock.addBook: the book is one taken from the held stack
-interaction_result chiseled_book_shelf_use_item_on(level &            lv,
-                                                   state_id           st,
-                                                   block_pos          pos,
-                                                   direction          face,
-                                                   const item_stack & stack) {
-    block_entity * be = chiseled_book_shelf_block_entity(lv, pos);
-    if (be == nullptr) {
-        return INTERACTION_RESULT_PASS;
-    }
-    if (!(item_defs[item_stack_get_item(stack)].tags & ITEM_TAG_BOOKSHELF_BOOKS)) {
-        return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;
-    }
-    int32_t slot = chiseled_book_shelf_get_hit_slot(st, face);
-    if (slot < 0) {
-        return INTERACTION_RESULT_PASS;
-    }
-    if (state_get(st, chiseled_book_shelf_slot_occupied(slot))) {
-        return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;
-    }
-    chiseled_book_shelf_block_entity_set_item(lv, be, slot, { stack.item, 1 });
-    return INTERACTION_RESULT_SUCCESS;
-}
-
-// ChiseledBookShelfBlock.removeBook: the book goes to the player, who empties its inventory after the input
-interaction_result chiseled_book_shelf_use_without_item(level & lv, state_id st, block_pos pos, direction face) {
-    block_entity * be = chiseled_book_shelf_block_entity(lv, pos);
-    if (be == nullptr) {
-        return INTERACTION_RESULT_PASS;
-    }
-    int32_t slot = chiseled_book_shelf_get_hit_slot(st, face);
-    if (slot < 0) {
-        return INTERACTION_RESULT_PASS;
-    }
-    if (!state_get(st, chiseled_book_shelf_slot_occupied(slot))) {
-        return INTERACTION_RESULT_CONSUME;
-    }
-    chiseled_book_shelf_block_entity_remove_item(lv, be, slot);
-    return INTERACTION_RESULT_SUCCESS;
 }

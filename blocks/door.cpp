@@ -1,4 +1,4 @@
-// DoorBlock: two halves that copy each other through updateShape; a use (not for iron) or a signal opens it
+// DoorBlock: two halves that copy each other through updateShape; a signal opens it
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -31,16 +31,6 @@ state_id door_update_shape(level & lv, state_id st, block_pos pos, direction dir
         return state_set(neighbor, PROP_DOUBLE_BLOCK_HALF, half);
     }
     return STATE_AIR;
-}
-
-interaction_result door_use_without_item(level & lv, state_id st, block_pos pos) {
-    if (!block_field_get(state_block(st), FIELD_DOOR_BLOCK_TYPE_CAN_OPEN_BY_HAND)) {
-        return INTERACTION_RESULT_PASS;
-    }
-    st = state_set(st, PROP_OPEN, !state_get(st, PROP_OPEN));
-    level_set_block(lv, pos, st, UPDATE_FLAG_CLIENTS | UPDATE_FLAG_IMMEDIATE);
-    door_play_sound(lv);
-    return INTERACTION_RESULT_SUCCESS;
 }
 
 // either half reads the signal at both; an update from a block of the same door type is ignored

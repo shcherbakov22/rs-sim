@@ -10,14 +10,3 @@ void ender_chest_tick(level & lv, block_pos pos) {
         level_block_event(lv, pos, BLOCK_ENDER_CHEST, 1, 0);
     }
 }
-
-// a conductor above keeps the chest shut without opening a menu
-interaction_result ender_chest_use_without_item(level & lv, block_pos pos) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    if (be == nullptr || be->type != BLOCK_ENTITY_TYPE_ENDER_CHEST ||
-        state_has(level_get_state(lv, pos_relative(pos, DIRECTION_UP)), STATE_FLAG_CONDUCTOR)) {
-        return INTERACTION_RESULT_SUCCESS;
-    }
-    level_unsupported(lv, "container menus");
-    return INTERACTION_RESULT_SUCCESS;
-}

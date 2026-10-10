@@ -84,24 +84,3 @@ int32_t jukebox_get_analog_output_signal(level & lv, block_pos pos) {
     block_entity * be = jukebox_block_entity(lv, pos);
     return be != nullptr ? item_defs[be->items[0].item].song_comparator : 0;
 }
-
-// JukeboxPlayable.tryInsertIntoJukebox; only items with a song have the JUKEBOX_PLAYABLE component
-interaction_result jukebox_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack) {
-    if (state_get(st, PROP_HAS_RECORD) || item_defs[item_stack_get_item(stack)].song_ticks < 0) {
-        return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;
-    }
-    block_entity * be = jukebox_block_entity(lv, pos);
-    if (be != nullptr) {
-        jukebox_block_entity_set_the_item(lv, be, { stack.item, 1 });
-    }
-    return INTERACTION_RESULT_SUCCESS;
-}
-
-interaction_result jukebox_use_without_item(level & lv, state_id st, block_pos pos) {
-    block_entity * be = jukebox_block_entity(lv, pos);
-    if (!state_get(st, PROP_HAS_RECORD) || be == nullptr) {
-        return INTERACTION_RESULT_PASS;
-    }
-    jukebox_block_entity_pop_out_the_item(lv, be);
-    return INTERACTION_RESULT_SUCCESS;
-}

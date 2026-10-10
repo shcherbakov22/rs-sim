@@ -3,11 +3,6 @@
 #include "blocks/handlers.h"
 #include "engine/level.h"
 
-interaction_result repeater_use_without_item(level & lv, state_id st, block_pos pos) {
-    level_set_block(lv, pos, state_cycle(st, PROP_DELAY), UPDATE_FLAG_ALL);
-    return INTERACTION_RESULT_SUCCESS;
-}
-
 int32_t repeater_get_delay(state_id st) {
     return state_get(st, PROP_DELAY) * 2;
 }

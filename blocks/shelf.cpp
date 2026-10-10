@@ -1,5 +1,4 @@
-// ShelfBlock, ShelfBlockEntity and SideChainPartBlock: powered wooden shelves facing the same way chain up to 3 wide, and a
-// use on a powered shelf swaps the whole chain with the player's hotbar.
+// ShelfBlock, ShelfBlockEntity and SideChainPartBlock: powered wooden shelves facing the same way chain up to 3 wide.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -161,51 +160,4 @@ int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
         bits |= (item_stack_is_empty(be->items[slot]) ? 0 : 1) << slot;
     }
     return bits;
-}
-
-// ShelfBlockEntity.swapItemNoUpdate: removeItemNoUpdate splits off at most 99, then setItemNoUpdate limits the new stack
-static item_stack shelf_block_entity_swap_item_no_update(block_entity * be, int32_t slot, item_stack held) {
-    item_stack & s         = be->items[slot];
-    item_stack   retrieved = item_stack_is_empty(s) ? item_stack() : item_stack_split(s, 99);
-    s                      = held;
-    item_stack_limit_size(s, container_get_max_stack_size(held));
-    return retrieved;
-}
-
-// ShelfBlock.swapHotbar: the chain's slots map onto the end of the hotbar, where the virtual player has only its hand in
-// slot 0; what the shelves give back is gone with the inventory after the input
-static interaction_result shelf_swap_hotbar(level & lv, block_pos pos, const item_stack & hand) {
-    std::vector<block_pos> connected   = shelf_get_all_blocks_connected_to(lv, pos);
-    int32_t                n           = (int32_t) connected.size();
-    bool                   any_swapped = false;
-    for (int32_t index = 0; index < n; index++) {
-        block_entity * part = level_get_block_entity(lv, connected[index]);
-        if (part == nullptr) {
-            continue;
-        }
-        for (int32_t slot = 0; slot < 3; slot++) {
-            int32_t    inventory_slot = 9 - (n - index) * 3 + slot;
-            item_stack placed         = inventory_slot == 0 ? hand : item_stack();
-            item_stack removed        = shelf_block_entity_swap_item_no_update(part, slot, placed);
-            any_swapped               = any_swapped || !item_stack_is_empty(placed) || !item_stack_is_empty(removed);
-        }
-        block_entity_set_changed(lv, part->pos, part->state);
-    }
-    return any_swapped ? INTERACTION_RESULT_SUCCESS : INTERACTION_RESULT_CONSUME;
-}
-
-// ShelfBlock.useItemOn: Inputs.use clicks the face center, which is the middle slot
-interaction_result shelf_use_item_on(level & lv, state_id st, block_pos pos, direction face, const item_stack & stack) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    if (be == nullptr || be->type != BLOCK_ENTITY_TYPE_SHELF || face != shelf_facing(st)) {
-        return INTERACTION_RESULT_PASS;
-    }
-    if (state_get(st, PROP_POWERED)) {
-        return shelf_swap_hotbar(lv, pos, stack);
-    }
-    // swapSingleItem
-    item_stack removed = shelf_block_entity_swap_item_no_update(be, 1, stack);
-    block_entity_set_changed(lv, be->pos, be->state);
-    return item_stack_is_empty(removed) && item_stack_is_empty(stack) ? INTERACTION_RESULT_PASS :
-                                                                        INTERACTION_RESULT_SUCCESS;
 }

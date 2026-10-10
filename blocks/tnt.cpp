@@ -23,11 +23,3 @@ void tnt_neighbor_changed(level & lv, block_pos pos) {
         tnt_prime(lv, pos);
     }
 }
-
-interaction_result tnt_use_item_on(level & lv, block_pos pos, const item_stack & stack) {
-    if (stack.item != ITEM_FLINT_AND_STEEL && stack.item != ITEM_FIRE_CHARGE) {
-        return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;
-    }
-    tnt_prime(lv, pos);
-    return INTERACTION_RESULT_SUCCESS;
-}

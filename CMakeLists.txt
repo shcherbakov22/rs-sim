@@ -12,7 +12,6 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_library(tmc STATIC
-    blocks/abstract-candle.cpp
     blocks/abstract-skull.cpp
     blocks/amethyst-cluster.cpp
     blocks/barrel.cpp
@@ -23,7 +22,6 @@ add_library(tmc STATIC
     blocks/bell.cpp
     blocks/block-behaviour.cpp
     blocks/boat-dispense-item-behavior.cpp
-    blocks/candle.cpp
     blocks/carpet.cpp
     blocks/chest-block-entity.cpp
     blocks/chest.cpp
@@ -35,7 +33,6 @@ add_library(tmc STATIC
     blocks/copper-bulb.cpp
     blocks/crafter.cpp
     blocks/cross-collision.cpp
-    blocks/decorated-pot.cpp
     blocks/diode.cpp
     blocks/dirt-path.cpp
     blocks/dispense-item-behavior.cpp
@@ -56,7 +53,6 @@ add_library(tmc STATIC
     blocks/lantern.cpp
     blocks/leaves.cpp
     blocks/lever.cpp
-    blocks/light.cpp
     blocks/lightning-rod.cpp
     blocks/minecart-dispense-item-behavior.cpp
     blocks/moving-piston.cpp

@@ -1,5 +1,4 @@
-// ChestBlockEntity and TrappedChestBlockEntity. Openers are players, which only a use input adds, and use on
-// a chest is unsupported: the opener count stays 0.
+// ChestBlockEntity and TrappedChestBlockEntity. Openers are players, and there are none: the opener count stays 0.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
