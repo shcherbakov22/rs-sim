@@ -19,7 +19,6 @@ add_library(tmc STATIC
     blocks/chest-block-entity.cpp
     blocks/chest.cpp
     blocks/chiseled-book-shelf.cpp
-    blocks/comparator.cpp
     blocks/composter.cpp
     blocks/connecting.cpp
     blocks/container.cpp
@@ -34,7 +33,6 @@ add_library(tmc STATIC
     blocks/jukebox.cpp
     blocks/minecart-dispense-item-behavior.cpp
     blocks/moving-piston.cpp
-    blocks/observer.cpp
     blocks/piston-base.cpp
     blocks/piston-head.cpp
     blocks/piston-moving-block-entity.cpp
@@ -43,7 +41,6 @@ add_library(tmc STATIC
     blocks/projectile-dispense-behavior.cpp
     blocks/rail.cpp
     blocks/redstone.cpp
-    blocks/repeater.cpp
     blocks/shelf.cpp
     blocks/terrain.cpp
     blocks/trapped-chest.cpp

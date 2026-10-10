@@ -7,6 +7,7 @@
 #include <vector>
 
 // hook tables, one per family file
+extern const std::vector<block_hooks> diode_hooks;
 extern const std::vector<block_hooks> redstone_hooks;
 extern const std::vector<block_hooks> rail_hooks;
 extern const std::vector<block_hooks> terrain_hooks;
@@ -14,36 +15,6 @@ extern const std::vector<block_hooks> fire_hooks;
 extern const std::vector<block_hooks> powered_hooks;
 extern const std::vector<block_hooks> connecting_hooks;
 extern const std::vector<block_hooks> attached_hooks;
-
-// DiodeBlock
-bool    diode_can_survive(level & lv, block_pos pos);
-bool    diode_can_survive_on(level & lv, block_pos neighbor_pos, state_id neighbor);
-void    diode_tick(level & lv, state_id st, block_pos pos);
-int32_t diode_get_signal(level & lv, state_id st, block_pos pos, direction dir);
-void    diode_neighbor_changed(level & lv, state_id st, block_pos pos);
-int32_t diode_get_input_signal(level & lv, state_id st, block_pos pos);
-int32_t diode_get_alternate_signal(level & lv, state_id st, block_pos pos);
-bool    diode_should_prioritize(level & lv, state_id st, block_pos pos);
-void    diode_update_neighbors_in_front(level & lv, state_id st, block_pos pos);
-void    diode_on_place(level & lv, state_id st, block_pos pos);
-void    diode_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
-
-// RepeaterBlock
-int32_t  repeater_get_delay(state_id st);
-state_id repeater_update_shape(level &   lv,
-                               state_id  st,
-                               block_pos pos,
-                               direction dir,
-                               block_pos neighbor_pos,
-                               state_id  neighbor);
-bool     repeater_is_locked(level & lv, state_id st, block_pos pos);
-
-// ComparatorBlock
-state_id comparator_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor);
-int32_t  comparator_get_output_signal(level & lv, block_pos pos);
-bool     comparator_should_turn_on(level & lv, state_id st, block_pos pos);
-void     comparator_check_tick_on_neighbor(level & lv, state_id st, block_pos pos);
-void     comparator_tick(level & lv, state_id st, block_pos pos);
 
 // BaseEntityBlock
 bool base_entity_block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a, int32_t param_b);
@@ -166,13 +137,6 @@ bool      attached_can_survive(level & lv, state_id st, block_pos pos);
 
 // LeverBlock
 void lever_pull(level & lv, state_id st, block_pos pos);
-
-// ObserverBlock
-void     observer_tick(level & lv, state_id st, block_pos pos);
-state_id observer_update_shape(level & lv, state_id st, block_pos pos, direction dir);
-int32_t  observer_get_signal(state_id st, direction dir);
-void     observer_on_place(level & lv, state_id st, block_pos pos, state_id old);
-void     observer_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
 
 // MovingPistonBlock
 voxel_shape moving_piston_get_collision_shape(level & lv, block_pos pos);

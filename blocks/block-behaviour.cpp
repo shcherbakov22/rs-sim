@@ -14,7 +14,8 @@ static void hook_unsupported(level & lv, state_id st, hook h) {
 
 // each vanilla class is in one family
 static const std::vector<block_hooks> * const block_hook_families[] = {
-    &redstone_hooks, &rail_hooks, &terrain_hooks, &fire_hooks, &powered_hooks, &connecting_hooks, &attached_hooks,
+    &diode_hooks, &redstone_hooks, &rail_hooks,       &terrain_hooks,
+    &fire_hooks,  &powered_hooks,  &connecting_hooks, &attached_hooks,
 };
 
 static const block_hooks * block_hooks_of(int32_t vclass) {
@@ -162,12 +163,6 @@ state_id block_update_shape(level &   lv,
         switch (hook_owner(st, HOOK_UPDATE_SHAPE)) {
             case VCLASS_NONE:
                 break;
-            case VCLASS_REPEATER_BLOCK:
-                result = repeater_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
-                break;
-            case VCLASS_COMPARATOR_BLOCK:
-                result = comparator_update_shape(lv, st, dir, neighbor_pos, neighbor);
-                break;
             case VCLASS_CHEST_BLOCK:
                 result = chest_update_shape(st, dir, neighbor);
                 break;
@@ -189,9 +184,6 @@ state_id block_update_shape(level &   lv,
             case VCLASS_PISTON_HEAD_BLOCK:
                 result = piston_head_update_shape(lv, st, pos, dir);
                 break;
-            case VCLASS_OBSERVER_BLOCK:
-                result = observer_update_shape(lv, st, pos, dir);
-                break;
             default:
                 hook_unsupported(lv, st, HOOK_UPDATE_SHAPE);
         }
@@ -211,9 +203,6 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
     } else {
         switch (hook_owner(st, HOOK_NEIGHBOR_CHANGED)) {
             case VCLASS_NONE:
-                break;
-            case VCLASS_DIODE_BLOCK:
-                diode_neighbor_changed(lv, st, pos);
                 break;
             case VCLASS_PISTON_BASE_BLOCK:
                 piston_base_neighbor_changed(lv, st, pos);
@@ -247,12 +236,6 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
         switch (hook_owner(st, HOOK_ON_PLACE)) {
             case VCLASS_NONE:
                 break;
-            case VCLASS_DIODE_BLOCK:
-                diode_on_place(lv, st, pos);
-                break;
-            case VCLASS_OBSERVER_BLOCK:
-                observer_on_place(lv, st, pos, old);
-                break;
             case VCLASS_PISTON_BASE_BLOCK:
                 piston_base_on_place(lv, st, pos, old);
                 break;
@@ -277,12 +260,6 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
     } else {
         switch (hook_owner(st, HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL)) {
             case VCLASS_NONE:
-                break;
-            case VCLASS_DIODE_BLOCK:
-                diode_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
-                break;
-            case VCLASS_OBSERVER_BLOCK:
-                observer_affect_neighbors_after_removal(lv, st, pos);
                 break;
             case VCLASS_PISTON_HEAD_BLOCK:
                 piston_head_affect_neighbors_after_removal(lv, st, pos);
@@ -318,20 +295,11 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             case VCLASS_COMPOSTER_BLOCK:
                 composter_tick(lv, st, pos);
                 break;
-            case VCLASS_DIODE_BLOCK:
-                diode_tick(lv, st, pos);
-                break;
-            case VCLASS_COMPARATOR_BLOCK:
-                comparator_tick(lv, st, pos);
-                break;
             case VCLASS_DISPENSER_BLOCK:
                 dispenser_tick(lv, st, pos);
                 break;
             case VCLASS_CRAFTER_BLOCK:
                 crafter_tick(lv, st, pos);
-                break;
-            case VCLASS_OBSERVER_BLOCK:
-                observer_tick(lv, st, pos);
                 break;
             default:
                 hook_unsupported(lv, st, HOOK_TICK);
@@ -394,12 +362,8 @@ int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) 
             return 0;
         case VCLASS_JUKEBOX_BLOCK:
             return jukebox_get_signal(lv, pos);
-        case VCLASS_DIODE_BLOCK:
-            return diode_get_signal(lv, st, pos, dir);
         case VCLASS_POWERED_BLOCK:
             return 15;
-        case VCLASS_OBSERVER_BLOCK:
-            return observer_get_signal(st, dir);
         case VCLASS_TRAPPED_CHEST_BLOCK:
             return trapped_chest_get_signal(lv, st, pos);
         default:
@@ -415,9 +379,6 @@ int32_t block_get_direct_signal(level & lv, state_id st, block_pos pos, directio
     switch (hook_owner(st, HOOK_GET_DIRECT_SIGNAL)) {
         case VCLASS_NONE:
             return 0;
-        case VCLASS_DIODE_BLOCK:
-        case VCLASS_OBSERVER_BLOCK:
-            return block_get_signal(lv, st, pos, dir);
         case VCLASS_TRAPPED_CHEST_BLOCK:
             return trapped_chest_get_direct_signal(lv, st, pos, dir);
         default:
@@ -433,8 +394,6 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
     switch (hook_owner(st, HOOK_CAN_SURVIVE)) {
         case VCLASS_NONE:
             return true;
-        case VCLASS_DIODE_BLOCK:
-            return diode_can_survive(lv, pos);
         default:
             hook_unsupported(lv, st, HOOK_CAN_SURVIVE);
             return true;
