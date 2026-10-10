@@ -102,6 +102,7 @@ void         container_set_item(level & lv, const container & c, int32_t slot, i
 void         container_set_changed(level & lv, const container & c);
 int32_t      container_get_redstone_signal(const container * c);
 void         containers_drop_contents(level & lv, block_pos pos, const container & c);
+int32_t      container_get_redstone_signal_from_block_entity(level & lv, block_pos pos);
 
 // EnderChestBlock
 state_id           ender_chest_update_shape(level & lv, state_id st);
@@ -115,12 +116,22 @@ void abstract_skull_neighbor_changed(level & lv, state_id st, block_pos pos);
 void barrel_tick(level & lv, block_pos pos);
 
 // HopperBlock
-void    hopper_on_place(level & lv, state_id st, block_pos pos, state_id old);
-void    hopper_neighbor_changed(level & lv, state_id st, block_pos pos);
-int32_t container_get_redstone_signal_from_block_entity(level & lv, block_pos pos);
+void hopper_on_place(level & lv, state_id st, block_pos pos, state_id old);
+void hopper_neighbor_changed(level & lv, state_id st, block_pos pos);
 
 // HopperBlockEntity
-void hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st, block_entity * be);
+void       hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st, block_entity * be);
+bool       hopper_block_entity_get_container_at(level & lv, block_pos pos, container & out);
+item_stack hopper_block_entity_add_item(level & lv, const container * from, const container & to, item_stack s);
+
+// DispenserBlock, DispenserBlockEntity, DefaultDispenseItemBehavior
+int32_t    dispenser_block_entity_get_random_slot(level & lv, const block_entity * be);
+item_stack default_dispense_item_behavior_dispense(level & lv, state_id st, block_pos pos, item_stack dispensed);
+void       dispenser_tick(level & lv, state_id st, block_pos pos);
+void       dispenser_neighbor_changed(level & lv, state_id st, block_pos pos);
+
+// DropperBlock
+void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 
 // ChestBlock
 bool     chest_get_container(level & lv, state_id st, block_pos pos, bool ignore_being_blocked, container & out);

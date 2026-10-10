@@ -18,7 +18,7 @@ static bool container_is_hopper(const container * c) {
 }
 
 // HopperBlockEntity.getBlockContainer; the composter is a WorldlyContainerHolder
-static bool hopper_block_entity_get_container_at(level & lv, block_pos pos, container & out) {
+bool hopper_block_entity_get_container_at(level & lv, block_pos pos, container & out) {
     state_id st = level_get_state(lv, pos);
     if (block_instanceof(state_block(st), VCLASS_COMPOSTER_BLOCK)) {
         level_unsupported(lv, "WorldlyContainerHolder");
@@ -92,7 +92,7 @@ static item_stack hopper_block_entity_try_move_in_item(level &           lv,
     return s;
 }
 
-static item_stack hopper_block_entity_add_item(level & lv, const container * from, const container & to, item_stack s) {
+item_stack hopper_block_entity_add_item(level & lv, const container * from, const container & to, item_stack s) {
     for (int32_t slot = 0; slot < container_get_container_size(to) && !item_stack_is_empty(s); slot++) {
         s = hopper_block_entity_try_move_in_item(lv, from, to, s, slot);
     }

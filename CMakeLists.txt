@@ -24,6 +24,8 @@ add_library(tmc STATIC
     blocks/comparator.cpp
     blocks/container.cpp
     blocks/diode.cpp
+    blocks/dispenser.cpp
+    blocks/dropper.cpp
     blocks/ender-chest.cpp
     blocks/face-attached-horizontal-directional.cpp
     blocks/hopper-block-entity.cpp

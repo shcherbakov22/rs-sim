@@ -100,6 +100,10 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
         case BLOCK_ENTITY_TYPE_HOPPER:
             n_items = 5;
             break;
+        case BLOCK_ENTITY_TYPE_DISPENSER:
+        case BLOCK_ENTITY_TYPE_DROPPER:
+            n_items = 9;
+            break;
         case BLOCK_ENTITY_TYPE_CHEST:
         case BLOCK_ENTITY_TYPE_TRAPPED_CHEST:
         case BLOCK_ENTITY_TYPE_BARREL:
