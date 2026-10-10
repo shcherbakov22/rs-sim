@@ -109,7 +109,6 @@ void           level_set_block_entity(level & lv, block_entity * be);
 void           level_remove_block_entity(level & lv, block_pos pos);
 
 // Block.dropResources without a tool
-void level_pop_resource(level & lv, block_pos pos);
 void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be);
 
 void level_update_neighbors_at(level & lv, block_pos pos, int32_t block);
@@ -136,7 +135,6 @@ void level_block_event(level & lv, block_pos pos, int32_t block, int32_t param_a
 
 // SignalGetter
 int32_t level_get_direct_signal(level & lv, block_pos pos, direction dir);
-int32_t level_get_direct_signal_to(level & lv, block_pos pos);
 int32_t level_get_control_input_signal(level & lv, block_pos pos, direction dir, bool only_diodes);
 bool    level_has_signal(level & lv, block_pos pos, direction dir);
 int32_t level_get_signal(level & lv, block_pos pos, direction dir);

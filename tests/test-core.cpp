@@ -5,7 +5,7 @@
 #include "core/state.h"
 #include "engine/java-hash-map.h"
 
-#include <cstring>
+#include <bit>
 
 static int32_t n_fail = 0;
 
@@ -33,21 +33,10 @@ static void test_rng() {
     CHECK(rng_next_long(r) == 8073734555421851965LL);
     CHECK(rng_next_long(r) == -1242101365187779280LL);
 
-    float   f = rng_next_float(r);
-    int32_t fbits;
-    memcpy(&fbits, &f, 4);
-    CHECK(fbits == 1062747648);
-    f = rng_next_float(r);
-    memcpy(&fbits, &f, 4);
-    CHECK(fbits == 1057998740);
-
-    double  d = rng_next_double(r);
-    int64_t dbits;
-    memcpy(&dbits, &d, 8);
-    CHECK(dbits == 4607083901377052672LL);
-    d = rng_next_double(r);
-    memcpy(&dbits, &d, 8);
-    CHECK(dbits == 4600814190259601408LL);
+    CHECK(std::bit_cast<int32_t>(rng_next_float(r)) == 1062747648);
+    CHECK(std::bit_cast<int32_t>(rng_next_float(r)) == 1057998740);
+    CHECK(std::bit_cast<int64_t>(rng_next_double(r)) == 4607083901377052672LL);
+    CHECK(std::bit_cast<int64_t>(rng_next_double(r)) == 4600814190259601408LL);
 
     rng_set_seed(r, -1);
     CHECK(r.seed == 281449761806738LL);

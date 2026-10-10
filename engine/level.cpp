@@ -82,32 +82,25 @@ block_entity * level_new_block_entity(level & lv, block_entity_type type, block_
     return be;
 }
 
+// the block entity types the sim ports
+// clang-format off
+static constexpr block_entity_type BLOCK_ENTITY_TYPES_SUPPORTED[] = {
+    BLOCK_ENTITY_TYPE_HOPPER, BLOCK_ENTITY_TYPE_DISPENSER, BLOCK_ENTITY_TYPE_DROPPER, BLOCK_ENTITY_TYPE_CRAFTER,
+    BLOCK_ENTITY_TYPE_DECORATED_POT, BLOCK_ENTITY_TYPE_JUKEBOX, BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF,
+    BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_TRAPPED_CHEST, BLOCK_ENTITY_TYPE_BARREL,
+    BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_COMPARATOR, BLOCK_ENTITY_TYPE_BELL,
+    BLOCK_ENTITY_TYPE_ENDER_CHEST, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_END_PORTAL,
+};
+// clang-format on
+
 // EntityBlock.newBlockEntity; MovingPistonBlock makes none, its block entity comes from the piston
 static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, state_id st) {
     int32_t type = block_defs[state_block(st)].entity_new;
     if (type < 0) return nullptr;
-    switch (type) {
-        case BLOCK_ENTITY_TYPE_HOPPER:
-        case BLOCK_ENTITY_TYPE_DISPENSER:
-        case BLOCK_ENTITY_TYPE_DROPPER:
-        case BLOCK_ENTITY_TYPE_CRAFTER:
-        case BLOCK_ENTITY_TYPE_DECORATED_POT:
-        case BLOCK_ENTITY_TYPE_JUKEBOX:
-        case BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF:
-        case BLOCK_ENTITY_TYPE_SHELF:
-        case BLOCK_ENTITY_TYPE_CHEST:
-        case BLOCK_ENTITY_TYPE_TRAPPED_CHEST:
-        case BLOCK_ENTITY_TYPE_BARREL:
-        case BLOCK_ENTITY_TYPE_SHULKER_BOX:
-        case BLOCK_ENTITY_TYPE_COMPARATOR:
-        case BLOCK_ENTITY_TYPE_BELL:
-        case BLOCK_ENTITY_TYPE_ENDER_CHEST:
-        case BLOCK_ENTITY_TYPE_SKULL:
-        case BLOCK_ENTITY_TYPE_END_PORTAL:
-            break;
-        default:
-            level_unsupported(lv, "block entity of %s", block_defs[state_block(st)].name);
-            return nullptr;
+    if (std::find(std::begin(BLOCK_ENTITY_TYPES_SUPPORTED), std::end(BLOCK_ENTITY_TYPES_SUPPORTED), type) ==
+        std::end(BLOCK_ENTITY_TYPES_SUPPORTED)) {
+        level_unsupported(lv, "block entity of %s", block_defs[state_block(st)].name);
+        return nullptr;
     }
     block_entity * be = level_new_block_entity(lv, (block_entity_type) type, pos, st);
     be->items.resize(std::max(block_entity_type_container_sizes[type], 0));
@@ -282,7 +275,7 @@ static double rng_next_double_between(rng & r, double min, double max) {
 }
 
 // Block.popResource: random offset in the block, then ItemEntity's random motion; the item entity ends the traced contract
-void level_pop_resource(level & lv, block_pos pos) {
+static void level_pop_resource(level & lv, block_pos pos) {
     for (int32_t i = 0; i < 3; i++) rng_next_double_between(lv.random, -0.25, 0.25);
     rng_next_double(lv.random);
     rng_next_double(lv.random);
@@ -313,12 +306,7 @@ bool level_destroy_block(level & lv, block_pos pos, bool drop, int32_t limit) {
 }
 
 void level_update_neighbors_at(level & lv, block_pos pos, int32_t block) {
-    neighbor_update u = {};
-    u.type            = NEIGHBOR_UPDATE_MULTI;
-    u.pos             = pos;
-    u.block           = block;
-    u.skip            = -1;
-    neighbor_updater_add(lv, u);
+    neighbor_updater_add(lv, { .type = NEIGHBOR_UPDATE_MULTI, .pos = pos, .block = block, .skip = -1 });
 }
 
 void level_update_neighbors_around(level & lv, block_pos pos, int32_t block) {
@@ -326,31 +314,21 @@ void level_update_neighbors_around(level & lv, block_pos pos, int32_t block) {
 }
 
 void level_update_neighbors_at_except_from_facing(level & lv, block_pos pos, int32_t block, direction skip) {
-    neighbor_update u = {};
-    u.type            = NEIGHBOR_UPDATE_MULTI;
-    u.pos             = pos;
-    u.block           = block;
-    u.skip            = skip;
-    if (NEIGHBOR_UPDATE_ORDER[0] == skip) u.idx = 1;
-    neighbor_updater_add(lv, u);
+    neighbor_updater_add(lv, { .type  = NEIGHBOR_UPDATE_MULTI,
+                               .pos   = pos,
+                               .block = block,
+                               .skip  = skip,
+                               .idx   = NEIGHBOR_UPDATE_ORDER[0] == skip ? 1 : 0 });
 }
 
 void level_neighbor_changed(level & lv, block_pos pos, int32_t block) {
-    neighbor_update u = {};
-    u.type            = NEIGHBOR_UPDATE_SIMPLE;
-    u.pos             = pos;
-    u.block           = block;
-    neighbor_updater_add(lv, u);
+    neighbor_updater_add(lv, { .type = NEIGHBOR_UPDATE_SIMPLE, .pos = pos, .block = block });
 }
 
 void level_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block, bool moved_by_piston) {
-    neighbor_update u = {};
-    u.type            = NEIGHBOR_UPDATE_FULL;
-    u.pos             = pos;
-    u.state           = st;
-    u.block           = block;
-    u.moved_by_piston = moved_by_piston;
-    neighbor_updater_add(lv, u);
+    neighbor_updater_add(
+        lv,
+        { .type = NEIGHBOR_UPDATE_FULL, .pos = pos, .state = st, .block = block, .moved_by_piston = moved_by_piston });
 }
 
 void level_neighbor_shape_changed(level &   lv,
@@ -360,15 +338,13 @@ void level_neighbor_shape_changed(level &   lv,
                                   state_id  neighbor,
                                   int32_t   flags,
                                   int32_t   limit) {
-    neighbor_update u = {};
-    u.type            = NEIGHBOR_UPDATE_SHAPE;
-    u.pos             = pos;
-    u.neighbor_pos    = neighbor_pos;
-    u.state           = neighbor;
-    u.dir             = dir;
-    u.flags           = flags;
-    u.limit           = limit;
-    neighbor_updater_add(lv, u);
+    neighbor_updater_add(lv, { .type         = NEIGHBOR_UPDATE_SHAPE,
+                               .pos          = pos,
+                               .neighbor_pos = neighbor_pos,
+                               .state        = neighbor,
+                               .dir          = dir,
+                               .flags        = flags,
+                               .limit        = limit });
 }
 
 void level_update_neighbour_for_output_signal(level & lv, block_pos pos, int32_t block) {
@@ -416,7 +392,7 @@ int32_t level_get_direct_signal(level & lv, block_pos pos, direction dir) {
     return block_get_direct_signal(lv, level_get_state(lv, pos), pos, dir);
 }
 
-int32_t level_get_direct_signal_to(level & lv, block_pos pos) {
+static int32_t level_get_direct_signal_to(level & lv, block_pos pos) {
     int32_t result = 0;
     for (int32_t d = 0; d < 6 && result < 15; d++) {
         direction dir = (direction) d;

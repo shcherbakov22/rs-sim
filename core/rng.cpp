@@ -16,10 +16,6 @@ int32_t rng_next(rng & r, int32_t bits) {
     return value;
 }
 
-int32_t rng_next_int(rng & r) {
-    return rng_next(r, 32);
-}
-
 int32_t rng_next_int(rng & r, int32_t bound) {
     TMC_ASSERT(bound > 0);
     if ((bound & (bound - 1)) == 0) return (int32_t) ((int64_t) bound * rng_next(r, 31) >> 31);
@@ -37,10 +33,6 @@ int64_t rng_next_long(rng & r) {
     int32_t upper = rng_next(r, 32);
     int32_t lower = rng_next(r, 32);
     return (int64_t) ((uint64_t) (int64_t) upper << 32) + lower;
-}
-
-bool rng_next_boolean(rng & r) {
-    return rng_next(r, 1) != 0;
 }
 
 float rng_next_float(rng & r) {

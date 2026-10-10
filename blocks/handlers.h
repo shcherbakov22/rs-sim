@@ -105,5 +105,3 @@ bool     base_fire_can_be_placed_at(level & lv, block_pos pos, direction forward
 
 // TntBlock
 void tnt_prime(level & lv, block_pos pos);
-
-// NetherPortalBlock

@@ -16,17 +16,17 @@ enum neighbor_update_type {
 };
 
 struct neighbor_update {
-    neighbor_update_type type;
-    block_pos            pos;              // the updated block (multi: the source)
-    block_pos            neighbor_pos;     // shape
-    state_id             state;            // shape: neighbor state, full: state to update
-    int32_t              block;            // simple, full, multi: the changed block
-    direction            dir;              // shape
-    int32_t              skip;             // multi: direction to skip, -1 for none
-    int32_t              idx;              // multi: next index in NEIGHBOR_UPDATE_ORDER
-    int32_t              flags;            // shape
-    int32_t              limit;            // shape
-    bool                 moved_by_piston;  // full
+    neighbor_update_type type            = {};
+    block_pos            pos             = {};  // the updated block (multi: the source)
+    block_pos            neighbor_pos    = {};  // shape
+    state_id             state           = {};  // shape: neighbor state, full: state to update
+    int32_t              block           = {};  // simple, full, multi: the changed block
+    direction            dir             = {};  // shape
+    int32_t              skip            = {};  // multi: direction to skip, -1 for none
+    int32_t              idx             = {};  // multi: next index in NEIGHBOR_UPDATE_ORDER
+    int32_t              flags           = {};  // shape
+    int32_t              limit           = {};  // shape
+    bool                 moved_by_piston = {};  // full
 };
 
 struct neighbor_updater {

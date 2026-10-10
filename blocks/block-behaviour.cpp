@@ -8,10 +8,6 @@ static int16_t hook_owner(state_id st, hook h) {
     return vclass_hooks[block_defs[state_block(st)].cls][h];
 }
 
-static void hook_unsupported(level & lv, state_id st, hook h) {
-    level_unsupported(lv, "%s.%s", vclass_names[hook_owner(st, h)], hook_names[h]);
-}
-
 state_id block_behaviour_update_shape(level &, state_id st, block_pos, direction, block_pos, state_id) {
     return st;
 }
@@ -92,7 +88,7 @@ static const block_hooks * block_hooks_for(level & lv, state_id st, hook h) {
     if (owner == VCLASS_NONE) return nullptr;
     const block_hooks * b = block_hooks_of(owner);
     if (b == nullptr || !block_hooks_has(*b, h)) {
-        hook_unsupported(lv, st, h);
+        level_unsupported(lv, "%s.%s", vclass_names[owner], hook_names[h]);
         return nullptr;
     }
     return b;
@@ -161,10 +157,7 @@ state_id block_update_shape(level &   lv,
     if (state_has_prop(st, PROP_WATERLOGGED) && state_get(st, PROP_WATERLOGGED) &&
         hook_owner(st, HOOK_UPDATE_SHAPE) != VCLASS_LADDER_BLOCK) {
         level_unsupported(lv, "fluids");
-        trace_exit(lv.tr);
-        return st;
-    }
-    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_UPDATE_SHAPE)) {
+    } else if (const block_hooks * b = block_hooks_for(lv, st, HOOK_UPDATE_SHAPE)) {
         result = b->update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
     }
     if (result != st && trace_wants(lv.tr, &pos)) trace_add(lv.tr, "=> %s", state_to_string(result).c_str());

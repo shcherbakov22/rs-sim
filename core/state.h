@@ -126,8 +126,7 @@ extern const int32_t        n_recipe_defs;
 extern const int32_t        n_block_defs;
 extern const int32_t        n_states;
 
-constexpr state_id STATE_AIR  = 0;
-constexpr state_id STATE_NONE = 0xFFFF;     // a null BlockState
+constexpr state_id STATE_AIR = 0;
 
 int32_t block_find(std::string_view name);  // -1 if unknown
 int32_t item_find(std::string_view name);   // -1 if unknown
