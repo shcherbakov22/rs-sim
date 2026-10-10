@@ -3725,6 +3725,7 @@ block sand 118 1 118 SandBlock
   support 1
 block suspicious_sand 119 4 119 BrushableBlock
   prop DUSTED
+  field BrushableBlock.turnsInto 37
   instrument SNARE
   entity brushable_block
   flag block_entity
@@ -3805,6 +3806,7 @@ block gravel 124 1 124 ColoredFallingBlock
   support 1
 block suspicious_gravel 125 4 125 BrushableBlock
   prop DUSTED
+  field BrushableBlock.turnsInto 40
   instrument SNARE
   entity brushable_block
   flag block_entity
@@ -6891,6 +6893,7 @@ block oak_stairs 3706 80 3717 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 13
   instrument BASS
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -7285,6 +7288,7 @@ block cobblestone_stairs 5546 80 5557 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 12
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -9297,6 +9301,7 @@ block mud_bricks 7558 1 7558 -
   collision 1
   support 1
 block infested_stone 7559 1 7559 InfestedBlock
+  field InfestedBlock.hostBlock 1
   flag conductor
   flag solid
   flag sturdy_full_down
@@ -9320,6 +9325,7 @@ block infested_stone 7559 1 7559 InfestedBlock
   collision 1
   support 1
 block infested_cobblestone 7560 1 7560 InfestedBlock
+  field InfestedBlock.hostBlock 12
   flag conductor
   flag solid
   flag sturdy_full_down
@@ -9343,6 +9349,7 @@ block infested_cobblestone 7560 1 7560 InfestedBlock
   collision 1
   support 1
 block infested_stone_bricks 7561 1 7561 InfestedBlock
+  field InfestedBlock.hostBlock 325
   flag conductor
   flag solid
   flag sturdy_full_down
@@ -9366,6 +9373,7 @@ block infested_stone_bricks 7561 1 7561 InfestedBlock
   collision 1
   support 1
 block infested_mossy_stone_bricks 7562 1 7562 InfestedBlock
+  field InfestedBlock.hostBlock 326
   flag conductor
   flag solid
   flag sturdy_full_down
@@ -9389,6 +9397,7 @@ block infested_mossy_stone_bricks 7562 1 7562 InfestedBlock
   collision 1
   support 1
 block infested_cracked_stone_bricks 7563 1 7563 InfestedBlock
+  field InfestedBlock.hostBlock 327
   flag conductor
   flag solid
   flag sturdy_full_down
@@ -9412,6 +9421,7 @@ block infested_cracked_stone_bricks 7563 1 7563 InfestedBlock
   collision 1
   support 1
 block infested_chiseled_stone_bricks 7564 1 7564 InfestedBlock
+  field InfestedBlock.hostBlock 328
   flag conductor
   flag solid
   flag sturdy_full_down
@@ -9920,6 +9930,7 @@ block brick_stairs 8477 80 8488 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 175
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -9949,6 +9960,7 @@ block stone_brick_stairs 8557 80 8568 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 325
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -9978,6 +9990,7 @@ block mud_brick_stairs 8637 80 8648 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 330
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -10088,6 +10101,7 @@ block resin_brick_stairs 8722 80 8733 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 375
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -10234,6 +10248,7 @@ block nether_brick_stairs 9166 80 9177 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 380
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -10417,6 +10432,7 @@ block sandstone_stairs 9292 80 9303 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 106
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -10519,6 +10535,7 @@ block tripwire 9398 128 9525 TripWireBlock
   prop POWERED
   prop SOUTH
   prop WEST
+  field TripWireBlock.hook 400
   flag drops
   flag tag_wall_post_override
   flag push_destroy
@@ -10554,6 +10571,7 @@ block spruce_stairs 9527 80 9538 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 14
   instrument BASS
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -10583,6 +10601,7 @@ block birch_stairs 9607 80 9618 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 15
   instrument BASS
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -10612,6 +10631,7 @@ block jungle_stairs 9687 80 9698 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 16
   instrument BASS
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -10734,174 +10754,203 @@ block mossy_cobblestone_wall 10104 324 10107 WallBlock
   collision 124 125 125 124 125 125 0 126 126 0 126 126 127 128 128 127 128 128 129 130 130 129 130 130 127 128 128 127 128 128 129 130 130 129 130 130 131 132 132 131 132 132 133 134 134 133 134 134 135 136 136 135 136 136 137 138 138 137 138 138 135 136 136 135 136 136 137 138 138 137 138 138 131 132 132 131 132 132 133 134 134 133 134 134 135 136 136 135 136 136 137 138 138 137 138 138 135 136 136 135 136 136 137 138 138 137 138 138 139 140 140 139 140 140 141 142 142 141 142 142 143 144 144 143 144 144 145 146 146 145 146 146 143 144 144 143 144 144 145 146 146 145 146 146 147 148 148 147 148 148 149 150 150 149 150 150 151 152 152 151 152 152 153 154 154 153 154 154 151 152 152 151 152 152 153 154 154 153 154 154 147 148 148 147 148 148 149 150 150 149 150 150 151 152 152 151 152 152 153 154 154 153 154 154 151 152 152 151 152 152 153 154 154 153 154 154 139 140 140 139 140 140 141 142 142 141 142 142 143 144 144 143 144 144 145 146 146 145 146 146 143 144 144 143 144 144 145 146 146 145 146 146 147 148 148 147 148 148 149 150 150 149 150 150 151 152 152 151 152 152 153 154 154 153 154 154 151 152 152 151 152 152 153 154 154 153 154 154 147 148 148 147 148 148 149 150 150 149 150 150 151 152 152 151 152 152 153 154 154 153 154 154 151 152 152 151 152 152 153 154 154 153 154 154
   support 124 125 125 124 125 125 0 126 126 0 126 126 127 128 128 127 128 128 129 130 130 129 130 130 127 128 128 127 128 128 129 130 130 129 130 130 131 132 132 131 132 132 133 134 134 133 134 134 135 136 136 135 136 136 137 138 138 137 138 138 135 136 136 135 136 136 137 138 138 137 138 138 131 132 132 131 132 132 133 134 134 133 134 134 135 136 136 135 136 136 137 138 138 137 138 138 135 136 136 135 136 136 137 138 138 137 138 138 139 140 140 139 140 140 141 142 142 141 142 142 143 144 144 143 144 144 145 146 146 145 146 146 143 144 144 143 144 144 145 146 146 145 146 146 147 148 148 147 148 148 149 150 150 149 150 150 151 152 152 151 152 152 153 154 154 153 154 154 151 152 152 151 152 152 153 154 154 153 154 154 147 148 148 147 148 148 149 150 150 149 150 150 151 152 152 151 152 152 153 154 154 153 154 154 151 152 152 151 152 152 153 154 154 153 154 154 139 140 140 139 140 140 141 142 142 141 142 142 143 144 144 143 144 144 145 146 146 145 146 146 143 144 144 143 144 144 145 146 146 145 146 146 147 148 148 147 148 148 149 150 150 149 150 150 151 152 152 151 152 152 153 154 154 153 154 154 151 152 152 151 152 152 153 154 154 153 154 154 147 148 148 147 148 148 149 150 150 149 150 150 151 152 152 151 152 152 153 154 154 153 154 154 151 152 152 151 152 152 153 154 154 153 154 154
 block flower_pot 10428 1 10428 FlowerPotBlock
+  field FlowerPotBlock.potted 0
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_torchflower 10429 1 10429 FlowerPotBlock
+  field FlowerPotBlock.potted 158
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_oak_sapling 10430 1 10430 FlowerPotBlock
+  field FlowerPotBlock.potted 25
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_spruce_sapling 10431 1 10431 FlowerPotBlock
+  field FlowerPotBlock.potted 26
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_birch_sapling 10432 1 10432 FlowerPotBlock
+  field FlowerPotBlock.potted 27
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_jungle_sapling 10433 1 10433 FlowerPotBlock
+  field FlowerPotBlock.potted 28
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_acacia_sapling 10434 1 10434 FlowerPotBlock
+  field FlowerPotBlock.potted 29
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_cherry_sapling 10435 1 10435 FlowerPotBlock
+  field FlowerPotBlock.potted 30
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_dark_oak_sapling 10436 1 10436 FlowerPotBlock
+  field FlowerPotBlock.potted 31
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_pale_oak_sapling 10437 1 10437 FlowerPotBlock
+  field FlowerPotBlock.potted 32
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_mangrove_propagule 10438 1 10438 FlowerPotBlock
+  field FlowerPotBlock.potted 33
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_fern 10439 1 10439 FlowerPotBlock
+  field FlowerPotBlock.potted 131
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_dandelion 10440 1 10440 FlowerPotBlock
+  field FlowerPotBlock.potted 157
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_poppy 10441 1 10441 FlowerPotBlock
+  field FlowerPotBlock.potted 159
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_blue_orchid 10442 1 10442 FlowerPotBlock
+  field FlowerPotBlock.potted 160
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_allium 10443 1 10443 FlowerPotBlock
+  field FlowerPotBlock.potted 161
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_azure_bluet 10444 1 10444 FlowerPotBlock
+  field FlowerPotBlock.potted 162
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_red_tulip 10445 1 10445 FlowerPotBlock
+  field FlowerPotBlock.potted 163
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_orange_tulip 10446 1 10446 FlowerPotBlock
+  field FlowerPotBlock.potted 164
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_white_tulip 10447 1 10447 FlowerPotBlock
+  field FlowerPotBlock.potted 165
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_pink_tulip 10448 1 10448 FlowerPotBlock
+  field FlowerPotBlock.potted 166
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_oxeye_daisy 10449 1 10449 FlowerPotBlock
+  field FlowerPotBlock.potted 167
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_cornflower 10450 1 10450 FlowerPotBlock
+  field FlowerPotBlock.potted 168
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_lily_of_the_valley 10451 1 10451 FlowerPotBlock
+  field FlowerPotBlock.potted 170
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_wither_rose 10452 1 10452 FlowerPotBlock
+  field FlowerPotBlock.potted 169
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_red_mushroom 10453 1 10453 FlowerPotBlock
+  field FlowerPotBlock.potted 172
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_brown_mushroom 10454 1 10454 FlowerPotBlock
+  field FlowerPotBlock.potted 171
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_dead_bush 10455 1 10455 FlowerPotBlock
+  field FlowerPotBlock.potted 132
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_cactus 10456 1 10456 FlowerPotBlock
+  field FlowerPotBlock.potted 278
   flag drops
   flag push_destroy
   flag sturdy_center_down
@@ -11419,6 +11468,7 @@ block quartz_stairs 11126 80 11137 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 476
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -12160,6 +12210,7 @@ block acacia_stairs 11770 80 11781 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 17
   instrument BASS
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -12189,6 +12240,7 @@ block cherry_stairs 11850 80 11861 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 18
   instrument BASS
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -12218,6 +12270,7 @@ block dark_oak_stairs 11930 80 11941 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 19
   instrument BASS
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -12247,6 +12300,7 @@ block pale_oak_stairs 12010 80 12021 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 21
   instrument BASS
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -12276,6 +12330,7 @@ block mangrove_stairs 12090 80 12101 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 22
   instrument BASS
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -12305,6 +12360,7 @@ block bamboo_stairs 12170 80 12181 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 23
   instrument BASS
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -12334,6 +12390,7 @@ block bamboo_mosaic_stairs 12250 80 12261 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 24
   instrument BASS
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -12529,6 +12586,7 @@ block prismarine_stairs 12432 80 12443 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 525
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -12558,6 +12616,7 @@ block prismarine_brick_stairs 12512 80 12523 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 526
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -12587,6 +12646,7 @@ block dark_prismarine_stairs 12592 80 12603 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 527
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -13365,6 +13425,7 @@ block red_sandstone_stairs 13048 80 13059 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 593
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -14742,6 +14803,7 @@ block chorus_plant 14440 64 14503 ChorusPlantBlock
   support 194 195 196 197 198 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216 217 218 219 220 221 222 63 223 224 225 226 227 228 229 230 231 232 233 234 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252 253 254 255 256
 block chorus_flower 14504 6 14504 ChorusFlowerBlock
   prop AGE_5
+  field ChorusFlowerBlock.plant 654
   flag push_destroy
   flag sturdy_center_down
   collision 1
@@ -14802,6 +14864,7 @@ block purpur_stairs 14514 80 14525 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 656
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -16488,6 +16551,7 @@ block black_concrete 14843 1 14843 -
   collision 1
   support 1
 block white_concrete_powder 14844 1 14844 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 708
   instrument SNARE
   flag conductor
   flag drops
@@ -16513,6 +16577,7 @@ block white_concrete_powder 14844 1 14844 ConcretePowderBlock
   collision 1
   support 1
 block orange_concrete_powder 14845 1 14845 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 709
   instrument SNARE
   flag conductor
   flag drops
@@ -16538,6 +16603,7 @@ block orange_concrete_powder 14845 1 14845 ConcretePowderBlock
   collision 1
   support 1
 block magenta_concrete_powder 14846 1 14846 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 710
   instrument SNARE
   flag conductor
   flag drops
@@ -16563,6 +16629,7 @@ block magenta_concrete_powder 14846 1 14846 ConcretePowderBlock
   collision 1
   support 1
 block light_blue_concrete_powder 14847 1 14847 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 711
   instrument SNARE
   flag conductor
   flag drops
@@ -16588,6 +16655,7 @@ block light_blue_concrete_powder 14847 1 14847 ConcretePowderBlock
   collision 1
   support 1
 block yellow_concrete_powder 14848 1 14848 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 712
   instrument SNARE
   flag conductor
   flag drops
@@ -16613,6 +16681,7 @@ block yellow_concrete_powder 14848 1 14848 ConcretePowderBlock
   collision 1
   support 1
 block lime_concrete_powder 14849 1 14849 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 713
   instrument SNARE
   flag conductor
   flag drops
@@ -16638,6 +16707,7 @@ block lime_concrete_powder 14849 1 14849 ConcretePowderBlock
   collision 1
   support 1
 block pink_concrete_powder 14850 1 14850 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 714
   instrument SNARE
   flag conductor
   flag drops
@@ -16663,6 +16733,7 @@ block pink_concrete_powder 14850 1 14850 ConcretePowderBlock
   collision 1
   support 1
 block gray_concrete_powder 14851 1 14851 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 715
   instrument SNARE
   flag conductor
   flag drops
@@ -16688,6 +16759,7 @@ block gray_concrete_powder 14851 1 14851 ConcretePowderBlock
   collision 1
   support 1
 block light_gray_concrete_powder 14852 1 14852 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 716
   instrument SNARE
   flag conductor
   flag drops
@@ -16713,6 +16785,7 @@ block light_gray_concrete_powder 14852 1 14852 ConcretePowderBlock
   collision 1
   support 1
 block cyan_concrete_powder 14853 1 14853 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 717
   instrument SNARE
   flag conductor
   flag drops
@@ -16738,6 +16811,7 @@ block cyan_concrete_powder 14853 1 14853 ConcretePowderBlock
   collision 1
   support 1
 block purple_concrete_powder 14854 1 14854 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 718
   instrument SNARE
   flag conductor
   flag drops
@@ -16763,6 +16837,7 @@ block purple_concrete_powder 14854 1 14854 ConcretePowderBlock
   collision 1
   support 1
 block blue_concrete_powder 14855 1 14855 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 719
   instrument SNARE
   flag conductor
   flag drops
@@ -16788,6 +16863,7 @@ block blue_concrete_powder 14855 1 14855 ConcretePowderBlock
   collision 1
   support 1
 block brown_concrete_powder 14856 1 14856 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 720
   instrument SNARE
   flag conductor
   flag drops
@@ -16813,6 +16889,7 @@ block brown_concrete_powder 14856 1 14856 ConcretePowderBlock
   collision 1
   support 1
 block green_concrete_powder 14857 1 14857 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 721
   instrument SNARE
   flag conductor
   flag drops
@@ -16838,6 +16915,7 @@ block green_concrete_powder 14857 1 14857 ConcretePowderBlock
   collision 1
   support 1
 block red_concrete_powder 14858 1 14858 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 722
   instrument SNARE
   flag conductor
   flag drops
@@ -16863,6 +16941,7 @@ block red_concrete_powder 14858 1 14858 ConcretePowderBlock
   collision 1
   support 1
 block black_concrete_powder 14859 1 14859 ConcretePowderBlock
+  field ConcretePowderBlock.concrete 723
   instrument SNARE
   flag conductor
   flag drops
@@ -17078,6 +17157,7 @@ block dead_horn_coral_block 14939 1 14939 -
   collision 1
   support 1
 block tube_coral_block 14940 1 14940 CoralBlock
+  field CoralBlock.deadBlock 746
   instrument BASEDRUM
   flag conductor
   flag drops
@@ -17103,6 +17183,7 @@ block tube_coral_block 14940 1 14940 CoralBlock
   collision 1
   support 1
 block brain_coral_block 14941 1 14941 CoralBlock
+  field CoralBlock.deadBlock 747
   instrument BASEDRUM
   flag conductor
   flag drops
@@ -17128,6 +17209,7 @@ block brain_coral_block 14941 1 14941 CoralBlock
   collision 1
   support 1
 block bubble_coral_block 14942 1 14942 CoralBlock
+  field CoralBlock.deadBlock 748
   instrument BASEDRUM
   flag conductor
   flag drops
@@ -17153,6 +17235,7 @@ block bubble_coral_block 14942 1 14942 CoralBlock
   collision 1
   support 1
 block fire_coral_block 14943 1 14943 CoralBlock
+  field CoralBlock.deadBlock 749
   instrument BASEDRUM
   flag conductor
   flag drops
@@ -17178,6 +17261,7 @@ block fire_coral_block 14943 1 14943 CoralBlock
   collision 1
   support 1
 block horn_coral_block 14944 1 14944 CoralBlock
+  field CoralBlock.deadBlock 750
   instrument BASEDRUM
   flag conductor
   flag drops
@@ -17239,30 +17323,35 @@ block dead_horn_coral 14953 2 14953 BaseCoralPlantBlock
   support 0
 block tube_coral 14955 2 14955 CoralPlantBlock
   prop WATERLOGGED
+  field CoralPlantBlock.deadBlock 756
   flag fluid 10
   flag push_destroy
   collision 0
   support 0
 block brain_coral 14957 2 14957 CoralPlantBlock
   prop WATERLOGGED
+  field CoralPlantBlock.deadBlock 757
   flag fluid 10
   flag push_destroy
   collision 0
   support 0
 block bubble_coral 14959 2 14959 CoralPlantBlock
   prop WATERLOGGED
+  field CoralPlantBlock.deadBlock 758
   flag fluid 10
   flag push_destroy
   collision 0
   support 0
 block fire_coral 14961 2 14961 CoralPlantBlock
   prop WATERLOGGED
+  field CoralPlantBlock.deadBlock 759
   flag fluid 10
   flag push_destroy
   collision 0
   support 0
 block horn_coral 14963 2 14963 CoralPlantBlock
   prop WATERLOGGED
+  field CoralPlantBlock.deadBlock 760
   flag fluid 10
   flag push_destroy
   collision 0
@@ -17304,30 +17393,35 @@ block dead_horn_coral_fan 14973 2 14973 BaseCoralFanBlock
   support 0
 block tube_coral_fan 14975 2 14975 CoralFanBlock
   prop WATERLOGGED
+  field CoralFanBlock.deadBlock 766
   flag fluid 10
   flag push_destroy
   collision 0
   support 0
 block brain_coral_fan 14977 2 14977 CoralFanBlock
   prop WATERLOGGED
+  field CoralFanBlock.deadBlock 767
   flag fluid 10
   flag push_destroy
   collision 0
   support 0
 block bubble_coral_fan 14979 2 14979 CoralFanBlock
   prop WATERLOGGED
+  field CoralFanBlock.deadBlock 768
   flag fluid 10
   flag push_destroy
   collision 0
   support 0
 block fire_coral_fan 14981 2 14981 CoralFanBlock
   prop WATERLOGGED
+  field CoralFanBlock.deadBlock 769
   flag fluid 10
   flag push_destroy
   collision 0
   support 0
 block horn_coral_fan 14983 2 14983 CoralFanBlock
   prop WATERLOGGED
+  field CoralFanBlock.deadBlock 770
   flag fluid 10
   flag push_destroy
   collision 0
@@ -17375,6 +17469,7 @@ block dead_horn_coral_wall_fan 15017 8 15017 BaseCoralWallFanBlock
 block tube_coral_wall_fan 15025 8 15025 CoralWallFanBlock
   prop HORIZONTAL_FACING
   prop WATERLOGGED
+  field CoralWallFanBlock.deadBlock 776
   flag fluid 10101010
   flag push_destroy
   collision 0
@@ -17382,6 +17477,7 @@ block tube_coral_wall_fan 15025 8 15025 CoralWallFanBlock
 block brain_coral_wall_fan 15033 8 15033 CoralWallFanBlock
   prop HORIZONTAL_FACING
   prop WATERLOGGED
+  field CoralWallFanBlock.deadBlock 777
   flag fluid 10101010
   flag push_destroy
   collision 0
@@ -17389,6 +17485,7 @@ block brain_coral_wall_fan 15033 8 15033 CoralWallFanBlock
 block bubble_coral_wall_fan 15041 8 15041 CoralWallFanBlock
   prop HORIZONTAL_FACING
   prop WATERLOGGED
+  field CoralWallFanBlock.deadBlock 778
   flag fluid 10101010
   flag push_destroy
   collision 0
@@ -17396,6 +17493,7 @@ block bubble_coral_wall_fan 15041 8 15041 CoralWallFanBlock
 block fire_coral_wall_fan 15049 8 15049 CoralWallFanBlock
   prop HORIZONTAL_FACING
   prop WATERLOGGED
+  field CoralWallFanBlock.deadBlock 779
   flag fluid 10101010
   flag push_destroy
   collision 0
@@ -17403,6 +17501,7 @@ block fire_coral_wall_fan 15049 8 15049 CoralWallFanBlock
 block horn_coral_wall_fan 15057 8 15057 CoralWallFanBlock
   prop HORIZONTAL_FACING
   prop WATERLOGGED
+  field CoralWallFanBlock.deadBlock 780
   flag fluid 10101010
   flag push_destroy
   collision 0
@@ -17467,6 +17566,7 @@ block bamboo 15077 12 15077 BambooStalkBlock
   collision -
   support -
 block potted_bamboo 15089 1 15089 FlowerPotBlock
+  field FlowerPotBlock.potted 790
   flag drops
   flag push_destroy
   flag sturdy_center_down
@@ -17491,6 +17591,7 @@ block polished_granite_stairs 15094 80 15105 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 3
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -17520,6 +17621,7 @@ block smooth_red_sandstone_stairs 15174 80 15185 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 625
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -17549,6 +17651,7 @@ block mossy_stone_brick_stairs 15254 80 15265 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 326
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -17578,6 +17681,7 @@ block polished_diorite_stairs 15334 80 15345 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 5
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -17607,6 +17711,7 @@ block mossy_cobblestone_stairs 15414 80 15425 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 191
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -17636,6 +17741,7 @@ block end_stone_brick_stairs 15494 80 15505 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 659
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -17665,6 +17771,7 @@ block stone_stairs 15574 80 15585 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 1
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -17694,6 +17801,7 @@ block smooth_sandstone_stairs 15654 80 15665 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 623
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -17723,6 +17831,7 @@ block smooth_quartz_stairs 15734 80 15745 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 624
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -17752,6 +17861,7 @@ block granite_stairs 15814 80 15825 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 2
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -17781,6 +17891,7 @@ block andesite_stairs 15894 80 15905 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 6
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -17810,6 +17921,7 @@ block red_nether_brick_stairs 15974 80 15985 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 671
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -17839,6 +17951,7 @@ block polished_andesite_stairs 16054 80 16065 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 7
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -17868,6 +17981,7 @@ block diorite_stairs 16134 80 16145 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 4
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -19053,6 +19167,7 @@ block warped_nylium 20755 1 20755 NyliumBlock
   collision 1
   support 1
 block warped_fungus 20756 1 20756 FungusBlock
+  field FungusBlock.requiredBlock 864
   flag drops
   flag push_destroy
   collision 0
@@ -19224,6 +19339,7 @@ block crimson_nylium 20772 1 20772 NyliumBlock
   collision 1
   support 1
 block crimson_fungus 20773 1 20773 FungusBlock
+  field FungusBlock.requiredBlock 873
   flag drops
   flag push_destroy
   collision 0
@@ -19548,6 +19664,7 @@ block crimson_stairs 21104 80 21115 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 881
   instrument BASS
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -19577,6 +19694,7 @@ block warped_stairs 21184 80 21195 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 882
   instrument BASS
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -20079,24 +20197,28 @@ block respawn_anchor 21619 5 21619 RespawnAnchorBlock
   collision 1
   support 1
 block potted_crimson_fungus 21624 1 21624 FlowerPotBlock
+  field FlowerPotBlock.potted 874
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_warped_fungus 21625 1 21625 FlowerPotBlock
+  field FlowerPotBlock.potted 865
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_crimson_roots 21626 1 21626 FlowerPotBlock
+  field FlowerPotBlock.potted 880
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_warped_roots 21627 1 21627 FlowerPotBlock
+  field FlowerPotBlock.potted 867
   flag drops
   flag push_destroy
   flag sturdy_center_down
@@ -20157,6 +20279,7 @@ block blackstone_stairs 21630 80 21641 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 922
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -20362,6 +20485,7 @@ block polished_blackstone_brick_stairs 22050 80 22061 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 927
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -20436,6 +20560,7 @@ block polished_blackstone_stairs 22455 80 22466 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 926
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -21094,6 +21219,7 @@ block tuff_stairs 23257 80 23268 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 982
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -21196,6 +21322,7 @@ block polished_tuff_stairs 23668 80 23679 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 986
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -21323,6 +21450,7 @@ block tuff_brick_stairs 24080 80 24091 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 991
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -21995,6 +22123,7 @@ block oxidized_cut_copper_stairs 25125 80 25136 WeatheringCopperStairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 1011
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag solid
@@ -22023,6 +22152,7 @@ block weathered_cut_copper_stairs 25205 80 25216 WeatheringCopperStairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 1012
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag solid
@@ -22051,6 +22181,7 @@ block exposed_cut_copper_stairs 25285 80 25296 WeatheringCopperStairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 1013
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag solid
@@ -22079,6 +22210,7 @@ block cut_copper_stairs 25365 80 25376 WeatheringCopperStairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 1014
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag solid
@@ -22407,6 +22539,7 @@ block waxed_oxidized_cut_copper_stairs 25477 80 25488 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 1035
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag solid
@@ -22435,6 +22568,7 @@ block waxed_weathered_cut_copper_stairs 25557 80 25568 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 1036
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag solid
@@ -22463,6 +22597,7 @@ block waxed_exposed_cut_copper_stairs 25637 80 25648 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 1037
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag solid
@@ -22491,6 +22626,7 @@ block waxed_cut_copper_stairs 25717 80 25728 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 1038
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
   flag solid
@@ -24106,6 +24242,7 @@ block cobbled_deepslate_stairs 27725 80 27736 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 1122
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -24208,6 +24345,7 @@ block polished_deepslate_stairs 28136 80 28147 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 1126
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -24310,6 +24448,7 @@ block deepslate_tile_stairs 28547 80 28558 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 1130
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -24412,6 +24551,7 @@ block deepslate_brick_stairs 28958 80 28969 StairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field StairBlock.base 1134
   instrument BASEDRUM
   flag fluid 10101010101010101010101010101010101010101010101010101010101010101010101010101010
   flag drops
@@ -24561,6 +24701,7 @@ block cracked_deepslate_tiles 29370 1 29370 -
   support 1
 block infested_deepslate 29371 3 29372 InfestedRotatedPillarBlock
   prop AXIS
+  field InfestedBlock.hostBlock 1121
   flag conductor
   flag solid
   flag sturdy_full_down
@@ -24684,12 +24825,14 @@ block raw_gold_block 29377 1 29377 -
   collision 1
   support 1
 block potted_azalea_bush 29378 1 29378 FlowerPotBlock
+  field FlowerPotBlock.potted 1108
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_flowering_azalea_bush 29379 1 29379 FlowerPotBlock
+  field FlowerPotBlock.potted 1109
   flag drops
   flag push_destroy
   flag sturdy_center_down
@@ -24965,12 +25108,14 @@ block closed_eyeblossom 29667 1 29667 EyeblossomBlock
   collision 0
   support 0
 block potted_open_eyeblossom 29668 1 29668 FlowerPotBlock
+  field FlowerPotBlock.potted 1161
   flag drops
   flag push_destroy
   flag sturdy_center_down
   collision 172
   support 172
 block potted_closed_eyeblossom 29669 1 29669 FlowerPotBlock
+  field FlowerPotBlock.potted 1162
   flag drops
   flag push_destroy
   flag sturdy_center_down
