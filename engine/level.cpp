@@ -128,6 +128,7 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
         case BLOCK_ENTITY_TYPE_SKULL:
         case BLOCK_ENTITY_TYPE_BEEHIVE:
         case BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE:
+        case BLOCK_ENTITY_TYPE_END_PORTAL:
             break;
         default:
             supported = false;

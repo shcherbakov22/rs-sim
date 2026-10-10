@@ -111,6 +111,7 @@ add_library(tmc STATIC
     items/block-item.cpp
     items/block-place-context.cpp
     items/double-high-block-item.cpp
+    items/ender-eye-item.cpp
     items/flint-and-steel-item.cpp
     items/honeycomb-item.cpp
     items/item-behaviour.cpp

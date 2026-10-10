@@ -18,6 +18,9 @@ interaction_result honeycomb_item_use_on(level & lv, const use_on_context & hit)
 // AxeItem
 interaction_result axe_item_use_on(level & lv, const use_on_context & hit);
 
+// EnderEyeItem
+interaction_result ender_eye_item_use_on(level & lv, const use_on_context & hit);
+
 // FlintAndSteelItem
 interaction_result flint_and_steel_item_use_on(level & lv, const use_on_context & hit);
 

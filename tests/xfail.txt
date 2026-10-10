@@ -52,7 +52,6 @@ corpus/0203
 corpus/0207
 corpus/0218
 corpus/0235
-corpus/0238
 corpus/0240
 corpus/0271
 corpus/0275
