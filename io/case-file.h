@@ -47,18 +47,25 @@ struct case_event {
     int32_t   param_b;
 };
 
+// RedstoneTorchBlock.Toggle; when is relative to the case start
+struct case_toggle {
+    block_pos pos;
+    int64_t   when;
+};
+
 struct case_file {
-    block_pos               size;
-    int64_t                 seed         = 0;
-    bool                    has_gaussian = false;
-    double                  gaussian     = 0;
-    std::vector<state_id>   states;    // index x + size.x * (z + size.z * y)
-    std::vector<case_nbt>   nbt;
-    std::vector<case_tick>  ticks;     // in execution order
-    std::vector<case_event> events;    // in execution order
-    std::vector<block_pos>  tickers;   // block entity tick order
-    std::vector<case_input> inputs;
-    int32_t                 run = 40;  // ticks to trace
+    block_pos                size;
+    int64_t                  seed         = 0;
+    bool                     has_gaussian = false;
+    double                   gaussian     = 0;
+    std::vector<state_id>    states;    // index x + size.x * (z + size.z * y)
+    std::vector<case_nbt>    nbt;
+    std::vector<case_tick>   ticks;     // in execution order
+    std::vector<case_event>  events;    // in execution order
+    std::vector<case_toggle> toggles;   // redstone torch burnout history, oldest first
+    std::vector<block_pos>   tickers;   // block entity tick order
+    std::vector<case_input>  inputs;
+    int32_t                  run = 40;  // ticks to trace
 };
 
 // err gets "line N: ..." on failure

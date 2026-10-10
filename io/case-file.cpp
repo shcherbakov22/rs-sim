@@ -178,7 +178,8 @@ static bool case_parse_line(case_file & f, case_parser & p, std::string_view lin
         }
         return true;
     }
-    if (t[0] == "key" || t[0] == "ticks" || t[0] == "events" || t[0] == "tickers" || t[0] == "inputs") {
+    if (t[0] == "key" || t[0] == "ticks" || t[0] == "events" || t[0] == "toggles" || t[0] == "tickers" ||
+        t[0] == "inputs") {
         p.section = t[0];
         return true;
     }
@@ -259,6 +260,15 @@ static bool case_parse_line(case_file & f, case_parser & p, std::string_view lin
             return false;
         }
         f.events.push_back(ev);
+        return true;
+    }
+    if (p.section == "toggles") {
+        case_toggle tg;
+        if (t.size() != 4 || !parse_pos(t, 0, tg.pos) || !parse_i64(t[3], tg.when)) {
+            err = "expected 'x y z <when>'";
+            return false;
+        }
+        f.toggles.push_back(tg);
         return true;
     }
     if (p.section == "tickers") {

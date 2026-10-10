@@ -6,7 +6,7 @@
 // Batch.SURROUND: the oracle clears and traces this margin around the region
 static constexpr int32_t CASE_SURROUND = 13;
 
-// Snapshot.restore: silent placement, then pending ticks, block events and block entity tickers
+// Snapshot.restore: silent placement, then pending ticks, block events, torch toggles and block entity tickers
 static void case_place(level & lv, const case_file & f) {
     for (int32_t y = 0; y < f.size.y; y++) {
         for (int32_t z = 0; z < f.size.z; z++) {
@@ -30,6 +30,9 @@ static void case_place(level & lv, const case_file & f) {
     }
     for (const case_event & e : f.events) {
         lv.block_events.push_back({ e.pos, e.block, e.param_a, e.param_b });
+    }
+    for (const case_toggle & t : f.toggles) {
+        lv.redstone_torch_recent_toggles.push_back({ t.pos, lv.game_time + t.when });
     }
     rng_set_seed(lv.random, f.seed);
     lv.random.has_gaussian = f.has_gaussian;
