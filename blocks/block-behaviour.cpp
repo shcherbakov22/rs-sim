@@ -123,6 +123,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_WALL_BLOCK:
             result = wall_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
+        case VCLASS_FENCE_GATE_BLOCK:
+            result = fence_gate_update_shape(lv, st, pos, dir, neighbor);
+            break;
         case VCLASS_BELL_BLOCK:
             result = bell_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
@@ -159,6 +162,9 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
             break;
         case VCLASS_RED_STONE_WIRE_BLOCK:
             red_stone_wire_neighbor_changed(lv, st, pos);
+            break;
+        case VCLASS_FENCE_GATE_BLOCK:
+            fence_gate_neighbor_changed(lv, st, pos);
             break;
         case VCLASS_REDSTONE_TORCH_BLOCK:
             redstone_torch_neighbor_changed(lv, st, pos);
@@ -412,6 +418,8 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return chiseled_book_shelf_use_without_item(lv, st, pos, face);
         case VCLASS_RESPAWN_ANCHOR_BLOCK:
             return respawn_anchor_use_without_item(lv, st, pos);
+        case VCLASS_FENCE_GATE_BLOCK:
+            return fence_gate_use_without_item(lv, st, pos);
         case VCLASS_BUTTON_BLOCK:
             return button_use_without_item(lv, st, pos);
         case VCLASS_REPEATER_BLOCK:

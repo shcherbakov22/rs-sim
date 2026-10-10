@@ -219,6 +219,11 @@ state_id wall_update_shape(level &   lv,
                            block_pos neighbor_pos,
                            state_id  neighbor);
 
+// FenceGateBlock
+state_id           fence_gate_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
+interaction_result fence_gate_use_without_item(level & lv, state_id st, block_pos pos);
+void               fence_gate_neighbor_changed(level & lv, state_id st, block_pos pos);
+
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 

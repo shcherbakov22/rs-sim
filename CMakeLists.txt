@@ -34,6 +34,7 @@ add_library(tmc STATIC
     blocks/dropper.cpp
     blocks/ender-chest.cpp
     blocks/face-attached-horizontal-directional.cpp
+    blocks/fence-gate.cpp
     blocks/hopper-block-entity.cpp
     blocks/hopper.cpp
     blocks/iron-bars.cpp
