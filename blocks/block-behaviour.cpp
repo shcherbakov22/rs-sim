@@ -17,8 +17,8 @@ state_id block_behaviour_update_shape(level &, state_id st, block_pos, direction
 }
 
 // classes whose updateShape override only schedules the water tick, which block_update_shape does first
-static // clang-format off
-const std::vector<block_hooks> water_hooks = {
+// clang-format off
+static const std::vector<block_hooks> water_hooks = {
     { .vclass = VCLASS_SLAB_BLOCK, .update_shape = block_behaviour_update_shape },
     { .vclass = VCLASS_CHAIN_BLOCK, .update_shape = block_behaviour_update_shape },
     { .vclass = VCLASS_CANDLE_BLOCK, .update_shape = block_behaviour_update_shape },
