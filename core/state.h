@@ -99,6 +99,7 @@ extern const field_value  block_field_values[];
 extern const block_def    block_defs[];
 extern const item_def     item_defs[];
 extern const char * const block_entity_type_names[];
+extern const int32_t      block_entity_type_container_sizes[];  // Container.getContainerSize of a fresh one, -1 for none
 extern const int16_t      vclass_super[];
 extern const int16_t      vclass_hooks[][HOOK_COUNT];  // class that overrides each hook, VCLASS_NONE for the default
 extern const char * const vclass_names[];

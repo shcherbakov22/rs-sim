@@ -94,33 +94,19 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
     if (type < 0) {
         return nullptr;
     }
-    int32_t n_items   = 0;
-    bool    supported = true;
     switch (type) {
         case BLOCK_ENTITY_TYPE_HOPPER:
-            n_items = 5;
-            break;
         case BLOCK_ENTITY_TYPE_DISPENSER:
         case BLOCK_ENTITY_TYPE_DROPPER:
         case BLOCK_ENTITY_TYPE_CRAFTER:
-            n_items = 9;
-            break;
         case BLOCK_ENTITY_TYPE_DECORATED_POT:
         case BLOCK_ENTITY_TYPE_JUKEBOX:
-            n_items = 1;
-            break;
         case BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF:
-            n_items = 6;
-            break;
         case BLOCK_ENTITY_TYPE_SHELF:
-            n_items = 3;
-            break;
         case BLOCK_ENTITY_TYPE_CHEST:
         case BLOCK_ENTITY_TYPE_TRAPPED_CHEST:
         case BLOCK_ENTITY_TYPE_BARREL:
         case BLOCK_ENTITY_TYPE_SHULKER_BOX:
-            n_items = 27;
-            break;
         case BLOCK_ENTITY_TYPE_COMPARATOR:
         case BLOCK_ENTITY_TYPE_BELL:
         case BLOCK_ENTITY_TYPE_ENDER_CHEST:
@@ -128,14 +114,11 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
         case BLOCK_ENTITY_TYPE_END_PORTAL:
             break;
         default:
-            supported = false;
-    }
-    if (!supported) {
-        level_unsupported(lv, "block entity of %s", block_defs[state_block(st)].name);
-        return nullptr;
+            level_unsupported(lv, "block entity of %s", block_defs[state_block(st)].name);
+            return nullptr;
     }
     block_entity * be = level_new_block_entity(lv, (block_entity_type) type, pos, st);
-    be->items.resize(n_items);
+    be->items.resize(std::max(block_entity_type_container_sizes[type], 0));
     return be;
 }
 

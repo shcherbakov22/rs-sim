@@ -14,25 +14,8 @@ void block_entity_set_changed(level & lv, block_pos pos, state_id st) {
     }
 }
 
-// the Container block entity types the sim has
 bool block_entity_is_container(const block_entity * be) {
-    switch (be->type) {
-        case BLOCK_ENTITY_TYPE_HOPPER:
-        case BLOCK_ENTITY_TYPE_CHEST:
-        case BLOCK_ENTITY_TYPE_TRAPPED_CHEST:
-        case BLOCK_ENTITY_TYPE_BARREL:
-        case BLOCK_ENTITY_TYPE_SHULKER_BOX:
-        case BLOCK_ENTITY_TYPE_DISPENSER:
-        case BLOCK_ENTITY_TYPE_DROPPER:
-        case BLOCK_ENTITY_TYPE_CRAFTER:
-        case BLOCK_ENTITY_TYPE_DECORATED_POT:
-        case BLOCK_ENTITY_TYPE_JUKEBOX:
-        case BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF:
-        case BLOCK_ENTITY_TYPE_SHELF:
-            return true;
-        default:
-            return false;
-    }
+    return block_entity_type_container_sizes[be->type] >= 0;
 }
 
 int32_t container_get_container_size(const container & c) {
