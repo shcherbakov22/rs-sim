@@ -103,6 +103,7 @@ int32_t      container_get_container_size(const container & c);
 item_stack & container_get_item(const container & c, int32_t slot);
 bool         container_is_empty(const container & c);
 int32_t      container_get_max_stack_size(const item_stack & s);
+int32_t      container_get_max_stack_size_in(const container & c, const item_stack & s);
 item_stack   container_remove_item(level & lv, const container & c, int32_t slot, int32_t count);
 void         container_set_item(level & lv, const container & c, int32_t slot, item_stack s);
 void         container_set_changed(level & lv, const container & c);
@@ -176,6 +177,7 @@ item_stack hopper_block_entity_add_item(level &           lv,
 
 // DispenserBlock, DispenserBlockEntity, DefaultDispenseItemBehavior
 int32_t    dispenser_block_entity_get_random_slot(level & lv, const block_entity * be);
+void       default_dispense_item_behavior_spawn_item(level & lv, block_pos pos, direction dir);
 item_stack default_dispense_item_behavior_dispense(level & lv, state_id st, block_pos pos, item_stack dispensed);
 void       dispenser_tick(level & lv, state_id st, block_pos pos);
 void       dispenser_neighbor_changed(level & lv, state_id st, block_pos pos);
@@ -206,7 +208,7 @@ bool    crafter_block_entity_can_place_item(const block_entity * be, int32_t slo
 void    crafter_block_entity_server_tick(level & lv, block_pos pos, state_id st, block_entity * be);
 int32_t crafter_get_analog_output_signal(level & lv, block_pos pos);
 void    crafter_neighbor_changed(level & lv, state_id st, block_pos pos);
-void    crafter_tick(level & lv, block_pos pos);
+void    crafter_tick(level & lv, state_id st, block_pos pos);
 
 // DecoratedPotBlock
 interaction_result decorated_pot_use_item_on(level & lv, block_pos pos, const item_stack & stack);

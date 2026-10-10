@@ -496,7 +496,7 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             lectern_tick(lv, st, pos);
             break;
         case VCLASS_CRAFTER_BLOCK:
-            crafter_tick(lv, pos);
+            crafter_tick(lv, st, pos);
             break;
         case VCLASS_REDSTONE_LAMP_BLOCK:
             redstone_lamp_tick(lv, st, pos);

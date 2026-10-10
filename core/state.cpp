@@ -48,6 +48,15 @@ bool block_instanceof(int32_t block, vclass cls) {
     return false;
 }
 
+bool item_instanceof(int32_t item, item_class cls) {
+    for (int32_t c = item_defs[item].cls; c != ICLASS_NONE; c = iclass_super[c]) {
+        if (c == cls) {
+            return true;
+        }
+    }
+    return false;
+}
+
 int32_t block_field_get(int32_t block, object_field field) {
     const block_def & b = block_defs[block];
     for (int32_t i = 0; i < b.n_fields; i++) {

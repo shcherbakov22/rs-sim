@@ -160,6 +160,8 @@ inline bool state_has(state_id st, state_flag flag) {
 
 // Java instanceof on the block's class
 bool block_instanceof(int32_t block, vclass cls);
+// Java instanceof on the item's class
+bool item_instanceof(int32_t item, item_class cls);
 
 // value of a primitive instance field of the block object
 int32_t block_field_get(int32_t block, object_field field);

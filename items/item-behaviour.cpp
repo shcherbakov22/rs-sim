@@ -105,3 +105,13 @@ bool item_can_place(level & lv, const block_place_context & ctx, state_id st) {
             return false;
     }
 }
+
+// ItemStack.onCraftedBySystem
+void item_on_crafted_post_process(level & lv, const item_stack & s) {
+    switch (item_hook_owner(s.item, ITEM_HOOK_ON_CRAFTED_POST_PROCESS)) {
+        case ICLASS_NONE:
+            return;
+        default:
+            item_hook_unsupported(lv, s.item, ITEM_HOOK_ON_CRAFTED_POST_PROCESS);
+    }
+}

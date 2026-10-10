@@ -122,18 +122,34 @@ add_library(tmc STATIC
     gen/blocks.cpp
     io/case-file.cpp
     io/snbt.cpp
+    items/armor-dye-recipe.cpp
     items/axe-item.cpp
+    items/banner-duplicate-recipe.cpp
     items/block-item.cpp
     items/block-place-context.cpp
+    items/book-cloning-recipe.cpp
+    items/decorated-pot-recipe.cpp
     items/double-high-block-item.cpp
     items/ender-eye-item.cpp
     items/fire-charge-item.cpp
+    items/firework-rocket-recipe.cpp
+    items/firework-star-fade-recipe.cpp
+    items/firework-star-recipe.cpp
     items/flint-and-steel-item.cpp
     items/honeycomb-item.cpp
     items/item-behaviour.cpp
+    items/map-cloning-recipe.cpp
+    items/map-extending-recipe.cpp
+    items/recipe-manager.cpp
+    items/repair-item-recipe.cpp
+    items/shaped-recipe.cpp
+    items/shapeless-recipe.cpp
     items/shears-item.cpp
+    items/shield-decoration-recipe.cpp
     items/shovel-item.cpp
     items/standing-and-wall-block-item.cpp
+    items/tipped-arrow-recipe.cpp
+    items/transmute-recipe.cpp
 )
 target_include_directories(tmc PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 

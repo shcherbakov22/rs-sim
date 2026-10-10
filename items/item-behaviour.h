@@ -12,3 +12,4 @@ bool               item_place_block(level & lv, const block_place_context & ctx,
 bool               item_must_survive(level & lv, const block_place_context & ctx);
 void               item_update_custom_block_entity_tag(level & lv, const block_place_context & ctx);
 bool               item_can_place(level & lv, const block_place_context & ctx, state_id st);
+void               item_on_crafted_post_process(level & lv, const item_stack & s);

@@ -20,15 +20,20 @@ int32_t dispenser_block_entity_get_random_slot(level & lv, const block_entity * 
     return replace_slot;
 }
 
-// DefaultDispenseItemBehavior.dispense: the item entity lands in the block in front
-item_stack default_dispense_item_behavior_dispense(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    item_stack_split(dispensed, 1);
+// DefaultDispenseItemBehavior.spawnItem from 0.7 blocks out of the center: the item entity lands in the block in front
+void default_dispense_item_behavior_spawn_item(level & lv, block_pos pos, direction dir) {
     // the ItemEntity constructor's motion, the throw power, then three triangle draws of two doubles each
     for (int32_t i = 0; i < 9; i++) {
         rng_next_double(lv.random);
     }
-    block_pos at = pos_relative(pos, dispenser_facing(st));
+    block_pos at = pos_relative(pos, dir);
     trace_boundary(lv.tr, "spawn item %d %d %d", at.x, at.y, at.z);
+}
+
+// DefaultDispenseItemBehavior.dispense
+item_stack default_dispense_item_behavior_dispense(level & lv, state_id st, block_pos pos, item_stack dispensed) {
+    item_stack_split(dispensed, 1);
+    default_dispense_item_behavior_spawn_item(lv, pos, dispenser_facing(st));
     return dispensed;
 }
 

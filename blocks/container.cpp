@@ -74,6 +74,13 @@ int32_t container_get_max_stack_size(const item_stack & s) {
     return std::min(99, item_stack_get_max_stack_size(s));
 }
 
+// Container.getMaxStackSize(ItemStack): the composter's containers, jukeboxes and chiseled bookshelves hold one item
+int32_t container_get_max_stack_size_in(const container & c, const item_stack & s) {
+    bool single = c.composter != nullptr || c.first->type == BLOCK_ENTITY_TYPE_JUKEBOX ||
+                  c.first->type == BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF;
+    return single ? std::min(1, item_stack_get_max_stack_size(s)) : container_get_max_stack_size(s);
+}
+
 // HopperBlockEntity and ContainerSingleItem (the decorated pot) override removeItem and setItem without setChanged
 item_stack container_remove_item(level & lv, const container & c, int32_t slot, int32_t count) {
     if (c.composter != nullptr) {
