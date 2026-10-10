@@ -1780,1738 +1780,3248 @@ const int16_t vclass_hooks[][HOOK_COUNT] = {
     { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CARPET_BLOCK, 0 },  // WoolCarpetBlock
 };
 
+const item_def item_defs[] = {
+    { "air", 64 },
+    { "stone", 64 },
+    { "granite", 64 },
+    { "polished_granite", 64 },
+    { "diorite", 64 },
+    { "polished_diorite", 64 },
+    { "andesite", 64 },
+    { "polished_andesite", 64 },
+    { "deepslate", 64 },
+    { "cobbled_deepslate", 64 },
+    { "polished_deepslate", 64 },
+    { "calcite", 64 },
+    { "tuff", 64 },
+    { "tuff_slab", 64 },
+    { "tuff_stairs", 64 },
+    { "tuff_wall", 64 },
+    { "chiseled_tuff", 64 },
+    { "polished_tuff", 64 },
+    { "polished_tuff_slab", 64 },
+    { "polished_tuff_stairs", 64 },
+    { "polished_tuff_wall", 64 },
+    { "tuff_bricks", 64 },
+    { "tuff_brick_slab", 64 },
+    { "tuff_brick_stairs", 64 },
+    { "tuff_brick_wall", 64 },
+    { "chiseled_tuff_bricks", 64 },
+    { "dripstone_block", 64 },
+    { "grass_block", 64 },
+    { "dirt", 64 },
+    { "coarse_dirt", 64 },
+    { "podzol", 64 },
+    { "rooted_dirt", 64 },
+    { "mud", 64 },
+    { "crimson_nylium", 64 },
+    { "warped_nylium", 64 },
+    { "cobblestone", 64 },
+    { "oak_planks", 64 },
+    { "spruce_planks", 64 },
+    { "birch_planks", 64 },
+    { "jungle_planks", 64 },
+    { "acacia_planks", 64 },
+    { "cherry_planks", 64 },
+    { "dark_oak_planks", 64 },
+    { "pale_oak_planks", 64 },
+    { "mangrove_planks", 64 },
+    { "bamboo_planks", 64 },
+    { "crimson_planks", 64 },
+    { "warped_planks", 64 },
+    { "bamboo_mosaic", 64 },
+    { "oak_sapling", 64 },
+    { "spruce_sapling", 64 },
+    { "birch_sapling", 64 },
+    { "jungle_sapling", 64 },
+    { "acacia_sapling", 64 },
+    { "cherry_sapling", 64 },
+    { "dark_oak_sapling", 64 },
+    { "pale_oak_sapling", 64 },
+    { "mangrove_propagule", 64 },
+    { "bedrock", 64 },
+    { "sand", 64 },
+    { "suspicious_sand", 64 },
+    { "suspicious_gravel", 64 },
+    { "red_sand", 64 },
+    { "gravel", 64 },
+    { "coal_ore", 64 },
+    { "deepslate_coal_ore", 64 },
+    { "iron_ore", 64 },
+    { "deepslate_iron_ore", 64 },
+    { "copper_ore", 64 },
+    { "deepslate_copper_ore", 64 },
+    { "gold_ore", 64 },
+    { "deepslate_gold_ore", 64 },
+    { "redstone_ore", 64 },
+    { "deepslate_redstone_ore", 64 },
+    { "emerald_ore", 64 },
+    { "deepslate_emerald_ore", 64 },
+    { "lapis_ore", 64 },
+    { "deepslate_lapis_ore", 64 },
+    { "diamond_ore", 64 },
+    { "deepslate_diamond_ore", 64 },
+    { "nether_gold_ore", 64 },
+    { "nether_quartz_ore", 64 },
+    { "ancient_debris", 64 },
+    { "coal_block", 64 },
+    { "raw_iron_block", 64 },
+    { "raw_copper_block", 64 },
+    { "raw_gold_block", 64 },
+    { "heavy_core", 64 },
+    { "amethyst_block", 64 },
+    { "budding_amethyst", 64 },
+    { "iron_block", 64 },
+    { "copper_block", 64 },
+    { "gold_block", 64 },
+    { "diamond_block", 64 },
+    { "netherite_block", 64 },
+    { "exposed_copper", 64 },
+    { "weathered_copper", 64 },
+    { "oxidized_copper", 64 },
+    { "chiseled_copper", 64 },
+    { "exposed_chiseled_copper", 64 },
+    { "weathered_chiseled_copper", 64 },
+    { "oxidized_chiseled_copper", 64 },
+    { "cut_copper", 64 },
+    { "exposed_cut_copper", 64 },
+    { "weathered_cut_copper", 64 },
+    { "oxidized_cut_copper", 64 },
+    { "cut_copper_stairs", 64 },
+    { "exposed_cut_copper_stairs", 64 },
+    { "weathered_cut_copper_stairs", 64 },
+    { "oxidized_cut_copper_stairs", 64 },
+    { "cut_copper_slab", 64 },
+    { "exposed_cut_copper_slab", 64 },
+    { "weathered_cut_copper_slab", 64 },
+    { "oxidized_cut_copper_slab", 64 },
+    { "waxed_copper_block", 64 },
+    { "waxed_exposed_copper", 64 },
+    { "waxed_weathered_copper", 64 },
+    { "waxed_oxidized_copper", 64 },
+    { "waxed_chiseled_copper", 64 },
+    { "waxed_exposed_chiseled_copper", 64 },
+    { "waxed_weathered_chiseled_copper", 64 },
+    { "waxed_oxidized_chiseled_copper", 64 },
+    { "waxed_cut_copper", 64 },
+    { "waxed_exposed_cut_copper", 64 },
+    { "waxed_weathered_cut_copper", 64 },
+    { "waxed_oxidized_cut_copper", 64 },
+    { "waxed_cut_copper_stairs", 64 },
+    { "waxed_exposed_cut_copper_stairs", 64 },
+    { "waxed_weathered_cut_copper_stairs", 64 },
+    { "waxed_oxidized_cut_copper_stairs", 64 },
+    { "waxed_cut_copper_slab", 64 },
+    { "waxed_exposed_cut_copper_slab", 64 },
+    { "waxed_weathered_cut_copper_slab", 64 },
+    { "waxed_oxidized_cut_copper_slab", 64 },
+    { "oak_log", 64 },
+    { "spruce_log", 64 },
+    { "birch_log", 64 },
+    { "jungle_log", 64 },
+    { "acacia_log", 64 },
+    { "cherry_log", 64 },
+    { "pale_oak_log", 64 },
+    { "dark_oak_log", 64 },
+    { "mangrove_log", 64 },
+    { "mangrove_roots", 64 },
+    { "muddy_mangrove_roots", 64 },
+    { "crimson_stem", 64 },
+    { "warped_stem", 64 },
+    { "bamboo_block", 64 },
+    { "stripped_oak_log", 64 },
+    { "stripped_spruce_log", 64 },
+    { "stripped_birch_log", 64 },
+    { "stripped_jungle_log", 64 },
+    { "stripped_acacia_log", 64 },
+    { "stripped_cherry_log", 64 },
+    { "stripped_dark_oak_log", 64 },
+    { "stripped_pale_oak_log", 64 },
+    { "stripped_mangrove_log", 64 },
+    { "stripped_crimson_stem", 64 },
+    { "stripped_warped_stem", 64 },
+    { "stripped_oak_wood", 64 },
+    { "stripped_spruce_wood", 64 },
+    { "stripped_birch_wood", 64 },
+    { "stripped_jungle_wood", 64 },
+    { "stripped_acacia_wood", 64 },
+    { "stripped_cherry_wood", 64 },
+    { "stripped_dark_oak_wood", 64 },
+    { "stripped_pale_oak_wood", 64 },
+    { "stripped_mangrove_wood", 64 },
+    { "stripped_crimson_hyphae", 64 },
+    { "stripped_warped_hyphae", 64 },
+    { "stripped_bamboo_block", 64 },
+    { "oak_wood", 64 },
+    { "spruce_wood", 64 },
+    { "birch_wood", 64 },
+    { "jungle_wood", 64 },
+    { "acacia_wood", 64 },
+    { "cherry_wood", 64 },
+    { "pale_oak_wood", 64 },
+    { "dark_oak_wood", 64 },
+    { "mangrove_wood", 64 },
+    { "crimson_hyphae", 64 },
+    { "warped_hyphae", 64 },
+    { "oak_leaves", 64 },
+    { "spruce_leaves", 64 },
+    { "birch_leaves", 64 },
+    { "jungle_leaves", 64 },
+    { "acacia_leaves", 64 },
+    { "cherry_leaves", 64 },
+    { "dark_oak_leaves", 64 },
+    { "pale_oak_leaves", 64 },
+    { "mangrove_leaves", 64 },
+    { "azalea_leaves", 64 },
+    { "flowering_azalea_leaves", 64 },
+    { "sponge", 64 },
+    { "wet_sponge", 64 },
+    { "glass", 64 },
+    { "tinted_glass", 64 },
+    { "lapis_block", 64 },
+    { "sandstone", 64 },
+    { "chiseled_sandstone", 64 },
+    { "cut_sandstone", 64 },
+    { "cobweb", 64 },
+    { "short_grass", 64 },
+    { "fern", 64 },
+    { "bush", 64 },
+    { "azalea", 64 },
+    { "flowering_azalea", 64 },
+    { "dead_bush", 64 },
+    { "firefly_bush", 64 },
+    { "short_dry_grass", 64 },
+    { "tall_dry_grass", 64 },
+    { "seagrass", 64 },
+    { "sea_pickle", 64 },
+    { "white_wool", 64 },
+    { "orange_wool", 64 },
+    { "magenta_wool", 64 },
+    { "light_blue_wool", 64 },
+    { "yellow_wool", 64 },
+    { "lime_wool", 64 },
+    { "pink_wool", 64 },
+    { "gray_wool", 64 },
+    { "light_gray_wool", 64 },
+    { "cyan_wool", 64 },
+    { "purple_wool", 64 },
+    { "blue_wool", 64 },
+    { "brown_wool", 64 },
+    { "green_wool", 64 },
+    { "red_wool", 64 },
+    { "black_wool", 64 },
+    { "dandelion", 64 },
+    { "open_eyeblossom", 64 },
+    { "closed_eyeblossom", 64 },
+    { "poppy", 64 },
+    { "blue_orchid", 64 },
+    { "allium", 64 },
+    { "azure_bluet", 64 },
+    { "red_tulip", 64 },
+    { "orange_tulip", 64 },
+    { "white_tulip", 64 },
+    { "pink_tulip", 64 },
+    { "oxeye_daisy", 64 },
+    { "cornflower", 64 },
+    { "lily_of_the_valley", 64 },
+    { "wither_rose", 64 },
+    { "torchflower", 64 },
+    { "pitcher_plant", 64 },
+    { "spore_blossom", 64 },
+    { "brown_mushroom", 64 },
+    { "red_mushroom", 64 },
+    { "crimson_fungus", 64 },
+    { "warped_fungus", 64 },
+    { "crimson_roots", 64 },
+    { "warped_roots", 64 },
+    { "nether_sprouts", 64 },
+    { "weeping_vines", 64 },
+    { "twisting_vines", 64 },
+    { "sugar_cane", 64 },
+    { "kelp", 64 },
+    { "pink_petals", 64 },
+    { "wildflowers", 64 },
+    { "leaf_litter", 64 },
+    { "moss_carpet", 64 },
+    { "moss_block", 64 },
+    { "pale_moss_carpet", 64 },
+    { "pale_hanging_moss", 64 },
+    { "pale_moss_block", 64 },
+    { "hanging_roots", 64 },
+    { "big_dripleaf", 64 },
+    { "small_dripleaf", 64 },
+    { "bamboo", 64 },
+    { "oak_slab", 64 },
+    { "spruce_slab", 64 },
+    { "birch_slab", 64 },
+    { "jungle_slab", 64 },
+    { "acacia_slab", 64 },
+    { "cherry_slab", 64 },
+    { "dark_oak_slab", 64 },
+    { "pale_oak_slab", 64 },
+    { "mangrove_slab", 64 },
+    { "bamboo_slab", 64 },
+    { "bamboo_mosaic_slab", 64 },
+    { "crimson_slab", 64 },
+    { "warped_slab", 64 },
+    { "stone_slab", 64 },
+    { "smooth_stone_slab", 64 },
+    { "sandstone_slab", 64 },
+    { "cut_sandstone_slab", 64 },
+    { "petrified_oak_slab", 64 },
+    { "cobblestone_slab", 64 },
+    { "brick_slab", 64 },
+    { "stone_brick_slab", 64 },
+    { "mud_brick_slab", 64 },
+    { "nether_brick_slab", 64 },
+    { "quartz_slab", 64 },
+    { "red_sandstone_slab", 64 },
+    { "cut_red_sandstone_slab", 64 },
+    { "purpur_slab", 64 },
+    { "prismarine_slab", 64 },
+    { "prismarine_brick_slab", 64 },
+    { "dark_prismarine_slab", 64 },
+    { "smooth_quartz", 64 },
+    { "smooth_red_sandstone", 64 },
+    { "smooth_sandstone", 64 },
+    { "smooth_stone", 64 },
+    { "bricks", 64 },
+    { "acacia_shelf", 64 },
+    { "bamboo_shelf", 64 },
+    { "birch_shelf", 64 },
+    { "cherry_shelf", 64 },
+    { "crimson_shelf", 64 },
+    { "dark_oak_shelf", 64 },
+    { "jungle_shelf", 64 },
+    { "mangrove_shelf", 64 },
+    { "oak_shelf", 64 },
+    { "pale_oak_shelf", 64 },
+    { "spruce_shelf", 64 },
+    { "warped_shelf", 64 },
+    { "bookshelf", 64 },
+    { "chiseled_bookshelf", 64 },
+    { "decorated_pot", 64 },
+    { "mossy_cobblestone", 64 },
+    { "obsidian", 64 },
+    { "torch", 64 },
+    { "end_rod", 64 },
+    { "chorus_plant", 64 },
+    { "chorus_flower", 64 },
+    { "purpur_block", 64 },
+    { "purpur_pillar", 64 },
+    { "purpur_stairs", 64 },
+    { "spawner", 64 },
+    { "creaking_heart", 64 },
+    { "chest", 64 },
+    { "crafting_table", 64 },
+    { "farmland", 64 },
+    { "furnace", 64 },
+    { "ladder", 64 },
+    { "cobblestone_stairs", 64 },
+    { "snow", 64 },
+    { "ice", 64 },
+    { "snow_block", 64 },
+    { "cactus", 64 },
+    { "cactus_flower", 64 },
+    { "clay", 64 },
+    { "jukebox", 64 },
+    { "oak_fence", 64 },
+    { "spruce_fence", 64 },
+    { "birch_fence", 64 },
+    { "jungle_fence", 64 },
+    { "acacia_fence", 64 },
+    { "cherry_fence", 64 },
+    { "dark_oak_fence", 64 },
+    { "pale_oak_fence", 64 },
+    { "mangrove_fence", 64 },
+    { "bamboo_fence", 64 },
+    { "crimson_fence", 64 },
+    { "warped_fence", 64 },
+    { "pumpkin", 64 },
+    { "carved_pumpkin", 64 },
+    { "jack_o_lantern", 64 },
+    { "netherrack", 64 },
+    { "soul_sand", 64 },
+    { "soul_soil", 64 },
+    { "basalt", 64 },
+    { "polished_basalt", 64 },
+    { "smooth_basalt", 64 },
+    { "soul_torch", 64 },
+    { "copper_torch", 64 },
+    { "glowstone", 64 },
+    { "infested_stone", 64 },
+    { "infested_cobblestone", 64 },
+    { "infested_stone_bricks", 64 },
+    { "infested_mossy_stone_bricks", 64 },
+    { "infested_cracked_stone_bricks", 64 },
+    { "infested_chiseled_stone_bricks", 64 },
+    { "infested_deepslate", 64 },
+    { "stone_bricks", 64 },
+    { "mossy_stone_bricks", 64 },
+    { "cracked_stone_bricks", 64 },
+    { "chiseled_stone_bricks", 64 },
+    { "packed_mud", 64 },
+    { "mud_bricks", 64 },
+    { "deepslate_bricks", 64 },
+    { "cracked_deepslate_bricks", 64 },
+    { "deepslate_tiles", 64 },
+    { "cracked_deepslate_tiles", 64 },
+    { "chiseled_deepslate", 64 },
+    { "reinforced_deepslate", 64 },
+    { "brown_mushroom_block", 64 },
+    { "red_mushroom_block", 64 },
+    { "mushroom_stem", 64 },
+    { "iron_bars", 64 },
+    { "copper_bars", 64 },
+    { "exposed_copper_bars", 64 },
+    { "weathered_copper_bars", 64 },
+    { "oxidized_copper_bars", 64 },
+    { "waxed_copper_bars", 64 },
+    { "waxed_exposed_copper_bars", 64 },
+    { "waxed_weathered_copper_bars", 64 },
+    { "waxed_oxidized_copper_bars", 64 },
+    { "iron_chain", 64 },
+    { "copper_chain", 64 },
+    { "exposed_copper_chain", 64 },
+    { "weathered_copper_chain", 64 },
+    { "oxidized_copper_chain", 64 },
+    { "waxed_copper_chain", 64 },
+    { "waxed_exposed_copper_chain", 64 },
+    { "waxed_weathered_copper_chain", 64 },
+    { "waxed_oxidized_copper_chain", 64 },
+    { "glass_pane", 64 },
+    { "melon", 64 },
+    { "vine", 64 },
+    { "glow_lichen", 64 },
+    { "resin_clump", 64 },
+    { "resin_block", 64 },
+    { "resin_bricks", 64 },
+    { "resin_brick_stairs", 64 },
+    { "resin_brick_slab", 64 },
+    { "resin_brick_wall", 64 },
+    { "chiseled_resin_bricks", 64 },
+    { "brick_stairs", 64 },
+    { "stone_brick_stairs", 64 },
+    { "mud_brick_stairs", 64 },
+    { "mycelium", 64 },
+    { "lily_pad", 64 },
+    { "nether_bricks", 64 },
+    { "cracked_nether_bricks", 64 },
+    { "chiseled_nether_bricks", 64 },
+    { "nether_brick_fence", 64 },
+    { "nether_brick_stairs", 64 },
+    { "sculk", 64 },
+    { "sculk_vein", 64 },
+    { "sculk_catalyst", 64 },
+    { "sculk_shrieker", 64 },
+    { "enchanting_table", 64 },
+    { "end_portal_frame", 64 },
+    { "end_stone", 64 },
+    { "end_stone_bricks", 64 },
+    { "dragon_egg", 64 },
+    { "sandstone_stairs", 64 },
+    { "ender_chest", 64 },
+    { "emerald_block", 64 },
+    { "oak_stairs", 64 },
+    { "spruce_stairs", 64 },
+    { "birch_stairs", 64 },
+    { "jungle_stairs", 64 },
+    { "acacia_stairs", 64 },
+    { "cherry_stairs", 64 },
+    { "dark_oak_stairs", 64 },
+    { "pale_oak_stairs", 64 },
+    { "mangrove_stairs", 64 },
+    { "bamboo_stairs", 64 },
+    { "bamboo_mosaic_stairs", 64 },
+    { "crimson_stairs", 64 },
+    { "warped_stairs", 64 },
+    { "command_block", 64 },
+    { "beacon", 64 },
+    { "cobblestone_wall", 64 },
+    { "mossy_cobblestone_wall", 64 },
+    { "brick_wall", 64 },
+    { "prismarine_wall", 64 },
+    { "red_sandstone_wall", 64 },
+    { "mossy_stone_brick_wall", 64 },
+    { "granite_wall", 64 },
+    { "stone_brick_wall", 64 },
+    { "mud_brick_wall", 64 },
+    { "nether_brick_wall", 64 },
+    { "andesite_wall", 64 },
+    { "red_nether_brick_wall", 64 },
+    { "sandstone_wall", 64 },
+    { "end_stone_brick_wall", 64 },
+    { "diorite_wall", 64 },
+    { "blackstone_wall", 64 },
+    { "polished_blackstone_wall", 64 },
+    { "polished_blackstone_brick_wall", 64 },
+    { "cobbled_deepslate_wall", 64 },
+    { "polished_deepslate_wall", 64 },
+    { "deepslate_brick_wall", 64 },
+    { "deepslate_tile_wall", 64 },
+    { "anvil", 64 },
+    { "chipped_anvil", 64 },
+    { "damaged_anvil", 64 },
+    { "chiseled_quartz_block", 64 },
+    { "quartz_block", 64 },
+    { "quartz_bricks", 64 },
+    { "quartz_pillar", 64 },
+    { "quartz_stairs", 64 },
+    { "white_terracotta", 64 },
+    { "orange_terracotta", 64 },
+    { "magenta_terracotta", 64 },
+    { "light_blue_terracotta", 64 },
+    { "yellow_terracotta", 64 },
+    { "lime_terracotta", 64 },
+    { "pink_terracotta", 64 },
+    { "gray_terracotta", 64 },
+    { "light_gray_terracotta", 64 },
+    { "cyan_terracotta", 64 },
+    { "purple_terracotta", 64 },
+    { "blue_terracotta", 64 },
+    { "brown_terracotta", 64 },
+    { "green_terracotta", 64 },
+    { "red_terracotta", 64 },
+    { "black_terracotta", 64 },
+    { "barrier", 64 },
+    { "light", 64 },
+    { "hay_block", 64 },
+    { "white_carpet", 64 },
+    { "orange_carpet", 64 },
+    { "magenta_carpet", 64 },
+    { "light_blue_carpet", 64 },
+    { "yellow_carpet", 64 },
+    { "lime_carpet", 64 },
+    { "pink_carpet", 64 },
+    { "gray_carpet", 64 },
+    { "light_gray_carpet", 64 },
+    { "cyan_carpet", 64 },
+    { "purple_carpet", 64 },
+    { "blue_carpet", 64 },
+    { "brown_carpet", 64 },
+    { "green_carpet", 64 },
+    { "red_carpet", 64 },
+    { "black_carpet", 64 },
+    { "terracotta", 64 },
+    { "packed_ice", 64 },
+    { "dirt_path", 64 },
+    { "sunflower", 64 },
+    { "lilac", 64 },
+    { "rose_bush", 64 },
+    { "peony", 64 },
+    { "tall_grass", 64 },
+    { "large_fern", 64 },
+    { "white_stained_glass", 64 },
+    { "orange_stained_glass", 64 },
+    { "magenta_stained_glass", 64 },
+    { "light_blue_stained_glass", 64 },
+    { "yellow_stained_glass", 64 },
+    { "lime_stained_glass", 64 },
+    { "pink_stained_glass", 64 },
+    { "gray_stained_glass", 64 },
+    { "light_gray_stained_glass", 64 },
+    { "cyan_stained_glass", 64 },
+    { "purple_stained_glass", 64 },
+    { "blue_stained_glass", 64 },
+    { "brown_stained_glass", 64 },
+    { "green_stained_glass", 64 },
+    { "red_stained_glass", 64 },
+    { "black_stained_glass", 64 },
+    { "white_stained_glass_pane", 64 },
+    { "orange_stained_glass_pane", 64 },
+    { "magenta_stained_glass_pane", 64 },
+    { "light_blue_stained_glass_pane", 64 },
+    { "yellow_stained_glass_pane", 64 },
+    { "lime_stained_glass_pane", 64 },
+    { "pink_stained_glass_pane", 64 },
+    { "gray_stained_glass_pane", 64 },
+    { "light_gray_stained_glass_pane", 64 },
+    { "cyan_stained_glass_pane", 64 },
+    { "purple_stained_glass_pane", 64 },
+    { "blue_stained_glass_pane", 64 },
+    { "brown_stained_glass_pane", 64 },
+    { "green_stained_glass_pane", 64 },
+    { "red_stained_glass_pane", 64 },
+    { "black_stained_glass_pane", 64 },
+    { "prismarine", 64 },
+    { "prismarine_bricks", 64 },
+    { "dark_prismarine", 64 },
+    { "prismarine_stairs", 64 },
+    { "prismarine_brick_stairs", 64 },
+    { "dark_prismarine_stairs", 64 },
+    { "sea_lantern", 64 },
+    { "red_sandstone", 64 },
+    { "chiseled_red_sandstone", 64 },
+    { "cut_red_sandstone", 64 },
+    { "red_sandstone_stairs", 64 },
+    { "repeating_command_block", 64 },
+    { "chain_command_block", 64 },
+    { "magma_block", 64 },
+    { "nether_wart_block", 64 },
+    { "warped_wart_block", 64 },
+    { "red_nether_bricks", 64 },
+    { "bone_block", 64 },
+    { "structure_void", 64 },
+    { "shulker_box", 1 },
+    { "white_shulker_box", 1 },
+    { "orange_shulker_box", 1 },
+    { "magenta_shulker_box", 1 },
+    { "light_blue_shulker_box", 1 },
+    { "yellow_shulker_box", 1 },
+    { "lime_shulker_box", 1 },
+    { "pink_shulker_box", 1 },
+    { "gray_shulker_box", 1 },
+    { "light_gray_shulker_box", 1 },
+    { "cyan_shulker_box", 1 },
+    { "purple_shulker_box", 1 },
+    { "blue_shulker_box", 1 },
+    { "brown_shulker_box", 1 },
+    { "green_shulker_box", 1 },
+    { "red_shulker_box", 1 },
+    { "black_shulker_box", 1 },
+    { "white_glazed_terracotta", 64 },
+    { "orange_glazed_terracotta", 64 },
+    { "magenta_glazed_terracotta", 64 },
+    { "light_blue_glazed_terracotta", 64 },
+    { "yellow_glazed_terracotta", 64 },
+    { "lime_glazed_terracotta", 64 },
+    { "pink_glazed_terracotta", 64 },
+    { "gray_glazed_terracotta", 64 },
+    { "light_gray_glazed_terracotta", 64 },
+    { "cyan_glazed_terracotta", 64 },
+    { "purple_glazed_terracotta", 64 },
+    { "blue_glazed_terracotta", 64 },
+    { "brown_glazed_terracotta", 64 },
+    { "green_glazed_terracotta", 64 },
+    { "red_glazed_terracotta", 64 },
+    { "black_glazed_terracotta", 64 },
+    { "white_concrete", 64 },
+    { "orange_concrete", 64 },
+    { "magenta_concrete", 64 },
+    { "light_blue_concrete", 64 },
+    { "yellow_concrete", 64 },
+    { "lime_concrete", 64 },
+    { "pink_concrete", 64 },
+    { "gray_concrete", 64 },
+    { "light_gray_concrete", 64 },
+    { "cyan_concrete", 64 },
+    { "purple_concrete", 64 },
+    { "blue_concrete", 64 },
+    { "brown_concrete", 64 },
+    { "green_concrete", 64 },
+    { "red_concrete", 64 },
+    { "black_concrete", 64 },
+    { "white_concrete_powder", 64 },
+    { "orange_concrete_powder", 64 },
+    { "magenta_concrete_powder", 64 },
+    { "light_blue_concrete_powder", 64 },
+    { "yellow_concrete_powder", 64 },
+    { "lime_concrete_powder", 64 },
+    { "pink_concrete_powder", 64 },
+    { "gray_concrete_powder", 64 },
+    { "light_gray_concrete_powder", 64 },
+    { "cyan_concrete_powder", 64 },
+    { "purple_concrete_powder", 64 },
+    { "blue_concrete_powder", 64 },
+    { "brown_concrete_powder", 64 },
+    { "green_concrete_powder", 64 },
+    { "red_concrete_powder", 64 },
+    { "black_concrete_powder", 64 },
+    { "turtle_egg", 64 },
+    { "sniffer_egg", 64 },
+    { "dried_ghast", 64 },
+    { "dead_tube_coral_block", 64 },
+    { "dead_brain_coral_block", 64 },
+    { "dead_bubble_coral_block", 64 },
+    { "dead_fire_coral_block", 64 },
+    { "dead_horn_coral_block", 64 },
+    { "tube_coral_block", 64 },
+    { "brain_coral_block", 64 },
+    { "bubble_coral_block", 64 },
+    { "fire_coral_block", 64 },
+    { "horn_coral_block", 64 },
+    { "tube_coral", 64 },
+    { "brain_coral", 64 },
+    { "bubble_coral", 64 },
+    { "fire_coral", 64 },
+    { "horn_coral", 64 },
+    { "dead_brain_coral", 64 },
+    { "dead_bubble_coral", 64 },
+    { "dead_fire_coral", 64 },
+    { "dead_horn_coral", 64 },
+    { "dead_tube_coral", 64 },
+    { "tube_coral_fan", 64 },
+    { "brain_coral_fan", 64 },
+    { "bubble_coral_fan", 64 },
+    { "fire_coral_fan", 64 },
+    { "horn_coral_fan", 64 },
+    { "dead_tube_coral_fan", 64 },
+    { "dead_brain_coral_fan", 64 },
+    { "dead_bubble_coral_fan", 64 },
+    { "dead_fire_coral_fan", 64 },
+    { "dead_horn_coral_fan", 64 },
+    { "blue_ice", 64 },
+    { "conduit", 64 },
+    { "polished_granite_stairs", 64 },
+    { "smooth_red_sandstone_stairs", 64 },
+    { "mossy_stone_brick_stairs", 64 },
+    { "polished_diorite_stairs", 64 },
+    { "mossy_cobblestone_stairs", 64 },
+    { "end_stone_brick_stairs", 64 },
+    { "stone_stairs", 64 },
+    { "smooth_sandstone_stairs", 64 },
+    { "smooth_quartz_stairs", 64 },
+    { "granite_stairs", 64 },
+    { "andesite_stairs", 64 },
+    { "red_nether_brick_stairs", 64 },
+    { "polished_andesite_stairs", 64 },
+    { "diorite_stairs", 64 },
+    { "cobbled_deepslate_stairs", 64 },
+    { "polished_deepslate_stairs", 64 },
+    { "deepslate_brick_stairs", 64 },
+    { "deepslate_tile_stairs", 64 },
+    { "polished_granite_slab", 64 },
+    { "smooth_red_sandstone_slab", 64 },
+    { "mossy_stone_brick_slab", 64 },
+    { "polished_diorite_slab", 64 },
+    { "mossy_cobblestone_slab", 64 },
+    { "end_stone_brick_slab", 64 },
+    { "smooth_sandstone_slab", 64 },
+    { "smooth_quartz_slab", 64 },
+    { "granite_slab", 64 },
+    { "andesite_slab", 64 },
+    { "red_nether_brick_slab", 64 },
+    { "polished_andesite_slab", 64 },
+    { "diorite_slab", 64 },
+    { "cobbled_deepslate_slab", 64 },
+    { "polished_deepslate_slab", 64 },
+    { "deepslate_brick_slab", 64 },
+    { "deepslate_tile_slab", 64 },
+    { "scaffolding", 64 },
+    { "redstone", 64 },
+    { "redstone_torch", 64 },
+    { "redstone_block", 64 },
+    { "repeater", 64 },
+    { "comparator", 64 },
+    { "piston", 64 },
+    { "sticky_piston", 64 },
+    { "slime_block", 64 },
+    { "honey_block", 64 },
+    { "observer", 64 },
+    { "hopper", 64 },
+    { "dispenser", 64 },
+    { "dropper", 64 },
+    { "lectern", 64 },
+    { "target", 64 },
+    { "lever", 64 },
+    { "lightning_rod", 64 },
+    { "exposed_lightning_rod", 64 },
+    { "weathered_lightning_rod", 64 },
+    { "oxidized_lightning_rod", 64 },
+    { "waxed_lightning_rod", 64 },
+    { "waxed_exposed_lightning_rod", 64 },
+    { "waxed_weathered_lightning_rod", 64 },
+    { "waxed_oxidized_lightning_rod", 64 },
+    { "daylight_detector", 64 },
+    { "sculk_sensor", 64 },
+    { "calibrated_sculk_sensor", 64 },
+    { "tripwire_hook", 64 },
+    { "trapped_chest", 64 },
+    { "tnt", 64 },
+    { "redstone_lamp", 64 },
+    { "note_block", 64 },
+    { "stone_button", 64 },
+    { "polished_blackstone_button", 64 },
+    { "oak_button", 64 },
+    { "spruce_button", 64 },
+    { "birch_button", 64 },
+    { "jungle_button", 64 },
+    { "acacia_button", 64 },
+    { "cherry_button", 64 },
+    { "dark_oak_button", 64 },
+    { "pale_oak_button", 64 },
+    { "mangrove_button", 64 },
+    { "bamboo_button", 64 },
+    { "crimson_button", 64 },
+    { "warped_button", 64 },
+    { "stone_pressure_plate", 64 },
+    { "polished_blackstone_pressure_plate", 64 },
+    { "light_weighted_pressure_plate", 64 },
+    { "heavy_weighted_pressure_plate", 64 },
+    { "oak_pressure_plate", 64 },
+    { "spruce_pressure_plate", 64 },
+    { "birch_pressure_plate", 64 },
+    { "jungle_pressure_plate", 64 },
+    { "acacia_pressure_plate", 64 },
+    { "cherry_pressure_plate", 64 },
+    { "dark_oak_pressure_plate", 64 },
+    { "pale_oak_pressure_plate", 64 },
+    { "mangrove_pressure_plate", 64 },
+    { "bamboo_pressure_plate", 64 },
+    { "crimson_pressure_plate", 64 },
+    { "warped_pressure_plate", 64 },
+    { "iron_door", 64 },
+    { "oak_door", 64 },
+    { "spruce_door", 64 },
+    { "birch_door", 64 },
+    { "jungle_door", 64 },
+    { "acacia_door", 64 },
+    { "cherry_door", 64 },
+    { "dark_oak_door", 64 },
+    { "pale_oak_door", 64 },
+    { "mangrove_door", 64 },
+    { "bamboo_door", 64 },
+    { "crimson_door", 64 },
+    { "warped_door", 64 },
+    { "copper_door", 64 },
+    { "exposed_copper_door", 64 },
+    { "weathered_copper_door", 64 },
+    { "oxidized_copper_door", 64 },
+    { "waxed_copper_door", 64 },
+    { "waxed_exposed_copper_door", 64 },
+    { "waxed_weathered_copper_door", 64 },
+    { "waxed_oxidized_copper_door", 64 },
+    { "iron_trapdoor", 64 },
+    { "oak_trapdoor", 64 },
+    { "spruce_trapdoor", 64 },
+    { "birch_trapdoor", 64 },
+    { "jungle_trapdoor", 64 },
+    { "acacia_trapdoor", 64 },
+    { "cherry_trapdoor", 64 },
+    { "dark_oak_trapdoor", 64 },
+    { "pale_oak_trapdoor", 64 },
+    { "mangrove_trapdoor", 64 },
+    { "bamboo_trapdoor", 64 },
+    { "crimson_trapdoor", 64 },
+    { "warped_trapdoor", 64 },
+    { "copper_trapdoor", 64 },
+    { "exposed_copper_trapdoor", 64 },
+    { "weathered_copper_trapdoor", 64 },
+    { "oxidized_copper_trapdoor", 64 },
+    { "waxed_copper_trapdoor", 64 },
+    { "waxed_exposed_copper_trapdoor", 64 },
+    { "waxed_weathered_copper_trapdoor", 64 },
+    { "waxed_oxidized_copper_trapdoor", 64 },
+    { "oak_fence_gate", 64 },
+    { "spruce_fence_gate", 64 },
+    { "birch_fence_gate", 64 },
+    { "jungle_fence_gate", 64 },
+    { "acacia_fence_gate", 64 },
+    { "cherry_fence_gate", 64 },
+    { "dark_oak_fence_gate", 64 },
+    { "pale_oak_fence_gate", 64 },
+    { "mangrove_fence_gate", 64 },
+    { "bamboo_fence_gate", 64 },
+    { "crimson_fence_gate", 64 },
+    { "warped_fence_gate", 64 },
+    { "powered_rail", 64 },
+    { "detector_rail", 64 },
+    { "rail", 64 },
+    { "activator_rail", 64 },
+    { "saddle", 1 },
+    { "white_harness", 1 },
+    { "orange_harness", 1 },
+    { "magenta_harness", 1 },
+    { "light_blue_harness", 1 },
+    { "yellow_harness", 1 },
+    { "lime_harness", 1 },
+    { "pink_harness", 1 },
+    { "gray_harness", 1 },
+    { "light_gray_harness", 1 },
+    { "cyan_harness", 1 },
+    { "purple_harness", 1 },
+    { "blue_harness", 1 },
+    { "brown_harness", 1 },
+    { "green_harness", 1 },
+    { "red_harness", 1 },
+    { "black_harness", 1 },
+    { "minecart", 1 },
+    { "chest_minecart", 1 },
+    { "furnace_minecart", 1 },
+    { "tnt_minecart", 1 },
+    { "hopper_minecart", 1 },
+    { "carrot_on_a_stick", 1 },
+    { "warped_fungus_on_a_stick", 1 },
+    { "phantom_membrane", 64 },
+    { "elytra", 1 },
+    { "oak_boat", 1 },
+    { "oak_chest_boat", 1 },
+    { "spruce_boat", 1 },
+    { "spruce_chest_boat", 1 },
+    { "birch_boat", 1 },
+    { "birch_chest_boat", 1 },
+    { "jungle_boat", 1 },
+    { "jungle_chest_boat", 1 },
+    { "acacia_boat", 1 },
+    { "acacia_chest_boat", 1 },
+    { "cherry_boat", 1 },
+    { "cherry_chest_boat", 1 },
+    { "dark_oak_boat", 1 },
+    { "dark_oak_chest_boat", 1 },
+    { "pale_oak_boat", 1 },
+    { "pale_oak_chest_boat", 1 },
+    { "mangrove_boat", 1 },
+    { "mangrove_chest_boat", 1 },
+    { "bamboo_raft", 1 },
+    { "bamboo_chest_raft", 1 },
+    { "structure_block", 64 },
+    { "jigsaw", 64 },
+    { "test_block", 64 },
+    { "test_instance_block", 64 },
+    { "turtle_helmet", 1 },
+    { "turtle_scute", 64 },
+    { "armadillo_scute", 64 },
+    { "wolf_armor", 1 },
+    { "flint_and_steel", 1 },
+    { "bowl", 64 },
+    { "apple", 64 },
+    { "bow", 1 },
+    { "arrow", 64 },
+    { "coal", 64 },
+    { "charcoal", 64 },
+    { "diamond", 64 },
+    { "emerald", 64 },
+    { "lapis_lazuli", 64 },
+    { "quartz", 64 },
+    { "amethyst_shard", 64 },
+    { "raw_iron", 64 },
+    { "iron_ingot", 64 },
+    { "raw_copper", 64 },
+    { "copper_ingot", 64 },
+    { "raw_gold", 64 },
+    { "gold_ingot", 64 },
+    { "netherite_ingot", 64 },
+    { "netherite_scrap", 64 },
+    { "wooden_sword", 1 },
+    { "wooden_shovel", 1 },
+    { "wooden_pickaxe", 1 },
+    { "wooden_axe", 1 },
+    { "wooden_hoe", 1 },
+    { "copper_sword", 1 },
+    { "copper_shovel", 1 },
+    { "copper_pickaxe", 1 },
+    { "copper_axe", 1 },
+    { "copper_hoe", 1 },
+    { "stone_sword", 1 },
+    { "stone_shovel", 1 },
+    { "stone_pickaxe", 1 },
+    { "stone_axe", 1 },
+    { "stone_hoe", 1 },
+    { "golden_sword", 1 },
+    { "golden_shovel", 1 },
+    { "golden_pickaxe", 1 },
+    { "golden_axe", 1 },
+    { "golden_hoe", 1 },
+    { "iron_sword", 1 },
+    { "iron_shovel", 1 },
+    { "iron_pickaxe", 1 },
+    { "iron_axe", 1 },
+    { "iron_hoe", 1 },
+    { "diamond_sword", 1 },
+    { "diamond_shovel", 1 },
+    { "diamond_pickaxe", 1 },
+    { "diamond_axe", 1 },
+    { "diamond_hoe", 1 },
+    { "netherite_sword", 1 },
+    { "netherite_shovel", 1 },
+    { "netherite_pickaxe", 1 },
+    { "netherite_axe", 1 },
+    { "netherite_hoe", 1 },
+    { "stick", 64 },
+    { "mushroom_stew", 1 },
+    { "string", 64 },
+    { "feather", 64 },
+    { "gunpowder", 64 },
+    { "wheat_seeds", 64 },
+    { "wheat", 64 },
+    { "bread", 64 },
+    { "leather_helmet", 1 },
+    { "leather_chestplate", 1 },
+    { "leather_leggings", 1 },
+    { "leather_boots", 1 },
+    { "copper_helmet", 1 },
+    { "copper_chestplate", 1 },
+    { "copper_leggings", 1 },
+    { "copper_boots", 1 },
+    { "chainmail_helmet", 1 },
+    { "chainmail_chestplate", 1 },
+    { "chainmail_leggings", 1 },
+    { "chainmail_boots", 1 },
+    { "iron_helmet", 1 },
+    { "iron_chestplate", 1 },
+    { "iron_leggings", 1 },
+    { "iron_boots", 1 },
+    { "diamond_helmet", 1 },
+    { "diamond_chestplate", 1 },
+    { "diamond_leggings", 1 },
+    { "diamond_boots", 1 },
+    { "golden_helmet", 1 },
+    { "golden_chestplate", 1 },
+    { "golden_leggings", 1 },
+    { "golden_boots", 1 },
+    { "netherite_helmet", 1 },
+    { "netherite_chestplate", 1 },
+    { "netherite_leggings", 1 },
+    { "netherite_boots", 1 },
+    { "flint", 64 },
+    { "porkchop", 64 },
+    { "cooked_porkchop", 64 },
+    { "painting", 64 },
+    { "golden_apple", 64 },
+    { "enchanted_golden_apple", 64 },
+    { "oak_sign", 16 },
+    { "spruce_sign", 16 },
+    { "birch_sign", 16 },
+    { "jungle_sign", 16 },
+    { "acacia_sign", 16 },
+    { "cherry_sign", 16 },
+    { "dark_oak_sign", 16 },
+    { "pale_oak_sign", 16 },
+    { "mangrove_sign", 16 },
+    { "bamboo_sign", 16 },
+    { "crimson_sign", 16 },
+    { "warped_sign", 16 },
+    { "oak_hanging_sign", 16 },
+    { "spruce_hanging_sign", 16 },
+    { "birch_hanging_sign", 16 },
+    { "jungle_hanging_sign", 16 },
+    { "acacia_hanging_sign", 16 },
+    { "cherry_hanging_sign", 16 },
+    { "dark_oak_hanging_sign", 16 },
+    { "pale_oak_hanging_sign", 16 },
+    { "mangrove_hanging_sign", 16 },
+    { "bamboo_hanging_sign", 16 },
+    { "crimson_hanging_sign", 16 },
+    { "warped_hanging_sign", 16 },
+    { "bucket", 16 },
+    { "water_bucket", 1 },
+    { "lava_bucket", 1 },
+    { "powder_snow_bucket", 1 },
+    { "snowball", 16 },
+    { "leather", 64 },
+    { "milk_bucket", 1 },
+    { "pufferfish_bucket", 1 },
+    { "salmon_bucket", 1 },
+    { "cod_bucket", 1 },
+    { "tropical_fish_bucket", 1 },
+    { "axolotl_bucket", 1 },
+    { "tadpole_bucket", 1 },
+    { "brick", 64 },
+    { "clay_ball", 64 },
+    { "dried_kelp_block", 64 },
+    { "paper", 64 },
+    { "book", 64 },
+    { "slime_ball", 64 },
+    { "egg", 16 },
+    { "blue_egg", 16 },
+    { "brown_egg", 16 },
+    { "compass", 64 },
+    { "recovery_compass", 64 },
+    { "bundle", 1 },
+    { "white_bundle", 1 },
+    { "orange_bundle", 1 },
+    { "magenta_bundle", 1 },
+    { "light_blue_bundle", 1 },
+    { "yellow_bundle", 1 },
+    { "lime_bundle", 1 },
+    { "pink_bundle", 1 },
+    { "gray_bundle", 1 },
+    { "light_gray_bundle", 1 },
+    { "cyan_bundle", 1 },
+    { "purple_bundle", 1 },
+    { "blue_bundle", 1 },
+    { "brown_bundle", 1 },
+    { "green_bundle", 1 },
+    { "red_bundle", 1 },
+    { "black_bundle", 1 },
+    { "fishing_rod", 1 },
+    { "clock", 64 },
+    { "spyglass", 1 },
+    { "glowstone_dust", 64 },
+    { "cod", 64 },
+    { "salmon", 64 },
+    { "tropical_fish", 64 },
+    { "pufferfish", 64 },
+    { "cooked_cod", 64 },
+    { "cooked_salmon", 64 },
+    { "ink_sac", 64 },
+    { "glow_ink_sac", 64 },
+    { "cocoa_beans", 64 },
+    { "white_dye", 64 },
+    { "orange_dye", 64 },
+    { "magenta_dye", 64 },
+    { "light_blue_dye", 64 },
+    { "yellow_dye", 64 },
+    { "lime_dye", 64 },
+    { "pink_dye", 64 },
+    { "gray_dye", 64 },
+    { "light_gray_dye", 64 },
+    { "cyan_dye", 64 },
+    { "purple_dye", 64 },
+    { "blue_dye", 64 },
+    { "brown_dye", 64 },
+    { "green_dye", 64 },
+    { "red_dye", 64 },
+    { "black_dye", 64 },
+    { "bone_meal", 64 },
+    { "bone", 64 },
+    { "sugar", 64 },
+    { "cake", 1 },
+    { "white_bed", 1 },
+    { "orange_bed", 1 },
+    { "magenta_bed", 1 },
+    { "light_blue_bed", 1 },
+    { "yellow_bed", 1 },
+    { "lime_bed", 1 },
+    { "pink_bed", 1 },
+    { "gray_bed", 1 },
+    { "light_gray_bed", 1 },
+    { "cyan_bed", 1 },
+    { "purple_bed", 1 },
+    { "blue_bed", 1 },
+    { "brown_bed", 1 },
+    { "green_bed", 1 },
+    { "red_bed", 1 },
+    { "black_bed", 1 },
+    { "cookie", 64 },
+    { "crafter", 64 },
+    { "filled_map", 64 },
+    { "shears", 1 },
+    { "melon_slice", 64 },
+    { "dried_kelp", 64 },
+    { "pumpkin_seeds", 64 },
+    { "melon_seeds", 64 },
+    { "beef", 64 },
+    { "cooked_beef", 64 },
+    { "chicken", 64 },
+    { "cooked_chicken", 64 },
+    { "rotten_flesh", 64 },
+    { "ender_pearl", 16 },
+    { "blaze_rod", 64 },
+    { "ghast_tear", 64 },
+    { "gold_nugget", 64 },
+    { "nether_wart", 64 },
+    { "glass_bottle", 64 },
+    { "potion", 1 },
+    { "spider_eye", 64 },
+    { "fermented_spider_eye", 64 },
+    { "blaze_powder", 64 },
+    { "magma_cream", 64 },
+    { "brewing_stand", 64 },
+    { "cauldron", 64 },
+    { "ender_eye", 64 },
+    { "glistering_melon_slice", 64 },
+    { "chicken_spawn_egg", 64 },
+    { "cow_spawn_egg", 64 },
+    { "pig_spawn_egg", 64 },
+    { "sheep_spawn_egg", 64 },
+    { "camel_spawn_egg", 64 },
+    { "donkey_spawn_egg", 64 },
+    { "horse_spawn_egg", 64 },
+    { "mule_spawn_egg", 64 },
+    { "cat_spawn_egg", 64 },
+    { "parrot_spawn_egg", 64 },
+    { "wolf_spawn_egg", 64 },
+    { "armadillo_spawn_egg", 64 },
+    { "bat_spawn_egg", 64 },
+    { "bee_spawn_egg", 64 },
+    { "fox_spawn_egg", 64 },
+    { "goat_spawn_egg", 64 },
+    { "llama_spawn_egg", 64 },
+    { "ocelot_spawn_egg", 64 },
+    { "panda_spawn_egg", 64 },
+    { "polar_bear_spawn_egg", 64 },
+    { "rabbit_spawn_egg", 64 },
+    { "axolotl_spawn_egg", 64 },
+    { "cod_spawn_egg", 64 },
+    { "dolphin_spawn_egg", 64 },
+    { "frog_spawn_egg", 64 },
+    { "glow_squid_spawn_egg", 64 },
+    { "nautilus_spawn_egg", 64 },
+    { "pufferfish_spawn_egg", 64 },
+    { "salmon_spawn_egg", 64 },
+    { "squid_spawn_egg", 64 },
+    { "tadpole_spawn_egg", 64 },
+    { "tropical_fish_spawn_egg", 64 },
+    { "turtle_spawn_egg", 64 },
+    { "allay_spawn_egg", 64 },
+    { "mooshroom_spawn_egg", 64 },
+    { "sniffer_spawn_egg", 64 },
+    { "copper_golem_spawn_egg", 64 },
+    { "iron_golem_spawn_egg", 64 },
+    { "snow_golem_spawn_egg", 64 },
+    { "trader_llama_spawn_egg", 64 },
+    { "villager_spawn_egg", 64 },
+    { "wandering_trader_spawn_egg", 64 },
+    { "bogged_spawn_egg", 64 },
+    { "camel_husk_spawn_egg", 64 },
+    { "drowned_spawn_egg", 64 },
+    { "husk_spawn_egg", 64 },
+    { "parched_spawn_egg", 64 },
+    { "skeleton_spawn_egg", 64 },
+    { "skeleton_horse_spawn_egg", 64 },
+    { "stray_spawn_egg", 64 },
+    { "wither_spawn_egg", 64 },
+    { "wither_skeleton_spawn_egg", 64 },
+    { "zombie_spawn_egg", 64 },
+    { "zombie_horse_spawn_egg", 64 },
+    { "zombie_nautilus_spawn_egg", 64 },
+    { "zombie_villager_spawn_egg", 64 },
+    { "cave_spider_spawn_egg", 64 },
+    { "spider_spawn_egg", 64 },
+    { "breeze_spawn_egg", 64 },
+    { "creaking_spawn_egg", 64 },
+    { "creeper_spawn_egg", 64 },
+    { "elder_guardian_spawn_egg", 64 },
+    { "guardian_spawn_egg", 64 },
+    { "phantom_spawn_egg", 64 },
+    { "silverfish_spawn_egg", 64 },
+    { "slime_spawn_egg", 64 },
+    { "warden_spawn_egg", 64 },
+    { "witch_spawn_egg", 64 },
+    { "evoker_spawn_egg", 64 },
+    { "pillager_spawn_egg", 64 },
+    { "ravager_spawn_egg", 64 },
+    { "vindicator_spawn_egg", 64 },
+    { "vex_spawn_egg", 64 },
+    { "blaze_spawn_egg", 64 },
+    { "ghast_spawn_egg", 64 },
+    { "happy_ghast_spawn_egg", 64 },
+    { "hoglin_spawn_egg", 64 },
+    { "magma_cube_spawn_egg", 64 },
+    { "piglin_spawn_egg", 64 },
+    { "piglin_brute_spawn_egg", 64 },
+    { "strider_spawn_egg", 64 },
+    { "zoglin_spawn_egg", 64 },
+    { "zombified_piglin_spawn_egg", 64 },
+    { "ender_dragon_spawn_egg", 64 },
+    { "enderman_spawn_egg", 64 },
+    { "endermite_spawn_egg", 64 },
+    { "shulker_spawn_egg", 64 },
+    { "experience_bottle", 64 },
+    { "fire_charge", 64 },
+    { "wind_charge", 64 },
+    { "writable_book", 1 },
+    { "written_book", 16 },
+    { "breeze_rod", 64 },
+    { "mace", 1 },
+    { "item_frame", 64 },
+    { "glow_item_frame", 64 },
+    { "flower_pot", 64 },
+    { "carrot", 64 },
+    { "potato", 64 },
+    { "baked_potato", 64 },
+    { "poisonous_potato", 64 },
+    { "map", 64 },
+    { "golden_carrot", 64 },
+    { "skeleton_skull", 64 },
+    { "wither_skeleton_skull", 64 },
+    { "player_head", 64 },
+    { "zombie_head", 64 },
+    { "creeper_head", 64 },
+    { "dragon_head", 64 },
+    { "piglin_head", 64 },
+    { "nether_star", 64 },
+    { "pumpkin_pie", 64 },
+    { "firework_rocket", 64 },
+    { "firework_star", 64 },
+    { "enchanted_book", 1 },
+    { "nether_brick", 64 },
+    { "resin_brick", 64 },
+    { "prismarine_shard", 64 },
+    { "prismarine_crystals", 64 },
+    { "rabbit", 64 },
+    { "cooked_rabbit", 64 },
+    { "rabbit_stew", 1 },
+    { "rabbit_foot", 64 },
+    { "rabbit_hide", 64 },
+    { "armor_stand", 16 },
+    { "copper_horse_armor", 1 },
+    { "iron_horse_armor", 1 },
+    { "golden_horse_armor", 1 },
+    { "diamond_horse_armor", 1 },
+    { "netherite_horse_armor", 1 },
+    { "leather_horse_armor", 1 },
+    { "lead", 64 },
+    { "name_tag", 64 },
+    { "command_block_minecart", 1 },
+    { "mutton", 64 },
+    { "cooked_mutton", 64 },
+    { "white_banner", 16 },
+    { "orange_banner", 16 },
+    { "magenta_banner", 16 },
+    { "light_blue_banner", 16 },
+    { "yellow_banner", 16 },
+    { "lime_banner", 16 },
+    { "pink_banner", 16 },
+    { "gray_banner", 16 },
+    { "light_gray_banner", 16 },
+    { "cyan_banner", 16 },
+    { "purple_banner", 16 },
+    { "blue_banner", 16 },
+    { "brown_banner", 16 },
+    { "green_banner", 16 },
+    { "red_banner", 16 },
+    { "black_banner", 16 },
+    { "end_crystal", 64 },
+    { "chorus_fruit", 64 },
+    { "popped_chorus_fruit", 64 },
+    { "torchflower_seeds", 64 },
+    { "pitcher_pod", 64 },
+    { "beetroot", 64 },
+    { "beetroot_seeds", 64 },
+    { "beetroot_soup", 1 },
+    { "dragon_breath", 64 },
+    { "splash_potion", 1 },
+    { "spectral_arrow", 64 },
+    { "tipped_arrow", 64 },
+    { "lingering_potion", 1 },
+    { "shield", 1 },
+    { "wooden_spear", 1 },
+    { "stone_spear", 1 },
+    { "copper_spear", 1 },
+    { "iron_spear", 1 },
+    { "golden_spear", 1 },
+    { "diamond_spear", 1 },
+    { "netherite_spear", 1 },
+    { "totem_of_undying", 1 },
+    { "shulker_shell", 64 },
+    { "iron_nugget", 64 },
+    { "copper_nugget", 64 },
+    { "knowledge_book", 1 },
+    { "debug_stick", 1 },
+    { "music_disc_13", 1 },
+    { "music_disc_cat", 1 },
+    { "music_disc_blocks", 1 },
+    { "music_disc_chirp", 1 },
+    { "music_disc_creator", 1 },
+    { "music_disc_creator_music_box", 1 },
+    { "music_disc_far", 1 },
+    { "music_disc_lava_chicken", 1 },
+    { "music_disc_mall", 1 },
+    { "music_disc_mellohi", 1 },
+    { "music_disc_stal", 1 },
+    { "music_disc_strad", 1 },
+    { "music_disc_ward", 1 },
+    { "music_disc_11", 1 },
+    { "music_disc_wait", 1 },
+    { "music_disc_otherside", 1 },
+    { "music_disc_relic", 1 },
+    { "music_disc_5", 1 },
+    { "music_disc_pigstep", 1 },
+    { "music_disc_precipice", 1 },
+    { "music_disc_tears", 1 },
+    { "disc_fragment_5", 64 },
+    { "trident", 1 },
+    { "nautilus_shell", 64 },
+    { "iron_nautilus_armor", 1 },
+    { "golden_nautilus_armor", 1 },
+    { "diamond_nautilus_armor", 1 },
+    { "netherite_nautilus_armor", 1 },
+    { "copper_nautilus_armor", 1 },
+    { "heart_of_the_sea", 64 },
+    { "crossbow", 1 },
+    { "suspicious_stew", 1 },
+    { "loom", 64 },
+    { "flower_banner_pattern", 1 },
+    { "creeper_banner_pattern", 1 },
+    { "skull_banner_pattern", 1 },
+    { "mojang_banner_pattern", 1 },
+    { "globe_banner_pattern", 1 },
+    { "piglin_banner_pattern", 1 },
+    { "flow_banner_pattern", 1 },
+    { "guster_banner_pattern", 1 },
+    { "field_masoned_banner_pattern", 1 },
+    { "bordure_indented_banner_pattern", 1 },
+    { "goat_horn", 1 },
+    { "composter", 64 },
+    { "barrel", 64 },
+    { "smoker", 64 },
+    { "blast_furnace", 64 },
+    { "cartography_table", 64 },
+    { "fletching_table", 64 },
+    { "grindstone", 64 },
+    { "smithing_table", 64 },
+    { "stonecutter", 64 },
+    { "bell", 64 },
+    { "lantern", 64 },
+    { "soul_lantern", 64 },
+    { "copper_lantern", 64 },
+    { "exposed_copper_lantern", 64 },
+    { "weathered_copper_lantern", 64 },
+    { "oxidized_copper_lantern", 64 },
+    { "waxed_copper_lantern", 64 },
+    { "waxed_exposed_copper_lantern", 64 },
+    { "waxed_weathered_copper_lantern", 64 },
+    { "waxed_oxidized_copper_lantern", 64 },
+    { "sweet_berries", 64 },
+    { "glow_berries", 64 },
+    { "campfire", 64 },
+    { "soul_campfire", 64 },
+    { "shroomlight", 64 },
+    { "honeycomb", 64 },
+    { "bee_nest", 64 },
+    { "beehive", 64 },
+    { "honey_bottle", 16 },
+    { "honeycomb_block", 64 },
+    { "lodestone", 64 },
+    { "crying_obsidian", 64 },
+    { "blackstone", 64 },
+    { "blackstone_slab", 64 },
+    { "blackstone_stairs", 64 },
+    { "gilded_blackstone", 64 },
+    { "polished_blackstone", 64 },
+    { "polished_blackstone_slab", 64 },
+    { "polished_blackstone_stairs", 64 },
+    { "chiseled_polished_blackstone", 64 },
+    { "polished_blackstone_bricks", 64 },
+    { "polished_blackstone_brick_slab", 64 },
+    { "polished_blackstone_brick_stairs", 64 },
+    { "cracked_polished_blackstone_bricks", 64 },
+    { "respawn_anchor", 64 },
+    { "candle", 64 },
+    { "white_candle", 64 },
+    { "orange_candle", 64 },
+    { "magenta_candle", 64 },
+    { "light_blue_candle", 64 },
+    { "yellow_candle", 64 },
+    { "lime_candle", 64 },
+    { "pink_candle", 64 },
+    { "gray_candle", 64 },
+    { "light_gray_candle", 64 },
+    { "cyan_candle", 64 },
+    { "purple_candle", 64 },
+    { "blue_candle", 64 },
+    { "brown_candle", 64 },
+    { "green_candle", 64 },
+    { "red_candle", 64 },
+    { "black_candle", 64 },
+    { "small_amethyst_bud", 64 },
+    { "medium_amethyst_bud", 64 },
+    { "large_amethyst_bud", 64 },
+    { "amethyst_cluster", 64 },
+    { "pointed_dripstone", 64 },
+    { "ochre_froglight", 64 },
+    { "verdant_froglight", 64 },
+    { "pearlescent_froglight", 64 },
+    { "frogspawn", 64 },
+    { "echo_shard", 64 },
+    { "brush", 1 },
+    { "netherite_upgrade_smithing_template", 64 },
+    { "sentry_armor_trim_smithing_template", 64 },
+    { "dune_armor_trim_smithing_template", 64 },
+    { "coast_armor_trim_smithing_template", 64 },
+    { "wild_armor_trim_smithing_template", 64 },
+    { "ward_armor_trim_smithing_template", 64 },
+    { "eye_armor_trim_smithing_template", 64 },
+    { "vex_armor_trim_smithing_template", 64 },
+    { "tide_armor_trim_smithing_template", 64 },
+    { "snout_armor_trim_smithing_template", 64 },
+    { "rib_armor_trim_smithing_template", 64 },
+    { "spire_armor_trim_smithing_template", 64 },
+    { "wayfinder_armor_trim_smithing_template", 64 },
+    { "shaper_armor_trim_smithing_template", 64 },
+    { "silence_armor_trim_smithing_template", 64 },
+    { "raiser_armor_trim_smithing_template", 64 },
+    { "host_armor_trim_smithing_template", 64 },
+    { "flow_armor_trim_smithing_template", 64 },
+    { "bolt_armor_trim_smithing_template", 64 },
+    { "angler_pottery_sherd", 64 },
+    { "archer_pottery_sherd", 64 },
+    { "arms_up_pottery_sherd", 64 },
+    { "blade_pottery_sherd", 64 },
+    { "brewer_pottery_sherd", 64 },
+    { "burn_pottery_sherd", 64 },
+    { "danger_pottery_sherd", 64 },
+    { "explorer_pottery_sherd", 64 },
+    { "flow_pottery_sherd", 64 },
+    { "friend_pottery_sherd", 64 },
+    { "guster_pottery_sherd", 64 },
+    { "heart_pottery_sherd", 64 },
+    { "heartbreak_pottery_sherd", 64 },
+    { "howl_pottery_sherd", 64 },
+    { "miner_pottery_sherd", 64 },
+    { "mourner_pottery_sherd", 64 },
+    { "plenty_pottery_sherd", 64 },
+    { "prize_pottery_sherd", 64 },
+    { "scrape_pottery_sherd", 64 },
+    { "sheaf_pottery_sherd", 64 },
+    { "shelter_pottery_sherd", 64 },
+    { "skull_pottery_sherd", 64 },
+    { "snort_pottery_sherd", 64 },
+    { "copper_grate", 64 },
+    { "exposed_copper_grate", 64 },
+    { "weathered_copper_grate", 64 },
+    { "oxidized_copper_grate", 64 },
+    { "waxed_copper_grate", 64 },
+    { "waxed_exposed_copper_grate", 64 },
+    { "waxed_weathered_copper_grate", 64 },
+    { "waxed_oxidized_copper_grate", 64 },
+    { "copper_bulb", 64 },
+    { "exposed_copper_bulb", 64 },
+    { "weathered_copper_bulb", 64 },
+    { "oxidized_copper_bulb", 64 },
+    { "waxed_copper_bulb", 64 },
+    { "waxed_exposed_copper_bulb", 64 },
+    { "waxed_weathered_copper_bulb", 64 },
+    { "waxed_oxidized_copper_bulb", 64 },
+    { "copper_chest", 64 },
+    { "exposed_copper_chest", 64 },
+    { "weathered_copper_chest", 64 },
+    { "oxidized_copper_chest", 64 },
+    { "waxed_copper_chest", 64 },
+    { "waxed_exposed_copper_chest", 64 },
+    { "waxed_weathered_copper_chest", 64 },
+    { "waxed_oxidized_copper_chest", 64 },
+    { "copper_golem_statue", 64 },
+    { "exposed_copper_golem_statue", 64 },
+    { "weathered_copper_golem_statue", 64 },
+    { "oxidized_copper_golem_statue", 64 },
+    { "waxed_copper_golem_statue", 64 },
+    { "waxed_exposed_copper_golem_statue", 64 },
+    { "waxed_weathered_copper_golem_statue", 64 },
+    { "waxed_oxidized_copper_golem_statue", 64 },
+    { "trial_spawner", 64 },
+    { "trial_key", 64 },
+    { "ominous_trial_key", 64 },
+    { "vault", 64 },
+    { "ominous_bottle", 64 },
+};
+
+const char * const block_entity_type_names[] = { "furnace", "chest", "trapped_chest", "ender_chest", "jukebox", "dispenser", "dropper", "sign", "hanging_sign", "mob_spawner", "creaking_heart", "piston", "brewing_stand", "enchanting_table", "end_portal", "beacon", "skull", "daylight_detector", "hopper", "comparator", "banner", "structure_block", "end_gateway", "command_block", "shulker_box", "bed", "conduit", "barrel", "smoker", "blast_furnace", "lectern", "bell", "jigsaw", "campfire", "beehive", "sculk_sensor", "calibrated_sculk_sensor", "sculk_catalyst", "sculk_shrieker", "chiseled_bookshelf", "shelf", "brushable_block", "decorated_pot", "crafter", "trial_spawner", "vault", "test_block", "test_instance_block", "copper_golem_statue" };
+
 const block_def block_defs[] = {
-    { "air", 0, 1, 0, 0, 0, 0, 0, VCLASS_AIR_BLOCK },
-    { "stone", 1, 1, 1, 0, 0, 0, 0, VCLASS_NONE },
-    { "granite", 2, 1, 2, 0, 0, 0, 0, VCLASS_NONE },
-    { "polished_granite", 3, 1, 3, 0, 0, 0, 0, VCLASS_NONE },
-    { "diorite", 4, 1, 4, 0, 0, 0, 0, VCLASS_NONE },
-    { "polished_diorite", 5, 1, 5, 0, 0, 0, 0, VCLASS_NONE },
-    { "andesite", 6, 1, 6, 0, 0, 0, 0, VCLASS_NONE },
-    { "polished_andesite", 7, 1, 7, 0, 0, 0, 0, VCLASS_NONE },
-    { "grass_block", 8, 2, 9, 0, 1, 0, 0, VCLASS_GRASS_BLOCK },
-    { "dirt", 10, 1, 10, 1, 0, 0, 0, VCLASS_NONE },
-    { "coarse_dirt", 11, 1, 11, 1, 0, 0, 0, VCLASS_NONE },
-    { "podzol", 12, 2, 13, 1, 1, 0, 0, VCLASS_SNOWY_DIRT_BLOCK },
-    { "cobblestone", 14, 1, 14, 2, 0, 0, 0, VCLASS_NONE },
-    { "oak_planks", 15, 1, 15, 2, 0, 0, 0, VCLASS_NONE },
-    { "spruce_planks", 16, 1, 16, 2, 0, 0, 0, VCLASS_NONE },
-    { "birch_planks", 17, 1, 17, 2, 0, 0, 0, VCLASS_NONE },
-    { "jungle_planks", 18, 1, 18, 2, 0, 0, 0, VCLASS_NONE },
-    { "acacia_planks", 19, 1, 19, 2, 0, 0, 0, VCLASS_NONE },
-    { "cherry_planks", 20, 1, 20, 2, 0, 0, 0, VCLASS_NONE },
-    { "dark_oak_planks", 21, 1, 21, 2, 0, 0, 0, VCLASS_NONE },
-    { "pale_oak_wood", 22, 3, 23, 2, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "pale_oak_planks", 25, 1, 25, 3, 0, 0, 0, VCLASS_NONE },
-    { "mangrove_planks", 26, 1, 26, 3, 0, 0, 0, VCLASS_NONE },
-    { "bamboo_planks", 27, 1, 27, 3, 0, 0, 0, VCLASS_NONE },
-    { "bamboo_mosaic", 28, 1, 28, 3, 0, 0, 0, VCLASS_NONE },
-    { "oak_sapling", 29, 2, 29, 3, 1, 0, 0, VCLASS_SAPLING_BLOCK },
-    { "spruce_sapling", 31, 2, 31, 4, 1, 0, 0, VCLASS_SAPLING_BLOCK },
-    { "birch_sapling", 33, 2, 33, 5, 1, 0, 0, VCLASS_SAPLING_BLOCK },
-    { "jungle_sapling", 35, 2, 35, 6, 1, 0, 0, VCLASS_SAPLING_BLOCK },
-    { "acacia_sapling", 37, 2, 37, 7, 1, 0, 0, VCLASS_SAPLING_BLOCK },
-    { "cherry_sapling", 39, 2, 39, 8, 1, 0, 0, VCLASS_SAPLING_BLOCK },
-    { "dark_oak_sapling", 41, 2, 41, 9, 1, 0, 0, VCLASS_SAPLING_BLOCK },
-    { "pale_oak_sapling", 43, 2, 43, 10, 1, 0, 0, VCLASS_SAPLING_BLOCK },
-    { "mangrove_propagule", 45, 40, 50, 11, 4, 0, 0, VCLASS_MANGROVE_PROPAGULE_BLOCK },
-    { "bedrock", 85, 1, 85, 15, 0, 0, 0, VCLASS_NONE },
-    { "water", 86, 16, 86, 15, 1, 0, 0, VCLASS_LIQUID_BLOCK },
-    { "lava", 102, 16, 102, 16, 1, 0, 0, VCLASS_LIQUID_BLOCK },
-    { "sand", 118, 1, 118, 17, 0, 0, 0, VCLASS_SAND_BLOCK },
-    { "suspicious_sand", 119, 4, 119, 17, 1, 0, 0, VCLASS_BRUSHABLE_BLOCK },
-    { "red_sand", 123, 1, 123, 18, 0, 0, 0, VCLASS_SAND_BLOCK },
-    { "gravel", 124, 1, 124, 18, 0, 0, 0, VCLASS_COLORED_FALLING_BLOCK },
-    { "suspicious_gravel", 125, 4, 125, 18, 1, 0, 0, VCLASS_BRUSHABLE_BLOCK },
-    { "gold_ore", 129, 1, 129, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "deepslate_gold_ore", 130, 1, 130, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "iron_ore", 131, 1, 131, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "deepslate_iron_ore", 132, 1, 132, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "coal_ore", 133, 1, 133, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "deepslate_coal_ore", 134, 1, 134, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "nether_gold_ore", 135, 1, 135, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "oak_log", 136, 3, 137, 19, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "spruce_log", 139, 3, 140, 20, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "birch_log", 142, 3, 143, 21, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "jungle_log", 145, 3, 146, 22, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "acacia_log", 148, 3, 149, 23, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "cherry_log", 151, 3, 152, 24, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "dark_oak_log", 154, 3, 155, 25, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "pale_oak_log", 157, 3, 158, 26, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "mangrove_log", 160, 3, 161, 27, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "mangrove_roots", 163, 2, 164, 28, 1, 0, 0, VCLASS_MANGROVE_ROOTS_BLOCK },
-    { "muddy_mangrove_roots", 165, 3, 166, 29, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "bamboo_block", 168, 3, 169, 30, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_spruce_log", 171, 3, 172, 31, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_birch_log", 174, 3, 175, 32, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_jungle_log", 177, 3, 178, 33, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_acacia_log", 180, 3, 181, 34, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_cherry_log", 183, 3, 184, 35, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_dark_oak_log", 186, 3, 187, 36, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_pale_oak_log", 189, 3, 190, 37, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_oak_log", 192, 3, 193, 38, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_mangrove_log", 195, 3, 196, 39, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_bamboo_block", 198, 3, 199, 40, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "oak_wood", 201, 3, 202, 41, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "spruce_wood", 204, 3, 205, 42, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "birch_wood", 207, 3, 208, 43, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "jungle_wood", 210, 3, 211, 44, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "acacia_wood", 213, 3, 214, 45, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "cherry_wood", 216, 3, 217, 46, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "dark_oak_wood", 219, 3, 220, 47, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "mangrove_wood", 222, 3, 223, 48, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_oak_wood", 225, 3, 226, 49, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_spruce_wood", 228, 3, 229, 50, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_birch_wood", 231, 3, 232, 51, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_jungle_wood", 234, 3, 235, 52, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_acacia_wood", 237, 3, 238, 53, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_cherry_wood", 240, 3, 241, 54, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_dark_oak_wood", 243, 3, 244, 55, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_pale_oak_wood", 246, 3, 247, 56, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_mangrove_wood", 249, 3, 250, 57, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "oak_leaves", 252, 28, 279, 58, 3, 0, 0, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK },
-    { "spruce_leaves", 280, 28, 307, 61, 3, 0, 0, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK },
-    { "birch_leaves", 308, 28, 335, 64, 3, 0, 0, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK },
-    { "jungle_leaves", 336, 28, 363, 67, 3, 0, 0, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK },
-    { "acacia_leaves", 364, 28, 391, 70, 3, 0, 0, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK },
-    { "cherry_leaves", 392, 28, 419, 73, 3, 0, 0, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK },
-    { "dark_oak_leaves", 420, 28, 447, 76, 3, 0, 0, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK },
-    { "pale_oak_leaves", 448, 28, 475, 79, 3, 0, 0, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK },
-    { "mangrove_leaves", 476, 28, 503, 82, 3, 0, 0, VCLASS_MANGROVE_LEAVES_BLOCK },
-    { "azalea_leaves", 504, 28, 531, 85, 3, 0, 0, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK },
-    { "flowering_azalea_leaves", 532, 28, 559, 88, 3, 0, 0, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK },
-    { "sponge", 560, 1, 560, 91, 0, 0, 0, VCLASS_SPONGE_BLOCK },
-    { "wet_sponge", 561, 1, 561, 91, 0, 0, 0, VCLASS_WET_SPONGE_BLOCK },
-    { "glass", 562, 1, 562, 91, 0, 0, 0, VCLASS_TRANSPARENT_BLOCK },
-    { "lapis_ore", 563, 1, 563, 91, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "deepslate_lapis_ore", 564, 1, 564, 91, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "lapis_block", 565, 1, 565, 91, 0, 0, 0, VCLASS_NONE },
-    { "dispenser", 566, 12, 567, 91, 2, 0, 0, VCLASS_DISPENSER_BLOCK },
-    { "sandstone", 578, 1, 578, 93, 0, 0, 0, VCLASS_NONE },
-    { "chiseled_sandstone", 579, 1, 579, 93, 0, 0, 0, VCLASS_NONE },
-    { "cut_sandstone", 580, 1, 580, 93, 0, 0, 0, VCLASS_NONE },
-    { "note_block", 581, 1150, 582, 93, 3, 0, 0, VCLASS_NOTE_BLOCK },
-    { "white_bed", 1731, 16, 1734, 96, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "orange_bed", 1747, 16, 1750, 99, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "magenta_bed", 1763, 16, 1766, 102, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "light_blue_bed", 1779, 16, 1782, 105, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "yellow_bed", 1795, 16, 1798, 108, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "lime_bed", 1811, 16, 1814, 111, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "pink_bed", 1827, 16, 1830, 114, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "gray_bed", 1843, 16, 1846, 117, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "light_gray_bed", 1859, 16, 1862, 120, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "cyan_bed", 1875, 16, 1878, 123, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "purple_bed", 1891, 16, 1894, 126, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "blue_bed", 1907, 16, 1910, 129, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "brown_bed", 1923, 16, 1926, 132, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "green_bed", 1939, 16, 1942, 135, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "red_bed", 1955, 16, 1958, 138, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "black_bed", 1971, 16, 1974, 141, 3, 0, 0, VCLASS_BED_BLOCK },
-    { "powered_rail", 1987, 24, 2000, 144, 3, 0, 1, VCLASS_POWERED_RAIL_BLOCK },
-    { "detector_rail", 2011, 24, 2024, 147, 3, 1, 1, VCLASS_DETECTOR_RAIL_BLOCK },
-    { "sticky_piston", 2035, 12, 2041, 150, 2, 2, 1, VCLASS_PISTON_BASE_BLOCK },
-    { "cobweb", 2047, 1, 2047, 152, 0, 3, 0, VCLASS_WEB_BLOCK },
-    { "short_grass", 2048, 1, 2048, 152, 0, 3, 0, VCLASS_TALL_GRASS_BLOCK },
-    { "fern", 2049, 1, 2049, 152, 0, 3, 0, VCLASS_TALL_GRASS_BLOCK },
-    { "dead_bush", 2050, 1, 2050, 152, 0, 3, 0, VCLASS_DRY_VEGETATION_BLOCK },
-    { "bush", 2051, 1, 2051, 152, 0, 3, 0, VCLASS_BUSH_BLOCK },
-    { "short_dry_grass", 2052, 1, 2052, 152, 0, 3, 0, VCLASS_SHORT_DRY_GRASS_BLOCK },
-    { "tall_dry_grass", 2053, 1, 2053, 152, 0, 3, 0, VCLASS_TALL_DRY_GRASS_BLOCK },
-    { "seagrass", 2054, 1, 2054, 152, 0, 3, 0, VCLASS_SEAGRASS_BLOCK },
-    { "tall_seagrass", 2055, 2, 2056, 152, 1, 3, 0, VCLASS_TALL_SEAGRASS_BLOCK },
-    { "piston", 2057, 12, 2063, 153, 2, 3, 1, VCLASS_PISTON_BASE_BLOCK },
-    { "piston_head", 2069, 24, 2071, 155, 3, 4, 0, VCLASS_PISTON_HEAD_BLOCK },
-    { "white_wool", 2093, 1, 2093, 158, 0, 4, 0, VCLASS_NONE },
-    { "orange_wool", 2094, 1, 2094, 158, 0, 4, 0, VCLASS_NONE },
-    { "magenta_wool", 2095, 1, 2095, 158, 0, 4, 0, VCLASS_NONE },
-    { "light_blue_wool", 2096, 1, 2096, 158, 0, 4, 0, VCLASS_NONE },
-    { "yellow_wool", 2097, 1, 2097, 158, 0, 4, 0, VCLASS_NONE },
-    { "lime_wool", 2098, 1, 2098, 158, 0, 4, 0, VCLASS_NONE },
-    { "pink_wool", 2099, 1, 2099, 158, 0, 4, 0, VCLASS_NONE },
-    { "gray_wool", 2100, 1, 2100, 158, 0, 4, 0, VCLASS_NONE },
-    { "light_gray_wool", 2101, 1, 2101, 158, 0, 4, 0, VCLASS_NONE },
-    { "cyan_wool", 2102, 1, 2102, 158, 0, 4, 0, VCLASS_NONE },
-    { "purple_wool", 2103, 1, 2103, 158, 0, 4, 0, VCLASS_NONE },
-    { "blue_wool", 2104, 1, 2104, 158, 0, 4, 0, VCLASS_NONE },
-    { "brown_wool", 2105, 1, 2105, 158, 0, 4, 0, VCLASS_NONE },
-    { "green_wool", 2106, 1, 2106, 158, 0, 4, 0, VCLASS_NONE },
-    { "red_wool", 2107, 1, 2107, 158, 0, 4, 0, VCLASS_NONE },
-    { "black_wool", 2108, 1, 2108, 158, 0, 4, 0, VCLASS_NONE },
-    { "moving_piston", 2109, 12, 2109, 158, 2, 4, 0, VCLASS_MOVING_PISTON_BLOCK },
-    { "dandelion", 2121, 1, 2121, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK },
-    { "torchflower", 2122, 1, 2122, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK },
-    { "poppy", 2123, 1, 2123, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK },
-    { "blue_orchid", 2124, 1, 2124, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK },
-    { "allium", 2125, 1, 2125, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK },
-    { "azure_bluet", 2126, 1, 2126, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK },
-    { "red_tulip", 2127, 1, 2127, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK },
-    { "orange_tulip", 2128, 1, 2128, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK },
-    { "white_tulip", 2129, 1, 2129, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK },
-    { "pink_tulip", 2130, 1, 2130, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK },
-    { "oxeye_daisy", 2131, 1, 2131, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK },
-    { "cornflower", 2132, 1, 2132, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK },
-    { "wither_rose", 2133, 1, 2133, 160, 0, 4, 0, VCLASS_WITHER_ROSE_BLOCK },
-    { "lily_of_the_valley", 2134, 1, 2134, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK },
-    { "brown_mushroom", 2135, 1, 2135, 160, 0, 4, 0, VCLASS_MUSHROOM_BLOCK },
-    { "red_mushroom", 2136, 1, 2136, 160, 0, 4, 0, VCLASS_MUSHROOM_BLOCK },
-    { "gold_block", 2137, 1, 2137, 160, 0, 4, 0, VCLASS_NONE },
-    { "iron_block", 2138, 1, 2138, 160, 0, 4, 0, VCLASS_NONE },
-    { "bricks", 2139, 1, 2139, 160, 0, 4, 0, VCLASS_NONE },
-    { "tnt", 2140, 2, 2141, 160, 1, 4, 0, VCLASS_TNT_BLOCK },
-    { "bookshelf", 2142, 1, 2142, 161, 0, 4, 0, VCLASS_NONE },
-    { "chiseled_bookshelf", 2143, 256, 2206, 161, 7, 4, 0, VCLASS_CHISELED_BOOK_SHELF_BLOCK },
-    { "acacia_shelf", 2399, 64, 2408, 168, 4, 4, 0, VCLASS_SHELF_BLOCK },
-    { "bamboo_shelf", 2463, 64, 2472, 172, 4, 4, 0, VCLASS_SHELF_BLOCK },
-    { "birch_shelf", 2527, 64, 2536, 176, 4, 4, 0, VCLASS_SHELF_BLOCK },
-    { "cherry_shelf", 2591, 64, 2600, 180, 4, 4, 0, VCLASS_SHELF_BLOCK },
-    { "crimson_shelf", 2655, 64, 2664, 184, 4, 4, 0, VCLASS_SHELF_BLOCK },
-    { "dark_oak_shelf", 2719, 64, 2728, 188, 4, 4, 0, VCLASS_SHELF_BLOCK },
-    { "jungle_shelf", 2783, 64, 2792, 192, 4, 4, 0, VCLASS_SHELF_BLOCK },
-    { "mangrove_shelf", 2847, 64, 2856, 196, 4, 4, 0, VCLASS_SHELF_BLOCK },
-    { "oak_shelf", 2911, 64, 2920, 200, 4, 4, 0, VCLASS_SHELF_BLOCK },
-    { "pale_oak_shelf", 2975, 64, 2984, 204, 4, 4, 0, VCLASS_SHELF_BLOCK },
-    { "spruce_shelf", 3039, 64, 3048, 208, 4, 4, 0, VCLASS_SHELF_BLOCK },
-    { "warped_shelf", 3103, 64, 3112, 212, 4, 4, 0, VCLASS_SHELF_BLOCK },
-    { "mossy_cobblestone", 3167, 1, 3167, 216, 0, 4, 0, VCLASS_NONE },
-    { "obsidian", 3168, 1, 3168, 216, 0, 4, 0, VCLASS_NONE },
-    { "torch", 3169, 1, 3169, 216, 0, 4, 0, VCLASS_TORCH_BLOCK },
-    { "wall_torch", 3170, 4, 3170, 216, 1, 4, 0, VCLASS_WALL_TORCH_BLOCK },
-    { "fire", 3174, 512, 3205, 217, 6, 4, 0, VCLASS_FIRE_BLOCK },
-    { "soul_fire", 3686, 1, 3686, 223, 0, 4, 0, VCLASS_SOUL_FIRE_BLOCK },
-    { "spawner", 3687, 1, 3687, 223, 0, 4, 0, VCLASS_SPAWNER_BLOCK },
-    { "creaking_heart", 3688, 18, 3695, 223, 3, 4, 0, VCLASS_CREAKING_HEART_BLOCK },
-    { "oak_stairs", 3706, 80, 3717, 226, 4, 4, 0, VCLASS_STAIR_BLOCK },
-    { "chest", 3786, 24, 3787, 230, 3, 4, 0, VCLASS_CHEST_BLOCK },
-    { "redstone_wire", 3810, 1296, 4970, 233, 5, 4, 1, VCLASS_RED_STONE_WIRE_BLOCK },
-    { "diamond_ore", 5106, 1, 5106, 238, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "deepslate_diamond_ore", 5107, 1, 5107, 238, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "diamond_block", 5108, 1, 5108, 238, 0, 5, 0, VCLASS_NONE },
-    { "crafting_table", 5109, 1, 5109, 238, 0, 5, 0, VCLASS_CRAFTING_TABLE_BLOCK },
-    { "wheat", 5110, 8, 5110, 238, 1, 5, 0, VCLASS_CROP_BLOCK },
-    { "farmland", 5118, 8, 5118, 239, 1, 5, 0, VCLASS_FARM_BLOCK },
-    { "furnace", 5126, 8, 5127, 240, 2, 5, 0, VCLASS_FURNACE_BLOCK },
-    { "oak_sign", 5134, 32, 5135, 242, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK },
-    { "spruce_sign", 5166, 32, 5167, 244, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK },
-    { "birch_sign", 5198, 32, 5199, 246, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK },
-    { "acacia_sign", 5230, 32, 5231, 248, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK },
-    { "cherry_sign", 5262, 32, 5263, 250, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK },
-    { "jungle_sign", 5294, 32, 5295, 252, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK },
-    { "dark_oak_sign", 5326, 32, 5327, 254, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK },
-    { "pale_oak_sign", 5358, 32, 5359, 256, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK },
-    { "mangrove_sign", 5390, 32, 5391, 258, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK },
-    { "bamboo_sign", 5422, 32, 5423, 260, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK },
-    { "oak_door", 5454, 64, 5465, 262, 5, 5, 0, VCLASS_DOOR_BLOCK },
-    { "ladder", 5518, 8, 5519, 267, 2, 5, 0, VCLASS_LADDER_BLOCK },
-    { "rail", 5526, 20, 5527, 269, 2, 5, 1, VCLASS_RAIL_BLOCK },
-    { "cobblestone_stairs", 5546, 80, 5557, 271, 4, 6, 0, VCLASS_STAIR_BLOCK },
-    { "oak_wall_sign", 5626, 8, 5627, 275, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK },
-    { "spruce_wall_sign", 5634, 8, 5635, 277, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK },
-    { "birch_wall_sign", 5642, 8, 5643, 279, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK },
-    { "acacia_wall_sign", 5650, 8, 5651, 281, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK },
-    { "cherry_wall_sign", 5658, 8, 5659, 283, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK },
-    { "jungle_wall_sign", 5666, 8, 5667, 285, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK },
-    { "dark_oak_wall_sign", 5674, 8, 5675, 287, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK },
-    { "pale_oak_wall_sign", 5682, 8, 5683, 289, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK },
-    { "mangrove_wall_sign", 5690, 8, 5691, 291, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK },
-    { "bamboo_wall_sign", 5698, 8, 5699, 293, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK },
-    { "oak_hanging_sign", 5706, 64, 5739, 295, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK },
-    { "spruce_hanging_sign", 5770, 64, 5803, 298, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK },
-    { "birch_hanging_sign", 5834, 64, 5867, 301, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK },
-    { "acacia_hanging_sign", 5898, 64, 5931, 304, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK },
-    { "cherry_hanging_sign", 5962, 64, 5995, 307, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK },
-    { "jungle_hanging_sign", 6026, 64, 6059, 310, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK },
-    { "dark_oak_hanging_sign", 6090, 64, 6123, 313, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK },
-    { "pale_oak_hanging_sign", 6154, 64, 6187, 316, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK },
-    { "crimson_hanging_sign", 6218, 64, 6251, 319, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK },
-    { "warped_hanging_sign", 6282, 64, 6315, 322, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK },
-    { "mangrove_hanging_sign", 6346, 64, 6379, 325, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK },
-    { "bamboo_hanging_sign", 6410, 64, 6443, 328, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK },
-    { "oak_wall_hanging_sign", 6474, 8, 6475, 331, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK },
-    { "spruce_wall_hanging_sign", 6482, 8, 6483, 333, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK },
-    { "birch_wall_hanging_sign", 6490, 8, 6491, 335, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK },
-    { "acacia_wall_hanging_sign", 6498, 8, 6499, 337, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK },
-    { "cherry_wall_hanging_sign", 6506, 8, 6507, 339, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK },
-    { "jungle_wall_hanging_sign", 6514, 8, 6515, 341, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK },
-    { "dark_oak_wall_hanging_sign", 6522, 8, 6523, 343, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK },
-    { "pale_oak_wall_hanging_sign", 6530, 8, 6531, 345, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK },
-    { "mangrove_wall_hanging_sign", 6538, 8, 6539, 347, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK },
-    { "crimson_wall_hanging_sign", 6546, 8, 6547, 349, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK },
-    { "warped_wall_hanging_sign", 6554, 8, 6555, 351, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK },
-    { "bamboo_wall_hanging_sign", 6562, 8, 6563, 353, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK },
-    { "lever", 6570, 24, 6579, 355, 3, 6, 0, VCLASS_LEVER_BLOCK },
-    { "stone_pressure_plate", 6594, 2, 6595, 358, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "iron_door", 6596, 64, 6607, 359, 5, 6, 0, VCLASS_DOOR_BLOCK },
-    { "oak_pressure_plate", 6660, 2, 6661, 364, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "spruce_pressure_plate", 6662, 2, 6663, 365, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "birch_pressure_plate", 6664, 2, 6665, 366, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "jungle_pressure_plate", 6666, 2, 6667, 367, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "acacia_pressure_plate", 6668, 2, 6669, 368, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "cherry_pressure_plate", 6670, 2, 6671, 369, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "dark_oak_pressure_plate", 6672, 2, 6673, 370, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "pale_oak_pressure_plate", 6674, 2, 6675, 371, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "mangrove_pressure_plate", 6676, 2, 6677, 372, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "bamboo_pressure_plate", 6678, 2, 6679, 373, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "redstone_ore", 6680, 2, 6681, 374, 1, 6, 0, VCLASS_RED_STONE_ORE_BLOCK },
-    { "deepslate_redstone_ore", 6682, 2, 6683, 375, 1, 6, 0, VCLASS_RED_STONE_ORE_BLOCK },
-    { "redstone_torch", 6684, 2, 6684, 376, 1, 6, 0, VCLASS_REDSTONE_TORCH_BLOCK },
-    { "redstone_wall_torch", 6686, 8, 6686, 377, 2, 6, 0, VCLASS_REDSTONE_WALL_TORCH_BLOCK },
-    { "stone_button", 6694, 24, 6703, 379, 3, 6, 1, VCLASS_BUTTON_BLOCK },
-    { "snow", 6718, 8, 6718, 382, 1, 7, 0, VCLASS_SNOW_LAYER_BLOCK },
-    { "ice", 6726, 1, 6726, 383, 0, 7, 0, VCLASS_ICE_BLOCK },
-    { "snow_block", 6727, 1, 6727, 383, 0, 7, 0, VCLASS_NONE },
-    { "cactus", 6728, 16, 6728, 383, 1, 7, 0, VCLASS_CACTUS_BLOCK },
-    { "cactus_flower", 6744, 1, 6744, 384, 0, 7, 0, VCLASS_CACTUS_FLOWER_BLOCK },
-    { "clay", 6745, 1, 6745, 384, 0, 7, 0, VCLASS_NONE },
-    { "sugar_cane", 6746, 16, 6746, 384, 1, 7, 0, VCLASS_SUGAR_CANE_BLOCK },
-    { "jukebox", 6762, 2, 6763, 385, 1, 7, 0, VCLASS_JUKEBOX_BLOCK },
-    { "oak_fence", 6764, 32, 6795, 386, 5, 7, 0, VCLASS_FENCE_BLOCK },
-    { "netherrack", 6796, 1, 6796, 391, 0, 7, 0, VCLASS_NETHERRACK_BLOCK },
-    { "soul_sand", 6797, 1, 6797, 391, 0, 7, 0, VCLASS_SOUL_SAND_BLOCK },
-    { "soul_soil", 6798, 1, 6798, 391, 0, 7, 0, VCLASS_NONE },
-    { "basalt", 6799, 3, 6800, 391, 1, 7, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "polished_basalt", 6802, 3, 6803, 392, 1, 7, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "soul_torch", 6805, 1, 6805, 393, 0, 7, 0, VCLASS_TORCH_BLOCK },
-    { "soul_wall_torch", 6806, 4, 6806, 393, 1, 7, 0, VCLASS_WALL_TORCH_BLOCK },
-    { "copper_torch", 6810, 1, 6810, 394, 0, 7, 0, VCLASS_TORCH_BLOCK },
-    { "copper_wall_torch", 6811, 4, 6811, 394, 1, 7, 0, VCLASS_WALL_TORCH_BLOCK },
-    { "glowstone", 6815, 1, 6815, 395, 0, 7, 0, VCLASS_NONE },
-    { "nether_portal", 6816, 2, 6816, 395, 1, 7, 0, VCLASS_NETHER_PORTAL_BLOCK },
-    { "carved_pumpkin", 6818, 4, 6818, 396, 1, 7, 0, VCLASS_CARVED_PUMPKIN_BLOCK },
-    { "jack_o_lantern", 6822, 4, 6822, 397, 1, 7, 0, VCLASS_CARVED_PUMPKIN_BLOCK },
-    { "cake", 6826, 7, 6826, 398, 1, 7, 0, VCLASS_CAKE_BLOCK },
-    { "repeater", 6833, 64, 6836, 399, 4, 7, 0, VCLASS_REPEATER_BLOCK },
-    { "white_stained_glass", 6897, 1, 6897, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "orange_stained_glass", 6898, 1, 6898, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "magenta_stained_glass", 6899, 1, 6899, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "light_blue_stained_glass", 6900, 1, 6900, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "yellow_stained_glass", 6901, 1, 6901, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "lime_stained_glass", 6902, 1, 6902, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "pink_stained_glass", 6903, 1, 6903, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "gray_stained_glass", 6904, 1, 6904, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "light_gray_stained_glass", 6905, 1, 6905, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "cyan_stained_glass", 6906, 1, 6906, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "purple_stained_glass", 6907, 1, 6907, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "blue_stained_glass", 6908, 1, 6908, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "brown_stained_glass", 6909, 1, 6909, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "green_stained_glass", 6910, 1, 6910, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "red_stained_glass", 6911, 1, 6911, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "black_stained_glass", 6912, 1, 6912, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK },
-    { "oak_trapdoor", 6913, 64, 6928, 403, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "spruce_trapdoor", 6977, 64, 6992, 408, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "birch_trapdoor", 7041, 64, 7056, 413, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "jungle_trapdoor", 7105, 64, 7120, 418, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "acacia_trapdoor", 7169, 64, 7184, 423, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "cherry_trapdoor", 7233, 64, 7248, 428, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "dark_oak_trapdoor", 7297, 64, 7312, 433, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "pale_oak_trapdoor", 7361, 64, 7376, 438, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "mangrove_trapdoor", 7425, 64, 7440, 443, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "bamboo_trapdoor", 7489, 64, 7504, 448, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "stone_bricks", 7553, 1, 7553, 453, 0, 7, 0, VCLASS_NONE },
-    { "mossy_stone_bricks", 7554, 1, 7554, 453, 0, 7, 0, VCLASS_NONE },
-    { "cracked_stone_bricks", 7555, 1, 7555, 453, 0, 7, 0, VCLASS_NONE },
-    { "chiseled_stone_bricks", 7556, 1, 7556, 453, 0, 7, 0, VCLASS_NONE },
-    { "packed_mud", 7557, 1, 7557, 453, 0, 7, 0, VCLASS_NONE },
-    { "mud_bricks", 7558, 1, 7558, 453, 0, 7, 0, VCLASS_NONE },
-    { "infested_stone", 7559, 1, 7559, 453, 0, 7, 0, VCLASS_INFESTED_BLOCK },
-    { "infested_cobblestone", 7560, 1, 7560, 453, 0, 7, 0, VCLASS_INFESTED_BLOCK },
-    { "infested_stone_bricks", 7561, 1, 7561, 453, 0, 7, 0, VCLASS_INFESTED_BLOCK },
-    { "infested_mossy_stone_bricks", 7562, 1, 7562, 453, 0, 7, 0, VCLASS_INFESTED_BLOCK },
-    { "infested_cracked_stone_bricks", 7563, 1, 7563, 453, 0, 7, 0, VCLASS_INFESTED_BLOCK },
-    { "infested_chiseled_stone_bricks", 7564, 1, 7564, 453, 0, 7, 0, VCLASS_INFESTED_BLOCK },
-    { "brown_mushroom_block", 7565, 64, 7565, 453, 6, 7, 0, VCLASS_HUGE_MUSHROOM_BLOCK },
-    { "red_mushroom_block", 7629, 64, 7629, 459, 6, 7, 0, VCLASS_HUGE_MUSHROOM_BLOCK },
-    { "mushroom_stem", 7693, 64, 7693, 465, 6, 7, 0, VCLASS_HUGE_MUSHROOM_BLOCK },
-    { "iron_bars", 7757, 32, 7788, 471, 5, 7, 0, VCLASS_IRON_BARS_BLOCK },
-    { "copper_bars", 7789, 32, 7820, 476, 5, 7, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK },
-    { "exposed_copper_bars", 7821, 32, 7852, 481, 5, 7, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK },
-    { "weathered_copper_bars", 7853, 32, 7884, 486, 5, 7, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK },
-    { "oxidized_copper_bars", 7885, 32, 7916, 491, 5, 7, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK },
-    { "waxed_copper_bars", 7917, 32, 7948, 496, 5, 7, 0, VCLASS_IRON_BARS_BLOCK },
-    { "waxed_exposed_copper_bars", 7949, 32, 7980, 501, 5, 7, 0, VCLASS_IRON_BARS_BLOCK },
-    { "waxed_weathered_copper_bars", 7981, 32, 8012, 506, 5, 7, 0, VCLASS_IRON_BARS_BLOCK },
-    { "waxed_oxidized_copper_bars", 8013, 32, 8044, 511, 5, 7, 0, VCLASS_IRON_BARS_BLOCK },
-    { "iron_chain", 8045, 6, 8048, 516, 2, 7, 0, VCLASS_CHAIN_BLOCK },
-    { "copper_chain", 8051, 6, 8054, 518, 2, 7, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK },
-    { "exposed_copper_chain", 8057, 6, 8060, 520, 2, 7, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK },
-    { "weathered_copper_chain", 8063, 6, 8066, 522, 2, 7, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK },
-    { "oxidized_copper_chain", 8069, 6, 8072, 524, 2, 7, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK },
-    { "waxed_copper_chain", 8075, 6, 8078, 526, 2, 7, 0, VCLASS_CHAIN_BLOCK },
-    { "waxed_exposed_copper_chain", 8081, 6, 8084, 528, 2, 7, 0, VCLASS_CHAIN_BLOCK },
-    { "waxed_weathered_copper_chain", 8087, 6, 8090, 530, 2, 7, 0, VCLASS_CHAIN_BLOCK },
-    { "waxed_oxidized_copper_chain", 8093, 6, 8096, 532, 2, 7, 0, VCLASS_CHAIN_BLOCK },
-    { "glass_pane", 8099, 32, 8130, 534, 5, 7, 0, VCLASS_IRON_BARS_BLOCK },
-    { "pumpkin", 8131, 1, 8131, 539, 0, 7, 0, VCLASS_PUMPKIN_BLOCK },
-    { "melon", 8132, 1, 8132, 539, 0, 7, 0, VCLASS_NONE },
-    { "attached_pumpkin_stem", 8133, 4, 8133, 539, 1, 7, 0, VCLASS_ATTACHED_STEM_BLOCK },
-    { "attached_melon_stem", 8137, 4, 8137, 540, 1, 7, 0, VCLASS_ATTACHED_STEM_BLOCK },
-    { "pumpkin_stem", 8141, 8, 8141, 541, 1, 7, 0, VCLASS_STEM_BLOCK },
-    { "melon_stem", 8149, 8, 8149, 542, 1, 7, 0, VCLASS_STEM_BLOCK },
-    { "vine", 8157, 32, 8188, 543, 5, 7, 0, VCLASS_VINE_BLOCK },
-    { "glow_lichen", 8189, 128, 8316, 548, 7, 7, 3, VCLASS_GLOW_LICHEN_BLOCK },
-    { "resin_clump", 8317, 128, 8444, 555, 7, 10, 3, VCLASS_MULTIFACE_BLOCK },
-    { "oak_fence_gate", 8445, 32, 8452, 562, 4, 13, 0, VCLASS_FENCE_GATE_BLOCK },
-    { "brick_stairs", 8477, 80, 8488, 566, 4, 13, 0, VCLASS_STAIR_BLOCK },
-    { "stone_brick_stairs", 8557, 80, 8568, 570, 4, 13, 0, VCLASS_STAIR_BLOCK },
-    { "mud_brick_stairs", 8637, 80, 8648, 574, 4, 13, 0, VCLASS_STAIR_BLOCK },
-    { "mycelium", 8717, 2, 8718, 578, 1, 13, 0, VCLASS_MYCELIUM_BLOCK },
-    { "lily_pad", 8719, 1, 8719, 579, 0, 13, 0, VCLASS_WATERLILY_BLOCK },
-    { "resin_block", 8720, 1, 8720, 579, 0, 13, 0, VCLASS_NONE },
-    { "resin_bricks", 8721, 1, 8721, 579, 0, 13, 0, VCLASS_NONE },
-    { "resin_brick_stairs", 8722, 80, 8733, 579, 4, 13, 0, VCLASS_STAIR_BLOCK },
-    { "resin_brick_slab", 8802, 6, 8805, 583, 2, 13, 0, VCLASS_SLAB_BLOCK },
-    { "resin_brick_wall", 8808, 324, 8811, 585, 6, 13, 0, VCLASS_WALL_BLOCK },
-    { "chiseled_resin_bricks", 9132, 1, 9132, 591, 0, 13, 0, VCLASS_NONE },
-    { "nether_bricks", 9133, 1, 9133, 591, 0, 13, 0, VCLASS_NONE },
-    { "nether_brick_fence", 9134, 32, 9165, 591, 5, 13, 0, VCLASS_FENCE_BLOCK },
-    { "nether_brick_stairs", 9166, 80, 9177, 596, 4, 13, 0, VCLASS_STAIR_BLOCK },
-    { "nether_wart", 9246, 4, 9246, 600, 1, 13, 0, VCLASS_NETHER_WART_BLOCK },
-    { "enchanting_table", 9250, 1, 9250, 601, 0, 13, 0, VCLASS_ENCHANTING_TABLE_BLOCK },
-    { "brewing_stand", 9251, 8, 9258, 601, 3, 13, 0, VCLASS_BREWING_STAND_BLOCK },
-    { "cauldron", 9259, 1, 9259, 604, 0, 13, 0, VCLASS_CAULDRON_BLOCK },
-    { "water_cauldron", 9260, 3, 9260, 604, 1, 13, 0, VCLASS_LAYERED_CAULDRON_BLOCK },
-    { "lava_cauldron", 9263, 1, 9263, 605, 0, 13, 0, VCLASS_LAVA_CAULDRON_BLOCK },
-    { "powder_snow_cauldron", 9264, 3, 9264, 605, 1, 13, 0, VCLASS_LAYERED_CAULDRON_BLOCK },
-    { "end_portal", 9267, 1, 9267, 606, 0, 13, 0, VCLASS_END_PORTAL_BLOCK },
-    { "end_portal_frame", 9268, 8, 9272, 606, 2, 13, 0, VCLASS_END_PORTAL_FRAME_BLOCK },
-    { "end_stone", 9276, 1, 9276, 608, 0, 13, 0, VCLASS_NONE },
-    { "dragon_egg", 9277, 1, 9277, 608, 0, 13, 0, VCLASS_DRAGON_EGG_BLOCK },
-    { "redstone_lamp", 9278, 2, 9279, 608, 1, 13, 0, VCLASS_REDSTONE_LAMP_BLOCK },
-    { "cocoa", 9280, 12, 9280, 609, 2, 13, 0, VCLASS_COCOA_BLOCK },
-    { "sandstone_stairs", 9292, 80, 9303, 611, 4, 13, 0, VCLASS_STAIR_BLOCK },
-    { "emerald_ore", 9372, 1, 9372, 615, 0, 13, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "deepslate_emerald_ore", 9373, 1, 9373, 615, 0, 13, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "ender_chest", 9374, 8, 9375, 615, 2, 13, 0, VCLASS_ENDER_CHEST_BLOCK },
-    { "tripwire_hook", 9382, 16, 9391, 617, 3, 13, 0, VCLASS_TRIP_WIRE_HOOK_BLOCK },
-    { "tripwire", 9398, 128, 9525, 620, 7, 13, 0, VCLASS_TRIP_WIRE_BLOCK },
-    { "emerald_block", 9526, 1, 9526, 627, 0, 13, 0, VCLASS_NONE },
-    { "spruce_stairs", 9527, 80, 9538, 627, 4, 13, 0, VCLASS_STAIR_BLOCK },
-    { "birch_stairs", 9607, 80, 9618, 631, 4, 13, 0, VCLASS_STAIR_BLOCK },
-    { "jungle_stairs", 9687, 80, 9698, 635, 4, 13, 0, VCLASS_STAIR_BLOCK },
-    { "command_block", 9767, 12, 9773, 639, 2, 13, 1, VCLASS_COMMAND_BLOCK },
-    { "beacon", 9779, 1, 9779, 641, 0, 14, 0, VCLASS_BEACON_BLOCK },
-    { "cobblestone_wall", 9780, 324, 9783, 641, 6, 14, 0, VCLASS_WALL_BLOCK },
-    { "mossy_cobblestone_wall", 10104, 324, 10107, 647, 6, 14, 0, VCLASS_WALL_BLOCK },
-    { "flower_pot", 10428, 1, 10428, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_torchflower", 10429, 1, 10429, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_oak_sapling", 10430, 1, 10430, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_spruce_sapling", 10431, 1, 10431, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_birch_sapling", 10432, 1, 10432, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_jungle_sapling", 10433, 1, 10433, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_acacia_sapling", 10434, 1, 10434, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_cherry_sapling", 10435, 1, 10435, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_dark_oak_sapling", 10436, 1, 10436, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_pale_oak_sapling", 10437, 1, 10437, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_mangrove_propagule", 10438, 1, 10438, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_fern", 10439, 1, 10439, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_dandelion", 10440, 1, 10440, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_poppy", 10441, 1, 10441, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_blue_orchid", 10442, 1, 10442, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_allium", 10443, 1, 10443, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_azure_bluet", 10444, 1, 10444, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_red_tulip", 10445, 1, 10445, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_orange_tulip", 10446, 1, 10446, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_white_tulip", 10447, 1, 10447, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_pink_tulip", 10448, 1, 10448, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_oxeye_daisy", 10449, 1, 10449, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_cornflower", 10450, 1, 10450, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_lily_of_the_valley", 10451, 1, 10451, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_wither_rose", 10452, 1, 10452, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_red_mushroom", 10453, 1, 10453, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_brown_mushroom", 10454, 1, 10454, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_dead_bush", 10455, 1, 10455, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_cactus", 10456, 1, 10456, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "carrots", 10457, 8, 10457, 653, 1, 14, 0, VCLASS_CARROT_BLOCK },
-    { "potatoes", 10465, 8, 10465, 654, 1, 14, 0, VCLASS_POTATO_BLOCK },
-    { "oak_button", 10473, 24, 10482, 655, 3, 14, 1, VCLASS_BUTTON_BLOCK },
-    { "spruce_button", 10497, 24, 10506, 658, 3, 15, 1, VCLASS_BUTTON_BLOCK },
-    { "birch_button", 10521, 24, 10530, 661, 3, 16, 1, VCLASS_BUTTON_BLOCK },
-    { "jungle_button", 10545, 24, 10554, 664, 3, 17, 1, VCLASS_BUTTON_BLOCK },
-    { "acacia_button", 10569, 24, 10578, 667, 3, 18, 1, VCLASS_BUTTON_BLOCK },
-    { "cherry_button", 10593, 24, 10602, 670, 3, 19, 1, VCLASS_BUTTON_BLOCK },
-    { "dark_oak_button", 10617, 24, 10626, 673, 3, 20, 1, VCLASS_BUTTON_BLOCK },
-    { "pale_oak_button", 10641, 24, 10650, 676, 3, 21, 1, VCLASS_BUTTON_BLOCK },
-    { "mangrove_button", 10665, 24, 10674, 679, 3, 22, 1, VCLASS_BUTTON_BLOCK },
-    { "bamboo_button", 10689, 24, 10698, 682, 3, 23, 1, VCLASS_BUTTON_BLOCK },
-    { "skeleton_skull", 10713, 32, 10729, 685, 2, 24, 0, VCLASS_SKULL_BLOCK },
-    { "skeleton_wall_skull", 10745, 8, 10746, 687, 2, 24, 0, VCLASS_WALL_SKULL_BLOCK },
-    { "wither_skeleton_skull", 10753, 32, 10769, 689, 2, 24, 0, VCLASS_WITHER_SKULL_BLOCK },
-    { "wither_skeleton_wall_skull", 10785, 8, 10786, 691, 2, 24, 0, VCLASS_WITHER_WALL_SKULL_BLOCK },
-    { "zombie_head", 10793, 32, 10809, 693, 2, 24, 0, VCLASS_SKULL_BLOCK },
-    { "zombie_wall_head", 10825, 8, 10826, 695, 2, 24, 0, VCLASS_WALL_SKULL_BLOCK },
-    { "player_head", 10833, 32, 10849, 697, 2, 24, 0, VCLASS_PLAYER_HEAD_BLOCK },
-    { "player_wall_head", 10865, 8, 10866, 699, 2, 24, 0, VCLASS_PLAYER_WALL_HEAD_BLOCK },
-    { "creeper_head", 10873, 32, 10889, 701, 2, 24, 0, VCLASS_SKULL_BLOCK },
-    { "creeper_wall_head", 10905, 8, 10906, 703, 2, 24, 0, VCLASS_WALL_SKULL_BLOCK },
-    { "dragon_head", 10913, 32, 10929, 705, 2, 24, 0, VCLASS_SKULL_BLOCK },
-    { "dragon_wall_head", 10945, 8, 10946, 707, 2, 24, 0, VCLASS_WALL_SKULL_BLOCK },
-    { "piglin_head", 10953, 32, 10969, 709, 2, 24, 0, VCLASS_SKULL_BLOCK },
-    { "piglin_wall_head", 10985, 8, 10986, 711, 2, 24, 0, VCLASS_PIGLIN_WALL_SKULL_BLOCK },
-    { "anvil", 10993, 4, 10993, 713, 1, 24, 0, VCLASS_ANVIL_BLOCK },
-    { "chipped_anvil", 10997, 4, 10997, 714, 1, 24, 0, VCLASS_ANVIL_BLOCK },
-    { "damaged_anvil", 11001, 4, 11001, 715, 1, 24, 0, VCLASS_ANVIL_BLOCK },
-    { "trapped_chest", 11005, 24, 11006, 716, 3, 24, 0, VCLASS_TRAPPED_CHEST_BLOCK },
-    { "light_weighted_pressure_plate", 11029, 16, 11029, 719, 1, 24, 1, VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK },
-    { "heavy_weighted_pressure_plate", 11045, 16, 11045, 720, 1, 25, 1, VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK },
-    { "comparator", 11061, 16, 11062, 721, 3, 26, 0, VCLASS_COMPARATOR_BLOCK },
-    { "daylight_detector", 11077, 32, 11093, 724, 2, 26, 0, VCLASS_DAYLIGHT_DETECTOR_BLOCK },
-    { "redstone_block", 11109, 1, 11109, 726, 0, 26, 0, VCLASS_POWERED_BLOCK },
-    { "nether_quartz_ore", 11110, 1, 11110, 726, 0, 26, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "hopper", 11111, 10, 11111, 726, 2, 26, 0, VCLASS_HOPPER_BLOCK },
-    { "quartz_block", 11121, 1, 11121, 728, 0, 26, 0, VCLASS_NONE },
-    { "chiseled_quartz_block", 11122, 1, 11122, 728, 0, 26, 0, VCLASS_NONE },
-    { "quartz_pillar", 11123, 3, 11124, 728, 1, 26, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "quartz_stairs", 11126, 80, 11137, 729, 4, 26, 0, VCLASS_STAIR_BLOCK },
-    { "activator_rail", 11206, 24, 11219, 733, 3, 26, 1, VCLASS_POWERED_RAIL_BLOCK },
-    { "dropper", 11230, 12, 11231, 736, 2, 27, 0, VCLASS_DROPPER_BLOCK },
-    { "white_terracotta", 11242, 1, 11242, 738, 0, 27, 0, VCLASS_NONE },
-    { "orange_terracotta", 11243, 1, 11243, 738, 0, 27, 0, VCLASS_NONE },
-    { "magenta_terracotta", 11244, 1, 11244, 738, 0, 27, 0, VCLASS_NONE },
-    { "light_blue_terracotta", 11245, 1, 11245, 738, 0, 27, 0, VCLASS_NONE },
-    { "yellow_terracotta", 11246, 1, 11246, 738, 0, 27, 0, VCLASS_NONE },
-    { "lime_terracotta", 11247, 1, 11247, 738, 0, 27, 0, VCLASS_NONE },
-    { "pink_terracotta", 11248, 1, 11248, 738, 0, 27, 0, VCLASS_NONE },
-    { "gray_terracotta", 11249, 1, 11249, 738, 0, 27, 0, VCLASS_NONE },
-    { "light_gray_terracotta", 11250, 1, 11250, 738, 0, 27, 0, VCLASS_NONE },
-    { "cyan_terracotta", 11251, 1, 11251, 738, 0, 27, 0, VCLASS_NONE },
-    { "purple_terracotta", 11252, 1, 11252, 738, 0, 27, 0, VCLASS_NONE },
-    { "blue_terracotta", 11253, 1, 11253, 738, 0, 27, 0, VCLASS_NONE },
-    { "brown_terracotta", 11254, 1, 11254, 738, 0, 27, 0, VCLASS_NONE },
-    { "green_terracotta", 11255, 1, 11255, 738, 0, 27, 0, VCLASS_NONE },
-    { "red_terracotta", 11256, 1, 11256, 738, 0, 27, 0, VCLASS_NONE },
-    { "black_terracotta", 11257, 1, 11257, 738, 0, 27, 0, VCLASS_NONE },
-    { "white_stained_glass_pane", 11258, 32, 11289, 738, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "orange_stained_glass_pane", 11290, 32, 11321, 743, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "magenta_stained_glass_pane", 11322, 32, 11353, 748, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "light_blue_stained_glass_pane", 11354, 32, 11385, 753, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "yellow_stained_glass_pane", 11386, 32, 11417, 758, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "lime_stained_glass_pane", 11418, 32, 11449, 763, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "pink_stained_glass_pane", 11450, 32, 11481, 768, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "gray_stained_glass_pane", 11482, 32, 11513, 773, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "light_gray_stained_glass_pane", 11514, 32, 11545, 778, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "cyan_stained_glass_pane", 11546, 32, 11577, 783, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "purple_stained_glass_pane", 11578, 32, 11609, 788, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "blue_stained_glass_pane", 11610, 32, 11641, 793, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "brown_stained_glass_pane", 11642, 32, 11673, 798, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "green_stained_glass_pane", 11674, 32, 11705, 803, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "red_stained_glass_pane", 11706, 32, 11737, 808, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "black_stained_glass_pane", 11738, 32, 11769, 813, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK },
-    { "acacia_stairs", 11770, 80, 11781, 818, 4, 27, 0, VCLASS_STAIR_BLOCK },
-    { "cherry_stairs", 11850, 80, 11861, 822, 4, 27, 0, VCLASS_STAIR_BLOCK },
-    { "dark_oak_stairs", 11930, 80, 11941, 826, 4, 27, 0, VCLASS_STAIR_BLOCK },
-    { "pale_oak_stairs", 12010, 80, 12021, 830, 4, 27, 0, VCLASS_STAIR_BLOCK },
-    { "mangrove_stairs", 12090, 80, 12101, 834, 4, 27, 0, VCLASS_STAIR_BLOCK },
-    { "bamboo_stairs", 12170, 80, 12181, 838, 4, 27, 0, VCLASS_STAIR_BLOCK },
-    { "bamboo_mosaic_stairs", 12250, 80, 12261, 842, 4, 27, 0, VCLASS_STAIR_BLOCK },
-    { "slime_block", 12330, 1, 12330, 846, 0, 27, 0, VCLASS_SLIME_BLOCK },
-    { "barrier", 12331, 2, 12332, 846, 1, 27, 0, VCLASS_BARRIER_BLOCK },
-    { "light", 12333, 32, 12364, 847, 2, 27, 0, VCLASS_LIGHT_BLOCK },
-    { "iron_trapdoor", 12365, 64, 12380, 849, 5, 27, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "prismarine", 12429, 1, 12429, 854, 0, 27, 0, VCLASS_NONE },
-    { "prismarine_bricks", 12430, 1, 12430, 854, 0, 27, 0, VCLASS_NONE },
-    { "dark_prismarine", 12431, 1, 12431, 854, 0, 27, 0, VCLASS_NONE },
-    { "prismarine_stairs", 12432, 80, 12443, 854, 4, 27, 0, VCLASS_STAIR_BLOCK },
-    { "prismarine_brick_stairs", 12512, 80, 12523, 858, 4, 27, 0, VCLASS_STAIR_BLOCK },
-    { "dark_prismarine_stairs", 12592, 80, 12603, 862, 4, 27, 0, VCLASS_STAIR_BLOCK },
-    { "prismarine_slab", 12672, 6, 12675, 866, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "prismarine_brick_slab", 12678, 6, 12681, 868, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "dark_prismarine_slab", 12684, 6, 12687, 870, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "sea_lantern", 12690, 1, 12690, 872, 0, 27, 0, VCLASS_NONE },
-    { "hay_block", 12691, 3, 12692, 872, 1, 27, 0, VCLASS_HAY_BLOCK },
-    { "white_carpet", 12694, 1, 12694, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "orange_carpet", 12695, 1, 12695, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "magenta_carpet", 12696, 1, 12696, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "light_blue_carpet", 12697, 1, 12697, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "yellow_carpet", 12698, 1, 12698, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "lime_carpet", 12699, 1, 12699, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "pink_carpet", 12700, 1, 12700, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "gray_carpet", 12701, 1, 12701, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "light_gray_carpet", 12702, 1, 12702, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "cyan_carpet", 12703, 1, 12703, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "purple_carpet", 12704, 1, 12704, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "blue_carpet", 12705, 1, 12705, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "brown_carpet", 12706, 1, 12706, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "green_carpet", 12707, 1, 12707, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "red_carpet", 12708, 1, 12708, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "black_carpet", 12709, 1, 12709, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK },
-    { "terracotta", 12710, 1, 12710, 873, 0, 27, 0, VCLASS_NONE },
-    { "coal_block", 12711, 1, 12711, 873, 0, 27, 0, VCLASS_NONE },
-    { "packed_ice", 12712, 1, 12712, 873, 0, 27, 0, VCLASS_NONE },
-    { "sunflower", 12713, 2, 12714, 873, 1, 27, 0, VCLASS_TALL_FLOWER_BLOCK },
-    { "lilac", 12715, 2, 12716, 874, 1, 27, 0, VCLASS_TALL_FLOWER_BLOCK },
-    { "rose_bush", 12717, 2, 12718, 875, 1, 27, 0, VCLASS_TALL_FLOWER_BLOCK },
-    { "peony", 12719, 2, 12720, 876, 1, 27, 0, VCLASS_TALL_FLOWER_BLOCK },
-    { "tall_grass", 12721, 2, 12722, 877, 1, 27, 0, VCLASS_DOUBLE_PLANT_BLOCK },
-    { "large_fern", 12723, 2, 12724, 878, 1, 27, 0, VCLASS_DOUBLE_PLANT_BLOCK },
-    { "white_banner", 12725, 16, 12725, 879, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "orange_banner", 12741, 16, 12741, 880, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "magenta_banner", 12757, 16, 12757, 881, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "light_blue_banner", 12773, 16, 12773, 882, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "yellow_banner", 12789, 16, 12789, 883, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "lime_banner", 12805, 16, 12805, 884, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "pink_banner", 12821, 16, 12821, 885, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "gray_banner", 12837, 16, 12837, 886, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "light_gray_banner", 12853, 16, 12853, 887, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "cyan_banner", 12869, 16, 12869, 888, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "purple_banner", 12885, 16, 12885, 889, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "blue_banner", 12901, 16, 12901, 890, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "brown_banner", 12917, 16, 12917, 891, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "green_banner", 12933, 16, 12933, 892, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "red_banner", 12949, 16, 12949, 893, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "black_banner", 12965, 16, 12965, 894, 1, 27, 0, VCLASS_BANNER_BLOCK },
-    { "white_wall_banner", 12981, 4, 12981, 895, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "orange_wall_banner", 12985, 4, 12985, 896, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "magenta_wall_banner", 12989, 4, 12989, 897, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "light_blue_wall_banner", 12993, 4, 12993, 898, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "yellow_wall_banner", 12997, 4, 12997, 899, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "lime_wall_banner", 13001, 4, 13001, 900, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "pink_wall_banner", 13005, 4, 13005, 901, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "gray_wall_banner", 13009, 4, 13009, 902, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "light_gray_wall_banner", 13013, 4, 13013, 903, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "cyan_wall_banner", 13017, 4, 13017, 904, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "purple_wall_banner", 13021, 4, 13021, 905, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "blue_wall_banner", 13025, 4, 13025, 906, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "brown_wall_banner", 13029, 4, 13029, 907, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "green_wall_banner", 13033, 4, 13033, 908, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "red_wall_banner", 13037, 4, 13037, 909, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "black_wall_banner", 13041, 4, 13041, 910, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK },
-    { "red_sandstone", 13045, 1, 13045, 911, 0, 27, 0, VCLASS_NONE },
-    { "chiseled_red_sandstone", 13046, 1, 13046, 911, 0, 27, 0, VCLASS_NONE },
-    { "cut_red_sandstone", 13047, 1, 13047, 911, 0, 27, 0, VCLASS_NONE },
-    { "red_sandstone_stairs", 13048, 80, 13059, 911, 4, 27, 0, VCLASS_STAIR_BLOCK },
-    { "oak_slab", 13128, 6, 13131, 915, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "spruce_slab", 13134, 6, 13137, 917, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "birch_slab", 13140, 6, 13143, 919, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "jungle_slab", 13146, 6, 13149, 921, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "acacia_slab", 13152, 6, 13155, 923, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "cherry_slab", 13158, 6, 13161, 925, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "dark_oak_slab", 13164, 6, 13167, 927, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "pale_oak_slab", 13170, 6, 13173, 929, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "mangrove_slab", 13176, 6, 13179, 931, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "bamboo_slab", 13182, 6, 13185, 933, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "bamboo_mosaic_slab", 13188, 6, 13191, 935, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "stone_slab", 13194, 6, 13197, 937, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "smooth_stone_slab", 13200, 6, 13203, 939, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "sandstone_slab", 13206, 6, 13209, 941, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "cut_sandstone_slab", 13212, 6, 13215, 943, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "petrified_oak_slab", 13218, 6, 13221, 945, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "cobblestone_slab", 13224, 6, 13227, 947, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "brick_slab", 13230, 6, 13233, 949, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "stone_brick_slab", 13236, 6, 13239, 951, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "mud_brick_slab", 13242, 6, 13245, 953, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "nether_brick_slab", 13248, 6, 13251, 955, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "quartz_slab", 13254, 6, 13257, 957, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "red_sandstone_slab", 13260, 6, 13263, 959, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "cut_red_sandstone_slab", 13266, 6, 13269, 961, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "purpur_slab", 13272, 6, 13275, 963, 2, 27, 0, VCLASS_SLAB_BLOCK },
-    { "smooth_stone", 13278, 1, 13278, 965, 0, 27, 0, VCLASS_NONE },
-    { "smooth_sandstone", 13279, 1, 13279, 965, 0, 27, 0, VCLASS_NONE },
-    { "smooth_quartz", 13280, 1, 13280, 965, 0, 27, 0, VCLASS_NONE },
-    { "smooth_red_sandstone", 13281, 1, 13281, 965, 0, 27, 0, VCLASS_NONE },
-    { "spruce_fence_gate", 13282, 32, 13289, 965, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK },
-    { "birch_fence_gate", 13314, 32, 13321, 969, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK },
-    { "jungle_fence_gate", 13346, 32, 13353, 973, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK },
-    { "acacia_fence_gate", 13378, 32, 13385, 977, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK },
-    { "cherry_fence_gate", 13410, 32, 13417, 981, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK },
-    { "dark_oak_fence_gate", 13442, 32, 13449, 985, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK },
-    { "pale_oak_fence_gate", 13474, 32, 13481, 989, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK },
-    { "mangrove_fence_gate", 13506, 32, 13513, 993, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK },
-    { "bamboo_fence_gate", 13538, 32, 13545, 997, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK },
-    { "spruce_fence", 13570, 32, 13601, 1001, 5, 27, 0, VCLASS_FENCE_BLOCK },
-    { "birch_fence", 13602, 32, 13633, 1006, 5, 27, 0, VCLASS_FENCE_BLOCK },
-    { "jungle_fence", 13634, 32, 13665, 1011, 5, 27, 0, VCLASS_FENCE_BLOCK },
-    { "acacia_fence", 13666, 32, 13697, 1016, 5, 27, 0, VCLASS_FENCE_BLOCK },
-    { "cherry_fence", 13698, 32, 13729, 1021, 5, 27, 0, VCLASS_FENCE_BLOCK },
-    { "dark_oak_fence", 13730, 32, 13761, 1026, 5, 27, 0, VCLASS_FENCE_BLOCK },
-    { "pale_oak_fence", 13762, 32, 13793, 1031, 5, 27, 0, VCLASS_FENCE_BLOCK },
-    { "mangrove_fence", 13794, 32, 13825, 1036, 5, 27, 0, VCLASS_FENCE_BLOCK },
-    { "bamboo_fence", 13826, 32, 13857, 1041, 5, 27, 0, VCLASS_FENCE_BLOCK },
-    { "spruce_door", 13858, 64, 13869, 1046, 5, 27, 0, VCLASS_DOOR_BLOCK },
-    { "birch_door", 13922, 64, 13933, 1051, 5, 27, 0, VCLASS_DOOR_BLOCK },
-    { "jungle_door", 13986, 64, 13997, 1056, 5, 27, 0, VCLASS_DOOR_BLOCK },
-    { "acacia_door", 14050, 64, 14061, 1061, 5, 27, 0, VCLASS_DOOR_BLOCK },
-    { "cherry_door", 14114, 64, 14125, 1066, 5, 27, 0, VCLASS_DOOR_BLOCK },
-    { "dark_oak_door", 14178, 64, 14189, 1071, 5, 27, 0, VCLASS_DOOR_BLOCK },
-    { "pale_oak_door", 14242, 64, 14253, 1076, 5, 27, 0, VCLASS_DOOR_BLOCK },
-    { "mangrove_door", 14306, 64, 14317, 1081, 5, 27, 0, VCLASS_DOOR_BLOCK },
-    { "bamboo_door", 14370, 64, 14381, 1086, 5, 27, 0, VCLASS_DOOR_BLOCK },
-    { "end_rod", 14434, 6, 14438, 1091, 1, 27, 0, VCLASS_END_ROD_BLOCK },
-    { "chorus_plant", 14440, 64, 14503, 1092, 6, 27, 0, VCLASS_CHORUS_PLANT_BLOCK },
-    { "chorus_flower", 14504, 6, 14504, 1098, 1, 27, 0, VCLASS_CHORUS_FLOWER_BLOCK },
-    { "purpur_block", 14510, 1, 14510, 1099, 0, 27, 0, VCLASS_NONE },
-    { "purpur_pillar", 14511, 3, 14512, 1099, 1, 27, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "purpur_stairs", 14514, 80, 14525, 1100, 4, 27, 0, VCLASS_STAIR_BLOCK },
-    { "end_stone_bricks", 14594, 1, 14594, 1104, 0, 27, 0, VCLASS_NONE },
-    { "torchflower_crop", 14595, 2, 14595, 1104, 1, 27, 0, VCLASS_TORCHFLOWER_CROP_BLOCK },
-    { "pitcher_crop", 14597, 10, 14598, 1105, 2, 27, 0, VCLASS_PITCHER_CROP_BLOCK },
-    { "pitcher_plant", 14607, 2, 14608, 1107, 1, 27, 0, VCLASS_DOUBLE_PLANT_BLOCK },
-    { "beetroots", 14609, 4, 14609, 1108, 1, 27, 0, VCLASS_BEETROOT_BLOCK },
-    { "dirt_path", 14613, 1, 14613, 1109, 0, 27, 0, VCLASS_DIRT_PATH_BLOCK },
-    { "end_gateway", 14614, 1, 14614, 1109, 0, 27, 0, VCLASS_END_GATEWAY_BLOCK },
-    { "repeating_command_block", 14615, 12, 14621, 1109, 2, 27, 1, VCLASS_COMMAND_BLOCK },
-    { "chain_command_block", 14627, 12, 14633, 1111, 2, 28, 1, VCLASS_COMMAND_BLOCK },
-    { "frosted_ice", 14639, 4, 14639, 1113, 1, 29, 0, VCLASS_FROSTED_ICE_BLOCK },
-    { "magma_block", 14643, 1, 14643, 1114, 0, 29, 0, VCLASS_MAGMA_BLOCK },
-    { "nether_wart_block", 14644, 1, 14644, 1114, 0, 29, 0, VCLASS_NONE },
-    { "red_nether_bricks", 14645, 1, 14645, 1114, 0, 29, 0, VCLASS_NONE },
-    { "bone_block", 14646, 3, 14647, 1114, 1, 29, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "structure_void", 14649, 1, 14649, 1115, 0, 29, 0, VCLASS_STRUCTURE_VOID_BLOCK },
-    { "observer", 14650, 12, 14655, 1115, 2, 29, 0, VCLASS_OBSERVER_BLOCK },
-    { "shulker_box", 14662, 6, 14666, 1117, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "white_shulker_box", 14668, 6, 14672, 1118, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "orange_shulker_box", 14674, 6, 14678, 1119, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "magenta_shulker_box", 14680, 6, 14684, 1120, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "light_blue_shulker_box", 14686, 6, 14690, 1121, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "yellow_shulker_box", 14692, 6, 14696, 1122, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "lime_shulker_box", 14698, 6, 14702, 1123, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "pink_shulker_box", 14704, 6, 14708, 1124, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "gray_shulker_box", 14710, 6, 14714, 1125, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "light_gray_shulker_box", 14716, 6, 14720, 1126, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "cyan_shulker_box", 14722, 6, 14726, 1127, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "purple_shulker_box", 14728, 6, 14732, 1128, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "blue_shulker_box", 14734, 6, 14738, 1129, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "brown_shulker_box", 14740, 6, 14744, 1130, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "green_shulker_box", 14746, 6, 14750, 1131, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "red_shulker_box", 14752, 6, 14756, 1132, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "black_shulker_box", 14758, 6, 14762, 1133, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK },
-    { "white_glazed_terracotta", 14764, 4, 14764, 1134, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "orange_glazed_terracotta", 14768, 4, 14768, 1135, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "magenta_glazed_terracotta", 14772, 4, 14772, 1136, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "light_blue_glazed_terracotta", 14776, 4, 14776, 1137, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "yellow_glazed_terracotta", 14780, 4, 14780, 1138, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "lime_glazed_terracotta", 14784, 4, 14784, 1139, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "pink_glazed_terracotta", 14788, 4, 14788, 1140, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "gray_glazed_terracotta", 14792, 4, 14792, 1141, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "light_gray_glazed_terracotta", 14796, 4, 14796, 1142, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "cyan_glazed_terracotta", 14800, 4, 14800, 1143, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "purple_glazed_terracotta", 14804, 4, 14804, 1144, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "blue_glazed_terracotta", 14808, 4, 14808, 1145, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "brown_glazed_terracotta", 14812, 4, 14812, 1146, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "green_glazed_terracotta", 14816, 4, 14816, 1147, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "red_glazed_terracotta", 14820, 4, 14820, 1148, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "black_glazed_terracotta", 14824, 4, 14824, 1149, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK },
-    { "white_concrete", 14828, 1, 14828, 1150, 0, 29, 0, VCLASS_NONE },
-    { "orange_concrete", 14829, 1, 14829, 1150, 0, 29, 0, VCLASS_NONE },
-    { "magenta_concrete", 14830, 1, 14830, 1150, 0, 29, 0, VCLASS_NONE },
-    { "light_blue_concrete", 14831, 1, 14831, 1150, 0, 29, 0, VCLASS_NONE },
-    { "yellow_concrete", 14832, 1, 14832, 1150, 0, 29, 0, VCLASS_NONE },
-    { "lime_concrete", 14833, 1, 14833, 1150, 0, 29, 0, VCLASS_NONE },
-    { "pink_concrete", 14834, 1, 14834, 1150, 0, 29, 0, VCLASS_NONE },
-    { "gray_concrete", 14835, 1, 14835, 1150, 0, 29, 0, VCLASS_NONE },
-    { "light_gray_concrete", 14836, 1, 14836, 1150, 0, 29, 0, VCLASS_NONE },
-    { "cyan_concrete", 14837, 1, 14837, 1150, 0, 29, 0, VCLASS_NONE },
-    { "purple_concrete", 14838, 1, 14838, 1150, 0, 29, 0, VCLASS_NONE },
-    { "blue_concrete", 14839, 1, 14839, 1150, 0, 29, 0, VCLASS_NONE },
-    { "brown_concrete", 14840, 1, 14840, 1150, 0, 29, 0, VCLASS_NONE },
-    { "green_concrete", 14841, 1, 14841, 1150, 0, 29, 0, VCLASS_NONE },
-    { "red_concrete", 14842, 1, 14842, 1150, 0, 29, 0, VCLASS_NONE },
-    { "black_concrete", 14843, 1, 14843, 1150, 0, 29, 0, VCLASS_NONE },
-    { "white_concrete_powder", 14844, 1, 14844, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "orange_concrete_powder", 14845, 1, 14845, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "magenta_concrete_powder", 14846, 1, 14846, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "light_blue_concrete_powder", 14847, 1, 14847, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "yellow_concrete_powder", 14848, 1, 14848, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "lime_concrete_powder", 14849, 1, 14849, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "pink_concrete_powder", 14850, 1, 14850, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "gray_concrete_powder", 14851, 1, 14851, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "light_gray_concrete_powder", 14852, 1, 14852, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "cyan_concrete_powder", 14853, 1, 14853, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "purple_concrete_powder", 14854, 1, 14854, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "blue_concrete_powder", 14855, 1, 14855, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "brown_concrete_powder", 14856, 1, 14856, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "green_concrete_powder", 14857, 1, 14857, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "red_concrete_powder", 14858, 1, 14858, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "black_concrete_powder", 14859, 1, 14859, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK },
-    { "kelp", 14860, 26, 14860, 1150, 1, 29, 1, VCLASS_KELP_BLOCK },
-    { "kelp_plant", 14886, 1, 14886, 1151, 0, 30, 1, VCLASS_KELP_PLANT_BLOCK },
-    { "dried_kelp_block", 14887, 1, 14887, 1151, 0, 31, 0, VCLASS_NONE },
-    { "turtle_egg", 14888, 12, 14888, 1151, 2, 31, 0, VCLASS_TURTLE_EGG_BLOCK },
-    { "sniffer_egg", 14900, 3, 14900, 1153, 1, 31, 0, VCLASS_SNIFFER_EGG_BLOCK },
-    { "dried_ghast", 14903, 32, 14904, 1154, 3, 31, 0, VCLASS_DRIED_GHAST_BLOCK },
-    { "dead_tube_coral_block", 14935, 1, 14935, 1157, 0, 31, 0, VCLASS_NONE },
-    { "dead_brain_coral_block", 14936, 1, 14936, 1157, 0, 31, 0, VCLASS_NONE },
-    { "dead_bubble_coral_block", 14937, 1, 14937, 1157, 0, 31, 0, VCLASS_NONE },
-    { "dead_fire_coral_block", 14938, 1, 14938, 1157, 0, 31, 0, VCLASS_NONE },
-    { "dead_horn_coral_block", 14939, 1, 14939, 1157, 0, 31, 0, VCLASS_NONE },
-    { "tube_coral_block", 14940, 1, 14940, 1157, 0, 31, 0, VCLASS_CORAL_BLOCK },
-    { "brain_coral_block", 14941, 1, 14941, 1157, 0, 31, 0, VCLASS_CORAL_BLOCK },
-    { "bubble_coral_block", 14942, 1, 14942, 1157, 0, 31, 0, VCLASS_CORAL_BLOCK },
-    { "fire_coral_block", 14943, 1, 14943, 1157, 0, 31, 0, VCLASS_CORAL_BLOCK },
-    { "horn_coral_block", 14944, 1, 14944, 1157, 0, 31, 0, VCLASS_CORAL_BLOCK },
-    { "dead_tube_coral", 14945, 2, 14945, 1157, 1, 31, 0, VCLASS_BASE_CORAL_PLANT_BLOCK },
-    { "dead_brain_coral", 14947, 2, 14947, 1158, 1, 31, 0, VCLASS_BASE_CORAL_PLANT_BLOCK },
-    { "dead_bubble_coral", 14949, 2, 14949, 1159, 1, 31, 0, VCLASS_BASE_CORAL_PLANT_BLOCK },
-    { "dead_fire_coral", 14951, 2, 14951, 1160, 1, 31, 0, VCLASS_BASE_CORAL_PLANT_BLOCK },
-    { "dead_horn_coral", 14953, 2, 14953, 1161, 1, 31, 0, VCLASS_BASE_CORAL_PLANT_BLOCK },
-    { "tube_coral", 14955, 2, 14955, 1162, 1, 31, 0, VCLASS_CORAL_PLANT_BLOCK },
-    { "brain_coral", 14957, 2, 14957, 1163, 1, 31, 0, VCLASS_CORAL_PLANT_BLOCK },
-    { "bubble_coral", 14959, 2, 14959, 1164, 1, 31, 0, VCLASS_CORAL_PLANT_BLOCK },
-    { "fire_coral", 14961, 2, 14961, 1165, 1, 31, 0, VCLASS_CORAL_PLANT_BLOCK },
-    { "horn_coral", 14963, 2, 14963, 1166, 1, 31, 0, VCLASS_CORAL_PLANT_BLOCK },
-    { "dead_tube_coral_fan", 14965, 2, 14965, 1167, 1, 31, 0, VCLASS_BASE_CORAL_FAN_BLOCK },
-    { "dead_brain_coral_fan", 14967, 2, 14967, 1168, 1, 31, 0, VCLASS_BASE_CORAL_FAN_BLOCK },
-    { "dead_bubble_coral_fan", 14969, 2, 14969, 1169, 1, 31, 0, VCLASS_BASE_CORAL_FAN_BLOCK },
-    { "dead_fire_coral_fan", 14971, 2, 14971, 1170, 1, 31, 0, VCLASS_BASE_CORAL_FAN_BLOCK },
-    { "dead_horn_coral_fan", 14973, 2, 14973, 1171, 1, 31, 0, VCLASS_BASE_CORAL_FAN_BLOCK },
-    { "tube_coral_fan", 14975, 2, 14975, 1172, 1, 31, 0, VCLASS_CORAL_FAN_BLOCK },
-    { "brain_coral_fan", 14977, 2, 14977, 1173, 1, 31, 0, VCLASS_CORAL_FAN_BLOCK },
-    { "bubble_coral_fan", 14979, 2, 14979, 1174, 1, 31, 0, VCLASS_CORAL_FAN_BLOCK },
-    { "fire_coral_fan", 14981, 2, 14981, 1175, 1, 31, 0, VCLASS_CORAL_FAN_BLOCK },
-    { "horn_coral_fan", 14983, 2, 14983, 1176, 1, 31, 0, VCLASS_CORAL_FAN_BLOCK },
-    { "dead_tube_coral_wall_fan", 14985, 8, 14985, 1177, 2, 31, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK },
-    { "dead_brain_coral_wall_fan", 14993, 8, 14993, 1179, 2, 31, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK },
-    { "dead_bubble_coral_wall_fan", 15001, 8, 15001, 1181, 2, 31, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK },
-    { "dead_fire_coral_wall_fan", 15009, 8, 15009, 1183, 2, 31, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK },
-    { "dead_horn_coral_wall_fan", 15017, 8, 15017, 1185, 2, 31, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK },
-    { "tube_coral_wall_fan", 15025, 8, 15025, 1187, 2, 31, 0, VCLASS_CORAL_WALL_FAN_BLOCK },
-    { "brain_coral_wall_fan", 15033, 8, 15033, 1189, 2, 31, 0, VCLASS_CORAL_WALL_FAN_BLOCK },
-    { "bubble_coral_wall_fan", 15041, 8, 15041, 1191, 2, 31, 0, VCLASS_CORAL_WALL_FAN_BLOCK },
-    { "fire_coral_wall_fan", 15049, 8, 15049, 1193, 2, 31, 0, VCLASS_CORAL_WALL_FAN_BLOCK },
-    { "horn_coral_wall_fan", 15057, 8, 15057, 1195, 2, 31, 0, VCLASS_CORAL_WALL_FAN_BLOCK },
-    { "sea_pickle", 15065, 8, 15065, 1197, 2, 31, 0, VCLASS_SEA_PICKLE_BLOCK },
-    { "blue_ice", 15073, 1, 15073, 1199, 0, 31, 0, VCLASS_HALF_TRANSPARENT_BLOCK },
-    { "conduit", 15074, 2, 15074, 1199, 1, 31, 0, VCLASS_CONDUIT_BLOCK },
-    { "bamboo_sapling", 15076, 1, 15076, 1200, 0, 31, 0, VCLASS_BAMBOO_SAPLING_BLOCK },
-    { "bamboo", 15077, 12, 15077, 1200, 3, 31, 0, VCLASS_BAMBOO_STALK_BLOCK },
-    { "potted_bamboo", 15089, 1, 15089, 1203, 0, 31, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "void_air", 15090, 1, 15090, 1203, 0, 31, 0, VCLASS_AIR_BLOCK },
-    { "cave_air", 15091, 1, 15091, 1203, 0, 31, 0, VCLASS_AIR_BLOCK },
-    { "bubble_column", 15092, 2, 15092, 1203, 1, 31, 0, VCLASS_BUBBLE_COLUMN_BLOCK },
-    { "polished_granite_stairs", 15094, 80, 15105, 1204, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "smooth_red_sandstone_stairs", 15174, 80, 15185, 1208, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "mossy_stone_brick_stairs", 15254, 80, 15265, 1212, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "polished_diorite_stairs", 15334, 80, 15345, 1216, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "mossy_cobblestone_stairs", 15414, 80, 15425, 1220, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "end_stone_brick_stairs", 15494, 80, 15505, 1224, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "stone_stairs", 15574, 80, 15585, 1228, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "smooth_sandstone_stairs", 15654, 80, 15665, 1232, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "smooth_quartz_stairs", 15734, 80, 15745, 1236, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "granite_stairs", 15814, 80, 15825, 1240, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "andesite_stairs", 15894, 80, 15905, 1244, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "red_nether_brick_stairs", 15974, 80, 15985, 1248, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "polished_andesite_stairs", 16054, 80, 16065, 1252, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "diorite_stairs", 16134, 80, 16145, 1256, 4, 31, 0, VCLASS_STAIR_BLOCK },
-    { "polished_granite_slab", 16214, 6, 16217, 1260, 2, 31, 0, VCLASS_SLAB_BLOCK },
-    { "smooth_red_sandstone_slab", 16220, 6, 16223, 1262, 2, 31, 0, VCLASS_SLAB_BLOCK },
-    { "mossy_stone_brick_slab", 16226, 6, 16229, 1264, 2, 31, 0, VCLASS_SLAB_BLOCK },
-    { "polished_diorite_slab", 16232, 6, 16235, 1266, 2, 31, 0, VCLASS_SLAB_BLOCK },
-    { "mossy_cobblestone_slab", 16238, 6, 16241, 1268, 2, 31, 0, VCLASS_SLAB_BLOCK },
-    { "end_stone_brick_slab", 16244, 6, 16247, 1270, 2, 31, 0, VCLASS_SLAB_BLOCK },
-    { "smooth_sandstone_slab", 16250, 6, 16253, 1272, 2, 31, 0, VCLASS_SLAB_BLOCK },
-    { "smooth_quartz_slab", 16256, 6, 16259, 1274, 2, 31, 0, VCLASS_SLAB_BLOCK },
-    { "granite_slab", 16262, 6, 16265, 1276, 2, 31, 0, VCLASS_SLAB_BLOCK },
-    { "andesite_slab", 16268, 6, 16271, 1278, 2, 31, 0, VCLASS_SLAB_BLOCK },
-    { "red_nether_brick_slab", 16274, 6, 16277, 1280, 2, 31, 0, VCLASS_SLAB_BLOCK },
-    { "polished_andesite_slab", 16280, 6, 16283, 1282, 2, 31, 0, VCLASS_SLAB_BLOCK },
-    { "diorite_slab", 16286, 6, 16289, 1284, 2, 31, 0, VCLASS_SLAB_BLOCK },
-    { "brick_wall", 16292, 324, 16295, 1286, 6, 31, 0, VCLASS_WALL_BLOCK },
-    { "prismarine_wall", 16616, 324, 16619, 1292, 6, 31, 0, VCLASS_WALL_BLOCK },
-    { "red_sandstone_wall", 16940, 324, 16943, 1298, 6, 31, 0, VCLASS_WALL_BLOCK },
-    { "mossy_stone_brick_wall", 17264, 324, 17267, 1304, 6, 31, 0, VCLASS_WALL_BLOCK },
-    { "granite_wall", 17588, 324, 17591, 1310, 6, 31, 0, VCLASS_WALL_BLOCK },
-    { "stone_brick_wall", 17912, 324, 17915, 1316, 6, 31, 0, VCLASS_WALL_BLOCK },
-    { "mud_brick_wall", 18236, 324, 18239, 1322, 6, 31, 0, VCLASS_WALL_BLOCK },
-    { "nether_brick_wall", 18560, 324, 18563, 1328, 6, 31, 0, VCLASS_WALL_BLOCK },
-    { "andesite_wall", 18884, 324, 18887, 1334, 6, 31, 0, VCLASS_WALL_BLOCK },
-    { "red_nether_brick_wall", 19208, 324, 19211, 1340, 6, 31, 0, VCLASS_WALL_BLOCK },
-    { "sandstone_wall", 19532, 324, 19535, 1346, 6, 31, 0, VCLASS_WALL_BLOCK },
-    { "end_stone_brick_wall", 19856, 324, 19859, 1352, 6, 31, 0, VCLASS_WALL_BLOCK },
-    { "diorite_wall", 20180, 324, 20183, 1358, 6, 31, 0, VCLASS_WALL_BLOCK },
-    { "scaffolding", 20504, 32, 20535, 1364, 3, 31, 0, VCLASS_SCAFFOLDING_BLOCK },
-    { "loom", 20536, 4, 20536, 1367, 1, 31, 0, VCLASS_LOOM_BLOCK },
-    { "barrel", 20540, 12, 20541, 1368, 2, 31, 0, VCLASS_BARREL_BLOCK },
-    { "smoker", 20552, 8, 20553, 1370, 2, 31, 0, VCLASS_SMOKER_BLOCK },
-    { "blast_furnace", 20560, 8, 20561, 1372, 2, 31, 0, VCLASS_BLAST_FURNACE_BLOCK },
-    { "cartography_table", 20568, 1, 20568, 1374, 0, 31, 0, VCLASS_CARTOGRAPHY_TABLE_BLOCK },
-    { "fletching_table", 20569, 1, 20569, 1374, 0, 31, 0, VCLASS_NONE },
-    { "grindstone", 20570, 12, 20574, 1374, 2, 31, 0, VCLASS_GRINDSTONE_BLOCK },
-    { "lectern", 20582, 16, 20585, 1376, 3, 31, 0, VCLASS_LECTERN_BLOCK },
-    { "smithing_table", 20598, 1, 20598, 1379, 0, 31, 0, VCLASS_SMITHING_TABLE_BLOCK },
-    { "stonecutter", 20599, 4, 20599, 1379, 1, 31, 0, VCLASS_STONECUTTER_BLOCK },
-    { "bell", 20603, 32, 20604, 1380, 3, 31, 0, VCLASS_BELL_BLOCK },
-    { "lantern", 20635, 4, 20638, 1383, 2, 31, 0, VCLASS_LANTERN_BLOCK },
-    { "soul_lantern", 20639, 4, 20642, 1385, 2, 31, 0, VCLASS_LANTERN_BLOCK },
-    { "copper_lantern", 20643, 4, 20646, 1387, 2, 31, 0, VCLASS_WEATHERING_LANTERN_BLOCK },
-    { "exposed_copper_lantern", 20647, 4, 20650, 1389, 2, 31, 0, VCLASS_WEATHERING_LANTERN_BLOCK },
-    { "weathered_copper_lantern", 20651, 4, 20654, 1391, 2, 31, 0, VCLASS_WEATHERING_LANTERN_BLOCK },
-    { "oxidized_copper_lantern", 20655, 4, 20658, 1393, 2, 31, 0, VCLASS_WEATHERING_LANTERN_BLOCK },
-    { "waxed_copper_lantern", 20659, 4, 20662, 1395, 2, 31, 0, VCLASS_LANTERN_BLOCK },
-    { "waxed_exposed_copper_lantern", 20663, 4, 20666, 1397, 2, 31, 0, VCLASS_LANTERN_BLOCK },
-    { "waxed_weathered_copper_lantern", 20667, 4, 20670, 1399, 2, 31, 0, VCLASS_LANTERN_BLOCK },
-    { "waxed_oxidized_copper_lantern", 20671, 4, 20674, 1401, 2, 31, 0, VCLASS_LANTERN_BLOCK },
-    { "campfire", 20675, 32, 20678, 1403, 4, 31, 2, VCLASS_CAMPFIRE_BLOCK },
-    { "soul_campfire", 20707, 32, 20710, 1407, 4, 33, 2, VCLASS_CAMPFIRE_BLOCK },
-    { "sweet_berry_bush", 20739, 4, 20739, 1411, 1, 35, 0, VCLASS_SWEET_BERRY_BUSH_BLOCK },
-    { "warped_stem", 20743, 3, 20744, 1412, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_warped_stem", 20746, 3, 20747, 1413, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "warped_hyphae", 20749, 3, 20750, 1414, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_warped_hyphae", 20752, 3, 20753, 1415, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "warped_nylium", 20755, 1, 20755, 1416, 0, 35, 0, VCLASS_NYLIUM_BLOCK },
-    { "warped_fungus", 20756, 1, 20756, 1416, 0, 35, 0, VCLASS_FUNGUS_BLOCK },
-    { "warped_wart_block", 20757, 1, 20757, 1416, 0, 35, 0, VCLASS_NONE },
-    { "warped_roots", 20758, 1, 20758, 1416, 0, 35, 0, VCLASS_ROOTS_BLOCK },
-    { "nether_sprouts", 20759, 1, 20759, 1416, 0, 35, 0, VCLASS_NETHER_SPROUTS_BLOCK },
-    { "crimson_stem", 20760, 3, 20761, 1416, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_crimson_stem", 20763, 3, 20764, 1417, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "crimson_hyphae", 20766, 3, 20767, 1418, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "stripped_crimson_hyphae", 20769, 3, 20770, 1419, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "crimson_nylium", 20772, 1, 20772, 1420, 0, 35, 0, VCLASS_NYLIUM_BLOCK },
-    { "crimson_fungus", 20773, 1, 20773, 1420, 0, 35, 0, VCLASS_FUNGUS_BLOCK },
-    { "shroomlight", 20774, 1, 20774, 1420, 0, 35, 0, VCLASS_NONE },
-    { "weeping_vines", 20775, 26, 20775, 1420, 1, 35, 1, VCLASS_WEEPING_VINES_BLOCK },
-    { "weeping_vines_plant", 20801, 1, 20801, 1421, 0, 36, 1, VCLASS_WEEPING_VINES_PLANT_BLOCK },
-    { "twisting_vines", 20802, 26, 20802, 1421, 1, 37, 1, VCLASS_TWISTING_VINES_BLOCK },
-    { "twisting_vines_plant", 20828, 1, 20828, 1422, 0, 38, 1, VCLASS_TWISTING_VINES_PLANT_BLOCK },
-    { "crimson_roots", 20829, 1, 20829, 1422, 0, 39, 0, VCLASS_ROOTS_BLOCK },
-    { "crimson_planks", 20830, 1, 20830, 1422, 0, 39, 0, VCLASS_NONE },
-    { "warped_planks", 20831, 1, 20831, 1422, 0, 39, 0, VCLASS_NONE },
-    { "crimson_slab", 20832, 6, 20835, 1422, 2, 39, 0, VCLASS_SLAB_BLOCK },
-    { "warped_slab", 20838, 6, 20841, 1424, 2, 39, 0, VCLASS_SLAB_BLOCK },
-    { "crimson_pressure_plate", 20844, 2, 20845, 1426, 1, 39, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "warped_pressure_plate", 20846, 2, 20847, 1427, 1, 39, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "crimson_fence", 20848, 32, 20879, 1428, 5, 39, 0, VCLASS_FENCE_BLOCK },
-    { "warped_fence", 20880, 32, 20911, 1433, 5, 39, 0, VCLASS_FENCE_BLOCK },
-    { "crimson_trapdoor", 20912, 64, 20927, 1438, 5, 39, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "warped_trapdoor", 20976, 64, 20991, 1443, 5, 39, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "crimson_fence_gate", 21040, 32, 21047, 1448, 4, 39, 0, VCLASS_FENCE_GATE_BLOCK },
-    { "warped_fence_gate", 21072, 32, 21079, 1452, 4, 39, 0, VCLASS_FENCE_GATE_BLOCK },
-    { "crimson_stairs", 21104, 80, 21115, 1456, 4, 39, 0, VCLASS_STAIR_BLOCK },
-    { "warped_stairs", 21184, 80, 21195, 1460, 4, 39, 0, VCLASS_STAIR_BLOCK },
-    { "crimson_button", 21264, 24, 21273, 1464, 3, 39, 1, VCLASS_BUTTON_BLOCK },
-    { "warped_button", 21288, 24, 21297, 1467, 3, 40, 1, VCLASS_BUTTON_BLOCK },
-    { "crimson_door", 21312, 64, 21323, 1470, 5, 41, 0, VCLASS_DOOR_BLOCK },
-    { "warped_door", 21376, 64, 21387, 1475, 5, 41, 0, VCLASS_DOOR_BLOCK },
-    { "crimson_sign", 21440, 32, 21441, 1480, 2, 41, 0, VCLASS_STANDING_SIGN_BLOCK },
-    { "warped_sign", 21472, 32, 21473, 1482, 2, 41, 0, VCLASS_STANDING_SIGN_BLOCK },
-    { "crimson_wall_sign", 21504, 8, 21505, 1484, 2, 41, 0, VCLASS_WALL_SIGN_BLOCK },
-    { "warped_wall_sign", 21512, 8, 21513, 1486, 2, 41, 0, VCLASS_WALL_SIGN_BLOCK },
-    { "structure_block", 21520, 4, 21521, 1488, 1, 41, 0, VCLASS_STRUCTURE_BLOCK },
-    { "jigsaw", 21524, 12, 21534, 1489, 1, 41, 0, VCLASS_JIGSAW_BLOCK },
-    { "test_block", 21536, 4, 21536, 1490, 1, 41, 0, VCLASS_TEST_BLOCK },
-    { "test_instance_block", 21540, 1, 21540, 1491, 0, 41, 0, VCLASS_TEST_INSTANCE_BLOCK },
-    { "composter", 21541, 9, 21541, 1491, 1, 41, 0, VCLASS_COMPOSTER_BLOCK },
-    { "target", 21550, 16, 21550, 1492, 1, 41, 0, VCLASS_TARGET_BLOCK },
-    { "bee_nest", 21566, 24, 21566, 1493, 2, 41, 0, VCLASS_BEEHIVE_BLOCK },
-    { "beehive", 21590, 24, 21590, 1495, 2, 41, 0, VCLASS_BEEHIVE_BLOCK },
-    { "honey_block", 21614, 1, 21614, 1497, 0, 41, 0, VCLASS_HONEY_BLOCK },
-    { "honeycomb_block", 21615, 1, 21615, 1497, 0, 41, 0, VCLASS_NONE },
-    { "netherite_block", 21616, 1, 21616, 1497, 0, 41, 0, VCLASS_NONE },
-    { "ancient_debris", 21617, 1, 21617, 1497, 0, 41, 0, VCLASS_NONE },
-    { "crying_obsidian", 21618, 1, 21618, 1497, 0, 41, 0, VCLASS_CRYING_OBSIDIAN_BLOCK },
-    { "respawn_anchor", 21619, 5, 21619, 1497, 1, 41, 0, VCLASS_RESPAWN_ANCHOR_BLOCK },
-    { "potted_crimson_fungus", 21624, 1, 21624, 1498, 0, 41, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_warped_fungus", 21625, 1, 21625, 1498, 0, 41, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_crimson_roots", 21626, 1, 21626, 1498, 0, 41, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_warped_roots", 21627, 1, 21627, 1498, 0, 41, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "lodestone", 21628, 1, 21628, 1498, 0, 41, 0, VCLASS_NONE },
-    { "blackstone", 21629, 1, 21629, 1498, 0, 41, 0, VCLASS_NONE },
-    { "blackstone_stairs", 21630, 80, 21641, 1498, 4, 41, 0, VCLASS_STAIR_BLOCK },
-    { "blackstone_wall", 21710, 324, 21713, 1502, 6, 41, 0, VCLASS_WALL_BLOCK },
-    { "blackstone_slab", 22034, 6, 22037, 1508, 2, 41, 0, VCLASS_SLAB_BLOCK },
-    { "polished_blackstone", 22040, 1, 22040, 1510, 0, 41, 0, VCLASS_NONE },
-    { "polished_blackstone_bricks", 22041, 1, 22041, 1510, 0, 41, 0, VCLASS_NONE },
-    { "cracked_polished_blackstone_bricks", 22042, 1, 22042, 1510, 0, 41, 0, VCLASS_NONE },
-    { "chiseled_polished_blackstone", 22043, 1, 22043, 1510, 0, 41, 0, VCLASS_NONE },
-    { "polished_blackstone_brick_slab", 22044, 6, 22047, 1510, 2, 41, 0, VCLASS_SLAB_BLOCK },
-    { "polished_blackstone_brick_stairs", 22050, 80, 22061, 1512, 4, 41, 0, VCLASS_STAIR_BLOCK },
-    { "polished_blackstone_brick_wall", 22130, 324, 22133, 1516, 6, 41, 0, VCLASS_WALL_BLOCK },
-    { "gilded_blackstone", 22454, 1, 22454, 1522, 0, 41, 0, VCLASS_NONE },
-    { "polished_blackstone_stairs", 22455, 80, 22466, 1522, 4, 41, 0, VCLASS_STAIR_BLOCK },
-    { "polished_blackstone_slab", 22535, 6, 22538, 1526, 2, 41, 0, VCLASS_SLAB_BLOCK },
-    { "polished_blackstone_pressure_plate", 22541, 2, 22542, 1528, 1, 41, 0, VCLASS_PRESSURE_PLATE_BLOCK },
-    { "polished_blackstone_button", 22543, 24, 22552, 1529, 3, 41, 1, VCLASS_BUTTON_BLOCK },
-    { "polished_blackstone_wall", 22567, 324, 22570, 1532, 6, 42, 0, VCLASS_WALL_BLOCK },
-    { "chiseled_nether_bricks", 22891, 1, 22891, 1538, 0, 42, 0, VCLASS_NONE },
-    { "cracked_nether_bricks", 22892, 1, 22892, 1538, 0, 42, 0, VCLASS_NONE },
-    { "quartz_bricks", 22893, 1, 22893, 1538, 0, 42, 0, VCLASS_NONE },
-    { "candle", 22894, 16, 22897, 1538, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "white_candle", 22910, 16, 22913, 1541, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "orange_candle", 22926, 16, 22929, 1544, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "magenta_candle", 22942, 16, 22945, 1547, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "light_blue_candle", 22958, 16, 22961, 1550, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "yellow_candle", 22974, 16, 22977, 1553, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "lime_candle", 22990, 16, 22993, 1556, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "pink_candle", 23006, 16, 23009, 1559, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "gray_candle", 23022, 16, 23025, 1562, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "light_gray_candle", 23038, 16, 23041, 1565, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "cyan_candle", 23054, 16, 23057, 1568, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "purple_candle", 23070, 16, 23073, 1571, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "blue_candle", 23086, 16, 23089, 1574, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "brown_candle", 23102, 16, 23105, 1577, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "green_candle", 23118, 16, 23121, 1580, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "red_candle", 23134, 16, 23137, 1583, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "black_candle", 23150, 16, 23153, 1586, 3, 42, 0, VCLASS_CANDLE_BLOCK },
-    { "candle_cake", 23166, 2, 23167, 1589, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "white_candle_cake", 23168, 2, 23169, 1590, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "orange_candle_cake", 23170, 2, 23171, 1591, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "magenta_candle_cake", 23172, 2, 23173, 1592, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "light_blue_candle_cake", 23174, 2, 23175, 1593, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "yellow_candle_cake", 23176, 2, 23177, 1594, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "lime_candle_cake", 23178, 2, 23179, 1595, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "pink_candle_cake", 23180, 2, 23181, 1596, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "gray_candle_cake", 23182, 2, 23183, 1597, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "light_gray_candle_cake", 23184, 2, 23185, 1598, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "cyan_candle_cake", 23186, 2, 23187, 1599, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "purple_candle_cake", 23188, 2, 23189, 1600, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "blue_candle_cake", 23190, 2, 23191, 1601, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "brown_candle_cake", 23192, 2, 23193, 1602, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "green_candle_cake", 23194, 2, 23195, 1603, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "red_candle_cake", 23196, 2, 23197, 1604, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "black_candle_cake", 23198, 2, 23199, 1605, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK },
-    { "amethyst_block", 23200, 1, 23200, 1606, 0, 42, 0, VCLASS_AMETHYST_BLOCK },
-    { "budding_amethyst", 23201, 1, 23201, 1606, 0, 42, 0, VCLASS_BUDDING_AMETHYST_BLOCK },
-    { "amethyst_cluster", 23202, 12, 23211, 1606, 2, 42, 0, VCLASS_AMETHYST_CLUSTER_BLOCK },
-    { "large_amethyst_bud", 23214, 12, 23223, 1608, 2, 42, 0, VCLASS_AMETHYST_CLUSTER_BLOCK },
-    { "medium_amethyst_bud", 23226, 12, 23235, 1610, 2, 42, 0, VCLASS_AMETHYST_CLUSTER_BLOCK },
-    { "small_amethyst_bud", 23238, 12, 23247, 1612, 2, 42, 0, VCLASS_AMETHYST_CLUSTER_BLOCK },
-    { "tuff", 23250, 1, 23250, 1614, 0, 42, 0, VCLASS_NONE },
-    { "tuff_slab", 23251, 6, 23254, 1614, 2, 42, 0, VCLASS_SLAB_BLOCK },
-    { "tuff_stairs", 23257, 80, 23268, 1616, 4, 42, 0, VCLASS_STAIR_BLOCK },
-    { "tuff_wall", 23337, 324, 23340, 1620, 6, 42, 0, VCLASS_WALL_BLOCK },
-    { "polished_tuff", 23661, 1, 23661, 1626, 0, 42, 0, VCLASS_NONE },
-    { "polished_tuff_slab", 23662, 6, 23665, 1626, 2, 42, 0, VCLASS_SLAB_BLOCK },
-    { "polished_tuff_stairs", 23668, 80, 23679, 1628, 4, 42, 0, VCLASS_STAIR_BLOCK },
-    { "polished_tuff_wall", 23748, 324, 23751, 1632, 6, 42, 0, VCLASS_WALL_BLOCK },
-    { "chiseled_tuff", 24072, 1, 24072, 1638, 0, 42, 0, VCLASS_NONE },
-    { "tuff_bricks", 24073, 1, 24073, 1638, 0, 42, 0, VCLASS_NONE },
-    { "tuff_brick_slab", 24074, 6, 24077, 1638, 2, 42, 0, VCLASS_SLAB_BLOCK },
-    { "tuff_brick_stairs", 24080, 80, 24091, 1640, 4, 42, 0, VCLASS_STAIR_BLOCK },
-    { "tuff_brick_wall", 24160, 324, 24163, 1644, 6, 42, 0, VCLASS_WALL_BLOCK },
-    { "chiseled_tuff_bricks", 24484, 1, 24484, 1650, 0, 42, 0, VCLASS_NONE },
-    { "calcite", 24485, 1, 24485, 1650, 0, 42, 0, VCLASS_NONE },
-    { "tinted_glass", 24486, 1, 24486, 1650, 0, 42, 0, VCLASS_TINTED_GLASS_BLOCK },
-    { "powder_snow", 24487, 1, 24487, 1650, 0, 42, 0, VCLASS_POWDER_SNOW_BLOCK },
-    { "sculk_sensor", 24488, 96, 24489, 1650, 3, 42, 0, VCLASS_SCULK_SENSOR_BLOCK },
-    { "calibrated_sculk_sensor", 24584, 384, 24585, 1653, 4, 42, 0, VCLASS_CALIBRATED_SCULK_SENSOR_BLOCK },
-    { "sculk", 24968, 1, 24968, 1657, 0, 42, 0, VCLASS_SCULK_BLOCK },
-    { "sculk_vein", 24969, 128, 25096, 1657, 7, 42, 3, VCLASS_SCULK_VEIN_BLOCK },
-    { "sculk_catalyst", 25097, 2, 25098, 1664, 1, 45, 0, VCLASS_SCULK_CATALYST_BLOCK },
-    { "sculk_shrieker", 25099, 8, 25106, 1665, 3, 45, 0, VCLASS_SCULK_SHRIEKER_BLOCK },
-    { "copper_block", 25107, 1, 25107, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK },
-    { "exposed_copper", 25108, 1, 25108, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK },
-    { "weathered_copper", 25109, 1, 25109, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK },
-    { "oxidized_copper", 25110, 1, 25110, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK },
-    { "copper_ore", 25111, 1, 25111, 1668, 0, 45, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "deepslate_copper_ore", 25112, 1, 25112, 1668, 0, 45, 0, VCLASS_DROP_EXPERIENCE_BLOCK },
-    { "oxidized_cut_copper", 25113, 1, 25113, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK },
-    { "weathered_cut_copper", 25114, 1, 25114, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK },
-    { "exposed_cut_copper", 25115, 1, 25115, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK },
-    { "cut_copper", 25116, 1, 25116, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK },
-    { "oxidized_chiseled_copper", 25117, 1, 25117, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK },
-    { "weathered_chiseled_copper", 25118, 1, 25118, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK },
-    { "exposed_chiseled_copper", 25119, 1, 25119, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK },
-    { "chiseled_copper", 25120, 1, 25120, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK },
-    { "waxed_oxidized_chiseled_copper", 25121, 1, 25121, 1668, 0, 45, 0, VCLASS_NONE },
-    { "waxed_weathered_chiseled_copper", 25122, 1, 25122, 1668, 0, 45, 0, VCLASS_NONE },
-    { "waxed_exposed_chiseled_copper", 25123, 1, 25123, 1668, 0, 45, 0, VCLASS_NONE },
-    { "waxed_chiseled_copper", 25124, 1, 25124, 1668, 0, 45, 0, VCLASS_NONE },
-    { "oxidized_cut_copper_stairs", 25125, 80, 25136, 1668, 4, 45, 0, VCLASS_WEATHERING_COPPER_STAIR_BLOCK },
-    { "weathered_cut_copper_stairs", 25205, 80, 25216, 1672, 4, 45, 0, VCLASS_WEATHERING_COPPER_STAIR_BLOCK },
-    { "exposed_cut_copper_stairs", 25285, 80, 25296, 1676, 4, 45, 0, VCLASS_WEATHERING_COPPER_STAIR_BLOCK },
-    { "cut_copper_stairs", 25365, 80, 25376, 1680, 4, 45, 0, VCLASS_WEATHERING_COPPER_STAIR_BLOCK },
-    { "oxidized_cut_copper_slab", 25445, 6, 25448, 1684, 2, 45, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK },
-    { "weathered_cut_copper_slab", 25451, 6, 25454, 1686, 2, 45, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK },
-    { "exposed_cut_copper_slab", 25457, 6, 25460, 1688, 2, 45, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK },
-    { "cut_copper_slab", 25463, 6, 25466, 1690, 2, 45, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK },
-    { "waxed_copper_block", 25469, 1, 25469, 1692, 0, 45, 0, VCLASS_NONE },
-    { "waxed_weathered_copper", 25470, 1, 25470, 1692, 0, 45, 0, VCLASS_NONE },
-    { "waxed_exposed_copper", 25471, 1, 25471, 1692, 0, 45, 0, VCLASS_NONE },
-    { "waxed_oxidized_copper", 25472, 1, 25472, 1692, 0, 45, 0, VCLASS_NONE },
-    { "waxed_oxidized_cut_copper", 25473, 1, 25473, 1692, 0, 45, 0, VCLASS_NONE },
-    { "waxed_weathered_cut_copper", 25474, 1, 25474, 1692, 0, 45, 0, VCLASS_NONE },
-    { "waxed_exposed_cut_copper", 25475, 1, 25475, 1692, 0, 45, 0, VCLASS_NONE },
-    { "waxed_cut_copper", 25476, 1, 25476, 1692, 0, 45, 0, VCLASS_NONE },
-    { "waxed_oxidized_cut_copper_stairs", 25477, 80, 25488, 1692, 4, 45, 0, VCLASS_STAIR_BLOCK },
-    { "waxed_weathered_cut_copper_stairs", 25557, 80, 25568, 1696, 4, 45, 0, VCLASS_STAIR_BLOCK },
-    { "waxed_exposed_cut_copper_stairs", 25637, 80, 25648, 1700, 4, 45, 0, VCLASS_STAIR_BLOCK },
-    { "waxed_cut_copper_stairs", 25717, 80, 25728, 1704, 4, 45, 0, VCLASS_STAIR_BLOCK },
-    { "waxed_oxidized_cut_copper_slab", 25797, 6, 25800, 1708, 2, 45, 0, VCLASS_SLAB_BLOCK },
-    { "waxed_weathered_cut_copper_slab", 25803, 6, 25806, 1710, 2, 45, 0, VCLASS_SLAB_BLOCK },
-    { "waxed_exposed_cut_copper_slab", 25809, 6, 25812, 1712, 2, 45, 0, VCLASS_SLAB_BLOCK },
-    { "waxed_cut_copper_slab", 25815, 6, 25818, 1714, 2, 45, 0, VCLASS_SLAB_BLOCK },
-    { "copper_door", 25821, 64, 25832, 1716, 5, 45, 0, VCLASS_WEATHERING_COPPER_DOOR_BLOCK },
-    { "exposed_copper_door", 25885, 64, 25896, 1721, 5, 45, 0, VCLASS_WEATHERING_COPPER_DOOR_BLOCK },
-    { "oxidized_copper_door", 25949, 64, 25960, 1726, 5, 45, 0, VCLASS_WEATHERING_COPPER_DOOR_BLOCK },
-    { "weathered_copper_door", 26013, 64, 26024, 1731, 5, 45, 0, VCLASS_WEATHERING_COPPER_DOOR_BLOCK },
-    { "waxed_copper_door", 26077, 64, 26088, 1736, 5, 45, 0, VCLASS_DOOR_BLOCK },
-    { "waxed_exposed_copper_door", 26141, 64, 26152, 1741, 5, 45, 0, VCLASS_DOOR_BLOCK },
-    { "waxed_oxidized_copper_door", 26205, 64, 26216, 1746, 5, 45, 0, VCLASS_DOOR_BLOCK },
-    { "waxed_weathered_copper_door", 26269, 64, 26280, 1751, 5, 45, 0, VCLASS_DOOR_BLOCK },
-    { "copper_trapdoor", 26333, 64, 26348, 1756, 5, 45, 0, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK },
-    { "exposed_copper_trapdoor", 26397, 64, 26412, 1761, 5, 45, 0, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK },
-    { "oxidized_copper_trapdoor", 26461, 64, 26476, 1766, 5, 45, 0, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK },
-    { "weathered_copper_trapdoor", 26525, 64, 26540, 1771, 5, 45, 0, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK },
-    { "waxed_copper_trapdoor", 26589, 64, 26604, 1776, 5, 45, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "waxed_exposed_copper_trapdoor", 26653, 64, 26668, 1781, 5, 45, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "waxed_oxidized_copper_trapdoor", 26717, 64, 26732, 1786, 5, 45, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "waxed_weathered_copper_trapdoor", 26781, 64, 26796, 1791, 5, 45, 0, VCLASS_TRAP_DOOR_BLOCK },
-    { "copper_grate", 26845, 2, 26846, 1796, 1, 45, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK },
-    { "exposed_copper_grate", 26847, 2, 26848, 1797, 1, 45, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK },
-    { "weathered_copper_grate", 26849, 2, 26850, 1798, 1, 45, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK },
-    { "oxidized_copper_grate", 26851, 2, 26852, 1799, 1, 45, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK },
-    { "waxed_copper_grate", 26853, 2, 26854, 1800, 1, 45, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK },
-    { "waxed_exposed_copper_grate", 26855, 2, 26856, 1801, 1, 45, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK },
-    { "waxed_weathered_copper_grate", 26857, 2, 26858, 1802, 1, 45, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK },
-    { "waxed_oxidized_copper_grate", 26859, 2, 26860, 1803, 1, 45, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK },
-    { "copper_bulb", 26861, 4, 26864, 1804, 2, 45, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK },
-    { "exposed_copper_bulb", 26865, 4, 26868, 1806, 2, 45, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK },
-    { "weathered_copper_bulb", 26869, 4, 26872, 1808, 2, 45, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK },
-    { "oxidized_copper_bulb", 26873, 4, 26876, 1810, 2, 45, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK },
-    { "waxed_copper_bulb", 26877, 4, 26880, 1812, 2, 45, 0, VCLASS_COPPER_BULB_BLOCK },
-    { "waxed_exposed_copper_bulb", 26881, 4, 26884, 1814, 2, 45, 0, VCLASS_COPPER_BULB_BLOCK },
-    { "waxed_weathered_copper_bulb", 26885, 4, 26888, 1816, 2, 45, 0, VCLASS_COPPER_BULB_BLOCK },
-    { "waxed_oxidized_copper_bulb", 26889, 4, 26892, 1818, 2, 45, 0, VCLASS_COPPER_BULB_BLOCK },
-    { "copper_chest", 26893, 24, 26894, 1820, 3, 45, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK },
-    { "exposed_copper_chest", 26917, 24, 26918, 1823, 3, 45, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK },
-    { "weathered_copper_chest", 26941, 24, 26942, 1826, 3, 45, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK },
-    { "oxidized_copper_chest", 26965, 24, 26966, 1829, 3, 45, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK },
-    { "waxed_copper_chest", 26989, 24, 26990, 1832, 3, 45, 0, VCLASS_COPPER_CHEST_BLOCK },
-    { "waxed_exposed_copper_chest", 27013, 24, 27014, 1835, 3, 45, 0, VCLASS_COPPER_CHEST_BLOCK },
-    { "waxed_weathered_copper_chest", 27037, 24, 27038, 1838, 3, 45, 0, VCLASS_COPPER_CHEST_BLOCK },
-    { "waxed_oxidized_copper_chest", 27061, 24, 27062, 1841, 3, 45, 0, VCLASS_COPPER_CHEST_BLOCK },
-    { "copper_golem_statue", 27085, 32, 27086, 1844, 3, 45, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK },
-    { "exposed_copper_golem_statue", 27117, 32, 27118, 1847, 3, 45, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK },
-    { "weathered_copper_golem_statue", 27149, 32, 27150, 1850, 3, 45, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK },
-    { "oxidized_copper_golem_statue", 27181, 32, 27182, 1853, 3, 45, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK },
-    { "waxed_copper_golem_statue", 27213, 32, 27214, 1856, 3, 45, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK },
-    { "waxed_exposed_copper_golem_statue", 27245, 32, 27246, 1859, 3, 45, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK },
-    { "waxed_weathered_copper_golem_statue", 27277, 32, 27278, 1862, 3, 45, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK },
-    { "waxed_oxidized_copper_golem_statue", 27309, 32, 27310, 1865, 3, 45, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK },
-    { "lightning_rod", 27341, 24, 27360, 1868, 3, 45, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK },
-    { "exposed_lightning_rod", 27365, 24, 27384, 1871, 3, 45, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK },
-    { "weathered_lightning_rod", 27389, 24, 27408, 1874, 3, 45, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK },
-    { "oxidized_lightning_rod", 27413, 24, 27432, 1877, 3, 45, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK },
-    { "waxed_lightning_rod", 27437, 24, 27456, 1880, 3, 45, 0, VCLASS_LIGHTNING_ROD_BLOCK },
-    { "waxed_exposed_lightning_rod", 27461, 24, 27480, 1883, 3, 45, 0, VCLASS_LIGHTNING_ROD_BLOCK },
-    { "waxed_weathered_lightning_rod", 27485, 24, 27504, 1886, 3, 45, 0, VCLASS_LIGHTNING_ROD_BLOCK },
-    { "waxed_oxidized_lightning_rod", 27509, 24, 27528, 1889, 3, 45, 0, VCLASS_LIGHTNING_ROD_BLOCK },
-    { "pointed_dripstone", 27533, 20, 27538, 1892, 3, 45, 0, VCLASS_POINTED_DRIPSTONE_BLOCK },
-    { "dripstone_block", 27553, 1, 27553, 1895, 0, 45, 0, VCLASS_NONE },
-    { "cave_vines", 27554, 52, 27555, 1895, 2, 45, 1, VCLASS_CAVE_VINES_BLOCK },
-    { "cave_vines_plant", 27606, 2, 27607, 1897, 1, 46, 1, VCLASS_CAVE_VINES_PLANT_BLOCK },
-    { "spore_blossom", 27608, 1, 27608, 1898, 0, 47, 0, VCLASS_SPORE_BLOSSOM_BLOCK },
-    { "azalea", 27609, 1, 27609, 1898, 0, 47, 0, VCLASS_AZALEA_BLOCK },
-    { "flowering_azalea", 27610, 1, 27610, 1898, 0, 47, 0, VCLASS_AZALEA_BLOCK },
-    { "moss_carpet", 27611, 1, 27611, 1898, 0, 47, 0, VCLASS_CARPET_BLOCK },
-    { "pink_petals", 27612, 16, 27612, 1898, 2, 47, 0, VCLASS_FLOWER_BED_BLOCK },
-    { "wildflowers", 27628, 16, 27628, 1900, 2, 47, 0, VCLASS_FLOWER_BED_BLOCK },
-    { "leaf_litter", 27644, 16, 27644, 1902, 2, 47, 0, VCLASS_LEAF_LITTER_BLOCK },
-    { "moss_block", 27660, 1, 27660, 1904, 0, 47, 0, VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK },
-    { "big_dripleaf", 27661, 32, 27662, 1904, 3, 47, 0, VCLASS_BIG_DRIPLEAF_BLOCK },
-    { "big_dripleaf_stem", 27693, 8, 27694, 1907, 2, 47, 0, VCLASS_BIG_DRIPLEAF_STEM_BLOCK },
-    { "small_dripleaf", 27701, 16, 27704, 1909, 3, 47, 0, VCLASS_SMALL_DRIPLEAF_BLOCK },
-    { "hanging_roots", 27717, 2, 27718, 1912, 1, 47, 0, VCLASS_HANGING_ROOTS_BLOCK },
-    { "rooted_dirt", 27719, 1, 27719, 1913, 0, 47, 0, VCLASS_ROOTED_DIRT_BLOCK },
-    { "mud", 27720, 1, 27720, 1913, 0, 47, 0, VCLASS_MUD_BLOCK },
-    { "deepslate", 27721, 3, 27722, 1913, 1, 47, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "cobbled_deepslate", 27724, 1, 27724, 1914, 0, 47, 0, VCLASS_NONE },
-    { "cobbled_deepslate_stairs", 27725, 80, 27736, 1914, 4, 47, 0, VCLASS_STAIR_BLOCK },
-    { "cobbled_deepslate_slab", 27805, 6, 27808, 1918, 2, 47, 0, VCLASS_SLAB_BLOCK },
-    { "cobbled_deepslate_wall", 27811, 324, 27814, 1920, 6, 47, 0, VCLASS_WALL_BLOCK },
-    { "polished_deepslate", 28135, 1, 28135, 1926, 0, 47, 0, VCLASS_NONE },
-    { "polished_deepslate_stairs", 28136, 80, 28147, 1926, 4, 47, 0, VCLASS_STAIR_BLOCK },
-    { "polished_deepslate_slab", 28216, 6, 28219, 1930, 2, 47, 0, VCLASS_SLAB_BLOCK },
-    { "polished_deepslate_wall", 28222, 324, 28225, 1932, 6, 47, 0, VCLASS_WALL_BLOCK },
-    { "deepslate_tiles", 28546, 1, 28546, 1938, 0, 47, 0, VCLASS_NONE },
-    { "deepslate_tile_stairs", 28547, 80, 28558, 1938, 4, 47, 0, VCLASS_STAIR_BLOCK },
-    { "deepslate_tile_slab", 28627, 6, 28630, 1942, 2, 47, 0, VCLASS_SLAB_BLOCK },
-    { "deepslate_tile_wall", 28633, 324, 28636, 1944, 6, 47, 0, VCLASS_WALL_BLOCK },
-    { "deepslate_bricks", 28957, 1, 28957, 1950, 0, 47, 0, VCLASS_NONE },
-    { "deepslate_brick_stairs", 28958, 80, 28969, 1950, 4, 47, 0, VCLASS_STAIR_BLOCK },
-    { "deepslate_brick_slab", 29038, 6, 29041, 1954, 2, 47, 0, VCLASS_SLAB_BLOCK },
-    { "deepslate_brick_wall", 29044, 324, 29047, 1956, 6, 47, 0, VCLASS_WALL_BLOCK },
-    { "chiseled_deepslate", 29368, 1, 29368, 1962, 0, 47, 0, VCLASS_NONE },
-    { "cracked_deepslate_bricks", 29369, 1, 29369, 1962, 0, 47, 0, VCLASS_NONE },
-    { "cracked_deepslate_tiles", 29370, 1, 29370, 1962, 0, 47, 0, VCLASS_NONE },
-    { "infested_deepslate", 29371, 3, 29372, 1962, 1, 47, 0, VCLASS_INFESTED_ROTATED_PILLAR_BLOCK },
-    { "smooth_basalt", 29374, 1, 29374, 1963, 0, 47, 0, VCLASS_NONE },
-    { "raw_iron_block", 29375, 1, 29375, 1963, 0, 47, 0, VCLASS_NONE },
-    { "raw_copper_block", 29376, 1, 29376, 1963, 0, 47, 0, VCLASS_NONE },
-    { "raw_gold_block", 29377, 1, 29377, 1963, 0, 47, 0, VCLASS_NONE },
-    { "potted_azalea_bush", 29378, 1, 29378, 1963, 0, 47, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_flowering_azalea_bush", 29379, 1, 29379, 1963, 0, 47, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "ochre_froglight", 29380, 3, 29381, 1963, 1, 47, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "verdant_froglight", 29383, 3, 29384, 1964, 1, 47, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "pearlescent_froglight", 29386, 3, 29387, 1965, 1, 47, 0, VCLASS_ROTATED_PILLAR_BLOCK },
-    { "frogspawn", 29389, 1, 29389, 1966, 0, 47, 0, VCLASS_FROGSPAWN_BLOCK },
-    { "reinforced_deepslate", 29390, 1, 29390, 1966, 0, 47, 0, VCLASS_NONE },
-    { "decorated_pot", 29391, 16, 29400, 1966, 3, 47, 0, VCLASS_DECORATED_POT_BLOCK },
-    { "crafter", 29407, 48, 29452, 1969, 3, 47, 0, VCLASS_CRAFTER_BLOCK },
-    { "trial_spawner", 29455, 12, 29461, 1972, 2, 47, 0, VCLASS_TRIAL_SPAWNER_BLOCK },
-    { "vault", 29467, 32, 29471, 1974, 3, 47, 0, VCLASS_VAULT_BLOCK },
-    { "heavy_core", 29499, 2, 29500, 1977, 1, 47, 0, VCLASS_HEAVY_CORE_BLOCK },
-    { "pale_moss_block", 29501, 1, 29501, 1978, 0, 47, 0, VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK },
-    { "pale_moss_carpet", 29502, 162, 29502, 1978, 5, 47, 0, VCLASS_MOSSY_CARPET_BLOCK },
-    { "pale_hanging_moss", 29664, 2, 29664, 1983, 1, 47, 0, VCLASS_HANGING_MOSS_BLOCK },
-    { "open_eyeblossom", 29666, 1, 29666, 1984, 0, 47, 0, VCLASS_EYEBLOSSOM_BLOCK },
-    { "closed_eyeblossom", 29667, 1, 29667, 1984, 0, 47, 0, VCLASS_EYEBLOSSOM_BLOCK },
-    { "potted_open_eyeblossom", 29668, 1, 29668, 1984, 0, 47, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "potted_closed_eyeblossom", 29669, 1, 29669, 1984, 0, 47, 0, VCLASS_FLOWER_POT_BLOCK },
-    { "firefly_bush", 29670, 1, 29670, 1984, 0, 47, 0, VCLASS_FIREFLY_BUSH_BLOCK },
+    { "air", 0, 1, 0, 0, 0, 0, 0, VCLASS_AIR_BLOCK, -1, -1 },
+    { "stone", 1, 1, 1, 0, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "granite", 2, 1, 2, 0, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "polished_granite", 3, 1, 3, 0, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "diorite", 4, 1, 4, 0, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "polished_diorite", 5, 1, 5, 0, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "andesite", 6, 1, 6, 0, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "polished_andesite", 7, 1, 7, 0, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "grass_block", 8, 2, 9, 0, 1, 0, 0, VCLASS_GRASS_BLOCK, -1, -1 },
+    { "dirt", 10, 1, 10, 1, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "coarse_dirt", 11, 1, 11, 1, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "podzol", 12, 2, 13, 1, 1, 0, 0, VCLASS_SNOWY_DIRT_BLOCK, -1, -1 },
+    { "cobblestone", 14, 1, 14, 2, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "oak_planks", 15, 1, 15, 2, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "spruce_planks", 16, 1, 16, 2, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "birch_planks", 17, 1, 17, 2, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "jungle_planks", 18, 1, 18, 2, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "acacia_planks", 19, 1, 19, 2, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "cherry_planks", 20, 1, 20, 2, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "dark_oak_planks", 21, 1, 21, 2, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "pale_oak_wood", 22, 3, 23, 2, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "pale_oak_planks", 25, 1, 25, 3, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "mangrove_planks", 26, 1, 26, 3, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "bamboo_planks", 27, 1, 27, 3, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "bamboo_mosaic", 28, 1, 28, 3, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "oak_sapling", 29, 2, 29, 3, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1 },
+    { "spruce_sapling", 31, 2, 31, 4, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1 },
+    { "birch_sapling", 33, 2, 33, 5, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1 },
+    { "jungle_sapling", 35, 2, 35, 6, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1 },
+    { "acacia_sapling", 37, 2, 37, 7, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1 },
+    { "cherry_sapling", 39, 2, 39, 8, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1 },
+    { "dark_oak_sapling", 41, 2, 41, 9, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1 },
+    { "pale_oak_sapling", 43, 2, 43, 10, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1 },
+    { "mangrove_propagule", 45, 40, 50, 11, 4, 0, 0, VCLASS_MANGROVE_PROPAGULE_BLOCK, -1, -1 },
+    { "bedrock", 85, 1, 85, 15, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "water", 86, 16, 86, 15, 1, 0, 0, VCLASS_LIQUID_BLOCK, -1, -1 },
+    { "lava", 102, 16, 102, 16, 1, 0, 0, VCLASS_LIQUID_BLOCK, -1, -1 },
+    { "sand", 118, 1, 118, 17, 0, 0, 0, VCLASS_SAND_BLOCK, -1, -1 },
+    { "suspicious_sand", 119, 4, 119, 17, 1, 0, 0, VCLASS_BRUSHABLE_BLOCK, BLOCK_ENTITY_TYPE_BRUSHABLE_BLOCK, BLOCK_ENTITY_TYPE_BRUSHABLE_BLOCK },
+    { "red_sand", 123, 1, 123, 18, 0, 0, 0, VCLASS_SAND_BLOCK, -1, -1 },
+    { "gravel", 124, 1, 124, 18, 0, 0, 0, VCLASS_COLORED_FALLING_BLOCK, -1, -1 },
+    { "suspicious_gravel", 125, 4, 125, 18, 1, 0, 0, VCLASS_BRUSHABLE_BLOCK, BLOCK_ENTITY_TYPE_BRUSHABLE_BLOCK, BLOCK_ENTITY_TYPE_BRUSHABLE_BLOCK },
+    { "gold_ore", 129, 1, 129, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "deepslate_gold_ore", 130, 1, 130, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "iron_ore", 131, 1, 131, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "deepslate_iron_ore", 132, 1, 132, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "coal_ore", 133, 1, 133, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "deepslate_coal_ore", 134, 1, 134, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "nether_gold_ore", 135, 1, 135, 19, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "oak_log", 136, 3, 137, 19, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "spruce_log", 139, 3, 140, 20, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "birch_log", 142, 3, 143, 21, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "jungle_log", 145, 3, 146, 22, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "acacia_log", 148, 3, 149, 23, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "cherry_log", 151, 3, 152, 24, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "dark_oak_log", 154, 3, 155, 25, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "pale_oak_log", 157, 3, 158, 26, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "mangrove_log", 160, 3, 161, 27, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "mangrove_roots", 163, 2, 164, 28, 1, 0, 0, VCLASS_MANGROVE_ROOTS_BLOCK, -1, -1 },
+    { "muddy_mangrove_roots", 165, 3, 166, 29, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "bamboo_block", 168, 3, 169, 30, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_spruce_log", 171, 3, 172, 31, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_birch_log", 174, 3, 175, 32, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_jungle_log", 177, 3, 178, 33, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_acacia_log", 180, 3, 181, 34, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_cherry_log", 183, 3, 184, 35, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_dark_oak_log", 186, 3, 187, 36, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_pale_oak_log", 189, 3, 190, 37, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_oak_log", 192, 3, 193, 38, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_mangrove_log", 195, 3, 196, 39, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_bamboo_block", 198, 3, 199, 40, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "oak_wood", 201, 3, 202, 41, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "spruce_wood", 204, 3, 205, 42, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "birch_wood", 207, 3, 208, 43, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "jungle_wood", 210, 3, 211, 44, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "acacia_wood", 213, 3, 214, 45, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "cherry_wood", 216, 3, 217, 46, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "dark_oak_wood", 219, 3, 220, 47, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "mangrove_wood", 222, 3, 223, 48, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_oak_wood", 225, 3, 226, 49, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_spruce_wood", 228, 3, 229, 50, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_birch_wood", 231, 3, 232, 51, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_jungle_wood", 234, 3, 235, 52, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_acacia_wood", 237, 3, 238, 53, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_cherry_wood", 240, 3, 241, 54, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_dark_oak_wood", 243, 3, 244, 55, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_pale_oak_wood", 246, 3, 247, 56, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_mangrove_wood", 249, 3, 250, 57, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "oak_leaves", 252, 28, 279, 58, 3, 0, 0, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1 },
+    { "spruce_leaves", 280, 28, 307, 61, 3, 0, 0, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1 },
+    { "birch_leaves", 308, 28, 335, 64, 3, 0, 0, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1 },
+    { "jungle_leaves", 336, 28, 363, 67, 3, 0, 0, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1 },
+    { "acacia_leaves", 364, 28, 391, 70, 3, 0, 0, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1 },
+    { "cherry_leaves", 392, 28, 419, 73, 3, 0, 0, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, -1, -1 },
+    { "dark_oak_leaves", 420, 28, 447, 76, 3, 0, 0, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1 },
+    { "pale_oak_leaves", 448, 28, 475, 79, 3, 0, 0, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, -1, -1 },
+    { "mangrove_leaves", 476, 28, 503, 82, 3, 0, 0, VCLASS_MANGROVE_LEAVES_BLOCK, -1, -1 },
+    { "azalea_leaves", 504, 28, 531, 85, 3, 0, 0, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, -1, -1 },
+    { "flowering_azalea_leaves", 532, 28, 559, 88, 3, 0, 0, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, -1, -1 },
+    { "sponge", 560, 1, 560, 91, 0, 0, 0, VCLASS_SPONGE_BLOCK, -1, -1 },
+    { "wet_sponge", 561, 1, 561, 91, 0, 0, 0, VCLASS_WET_SPONGE_BLOCK, -1, -1 },
+    { "glass", 562, 1, 562, 91, 0, 0, 0, VCLASS_TRANSPARENT_BLOCK, -1, -1 },
+    { "lapis_ore", 563, 1, 563, 91, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "deepslate_lapis_ore", 564, 1, 564, 91, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "lapis_block", 565, 1, 565, 91, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "dispenser", 566, 12, 567, 91, 2, 0, 0, VCLASS_DISPENSER_BLOCK, BLOCK_ENTITY_TYPE_DISPENSER, BLOCK_ENTITY_TYPE_DISPENSER },
+    { "sandstone", 578, 1, 578, 93, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "chiseled_sandstone", 579, 1, 579, 93, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "cut_sandstone", 580, 1, 580, 93, 0, 0, 0, VCLASS_NONE, -1, -1 },
+    { "note_block", 581, 1150, 582, 93, 3, 0, 0, VCLASS_NOTE_BLOCK, -1, -1 },
+    { "white_bed", 1731, 16, 1734, 96, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "orange_bed", 1747, 16, 1750, 99, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "magenta_bed", 1763, 16, 1766, 102, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "light_blue_bed", 1779, 16, 1782, 105, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "yellow_bed", 1795, 16, 1798, 108, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "lime_bed", 1811, 16, 1814, 111, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "pink_bed", 1827, 16, 1830, 114, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "gray_bed", 1843, 16, 1846, 117, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "light_gray_bed", 1859, 16, 1862, 120, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "cyan_bed", 1875, 16, 1878, 123, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "purple_bed", 1891, 16, 1894, 126, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "blue_bed", 1907, 16, 1910, 129, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "brown_bed", 1923, 16, 1926, 132, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "green_bed", 1939, 16, 1942, 135, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "red_bed", 1955, 16, 1958, 138, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "black_bed", 1971, 16, 1974, 141, 3, 0, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED },
+    { "powered_rail", 1987, 24, 2000, 144, 3, 0, 1, VCLASS_POWERED_RAIL_BLOCK, -1, -1 },
+    { "detector_rail", 2011, 24, 2024, 147, 3, 1, 1, VCLASS_DETECTOR_RAIL_BLOCK, -1, -1 },
+    { "sticky_piston", 2035, 12, 2041, 150, 2, 2, 1, VCLASS_PISTON_BASE_BLOCK, -1, -1 },
+    { "cobweb", 2047, 1, 2047, 152, 0, 3, 0, VCLASS_WEB_BLOCK, -1, -1 },
+    { "short_grass", 2048, 1, 2048, 152, 0, 3, 0, VCLASS_TALL_GRASS_BLOCK, -1, -1 },
+    { "fern", 2049, 1, 2049, 152, 0, 3, 0, VCLASS_TALL_GRASS_BLOCK, -1, -1 },
+    { "dead_bush", 2050, 1, 2050, 152, 0, 3, 0, VCLASS_DRY_VEGETATION_BLOCK, -1, -1 },
+    { "bush", 2051, 1, 2051, 152, 0, 3, 0, VCLASS_BUSH_BLOCK, -1, -1 },
+    { "short_dry_grass", 2052, 1, 2052, 152, 0, 3, 0, VCLASS_SHORT_DRY_GRASS_BLOCK, -1, -1 },
+    { "tall_dry_grass", 2053, 1, 2053, 152, 0, 3, 0, VCLASS_TALL_DRY_GRASS_BLOCK, -1, -1 },
+    { "seagrass", 2054, 1, 2054, 152, 0, 3, 0, VCLASS_SEAGRASS_BLOCK, -1, -1 },
+    { "tall_seagrass", 2055, 2, 2056, 152, 1, 3, 0, VCLASS_TALL_SEAGRASS_BLOCK, -1, -1 },
+    { "piston", 2057, 12, 2063, 153, 2, 3, 1, VCLASS_PISTON_BASE_BLOCK, -1, -1 },
+    { "piston_head", 2069, 24, 2071, 155, 3, 4, 0, VCLASS_PISTON_HEAD_BLOCK, -1, -1 },
+    { "white_wool", 2093, 1, 2093, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "orange_wool", 2094, 1, 2094, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "magenta_wool", 2095, 1, 2095, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "light_blue_wool", 2096, 1, 2096, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "yellow_wool", 2097, 1, 2097, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "lime_wool", 2098, 1, 2098, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "pink_wool", 2099, 1, 2099, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "gray_wool", 2100, 1, 2100, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "light_gray_wool", 2101, 1, 2101, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "cyan_wool", 2102, 1, 2102, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "purple_wool", 2103, 1, 2103, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "blue_wool", 2104, 1, 2104, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "brown_wool", 2105, 1, 2105, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "green_wool", 2106, 1, 2106, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "red_wool", 2107, 1, 2107, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "black_wool", 2108, 1, 2108, 158, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "moving_piston", 2109, 12, 2109, 158, 2, 4, 0, VCLASS_MOVING_PISTON_BLOCK, -1, BLOCK_ENTITY_TYPE_PISTON },
+    { "dandelion", 2121, 1, 2121, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK, -1, -1 },
+    { "torchflower", 2122, 1, 2122, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK, -1, -1 },
+    { "poppy", 2123, 1, 2123, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK, -1, -1 },
+    { "blue_orchid", 2124, 1, 2124, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK, -1, -1 },
+    { "allium", 2125, 1, 2125, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK, -1, -1 },
+    { "azure_bluet", 2126, 1, 2126, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK, -1, -1 },
+    { "red_tulip", 2127, 1, 2127, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK, -1, -1 },
+    { "orange_tulip", 2128, 1, 2128, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK, -1, -1 },
+    { "white_tulip", 2129, 1, 2129, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK, -1, -1 },
+    { "pink_tulip", 2130, 1, 2130, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK, -1, -1 },
+    { "oxeye_daisy", 2131, 1, 2131, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK, -1, -1 },
+    { "cornflower", 2132, 1, 2132, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK, -1, -1 },
+    { "wither_rose", 2133, 1, 2133, 160, 0, 4, 0, VCLASS_WITHER_ROSE_BLOCK, -1, -1 },
+    { "lily_of_the_valley", 2134, 1, 2134, 160, 0, 4, 0, VCLASS_FLOWER_BLOCK, -1, -1 },
+    { "brown_mushroom", 2135, 1, 2135, 160, 0, 4, 0, VCLASS_MUSHROOM_BLOCK, -1, -1 },
+    { "red_mushroom", 2136, 1, 2136, 160, 0, 4, 0, VCLASS_MUSHROOM_BLOCK, -1, -1 },
+    { "gold_block", 2137, 1, 2137, 160, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "iron_block", 2138, 1, 2138, 160, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "bricks", 2139, 1, 2139, 160, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "tnt", 2140, 2, 2141, 160, 1, 4, 0, VCLASS_TNT_BLOCK, -1, -1 },
+    { "bookshelf", 2142, 1, 2142, 161, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "chiseled_bookshelf", 2143, 256, 2206, 161, 7, 4, 0, VCLASS_CHISELED_BOOK_SHELF_BLOCK, BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF, BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF },
+    { "acacia_shelf", 2399, 64, 2408, 168, 4, 4, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF },
+    { "bamboo_shelf", 2463, 64, 2472, 172, 4, 4, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF },
+    { "birch_shelf", 2527, 64, 2536, 176, 4, 4, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF },
+    { "cherry_shelf", 2591, 64, 2600, 180, 4, 4, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF },
+    { "crimson_shelf", 2655, 64, 2664, 184, 4, 4, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF },
+    { "dark_oak_shelf", 2719, 64, 2728, 188, 4, 4, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF },
+    { "jungle_shelf", 2783, 64, 2792, 192, 4, 4, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF },
+    { "mangrove_shelf", 2847, 64, 2856, 196, 4, 4, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF },
+    { "oak_shelf", 2911, 64, 2920, 200, 4, 4, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF },
+    { "pale_oak_shelf", 2975, 64, 2984, 204, 4, 4, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF },
+    { "spruce_shelf", 3039, 64, 3048, 208, 4, 4, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF },
+    { "warped_shelf", 3103, 64, 3112, 212, 4, 4, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF },
+    { "mossy_cobblestone", 3167, 1, 3167, 216, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "obsidian", 3168, 1, 3168, 216, 0, 4, 0, VCLASS_NONE, -1, -1 },
+    { "torch", 3169, 1, 3169, 216, 0, 4, 0, VCLASS_TORCH_BLOCK, -1, -1 },
+    { "wall_torch", 3170, 4, 3170, 216, 1, 4, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1 },
+    { "fire", 3174, 512, 3205, 217, 6, 4, 0, VCLASS_FIRE_BLOCK, -1, -1 },
+    { "soul_fire", 3686, 1, 3686, 223, 0, 4, 0, VCLASS_SOUL_FIRE_BLOCK, -1, -1 },
+    { "spawner", 3687, 1, 3687, 223, 0, 4, 0, VCLASS_SPAWNER_BLOCK, BLOCK_ENTITY_TYPE_MOB_SPAWNER, BLOCK_ENTITY_TYPE_MOB_SPAWNER },
+    { "creaking_heart", 3688, 18, 3695, 223, 3, 4, 0, VCLASS_CREAKING_HEART_BLOCK, BLOCK_ENTITY_TYPE_CREAKING_HEART, BLOCK_ENTITY_TYPE_CREAKING_HEART },
+    { "oak_stairs", 3706, 80, 3717, 226, 4, 4, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "chest", 3786, 24, 3787, 230, 3, 4, 0, VCLASS_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST },
+    { "redstone_wire", 3810, 1296, 4970, 233, 5, 4, 1, VCLASS_RED_STONE_WIRE_BLOCK, -1, -1 },
+    { "diamond_ore", 5106, 1, 5106, 238, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "deepslate_diamond_ore", 5107, 1, 5107, 238, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "diamond_block", 5108, 1, 5108, 238, 0, 5, 0, VCLASS_NONE, -1, -1 },
+    { "crafting_table", 5109, 1, 5109, 238, 0, 5, 0, VCLASS_CRAFTING_TABLE_BLOCK, -1, -1 },
+    { "wheat", 5110, 8, 5110, 238, 1, 5, 0, VCLASS_CROP_BLOCK, -1, -1 },
+    { "farmland", 5118, 8, 5118, 239, 1, 5, 0, VCLASS_FARM_BLOCK, -1, -1 },
+    { "furnace", 5126, 8, 5127, 240, 2, 5, 0, VCLASS_FURNACE_BLOCK, BLOCK_ENTITY_TYPE_FURNACE, BLOCK_ENTITY_TYPE_FURNACE },
+    { "oak_sign", 5134, 32, 5135, 242, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "spruce_sign", 5166, 32, 5167, 244, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "birch_sign", 5198, 32, 5199, 246, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "acacia_sign", 5230, 32, 5231, 248, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "cherry_sign", 5262, 32, 5263, 250, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "jungle_sign", 5294, 32, 5295, 252, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "dark_oak_sign", 5326, 32, 5327, 254, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "pale_oak_sign", 5358, 32, 5359, 256, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "mangrove_sign", 5390, 32, 5391, 258, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "bamboo_sign", 5422, 32, 5423, 260, 2, 5, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "oak_door", 5454, 64, 5465, 262, 5, 5, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "ladder", 5518, 8, 5519, 267, 2, 5, 0, VCLASS_LADDER_BLOCK, -1, -1 },
+    { "rail", 5526, 20, 5527, 269, 2, 5, 1, VCLASS_RAIL_BLOCK, -1, -1 },
+    { "cobblestone_stairs", 5546, 80, 5557, 271, 4, 6, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "oak_wall_sign", 5626, 8, 5627, 275, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "spruce_wall_sign", 5634, 8, 5635, 277, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "birch_wall_sign", 5642, 8, 5643, 279, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "acacia_wall_sign", 5650, 8, 5651, 281, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "cherry_wall_sign", 5658, 8, 5659, 283, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "jungle_wall_sign", 5666, 8, 5667, 285, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "dark_oak_wall_sign", 5674, 8, 5675, 287, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "pale_oak_wall_sign", 5682, 8, 5683, 289, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "mangrove_wall_sign", 5690, 8, 5691, 291, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "bamboo_wall_sign", 5698, 8, 5699, 293, 2, 6, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "oak_hanging_sign", 5706, 64, 5739, 295, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "spruce_hanging_sign", 5770, 64, 5803, 298, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "birch_hanging_sign", 5834, 64, 5867, 301, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "acacia_hanging_sign", 5898, 64, 5931, 304, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "cherry_hanging_sign", 5962, 64, 5995, 307, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "jungle_hanging_sign", 6026, 64, 6059, 310, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "dark_oak_hanging_sign", 6090, 64, 6123, 313, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "pale_oak_hanging_sign", 6154, 64, 6187, 316, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "crimson_hanging_sign", 6218, 64, 6251, 319, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "warped_hanging_sign", 6282, 64, 6315, 322, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "mangrove_hanging_sign", 6346, 64, 6379, 325, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "bamboo_hanging_sign", 6410, 64, 6443, 328, 3, 6, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "oak_wall_hanging_sign", 6474, 8, 6475, 331, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "spruce_wall_hanging_sign", 6482, 8, 6483, 333, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "birch_wall_hanging_sign", 6490, 8, 6491, 335, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "acacia_wall_hanging_sign", 6498, 8, 6499, 337, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "cherry_wall_hanging_sign", 6506, 8, 6507, 339, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "jungle_wall_hanging_sign", 6514, 8, 6515, 341, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "dark_oak_wall_hanging_sign", 6522, 8, 6523, 343, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "pale_oak_wall_hanging_sign", 6530, 8, 6531, 345, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "mangrove_wall_hanging_sign", 6538, 8, 6539, 347, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "crimson_wall_hanging_sign", 6546, 8, 6547, 349, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "warped_wall_hanging_sign", 6554, 8, 6555, 351, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "bamboo_wall_hanging_sign", 6562, 8, 6563, 353, 2, 6, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN },
+    { "lever", 6570, 24, 6579, 355, 3, 6, 0, VCLASS_LEVER_BLOCK, -1, -1 },
+    { "stone_pressure_plate", 6594, 2, 6595, 358, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "iron_door", 6596, 64, 6607, 359, 5, 6, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "oak_pressure_plate", 6660, 2, 6661, 364, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "spruce_pressure_plate", 6662, 2, 6663, 365, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "birch_pressure_plate", 6664, 2, 6665, 366, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "jungle_pressure_plate", 6666, 2, 6667, 367, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "acacia_pressure_plate", 6668, 2, 6669, 368, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "cherry_pressure_plate", 6670, 2, 6671, 369, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "dark_oak_pressure_plate", 6672, 2, 6673, 370, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "pale_oak_pressure_plate", 6674, 2, 6675, 371, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "mangrove_pressure_plate", 6676, 2, 6677, 372, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "bamboo_pressure_plate", 6678, 2, 6679, 373, 1, 6, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "redstone_ore", 6680, 2, 6681, 374, 1, 6, 0, VCLASS_RED_STONE_ORE_BLOCK, -1, -1 },
+    { "deepslate_redstone_ore", 6682, 2, 6683, 375, 1, 6, 0, VCLASS_RED_STONE_ORE_BLOCK, -1, -1 },
+    { "redstone_torch", 6684, 2, 6684, 376, 1, 6, 0, VCLASS_REDSTONE_TORCH_BLOCK, -1, -1 },
+    { "redstone_wall_torch", 6686, 8, 6686, 377, 2, 6, 0, VCLASS_REDSTONE_WALL_TORCH_BLOCK, -1, -1 },
+    { "stone_button", 6694, 24, 6703, 379, 3, 6, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "snow", 6718, 8, 6718, 382, 1, 7, 0, VCLASS_SNOW_LAYER_BLOCK, -1, -1 },
+    { "ice", 6726, 1, 6726, 383, 0, 7, 0, VCLASS_ICE_BLOCK, -1, -1 },
+    { "snow_block", 6727, 1, 6727, 383, 0, 7, 0, VCLASS_NONE, -1, -1 },
+    { "cactus", 6728, 16, 6728, 383, 1, 7, 0, VCLASS_CACTUS_BLOCK, -1, -1 },
+    { "cactus_flower", 6744, 1, 6744, 384, 0, 7, 0, VCLASS_CACTUS_FLOWER_BLOCK, -1, -1 },
+    { "clay", 6745, 1, 6745, 384, 0, 7, 0, VCLASS_NONE, -1, -1 },
+    { "sugar_cane", 6746, 16, 6746, 384, 1, 7, 0, VCLASS_SUGAR_CANE_BLOCK, -1, -1 },
+    { "jukebox", 6762, 2, 6763, 385, 1, 7, 0, VCLASS_JUKEBOX_BLOCK, BLOCK_ENTITY_TYPE_JUKEBOX, BLOCK_ENTITY_TYPE_JUKEBOX },
+    { "oak_fence", 6764, 32, 6795, 386, 5, 7, 0, VCLASS_FENCE_BLOCK, -1, -1 },
+    { "netherrack", 6796, 1, 6796, 391, 0, 7, 0, VCLASS_NETHERRACK_BLOCK, -1, -1 },
+    { "soul_sand", 6797, 1, 6797, 391, 0, 7, 0, VCLASS_SOUL_SAND_BLOCK, -1, -1 },
+    { "soul_soil", 6798, 1, 6798, 391, 0, 7, 0, VCLASS_NONE, -1, -1 },
+    { "basalt", 6799, 3, 6800, 391, 1, 7, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "polished_basalt", 6802, 3, 6803, 392, 1, 7, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "soul_torch", 6805, 1, 6805, 393, 0, 7, 0, VCLASS_TORCH_BLOCK, -1, -1 },
+    { "soul_wall_torch", 6806, 4, 6806, 393, 1, 7, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1 },
+    { "copper_torch", 6810, 1, 6810, 394, 0, 7, 0, VCLASS_TORCH_BLOCK, -1, -1 },
+    { "copper_wall_torch", 6811, 4, 6811, 394, 1, 7, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1 },
+    { "glowstone", 6815, 1, 6815, 395, 0, 7, 0, VCLASS_NONE, -1, -1 },
+    { "nether_portal", 6816, 2, 6816, 395, 1, 7, 0, VCLASS_NETHER_PORTAL_BLOCK, -1, -1 },
+    { "carved_pumpkin", 6818, 4, 6818, 396, 1, 7, 0, VCLASS_CARVED_PUMPKIN_BLOCK, -1, -1 },
+    { "jack_o_lantern", 6822, 4, 6822, 397, 1, 7, 0, VCLASS_CARVED_PUMPKIN_BLOCK, -1, -1 },
+    { "cake", 6826, 7, 6826, 398, 1, 7, 0, VCLASS_CAKE_BLOCK, -1, -1 },
+    { "repeater", 6833, 64, 6836, 399, 4, 7, 0, VCLASS_REPEATER_BLOCK, -1, -1 },
+    { "white_stained_glass", 6897, 1, 6897, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "orange_stained_glass", 6898, 1, 6898, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "magenta_stained_glass", 6899, 1, 6899, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "light_blue_stained_glass", 6900, 1, 6900, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "yellow_stained_glass", 6901, 1, 6901, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "lime_stained_glass", 6902, 1, 6902, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "pink_stained_glass", 6903, 1, 6903, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "gray_stained_glass", 6904, 1, 6904, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "light_gray_stained_glass", 6905, 1, 6905, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "cyan_stained_glass", 6906, 1, 6906, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "purple_stained_glass", 6907, 1, 6907, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "blue_stained_glass", 6908, 1, 6908, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "brown_stained_glass", 6909, 1, 6909, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "green_stained_glass", 6910, 1, 6910, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "red_stained_glass", 6911, 1, 6911, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "black_stained_glass", 6912, 1, 6912, 403, 0, 7, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1 },
+    { "oak_trapdoor", 6913, 64, 6928, 403, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "spruce_trapdoor", 6977, 64, 6992, 408, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "birch_trapdoor", 7041, 64, 7056, 413, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "jungle_trapdoor", 7105, 64, 7120, 418, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "acacia_trapdoor", 7169, 64, 7184, 423, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "cherry_trapdoor", 7233, 64, 7248, 428, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "dark_oak_trapdoor", 7297, 64, 7312, 433, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "pale_oak_trapdoor", 7361, 64, 7376, 438, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "mangrove_trapdoor", 7425, 64, 7440, 443, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "bamboo_trapdoor", 7489, 64, 7504, 448, 5, 7, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "stone_bricks", 7553, 1, 7553, 453, 0, 7, 0, VCLASS_NONE, -1, -1 },
+    { "mossy_stone_bricks", 7554, 1, 7554, 453, 0, 7, 0, VCLASS_NONE, -1, -1 },
+    { "cracked_stone_bricks", 7555, 1, 7555, 453, 0, 7, 0, VCLASS_NONE, -1, -1 },
+    { "chiseled_stone_bricks", 7556, 1, 7556, 453, 0, 7, 0, VCLASS_NONE, -1, -1 },
+    { "packed_mud", 7557, 1, 7557, 453, 0, 7, 0, VCLASS_NONE, -1, -1 },
+    { "mud_bricks", 7558, 1, 7558, 453, 0, 7, 0, VCLASS_NONE, -1, -1 },
+    { "infested_stone", 7559, 1, 7559, 453, 0, 7, 0, VCLASS_INFESTED_BLOCK, -1, -1 },
+    { "infested_cobblestone", 7560, 1, 7560, 453, 0, 7, 0, VCLASS_INFESTED_BLOCK, -1, -1 },
+    { "infested_stone_bricks", 7561, 1, 7561, 453, 0, 7, 0, VCLASS_INFESTED_BLOCK, -1, -1 },
+    { "infested_mossy_stone_bricks", 7562, 1, 7562, 453, 0, 7, 0, VCLASS_INFESTED_BLOCK, -1, -1 },
+    { "infested_cracked_stone_bricks", 7563, 1, 7563, 453, 0, 7, 0, VCLASS_INFESTED_BLOCK, -1, -1 },
+    { "infested_chiseled_stone_bricks", 7564, 1, 7564, 453, 0, 7, 0, VCLASS_INFESTED_BLOCK, -1, -1 },
+    { "brown_mushroom_block", 7565, 64, 7565, 453, 6, 7, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1 },
+    { "red_mushroom_block", 7629, 64, 7629, 459, 6, 7, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1 },
+    { "mushroom_stem", 7693, 64, 7693, 465, 6, 7, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1 },
+    { "iron_bars", 7757, 32, 7788, 471, 5, 7, 0, VCLASS_IRON_BARS_BLOCK, -1, -1 },
+    { "copper_bars", 7789, 32, 7820, 476, 5, 7, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1 },
+    { "exposed_copper_bars", 7821, 32, 7852, 481, 5, 7, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1 },
+    { "weathered_copper_bars", 7853, 32, 7884, 486, 5, 7, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1 },
+    { "oxidized_copper_bars", 7885, 32, 7916, 491, 5, 7, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1 },
+    { "waxed_copper_bars", 7917, 32, 7948, 496, 5, 7, 0, VCLASS_IRON_BARS_BLOCK, -1, -1 },
+    { "waxed_exposed_copper_bars", 7949, 32, 7980, 501, 5, 7, 0, VCLASS_IRON_BARS_BLOCK, -1, -1 },
+    { "waxed_weathered_copper_bars", 7981, 32, 8012, 506, 5, 7, 0, VCLASS_IRON_BARS_BLOCK, -1, -1 },
+    { "waxed_oxidized_copper_bars", 8013, 32, 8044, 511, 5, 7, 0, VCLASS_IRON_BARS_BLOCK, -1, -1 },
+    { "iron_chain", 8045, 6, 8048, 516, 2, 7, 0, VCLASS_CHAIN_BLOCK, -1, -1 },
+    { "copper_chain", 8051, 6, 8054, 518, 2, 7, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1 },
+    { "exposed_copper_chain", 8057, 6, 8060, 520, 2, 7, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1 },
+    { "weathered_copper_chain", 8063, 6, 8066, 522, 2, 7, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1 },
+    { "oxidized_copper_chain", 8069, 6, 8072, 524, 2, 7, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1 },
+    { "waxed_copper_chain", 8075, 6, 8078, 526, 2, 7, 0, VCLASS_CHAIN_BLOCK, -1, -1 },
+    { "waxed_exposed_copper_chain", 8081, 6, 8084, 528, 2, 7, 0, VCLASS_CHAIN_BLOCK, -1, -1 },
+    { "waxed_weathered_copper_chain", 8087, 6, 8090, 530, 2, 7, 0, VCLASS_CHAIN_BLOCK, -1, -1 },
+    { "waxed_oxidized_copper_chain", 8093, 6, 8096, 532, 2, 7, 0, VCLASS_CHAIN_BLOCK, -1, -1 },
+    { "glass_pane", 8099, 32, 8130, 534, 5, 7, 0, VCLASS_IRON_BARS_BLOCK, -1, -1 },
+    { "pumpkin", 8131, 1, 8131, 539, 0, 7, 0, VCLASS_PUMPKIN_BLOCK, -1, -1 },
+    { "melon", 8132, 1, 8132, 539, 0, 7, 0, VCLASS_NONE, -1, -1 },
+    { "attached_pumpkin_stem", 8133, 4, 8133, 539, 1, 7, 0, VCLASS_ATTACHED_STEM_BLOCK, -1, -1 },
+    { "attached_melon_stem", 8137, 4, 8137, 540, 1, 7, 0, VCLASS_ATTACHED_STEM_BLOCK, -1, -1 },
+    { "pumpkin_stem", 8141, 8, 8141, 541, 1, 7, 0, VCLASS_STEM_BLOCK, -1, -1 },
+    { "melon_stem", 8149, 8, 8149, 542, 1, 7, 0, VCLASS_STEM_BLOCK, -1, -1 },
+    { "vine", 8157, 32, 8188, 543, 5, 7, 0, VCLASS_VINE_BLOCK, -1, -1 },
+    { "glow_lichen", 8189, 128, 8316, 548, 7, 7, 3, VCLASS_GLOW_LICHEN_BLOCK, -1, -1 },
+    { "resin_clump", 8317, 128, 8444, 555, 7, 10, 3, VCLASS_MULTIFACE_BLOCK, -1, -1 },
+    { "oak_fence_gate", 8445, 32, 8452, 562, 4, 13, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1 },
+    { "brick_stairs", 8477, 80, 8488, 566, 4, 13, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "stone_brick_stairs", 8557, 80, 8568, 570, 4, 13, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "mud_brick_stairs", 8637, 80, 8648, 574, 4, 13, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "mycelium", 8717, 2, 8718, 578, 1, 13, 0, VCLASS_MYCELIUM_BLOCK, -1, -1 },
+    { "lily_pad", 8719, 1, 8719, 579, 0, 13, 0, VCLASS_WATERLILY_BLOCK, -1, -1 },
+    { "resin_block", 8720, 1, 8720, 579, 0, 13, 0, VCLASS_NONE, -1, -1 },
+    { "resin_bricks", 8721, 1, 8721, 579, 0, 13, 0, VCLASS_NONE, -1, -1 },
+    { "resin_brick_stairs", 8722, 80, 8733, 579, 4, 13, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "resin_brick_slab", 8802, 6, 8805, 583, 2, 13, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "resin_brick_wall", 8808, 324, 8811, 585, 6, 13, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "chiseled_resin_bricks", 9132, 1, 9132, 591, 0, 13, 0, VCLASS_NONE, -1, -1 },
+    { "nether_bricks", 9133, 1, 9133, 591, 0, 13, 0, VCLASS_NONE, -1, -1 },
+    { "nether_brick_fence", 9134, 32, 9165, 591, 5, 13, 0, VCLASS_FENCE_BLOCK, -1, -1 },
+    { "nether_brick_stairs", 9166, 80, 9177, 596, 4, 13, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "nether_wart", 9246, 4, 9246, 600, 1, 13, 0, VCLASS_NETHER_WART_BLOCK, -1, -1 },
+    { "enchanting_table", 9250, 1, 9250, 601, 0, 13, 0, VCLASS_ENCHANTING_TABLE_BLOCK, BLOCK_ENTITY_TYPE_ENCHANTING_TABLE, BLOCK_ENTITY_TYPE_ENCHANTING_TABLE },
+    { "brewing_stand", 9251, 8, 9258, 601, 3, 13, 0, VCLASS_BREWING_STAND_BLOCK, BLOCK_ENTITY_TYPE_BREWING_STAND, BLOCK_ENTITY_TYPE_BREWING_STAND },
+    { "cauldron", 9259, 1, 9259, 604, 0, 13, 0, VCLASS_CAULDRON_BLOCK, -1, -1 },
+    { "water_cauldron", 9260, 3, 9260, 604, 1, 13, 0, VCLASS_LAYERED_CAULDRON_BLOCK, -1, -1 },
+    { "lava_cauldron", 9263, 1, 9263, 605, 0, 13, 0, VCLASS_LAVA_CAULDRON_BLOCK, -1, -1 },
+    { "powder_snow_cauldron", 9264, 3, 9264, 605, 1, 13, 0, VCLASS_LAYERED_CAULDRON_BLOCK, -1, -1 },
+    { "end_portal", 9267, 1, 9267, 606, 0, 13, 0, VCLASS_END_PORTAL_BLOCK, BLOCK_ENTITY_TYPE_END_PORTAL, BLOCK_ENTITY_TYPE_END_PORTAL },
+    { "end_portal_frame", 9268, 8, 9272, 606, 2, 13, 0, VCLASS_END_PORTAL_FRAME_BLOCK, -1, -1 },
+    { "end_stone", 9276, 1, 9276, 608, 0, 13, 0, VCLASS_NONE, -1, -1 },
+    { "dragon_egg", 9277, 1, 9277, 608, 0, 13, 0, VCLASS_DRAGON_EGG_BLOCK, -1, -1 },
+    { "redstone_lamp", 9278, 2, 9279, 608, 1, 13, 0, VCLASS_REDSTONE_LAMP_BLOCK, -1, -1 },
+    { "cocoa", 9280, 12, 9280, 609, 2, 13, 0, VCLASS_COCOA_BLOCK, -1, -1 },
+    { "sandstone_stairs", 9292, 80, 9303, 611, 4, 13, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "emerald_ore", 9372, 1, 9372, 615, 0, 13, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "deepslate_emerald_ore", 9373, 1, 9373, 615, 0, 13, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "ender_chest", 9374, 8, 9375, 615, 2, 13, 0, VCLASS_ENDER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_ENDER_CHEST, BLOCK_ENTITY_TYPE_ENDER_CHEST },
+    { "tripwire_hook", 9382, 16, 9391, 617, 3, 13, 0, VCLASS_TRIP_WIRE_HOOK_BLOCK, -1, -1 },
+    { "tripwire", 9398, 128, 9525, 620, 7, 13, 0, VCLASS_TRIP_WIRE_BLOCK, -1, -1 },
+    { "emerald_block", 9526, 1, 9526, 627, 0, 13, 0, VCLASS_NONE, -1, -1 },
+    { "spruce_stairs", 9527, 80, 9538, 627, 4, 13, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "birch_stairs", 9607, 80, 9618, 631, 4, 13, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "jungle_stairs", 9687, 80, 9698, 635, 4, 13, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "command_block", 9767, 12, 9773, 639, 2, 13, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK },
+    { "beacon", 9779, 1, 9779, 641, 0, 14, 0, VCLASS_BEACON_BLOCK, BLOCK_ENTITY_TYPE_BEACON, BLOCK_ENTITY_TYPE_BEACON },
+    { "cobblestone_wall", 9780, 324, 9783, 641, 6, 14, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "mossy_cobblestone_wall", 10104, 324, 10107, 647, 6, 14, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "flower_pot", 10428, 1, 10428, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_torchflower", 10429, 1, 10429, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_oak_sapling", 10430, 1, 10430, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_spruce_sapling", 10431, 1, 10431, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_birch_sapling", 10432, 1, 10432, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_jungle_sapling", 10433, 1, 10433, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_acacia_sapling", 10434, 1, 10434, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_cherry_sapling", 10435, 1, 10435, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_dark_oak_sapling", 10436, 1, 10436, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_pale_oak_sapling", 10437, 1, 10437, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_mangrove_propagule", 10438, 1, 10438, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_fern", 10439, 1, 10439, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_dandelion", 10440, 1, 10440, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_poppy", 10441, 1, 10441, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_blue_orchid", 10442, 1, 10442, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_allium", 10443, 1, 10443, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_azure_bluet", 10444, 1, 10444, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_red_tulip", 10445, 1, 10445, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_orange_tulip", 10446, 1, 10446, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_white_tulip", 10447, 1, 10447, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_pink_tulip", 10448, 1, 10448, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_oxeye_daisy", 10449, 1, 10449, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_cornflower", 10450, 1, 10450, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_lily_of_the_valley", 10451, 1, 10451, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_wither_rose", 10452, 1, 10452, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_red_mushroom", 10453, 1, 10453, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_brown_mushroom", 10454, 1, 10454, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_dead_bush", 10455, 1, 10455, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_cactus", 10456, 1, 10456, 653, 0, 14, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "carrots", 10457, 8, 10457, 653, 1, 14, 0, VCLASS_CARROT_BLOCK, -1, -1 },
+    { "potatoes", 10465, 8, 10465, 654, 1, 14, 0, VCLASS_POTATO_BLOCK, -1, -1 },
+    { "oak_button", 10473, 24, 10482, 655, 3, 14, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "spruce_button", 10497, 24, 10506, 658, 3, 15, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "birch_button", 10521, 24, 10530, 661, 3, 16, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "jungle_button", 10545, 24, 10554, 664, 3, 17, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "acacia_button", 10569, 24, 10578, 667, 3, 18, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "cherry_button", 10593, 24, 10602, 670, 3, 19, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "dark_oak_button", 10617, 24, 10626, 673, 3, 20, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "pale_oak_button", 10641, 24, 10650, 676, 3, 21, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "mangrove_button", 10665, 24, 10674, 679, 3, 22, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "bamboo_button", 10689, 24, 10698, 682, 3, 23, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "skeleton_skull", 10713, 32, 10729, 685, 2, 24, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "skeleton_wall_skull", 10745, 8, 10746, 687, 2, 24, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "wither_skeleton_skull", 10753, 32, 10769, 689, 2, 24, 0, VCLASS_WITHER_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "wither_skeleton_wall_skull", 10785, 8, 10786, 691, 2, 24, 0, VCLASS_WITHER_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "zombie_head", 10793, 32, 10809, 693, 2, 24, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "zombie_wall_head", 10825, 8, 10826, 695, 2, 24, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "player_head", 10833, 32, 10849, 697, 2, 24, 0, VCLASS_PLAYER_HEAD_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "player_wall_head", 10865, 8, 10866, 699, 2, 24, 0, VCLASS_PLAYER_WALL_HEAD_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "creeper_head", 10873, 32, 10889, 701, 2, 24, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "creeper_wall_head", 10905, 8, 10906, 703, 2, 24, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "dragon_head", 10913, 32, 10929, 705, 2, 24, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "dragon_wall_head", 10945, 8, 10946, 707, 2, 24, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "piglin_head", 10953, 32, 10969, 709, 2, 24, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "piglin_wall_head", 10985, 8, 10986, 711, 2, 24, 0, VCLASS_PIGLIN_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL },
+    { "anvil", 10993, 4, 10993, 713, 1, 24, 0, VCLASS_ANVIL_BLOCK, -1, -1 },
+    { "chipped_anvil", 10997, 4, 10997, 714, 1, 24, 0, VCLASS_ANVIL_BLOCK, -1, -1 },
+    { "damaged_anvil", 11001, 4, 11001, 715, 1, 24, 0, VCLASS_ANVIL_BLOCK, -1, -1 },
+    { "trapped_chest", 11005, 24, 11006, 716, 3, 24, 0, VCLASS_TRAPPED_CHEST_BLOCK, BLOCK_ENTITY_TYPE_TRAPPED_CHEST, BLOCK_ENTITY_TYPE_TRAPPED_CHEST },
+    { "light_weighted_pressure_plate", 11029, 16, 11029, 719, 1, 24, 1, VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "heavy_weighted_pressure_plate", 11045, 16, 11045, 720, 1, 25, 1, VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "comparator", 11061, 16, 11062, 721, 3, 26, 0, VCLASS_COMPARATOR_BLOCK, BLOCK_ENTITY_TYPE_COMPARATOR, BLOCK_ENTITY_TYPE_COMPARATOR },
+    { "daylight_detector", 11077, 32, 11093, 724, 2, 26, 0, VCLASS_DAYLIGHT_DETECTOR_BLOCK, BLOCK_ENTITY_TYPE_DAYLIGHT_DETECTOR, BLOCK_ENTITY_TYPE_DAYLIGHT_DETECTOR },
+    { "redstone_block", 11109, 1, 11109, 726, 0, 26, 0, VCLASS_POWERED_BLOCK, -1, -1 },
+    { "nether_quartz_ore", 11110, 1, 11110, 726, 0, 26, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "hopper", 11111, 10, 11111, 726, 2, 26, 0, VCLASS_HOPPER_BLOCK, BLOCK_ENTITY_TYPE_HOPPER, BLOCK_ENTITY_TYPE_HOPPER },
+    { "quartz_block", 11121, 1, 11121, 728, 0, 26, 0, VCLASS_NONE, -1, -1 },
+    { "chiseled_quartz_block", 11122, 1, 11122, 728, 0, 26, 0, VCLASS_NONE, -1, -1 },
+    { "quartz_pillar", 11123, 3, 11124, 728, 1, 26, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "quartz_stairs", 11126, 80, 11137, 729, 4, 26, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "activator_rail", 11206, 24, 11219, 733, 3, 26, 1, VCLASS_POWERED_RAIL_BLOCK, -1, -1 },
+    { "dropper", 11230, 12, 11231, 736, 2, 27, 0, VCLASS_DROPPER_BLOCK, BLOCK_ENTITY_TYPE_DROPPER, BLOCK_ENTITY_TYPE_DROPPER },
+    { "white_terracotta", 11242, 1, 11242, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "orange_terracotta", 11243, 1, 11243, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "magenta_terracotta", 11244, 1, 11244, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "light_blue_terracotta", 11245, 1, 11245, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "yellow_terracotta", 11246, 1, 11246, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "lime_terracotta", 11247, 1, 11247, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "pink_terracotta", 11248, 1, 11248, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "gray_terracotta", 11249, 1, 11249, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "light_gray_terracotta", 11250, 1, 11250, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "cyan_terracotta", 11251, 1, 11251, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "purple_terracotta", 11252, 1, 11252, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "blue_terracotta", 11253, 1, 11253, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "brown_terracotta", 11254, 1, 11254, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "green_terracotta", 11255, 1, 11255, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "red_terracotta", 11256, 1, 11256, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "black_terracotta", 11257, 1, 11257, 738, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "white_stained_glass_pane", 11258, 32, 11289, 738, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "orange_stained_glass_pane", 11290, 32, 11321, 743, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "magenta_stained_glass_pane", 11322, 32, 11353, 748, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "light_blue_stained_glass_pane", 11354, 32, 11385, 753, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "yellow_stained_glass_pane", 11386, 32, 11417, 758, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "lime_stained_glass_pane", 11418, 32, 11449, 763, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "pink_stained_glass_pane", 11450, 32, 11481, 768, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "gray_stained_glass_pane", 11482, 32, 11513, 773, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "light_gray_stained_glass_pane", 11514, 32, 11545, 778, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "cyan_stained_glass_pane", 11546, 32, 11577, 783, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "purple_stained_glass_pane", 11578, 32, 11609, 788, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "blue_stained_glass_pane", 11610, 32, 11641, 793, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "brown_stained_glass_pane", 11642, 32, 11673, 798, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "green_stained_glass_pane", 11674, 32, 11705, 803, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "red_stained_glass_pane", 11706, 32, 11737, 808, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "black_stained_glass_pane", 11738, 32, 11769, 813, 5, 27, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1 },
+    { "acacia_stairs", 11770, 80, 11781, 818, 4, 27, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "cherry_stairs", 11850, 80, 11861, 822, 4, 27, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "dark_oak_stairs", 11930, 80, 11941, 826, 4, 27, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "pale_oak_stairs", 12010, 80, 12021, 830, 4, 27, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "mangrove_stairs", 12090, 80, 12101, 834, 4, 27, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "bamboo_stairs", 12170, 80, 12181, 838, 4, 27, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "bamboo_mosaic_stairs", 12250, 80, 12261, 842, 4, 27, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "slime_block", 12330, 1, 12330, 846, 0, 27, 0, VCLASS_SLIME_BLOCK, -1, -1 },
+    { "barrier", 12331, 2, 12332, 846, 1, 27, 0, VCLASS_BARRIER_BLOCK, -1, -1 },
+    { "light", 12333, 32, 12364, 847, 2, 27, 0, VCLASS_LIGHT_BLOCK, -1, -1 },
+    { "iron_trapdoor", 12365, 64, 12380, 849, 5, 27, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "prismarine", 12429, 1, 12429, 854, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "prismarine_bricks", 12430, 1, 12430, 854, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "dark_prismarine", 12431, 1, 12431, 854, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "prismarine_stairs", 12432, 80, 12443, 854, 4, 27, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "prismarine_brick_stairs", 12512, 80, 12523, 858, 4, 27, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "dark_prismarine_stairs", 12592, 80, 12603, 862, 4, 27, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "prismarine_slab", 12672, 6, 12675, 866, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "prismarine_brick_slab", 12678, 6, 12681, 868, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "dark_prismarine_slab", 12684, 6, 12687, 870, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "sea_lantern", 12690, 1, 12690, 872, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "hay_block", 12691, 3, 12692, 872, 1, 27, 0, VCLASS_HAY_BLOCK, -1, -1 },
+    { "white_carpet", 12694, 1, 12694, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "orange_carpet", 12695, 1, 12695, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "magenta_carpet", 12696, 1, 12696, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "light_blue_carpet", 12697, 1, 12697, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "yellow_carpet", 12698, 1, 12698, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "lime_carpet", 12699, 1, 12699, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "pink_carpet", 12700, 1, 12700, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "gray_carpet", 12701, 1, 12701, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "light_gray_carpet", 12702, 1, 12702, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "cyan_carpet", 12703, 1, 12703, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "purple_carpet", 12704, 1, 12704, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "blue_carpet", 12705, 1, 12705, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "brown_carpet", 12706, 1, 12706, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "green_carpet", 12707, 1, 12707, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "red_carpet", 12708, 1, 12708, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "black_carpet", 12709, 1, 12709, 873, 0, 27, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1 },
+    { "terracotta", 12710, 1, 12710, 873, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "coal_block", 12711, 1, 12711, 873, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "packed_ice", 12712, 1, 12712, 873, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "sunflower", 12713, 2, 12714, 873, 1, 27, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1 },
+    { "lilac", 12715, 2, 12716, 874, 1, 27, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1 },
+    { "rose_bush", 12717, 2, 12718, 875, 1, 27, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1 },
+    { "peony", 12719, 2, 12720, 876, 1, 27, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1 },
+    { "tall_grass", 12721, 2, 12722, 877, 1, 27, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1 },
+    { "large_fern", 12723, 2, 12724, 878, 1, 27, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1 },
+    { "white_banner", 12725, 16, 12725, 879, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "orange_banner", 12741, 16, 12741, 880, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "magenta_banner", 12757, 16, 12757, 881, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "light_blue_banner", 12773, 16, 12773, 882, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "yellow_banner", 12789, 16, 12789, 883, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "lime_banner", 12805, 16, 12805, 884, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "pink_banner", 12821, 16, 12821, 885, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "gray_banner", 12837, 16, 12837, 886, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "light_gray_banner", 12853, 16, 12853, 887, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "cyan_banner", 12869, 16, 12869, 888, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "purple_banner", 12885, 16, 12885, 889, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "blue_banner", 12901, 16, 12901, 890, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "brown_banner", 12917, 16, 12917, 891, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "green_banner", 12933, 16, 12933, 892, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "red_banner", 12949, 16, 12949, 893, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "black_banner", 12965, 16, 12965, 894, 1, 27, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "white_wall_banner", 12981, 4, 12981, 895, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "orange_wall_banner", 12985, 4, 12985, 896, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "magenta_wall_banner", 12989, 4, 12989, 897, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "light_blue_wall_banner", 12993, 4, 12993, 898, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "yellow_wall_banner", 12997, 4, 12997, 899, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "lime_wall_banner", 13001, 4, 13001, 900, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "pink_wall_banner", 13005, 4, 13005, 901, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "gray_wall_banner", 13009, 4, 13009, 902, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "light_gray_wall_banner", 13013, 4, 13013, 903, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "cyan_wall_banner", 13017, 4, 13017, 904, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "purple_wall_banner", 13021, 4, 13021, 905, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "blue_wall_banner", 13025, 4, 13025, 906, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "brown_wall_banner", 13029, 4, 13029, 907, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "green_wall_banner", 13033, 4, 13033, 908, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "red_wall_banner", 13037, 4, 13037, 909, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "black_wall_banner", 13041, 4, 13041, 910, 1, 27, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER },
+    { "red_sandstone", 13045, 1, 13045, 911, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "chiseled_red_sandstone", 13046, 1, 13046, 911, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "cut_red_sandstone", 13047, 1, 13047, 911, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "red_sandstone_stairs", 13048, 80, 13059, 911, 4, 27, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "oak_slab", 13128, 6, 13131, 915, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "spruce_slab", 13134, 6, 13137, 917, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "birch_slab", 13140, 6, 13143, 919, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "jungle_slab", 13146, 6, 13149, 921, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "acacia_slab", 13152, 6, 13155, 923, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "cherry_slab", 13158, 6, 13161, 925, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "dark_oak_slab", 13164, 6, 13167, 927, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "pale_oak_slab", 13170, 6, 13173, 929, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "mangrove_slab", 13176, 6, 13179, 931, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "bamboo_slab", 13182, 6, 13185, 933, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "bamboo_mosaic_slab", 13188, 6, 13191, 935, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "stone_slab", 13194, 6, 13197, 937, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "smooth_stone_slab", 13200, 6, 13203, 939, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "sandstone_slab", 13206, 6, 13209, 941, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "cut_sandstone_slab", 13212, 6, 13215, 943, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "petrified_oak_slab", 13218, 6, 13221, 945, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "cobblestone_slab", 13224, 6, 13227, 947, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "brick_slab", 13230, 6, 13233, 949, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "stone_brick_slab", 13236, 6, 13239, 951, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "mud_brick_slab", 13242, 6, 13245, 953, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "nether_brick_slab", 13248, 6, 13251, 955, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "quartz_slab", 13254, 6, 13257, 957, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "red_sandstone_slab", 13260, 6, 13263, 959, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "cut_red_sandstone_slab", 13266, 6, 13269, 961, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "purpur_slab", 13272, 6, 13275, 963, 2, 27, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "smooth_stone", 13278, 1, 13278, 965, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "smooth_sandstone", 13279, 1, 13279, 965, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "smooth_quartz", 13280, 1, 13280, 965, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "smooth_red_sandstone", 13281, 1, 13281, 965, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "spruce_fence_gate", 13282, 32, 13289, 965, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1 },
+    { "birch_fence_gate", 13314, 32, 13321, 969, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1 },
+    { "jungle_fence_gate", 13346, 32, 13353, 973, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1 },
+    { "acacia_fence_gate", 13378, 32, 13385, 977, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1 },
+    { "cherry_fence_gate", 13410, 32, 13417, 981, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1 },
+    { "dark_oak_fence_gate", 13442, 32, 13449, 985, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1 },
+    { "pale_oak_fence_gate", 13474, 32, 13481, 989, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1 },
+    { "mangrove_fence_gate", 13506, 32, 13513, 993, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1 },
+    { "bamboo_fence_gate", 13538, 32, 13545, 997, 4, 27, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1 },
+    { "spruce_fence", 13570, 32, 13601, 1001, 5, 27, 0, VCLASS_FENCE_BLOCK, -1, -1 },
+    { "birch_fence", 13602, 32, 13633, 1006, 5, 27, 0, VCLASS_FENCE_BLOCK, -1, -1 },
+    { "jungle_fence", 13634, 32, 13665, 1011, 5, 27, 0, VCLASS_FENCE_BLOCK, -1, -1 },
+    { "acacia_fence", 13666, 32, 13697, 1016, 5, 27, 0, VCLASS_FENCE_BLOCK, -1, -1 },
+    { "cherry_fence", 13698, 32, 13729, 1021, 5, 27, 0, VCLASS_FENCE_BLOCK, -1, -1 },
+    { "dark_oak_fence", 13730, 32, 13761, 1026, 5, 27, 0, VCLASS_FENCE_BLOCK, -1, -1 },
+    { "pale_oak_fence", 13762, 32, 13793, 1031, 5, 27, 0, VCLASS_FENCE_BLOCK, -1, -1 },
+    { "mangrove_fence", 13794, 32, 13825, 1036, 5, 27, 0, VCLASS_FENCE_BLOCK, -1, -1 },
+    { "bamboo_fence", 13826, 32, 13857, 1041, 5, 27, 0, VCLASS_FENCE_BLOCK, -1, -1 },
+    { "spruce_door", 13858, 64, 13869, 1046, 5, 27, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "birch_door", 13922, 64, 13933, 1051, 5, 27, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "jungle_door", 13986, 64, 13997, 1056, 5, 27, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "acacia_door", 14050, 64, 14061, 1061, 5, 27, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "cherry_door", 14114, 64, 14125, 1066, 5, 27, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "dark_oak_door", 14178, 64, 14189, 1071, 5, 27, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "pale_oak_door", 14242, 64, 14253, 1076, 5, 27, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "mangrove_door", 14306, 64, 14317, 1081, 5, 27, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "bamboo_door", 14370, 64, 14381, 1086, 5, 27, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "end_rod", 14434, 6, 14438, 1091, 1, 27, 0, VCLASS_END_ROD_BLOCK, -1, -1 },
+    { "chorus_plant", 14440, 64, 14503, 1092, 6, 27, 0, VCLASS_CHORUS_PLANT_BLOCK, -1, -1 },
+    { "chorus_flower", 14504, 6, 14504, 1098, 1, 27, 0, VCLASS_CHORUS_FLOWER_BLOCK, -1, -1 },
+    { "purpur_block", 14510, 1, 14510, 1099, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "purpur_pillar", 14511, 3, 14512, 1099, 1, 27, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "purpur_stairs", 14514, 80, 14525, 1100, 4, 27, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "end_stone_bricks", 14594, 1, 14594, 1104, 0, 27, 0, VCLASS_NONE, -1, -1 },
+    { "torchflower_crop", 14595, 2, 14595, 1104, 1, 27, 0, VCLASS_TORCHFLOWER_CROP_BLOCK, -1, -1 },
+    { "pitcher_crop", 14597, 10, 14598, 1105, 2, 27, 0, VCLASS_PITCHER_CROP_BLOCK, -1, -1 },
+    { "pitcher_plant", 14607, 2, 14608, 1107, 1, 27, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1 },
+    { "beetroots", 14609, 4, 14609, 1108, 1, 27, 0, VCLASS_BEETROOT_BLOCK, -1, -1 },
+    { "dirt_path", 14613, 1, 14613, 1109, 0, 27, 0, VCLASS_DIRT_PATH_BLOCK, -1, -1 },
+    { "end_gateway", 14614, 1, 14614, 1109, 0, 27, 0, VCLASS_END_GATEWAY_BLOCK, BLOCK_ENTITY_TYPE_END_GATEWAY, BLOCK_ENTITY_TYPE_END_GATEWAY },
+    { "repeating_command_block", 14615, 12, 14621, 1109, 2, 27, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK },
+    { "chain_command_block", 14627, 12, 14633, 1111, 2, 28, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK },
+    { "frosted_ice", 14639, 4, 14639, 1113, 1, 29, 0, VCLASS_FROSTED_ICE_BLOCK, -1, -1 },
+    { "magma_block", 14643, 1, 14643, 1114, 0, 29, 0, VCLASS_MAGMA_BLOCK, -1, -1 },
+    { "nether_wart_block", 14644, 1, 14644, 1114, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "red_nether_bricks", 14645, 1, 14645, 1114, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "bone_block", 14646, 3, 14647, 1114, 1, 29, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "structure_void", 14649, 1, 14649, 1115, 0, 29, 0, VCLASS_STRUCTURE_VOID_BLOCK, -1, -1 },
+    { "observer", 14650, 12, 14655, 1115, 2, 29, 0, VCLASS_OBSERVER_BLOCK, -1, -1 },
+    { "shulker_box", 14662, 6, 14666, 1117, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "white_shulker_box", 14668, 6, 14672, 1118, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "orange_shulker_box", 14674, 6, 14678, 1119, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "magenta_shulker_box", 14680, 6, 14684, 1120, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "light_blue_shulker_box", 14686, 6, 14690, 1121, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "yellow_shulker_box", 14692, 6, 14696, 1122, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "lime_shulker_box", 14698, 6, 14702, 1123, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "pink_shulker_box", 14704, 6, 14708, 1124, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "gray_shulker_box", 14710, 6, 14714, 1125, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "light_gray_shulker_box", 14716, 6, 14720, 1126, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "cyan_shulker_box", 14722, 6, 14726, 1127, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "purple_shulker_box", 14728, 6, 14732, 1128, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "blue_shulker_box", 14734, 6, 14738, 1129, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "brown_shulker_box", 14740, 6, 14744, 1130, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "green_shulker_box", 14746, 6, 14750, 1131, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "red_shulker_box", 14752, 6, 14756, 1132, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "black_shulker_box", 14758, 6, 14762, 1133, 1, 29, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX },
+    { "white_glazed_terracotta", 14764, 4, 14764, 1134, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "orange_glazed_terracotta", 14768, 4, 14768, 1135, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "magenta_glazed_terracotta", 14772, 4, 14772, 1136, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "light_blue_glazed_terracotta", 14776, 4, 14776, 1137, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "yellow_glazed_terracotta", 14780, 4, 14780, 1138, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "lime_glazed_terracotta", 14784, 4, 14784, 1139, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "pink_glazed_terracotta", 14788, 4, 14788, 1140, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "gray_glazed_terracotta", 14792, 4, 14792, 1141, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "light_gray_glazed_terracotta", 14796, 4, 14796, 1142, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "cyan_glazed_terracotta", 14800, 4, 14800, 1143, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "purple_glazed_terracotta", 14804, 4, 14804, 1144, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "blue_glazed_terracotta", 14808, 4, 14808, 1145, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "brown_glazed_terracotta", 14812, 4, 14812, 1146, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "green_glazed_terracotta", 14816, 4, 14816, 1147, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "red_glazed_terracotta", 14820, 4, 14820, 1148, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "black_glazed_terracotta", 14824, 4, 14824, 1149, 1, 29, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1 },
+    { "white_concrete", 14828, 1, 14828, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "orange_concrete", 14829, 1, 14829, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "magenta_concrete", 14830, 1, 14830, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "light_blue_concrete", 14831, 1, 14831, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "yellow_concrete", 14832, 1, 14832, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "lime_concrete", 14833, 1, 14833, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "pink_concrete", 14834, 1, 14834, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "gray_concrete", 14835, 1, 14835, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "light_gray_concrete", 14836, 1, 14836, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "cyan_concrete", 14837, 1, 14837, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "purple_concrete", 14838, 1, 14838, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "blue_concrete", 14839, 1, 14839, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "brown_concrete", 14840, 1, 14840, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "green_concrete", 14841, 1, 14841, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "red_concrete", 14842, 1, 14842, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "black_concrete", 14843, 1, 14843, 1150, 0, 29, 0, VCLASS_NONE, -1, -1 },
+    { "white_concrete_powder", 14844, 1, 14844, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "orange_concrete_powder", 14845, 1, 14845, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "magenta_concrete_powder", 14846, 1, 14846, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "light_blue_concrete_powder", 14847, 1, 14847, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "yellow_concrete_powder", 14848, 1, 14848, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "lime_concrete_powder", 14849, 1, 14849, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "pink_concrete_powder", 14850, 1, 14850, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "gray_concrete_powder", 14851, 1, 14851, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "light_gray_concrete_powder", 14852, 1, 14852, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "cyan_concrete_powder", 14853, 1, 14853, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "purple_concrete_powder", 14854, 1, 14854, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "blue_concrete_powder", 14855, 1, 14855, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "brown_concrete_powder", 14856, 1, 14856, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "green_concrete_powder", 14857, 1, 14857, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "red_concrete_powder", 14858, 1, 14858, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "black_concrete_powder", 14859, 1, 14859, 1150, 0, 29, 0, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1 },
+    { "kelp", 14860, 26, 14860, 1150, 1, 29, 1, VCLASS_KELP_BLOCK, -1, -1 },
+    { "kelp_plant", 14886, 1, 14886, 1151, 0, 30, 1, VCLASS_KELP_PLANT_BLOCK, -1, -1 },
+    { "dried_kelp_block", 14887, 1, 14887, 1151, 0, 31, 0, VCLASS_NONE, -1, -1 },
+    { "turtle_egg", 14888, 12, 14888, 1151, 2, 31, 0, VCLASS_TURTLE_EGG_BLOCK, -1, -1 },
+    { "sniffer_egg", 14900, 3, 14900, 1153, 1, 31, 0, VCLASS_SNIFFER_EGG_BLOCK, -1, -1 },
+    { "dried_ghast", 14903, 32, 14904, 1154, 3, 31, 0, VCLASS_DRIED_GHAST_BLOCK, -1, -1 },
+    { "dead_tube_coral_block", 14935, 1, 14935, 1157, 0, 31, 0, VCLASS_NONE, -1, -1 },
+    { "dead_brain_coral_block", 14936, 1, 14936, 1157, 0, 31, 0, VCLASS_NONE, -1, -1 },
+    { "dead_bubble_coral_block", 14937, 1, 14937, 1157, 0, 31, 0, VCLASS_NONE, -1, -1 },
+    { "dead_fire_coral_block", 14938, 1, 14938, 1157, 0, 31, 0, VCLASS_NONE, -1, -1 },
+    { "dead_horn_coral_block", 14939, 1, 14939, 1157, 0, 31, 0, VCLASS_NONE, -1, -1 },
+    { "tube_coral_block", 14940, 1, 14940, 1157, 0, 31, 0, VCLASS_CORAL_BLOCK, -1, -1 },
+    { "brain_coral_block", 14941, 1, 14941, 1157, 0, 31, 0, VCLASS_CORAL_BLOCK, -1, -1 },
+    { "bubble_coral_block", 14942, 1, 14942, 1157, 0, 31, 0, VCLASS_CORAL_BLOCK, -1, -1 },
+    { "fire_coral_block", 14943, 1, 14943, 1157, 0, 31, 0, VCLASS_CORAL_BLOCK, -1, -1 },
+    { "horn_coral_block", 14944, 1, 14944, 1157, 0, 31, 0, VCLASS_CORAL_BLOCK, -1, -1 },
+    { "dead_tube_coral", 14945, 2, 14945, 1157, 1, 31, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1 },
+    { "dead_brain_coral", 14947, 2, 14947, 1158, 1, 31, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1 },
+    { "dead_bubble_coral", 14949, 2, 14949, 1159, 1, 31, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1 },
+    { "dead_fire_coral", 14951, 2, 14951, 1160, 1, 31, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1 },
+    { "dead_horn_coral", 14953, 2, 14953, 1161, 1, 31, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1 },
+    { "tube_coral", 14955, 2, 14955, 1162, 1, 31, 0, VCLASS_CORAL_PLANT_BLOCK, -1, -1 },
+    { "brain_coral", 14957, 2, 14957, 1163, 1, 31, 0, VCLASS_CORAL_PLANT_BLOCK, -1, -1 },
+    { "bubble_coral", 14959, 2, 14959, 1164, 1, 31, 0, VCLASS_CORAL_PLANT_BLOCK, -1, -1 },
+    { "fire_coral", 14961, 2, 14961, 1165, 1, 31, 0, VCLASS_CORAL_PLANT_BLOCK, -1, -1 },
+    { "horn_coral", 14963, 2, 14963, 1166, 1, 31, 0, VCLASS_CORAL_PLANT_BLOCK, -1, -1 },
+    { "dead_tube_coral_fan", 14965, 2, 14965, 1167, 1, 31, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1 },
+    { "dead_brain_coral_fan", 14967, 2, 14967, 1168, 1, 31, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1 },
+    { "dead_bubble_coral_fan", 14969, 2, 14969, 1169, 1, 31, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1 },
+    { "dead_fire_coral_fan", 14971, 2, 14971, 1170, 1, 31, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1 },
+    { "dead_horn_coral_fan", 14973, 2, 14973, 1171, 1, 31, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1 },
+    { "tube_coral_fan", 14975, 2, 14975, 1172, 1, 31, 0, VCLASS_CORAL_FAN_BLOCK, -1, -1 },
+    { "brain_coral_fan", 14977, 2, 14977, 1173, 1, 31, 0, VCLASS_CORAL_FAN_BLOCK, -1, -1 },
+    { "bubble_coral_fan", 14979, 2, 14979, 1174, 1, 31, 0, VCLASS_CORAL_FAN_BLOCK, -1, -1 },
+    { "fire_coral_fan", 14981, 2, 14981, 1175, 1, 31, 0, VCLASS_CORAL_FAN_BLOCK, -1, -1 },
+    { "horn_coral_fan", 14983, 2, 14983, 1176, 1, 31, 0, VCLASS_CORAL_FAN_BLOCK, -1, -1 },
+    { "dead_tube_coral_wall_fan", 14985, 8, 14985, 1177, 2, 31, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1 },
+    { "dead_brain_coral_wall_fan", 14993, 8, 14993, 1179, 2, 31, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1 },
+    { "dead_bubble_coral_wall_fan", 15001, 8, 15001, 1181, 2, 31, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1 },
+    { "dead_fire_coral_wall_fan", 15009, 8, 15009, 1183, 2, 31, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1 },
+    { "dead_horn_coral_wall_fan", 15017, 8, 15017, 1185, 2, 31, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1 },
+    { "tube_coral_wall_fan", 15025, 8, 15025, 1187, 2, 31, 0, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1 },
+    { "brain_coral_wall_fan", 15033, 8, 15033, 1189, 2, 31, 0, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1 },
+    { "bubble_coral_wall_fan", 15041, 8, 15041, 1191, 2, 31, 0, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1 },
+    { "fire_coral_wall_fan", 15049, 8, 15049, 1193, 2, 31, 0, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1 },
+    { "horn_coral_wall_fan", 15057, 8, 15057, 1195, 2, 31, 0, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1 },
+    { "sea_pickle", 15065, 8, 15065, 1197, 2, 31, 0, VCLASS_SEA_PICKLE_BLOCK, -1, -1 },
+    { "blue_ice", 15073, 1, 15073, 1199, 0, 31, 0, VCLASS_HALF_TRANSPARENT_BLOCK, -1, -1 },
+    { "conduit", 15074, 2, 15074, 1199, 1, 31, 0, VCLASS_CONDUIT_BLOCK, BLOCK_ENTITY_TYPE_CONDUIT, BLOCK_ENTITY_TYPE_CONDUIT },
+    { "bamboo_sapling", 15076, 1, 15076, 1200, 0, 31, 0, VCLASS_BAMBOO_SAPLING_BLOCK, -1, -1 },
+    { "bamboo", 15077, 12, 15077, 1200, 3, 31, 0, VCLASS_BAMBOO_STALK_BLOCK, -1, -1 },
+    { "potted_bamboo", 15089, 1, 15089, 1203, 0, 31, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "void_air", 15090, 1, 15090, 1203, 0, 31, 0, VCLASS_AIR_BLOCK, -1, -1 },
+    { "cave_air", 15091, 1, 15091, 1203, 0, 31, 0, VCLASS_AIR_BLOCK, -1, -1 },
+    { "bubble_column", 15092, 2, 15092, 1203, 1, 31, 0, VCLASS_BUBBLE_COLUMN_BLOCK, -1, -1 },
+    { "polished_granite_stairs", 15094, 80, 15105, 1204, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "smooth_red_sandstone_stairs", 15174, 80, 15185, 1208, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "mossy_stone_brick_stairs", 15254, 80, 15265, 1212, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "polished_diorite_stairs", 15334, 80, 15345, 1216, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "mossy_cobblestone_stairs", 15414, 80, 15425, 1220, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "end_stone_brick_stairs", 15494, 80, 15505, 1224, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "stone_stairs", 15574, 80, 15585, 1228, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "smooth_sandstone_stairs", 15654, 80, 15665, 1232, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "smooth_quartz_stairs", 15734, 80, 15745, 1236, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "granite_stairs", 15814, 80, 15825, 1240, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "andesite_stairs", 15894, 80, 15905, 1244, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "red_nether_brick_stairs", 15974, 80, 15985, 1248, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "polished_andesite_stairs", 16054, 80, 16065, 1252, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "diorite_stairs", 16134, 80, 16145, 1256, 4, 31, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "polished_granite_slab", 16214, 6, 16217, 1260, 2, 31, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "smooth_red_sandstone_slab", 16220, 6, 16223, 1262, 2, 31, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "mossy_stone_brick_slab", 16226, 6, 16229, 1264, 2, 31, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "polished_diorite_slab", 16232, 6, 16235, 1266, 2, 31, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "mossy_cobblestone_slab", 16238, 6, 16241, 1268, 2, 31, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "end_stone_brick_slab", 16244, 6, 16247, 1270, 2, 31, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "smooth_sandstone_slab", 16250, 6, 16253, 1272, 2, 31, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "smooth_quartz_slab", 16256, 6, 16259, 1274, 2, 31, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "granite_slab", 16262, 6, 16265, 1276, 2, 31, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "andesite_slab", 16268, 6, 16271, 1278, 2, 31, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "red_nether_brick_slab", 16274, 6, 16277, 1280, 2, 31, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "polished_andesite_slab", 16280, 6, 16283, 1282, 2, 31, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "diorite_slab", 16286, 6, 16289, 1284, 2, 31, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "brick_wall", 16292, 324, 16295, 1286, 6, 31, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "prismarine_wall", 16616, 324, 16619, 1292, 6, 31, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "red_sandstone_wall", 16940, 324, 16943, 1298, 6, 31, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "mossy_stone_brick_wall", 17264, 324, 17267, 1304, 6, 31, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "granite_wall", 17588, 324, 17591, 1310, 6, 31, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "stone_brick_wall", 17912, 324, 17915, 1316, 6, 31, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "mud_brick_wall", 18236, 324, 18239, 1322, 6, 31, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "nether_brick_wall", 18560, 324, 18563, 1328, 6, 31, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "andesite_wall", 18884, 324, 18887, 1334, 6, 31, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "red_nether_brick_wall", 19208, 324, 19211, 1340, 6, 31, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "sandstone_wall", 19532, 324, 19535, 1346, 6, 31, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "end_stone_brick_wall", 19856, 324, 19859, 1352, 6, 31, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "diorite_wall", 20180, 324, 20183, 1358, 6, 31, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "scaffolding", 20504, 32, 20535, 1364, 3, 31, 0, VCLASS_SCAFFOLDING_BLOCK, -1, -1 },
+    { "loom", 20536, 4, 20536, 1367, 1, 31, 0, VCLASS_LOOM_BLOCK, -1, -1 },
+    { "barrel", 20540, 12, 20541, 1368, 2, 31, 0, VCLASS_BARREL_BLOCK, BLOCK_ENTITY_TYPE_BARREL, BLOCK_ENTITY_TYPE_BARREL },
+    { "smoker", 20552, 8, 20553, 1370, 2, 31, 0, VCLASS_SMOKER_BLOCK, BLOCK_ENTITY_TYPE_SMOKER, BLOCK_ENTITY_TYPE_SMOKER },
+    { "blast_furnace", 20560, 8, 20561, 1372, 2, 31, 0, VCLASS_BLAST_FURNACE_BLOCK, BLOCK_ENTITY_TYPE_BLAST_FURNACE, BLOCK_ENTITY_TYPE_BLAST_FURNACE },
+    { "cartography_table", 20568, 1, 20568, 1374, 0, 31, 0, VCLASS_CARTOGRAPHY_TABLE_BLOCK, -1, -1 },
+    { "fletching_table", 20569, 1, 20569, 1374, 0, 31, 0, VCLASS_NONE, -1, -1 },
+    { "grindstone", 20570, 12, 20574, 1374, 2, 31, 0, VCLASS_GRINDSTONE_BLOCK, -1, -1 },
+    { "lectern", 20582, 16, 20585, 1376, 3, 31, 0, VCLASS_LECTERN_BLOCK, BLOCK_ENTITY_TYPE_LECTERN, BLOCK_ENTITY_TYPE_LECTERN },
+    { "smithing_table", 20598, 1, 20598, 1379, 0, 31, 0, VCLASS_SMITHING_TABLE_BLOCK, -1, -1 },
+    { "stonecutter", 20599, 4, 20599, 1379, 1, 31, 0, VCLASS_STONECUTTER_BLOCK, -1, -1 },
+    { "bell", 20603, 32, 20604, 1380, 3, 31, 0, VCLASS_BELL_BLOCK, BLOCK_ENTITY_TYPE_BELL, BLOCK_ENTITY_TYPE_BELL },
+    { "lantern", 20635, 4, 20638, 1383, 2, 31, 0, VCLASS_LANTERN_BLOCK, -1, -1 },
+    { "soul_lantern", 20639, 4, 20642, 1385, 2, 31, 0, VCLASS_LANTERN_BLOCK, -1, -1 },
+    { "copper_lantern", 20643, 4, 20646, 1387, 2, 31, 0, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1 },
+    { "exposed_copper_lantern", 20647, 4, 20650, 1389, 2, 31, 0, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1 },
+    { "weathered_copper_lantern", 20651, 4, 20654, 1391, 2, 31, 0, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1 },
+    { "oxidized_copper_lantern", 20655, 4, 20658, 1393, 2, 31, 0, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1 },
+    { "waxed_copper_lantern", 20659, 4, 20662, 1395, 2, 31, 0, VCLASS_LANTERN_BLOCK, -1, -1 },
+    { "waxed_exposed_copper_lantern", 20663, 4, 20666, 1397, 2, 31, 0, VCLASS_LANTERN_BLOCK, -1, -1 },
+    { "waxed_weathered_copper_lantern", 20667, 4, 20670, 1399, 2, 31, 0, VCLASS_LANTERN_BLOCK, -1, -1 },
+    { "waxed_oxidized_copper_lantern", 20671, 4, 20674, 1401, 2, 31, 0, VCLASS_LANTERN_BLOCK, -1, -1 },
+    { "campfire", 20675, 32, 20678, 1403, 4, 31, 2, VCLASS_CAMPFIRE_BLOCK, BLOCK_ENTITY_TYPE_CAMPFIRE, BLOCK_ENTITY_TYPE_CAMPFIRE },
+    { "soul_campfire", 20707, 32, 20710, 1407, 4, 33, 2, VCLASS_CAMPFIRE_BLOCK, BLOCK_ENTITY_TYPE_CAMPFIRE, BLOCK_ENTITY_TYPE_CAMPFIRE },
+    { "sweet_berry_bush", 20739, 4, 20739, 1411, 1, 35, 0, VCLASS_SWEET_BERRY_BUSH_BLOCK, -1, -1 },
+    { "warped_stem", 20743, 3, 20744, 1412, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_warped_stem", 20746, 3, 20747, 1413, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "warped_hyphae", 20749, 3, 20750, 1414, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_warped_hyphae", 20752, 3, 20753, 1415, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "warped_nylium", 20755, 1, 20755, 1416, 0, 35, 0, VCLASS_NYLIUM_BLOCK, -1, -1 },
+    { "warped_fungus", 20756, 1, 20756, 1416, 0, 35, 0, VCLASS_FUNGUS_BLOCK, -1, -1 },
+    { "warped_wart_block", 20757, 1, 20757, 1416, 0, 35, 0, VCLASS_NONE, -1, -1 },
+    { "warped_roots", 20758, 1, 20758, 1416, 0, 35, 0, VCLASS_ROOTS_BLOCK, -1, -1 },
+    { "nether_sprouts", 20759, 1, 20759, 1416, 0, 35, 0, VCLASS_NETHER_SPROUTS_BLOCK, -1, -1 },
+    { "crimson_stem", 20760, 3, 20761, 1416, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_crimson_stem", 20763, 3, 20764, 1417, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "crimson_hyphae", 20766, 3, 20767, 1418, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "stripped_crimson_hyphae", 20769, 3, 20770, 1419, 1, 35, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "crimson_nylium", 20772, 1, 20772, 1420, 0, 35, 0, VCLASS_NYLIUM_BLOCK, -1, -1 },
+    { "crimson_fungus", 20773, 1, 20773, 1420, 0, 35, 0, VCLASS_FUNGUS_BLOCK, -1, -1 },
+    { "shroomlight", 20774, 1, 20774, 1420, 0, 35, 0, VCLASS_NONE, -1, -1 },
+    { "weeping_vines", 20775, 26, 20775, 1420, 1, 35, 1, VCLASS_WEEPING_VINES_BLOCK, -1, -1 },
+    { "weeping_vines_plant", 20801, 1, 20801, 1421, 0, 36, 1, VCLASS_WEEPING_VINES_PLANT_BLOCK, -1, -1 },
+    { "twisting_vines", 20802, 26, 20802, 1421, 1, 37, 1, VCLASS_TWISTING_VINES_BLOCK, -1, -1 },
+    { "twisting_vines_plant", 20828, 1, 20828, 1422, 0, 38, 1, VCLASS_TWISTING_VINES_PLANT_BLOCK, -1, -1 },
+    { "crimson_roots", 20829, 1, 20829, 1422, 0, 39, 0, VCLASS_ROOTS_BLOCK, -1, -1 },
+    { "crimson_planks", 20830, 1, 20830, 1422, 0, 39, 0, VCLASS_NONE, -1, -1 },
+    { "warped_planks", 20831, 1, 20831, 1422, 0, 39, 0, VCLASS_NONE, -1, -1 },
+    { "crimson_slab", 20832, 6, 20835, 1422, 2, 39, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "warped_slab", 20838, 6, 20841, 1424, 2, 39, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "crimson_pressure_plate", 20844, 2, 20845, 1426, 1, 39, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "warped_pressure_plate", 20846, 2, 20847, 1427, 1, 39, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "crimson_fence", 20848, 32, 20879, 1428, 5, 39, 0, VCLASS_FENCE_BLOCK, -1, -1 },
+    { "warped_fence", 20880, 32, 20911, 1433, 5, 39, 0, VCLASS_FENCE_BLOCK, -1, -1 },
+    { "crimson_trapdoor", 20912, 64, 20927, 1438, 5, 39, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "warped_trapdoor", 20976, 64, 20991, 1443, 5, 39, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "crimson_fence_gate", 21040, 32, 21047, 1448, 4, 39, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1 },
+    { "warped_fence_gate", 21072, 32, 21079, 1452, 4, 39, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1 },
+    { "crimson_stairs", 21104, 80, 21115, 1456, 4, 39, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "warped_stairs", 21184, 80, 21195, 1460, 4, 39, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "crimson_button", 21264, 24, 21273, 1464, 3, 39, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "warped_button", 21288, 24, 21297, 1467, 3, 40, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "crimson_door", 21312, 64, 21323, 1470, 5, 41, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "warped_door", 21376, 64, 21387, 1475, 5, 41, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "crimson_sign", 21440, 32, 21441, 1480, 2, 41, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "warped_sign", 21472, 32, 21473, 1482, 2, 41, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "crimson_wall_sign", 21504, 8, 21505, 1484, 2, 41, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "warped_wall_sign", 21512, 8, 21513, 1486, 2, 41, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN },
+    { "structure_block", 21520, 4, 21521, 1488, 1, 41, 0, VCLASS_STRUCTURE_BLOCK, BLOCK_ENTITY_TYPE_STRUCTURE_BLOCK, BLOCK_ENTITY_TYPE_STRUCTURE_BLOCK },
+    { "jigsaw", 21524, 12, 21534, 1489, 1, 41, 0, VCLASS_JIGSAW_BLOCK, BLOCK_ENTITY_TYPE_JIGSAW, BLOCK_ENTITY_TYPE_JIGSAW },
+    { "test_block", 21536, 4, 21536, 1490, 1, 41, 0, VCLASS_TEST_BLOCK, BLOCK_ENTITY_TYPE_TEST_BLOCK, BLOCK_ENTITY_TYPE_TEST_BLOCK },
+    { "test_instance_block", 21540, 1, 21540, 1491, 0, 41, 0, VCLASS_TEST_INSTANCE_BLOCK, BLOCK_ENTITY_TYPE_TEST_INSTANCE_BLOCK, BLOCK_ENTITY_TYPE_TEST_INSTANCE_BLOCK },
+    { "composter", 21541, 9, 21541, 1491, 1, 41, 0, VCLASS_COMPOSTER_BLOCK, -1, -1 },
+    { "target", 21550, 16, 21550, 1492, 1, 41, 0, VCLASS_TARGET_BLOCK, -1, -1 },
+    { "bee_nest", 21566, 24, 21566, 1493, 2, 41, 0, VCLASS_BEEHIVE_BLOCK, BLOCK_ENTITY_TYPE_BEEHIVE, BLOCK_ENTITY_TYPE_BEEHIVE },
+    { "beehive", 21590, 24, 21590, 1495, 2, 41, 0, VCLASS_BEEHIVE_BLOCK, BLOCK_ENTITY_TYPE_BEEHIVE, BLOCK_ENTITY_TYPE_BEEHIVE },
+    { "honey_block", 21614, 1, 21614, 1497, 0, 41, 0, VCLASS_HONEY_BLOCK, -1, -1 },
+    { "honeycomb_block", 21615, 1, 21615, 1497, 0, 41, 0, VCLASS_NONE, -1, -1 },
+    { "netherite_block", 21616, 1, 21616, 1497, 0, 41, 0, VCLASS_NONE, -1, -1 },
+    { "ancient_debris", 21617, 1, 21617, 1497, 0, 41, 0, VCLASS_NONE, -1, -1 },
+    { "crying_obsidian", 21618, 1, 21618, 1497, 0, 41, 0, VCLASS_CRYING_OBSIDIAN_BLOCK, -1, -1 },
+    { "respawn_anchor", 21619, 5, 21619, 1497, 1, 41, 0, VCLASS_RESPAWN_ANCHOR_BLOCK, -1, -1 },
+    { "potted_crimson_fungus", 21624, 1, 21624, 1498, 0, 41, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_warped_fungus", 21625, 1, 21625, 1498, 0, 41, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_crimson_roots", 21626, 1, 21626, 1498, 0, 41, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_warped_roots", 21627, 1, 21627, 1498, 0, 41, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "lodestone", 21628, 1, 21628, 1498, 0, 41, 0, VCLASS_NONE, -1, -1 },
+    { "blackstone", 21629, 1, 21629, 1498, 0, 41, 0, VCLASS_NONE, -1, -1 },
+    { "blackstone_stairs", 21630, 80, 21641, 1498, 4, 41, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "blackstone_wall", 21710, 324, 21713, 1502, 6, 41, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "blackstone_slab", 22034, 6, 22037, 1508, 2, 41, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "polished_blackstone", 22040, 1, 22040, 1510, 0, 41, 0, VCLASS_NONE, -1, -1 },
+    { "polished_blackstone_bricks", 22041, 1, 22041, 1510, 0, 41, 0, VCLASS_NONE, -1, -1 },
+    { "cracked_polished_blackstone_bricks", 22042, 1, 22042, 1510, 0, 41, 0, VCLASS_NONE, -1, -1 },
+    { "chiseled_polished_blackstone", 22043, 1, 22043, 1510, 0, 41, 0, VCLASS_NONE, -1, -1 },
+    { "polished_blackstone_brick_slab", 22044, 6, 22047, 1510, 2, 41, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "polished_blackstone_brick_stairs", 22050, 80, 22061, 1512, 4, 41, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "polished_blackstone_brick_wall", 22130, 324, 22133, 1516, 6, 41, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "gilded_blackstone", 22454, 1, 22454, 1522, 0, 41, 0, VCLASS_NONE, -1, -1 },
+    { "polished_blackstone_stairs", 22455, 80, 22466, 1522, 4, 41, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "polished_blackstone_slab", 22535, 6, 22538, 1526, 2, 41, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "polished_blackstone_pressure_plate", 22541, 2, 22542, 1528, 1, 41, 0, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1 },
+    { "polished_blackstone_button", 22543, 24, 22552, 1529, 3, 41, 1, VCLASS_BUTTON_BLOCK, -1, -1 },
+    { "polished_blackstone_wall", 22567, 324, 22570, 1532, 6, 42, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "chiseled_nether_bricks", 22891, 1, 22891, 1538, 0, 42, 0, VCLASS_NONE, -1, -1 },
+    { "cracked_nether_bricks", 22892, 1, 22892, 1538, 0, 42, 0, VCLASS_NONE, -1, -1 },
+    { "quartz_bricks", 22893, 1, 22893, 1538, 0, 42, 0, VCLASS_NONE, -1, -1 },
+    { "candle", 22894, 16, 22897, 1538, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "white_candle", 22910, 16, 22913, 1541, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "orange_candle", 22926, 16, 22929, 1544, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "magenta_candle", 22942, 16, 22945, 1547, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "light_blue_candle", 22958, 16, 22961, 1550, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "yellow_candle", 22974, 16, 22977, 1553, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "lime_candle", 22990, 16, 22993, 1556, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "pink_candle", 23006, 16, 23009, 1559, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "gray_candle", 23022, 16, 23025, 1562, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "light_gray_candle", 23038, 16, 23041, 1565, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "cyan_candle", 23054, 16, 23057, 1568, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "purple_candle", 23070, 16, 23073, 1571, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "blue_candle", 23086, 16, 23089, 1574, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "brown_candle", 23102, 16, 23105, 1577, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "green_candle", 23118, 16, 23121, 1580, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "red_candle", 23134, 16, 23137, 1583, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "black_candle", 23150, 16, 23153, 1586, 3, 42, 0, VCLASS_CANDLE_BLOCK, -1, -1 },
+    { "candle_cake", 23166, 2, 23167, 1589, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "white_candle_cake", 23168, 2, 23169, 1590, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "orange_candle_cake", 23170, 2, 23171, 1591, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "magenta_candle_cake", 23172, 2, 23173, 1592, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "light_blue_candle_cake", 23174, 2, 23175, 1593, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "yellow_candle_cake", 23176, 2, 23177, 1594, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "lime_candle_cake", 23178, 2, 23179, 1595, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "pink_candle_cake", 23180, 2, 23181, 1596, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "gray_candle_cake", 23182, 2, 23183, 1597, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "light_gray_candle_cake", 23184, 2, 23185, 1598, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "cyan_candle_cake", 23186, 2, 23187, 1599, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "purple_candle_cake", 23188, 2, 23189, 1600, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "blue_candle_cake", 23190, 2, 23191, 1601, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "brown_candle_cake", 23192, 2, 23193, 1602, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "green_candle_cake", 23194, 2, 23195, 1603, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "red_candle_cake", 23196, 2, 23197, 1604, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "black_candle_cake", 23198, 2, 23199, 1605, 1, 42, 0, VCLASS_CANDLE_CAKE_BLOCK, -1, -1 },
+    { "amethyst_block", 23200, 1, 23200, 1606, 0, 42, 0, VCLASS_AMETHYST_BLOCK, -1, -1 },
+    { "budding_amethyst", 23201, 1, 23201, 1606, 0, 42, 0, VCLASS_BUDDING_AMETHYST_BLOCK, -1, -1 },
+    { "amethyst_cluster", 23202, 12, 23211, 1606, 2, 42, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1 },
+    { "large_amethyst_bud", 23214, 12, 23223, 1608, 2, 42, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1 },
+    { "medium_amethyst_bud", 23226, 12, 23235, 1610, 2, 42, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1 },
+    { "small_amethyst_bud", 23238, 12, 23247, 1612, 2, 42, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1 },
+    { "tuff", 23250, 1, 23250, 1614, 0, 42, 0, VCLASS_NONE, -1, -1 },
+    { "tuff_slab", 23251, 6, 23254, 1614, 2, 42, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "tuff_stairs", 23257, 80, 23268, 1616, 4, 42, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "tuff_wall", 23337, 324, 23340, 1620, 6, 42, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "polished_tuff", 23661, 1, 23661, 1626, 0, 42, 0, VCLASS_NONE, -1, -1 },
+    { "polished_tuff_slab", 23662, 6, 23665, 1626, 2, 42, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "polished_tuff_stairs", 23668, 80, 23679, 1628, 4, 42, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "polished_tuff_wall", 23748, 324, 23751, 1632, 6, 42, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "chiseled_tuff", 24072, 1, 24072, 1638, 0, 42, 0, VCLASS_NONE, -1, -1 },
+    { "tuff_bricks", 24073, 1, 24073, 1638, 0, 42, 0, VCLASS_NONE, -1, -1 },
+    { "tuff_brick_slab", 24074, 6, 24077, 1638, 2, 42, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "tuff_brick_stairs", 24080, 80, 24091, 1640, 4, 42, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "tuff_brick_wall", 24160, 324, 24163, 1644, 6, 42, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "chiseled_tuff_bricks", 24484, 1, 24484, 1650, 0, 42, 0, VCLASS_NONE, -1, -1 },
+    { "calcite", 24485, 1, 24485, 1650, 0, 42, 0, VCLASS_NONE, -1, -1 },
+    { "tinted_glass", 24486, 1, 24486, 1650, 0, 42, 0, VCLASS_TINTED_GLASS_BLOCK, -1, -1 },
+    { "powder_snow", 24487, 1, 24487, 1650, 0, 42, 0, VCLASS_POWDER_SNOW_BLOCK, -1, -1 },
+    { "sculk_sensor", 24488, 96, 24489, 1650, 3, 42, 0, VCLASS_SCULK_SENSOR_BLOCK, BLOCK_ENTITY_TYPE_SCULK_SENSOR, BLOCK_ENTITY_TYPE_SCULK_SENSOR },
+    { "calibrated_sculk_sensor", 24584, 384, 24585, 1653, 4, 42, 0, VCLASS_CALIBRATED_SCULK_SENSOR_BLOCK, BLOCK_ENTITY_TYPE_CALIBRATED_SCULK_SENSOR, BLOCK_ENTITY_TYPE_CALIBRATED_SCULK_SENSOR },
+    { "sculk", 24968, 1, 24968, 1657, 0, 42, 0, VCLASS_SCULK_BLOCK, -1, -1 },
+    { "sculk_vein", 24969, 128, 25096, 1657, 7, 42, 3, VCLASS_SCULK_VEIN_BLOCK, -1, -1 },
+    { "sculk_catalyst", 25097, 2, 25098, 1664, 1, 45, 0, VCLASS_SCULK_CATALYST_BLOCK, BLOCK_ENTITY_TYPE_SCULK_CATALYST, BLOCK_ENTITY_TYPE_SCULK_CATALYST },
+    { "sculk_shrieker", 25099, 8, 25106, 1665, 3, 45, 0, VCLASS_SCULK_SHRIEKER_BLOCK, BLOCK_ENTITY_TYPE_SCULK_SHRIEKER, BLOCK_ENTITY_TYPE_SCULK_SHRIEKER },
+    { "copper_block", 25107, 1, 25107, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1 },
+    { "exposed_copper", 25108, 1, 25108, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1 },
+    { "weathered_copper", 25109, 1, 25109, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1 },
+    { "oxidized_copper", 25110, 1, 25110, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1 },
+    { "copper_ore", 25111, 1, 25111, 1668, 0, 45, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "deepslate_copper_ore", 25112, 1, 25112, 1668, 0, 45, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1 },
+    { "oxidized_cut_copper", 25113, 1, 25113, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1 },
+    { "weathered_cut_copper", 25114, 1, 25114, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1 },
+    { "exposed_cut_copper", 25115, 1, 25115, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1 },
+    { "cut_copper", 25116, 1, 25116, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1 },
+    { "oxidized_chiseled_copper", 25117, 1, 25117, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1 },
+    { "weathered_chiseled_copper", 25118, 1, 25118, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1 },
+    { "exposed_chiseled_copper", 25119, 1, 25119, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1 },
+    { "chiseled_copper", 25120, 1, 25120, 1668, 0, 45, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1 },
+    { "waxed_oxidized_chiseled_copper", 25121, 1, 25121, 1668, 0, 45, 0, VCLASS_NONE, -1, -1 },
+    { "waxed_weathered_chiseled_copper", 25122, 1, 25122, 1668, 0, 45, 0, VCLASS_NONE, -1, -1 },
+    { "waxed_exposed_chiseled_copper", 25123, 1, 25123, 1668, 0, 45, 0, VCLASS_NONE, -1, -1 },
+    { "waxed_chiseled_copper", 25124, 1, 25124, 1668, 0, 45, 0, VCLASS_NONE, -1, -1 },
+    { "oxidized_cut_copper_stairs", 25125, 80, 25136, 1668, 4, 45, 0, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1 },
+    { "weathered_cut_copper_stairs", 25205, 80, 25216, 1672, 4, 45, 0, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1 },
+    { "exposed_cut_copper_stairs", 25285, 80, 25296, 1676, 4, 45, 0, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1 },
+    { "cut_copper_stairs", 25365, 80, 25376, 1680, 4, 45, 0, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1 },
+    { "oxidized_cut_copper_slab", 25445, 6, 25448, 1684, 2, 45, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1 },
+    { "weathered_cut_copper_slab", 25451, 6, 25454, 1686, 2, 45, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1 },
+    { "exposed_cut_copper_slab", 25457, 6, 25460, 1688, 2, 45, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1 },
+    { "cut_copper_slab", 25463, 6, 25466, 1690, 2, 45, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1 },
+    { "waxed_copper_block", 25469, 1, 25469, 1692, 0, 45, 0, VCLASS_NONE, -1, -1 },
+    { "waxed_weathered_copper", 25470, 1, 25470, 1692, 0, 45, 0, VCLASS_NONE, -1, -1 },
+    { "waxed_exposed_copper", 25471, 1, 25471, 1692, 0, 45, 0, VCLASS_NONE, -1, -1 },
+    { "waxed_oxidized_copper", 25472, 1, 25472, 1692, 0, 45, 0, VCLASS_NONE, -1, -1 },
+    { "waxed_oxidized_cut_copper", 25473, 1, 25473, 1692, 0, 45, 0, VCLASS_NONE, -1, -1 },
+    { "waxed_weathered_cut_copper", 25474, 1, 25474, 1692, 0, 45, 0, VCLASS_NONE, -1, -1 },
+    { "waxed_exposed_cut_copper", 25475, 1, 25475, 1692, 0, 45, 0, VCLASS_NONE, -1, -1 },
+    { "waxed_cut_copper", 25476, 1, 25476, 1692, 0, 45, 0, VCLASS_NONE, -1, -1 },
+    { "waxed_oxidized_cut_copper_stairs", 25477, 80, 25488, 1692, 4, 45, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "waxed_weathered_cut_copper_stairs", 25557, 80, 25568, 1696, 4, 45, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "waxed_exposed_cut_copper_stairs", 25637, 80, 25648, 1700, 4, 45, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "waxed_cut_copper_stairs", 25717, 80, 25728, 1704, 4, 45, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "waxed_oxidized_cut_copper_slab", 25797, 6, 25800, 1708, 2, 45, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "waxed_weathered_cut_copper_slab", 25803, 6, 25806, 1710, 2, 45, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "waxed_exposed_cut_copper_slab", 25809, 6, 25812, 1712, 2, 45, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "waxed_cut_copper_slab", 25815, 6, 25818, 1714, 2, 45, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "copper_door", 25821, 64, 25832, 1716, 5, 45, 0, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1 },
+    { "exposed_copper_door", 25885, 64, 25896, 1721, 5, 45, 0, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1 },
+    { "oxidized_copper_door", 25949, 64, 25960, 1726, 5, 45, 0, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1 },
+    { "weathered_copper_door", 26013, 64, 26024, 1731, 5, 45, 0, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1 },
+    { "waxed_copper_door", 26077, 64, 26088, 1736, 5, 45, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "waxed_exposed_copper_door", 26141, 64, 26152, 1741, 5, 45, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "waxed_oxidized_copper_door", 26205, 64, 26216, 1746, 5, 45, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "waxed_weathered_copper_door", 26269, 64, 26280, 1751, 5, 45, 0, VCLASS_DOOR_BLOCK, -1, -1 },
+    { "copper_trapdoor", 26333, 64, 26348, 1756, 5, 45, 0, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1 },
+    { "exposed_copper_trapdoor", 26397, 64, 26412, 1761, 5, 45, 0, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1 },
+    { "oxidized_copper_trapdoor", 26461, 64, 26476, 1766, 5, 45, 0, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1 },
+    { "weathered_copper_trapdoor", 26525, 64, 26540, 1771, 5, 45, 0, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1 },
+    { "waxed_copper_trapdoor", 26589, 64, 26604, 1776, 5, 45, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "waxed_exposed_copper_trapdoor", 26653, 64, 26668, 1781, 5, 45, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "waxed_oxidized_copper_trapdoor", 26717, 64, 26732, 1786, 5, 45, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "waxed_weathered_copper_trapdoor", 26781, 64, 26796, 1791, 5, 45, 0, VCLASS_TRAP_DOOR_BLOCK, -1, -1 },
+    { "copper_grate", 26845, 2, 26846, 1796, 1, 45, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1 },
+    { "exposed_copper_grate", 26847, 2, 26848, 1797, 1, 45, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1 },
+    { "weathered_copper_grate", 26849, 2, 26850, 1798, 1, 45, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1 },
+    { "oxidized_copper_grate", 26851, 2, 26852, 1799, 1, 45, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1 },
+    { "waxed_copper_grate", 26853, 2, 26854, 1800, 1, 45, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1 },
+    { "waxed_exposed_copper_grate", 26855, 2, 26856, 1801, 1, 45, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1 },
+    { "waxed_weathered_copper_grate", 26857, 2, 26858, 1802, 1, 45, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1 },
+    { "waxed_oxidized_copper_grate", 26859, 2, 26860, 1803, 1, 45, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1 },
+    { "copper_bulb", 26861, 4, 26864, 1804, 2, 45, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1 },
+    { "exposed_copper_bulb", 26865, 4, 26868, 1806, 2, 45, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1 },
+    { "weathered_copper_bulb", 26869, 4, 26872, 1808, 2, 45, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1 },
+    { "oxidized_copper_bulb", 26873, 4, 26876, 1810, 2, 45, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1 },
+    { "waxed_copper_bulb", 26877, 4, 26880, 1812, 2, 45, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1 },
+    { "waxed_exposed_copper_bulb", 26881, 4, 26884, 1814, 2, 45, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1 },
+    { "waxed_weathered_copper_bulb", 26885, 4, 26888, 1816, 2, 45, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1 },
+    { "waxed_oxidized_copper_bulb", 26889, 4, 26892, 1818, 2, 45, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1 },
+    { "copper_chest", 26893, 24, 26894, 1820, 3, 45, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST },
+    { "exposed_copper_chest", 26917, 24, 26918, 1823, 3, 45, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST },
+    { "weathered_copper_chest", 26941, 24, 26942, 1826, 3, 45, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST },
+    { "oxidized_copper_chest", 26965, 24, 26966, 1829, 3, 45, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST },
+    { "waxed_copper_chest", 26989, 24, 26990, 1832, 3, 45, 0, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST },
+    { "waxed_exposed_copper_chest", 27013, 24, 27014, 1835, 3, 45, 0, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST },
+    { "waxed_weathered_copper_chest", 27037, 24, 27038, 1838, 3, 45, 0, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST },
+    { "waxed_oxidized_copper_chest", 27061, 24, 27062, 1841, 3, 45, 0, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST },
+    { "copper_golem_statue", 27085, 32, 27086, 1844, 3, 45, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE },
+    { "exposed_copper_golem_statue", 27117, 32, 27118, 1847, 3, 45, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE },
+    { "weathered_copper_golem_statue", 27149, 32, 27150, 1850, 3, 45, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE },
+    { "oxidized_copper_golem_statue", 27181, 32, 27182, 1853, 3, 45, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE },
+    { "waxed_copper_golem_statue", 27213, 32, 27214, 1856, 3, 45, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE },
+    { "waxed_exposed_copper_golem_statue", 27245, 32, 27246, 1859, 3, 45, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE },
+    { "waxed_weathered_copper_golem_statue", 27277, 32, 27278, 1862, 3, 45, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE },
+    { "waxed_oxidized_copper_golem_statue", 27309, 32, 27310, 1865, 3, 45, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE },
+    { "lightning_rod", 27341, 24, 27360, 1868, 3, 45, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1 },
+    { "exposed_lightning_rod", 27365, 24, 27384, 1871, 3, 45, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1 },
+    { "weathered_lightning_rod", 27389, 24, 27408, 1874, 3, 45, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1 },
+    { "oxidized_lightning_rod", 27413, 24, 27432, 1877, 3, 45, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1 },
+    { "waxed_lightning_rod", 27437, 24, 27456, 1880, 3, 45, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1 },
+    { "waxed_exposed_lightning_rod", 27461, 24, 27480, 1883, 3, 45, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1 },
+    { "waxed_weathered_lightning_rod", 27485, 24, 27504, 1886, 3, 45, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1 },
+    { "waxed_oxidized_lightning_rod", 27509, 24, 27528, 1889, 3, 45, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1 },
+    { "pointed_dripstone", 27533, 20, 27538, 1892, 3, 45, 0, VCLASS_POINTED_DRIPSTONE_BLOCK, -1, -1 },
+    { "dripstone_block", 27553, 1, 27553, 1895, 0, 45, 0, VCLASS_NONE, -1, -1 },
+    { "cave_vines", 27554, 52, 27555, 1895, 2, 45, 1, VCLASS_CAVE_VINES_BLOCK, -1, -1 },
+    { "cave_vines_plant", 27606, 2, 27607, 1897, 1, 46, 1, VCLASS_CAVE_VINES_PLANT_BLOCK, -1, -1 },
+    { "spore_blossom", 27608, 1, 27608, 1898, 0, 47, 0, VCLASS_SPORE_BLOSSOM_BLOCK, -1, -1 },
+    { "azalea", 27609, 1, 27609, 1898, 0, 47, 0, VCLASS_AZALEA_BLOCK, -1, -1 },
+    { "flowering_azalea", 27610, 1, 27610, 1898, 0, 47, 0, VCLASS_AZALEA_BLOCK, -1, -1 },
+    { "moss_carpet", 27611, 1, 27611, 1898, 0, 47, 0, VCLASS_CARPET_BLOCK, -1, -1 },
+    { "pink_petals", 27612, 16, 27612, 1898, 2, 47, 0, VCLASS_FLOWER_BED_BLOCK, -1, -1 },
+    { "wildflowers", 27628, 16, 27628, 1900, 2, 47, 0, VCLASS_FLOWER_BED_BLOCK, -1, -1 },
+    { "leaf_litter", 27644, 16, 27644, 1902, 2, 47, 0, VCLASS_LEAF_LITTER_BLOCK, -1, -1 },
+    { "moss_block", 27660, 1, 27660, 1904, 0, 47, 0, VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK, -1, -1 },
+    { "big_dripleaf", 27661, 32, 27662, 1904, 3, 47, 0, VCLASS_BIG_DRIPLEAF_BLOCK, -1, -1 },
+    { "big_dripleaf_stem", 27693, 8, 27694, 1907, 2, 47, 0, VCLASS_BIG_DRIPLEAF_STEM_BLOCK, -1, -1 },
+    { "small_dripleaf", 27701, 16, 27704, 1909, 3, 47, 0, VCLASS_SMALL_DRIPLEAF_BLOCK, -1, -1 },
+    { "hanging_roots", 27717, 2, 27718, 1912, 1, 47, 0, VCLASS_HANGING_ROOTS_BLOCK, -1, -1 },
+    { "rooted_dirt", 27719, 1, 27719, 1913, 0, 47, 0, VCLASS_ROOTED_DIRT_BLOCK, -1, -1 },
+    { "mud", 27720, 1, 27720, 1913, 0, 47, 0, VCLASS_MUD_BLOCK, -1, -1 },
+    { "deepslate", 27721, 3, 27722, 1913, 1, 47, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "cobbled_deepslate", 27724, 1, 27724, 1914, 0, 47, 0, VCLASS_NONE, -1, -1 },
+    { "cobbled_deepslate_stairs", 27725, 80, 27736, 1914, 4, 47, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "cobbled_deepslate_slab", 27805, 6, 27808, 1918, 2, 47, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "cobbled_deepslate_wall", 27811, 324, 27814, 1920, 6, 47, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "polished_deepslate", 28135, 1, 28135, 1926, 0, 47, 0, VCLASS_NONE, -1, -1 },
+    { "polished_deepslate_stairs", 28136, 80, 28147, 1926, 4, 47, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "polished_deepslate_slab", 28216, 6, 28219, 1930, 2, 47, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "polished_deepslate_wall", 28222, 324, 28225, 1932, 6, 47, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "deepslate_tiles", 28546, 1, 28546, 1938, 0, 47, 0, VCLASS_NONE, -1, -1 },
+    { "deepslate_tile_stairs", 28547, 80, 28558, 1938, 4, 47, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "deepslate_tile_slab", 28627, 6, 28630, 1942, 2, 47, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "deepslate_tile_wall", 28633, 324, 28636, 1944, 6, 47, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "deepslate_bricks", 28957, 1, 28957, 1950, 0, 47, 0, VCLASS_NONE, -1, -1 },
+    { "deepslate_brick_stairs", 28958, 80, 28969, 1950, 4, 47, 0, VCLASS_STAIR_BLOCK, -1, -1 },
+    { "deepslate_brick_slab", 29038, 6, 29041, 1954, 2, 47, 0, VCLASS_SLAB_BLOCK, -1, -1 },
+    { "deepslate_brick_wall", 29044, 324, 29047, 1956, 6, 47, 0, VCLASS_WALL_BLOCK, -1, -1 },
+    { "chiseled_deepslate", 29368, 1, 29368, 1962, 0, 47, 0, VCLASS_NONE, -1, -1 },
+    { "cracked_deepslate_bricks", 29369, 1, 29369, 1962, 0, 47, 0, VCLASS_NONE, -1, -1 },
+    { "cracked_deepslate_tiles", 29370, 1, 29370, 1962, 0, 47, 0, VCLASS_NONE, -1, -1 },
+    { "infested_deepslate", 29371, 3, 29372, 1962, 1, 47, 0, VCLASS_INFESTED_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "smooth_basalt", 29374, 1, 29374, 1963, 0, 47, 0, VCLASS_NONE, -1, -1 },
+    { "raw_iron_block", 29375, 1, 29375, 1963, 0, 47, 0, VCLASS_NONE, -1, -1 },
+    { "raw_copper_block", 29376, 1, 29376, 1963, 0, 47, 0, VCLASS_NONE, -1, -1 },
+    { "raw_gold_block", 29377, 1, 29377, 1963, 0, 47, 0, VCLASS_NONE, -1, -1 },
+    { "potted_azalea_bush", 29378, 1, 29378, 1963, 0, 47, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_flowering_azalea_bush", 29379, 1, 29379, 1963, 0, 47, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "ochre_froglight", 29380, 3, 29381, 1963, 1, 47, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "verdant_froglight", 29383, 3, 29384, 1964, 1, 47, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "pearlescent_froglight", 29386, 3, 29387, 1965, 1, 47, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1 },
+    { "frogspawn", 29389, 1, 29389, 1966, 0, 47, 0, VCLASS_FROGSPAWN_BLOCK, -1, -1 },
+    { "reinforced_deepslate", 29390, 1, 29390, 1966, 0, 47, 0, VCLASS_NONE, -1, -1 },
+    { "decorated_pot", 29391, 16, 29400, 1966, 3, 47, 0, VCLASS_DECORATED_POT_BLOCK, BLOCK_ENTITY_TYPE_DECORATED_POT, BLOCK_ENTITY_TYPE_DECORATED_POT },
+    { "crafter", 29407, 48, 29452, 1969, 3, 47, 0, VCLASS_CRAFTER_BLOCK, BLOCK_ENTITY_TYPE_CRAFTER, BLOCK_ENTITY_TYPE_CRAFTER },
+    { "trial_spawner", 29455, 12, 29461, 1972, 2, 47, 0, VCLASS_TRIAL_SPAWNER_BLOCK, BLOCK_ENTITY_TYPE_TRIAL_SPAWNER, BLOCK_ENTITY_TYPE_TRIAL_SPAWNER },
+    { "vault", 29467, 32, 29471, 1974, 3, 47, 0, VCLASS_VAULT_BLOCK, BLOCK_ENTITY_TYPE_VAULT, BLOCK_ENTITY_TYPE_VAULT },
+    { "heavy_core", 29499, 2, 29500, 1977, 1, 47, 0, VCLASS_HEAVY_CORE_BLOCK, -1, -1 },
+    { "pale_moss_block", 29501, 1, 29501, 1978, 0, 47, 0, VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK, -1, -1 },
+    { "pale_moss_carpet", 29502, 162, 29502, 1978, 5, 47, 0, VCLASS_MOSSY_CARPET_BLOCK, -1, -1 },
+    { "pale_hanging_moss", 29664, 2, 29664, 1983, 1, 47, 0, VCLASS_HANGING_MOSS_BLOCK, -1, -1 },
+    { "open_eyeblossom", 29666, 1, 29666, 1984, 0, 47, 0, VCLASS_EYEBLOSSOM_BLOCK, -1, -1 },
+    { "closed_eyeblossom", 29667, 1, 29667, 1984, 0, 47, 0, VCLASS_EYEBLOSSOM_BLOCK, -1, -1 },
+    { "potted_open_eyeblossom", 29668, 1, 29668, 1984, 0, 47, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "potted_closed_eyeblossom", 29669, 1, 29669, 1984, 0, 47, 0, VCLASS_FLOWER_POT_BLOCK, -1, -1 },
+    { "firefly_bush", 29670, 1, 29670, 1984, 0, 47, 0, VCLASS_FIREFLY_BUSH_BLOCK, -1, -1 },
 };
 
 // state_flag bits per state
 const uint64_t state_flags[] = {
     1,  // air
-    2147475496,  // stone
-    2147475496,  // granite
-    2147475496,  // polished_granite
-    2147475496,  // diorite
-    2147475496,  // polished_diorite
-    2147475496,  // andesite
-    2147475496,  // polished_andesite
-    2147475496, 2147475496,  // grass_block
-    2147475496,  // dirt
-    2147475496,  // coarse_dirt
-    2147475496, 2147475496,  // podzol
-    2147475496,  // cobblestone
-    2147475496,  // oak_planks
-    2147475496,  // spruce_planks
-    2147475496,  // birch_planks
-    2147475496,  // jungle_planks
-    2147475496,  // acacia_planks
-    2147475496,  // cherry_planks
-    2147475496,  // dark_oak_planks
-    2147475496, 2147475496, 2147475496,  // pale_oak_wood
-    2147475496,  // pale_oak_planks
-    2147475496,  // mangrove_planks
-    2147475496,  // bamboo_planks
-    2147475496,  // bamboo_mosaic
-    544, 544,  // oak_sapling
-    544, 544,  // spruce_sapling
-    544, 544,  // birch_sapling
-    544, 544,  // jungle_sapling
-    544, 544,  // acacia_sapling
-    544, 544,  // cherry_sapling
-    544, 544,  // dark_oak_sapling
-    544, 544,  // pale_oak_sapling
-    528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 560, 544, 560, 544, 560, 544, 560, 544,  // mangrove_propagule
-    2147475720,  // bedrock
-    528, 528, 528, 528, 528, 528, 528, 528, 528, 528, 528, 528, 528, 528, 528, 528,  // water
-    528, 528, 528, 528, 528, 528, 528, 528, 528, 528, 528, 528, 528, 528, 528, 528,  // lava
-    2147475496,  // sand
-    2147475978, 2147475978, 2147475978, 2147475978,  // suspicious_sand
-    2147475496,  // red_sand
-    2147475496,  // gravel
-    2147475978, 2147475978, 2147475978, 2147475978,  // suspicious_gravel
-    2147475496,  // gold_ore
-    2147475496,  // deepslate_gold_ore
-    2147475496,  // iron_ore
-    2147475496,  // deepslate_iron_ore
-    2147475496,  // coal_ore
-    2147475496,  // deepslate_coal_ore
-    2147475496,  // nether_gold_ore
-    2147475496, 2147475496, 2147475496,  // oak_log
-    2147475496, 2147475496, 2147475496,  // spruce_log
-    2147475496, 2147475496, 2147475496,  // birch_log
-    2147475496, 2147475496, 2147475496,  // jungle_log
-    2147475496, 2147475496, 2147475496,  // acacia_log
-    2147475496, 2147475496, 2147475496,  // cherry_log
-    2147475496, 2147475496, 2147475496,  // dark_oak_log
-    2147475496, 2147475496, 2147475496,  // pale_oak_log
-    2147475496, 2147475496, 2147475496,  // mangrove_log
-    2147475512, 2147475496,  // mangrove_roots
-    2147475496, 2147475496, 2147475496,  // muddy_mangrove_roots
-    2147475496, 2147475496, 2147475496,  // bamboo_block
-    2147475496, 2147475496, 2147475496,  // stripped_spruce_log
-    2147475496, 2147475496, 2147475496,  // stripped_birch_log
-    2147475496, 2147475496, 2147475496,  // stripped_jungle_log
-    2147475496, 2147475496, 2147475496,  // stripped_acacia_log
-    2147475496, 2147475496, 2147475496,  // stripped_cherry_log
-    2147475496, 2147475496, 2147475496,  // stripped_dark_oak_log
-    2147475496, 2147475496, 2147475496,  // stripped_pale_oak_log
-    2147475496, 2147475496, 2147475496,  // stripped_oak_log
-    2147475496, 2147475496, 2147475496,  // stripped_mangrove_log
-    2147475496, 2147475496, 2147475496,  // stripped_bamboo_block
-    2147475496, 2147475496, 2147475496,  // oak_wood
-    2147475496, 2147475496, 2147475496,  // spruce_wood
-    2147475496, 2147475496, 2147475496,  // birch_wood
-    2147475496, 2147475496, 2147475496,  // jungle_wood
-    2147475496, 2147475496, 2147475496,  // acacia_wood
-    2147475496, 2147475496, 2147475496,  // cherry_wood
-    2147475496, 2147475496, 2147475496,  // dark_oak_wood
-    2147475496, 2147475496, 2147475496,  // mangrove_wood
-    2147475496, 2147475496, 2147475496,  // stripped_oak_wood
-    2147475496, 2147475496, 2147475496,  // stripped_spruce_wood
-    2147475496, 2147475496, 2147475496,  // stripped_birch_wood
-    2147475496, 2147475496, 2147475496,  // stripped_jungle_wood
-    2147475496, 2147475496, 2147475496,  // stripped_acacia_wood
-    2147475496, 2147475496, 2147475496,  // stripped_cherry_wood
-    2147475496, 2147475496, 2147475496,  // stripped_dark_oak_wood
-    2147475496, 2147475496, 2147475496,  // stripped_pale_oak_wood
-    2147475496, 2147475496, 2147475496,  // stripped_mangrove_wood
-    528, 512, 560, 512, 528, 512, 528, 512, 528, 544, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512,  // oak_leaves
-    528, 512, 528, 512, 528, 512, 528, 544, 528, 512, 528, 512, 560, 512, 560, 512, 528, 512, 560, 512, 528, 512, 528, 512, 528, 512, 528, 512,  // spruce_leaves
-    528, 512, 528, 512, 528, 512, 528, 512, 528, 544, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512,  // birch_leaves
-    528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 560, 512,  // jungle_leaves
-    528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 560, 512, 528, 512,  // acacia_leaves
-    528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 560, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 544, 528, 512, 528, 512,  // cherry_leaves
-    528, 512, 528, 512, 528, 512, 528, 512, 528, 544, 560, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 544, 528, 512,  // dark_oak_leaves
-    528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 544, 528, 512, 528, 512,  // pale_oak_leaves
-    528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512,  // mangrove_leaves
-    528, 512, 528, 512, 528, 512, 528, 512, 528, 544, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512,  // azalea_leaves
-    528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 560, 512, 560, 512, 528, 512, 528, 512,  // flowering_azalea_leaves
-    2147475496,  // sponge
-    2147475496,  // wet_sponge
-    2147475456,  // glass
-    2147475496,  // lapis_ore
-    2147475496,  // deepslate_lapis_ore
-    2147475496,  // lapis_block
-    2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502,  // dispenser
-    2147475496,  // sandstone
-    2147475496,  // chiseled_sandstone
-    2147475496,  // cut_sandstone
-    2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496,  // note_block
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // white_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // orange_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // magenta_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // light_blue_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // yellow_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // lime_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // pink_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // gray_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // light_gray_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // cyan_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // purple_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // blue_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // brown_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // green_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // red_bed
-    546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514, 546, 514,  // black_bed
+    4294950952,  // stone
+    4294950952,  // granite
+    4294950952,  // polished_granite
+    4294950952,  // diorite
+    4294950952,  // polished_diorite
+    4294950952,  // andesite
+    4294950952,  // polished_andesite
+    4294950952, 4294950952,  // grass_block
+    4294950952,  // dirt
+    4294950952,  // coarse_dirt
+    4294950952, 4294950952,  // podzol
+    4294950952,  // cobblestone
+    4294950952,  // oak_planks
+    4294950952,  // spruce_planks
+    4294950952,  // birch_planks
+    4294950952,  // jungle_planks
+    4294950952,  // acacia_planks
+    4294950952,  // cherry_planks
+    4294950952,  // dark_oak_planks
+    4294950952, 4294950952, 4294950952,  // pale_oak_wood
+    4294950952,  // pale_oak_planks
+    4294950952,  // mangrove_planks
+    4294950952,  // bamboo_planks
+    4294950952,  // bamboo_mosaic
+    1056, 1056,  // oak_sapling
+    1056, 1056,  // spruce_sapling
+    1056, 1056,  // birch_sapling
+    1056, 1056,  // jungle_sapling
+    1056, 1056,  // acacia_sapling
+    1056, 1056,  // cherry_sapling
+    1056, 1056,  // dark_oak_sapling
+    1056, 1056,  // pale_oak_sapling
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056,  // mangrove_propagule
+    4294951176,  // bedrock
+    1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040,  // water
+    1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040, 1040,  // lava
+    4294950952,  // sand
+    4294951946, 4294951946, 4294951946, 4294951946,  // suspicious_sand
+    4294950952,  // red_sand
+    4294950952,  // gravel
+    4294951946, 4294951946, 4294951946, 4294951946,  // suspicious_gravel
+    4294950952,  // gold_ore
+    4294950952,  // deepslate_gold_ore
+    4294950952,  // iron_ore
+    4294950952,  // deepslate_iron_ore
+    4294950952,  // coal_ore
+    4294950952,  // deepslate_coal_ore
+    4294950952,  // nether_gold_ore
+    4294950952, 4294950952, 4294950952,  // oak_log
+    4294950952, 4294950952, 4294950952,  // spruce_log
+    4294950952, 4294950952, 4294950952,  // birch_log
+    4294950952, 4294950952, 4294950952,  // jungle_log
+    4294950952, 4294950952, 4294950952,  // acacia_log
+    4294950952, 4294950952, 4294950952,  // cherry_log
+    4294950952, 4294950952, 4294950952,  // dark_oak_log
+    4294950952, 4294950952, 4294950952,  // pale_oak_log
+    4294950952, 4294950952, 4294950952,  // mangrove_log
+    4294950968, 4294950952,  // mangrove_roots
+    4294950952, 4294950952, 4294950952,  // muddy_mangrove_roots
+    4294950952, 4294950952, 4294950952,  // bamboo_block
+    4294950952, 4294950952, 4294950952,  // stripped_spruce_log
+    4294950952, 4294950952, 4294950952,  // stripped_birch_log
+    4294950952, 4294950952, 4294950952,  // stripped_jungle_log
+    4294950952, 4294950952, 4294950952,  // stripped_acacia_log
+    4294950952, 4294950952, 4294950952,  // stripped_cherry_log
+    4294950952, 4294950952, 4294950952,  // stripped_dark_oak_log
+    4294950952, 4294950952, 4294950952,  // stripped_pale_oak_log
+    4294950952, 4294950952, 4294950952,  // stripped_oak_log
+    4294950952, 4294950952, 4294950952,  // stripped_mangrove_log
+    4294950952, 4294950952, 4294950952,  // stripped_bamboo_block
+    4294950952, 4294950952, 4294950952,  // oak_wood
+    4294950952, 4294950952, 4294950952,  // spruce_wood
+    4294950952, 4294950952, 4294950952,  // birch_wood
+    4294950952, 4294950952, 4294950952,  // jungle_wood
+    4294950952, 4294950952, 4294950952,  // acacia_wood
+    4294950952, 4294950952, 4294950952,  // cherry_wood
+    4294950952, 4294950952, 4294950952,  // dark_oak_wood
+    4294950952, 4294950952, 4294950952,  // mangrove_wood
+    4294950952, 4294950952, 4294950952,  // stripped_oak_wood
+    4294950952, 4294950952, 4294950952,  // stripped_spruce_wood
+    4294950952, 4294950952, 4294950952,  // stripped_birch_wood
+    4294950952, 4294950952, 4294950952,  // stripped_jungle_wood
+    4294950952, 4294950952, 4294950952,  // stripped_acacia_wood
+    4294950952, 4294950952, 4294950952,  // stripped_cherry_wood
+    4294950952, 4294950952, 4294950952,  // stripped_dark_oak_wood
+    4294950952, 4294950952, 4294950952,  // stripped_pale_oak_wood
+    4294950952, 4294950952, 4294950952,  // stripped_mangrove_wood
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1072, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024,  // oak_leaves
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1056, 1040, 1024, 1040, 1056, 1072, 1024, 1040, 1024, 1040, 1024, 1072, 1024,  // spruce_leaves
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1072, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024,  // birch_leaves
+    1040, 1024, 1040, 1024, 1040, 1024, 1072, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024,  // jungle_leaves
+    1040, 1024, 1040, 1056, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1072, 1024, 1040, 1024, 1072, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024,  // acacia_leaves
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1072, 1024, 1040, 1024, 1040, 1056, 1040, 1056, 1040, 1024, 1040, 1024, 1072, 1024, 1072, 1024, 1040, 1024, 1040, 1024,  // cherry_leaves
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1072, 1024, 1040, 1024, 1040, 1024,  // dark_oak_leaves
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1072, 1024, 1040, 1024, 1040, 1024,  // pale_oak_leaves
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1072, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024,  // mangrove_leaves
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1056, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1056, 1040, 1024, 1040, 1024,  // azalea_leaves
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1056, 1040, 1024,  // flowering_azalea_leaves
+    4294950952,  // sponge
+    4294950952,  // wet_sponge
+    4294950912,  // glass
+    4294950952,  // lapis_ore
+    4294950952,  // deepslate_lapis_ore
+    4294950952,  // lapis_block
+    4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958,  // dispenser
+    4294950952,  // sandstone
+    4294950952,  // chiseled_sandstone
+    4294950952,  // cut_sandstone
+    4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952,  // note_block
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // white_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // orange_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // magenta_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // light_blue_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // yellow_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // lime_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // pink_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // gray_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // light_gray_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // cyan_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // purple_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // blue_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // brown_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // green_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // red_bed
+    1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026, 1058, 1026,  // black_bed
     48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // powered_rail
     52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36, 52, 36,  // detector_rail
-    299435040, 553255968, 163087392, 1098646560, 65545248, 68174880, 2147476512, 2147476512, 2147476512, 2147476512, 2147476512, 2147476512,  // sticky_piston
-    544,  // cobweb
-    512,  // short_grass
-    512,  // fern
-    544,  // dead_bush
-    512,  // bush
-    512,  // short_dry_grass
-    512,  // tall_dry_grass
-    528,  // seagrass
-    528, 528,  // tall_seagrass
-    299435040, 553255968, 163087392, 1098646560, 65545248, 68174880, 2147476512, 2147476512, 2147476512, 2147476512, 2147476512, 2147476512,  // piston
-    136348672, 136348672, 136348672, 136348672, 1090782208, 1090782208, 1090782208, 1090782208, 272696320, 272696320, 272696320, 272696320, 545391616, 545391616, 545391616, 545391616, 68699136, 68699136, 68699136, 68699136, 35136512, 35136512, 35136512, 35136512,  // piston_head
-    2147475496,  // white_wool
-    2147475496,  // orange_wool
-    2147475496,  // magenta_wool
-    2147475496,  // light_blue_wool
-    2147475496,  // yellow_wool
-    2147475496,  // lime_wool
-    2147475496,  // pink_wool
-    2147475496,  // gray_wool
-    2147475496,  // light_gray_wool
-    2147475496,  // cyan_wool
-    2147475496,  // purple_wool
-    2147475496,  // blue_wool
-    2147475496,  // brown_wool
-    2147475496,  // green_wool
-    2147475496,  // red_wool
-    2147475496,  // black_wool
-    1410, 1410, 1410, 1410, 1410, 1410, 1410, 1410, 1410, 1410, 1410, 1410,  // moving_piston
-    544,  // dandelion
-    544,  // torchflower
-    544,  // poppy
-    544,  // blue_orchid
-    544,  // allium
-    544,  // azure_bluet
-    544,  // red_tulip
-    544,  // orange_tulip
-    544,  // white_tulip
-    544,  // pink_tulip
-    544,  // oxeye_daisy
-    544,  // cornflower
-    544,  // wither_rose
-    544,  // lily_of_the_valley
-    544,  // brown_mushroom
-    544,  // red_mushroom
-    2147475496,  // gold_block
-    2147475496,  // iron_block
-    2147475496,  // bricks
-    2147475456, 2147475488,  // tnt
-    2147475496,  // bookshelf
-    2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470,  // chiseled_bookshelf
-    272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630,  // acacia_shelf
-    272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630,  // bamboo_shelf
-    272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630,  // birch_shelf
-    272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630,  // cherry_shelf
-    272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630,  // crimson_shelf
-    272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630,  // dark_oak_shelf
-    272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630,  // jungle_shelf
-    272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630,  // mangrove_shelf
-    272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630,  // oak_shelf
-    272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630,  // pale_oak_shelf
-    272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630,  // spruce_shelf
-    272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 136347702, 136347686, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630,  // warped_shelf
-    2147475496,  // mossy_cobblestone
-    2147475496,  // obsidian
-    544,  // torch
-    544, 544, 544, 544,  // wall_torch
-    512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512,  // fire
-    512,  // soul_fire
-    2147475466,  // spawner
-    2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502,  // creaking_heart
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // oak_stairs
-    524342, 524326, 17301558, 17301542, 8912950, 8912934, 524342, 524326, 8912950, 8912934, 17301558, 17301542, 524342, 524326, 2621494, 2621478, 4718646, 4718630, 524342, 524326, 4718646, 4718630, 2621494, 2621478,  // chest
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // redstone_wire
-    2147475496,  // diamond_ore
-    2147475496,  // deepslate_diamond_ore
-    2147475496,  // diamond_block
-    2147475496,  // crafting_table
-    544, 544, 544, 544, 544, 544, 544, 544,  // wheat
-    65544224, 65544224, 65544224, 65544224, 65544224, 65544224, 65544224, 65544224,  // farmland
-    2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502,  // furnace
-    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // oak_sign
-    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // spruce_sign
-    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // birch_sign
-    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // acacia_sign
-    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // cherry_sign
-    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // jungle_sign
-    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // dark_oak_sign
-    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // pale_oak_sign
-    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // mangrove_sign
-    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // bamboo_sign
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // oak_door
-    272695856, 272695840, 136348208, 136348192, 1090781744, 1090781728, 545391152, 545391136,  // ladder
+    598870048, 1106511904, 326174752, 2197293088, 131090464, 136349728, 4294952992, 4294952992, 4294952992, 4294952992, 4294952992, 4294952992,  // sticky_piston
+    1056,  // cobweb
+    1024,  // short_grass
+    1024,  // fern
+    1056,  // dead_bush
+    1024,  // bush
+    1024,  // short_dry_grass
+    1024,  // tall_dry_grass
+    1040,  // seagrass
+    1040, 1040,  // tall_seagrass
+    598870048, 1106511904, 326174752, 2197293088, 131090464, 136349728, 4294952992, 4294952992, 4294952992, 4294952992, 4294952992, 4294952992,  // piston
+    272697344, 272697344, 272697344, 272697344, 2181564416, 2181564416, 2181564416, 2181564416, 545392640, 545392640, 545392640, 545392640, 1090783232, 1090783232, 1090783232, 1090783232, 137398272, 137398272, 137398272, 137398272, 70273024, 70273024, 70273024, 70273024,  // piston_head
+    4294950952,  // white_wool
+    4294950952,  // orange_wool
+    4294950952,  // magenta_wool
+    4294950952,  // light_blue_wool
+    4294950952,  // yellow_wool
+    4294950952,  // lime_wool
+    4294950952,  // pink_wool
+    4294950952,  // gray_wool
+    4294950952,  // light_gray_wool
+    4294950952,  // cyan_wool
+    4294950952,  // purple_wool
+    4294950952,  // blue_wool
+    4294950952,  // brown_wool
+    4294950952,  // green_wool
+    4294950952,  // red_wool
+    4294950952,  // black_wool
+    2946, 2946, 2946, 2946, 2946, 2946, 2946, 2946, 2946, 2946, 2946, 2946,  // moving_piston
+    1056,  // dandelion
+    1056,  // torchflower
+    1056,  // poppy
+    1056,  // blue_orchid
+    1056,  // allium
+    1056,  // azure_bluet
+    1056,  // red_tulip
+    1056,  // orange_tulip
+    1056,  // white_tulip
+    1056,  // pink_tulip
+    1056,  // oxeye_daisy
+    1056,  // cornflower
+    1056,  // wither_rose
+    1056,  // lily_of_the_valley
+    1056,  // brown_mushroom
+    1056,  // red_mushroom
+    4294950952,  // gold_block
+    4294950952,  // iron_block
+    4294950952,  // bricks
+    4294950912, 4294950944,  // tnt
+    4294950952,  // bookshelf
+    4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926, 4294950926,  // chiseled_bookshelf
+    545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222,  // acacia_shelf
+    545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222,  // bamboo_shelf
+    545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222,  // birch_shelf
+    545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222,  // cherry_shelf
+    545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222,  // crimson_shelf
+    545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222,  // dark_oak_shelf
+    545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222,  // jungle_shelf
+    545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222,  // mangrove_shelf
+    545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222,  // oak_shelf
+    545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222,  // pale_oak_shelf
+    545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222,  // spruce_shelf
+    545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 545390646, 545390630, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 272695350, 272695334, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 2181562422, 2181562406, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222, 1090781238, 1090781222,  // warped_shelf
+    4294950952,  // mossy_cobblestone
+    4294950952,  // obsidian
+    1056,  // torch
+    1056, 1056, 1056, 1056,  // wall_torch
+    1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024,  // fire
+    1024,  // soul_fire
+    4294951434,  // spawner
+    4294950958, 4294950958, 4294951470, 4294951470, 4294951470, 4294951470, 4294950958, 4294950958, 4294951470, 4294951470, 4294951470, 4294951470, 4294950958, 4294950958, 4294951470, 4294951470, 4294951470, 4294951470,  // creaking_heart
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // oak_stairs
+    1048630, 1048614, 34603062, 34603046, 17825846, 17825830, 1048630, 1048614, 17825846, 17825830, 34603062, 34603046, 1048630, 1048614, 5242934, 5242918, 9437238, 9437222, 1048630, 1048614, 9437238, 9437222, 5242934, 5242918,  // chest
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // redstone_wire
+    4294950952,  // diamond_ore
+    4294950952,  // deepslate_diamond_ore
+    4294950952,  // diamond_block
+    4294950952,  // crafting_table
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // wheat
+    131088416, 131088416, 131088416, 131088416, 131088416, 131088416, 131088416, 131088416,  // farmland
+    4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470,  // furnace
+    562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546,  // oak_sign
+    562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546,  // spruce_sign
+    562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546,  // birch_sign
+    562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546,  // acacia_sign
+    562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546,  // cherry_sign
+    562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546,  // jungle_sign
+    562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546,  // dark_oak_sign
+    562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546,  // pale_oak_sign
+    562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546,  // mangrove_sign
+    562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546,  // bamboo_sign
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // oak_door
+    545391664, 545391648, 272696368, 272696352, 2181563440, 2181563424, 1090782256, 1090782240,  // ladder
     48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // rail
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // cobblestone_stairs
-    50, 34, 50, 34, 50, 34, 50, 34,  // oak_wall_sign
-    50, 34, 50, 34, 50, 34, 50, 34,  // spruce_wall_sign
-    50, 34, 50, 34, 50, 34, 50, 34,  // birch_wall_sign
-    50, 34, 50, 34, 50, 34, 50, 34,  // acacia_wall_sign
-    50, 34, 50, 34, 50, 34, 50, 34,  // cherry_wall_sign
-    50, 34, 50, 34, 50, 34, 50, 34,  // jungle_wall_sign
-    50, 34, 50, 34, 50, 34, 50, 34,  // dark_oak_wall_sign
-    50, 34, 50, 34, 50, 34, 50, 34,  // pale_oak_wall_sign
-    50, 34, 50, 34, 50, 34, 50, 34,  // mangrove_wall_sign
-    50, 34, 50, 34, 50, 34, 50, 34,  // bamboo_wall_sign
-    524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // oak_hanging_sign
-    524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // spruce_hanging_sign
-    524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // birch_hanging_sign
-    524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // acacia_hanging_sign
-    524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // cherry_hanging_sign
-    524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // jungle_hanging_sign
-    524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // dark_oak_hanging_sign
-    524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // pale_oak_hanging_sign
-    524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // crimson_hanging_sign
-    524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // warped_hanging_sign
-    524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // mangrove_hanging_sign
-    524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 524338, 524322, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // bamboo_hanging_sign
-    1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // oak_wall_hanging_sign
-    1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // spruce_wall_hanging_sign
-    1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // birch_wall_hanging_sign
-    1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // acacia_wall_hanging_sign
-    1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // cherry_wall_hanging_sign
-    1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // jungle_wall_hanging_sign
-    1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // dark_oak_wall_hanging_sign
-    1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // pale_oak_wall_hanging_sign
-    1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // mangrove_wall_hanging_sign
-    1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // crimson_wall_hanging_sign
-    1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // warped_wall_hanging_sign
-    1572914, 1572898, 1572914, 1572898, 1572914, 1572898, 1572914, 1572898,  // bamboo_wall_hanging_sign
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // lever
-    544, 544,  // stone_pressure_plate
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // iron_door
-    544, 544,  // oak_pressure_plate
-    544, 544,  // spruce_pressure_plate
-    544, 544,  // birch_pressure_plate
-    544, 544,  // jungle_pressure_plate
-    544, 544,  // acacia_pressure_plate
-    544, 544,  // cherry_pressure_plate
-    544, 544,  // dark_oak_pressure_plate
-    544, 544,  // pale_oak_pressure_plate
-    544, 544,  // mangrove_pressure_plate
-    544, 544,  // bamboo_pressure_plate
-    2147475496, 2147475496,  // redstone_ore
-    2147475496, 2147475496,  // deepslate_redstone_ore
-    544, 544,  // redstone_torch
-    544, 544, 544, 544, 544, 544, 544, 544,  // redstone_wall_torch
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // stone_button
-    34087424, 34087424, 34087424, 34087424, 65544704, 65544704, 65544704, 2147475968,  // snow
-    2147475456,  // ice
-    2147475496,  // snow_block
-    524832, 524832, 524832, 524832, 524832, 524832, 524832, 524832, 524832, 524832, 524832, 524832, 524832, 524832, 524832, 524832,  // cactus
-    544,  // cactus_flower
-    2147475496,  // clay
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // sugar_cane
-    2147475502, 2147475502,  // jukebox
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // oak_fence
-    2147475496,  // netherrack
-    2147475496,  // soul_sand
-    2147475496,  // soul_soil
-    2147475496, 2147475496, 2147475496,  // basalt
-    2147475496, 2147475496, 2147475496,  // polished_basalt
-    544,  // soul_torch
-    544, 544, 544, 544,  // soul_wall_torch
-    544,  // copper_torch
-    544, 544, 544, 544,  // copper_wall_torch
-    2147475488,  // glowstone
-    1280, 1280,  // nether_portal
-    2147476008, 2147476008, 2147476008, 2147476008,  // carved_pumpkin
-    2147476008, 2147476008, 2147476008, 2147476008,  // jack_o_lantern
-    524804, 524804, 524804, 524804, 516, 516, 516,  // cake
-    34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456,  // repeater
-    2147475456,  // white_stained_glass
-    2147475456,  // orange_stained_glass
-    2147475456,  // magenta_stained_glass
-    2147475456,  // light_blue_stained_glass
-    2147475456,  // yellow_stained_glass
-    2147475456,  // lime_stained_glass
-    2147475456,  // pink_stained_glass
-    2147475456,  // gray_stained_glass
-    2147475456,  // light_gray_stained_glass
-    2147475456,  // cyan_stained_glass
-    2147475456,  // purple_stained_glass
-    2147475456,  // blue_stained_glass
-    2147475456,  // brown_stained_glass
-    2147475456,  // green_stained_glass
-    2147475456,  // red_stained_glass
-    2147475456,  // black_stained_glass
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // oak_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // spruce_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // birch_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // jungle_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // acacia_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // cherry_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // dark_oak_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // pale_oak_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // mangrove_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // bamboo_trapdoor
-    2147475496,  // stone_bricks
-    2147475496,  // mossy_stone_bricks
-    2147475496,  // cracked_stone_bricks
-    2147475496,  // chiseled_stone_bricks
-    2147475496,  // packed_mud
-    2147475496,  // mud_bricks
-    2147475464,  // infested_stone
-    2147475464,  // infested_cobblestone
-    2147475464,  // infested_stone_bricks
-    2147475464,  // infested_mossy_stone_bricks
-    2147475464,  // infested_cracked_stone_bricks
-    2147475464,  // infested_chiseled_stone_bricks
-    2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496,  // brown_mushroom_block
-    2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496,  // red_mushroom_block
-    2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464, 2147475464,  // mushroom_stem
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // iron_bars
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // copper_bars
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // exposed_copper_bars
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // weathered_copper_bars
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // oxidized_copper_bars
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // waxed_copper_bars
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // waxed_exposed_copper_bars
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // waxed_weathered_copper_bars
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // waxed_oxidized_copper_bars
-    48, 32, 1572912, 1572896, 48, 32,  // iron_chain
-    48, 32, 1572912, 1572896, 48, 32,  // copper_chain
-    48, 32, 1572912, 1572896, 48, 32,  // exposed_copper_chain
-    48, 32, 1572912, 1572896, 48, 32,  // weathered_copper_chain
-    48, 32, 1572912, 1572896, 48, 32,  // oxidized_copper_chain
-    48, 32, 1572912, 1572896, 48, 32,  // waxed_copper_chain
-    48, 32, 1572912, 1572896, 48, 32,  // waxed_exposed_copper_chain
-    48, 32, 1572912, 1572896, 48, 32,  // waxed_weathered_copper_chain
-    48, 32, 1572912, 1572896, 48, 32,  // waxed_oxidized_copper_chain
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // glass_pane
-    2147476008,  // pumpkin
-    2147476008,  // melon
-    544, 544, 544, 544,  // attached_pumpkin_stem
-    544, 544, 544, 544,  // attached_melon_stem
-    544, 544, 544, 544, 544, 544, 544, 544,  // pumpkin_stem
-    544, 544, 544, 544, 544, 544, 544, 544,  // melon_stem
-    512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512,  // vine
-    528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512,  // glow_lichen
-    560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544, 560, 560, 544, 544,  // resin_clump
-    32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608,  // oak_fence_gate
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // brick_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // stone_brick_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // mud_brick_stairs
-    2147475496, 2147475496,  // mycelium
-    524832,  // lily_pad
-    2147475496,  // resin_block
-    2147475496,  // resin_bricks
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // resin_brick_stairs
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // resin_brick_slab
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // resin_brick_wall
-    2147475496,  // chiseled_resin_bricks
-    2147475496,  // nether_bricks
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // nether_brick_fence
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // nether_brick_stairs
-    544, 544, 544, 544,  // nether_wart
-    65544226,  // enchanting_table
-    524326, 524326, 524326, 524326, 524326, 524326, 524326, 524326,  // brewing_stand
-    67108900,  // cauldron
-    67108900, 67108900, 67108900,  // water_cauldron
-    67108900,  // lava_cauldron
-    67108900, 67108900, 67108900,  // powder_snow_cauldron
-    1282,  // end_portal
-    66593028, 66593028, 66593028, 66593028, 65544452, 65544452, 65544452, 65544452,  // end_portal_frame
-    2147475496,  // end_stone
-    1573408,  // dragon_egg
-    2147475496, 2147475496,  // redstone_lamp
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // cocoa
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // sandstone_stairs
-    2147475496,  // emerald_ore
-    2147475496,  // deepslate_emerald_ore
-    524338, 524322, 524338, 524322, 524338, 524322, 524338, 524322,  // ender_chest
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // tripwire_hook
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // tripwire
-    2147475496,  // emerald_block
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // spruce_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // birch_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // jungle_stairs
-    2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726,  // command_block
-    2147475490,  // beacon
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // cobblestone_wall
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // mossy_cobblestone_wall
-    524832,  // flower_pot
-    524832,  // potted_torchflower
-    524832,  // potted_oak_sapling
-    524832,  // potted_spruce_sapling
-    524832,  // potted_birch_sapling
-    524832,  // potted_jungle_sapling
-    524832,  // potted_acacia_sapling
-    524832,  // potted_cherry_sapling
-    524832,  // potted_dark_oak_sapling
-    524832,  // potted_pale_oak_sapling
-    524832,  // potted_mangrove_propagule
-    524832,  // potted_fern
-    524832,  // potted_dandelion
-    524832,  // potted_poppy
-    524832,  // potted_blue_orchid
-    524832,  // potted_allium
-    524832,  // potted_azure_bluet
-    524832,  // potted_red_tulip
-    524832,  // potted_orange_tulip
-    524832,  // potted_white_tulip
-    524832,  // potted_pink_tulip
-    524832,  // potted_oxeye_daisy
-    524832,  // potted_cornflower
-    524832,  // potted_lily_of_the_valley
-    524832,  // potted_wither_rose
-    524832,  // potted_red_mushroom
-    524832,  // potted_brown_mushroom
-    524832,  // potted_dead_bush
-    524832,  // potted_cactus
-    544, 544, 544, 544, 544, 544, 544, 544,  // carrots
-    544, 544, 544, 544, 544, 544, 544, 544,  // potatoes
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // oak_button
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // spruce_button
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // birch_button
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // jungle_button
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // acacia_button
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // cherry_button
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // dark_oak_button
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // pale_oak_button
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // mangrove_button
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // bamboo_button
-    524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834,  // skeleton_skull
-    546, 546, 546, 546, 546, 546, 546, 546,  // skeleton_wall_skull
-    524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834,  // wither_skeleton_skull
-    546, 546, 546, 546, 546, 546, 546, 546,  // wither_skeleton_wall_skull
-    524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834,  // zombie_head
-    546, 546, 546, 546, 546, 546, 546, 546,  // zombie_wall_head
-    524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834,  // player_head
-    546, 546, 546, 546, 546, 546, 546, 546,  // player_wall_head
-    524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834,  // creeper_head
-    546, 546, 546, 546, 546, 546, 546, 546,  // creeper_wall_head
-    524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834,  // dragon_head
-    546, 546, 546, 546, 546, 546, 546, 546,  // dragon_wall_head
-    524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834, 524834,  // piglin_head
-    546, 546, 546, 546, 546, 546, 546, 546,  // piglin_wall_head
-    1573920, 1573920, 1573920, 1573920,  // anvil
-    1573920, 1573920, 1573920, 1573920,  // chipped_anvil
-    1573920, 1573920, 1573920, 1573920,  // damaged_anvil
-    524342, 524326, 17301558, 17301542, 8912950, 8912934, 524342, 524326, 8912950, 8912934, 17301558, 17301542, 524342, 524326, 2621494, 2621478, 4718646, 4718630, 524342, 524326, 4718646, 4718630, 2621494, 2621478,  // trapped_chest
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // light_weighted_pressure_plate
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // heavy_weighted_pressure_plate
-    34087458, 34087458, 34087458, 34087458, 34087458, 34087458, 34087458, 34087458, 34087458, 34087458, 34087458, 34087458, 34087458, 34087458, 34087458, 34087458,  // comparator
-    34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946, 34086946,  // daylight_detector
-    2147475488,  // redstone_block
-    2147475496,  // nether_quartz_ore
-    67633190, 67108902, 67108902, 67108902, 67108902, 67633190, 67108902, 67108902, 67108902, 67108902,  // hopper
-    2147475496,  // quartz_block
-    2147475496,  // chiseled_quartz_block
-    2147475496, 2147475496, 2147475496,  // quartz_pillar
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // quartz_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // cobblestone_stairs
+    562, 546, 562, 546, 562, 546, 562, 546,  // oak_wall_sign
+    562, 546, 562, 546, 562, 546, 562, 546,  // spruce_wall_sign
+    562, 546, 562, 546, 562, 546, 562, 546,  // birch_wall_sign
+    562, 546, 562, 546, 562, 546, 562, 546,  // acacia_wall_sign
+    562, 546, 562, 546, 562, 546, 562, 546,  // cherry_wall_sign
+    562, 546, 562, 546, 562, 546, 562, 546,  // jungle_wall_sign
+    562, 546, 562, 546, 562, 546, 562, 546,  // dark_oak_wall_sign
+    562, 546, 562, 546, 562, 546, 562, 546,  // pale_oak_wall_sign
+    562, 546, 562, 546, 562, 546, 562, 546,  // mangrove_wall_sign
+    562, 546, 562, 546, 562, 546, 562, 546,  // bamboo_wall_sign
+    1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // oak_hanging_sign
+    1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // spruce_hanging_sign
+    1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // birch_hanging_sign
+    1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // acacia_hanging_sign
+    1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // cherry_hanging_sign
+    1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // jungle_hanging_sign
+    1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // dark_oak_hanging_sign
+    1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // pale_oak_hanging_sign
+    1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // crimson_hanging_sign
+    1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // warped_hanging_sign
+    1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // mangrove_hanging_sign
+    1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 1049138, 1049122, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // bamboo_hanging_sign
+    3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // oak_wall_hanging_sign
+    3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // spruce_wall_hanging_sign
+    3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // birch_wall_hanging_sign
+    3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // acacia_wall_hanging_sign
+    3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // cherry_wall_hanging_sign
+    3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // jungle_wall_hanging_sign
+    3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // dark_oak_wall_hanging_sign
+    3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // pale_oak_wall_hanging_sign
+    3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // mangrove_wall_hanging_sign
+    3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // crimson_wall_hanging_sign
+    3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // warped_wall_hanging_sign
+    3146290, 3146274, 3146290, 3146274, 3146290, 3146274, 3146290, 3146274,  // bamboo_wall_hanging_sign
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // lever
+    1056, 1056,  // stone_pressure_plate
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // iron_door
+    1056, 1056,  // oak_pressure_plate
+    1056, 1056,  // spruce_pressure_plate
+    1056, 1056,  // birch_pressure_plate
+    1056, 1056,  // jungle_pressure_plate
+    1056, 1056,  // acacia_pressure_plate
+    1056, 1056,  // cherry_pressure_plate
+    1056, 1056,  // dark_oak_pressure_plate
+    1056, 1056,  // pale_oak_pressure_plate
+    1056, 1056,  // mangrove_pressure_plate
+    1056, 1056,  // bamboo_pressure_plate
+    4294950952, 4294950952,  // redstone_ore
+    4294950952, 4294950952,  // deepslate_redstone_ore
+    1056, 1056,  // redstone_torch
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // redstone_wall_torch
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // stone_button
+    68174848, 68174848, 68174848, 68174848, 131089408, 131089408, 131089408, 4294951936,  // snow
+    4294950912,  // ice
+    4294950952,  // snow_block
+    1049632, 1049632, 1049632, 1049632, 1049632, 1049632, 1049632, 1049632, 1049632, 1049632, 1049632, 1049632, 1049632, 1049632, 1049632, 1049632,  // cactus
+    1056,  // cactus_flower
+    4294950952,  // clay
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // sugar_cane
+    4294951470, 4294950958,  // jukebox
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // oak_fence
+    4294950952,  // netherrack
+    4294950952,  // soul_sand
+    4294950952,  // soul_soil
+    4294950952, 4294950952, 4294950952,  // basalt
+    4294950952, 4294950952, 4294950952,  // polished_basalt
+    1056,  // soul_torch
+    1056, 1056, 1056, 1056,  // soul_wall_torch
+    1056,  // copper_torch
+    1056, 1056, 1056, 1056,  // copper_wall_torch
+    4294950944,  // glowstone
+    2304, 2304,  // nether_portal
+    4294951976, 4294951976, 4294951976, 4294951976,  // carved_pumpkin
+    4294951976, 4294951976, 4294951976, 4294951976,  // jack_o_lantern
+    1049604, 1049604, 1049604, 1049604, 1028, 1028, 1028,  // cake
+    68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880,  // repeater
+    4294950912,  // white_stained_glass
+    4294950912,  // orange_stained_glass
+    4294950912,  // magenta_stained_glass
+    4294950912,  // light_blue_stained_glass
+    4294950912,  // yellow_stained_glass
+    4294950912,  // lime_stained_glass
+    4294950912,  // pink_stained_glass
+    4294950912,  // gray_stained_glass
+    4294950912,  // light_gray_stained_glass
+    4294950912,  // cyan_stained_glass
+    4294950912,  // purple_stained_glass
+    4294950912,  // blue_stained_glass
+    4294950912,  // brown_stained_glass
+    4294950912,  // green_stained_glass
+    4294950912,  // red_stained_glass
+    4294950912,  // black_stained_glass
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // oak_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // spruce_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // birch_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // jungle_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // acacia_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // cherry_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // dark_oak_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // pale_oak_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // mangrove_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // bamboo_trapdoor
+    4294950952,  // stone_bricks
+    4294950952,  // mossy_stone_bricks
+    4294950952,  // cracked_stone_bricks
+    4294950952,  // chiseled_stone_bricks
+    4294950952,  // packed_mud
+    4294950952,  // mud_bricks
+    4294950920,  // infested_stone
+    4294950920,  // infested_cobblestone
+    4294950920,  // infested_stone_bricks
+    4294950920,  // infested_mossy_stone_bricks
+    4294950920,  // infested_cracked_stone_bricks
+    4294950920,  // infested_chiseled_stone_bricks
+    4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952,  // brown_mushroom_block
+    4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952,  // red_mushroom_block
+    4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920, 4294950920,  // mushroom_stem
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // iron_bars
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // copper_bars
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // exposed_copper_bars
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // weathered_copper_bars
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // oxidized_copper_bars
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // waxed_copper_bars
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // waxed_exposed_copper_bars
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // waxed_weathered_copper_bars
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // waxed_oxidized_copper_bars
+    48, 32, 3145776, 3145760, 48, 32,  // iron_chain
+    48, 32, 3145776, 3145760, 48, 32,  // copper_chain
+    48, 32, 3145776, 3145760, 48, 32,  // exposed_copper_chain
+    48, 32, 3145776, 3145760, 48, 32,  // weathered_copper_chain
+    48, 32, 3145776, 3145760, 48, 32,  // oxidized_copper_chain
+    48, 32, 3145776, 3145760, 48, 32,  // waxed_copper_chain
+    48, 32, 3145776, 3145760, 48, 32,  // waxed_exposed_copper_chain
+    48, 32, 3145776, 3145760, 48, 32,  // waxed_weathered_copper_chain
+    48, 32, 3145776, 3145760, 48, 32,  // waxed_oxidized_copper_chain
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // glass_pane
+    4294951976,  // pumpkin
+    4294951976,  // melon
+    1056, 1056, 1056, 1056,  // attached_pumpkin_stem
+    1056, 1056, 1056, 1056,  // attached_melon_stem
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // pumpkin_stem
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // melon_stem
+    1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024,  // vine
+    1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024,  // glow_lichen
+    1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056, 1072, 1072, 1056, 1056,  // resin_clump
+    32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184,  // oak_fence_gate
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // brick_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // stone_brick_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // mud_brick_stairs
+    4294950952, 4294950952,  // mycelium
+    1049632,  // lily_pad
+    4294950952,  // resin_block
+    4294950952,  // resin_bricks
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // resin_brick_stairs
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // resin_brick_slab
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // resin_brick_wall
+    4294950952,  // chiseled_resin_bricks
+    4294950952,  // nether_bricks
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // nether_brick_fence
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // nether_brick_stairs
+    1056, 1056, 1056, 1056,  // nether_wart
+    131088418,  // enchanting_table
+    1049126, 1049126, 1049126, 1049126, 1049126, 1049126, 1049126, 1049126,  // brewing_stand
+    134217764,  // cauldron
+    134217764, 134217764, 134217764,  // water_cauldron
+    134217764,  // lava_cauldron
+    134217764, 134217764, 134217764,  // powder_snow_cauldron
+    2306,  // end_portal
+    133185796, 133185796, 133185796, 133185796, 131088644, 131088644, 131088644, 131088644,  // end_portal_frame
+    4294950952,  // end_stone
+    3146784,  // dragon_egg
+    4294950952, 4294950952,  // redstone_lamp
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // cocoa
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // sandstone_stairs
+    4294950952,  // emerald_ore
+    4294950952,  // deepslate_emerald_ore
+    1048626, 1048610, 1048626, 1048610, 1048626, 1048610, 1048626, 1048610,  // ender_chest
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // tripwire_hook
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // tripwire
+    4294950952,  // emerald_block
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // spruce_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // birch_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // jungle_stairs
+    4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182,  // command_block
+    4294951458,  // beacon
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // cobblestone_wall
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // mossy_cobblestone_wall
+    1049632,  // flower_pot
+    1049632,  // potted_torchflower
+    1049632,  // potted_oak_sapling
+    1049632,  // potted_spruce_sapling
+    1049632,  // potted_birch_sapling
+    1049632,  // potted_jungle_sapling
+    1049632,  // potted_acacia_sapling
+    1049632,  // potted_cherry_sapling
+    1049632,  // potted_dark_oak_sapling
+    1049632,  // potted_pale_oak_sapling
+    1049632,  // potted_mangrove_propagule
+    1049632,  // potted_fern
+    1049632,  // potted_dandelion
+    1049632,  // potted_poppy
+    1049632,  // potted_blue_orchid
+    1049632,  // potted_allium
+    1049632,  // potted_azure_bluet
+    1049632,  // potted_red_tulip
+    1049632,  // potted_orange_tulip
+    1049632,  // potted_white_tulip
+    1049632,  // potted_pink_tulip
+    1049632,  // potted_oxeye_daisy
+    1049632,  // potted_cornflower
+    1049632,  // potted_lily_of_the_valley
+    1049632,  // potted_wither_rose
+    1049632,  // potted_red_mushroom
+    1049632,  // potted_brown_mushroom
+    1049632,  // potted_dead_bush
+    1049632,  // potted_cactus
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // carrots
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // potatoes
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // oak_button
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // spruce_button
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // birch_button
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // jungle_button
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // acacia_button
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // cherry_button
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // dark_oak_button
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // pale_oak_button
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // mangrove_button
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // bamboo_button
+    1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634,  // skeleton_skull
+    1058, 1058, 1058, 1058, 1058, 1058, 1058, 1058,  // skeleton_wall_skull
+    1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634,  // wither_skeleton_skull
+    1058, 1058, 1058, 1058, 1058, 1058, 1058, 1058,  // wither_skeleton_wall_skull
+    1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634,  // zombie_head
+    1058, 1058, 1058, 1058, 1058, 1058, 1058, 1058,  // zombie_wall_head
+    1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634,  // player_head
+    1058, 1058, 1058, 1058, 1058, 1058, 1058, 1058,  // player_wall_head
+    1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634,  // creeper_head
+    1058, 1058, 1058, 1058, 1058, 1058, 1058, 1058,  // creeper_wall_head
+    1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634,  // dragon_head
+    1058, 1058, 1058, 1058, 1058, 1058, 1058, 1058,  // dragon_wall_head
+    1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634, 1049634,  // piglin_head
+    1058, 1058, 1058, 1058, 1058, 1058, 1058, 1058,  // piglin_wall_head
+    3147808, 3147808, 3147808, 3147808,  // anvil
+    3147808, 3147808, 3147808, 3147808,  // chipped_anvil
+    3147808, 3147808, 3147808, 3147808,  // damaged_anvil
+    1048630, 1048614, 34603062, 34603046, 17825846, 17825830, 1048630, 1048614, 17825846, 17825830, 34603062, 34603046, 1048630, 1048614, 5242934, 5242918, 9437238, 9437222, 1048630, 1048614, 9437238, 9437222, 5242934, 5242918,  // trapped_chest
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // light_weighted_pressure_plate
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // heavy_weighted_pressure_plate
+    68174882, 68174882, 68174882, 68174882, 68174882, 68174882, 68174882, 68174882, 68174882, 68174882, 68174882, 68174882, 68174882, 68174882, 68174882, 68174882,  // comparator
+    68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370, 68174370,  // daylight_detector
+    4294950944,  // redstone_block
+    4294950952,  // nether_quartz_ore
+    135266854, 134218278, 134218278, 134218278, 134218278, 135266854, 134218278, 134218278, 134218278, 134218278,  // hopper
+    4294950952,  // quartz_block
+    4294950952,  // chiseled_quartz_block
+    4294950952, 4294950952, 4294950952,  // quartz_pillar
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // quartz_stairs
     48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32,  // activator_rail
-    2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502,  // dropper
-    2147475496,  // white_terracotta
-    2147475496,  // orange_terracotta
-    2147475496,  // magenta_terracotta
-    2147475496,  // light_blue_terracotta
-    2147475496,  // yellow_terracotta
-    2147475496,  // lime_terracotta
-    2147475496,  // pink_terracotta
-    2147475496,  // gray_terracotta
-    2147475496,  // light_gray_terracotta
-    2147475496,  // cyan_terracotta
-    2147475496,  // purple_terracotta
-    2147475496,  // blue_terracotta
-    2147475496,  // brown_terracotta
-    2147475496,  // green_terracotta
-    2147475496,  // red_terracotta
-    2147475496,  // black_terracotta
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // white_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // orange_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // magenta_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // light_blue_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // yellow_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // lime_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // pink_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // gray_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // light_gray_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // cyan_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // purple_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // blue_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // brown_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // green_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // red_stained_glass_pane
-    33030160, 24641552, 33030144, 24641536, 28835856, 20447248, 28835840, 20447232, 30933008, 22544400, 30932992, 22544384, 26738704, 18350096, 26738688, 18350080, 16252944, 7864336, 16252928, 7864320, 12058640, 3670032, 12058624, 3670016, 14155792, 5767184, 14155776, 5767168, 9961488, 1572880, 9961472, 1572864,  // black_stained_glass_pane
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // acacia_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // cherry_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // dark_oak_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // pale_oak_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // mangrove_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // bamboo_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // bamboo_mosaic_stairs
-    2147475496,  // slime_block
-    2147476760, 2147476744,  // barrier
+    4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958,  // dropper
+    4294950952,  // white_terracotta
+    4294950952,  // orange_terracotta
+    4294950952,  // magenta_terracotta
+    4294950952,  // light_blue_terracotta
+    4294950952,  // yellow_terracotta
+    4294950952,  // lime_terracotta
+    4294950952,  // pink_terracotta
+    4294950952,  // gray_terracotta
+    4294950952,  // light_gray_terracotta
+    4294950952,  // cyan_terracotta
+    4294950952,  // purple_terracotta
+    4294950952,  // blue_terracotta
+    4294950952,  // brown_terracotta
+    4294950952,  // green_terracotta
+    4294950952,  // red_terracotta
+    4294950952,  // black_terracotta
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // white_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // orange_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // magenta_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // light_blue_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // yellow_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // lime_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // pink_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // gray_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // light_gray_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // cyan_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // purple_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // blue_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // brown_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // green_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // red_stained_glass_pane
+    66060304, 49283088, 66060288, 49283072, 57671696, 40894480, 57671680, 40894464, 61866000, 45088784, 61865984, 45088768, 53477392, 36700176, 53477376, 36700160, 32505872, 15728656, 32505856, 15728640, 24117264, 7340048, 24117248, 7340032, 28311568, 11534352, 28311552, 11534336, 19922960, 3145744, 19922944, 3145728,  // black_stained_glass_pane
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // acacia_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // cherry_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // dark_oak_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // pale_oak_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // mangrove_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // bamboo_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // bamboo_mosaic_stairs
+    4294950952,  // slime_block
+    4294953240, 4294953224,  // barrier
     272, 256, 272, 256, 272, 256, 272, 256, 272, 256, 272, 256, 272, 256, 272, 256, 272, 256, 272, 256, 272, 256, 272, 256, 272, 256, 272, 256, 272, 256, 272, 256,  // light
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // iron_trapdoor
-    2147475496,  // prismarine
-    2147475496,  // prismarine_bricks
-    2147475496,  // dark_prismarine
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // prismarine_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // prismarine_brick_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // dark_prismarine_stairs
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // prismarine_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // prismarine_brick_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // dark_prismarine_slab
-    2147475488,  // sea_lantern
-    2147475496, 2147475496, 2147475496,  // hay_block
-    34086944,  // white_carpet
-    34086944,  // orange_carpet
-    34086944,  // magenta_carpet
-    34086944,  // light_blue_carpet
-    34086944,  // yellow_carpet
-    34086944,  // lime_carpet
-    34086944,  // pink_carpet
-    34086944,  // gray_carpet
-    34086944,  // light_gray_carpet
-    34086944,  // cyan_carpet
-    34086944,  // purple_carpet
-    34086944,  // blue_carpet
-    34086944,  // brown_carpet
-    34086944,  // green_carpet
-    34086944,  // red_carpet
-    34086944,  // black_carpet
-    2147475496,  // terracotta
-    2147475496,  // coal_block
-    2147475464,  // packed_ice
-    512, 544,  // sunflower
-    512, 544,  // lilac
-    512, 544,  // rose_bush
-    512, 544,  // peony
-    512, 512,  // tall_grass
-    512, 512,  // large_fern
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // iron_trapdoor
+    4294950952,  // prismarine
+    4294950952,  // prismarine_bricks
+    4294950952,  // dark_prismarine
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // prismarine_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // prismarine_brick_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // dark_prismarine_stairs
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // prismarine_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // prismarine_brick_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // dark_prismarine_slab
+    4294950944,  // sea_lantern
+    4294950952, 4294950952, 4294950952,  // hay_block
+    68173856,  // white_carpet
+    68173856,  // orange_carpet
+    68173856,  // magenta_carpet
+    68173856,  // light_blue_carpet
+    68173856,  // yellow_carpet
+    68173856,  // lime_carpet
+    68173856,  // pink_carpet
+    68173856,  // gray_carpet
+    68173856,  // light_gray_carpet
+    68173856,  // cyan_carpet
+    68173856,  // purple_carpet
+    68173856,  // blue_carpet
+    68173856,  // brown_carpet
+    68173856,  // green_carpet
+    68173856,  // red_carpet
+    68173856,  // black_carpet
+    4294950952,  // terracotta
+    4294950952,  // coal_block
+    4294950920,  // packed_ice
+    1024, 1056,  // sunflower
+    1024, 1056,  // lilac
+    1024, 1056,  // rose_bush
+    1024, 1056,  // peony
+    1024, 1024,  // tall_grass
+    1024, 1024,  // large_fern
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // white_banner
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // orange_banner
     34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34, 34,  // magenta_banner
@@ -3544,579 +5054,579 @@ const uint64_t state_flags[] = {
     34, 34, 34, 34,  // green_wall_banner
     34, 34, 34, 34,  // red_wall_banner
     34, 34, 34, 34,  // black_wall_banner
-    2147475496,  // red_sandstone
-    2147475496,  // chiseled_red_sandstone
-    2147475496,  // cut_red_sandstone
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // red_sandstone_stairs
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // oak_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // spruce_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // birch_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // jungle_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // acacia_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // cherry_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // dark_oak_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // pale_oak_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // mangrove_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // bamboo_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // bamboo_mosaic_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // stone_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // smooth_stone_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // sandstone_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // cut_sandstone_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // petrified_oak_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // cobblestone_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // brick_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // stone_brick_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // mud_brick_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // nether_brick_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // quartz_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // red_sandstone_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // cut_red_sandstone_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // purpur_slab
-    2147475496,  // smooth_stone
-    2147475496,  // smooth_sandstone
-    2147475496,  // smooth_quartz
-    2147475496,  // smooth_red_sandstone
-    32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608,  // spruce_fence_gate
-    32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608,  // birch_fence_gate
-    32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608,  // jungle_fence_gate
-    32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608,  // acacia_fence_gate
-    32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608,  // cherry_fence_gate
-    32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608,  // dark_oak_fence_gate
-    32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608,  // pale_oak_fence_gate
-    32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608,  // mangrove_fence_gate
-    32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608,  // bamboo_fence_gate
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // spruce_fence
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // birch_fence
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // jungle_fence
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // acacia_fence
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // cherry_fence
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // dark_oak_fence
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // pale_oak_fence
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // mangrove_fence
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // bamboo_fence
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // spruce_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // birch_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // jungle_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // acacia_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // cherry_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // dark_oak_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // pale_oak_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // mangrove_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // bamboo_door
-    32, 32, 32, 32, 1572896, 1572896,  // end_rod
-    1573408, 1573408, 524832, 524832, 1573408, 1573408, 524832, 524832, 1573408, 1573408, 524832, 524832, 1573408, 1573408, 524832, 524832, 1573408, 1573408, 524832, 524832, 1573408, 1573408, 524832, 524832, 1573408, 1573408, 524832, 524832, 1573408, 1573408, 524832, 524832, 1049120, 1049120, 544, 544, 1049120, 1049120, 544, 544, 1049120, 1049120, 544, 544, 1049120, 1049120, 544, 544, 1049120, 1049120, 544, 544, 1049120, 1049120, 544, 544, 1049120, 1049120, 544, 544, 1049120, 1049120, 544, 544,  // chorus_plant
-    524800, 524800, 524800, 524800, 524800, 524800,  // chorus_flower
-    2147475496,  // purpur_block
-    2147475496, 2147475496, 2147475496,  // purpur_pillar
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // purpur_stairs
-    2147475496,  // end_stone_bricks
-    544, 544,  // torchflower_crop
-    512, 524832, 512, 524832, 512, 524832, 512, 524832, 512, 524832,  // pitcher_crop
-    512, 544,  // pitcher_plant
-    544, 544, 544, 544,  // beetroots
-    65544224,  // dirt_path
-    1282,  // end_gateway
-    2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726,  // repeating_command_block
-    2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726, 2147475726,  // chain_command_block
-    2147475456, 2147475456, 2147475456, 2147475456,  // frosted_ice
-    2147475496,  // magma_block
-    2147475496,  // nether_wart_block
-    2147475496,  // red_nether_bricks
-    2147475496, 2147475496, 2147475496,  // bone_block
-    512,  // structure_void
-    2147475488, 2147475488, 2147475488, 2147475488, 2147475488, 2147475488, 2147475488, 2147475488, 2147475488, 2147475488, 2147475488, 2147475488,  // observer
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // white_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // orange_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // magenta_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // light_blue_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // yellow_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // lime_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // pink_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // gray_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // light_gray_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // cyan_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // purple_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // blue_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // brown_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // green_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // red_shulker_box
-    2147476142, 2147476142, 2147476142, 2147476142, 2147476142, 2147476142,  // black_shulker_box
-    2147479592, 2147479592, 2147479592, 2147479592,  // white_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // orange_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // magenta_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // light_blue_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // yellow_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // lime_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // pink_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // gray_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // light_gray_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // cyan_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // purple_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // blue_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // brown_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // green_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // red_glazed_terracotta
-    2147479592, 2147479592, 2147479592, 2147479592,  // black_glazed_terracotta
-    2147475496,  // white_concrete
-    2147475496,  // orange_concrete
-    2147475496,  // magenta_concrete
-    2147475496,  // light_blue_concrete
-    2147475496,  // yellow_concrete
-    2147475496,  // lime_concrete
-    2147475496,  // pink_concrete
-    2147475496,  // gray_concrete
-    2147475496,  // light_gray_concrete
-    2147475496,  // cyan_concrete
-    2147475496,  // purple_concrete
-    2147475496,  // blue_concrete
-    2147475496,  // brown_concrete
-    2147475496,  // green_concrete
-    2147475496,  // red_concrete
-    2147475496,  // black_concrete
-    2147475496,  // white_concrete_powder
-    2147475496,  // orange_concrete_powder
-    2147475496,  // magenta_concrete_powder
-    2147475496,  // light_blue_concrete_powder
-    2147475496,  // yellow_concrete_powder
-    2147475496,  // lime_concrete_powder
-    2147475496,  // pink_concrete_powder
-    2147475496,  // gray_concrete_powder
-    2147475496,  // light_gray_concrete_powder
-    2147475496,  // cyan_concrete_powder
-    2147475496,  // purple_concrete_powder
-    2147475496,  // blue_concrete_powder
-    2147475496,  // brown_concrete_powder
-    2147475496,  // green_concrete_powder
-    2147475496,  // red_concrete_powder
-    2147475496,  // black_concrete_powder
-    560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560, 560,  // kelp
-    560,  // kelp_plant
-    2147475496,  // dried_kelp_block
-    524800, 524800, 524800, 524800, 524800, 524800, 524800, 524800, 524800, 524800, 524800, 524800,  // turtle_egg
-    1572896, 1572896, 1572896,  // sniffer_egg
-    524336, 524320, 524336, 524320, 524336, 524320, 524336, 524320, 524336, 524320, 524336, 524320, 524336, 524320, 524336, 524320, 524336, 524320, 524336, 524320, 524336, 524320, 524336, 524320, 524336, 524320, 524336, 524320, 524336, 524320, 524336, 524320,  // dried_ghast
-    2147475496,  // dead_tube_coral_block
-    2147475496,  // dead_brain_coral_block
-    2147475496,  // dead_bubble_coral_block
-    2147475496,  // dead_fire_coral_block
-    2147475496,  // dead_horn_coral_block
-    2147475496,  // tube_coral_block
-    2147475496,  // brain_coral_block
-    2147475496,  // bubble_coral_block
-    2147475496,  // fire_coral_block
-    2147475496,  // horn_coral_block
+    4294950952,  // red_sandstone
+    4294950952,  // chiseled_red_sandstone
+    4294950952,  // cut_red_sandstone
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // red_sandstone_stairs
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // oak_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // spruce_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // birch_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // jungle_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // acacia_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // cherry_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // dark_oak_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // pale_oak_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // mangrove_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // bamboo_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // bamboo_mosaic_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // stone_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // smooth_stone_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // sandstone_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // cut_sandstone_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // petrified_oak_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // cobblestone_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // brick_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // stone_brick_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // mud_brick_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // nether_brick_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // quartz_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // red_sandstone_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // cut_red_sandstone_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // purpur_slab
+    4294950952,  // smooth_stone
+    4294950952,  // smooth_sandstone
+    4294950952,  // smooth_quartz
+    4294950952,  // smooth_red_sandstone
+    32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184,  // spruce_fence_gate
+    32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184,  // birch_fence_gate
+    32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184,  // jungle_fence_gate
+    32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184,  // acacia_fence_gate
+    32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184,  // cherry_fence_gate
+    32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184,  // dark_oak_fence_gate
+    32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184,  // pale_oak_fence_gate
+    32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184,  // mangrove_fence_gate
+    32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184,  // bamboo_fence_gate
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // spruce_fence
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // birch_fence
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // jungle_fence
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // acacia_fence
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // cherry_fence
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // dark_oak_fence
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // pale_oak_fence
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // mangrove_fence
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // bamboo_fence
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // spruce_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // birch_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // jungle_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // acacia_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // cherry_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // dark_oak_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // pale_oak_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // mangrove_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // bamboo_door
+    32, 32, 32, 32, 3145760, 3145760,  // end_rod
+    3146784, 3146784, 1049632, 1049632, 3146784, 3146784, 1049632, 1049632, 3146784, 3146784, 1049632, 1049632, 3146784, 3146784, 1049632, 1049632, 3146784, 3146784, 1049632, 1049632, 3146784, 3146784, 1049632, 1049632, 3146784, 3146784, 1049632, 1049632, 3146784, 3146784, 1049632, 1049632, 2098208, 2098208, 1056, 1056, 2098208, 2098208, 1056, 1056, 2098208, 2098208, 1056, 1056, 2098208, 2098208, 1056, 1056, 2098208, 2098208, 1056, 1056, 2098208, 2098208, 1056, 1056, 2098208, 2098208, 1056, 1056, 2098208, 2098208, 1056, 1056,  // chorus_plant
+    1049600, 1049600, 1049600, 1049600, 1049600, 1049600,  // chorus_flower
+    4294950952,  // purpur_block
+    4294950952, 4294950952, 4294950952,  // purpur_pillar
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // purpur_stairs
+    4294950952,  // end_stone_bricks
+    1056, 1056,  // torchflower_crop
+    1024, 1049632, 1024, 1049632, 1024, 1049632, 1024, 1049632, 1024, 1049632,  // pitcher_crop
+    1024, 1056,  // pitcher_plant
+    1056, 1056, 1056, 1056,  // beetroots
+    131088416,  // dirt_path
+    2818,  // end_gateway
+    4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182,  // repeating_command_block
+    4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182, 4294951182,  // chain_command_block
+    4294950912, 4294950912, 4294950912, 4294950912,  // frosted_ice
+    4294950952,  // magma_block
+    4294950952,  // nether_wart_block
+    4294950952,  // red_nether_bricks
+    4294950952, 4294950952, 4294950952,  // bone_block
+    1024,  // structure_void
+    4294950944, 4294950944, 4294950944, 4294950944, 4294950944, 4294950944, 4294950944, 4294950944, 4294950944, 4294950944, 4294950944, 4294950944,  // observer
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // white_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // orange_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // magenta_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // light_blue_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // yellow_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // lime_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // pink_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // gray_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // light_gray_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // cyan_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // purple_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // blue_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // brown_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // green_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // red_shulker_box
+    4294952622, 4294952622, 4294952622, 4294952622, 4294952622, 4294952622,  // black_shulker_box
+    4294959144, 4294959144, 4294959144, 4294959144,  // white_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // orange_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // magenta_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // light_blue_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // yellow_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // lime_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // pink_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // gray_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // light_gray_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // cyan_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // purple_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // blue_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // brown_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // green_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // red_glazed_terracotta
+    4294959144, 4294959144, 4294959144, 4294959144,  // black_glazed_terracotta
+    4294950952,  // white_concrete
+    4294950952,  // orange_concrete
+    4294950952,  // magenta_concrete
+    4294950952,  // light_blue_concrete
+    4294950952,  // yellow_concrete
+    4294950952,  // lime_concrete
+    4294950952,  // pink_concrete
+    4294950952,  // gray_concrete
+    4294950952,  // light_gray_concrete
+    4294950952,  // cyan_concrete
+    4294950952,  // purple_concrete
+    4294950952,  // blue_concrete
+    4294950952,  // brown_concrete
+    4294950952,  // green_concrete
+    4294950952,  // red_concrete
+    4294950952,  // black_concrete
+    4294950952,  // white_concrete_powder
+    4294950952,  // orange_concrete_powder
+    4294950952,  // magenta_concrete_powder
+    4294950952,  // light_blue_concrete_powder
+    4294950952,  // yellow_concrete_powder
+    4294950952,  // lime_concrete_powder
+    4294950952,  // pink_concrete_powder
+    4294950952,  // gray_concrete_powder
+    4294950952,  // light_gray_concrete_powder
+    4294950952,  // cyan_concrete_powder
+    4294950952,  // purple_concrete_powder
+    4294950952,  // blue_concrete_powder
+    4294950952,  // brown_concrete_powder
+    4294950952,  // green_concrete_powder
+    4294950952,  // red_concrete_powder
+    4294950952,  // black_concrete_powder
+    1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072, 1072,  // kelp
+    1072,  // kelp_plant
+    4294950952,  // dried_kelp_block
+    1049600, 1049600, 1049600, 1049600, 1049600, 1049600, 1049600, 1049600, 1049600, 1049600, 1049600, 1049600,  // turtle_egg
+    3145760, 3145760, 3145760,  // sniffer_egg
+    1048624, 1048608, 1048624, 1048608, 1048624, 1048608, 1048624, 1048608, 1048624, 1048608, 1048624, 1048608, 1048624, 1048608, 1048624, 1048608, 1048624, 1048608, 1048624, 1048608, 1048624, 1048608, 1048624, 1048608, 1048624, 1048608, 1048624, 1048608, 1048624, 1048608, 1048624, 1048608,  // dried_ghast
+    4294950952,  // dead_tube_coral_block
+    4294950952,  // dead_brain_coral_block
+    4294950952,  // dead_bubble_coral_block
+    4294950952,  // dead_fire_coral_block
+    4294950952,  // dead_horn_coral_block
+    4294950952,  // tube_coral_block
+    4294950952,  // brain_coral_block
+    4294950952,  // bubble_coral_block
+    4294950952,  // fire_coral_block
+    4294950952,  // horn_coral_block
     16, 0,  // dead_tube_coral
     16, 0,  // dead_brain_coral
     16, 0,  // dead_bubble_coral
     16, 0,  // dead_fire_coral
     16, 0,  // dead_horn_coral
-    528, 512,  // tube_coral
-    528, 512,  // brain_coral
-    528, 512,  // bubble_coral
-    528, 512,  // fire_coral
-    528, 512,  // horn_coral
+    1040, 1024,  // tube_coral
+    1040, 1024,  // brain_coral
+    1040, 1024,  // bubble_coral
+    1040, 1024,  // fire_coral
+    1040, 1024,  // horn_coral
     16, 0,  // dead_tube_coral_fan
     16, 0,  // dead_brain_coral_fan
     16, 0,  // dead_bubble_coral_fan
     16, 0,  // dead_fire_coral_fan
     16, 0,  // dead_horn_coral_fan
-    528, 512,  // tube_coral_fan
-    528, 512,  // brain_coral_fan
-    528, 512,  // bubble_coral_fan
-    528, 512,  // fire_coral_fan
-    528, 512,  // horn_coral_fan
+    1040, 1024,  // tube_coral_fan
+    1040, 1024,  // brain_coral_fan
+    1040, 1024,  // bubble_coral_fan
+    1040, 1024,  // fire_coral_fan
+    1040, 1024,  // horn_coral_fan
     16, 0, 16, 0, 16, 0, 16, 0,  // dead_tube_coral_wall_fan
     16, 0, 16, 0, 16, 0, 16, 0,  // dead_brain_coral_wall_fan
     16, 0, 16, 0, 16, 0, 16, 0,  // dead_bubble_coral_wall_fan
     16, 0, 16, 0, 16, 0, 16, 0,  // dead_fire_coral_wall_fan
     16, 0, 16, 0, 16, 0, 16, 0,  // dead_horn_coral_wall_fan
-    528, 512, 528, 512, 528, 512, 528, 512,  // tube_coral_wall_fan
-    528, 512, 528, 512, 528, 512, 528, 512,  // brain_coral_wall_fan
-    528, 512, 528, 512, 528, 512, 528, 512,  // bubble_coral_wall_fan
-    528, 512, 528, 512, 528, 512, 528, 512,  // fire_coral_wall_fan
-    528, 512, 528, 512, 528, 512, 528, 512,  // horn_coral_wall_fan
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // sea_pickle
-    2147475464,  // blue_ice
-    50, 34,  // conduit
-    544,  // bamboo_sapling
-    672, 672, 672, 672, 672, 672, 672, 672, 672, 672, 672, 672,  // bamboo
-    524832,  // potted_bamboo
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024,  // tube_coral_wall_fan
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024,  // brain_coral_wall_fan
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024,  // bubble_coral_wall_fan
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024,  // fire_coral_wall_fan
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024,  // horn_coral_wall_fan
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // sea_pickle
+    4294950920,  // blue_ice
+    562, 546,  // conduit
+    1056,  // bamboo_sapling
+    1184, 1184, 1184, 1184, 1184, 1184, 1184, 1184, 1184, 1184, 1184, 1184,  // bamboo
+    1049632,  // potted_bamboo
     1,  // void_air
     1,  // cave_air
-    528, 528,  // bubble_column
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // polished_granite_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // smooth_red_sandstone_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // mossy_stone_brick_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // polished_diorite_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // mossy_cobblestone_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // end_stone_brick_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // stone_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // smooth_sandstone_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // smooth_quartz_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // granite_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // andesite_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // red_nether_brick_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // polished_andesite_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // diorite_stairs
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // polished_granite_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // smooth_red_sandstone_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // mossy_stone_brick_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // polished_diorite_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // mossy_cobblestone_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // end_stone_brick_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // smooth_sandstone_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // smooth_quartz_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // granite_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // andesite_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // red_nether_brick_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // polished_andesite_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // diorite_slab
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // brick_wall
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // prismarine_wall
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // red_sandstone_wall
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // mossy_stone_brick_wall
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // granite_wall
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // stone_brick_wall
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // mud_brick_wall
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // nether_brick_wall
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // andesite_wall
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // red_nether_brick_wall
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // sandstone_wall
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // end_stone_brick_wall
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // diorite_wall
-    68174512, 68174496, 68174512, 68174496, 68174512, 68174496, 68174512, 68174496, 68174512, 68174496, 68174512, 68174496, 68174512, 68174496, 68174512, 68174496, 68174512, 68174496, 68174512, 68174496, 68174512, 68174496, 68174512, 68174496, 68174512, 68174496, 68174512, 68174496, 68174512, 68174496, 68174512, 68174496,  // scaffolding
-    2147475496, 2147475496, 2147475496, 2147475496,  // loom
-    2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502,  // barrel
-    2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502,  // smoker
-    2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502,  // blast_furnace
-    2147475496,  // cartography_table
-    2147475496,  // fletching_table
-    1049632, 1049632, 1049632, 1049632, 1056, 1056, 1056, 1056, 525344, 525344, 525344, 525344,  // grindstone
-    34086950, 34086950, 34086950, 34086950, 34086950, 34086950, 34086950, 34086950, 34086950, 34086950, 34086950, 34086950, 34086950, 34086950, 34086950, 34086950,  // lectern
-    2147475496,  // smithing_table
-    34086944, 34086944, 34086944, 34086944,  // stonecutter
-    26739234, 26739234, 26739234, 26739234, 7864866, 7864866, 7864866, 7864866, 1049122, 1049122, 1049122, 1049122, 1049122, 1049122, 1049122, 1049122, 546, 546, 546, 546, 546, 546, 546, 546, 546, 546, 546, 546, 546, 546, 546, 546,  // bell
-    560, 544, 524848, 524832,  // lantern
-    560, 544, 524848, 524832,  // soul_lantern
-    560, 544, 524848, 524832,  // copper_lantern
-    560, 544, 524848, 524832,  // exposed_copper_lantern
-    560, 544, 524848, 524832,  // weathered_copper_lantern
-    560, 544, 524848, 524832,  // oxidized_copper_lantern
-    560, 544, 524848, 524832,  // waxed_copper_lantern
-    560, 544, 524848, 524832,  // waxed_exposed_copper_lantern
-    560, 544, 524848, 524832,  // waxed_weathered_copper_lantern
-    560, 544, 524848, 524832,  // waxed_oxidized_copper_lantern
-    34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946,  // campfire
-    34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946, 34086962, 34086946,  // soul_campfire
-    512, 512, 544, 544,  // sweet_berry_bush
-    2147475496, 2147475496, 2147475496,  // warped_stem
-    2147475496, 2147475496, 2147475496,  // stripped_warped_stem
-    2147475496, 2147475496, 2147475496,  // warped_hyphae
-    2147475496, 2147475496, 2147475496,  // stripped_warped_hyphae
-    2147475496,  // warped_nylium
-    544,  // warped_fungus
-    2147475496,  // warped_wart_block
-    544,  // warped_roots
-    512,  // nether_sprouts
-    2147475496, 2147475496, 2147475496,  // crimson_stem
-    2147475496, 2147475496, 2147475496,  // stripped_crimson_stem
-    2147475496, 2147475496, 2147475496,  // crimson_hyphae
-    2147475496, 2147475496, 2147475496,  // stripped_crimson_hyphae
-    2147475496,  // crimson_nylium
-    544,  // crimson_fungus
-    2147475496,  // shroomlight
-    544, 512, 544, 512, 512, 512, 544, 512, 512, 544, 544, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 544, 512, 544, 512, 544,  // weeping_vines
-    544,  // weeping_vines_plant
-    512, 512, 544, 512, 512, 544, 544, 512, 544, 544, 512, 512, 544, 512, 512, 512, 512, 512, 512, 512, 512, 512, 544, 544, 512, 544,  // twisting_vines
-    512,  // twisting_vines_plant
-    544,  // crimson_roots
-    2147475496,  // crimson_planks
-    2147475496,  // warped_planks
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // crimson_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // warped_slab
-    544, 544,  // crimson_pressure_plate
-    544, 544,  // warped_pressure_plate
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // crimson_fence
-    33030192, 24641584, 33030176, 24641568, 28835888, 20447280, 28835872, 20447264, 30933040, 22544432, 30933024, 22544416, 26738736, 18350128, 26738720, 18350112, 16252976, 7864368, 16252960, 7864352, 12058672, 3670064, 12058656, 3670048, 14155824, 5767216, 14155808, 5767200, 9961520, 1572912, 9961504, 1572896,  // warped_fence
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // crimson_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // warped_trapdoor
-    32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608,  // crimson_fence_gate
-    32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608, 32, 32, 1048608, 1048608,  // warped_fence_gate
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // crimson_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // warped_stairs
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // crimson_button
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // warped_button
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // crimson_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // warped_door
-    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // crimson_sign
-    50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34, 50, 34,  // warped_sign
-    50, 34, 50, 34, 50, 34, 50, 34,  // crimson_wall_sign
-    50, 34, 50, 34, 50, 34, 50, 34,  // warped_wall_sign
-    2147475722, 2147475722, 2147475722, 2147475722,  // structure_block
-    2147475722, 2147475722, 2147475722, 2147475722, 2147475722, 2147475722, 2147475722, 2147475722, 2147475722, 2147475722, 2147475722, 2147475722,  // jigsaw
-    2147475722, 2147475722, 2147475722, 2147475722,  // test_block
-    2147475722,  // test_instance_block
-    2146410532, 2146410532, 2146410532, 2146410532, 2146410532, 2146410532, 2146410532, 2146410532, 2146410532,  // composter
-    2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496, 2147475496,  // target
-    2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470, 2147475470,  // bee_nest
-    2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502,  // beehive
-    524320,  // honey_block
-    2147475496,  // honeycomb_block
-    2147475496,  // netherite_block
-    2147475496,  // ancient_debris
-    2147475496,  // crying_obsidian
-    2147475500, 2147475500, 2147475500, 2147475500, 2147475500,  // respawn_anchor
-    524832,  // potted_crimson_fungus
-    524832,  // potted_warped_fungus
-    524832,  // potted_crimson_roots
-    524832,  // potted_warped_roots
-    2147476520,  // lodestone
-    2147475496,  // blackstone
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // blackstone_stairs
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // blackstone_wall
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // blackstone_slab
-    2147475496,  // polished_blackstone
-    2147475496,  // polished_blackstone_bricks
-    2147475496,  // cracked_polished_blackstone_bricks
-    2147475496,  // chiseled_polished_blackstone
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // polished_blackstone_brick_slab
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // polished_blackstone_brick_stairs
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // polished_blackstone_brick_wall
-    2147475496,  // gilded_blackstone
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // polished_blackstone_stairs
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // polished_blackstone_slab
-    544, 544,  // polished_blackstone_pressure_plate
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // polished_blackstone_button
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // polished_blackstone_wall
-    2147475496,  // chiseled_nether_bricks
-    2147475496,  // cracked_nether_bricks
-    2147475496,  // quartz_bricks
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // white_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // orange_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // magenta_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // light_blue_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // yellow_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // lime_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // pink_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // gray_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // light_gray_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // cyan_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // purple_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // blue_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // brown_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // green_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // red_candle
-    524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832, 524848, 524832,  // black_candle
-    524836, 524836,  // candle_cake
-    524836, 524836,  // white_candle_cake
-    524836, 524836,  // orange_candle_cake
-    524836, 524836,  // magenta_candle_cake
-    524836, 524836,  // light_blue_candle_cake
-    524836, 524836,  // yellow_candle_cake
-    524836, 524836,  // lime_candle_cake
-    524836, 524836,  // pink_candle_cake
-    524836, 524836,  // gray_candle_cake
-    524836, 524836,  // light_gray_candle_cake
-    524836, 524836,  // cyan_candle_cake
-    524836, 524836,  // purple_candle_cake
-    524836, 524836,  // blue_candle_cake
-    524836, 524836,  // brown_candle_cake
-    524836, 524836,  // green_candle_cake
-    524836, 524836,  // red_candle_cake
-    524836, 524836,  // black_candle_cake
-    2147475496,  // amethyst_block
-    2147475976,  // budding_amethyst
-    560, 544, 560, 544, 560, 544, 560, 544, 524848, 524832, 1049136, 1049120,  // amethyst_cluster
-    528, 512, 528, 512, 528, 512, 528, 512, 524816, 524800, 1049104, 1049088,  // large_amethyst_bud
-    528, 512, 528, 512, 528, 512, 528, 512, 524816, 524800, 1049104, 1049088,  // medium_amethyst_bud
-    528, 512, 528, 512, 528, 512, 528, 512, 524816, 524800, 1049104, 1049088,  // small_amethyst_bud
-    2147475496,  // tuff
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // tuff_slab
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // tuff_stairs
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // tuff_wall
-    2147475496,  // polished_tuff
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // polished_tuff_slab
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // polished_tuff_stairs
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // polished_tuff_wall
-    2147475496,  // chiseled_tuff
-    2147475496,  // tuff_bricks
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // tuff_brick_slab
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // tuff_brick_stairs
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // tuff_brick_wall
-    2147475496,  // chiseled_tuff_bricks
-    2147475496,  // calcite
-    2147475488,  // tinted_glass
+    1040, 1040,  // bubble_column
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // polished_granite_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // smooth_red_sandstone_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // mossy_stone_brick_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // polished_diorite_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // mossy_cobblestone_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // end_stone_brick_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // stone_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // smooth_sandstone_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // smooth_quartz_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // granite_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // andesite_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // red_nether_brick_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // polished_andesite_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // diorite_stairs
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // polished_granite_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // smooth_red_sandstone_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // mossy_stone_brick_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // polished_diorite_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // mossy_cobblestone_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // end_stone_brick_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // smooth_sandstone_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // smooth_quartz_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // granite_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // andesite_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // red_nether_brick_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // polished_andesite_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // diorite_slab
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // brick_wall
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // prismarine_wall
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // red_sandstone_wall
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // mossy_stone_brick_wall
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // granite_wall
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // stone_brick_wall
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // mud_brick_wall
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // nether_brick_wall
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // andesite_wall
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // red_nether_brick_wall
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // sandstone_wall
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // end_stone_brick_wall
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // diorite_wall
+    136348848, 136348832, 136348848, 136348832, 136348848, 136348832, 136348848, 136348832, 136348848, 136348832, 136348848, 136348832, 136348848, 136348832, 136348848, 136348832, 136348848, 136348832, 136348848, 136348832, 136348848, 136348832, 136348848, 136348832, 136348848, 136348832, 136348848, 136348832, 136348848, 136348832, 136348848, 136348832,  // scaffolding
+    4294950952, 4294950952, 4294950952, 4294950952,  // loom
+    4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958, 4294950958,  // barrel
+    4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470,  // smoker
+    4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470,  // blast_furnace
+    4294950952,  // cartography_table
+    4294950952,  // fletching_table
+    2099232, 2099232, 2099232, 2099232, 2080, 2080, 2080, 2080, 1050656, 1050656, 1050656, 1050656,  // grindstone
+    68173862, 68173862, 68173862, 68173862, 68173862, 68173862, 68173862, 68173862, 68173862, 68173862, 68173862, 68173862, 68173862, 68173862, 68173862, 68173862,  // lectern
+    4294950952,  // smithing_table
+    68173856, 68173856, 68173856, 68173856,  // stonecutter
+    53478946, 53478946, 53478946, 53478946, 15730210, 15730210, 15730210, 15730210, 2098722, 2098722, 2098722, 2098722, 2098722, 2098722, 2098722, 2098722, 1570, 1570, 1570, 1570, 1570, 1570, 1570, 1570, 1570, 1570, 1570, 1570, 1570, 1570, 1570, 1570,  // bell
+    1072, 1056, 1049648, 1049632,  // lantern
+    1072, 1056, 1049648, 1049632,  // soul_lantern
+    1072, 1056, 1049648, 1049632,  // copper_lantern
+    1072, 1056, 1049648, 1049632,  // exposed_copper_lantern
+    1072, 1056, 1049648, 1049632,  // weathered_copper_lantern
+    1072, 1056, 1049648, 1049632,  // oxidized_copper_lantern
+    1072, 1056, 1049648, 1049632,  // waxed_copper_lantern
+    1072, 1056, 1049648, 1049632,  // waxed_exposed_copper_lantern
+    1072, 1056, 1049648, 1049632,  // waxed_weathered_copper_lantern
+    1072, 1056, 1049648, 1049632,  // waxed_oxidized_copper_lantern
+    68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370,  // campfire
+    68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370, 68174386, 68174370,  // soul_campfire
+    1024, 1024, 1056, 1056,  // sweet_berry_bush
+    4294950952, 4294950952, 4294950952,  // warped_stem
+    4294950952, 4294950952, 4294950952,  // stripped_warped_stem
+    4294950952, 4294950952, 4294950952,  // warped_hyphae
+    4294950952, 4294950952, 4294950952,  // stripped_warped_hyphae
+    4294950952,  // warped_nylium
+    1056,  // warped_fungus
+    4294950952,  // warped_wart_block
+    1056,  // warped_roots
+    1024,  // nether_sprouts
+    4294950952, 4294950952, 4294950952,  // crimson_stem
+    4294950952, 4294950952, 4294950952,  // stripped_crimson_stem
+    4294950952, 4294950952, 4294950952,  // crimson_hyphae
+    4294950952, 4294950952, 4294950952,  // stripped_crimson_hyphae
+    4294950952,  // crimson_nylium
+    1056,  // crimson_fungus
+    4294950952,  // shroomlight
+    1024, 1024, 1024, 1056, 1056, 1024, 1056, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1056, 1056, 1056, 1056, 1056, 1056, 1024, 1056, 1024, 1056, 1056,  // weeping_vines
+    1056,  // weeping_vines_plant
+    1056, 1056, 1056, 1024, 1056, 1024, 1024, 1056, 1056, 1056, 1024, 1024, 1056, 1024, 1056, 1056, 1056, 1024, 1056, 1056, 1024, 1056, 1056, 1024, 1056, 1024,  // twisting_vines
+    1056,  // twisting_vines_plant
+    1056,  // crimson_roots
+    4294950952,  // crimson_planks
+    4294950952,  // warped_planks
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // crimson_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // warped_slab
+    1056, 1056,  // crimson_pressure_plate
+    1056, 1056,  // warped_pressure_plate
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // crimson_fence
+    66060336, 49283120, 66060320, 49283104, 57671728, 40894512, 57671712, 40894496, 61866032, 45088816, 61866016, 45088800, 53477424, 36700208, 53477408, 36700192, 32505904, 15728688, 32505888, 15728672, 24117296, 7340080, 24117280, 7340064, 28311600, 11534384, 28311584, 11534368, 19922992, 3145776, 19922976, 3145760,  // warped_fence
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // crimson_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // warped_trapdoor
+    32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184,  // crimson_fence_gate
+    32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184, 32, 32, 2097184, 2097184,  // warped_fence_gate
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // crimson_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // warped_stairs
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // crimson_button
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // warped_button
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // crimson_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // warped_door
+    562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546,  // crimson_sign
+    562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546, 562, 546,  // warped_sign
+    562, 546, 562, 546, 562, 546, 562, 546,  // crimson_wall_sign
+    562, 546, 562, 546, 562, 546, 562, 546,  // warped_wall_sign
+    4294951178, 4294951178, 4294951178, 4294951178,  // structure_block
+    4294951178, 4294951178, 4294951178, 4294951178, 4294951178, 4294951178, 4294951178, 4294951178, 4294951178, 4294951178, 4294951178, 4294951178,  // jigsaw
+    4294951178, 4294951178, 4294951178, 4294951178,  // test_block
+    4294951178,  // test_instance_block
+    4292821028, 4292821028, 4292821028, 4292821028, 4292821028, 4292821028, 4292821028, 4292821028, 4292821028,  // composter
+    4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952, 4294950952,  // target
+    4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438, 4294951438,  // bee_nest
+    4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470,  // beehive
+    1048608,  // honey_block
+    4294950952,  // honeycomb_block
+    4294950952,  // netherite_block
+    4294950952,  // ancient_debris
+    4294950952,  // crying_obsidian
+    4294950956, 4294950956, 4294950956, 4294950956, 4294950956,  // respawn_anchor
+    1049632,  // potted_crimson_fungus
+    1049632,  // potted_warped_fungus
+    1049632,  // potted_crimson_roots
+    1049632,  // potted_warped_roots
+    4294953000,  // lodestone
+    4294950952,  // blackstone
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // blackstone_stairs
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // blackstone_wall
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // blackstone_slab
+    4294950952,  // polished_blackstone
+    4294950952,  // polished_blackstone_bricks
+    4294950952,  // cracked_polished_blackstone_bricks
+    4294950952,  // chiseled_polished_blackstone
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // polished_blackstone_brick_slab
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // polished_blackstone_brick_stairs
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // polished_blackstone_brick_wall
+    4294950952,  // gilded_blackstone
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // polished_blackstone_stairs
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // polished_blackstone_slab
+    1056, 1056,  // polished_blackstone_pressure_plate
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // polished_blackstone_button
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // polished_blackstone_wall
+    4294950952,  // chiseled_nether_bricks
+    4294950952,  // cracked_nether_bricks
+    4294950952,  // quartz_bricks
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // white_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // orange_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // magenta_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // light_blue_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // yellow_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // lime_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // pink_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // gray_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // light_gray_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // cyan_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // purple_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // blue_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // brown_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // green_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // red_candle
+    1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632, 1049648, 1049632,  // black_candle
+    1049636, 1049636,  // candle_cake
+    1049636, 1049636,  // white_candle_cake
+    1049636, 1049636,  // orange_candle_cake
+    1049636, 1049636,  // magenta_candle_cake
+    1049636, 1049636,  // light_blue_candle_cake
+    1049636, 1049636,  // yellow_candle_cake
+    1049636, 1049636,  // lime_candle_cake
+    1049636, 1049636,  // pink_candle_cake
+    1049636, 1049636,  // gray_candle_cake
+    1049636, 1049636,  // light_gray_candle_cake
+    1049636, 1049636,  // cyan_candle_cake
+    1049636, 1049636,  // purple_candle_cake
+    1049636, 1049636,  // blue_candle_cake
+    1049636, 1049636,  // brown_candle_cake
+    1049636, 1049636,  // green_candle_cake
+    1049636, 1049636,  // red_candle_cake
+    1049636, 1049636,  // black_candle_cake
+    4294950952,  // amethyst_block
+    4294951944,  // budding_amethyst
+    1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056, 1049648, 1049632, 2098224, 2098208,  // amethyst_cluster
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1049616, 1049600, 2098192, 2098176,  // large_amethyst_bud
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1049616, 1049600, 2098192, 2098176,  // medium_amethyst_bud
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1049616, 1049600, 2098192, 2098176,  // small_amethyst_bud
+    4294950952,  // tuff
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // tuff_slab
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // tuff_stairs
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // tuff_wall
+    4294950952,  // polished_tuff
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // polished_tuff_slab
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // polished_tuff_stairs
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // polished_tuff_wall
+    4294950952,  // chiseled_tuff
+    4294950952,  // tuff_bricks
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // tuff_brick_slab
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // tuff_brick_stairs
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // tuff_brick_wall
+    4294950952,  // chiseled_tuff_bricks
+    4294950952,  // calcite
+    4294950944,  // tinted_glass
     128,  // powder_snow
-    34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918,  // sculk_sensor
-    34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918, 34086934, 34086918,  // calibrated_sculk_sensor
-    2147475464,  // sculk
-    528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512, 528, 528, 512, 512,  // sculk_vein
-    2147475466, 2147475466,  // sculk_catalyst
-    34086930, 34086914, 34086930, 34086914, 34086930, 34086914, 34086930, 34086914,  // sculk_shrieker
-    2147475496,  // copper_block
-    2147475496,  // exposed_copper
-    2147475496,  // weathered_copper
-    2147475496,  // oxidized_copper
-    2147475496,  // copper_ore
-    2147475496,  // deepslate_copper_ore
-    2147475496,  // oxidized_cut_copper
-    2147475496,  // weathered_cut_copper
-    2147475496,  // exposed_cut_copper
-    2147475496,  // cut_copper
-    2147475496,  // oxidized_chiseled_copper
-    2147475496,  // weathered_chiseled_copper
-    2147475496,  // exposed_chiseled_copper
-    2147475496,  // chiseled_copper
-    2147475496,  // waxed_oxidized_chiseled_copper
-    2147475496,  // waxed_weathered_chiseled_copper
-    2147475496,  // waxed_exposed_chiseled_copper
-    2147475496,  // waxed_chiseled_copper
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // oxidized_cut_copper_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // weathered_cut_copper_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // exposed_cut_copper_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // cut_copper_stairs
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // oxidized_cut_copper_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // weathered_cut_copper_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // exposed_cut_copper_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // cut_copper_slab
-    2147475496,  // waxed_copper_block
-    2147475496,  // waxed_weathered_copper
-    2147475496,  // waxed_exposed_copper
-    2147475496,  // waxed_oxidized_copper
-    2147475496,  // waxed_oxidized_cut_copper
-    2147475496,  // waxed_weathered_cut_copper
-    2147475496,  // waxed_exposed_cut_copper
-    2147475496,  // waxed_cut_copper
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // waxed_oxidized_cut_copper_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // waxed_weathered_cut_copper_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // waxed_exposed_cut_copper_stairs
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // waxed_cut_copper_stairs
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // waxed_oxidized_cut_copper_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // waxed_weathered_cut_copper_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // waxed_exposed_cut_copper_slab
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // waxed_cut_copper_slab
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // copper_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // exposed_copper_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // oxidized_copper_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // weathered_copper_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // waxed_copper_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // waxed_exposed_copper_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // waxed_oxidized_copper_door
-    545391104, 545391104, 272695808, 272695808, 1090781696, 1090781696, 272695808, 272695808, 545391136, 545391136, 272695840, 272695840, 1090781728, 1090781728, 272695840, 272695840, 1090781696, 1090781696, 136348160, 136348160, 545391104, 545391104, 136348160, 136348160, 1090781728, 1090781728, 136348192, 136348192, 545391136, 545391136, 136348192, 136348192, 272695808, 272695808, 1090781696, 1090781696, 136348160, 136348160, 1090781696, 1090781696, 272695840, 272695840, 1090781728, 1090781728, 136348192, 136348192, 1090781728, 1090781728, 136348160, 136348160, 545391104, 545391104, 272695808, 272695808, 545391104, 545391104, 136348192, 136348192, 545391136, 545391136, 272695840, 272695840, 545391136, 545391136,  // waxed_weathered_copper_door
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // copper_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // exposed_copper_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // oxidized_copper_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // weathered_copper_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // waxed_copper_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // waxed_exposed_copper_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // waxed_oxidized_copper_trapdoor
-    272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 34086960, 34086944, 34086960, 34086944, 136347696, 136347680, 136347696, 136347680, 68173872, 68173856, 68173872, 68173856, 136347696, 136347680, 136347696, 136347680, 34086960, 34086944, 34086960, 34086944, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 34086960, 34086944, 34086960, 34086944, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 545390640, 545390624, 545390640, 545390624, 34086960, 34086944, 34086960, 34086944,  // waxed_weathered_copper_trapdoor
-    2147475504, 2147475488,  // copper_grate
-    2147475504, 2147475488,  // exposed_copper_grate
-    2147475504, 2147475488,  // weathered_copper_grate
-    2147475504, 2147475488,  // oxidized_copper_grate
-    2147475504, 2147475488,  // waxed_copper_grate
-    2147475504, 2147475488,  // waxed_exposed_copper_grate
-    2147475504, 2147475488,  // waxed_weathered_copper_grate
-    2147475504, 2147475488,  // waxed_oxidized_copper_grate
-    2147475492, 2147475492, 2147475492, 2147475492,  // copper_bulb
-    2147475492, 2147475492, 2147475492, 2147475492,  // exposed_copper_bulb
-    2147475492, 2147475492, 2147475492, 2147475492,  // weathered_copper_bulb
-    2147475492, 2147475492, 2147475492, 2147475492,  // oxidized_copper_bulb
-    2147475492, 2147475492, 2147475492, 2147475492,  // waxed_copper_bulb
-    2147475492, 2147475492, 2147475492, 2147475492,  // waxed_exposed_copper_bulb
-    2147475492, 2147475492, 2147475492, 2147475492,  // waxed_weathered_copper_bulb
-    2147475492, 2147475492, 2147475492, 2147475492,  // waxed_oxidized_copper_bulb
-    524342, 524326, 17301558, 17301542, 8912950, 8912934, 524342, 524326, 8912950, 8912934, 17301558, 17301542, 524342, 524326, 2621494, 2621478, 4718646, 4718630, 524342, 524326, 4718646, 4718630, 2621494, 2621478,  // copper_chest
-    524342, 524326, 17301558, 17301542, 8912950, 8912934, 524342, 524326, 8912950, 8912934, 17301558, 17301542, 524342, 524326, 2621494, 2621478, 4718646, 4718630, 524342, 524326, 4718646, 4718630, 2621494, 2621478,  // exposed_copper_chest
-    524342, 524326, 17301558, 17301542, 8912950, 8912934, 524342, 524326, 8912950, 8912934, 17301558, 17301542, 524342, 524326, 2621494, 2621478, 4718646, 4718630, 524342, 524326, 4718646, 4718630, 2621494, 2621478,  // weathered_copper_chest
-    524342, 524326, 17301558, 17301542, 8912950, 8912934, 524342, 524326, 8912950, 8912934, 17301558, 17301542, 524342, 524326, 2621494, 2621478, 4718646, 4718630, 524342, 524326, 4718646, 4718630, 2621494, 2621478,  // oxidized_copper_chest
-    524342, 524326, 17301558, 17301542, 8912950, 8912934, 524342, 524326, 8912950, 8912934, 17301558, 17301542, 524342, 524326, 2621494, 2621478, 4718646, 4718630, 524342, 524326, 4718646, 4718630, 2621494, 2621478,  // waxed_copper_chest
-    524342, 524326, 17301558, 17301542, 8912950, 8912934, 524342, 524326, 8912950, 8912934, 17301558, 17301542, 524342, 524326, 2621494, 2621478, 4718646, 4718630, 524342, 524326, 4718646, 4718630, 2621494, 2621478,  // waxed_exposed_copper_chest
-    524342, 524326, 17301558, 17301542, 8912950, 8912934, 524342, 524326, 8912950, 8912934, 17301558, 17301542, 524342, 524326, 2621494, 2621478, 4718646, 4718630, 524342, 524326, 4718646, 4718630, 2621494, 2621478,  // waxed_weathered_copper_chest
-    524342, 524326, 17301558, 17301542, 8912950, 8912934, 524342, 524326, 8912950, 8912934, 17301558, 17301542, 524342, 524326, 2621494, 2621478, 4718646, 4718630, 524342, 524326, 4718646, 4718630, 2621494, 2621478,  // waxed_oxidized_copper_chest
-    524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838,  // copper_golem_statue
-    524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838,  // exposed_copper_golem_statue
-    524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838,  // weathered_copper_golem_statue
-    524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838,  // oxidized_copper_golem_statue
-    524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838,  // waxed_copper_golem_statue
-    524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838,  // waxed_exposed_copper_golem_statue
-    524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838,  // waxed_weathered_copper_golem_statue
-    524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838, 524854, 524838,  // waxed_oxidized_copper_golem_statue
-    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896,  // lightning_rod
-    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896,  // exposed_lightning_rod
-    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896,  // weathered_lightning_rod
-    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896,  // oxidized_lightning_rod
-    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896,  // waxed_lightning_rod
-    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896,  // waxed_exposed_lightning_rod
-    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896,  // waxed_weathered_lightning_rod
-    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896, 1572912, 1572896,  // waxed_oxidized_lightning_rod
-    1573552, 1573536, 1573552, 1573536, 524976, 524960, 1049264, 1049248, 1573552, 1573536, 1573552, 1573536, 1573552, 1573536, 1573552, 1573536, 12059312, 12059296, 12059312, 12059296,  // pointed_dripstone
-    2147475496,  // dripstone_block
-    544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512, 544, 512,  // cave_vines
-    544, 512,  // cave_vines_plant
-    544,  // spore_blossom
-    68698656,  // azalea
-    68698656,  // flowering_azalea
-    34087456,  // moss_carpet
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // pink_petals
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // wildflowers
-    544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544, 544,  // leaf_litter
-    2147476008,  // moss_block
-    560, 544, 560, 544, 560, 544, 560, 544, 560, 544, 560, 544, 560, 544, 560, 544, 560, 544, 560, 544, 560, 544, 560, 544, 560, 544, 560, 544, 560, 544, 560, 544,  // big_dripleaf
-    560, 544, 560, 544, 560, 544, 560, 544,  // big_dripleaf_stem
-    528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512, 528, 512,  // small_dripleaf
-    528, 512,  // hanging_roots
-    2147475496,  // rooted_dirt
-    2147475496,  // mud
-    2147475496, 2147475496, 2147475496,  // deepslate
-    2147475496,  // cobbled_deepslate
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // cobbled_deepslate_stairs
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // cobbled_deepslate_slab
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // cobbled_deepslate_wall
-    2147475496,  // polished_deepslate
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // polished_deepslate_stairs
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // polished_deepslate_slab
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // polished_deepslate_wall
-    2147475496,  // deepslate_tiles
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // deepslate_tile_stairs
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // deepslate_tile_slab
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // deepslate_tile_wall
-    2147475496,  // deepslate_bricks
-    204521520, 204521504, 749912112, 749912096, 1295302704, 1295302688, 68173872, 68173856, 68173872, 68173856, 170434608, 170434592, 715825200, 715825184, 1261215792, 1261215776, 34086960, 34086944, 34086960, 34086944, 340869168, 340869152, 1431650352, 1431650336, 886259760, 886259744, 68173872, 68173856, 68173872, 68173856, 306782256, 306782240, 1397563440, 1397563424, 852172848, 852172832, 34086960, 34086944, 34086960, 34086944, 613564464, 613564448, 886259760, 886259744, 749912112, 749912096, 68173872, 68173856, 68173872, 68173856, 579477552, 579477536, 852172848, 852172832, 715825200, 715825184, 34086960, 34086944, 34086960, 34086944, 1158955056, 1158955040, 1295302704, 1295302688, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 1124868144, 1124868128, 1261215792, 1261215776, 1397563440, 1397563424, 34086960, 34086944, 34086960, 34086944,  // deepslate_brick_stairs
-    68173872, 68173856, 34086960, 34086944, 2147475512, 2147475496,  // deepslate_brick_slab
-    1572912, 9961520, 9961520, 1572896, 9961504, 9961504, 48, 9961520, 9961520, 32, 9961504, 9961504, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 5767216, 14155824, 14155824, 5767200, 14155808, 14155808, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 3670064, 12058672, 12058672, 3670048, 12058656, 12058656, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 7864368, 16252976, 16252976, 7864352, 16252960, 16252960, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 18350128, 26738736, 26738736, 18350112, 26738720, 26738720, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 22544432, 30933040, 30933040, 22544416, 30933024, 30933024, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 20447280, 28835888, 28835888, 20447264, 28835872, 28835872, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176, 24641584, 33030192, 33030192, 24641568, 33030176, 33030176,  // deepslate_brick_wall
-    2147475496,  // chiseled_deepslate
-    2147475496,  // cracked_deepslate_bricks
-    2147475496,  // cracked_deepslate_tiles
-    2147475464, 2147475464, 2147475464,  // infested_deepslate
-    2147475496,  // smooth_basalt
-    2147475496,  // raw_iron_block
-    2147475496,  // raw_copper_block
-    2147475496,  // raw_gold_block
-    524832,  // potted_azalea_bush
-    524832,  // potted_flowering_azalea_bush
-    2147475496, 2147475496, 2147475496,  // ochre_froglight
-    2147475496, 2147475496, 2147475496,  // verdant_froglight
-    2147475496, 2147475496, 2147475496,  // pearlescent_froglight
-    512,  // frogspawn
-    2147475464,  // reinforced_deepslate
-    1573398, 1573382, 1573398, 1573382, 1573398, 1573382, 1573398, 1573382, 1573430, 1573414, 1573430, 1573414, 1573430, 1573414, 1573430, 1573414,  // decorated_pot
-    2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502, 2147475502,  // crafter
-    2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466,  // trial_spawner
-    2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466, 2147475466,  // vault
-    524336, 524320,  // heavy_core
-    2147476008,  // pale_moss_block
-    34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 34087456, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512, 512,  // pale_moss_carpet
-    512, 512,  // pale_hanging_moss
-    544,  // open_eyeblossom
-    544,  // closed_eyeblossom
-    524832,  // potted_open_eyeblossom
-    524832,  // potted_closed_eyeblossom
-    544,  // firefly_bush
+    68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342,  // sculk_sensor
+    68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342, 68174358, 68174342,  // calibrated_sculk_sensor
+    4294950920,  // sculk
+    1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024, 1040, 1040, 1024, 1024,  // sculk_vein
+    4294951434, 4294951434,  // sculk_catalyst
+    68174354, 68174338, 68174354, 68174338, 68174354, 68174338, 68174354, 68174338,  // sculk_shrieker
+    4294950952,  // copper_block
+    4294950952,  // exposed_copper
+    4294950952,  // weathered_copper
+    4294950952,  // oxidized_copper
+    4294950952,  // copper_ore
+    4294950952,  // deepslate_copper_ore
+    4294950952,  // oxidized_cut_copper
+    4294950952,  // weathered_cut_copper
+    4294950952,  // exposed_cut_copper
+    4294950952,  // cut_copper
+    4294950952,  // oxidized_chiseled_copper
+    4294950952,  // weathered_chiseled_copper
+    4294950952,  // exposed_chiseled_copper
+    4294950952,  // chiseled_copper
+    4294950952,  // waxed_oxidized_chiseled_copper
+    4294950952,  // waxed_weathered_chiseled_copper
+    4294950952,  // waxed_exposed_chiseled_copper
+    4294950952,  // waxed_chiseled_copper
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // oxidized_cut_copper_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // weathered_cut_copper_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // exposed_cut_copper_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // cut_copper_stairs
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // oxidized_cut_copper_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // weathered_cut_copper_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // exposed_cut_copper_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // cut_copper_slab
+    4294950952,  // waxed_copper_block
+    4294950952,  // waxed_weathered_copper
+    4294950952,  // waxed_exposed_copper
+    4294950952,  // waxed_oxidized_copper
+    4294950952,  // waxed_oxidized_cut_copper
+    4294950952,  // waxed_weathered_cut_copper
+    4294950952,  // waxed_exposed_cut_copper
+    4294950952,  // waxed_cut_copper
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // waxed_oxidized_cut_copper_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // waxed_weathered_cut_copper_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // waxed_exposed_cut_copper_stairs
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // waxed_cut_copper_stairs
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // waxed_oxidized_cut_copper_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // waxed_weathered_cut_copper_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // waxed_exposed_cut_copper_slab
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // waxed_cut_copper_slab
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // copper_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // exposed_copper_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // oxidized_copper_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // weathered_copper_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // waxed_copper_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // waxed_exposed_copper_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // waxed_oxidized_copper_door
+    1090782208, 1090782208, 545391616, 545391616, 2181563392, 2181563392, 545391616, 545391616, 1090782240, 1090782240, 545391648, 545391648, 2181563424, 2181563424, 545391648, 545391648, 2181563392, 2181563392, 272696320, 272696320, 1090782208, 1090782208, 272696320, 272696320, 2181563424, 2181563424, 272696352, 272696352, 1090782240, 1090782240, 272696352, 272696352, 545391616, 545391616, 2181563392, 2181563392, 272696320, 272696320, 2181563392, 2181563392, 545391648, 545391648, 2181563424, 2181563424, 272696352, 272696352, 2181563424, 2181563424, 272696320, 272696320, 1090782208, 1090782208, 545391616, 545391616, 1090782208, 1090782208, 272696352, 272696352, 1090782240, 1090782240, 545391648, 545391648, 1090782240, 1090782240,  // waxed_weathered_copper_door
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // copper_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // exposed_copper_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // oxidized_copper_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // weathered_copper_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // waxed_copper_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // waxed_exposed_copper_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // waxed_oxidized_copper_trapdoor
+    545390640, 545390624, 545390640, 545390624, 136347696, 136347680, 136347696, 136347680, 545390640, 545390624, 545390640, 545390624, 68173872, 68173856, 68173872, 68173856, 272695344, 272695328, 272695344, 272695328, 136347696, 136347680, 136347696, 136347680, 272695344, 272695328, 272695344, 272695328, 68173872, 68173856, 68173872, 68173856, 2181562416, 2181562400, 2181562416, 2181562400, 136347696, 136347680, 136347696, 136347680, 2181562416, 2181562400, 2181562416, 2181562400, 68173872, 68173856, 68173872, 68173856, 1090781232, 1090781216, 1090781232, 1090781216, 136347696, 136347680, 136347696, 136347680, 1090781232, 1090781216, 1090781232, 1090781216, 68173872, 68173856, 68173872, 68173856,  // waxed_weathered_copper_trapdoor
+    4294950960, 4294950944,  // copper_grate
+    4294950960, 4294950944,  // exposed_copper_grate
+    4294950960, 4294950944,  // weathered_copper_grate
+    4294950960, 4294950944,  // oxidized_copper_grate
+    4294950960, 4294950944,  // waxed_copper_grate
+    4294950960, 4294950944,  // waxed_exposed_copper_grate
+    4294950960, 4294950944,  // waxed_weathered_copper_grate
+    4294950960, 4294950944,  // waxed_oxidized_copper_grate
+    4294950948, 4294950948, 4294950948, 4294950948,  // copper_bulb
+    4294950948, 4294950948, 4294950948, 4294950948,  // exposed_copper_bulb
+    4294950948, 4294950948, 4294950948, 4294950948,  // weathered_copper_bulb
+    4294950948, 4294950948, 4294950948, 4294950948,  // oxidized_copper_bulb
+    4294950948, 4294950948, 4294950948, 4294950948,  // waxed_copper_bulb
+    4294950948, 4294950948, 4294950948, 4294950948,  // waxed_exposed_copper_bulb
+    4294950948, 4294950948, 4294950948, 4294950948,  // waxed_weathered_copper_bulb
+    4294950948, 4294950948, 4294950948, 4294950948,  // waxed_oxidized_copper_bulb
+    1048630, 1048614, 34603062, 34603046, 17825846, 17825830, 1048630, 1048614, 17825846, 17825830, 34603062, 34603046, 1048630, 1048614, 5242934, 5242918, 9437238, 9437222, 1048630, 1048614, 9437238, 9437222, 5242934, 5242918,  // copper_chest
+    1048630, 1048614, 34603062, 34603046, 17825846, 17825830, 1048630, 1048614, 17825846, 17825830, 34603062, 34603046, 1048630, 1048614, 5242934, 5242918, 9437238, 9437222, 1048630, 1048614, 9437238, 9437222, 5242934, 5242918,  // exposed_copper_chest
+    1048630, 1048614, 34603062, 34603046, 17825846, 17825830, 1048630, 1048614, 17825846, 17825830, 34603062, 34603046, 1048630, 1048614, 5242934, 5242918, 9437238, 9437222, 1048630, 1048614, 9437238, 9437222, 5242934, 5242918,  // weathered_copper_chest
+    1048630, 1048614, 34603062, 34603046, 17825846, 17825830, 1048630, 1048614, 17825846, 17825830, 34603062, 34603046, 1048630, 1048614, 5242934, 5242918, 9437238, 9437222, 1048630, 1048614, 9437238, 9437222, 5242934, 5242918,  // oxidized_copper_chest
+    1048630, 1048614, 34603062, 34603046, 17825846, 17825830, 1048630, 1048614, 17825846, 17825830, 34603062, 34603046, 1048630, 1048614, 5242934, 5242918, 9437238, 9437222, 1048630, 1048614, 9437238, 9437222, 5242934, 5242918,  // waxed_copper_chest
+    1048630, 1048614, 34603062, 34603046, 17825846, 17825830, 1048630, 1048614, 17825846, 17825830, 34603062, 34603046, 1048630, 1048614, 5242934, 5242918, 9437238, 9437222, 1048630, 1048614, 9437238, 9437222, 5242934, 5242918,  // waxed_exposed_copper_chest
+    1048630, 1048614, 34603062, 34603046, 17825846, 17825830, 1048630, 1048614, 17825846, 17825830, 34603062, 34603046, 1048630, 1048614, 5242934, 5242918, 9437238, 9437222, 1048630, 1048614, 9437238, 9437222, 5242934, 5242918,  // waxed_weathered_copper_chest
+    1048630, 1048614, 34603062, 34603046, 17825846, 17825830, 1048630, 1048614, 17825846, 17825830, 34603062, 34603046, 1048630, 1048614, 5242934, 5242918, 9437238, 9437222, 1048630, 1048614, 9437238, 9437222, 5242934, 5242918,  // waxed_oxidized_copper_chest
+    1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638,  // copper_golem_statue
+    1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638,  // exposed_copper_golem_statue
+    1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638,  // weathered_copper_golem_statue
+    1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638,  // oxidized_copper_golem_statue
+    1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638,  // waxed_copper_golem_statue
+    1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638,  // waxed_exposed_copper_golem_statue
+    1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638,  // waxed_weathered_copper_golem_statue
+    1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638, 1049654, 1049638,  // waxed_oxidized_copper_golem_statue
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760,  // lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760,  // exposed_lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760,  // weathered_lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760,  // oxidized_lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760,  // waxed_lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760,  // waxed_exposed_lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760,  // waxed_weathered_lightning_rod
+    48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 48, 32, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760, 3145776, 3145760,  // waxed_oxidized_lightning_rod
+    3146928, 3146912, 3146928, 3146912, 1049776, 1049760, 2098352, 2098336, 3146928, 3146912, 3146928, 3146912, 3146928, 3146912, 3146928, 3146912, 24118448, 24118432, 24118448, 24118432,  // pointed_dripstone
+    4294950952,  // dripstone_block
+    1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024, 1056, 1024,  // cave_vines
+    1056, 1024,  // cave_vines_plant
+    1056,  // spore_blossom
+    137397280,  // azalea
+    137397280,  // flowering_azalea
+    68174880,  // moss_carpet
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // pink_petals
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // wildflowers
+    1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056, 1056,  // leaf_litter
+    4294951976,  // moss_block
+    1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056,  // big_dripleaf
+    1072, 1056, 1072, 1056, 1072, 1056, 1072, 1056,  // big_dripleaf_stem
+    1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024, 1040, 1024,  // small_dripleaf
+    1040, 1024,  // hanging_roots
+    4294950952,  // rooted_dirt
+    4294950952,  // mud
+    4294950952, 4294950952, 4294950952,  // deepslate
+    4294950952,  // cobbled_deepslate
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // cobbled_deepslate_stairs
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // cobbled_deepslate_slab
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // cobbled_deepslate_wall
+    4294950952,  // polished_deepslate
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // polished_deepslate_stairs
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // polished_deepslate_slab
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // polished_deepslate_wall
+    4294950952,  // deepslate_tiles
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // deepslate_tile_stairs
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // deepslate_tile_slab
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // deepslate_tile_wall
+    4294950952,  // deepslate_bricks
+    409042992, 409042976, 1499824176, 1499824160, 2590605360, 2590605344, 136347696, 136347680, 136347696, 136347680, 340869168, 340869152, 1431650352, 1431650336, 2522431536, 2522431520, 68173872, 68173856, 68173872, 68173856, 681738288, 681738272, 2863300656, 2863300640, 1772519472, 1772519456, 136347696, 136347680, 136347696, 136347680, 613564464, 613564448, 2795126832, 2795126816, 1704345648, 1704345632, 68173872, 68173856, 68173872, 68173856, 1227128880, 1227128864, 1772519472, 1772519456, 1499824176, 1499824160, 136347696, 136347680, 136347696, 136347680, 1158955056, 1158955040, 1704345648, 1704345632, 1431650352, 1431650336, 68173872, 68173856, 68173872, 68173856, 2317910064, 2317910048, 2590605360, 2590605344, 2863300656, 2863300640, 136347696, 136347680, 136347696, 136347680, 2249736240, 2249736224, 2522431536, 2522431520, 2795126832, 2795126816, 68173872, 68173856, 68173872, 68173856,  // deepslate_brick_stairs
+    136347696, 136347680, 68173872, 68173856, 4294950968, 4294950952,  // deepslate_brick_slab
+    3145776, 19922992, 19922992, 3145760, 19922976, 19922976, 48, 19922992, 19922992, 32, 19922976, 19922976, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 11534384, 28311600, 28311600, 11534368, 28311584, 28311584, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 7340080, 24117296, 24117296, 7340064, 24117280, 24117280, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 15728688, 32505904, 32505904, 15728672, 32505888, 32505888, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 36700208, 53477424, 53477424, 36700192, 53477408, 53477408, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 45088816, 61866032, 61866032, 45088800, 61866016, 61866016, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 40894512, 57671728, 57671728, 40894496, 57671712, 57671712, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320, 49283120, 66060336, 66060336, 49283104, 66060320, 66060320,  // deepslate_brick_wall
+    4294950952,  // chiseled_deepslate
+    4294950952,  // cracked_deepslate_bricks
+    4294950952,  // cracked_deepslate_tiles
+    4294950920, 4294950920, 4294950920,  // infested_deepslate
+    4294950952,  // smooth_basalt
+    4294950952,  // raw_iron_block
+    4294950952,  // raw_copper_block
+    4294950952,  // raw_gold_block
+    1049632,  // potted_azalea_bush
+    1049632,  // potted_flowering_azalea_bush
+    4294950952, 4294950952, 4294950952,  // ochre_froglight
+    4294950952, 4294950952, 4294950952,  // verdant_froglight
+    4294950952, 4294950952, 4294950952,  // pearlescent_froglight
+    1024,  // frogspawn
+    4294950920,  // reinforced_deepslate
+    3146774, 3146758, 3146774, 3146758, 3146774, 3146758, 3146774, 3146758, 3146806, 3146790, 3146806, 3146790, 3146806, 3146790, 3146806, 3146790,  // decorated_pot
+    4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470, 4294951470,  // crafter
+    4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434,  // trial_spawner
+    4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434, 4294951434,  // vault
+    1048624, 1048608,  // heavy_core
+    4294951976,  // pale_moss_block
+    68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 68174880, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024, 1024,  // pale_moss_carpet
+    1024, 1024,  // pale_hanging_moss
+    1056,  // open_eyeblossom
+    1056,  // closed_eyeblossom
+    1049632,  // potted_open_eyeblossom
+    1049632,  // potted_closed_eyeblossom
+    1056,  // firefly_bush
 };
 
 const shape_box shape_boxes[] = {

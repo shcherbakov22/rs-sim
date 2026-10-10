@@ -91,7 +91,7 @@ block_entity * level_new_block_entity(level & lv, block_entity_type type, block_
 // EntityBlock.newBlockEntity; MovingPistonBlock makes none, its block entity comes from the piston
 static block_entity * entity_block_new_block_entity(level & lv, state_id st) {
     if (!state_is(st, BLOCK_MOVING_PISTON)) {
-        level_unsupported(lv, "block entities");
+        level_unsupported(lv, "block entity of %s", block_defs[state_block(st)].name);
     }
     return nullptr;
 }
@@ -106,8 +106,8 @@ static void level_remove_block_entity_ticker(level & lv, block_pos pos) {
 
 // LevelChunk.updateBlockEntityTicker: one wrapper per position keeps its place in the ticker list when rebound
 static void level_update_block_entity_ticker(level & lv, block_entity * be) {
-    // BlockState.getTicker: only MovingPistonBlock ticks a piston block entity
-    if (!state_is(be->state, BLOCK_MOVING_PISTON)) {
+    // BlockState.getTicker
+    if (!state_has(be->state, STATE_FLAG_TICKER)) {
         level_remove_block_entity_ticker(lv, be->pos);
         return;
     }

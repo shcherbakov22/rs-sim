@@ -36,7 +36,14 @@ struct block_def {
     int32_t      n_props;
     int32_t      fields_first;
     int32_t      n_fields;
-    int32_t      cls;  // vanilla class, VCLASS_NONE for plain Block
+    int32_t      cls;           // vanilla class, VCLASS_NONE for plain Block
+    int32_t      entity_new;    // block_entity_type of EntityBlock.newBlockEntity, -1 for none
+    int32_t      entity_valid;  // block_entity_type valid for the block (BlockEntityType.isValid), -1 for none
+};
+
+struct item_def {
+    const char * name;
+    int32_t      max_stack_size;  // default MAX_STACK_SIZE component
 };
 
 // Box of a collision shape, in block units, per axis x y z.
@@ -57,6 +64,8 @@ extern const prop_def          prop_defs[];
 extern const block_prop        block_props[];
 extern const block_field_value block_field_values[];
 extern const block_def         block_defs[];
+extern const item_def          item_defs[];
+extern const char * const      block_entity_type_names[];
 extern const int16_t           vclass_super[];
 extern const int16_t      vclass_hooks[][HOOK_COUNT];  // class that overrides each hook, VCLASS_NONE for the default
 extern const char * const vclass_names[];

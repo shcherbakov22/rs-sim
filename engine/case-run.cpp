@@ -15,7 +15,7 @@ static void case_place(level & lv, const case_file & f) {
                 level_set_state_raw(lv, { x, y, z }, st);
                 // vanilla creates the block entity even when the case gives no NBT
                 if (state_has(st, STATE_FLAG_BLOCK_ENTITY)) {
-                    level_unsupported(lv, "block entities");
+                    level_unsupported(lv, "block entity of %s", block_defs[state_block(st)].name);
                 }
             }
         }

@@ -3,13 +3,6 @@
 #include "core/direction.h"
 #include "core/state.h"
 
-// BlockEntityType; only the types the sim handles
-enum block_entity_type {
-    BLOCK_ENTITY_TYPE_PISTON,
-};
-
-inline constexpr const char * block_entity_type_names[] = { "piston" };
-
 // BlockEntity as a tagged struct: the fields after the common ones belong to one type.
 struct block_entity {
     block_entity_type type;
@@ -34,10 +27,5 @@ struct block_entity_ticker {
 
 // BlockEntityType.isValid
 inline bool block_entity_type_is_valid(block_entity_type type, state_id st) {
-    switch (type) {
-        case BLOCK_ENTITY_TYPE_PISTON:
-            return state_is(st, BLOCK_MOVING_PISTON);
-    }
-    TMC_ASSERT(false);
-    return false;
+    return block_defs[state_block(st)].entity_valid == type;
 }
