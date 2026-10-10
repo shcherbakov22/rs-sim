@@ -240,8 +240,7 @@ void level_neighbor_shape_changed(level &   lv,
 }
 
 void level_update_neighbour_for_output_signal(level & lv, block_pos pos, int32_t block) {
-    static constexpr direction horizontal[4] = { DIRECTION_NORTH, DIRECTION_EAST, DIRECTION_SOUTH, DIRECTION_WEST };
-    for (direction dir : horizontal) {
+    for (direction dir : DIRECTION_HORIZONTAL) {
         block_pos rel = pos_relative(pos, dir);
         state_id  st  = level_get_state(lv, rel);
         if (state_is(st, BLOCK_COMPARATOR)) {

@@ -28,13 +28,74 @@ int32_t state_block(state_id st) {
 }
 
 bool block_instanceof(int32_t block, vclass cls) {
-    const block_def & b = block_defs[block];
-    for (int32_t i = 0; i < b.n_chain; i++) {
-        if (block_chains[b.chain_first + i] == cls) {
+    for (int32_t c = block_defs[block].cls; c != VCLASS_NONE; c = vclass_super[c]) {
+        if (c == cls) {
             return true;
         }
     }
     return false;
+}
+
+int32_t block_field_get(int32_t block, block_field field) {
+    const block_def & b = block_defs[block];
+    for (int32_t i = 0; i < b.n_fields; i++) {
+        if (block_field_values[b.fields_first + i].field == field) {
+            return block_field_values[b.fields_first + i].value;
+        }
+    }
+    TMC_ABORT("%s has no field %d", b.name, field);
+}
+
+static const block_prop * state_find_prop(state_id st, prop_id prop) {
+    const block_def & b = block_defs[state_block(st)];
+    for (int32_t i = 0; i < b.n_props; i++) {
+        if (block_props[b.props_first + i].prop == prop) {
+            return &block_props[b.props_first + i];
+        }
+    }
+    return nullptr;
+}
+
+static const block_prop & state_need_prop(state_id st, prop_id prop) {
+    const block_prop * bp = state_find_prop(st, prop);
+    if (bp == nullptr) {
+        TMC_ABORT("%s has no property %s", state_to_string(st).c_str(), prop_defs[prop].name);
+    }
+    return *bp;
+}
+
+static int32_t state_value_index(state_id st, const block_prop & bp) {
+    int32_t first = block_defs[state_block(st)].state_first;
+    return (st - first) / bp.stride % prop_defs[bp.prop].n_values;
+}
+
+static state_id state_with_index(state_id st, const block_prop & bp, int32_t index) {
+    return (state_id) (st + (index - state_value_index(st, bp)) * bp.stride);
+}
+
+bool state_has_prop(state_id st, prop_id prop) {
+    return state_find_prop(st, prop) != nullptr;
+}
+
+int32_t state_get(state_id st, prop_id prop) {
+    const block_prop & bp = state_need_prop(st, prop);
+    return prop_defs[prop].codes[state_value_index(st, bp)];
+}
+
+state_id state_set(state_id st, prop_id prop, int32_t value) {
+    const block_prop & bp = state_need_prop(st, prop);
+    const prop_def &   p  = prop_defs[prop];
+    for (int32_t i = 0; i < p.n_values; i++) {
+        if (p.codes[i] == value) {
+            return state_with_index(st, bp, i);
+        }
+    }
+    TMC_ABORT("no value %d for property %s", value, p.name);
+}
+
+state_id state_cycle(state_id st, prop_id prop) {
+    const block_prop & bp = state_need_prop(st, prop);
+    return state_with_index(st, bp, (state_value_index(st, bp) + 1) % prop_defs[prop].n_values);
 }
 
 std::string state_to_string(state_id st) {

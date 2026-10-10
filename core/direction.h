@@ -1,18 +1,17 @@
 #pragma once
 
 #include "core/common.h"
+#include "gen/blocks.h"
 
 #include <string_view>
 
-// vanilla Direction, in 3D data value order
-enum direction {
-    DIRECTION_DOWN,
-    DIRECTION_UP,
-    DIRECTION_NORTH,
-    DIRECTION_SOUTH,
-    DIRECTION_WEST,
-    DIRECTION_EAST,
-};
+// the generated enum direction is vanilla's Direction in 3D data value order
+static_assert(DIRECTION_DOWN == 0 && DIRECTION_EAST == 5);
+
+// Direction.Plane.HORIZONTAL and VERTICAL
+inline constexpr direction DIRECTION_HORIZONTAL[4] = { DIRECTION_NORTH, DIRECTION_EAST, DIRECTION_SOUTH,
+                                                       DIRECTION_WEST };
+inline constexpr direction DIRECTION_VERTICAL[2]   = { DIRECTION_UP, DIRECTION_DOWN };
 
 struct direction_def {
     const char * name;
@@ -45,4 +44,26 @@ inline direction direction_opposite(direction dir) {
 inline block_pos pos_relative(block_pos pos, direction dir) {
     const block_pos & s = direction_defs[dir].step;
     return { pos.x + s.x, pos.y + s.y, pos.z + s.z };
+}
+
+inline bool direction_is_horizontal(direction dir) {
+    return dir >= DIRECTION_NORTH;
+}
+
+inline direction_axis direction_get_axis(direction dir) {
+    static constexpr direction_axis axes[6] = { DIRECTION_AXIS_Y, DIRECTION_AXIS_Y, DIRECTION_AXIS_Z,
+                                                DIRECTION_AXIS_Z, DIRECTION_AXIS_X, DIRECTION_AXIS_X };
+    return axes[dir];
+}
+
+// Direction.getClockWise, horizontal only
+inline direction direction_clockwise(direction dir) {
+    static constexpr direction next[6] = { DIRECTION_DOWN, DIRECTION_UP,    DIRECTION_EAST,
+                                           DIRECTION_WEST, DIRECTION_NORTH, DIRECTION_SOUTH };
+    TMC_ASSERT(direction_is_horizontal(dir));
+    return next[dir];
+}
+
+inline direction direction_counter_clockwise(direction dir) {
+    return direction_opposite(direction_clockwise(dir));
 }

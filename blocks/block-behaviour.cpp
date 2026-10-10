@@ -4,7 +4,7 @@
 #include "engine/level.h"
 
 static int16_t hook_owner(state_id st, hook h) {
-    return block_defs[state_block(st)].hooks[h];
+    return vclass_hooks[block_defs[state_block(st)].cls][h];
 }
 
 static void hook_unsupported(level & lv, state_id st, hook h) {

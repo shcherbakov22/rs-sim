@@ -1,4 +1,4 @@
-// Checks for what traces cannot show: the RNG port and state id <-> string.
+// Checks for what traces cannot show: the RNG port, state id <-> string and property values.
 
 #include "core/rng.h"
 #include "core/state.h"
@@ -74,6 +74,24 @@ static void test_states() {
     CHECK(!state_parse("redstone_wire[power=16]", st, err));
     CHECK(!state_parse("redstone_wire[facing=up]", st, err));
     CHECK(!state_parse("not_a_block", st, err));
+
+    // typed values: bool 1/0, int as is, enum as the vanilla ordinal
+    CHECK(state_parse("repeater[delay=3,facing=west,powered=true]", st, err));
+    CHECK(state_get(st, PROP_DELAY) == 3);
+    CHECK(state_get(st, PROP_HORIZONTAL_FACING) == DIRECTION_WEST);
+    CHECK(state_get(st, PROP_POWERED) == 1);
+    CHECK(state_get(st, PROP_LOCKED) == 0);
+    st = state_set(st, PROP_POWERED, 0);
+    st = state_set(st, PROP_HORIZONTAL_FACING, DIRECTION_SOUTH);
+    CHECK(state_to_string(st) == "repeater[delay=3,facing=south,locked=false,powered=false]");
+    CHECK(state_get(state_cycle(st, PROP_DELAY), PROP_DELAY) == 4);
+    CHECK(state_get(state_cycle(state_cycle(st, PROP_DELAY), PROP_DELAY), PROP_DELAY) == 1);
+    CHECK(state_has_prop(st, PROP_LOCKED) && !state_has_prop(st, PROP_POWER));
+    CHECK(state_parse("lever[face=ceiling]", st, err) && state_get(st, PROP_ATTACH_FACE) == ATTACH_FACE_CEILING);
+    CHECK(block_field_get(block_find("oak_button"), FIELD_BUTTON_BLOCK_TICKS_TO_STAY_PRESSED) == 30);
+    CHECK(block_field_get(block_find("stone_button"), FIELD_BUTTON_BLOCK_TICKS_TO_STAY_PRESSED) == 20);
+    CHECK(block_instanceof(block_find("repeater"), VCLASS_DIODE_BLOCK));
+    CHECK(!block_instanceof(block_find("redstone_torch"), VCLASS_DIODE_BLOCK));
 }
 
 int main() {
