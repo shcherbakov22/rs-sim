@@ -39,6 +39,7 @@ struct block_def {
     int32_t      cls;           // vanilla class, VCLASS_NONE for plain Block
     int32_t      entity_new;    // block_entity_type of EntityBlock.newBlockEntity, -1 for none
     int32_t      entity_valid;  // block_entity_type valid for the block (BlockEntityType.isValid), -1 for none
+    int32_t      instrument;    // note_block_instrument of BlockState.instrument
 };
 
 struct item_def {
