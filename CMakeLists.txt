@@ -23,7 +23,6 @@ add_library(tmc STATIC
     blocks/composter.cpp
     blocks/connecting.cpp
     blocks/container.cpp
-    blocks/copper-bulb.cpp
     blocks/crafter.cpp
     blocks/diode.cpp
     blocks/dispense-item-behavior.cpp
@@ -33,8 +32,6 @@ add_library(tmc STATIC
     blocks/hopper-block-entity.cpp
     blocks/hopper.cpp
     blocks/jukebox.cpp
-    blocks/lever.cpp
-    blocks/lightning-rod.cpp
     blocks/minecart-dispense-item-behavior.cpp
     blocks/moving-piston.cpp
     blocks/observer.cpp
@@ -45,13 +42,9 @@ add_library(tmc STATIC
     blocks/powered.cpp
     blocks/projectile-dispense-behavior.cpp
     blocks/rail.cpp
-    blocks/red-stone-wire.cpp
-    blocks/redstone-lamp.cpp
-    blocks/redstone-torch.cpp
-    blocks/redstone-wall-torch.cpp
+    blocks/redstone.cpp
     blocks/repeater.cpp
     blocks/shelf.cpp
-    blocks/target.cpp
     blocks/terrain.cpp
     blocks/trapped-chest.cpp
     core/rng.cpp

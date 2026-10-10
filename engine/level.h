@@ -112,6 +112,8 @@ void level_pop_resource(level & lv, block_pos pos);
 void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be);
 
 void level_update_neighbors_at(level & lv, block_pos pos, int32_t block);
+// updateNeighborsAt for each of the six neighbors, in Direction order
+void level_update_neighbors_around(level & lv, block_pos pos, int32_t block);
 void level_update_neighbors_at_except_from_facing(level & lv, block_pos pos, int32_t block, direction skip);
 void level_neighbor_changed(level & lv, block_pos pos, int32_t block);
 void level_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block, bool moved_by_piston);

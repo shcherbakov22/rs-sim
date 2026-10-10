@@ -357,6 +357,12 @@ void level_update_neighbors_at(level & lv, block_pos pos, int32_t block) {
     neighbor_updater_add(lv, u);
 }
 
+void level_update_neighbors_around(level & lv, block_pos pos, int32_t block) {
+    for (int32_t d = 0; d < 6; d++) {
+        level_update_neighbors_at(lv, pos_relative(pos, (direction) d), block);
+    }
+}
+
 void level_update_neighbors_at_except_from_facing(level & lv, block_pos pos, int32_t block, direction skip) {
     neighbor_update u = {};
     u.type            = NEIGHBOR_UPDATE_MULTI;

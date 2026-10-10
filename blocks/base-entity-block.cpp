@@ -4,7 +4,7 @@
 #include "engine/level.h"
 
 // BlockEntity.triggerEvent: event 1 moves chest, ender chest and shulker box lids, swings bells and wobbles decorated pots
-bool base_entity_block_trigger_event(level & lv, block_pos pos, int32_t param_a, int32_t param_b) {
+bool base_entity_block_trigger_event(level & lv, state_id, block_pos pos, int32_t param_a, int32_t param_b) {
     block_entity * be = level_get_block_entity(lv, pos);
     if (be == nullptr || param_a != 1) {
         return false;

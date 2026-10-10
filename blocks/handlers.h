@@ -7,43 +7,13 @@
 #include <vector>
 
 // hook tables, one per family file
+extern const std::vector<block_hooks> redstone_hooks;
 extern const std::vector<block_hooks> rail_hooks;
 extern const std::vector<block_hooks> terrain_hooks;
 extern const std::vector<block_hooks> fire_hooks;
 extern const std::vector<block_hooks> powered_hooks;
 extern const std::vector<block_hooks> connecting_hooks;
 extern const std::vector<block_hooks> attached_hooks;
-
-// RedStoneWireBlock
-state_id red_stone_wire_update_shape(level &   lv,
-                                     state_id  st,
-                                     block_pos pos,
-                                     direction dir,
-                                     block_pos neighbor_pos,
-                                     state_id  neighbor);
-void     red_stone_wire_update_indirect_neighbour_shapes(level &   lv,
-                                                         state_id  st,
-                                                         block_pos pos,
-                                                         int32_t   flags,
-                                                         int32_t   limit);
-bool     red_stone_wire_can_survive(level & lv, block_pos pos);
-void     red_stone_wire_on_place(level & lv, state_id st, block_pos pos, state_id old);
-void     red_stone_wire_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
-void     red_stone_wire_neighbor_changed(level & lv, state_id st, block_pos pos);
-int32_t  red_stone_wire_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir);
-int32_t  red_stone_wire_get_signal(level & lv, state_id st, block_pos pos, direction dir);
-
-// RedstoneTorchBlock
-void    redstone_torch_on_place(level & lv, state_id st, block_pos pos);
-void    redstone_torch_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
-int32_t redstone_torch_get_signal(state_id st, direction dir);
-void    redstone_torch_tick(level & lv, state_id st, block_pos pos);
-void    redstone_torch_neighbor_changed(level & lv, state_id st, block_pos pos);
-int32_t redstone_torch_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir);
-
-// RedstoneWallTorchBlock
-bool    redstone_wall_torch_has_neighbor_signal(level & lv, state_id st, block_pos pos);
-int32_t redstone_wall_torch_get_signal(state_id st, direction dir);
 
 // DiodeBlock
 bool    diode_can_survive(level & lv, block_pos pos);
@@ -76,7 +46,7 @@ void     comparator_check_tick_on_neighbor(level & lv, state_id st, block_pos po
 void     comparator_tick(level & lv, state_id st, block_pos pos);
 
 // BaseEntityBlock
-bool base_entity_block_trigger_event(level & lv, block_pos pos, int32_t param_a, int32_t param_b);
+bool base_entity_block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a, int32_t param_b);
 
 // Container
 void         block_entity_set_changed(level & lv, block_pos pos, state_id st);
@@ -157,23 +127,6 @@ int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
 bool base_rail_is_rail(level & lv, state_id st);
 bool base_rail_is_slope(int32_t shape);
 
-// LightningRodBlock
-void    lightning_rod_on_place(level & lv, state_id st, block_pos pos, state_id old);
-void    lightning_rod_tick(level & lv, state_id st, block_pos pos);
-void    lightning_rod_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
-int32_t lightning_rod_get_signal(state_id st);
-int32_t lightning_rod_get_direct_signal(state_id st, direction dir);
-
-// CopperBulbBlock
-void    copper_bulb_check_and_flip(level & lv, state_id st, block_pos pos);
-void    copper_bulb_on_place(level & lv, state_id st, block_pos pos, state_id old);
-int32_t copper_bulb_get_analog_output_signal(level & lv, block_pos pos);
-
-// TargetBlock
-void    target_tick(level & lv, state_id st, block_pos pos);
-int32_t target_get_signal(state_id st);
-void    target_on_place(level & lv, state_id st, block_pos pos, state_id old);
-
 // ComposterBlock
 void    composter_on_place(level & lv, state_id st, block_pos pos);
 void    composter_tick(level & lv, state_id st, block_pos pos);
@@ -212,14 +165,7 @@ state_id  attached_update_shape(level & lv, state_id st, block_pos pos, directio
 bool      attached_can_survive(level & lv, state_id st, block_pos pos);
 
 // LeverBlock
-void    lever_pull(level & lv, state_id st, block_pos pos);
-void    lever_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
-int32_t lever_get_signal(state_id st);
-int32_t lever_get_direct_signal(state_id st, direction dir);
-
-// RedstoneLampBlock
-void redstone_lamp_neighbor_changed(level & lv, state_id st, block_pos pos);
-void redstone_lamp_tick(level & lv, state_id st, block_pos pos);
+void lever_pull(level & lv, state_id st, block_pos pos);
 
 // ObserverBlock
 void     observer_tick(level & lv, state_id st, block_pos pos);
