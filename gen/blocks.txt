@@ -1180,7 +1180,7 @@ item brick 64 Item - 0 - -
 item clay_ball 64 Item - 0 - -
 item dried_kelp_block 64 BlockItem dried_kelp_block 0 - -
 item paper 64 Item - 0 - -
-item book 64 Item - 0 - -
+item book 64 Item - 0 bookshelf_books -
 item slime_ball 64 Item - 0 - -
 item egg 16 EggItem - 1 - -
 item blue_egg 16 EggItem - 1 - -
@@ -1371,8 +1371,8 @@ item shulker_spawn_egg 64 SpawnEggItem - 1 - -
 item experience_bottle 64 ExperienceBottleItem - 1 - -
 item fire_charge 64 FireChargeItem - 1 - -
 item wind_charge 64 WindChargeItem - 1 - -
-item writable_book 1 WritableBookItem - 0 lectern_books -
-item written_book 16 WrittenBookItem - 0 lectern_books -
+item writable_book 1 WritableBookItem - 0 lectern_books,bookshelf_books -
+item written_book 16 WrittenBookItem - 0 lectern_books,bookshelf_books -
 item breeze_rod 64 Item - 0 - -
 item mace 1 MaceItem - 0 - -
 item item_frame 64 ItemFrameItem - 0 - -
@@ -1395,7 +1395,7 @@ item nether_star 64 Item - 0 - -
 item pumpkin_pie 64 Item - 0 - -
 item firework_rocket 64 FireworkRocketItem - 1 - -
 item firework_star 64 Item - 0 - -
-item enchanted_book 1 Item - 0 - -
+item enchanted_book 1 Item - 0 bookshelf_books -
 item nether_brick 64 Item - 0 - -
 item resin_brick 64 Item - 0 - -
 item prismarine_shard 64 Item - 0 - -
@@ -1458,7 +1458,7 @@ item totem_of_undying 1 Item - 0 - -
 item shulker_shell 64 Item - 0 - -
 item iron_nugget 64 Item - 0 - -
 item copper_nugget 64 Item - 0 - -
-item knowledge_book 1 KnowledgeBookItem - 0 - -
+item knowledge_book 1 KnowledgeBookItem - 0 bookshelf_books -
 item debug_stick 1 DebugStickItem - 0 - -
 item music_disc_13 1 Item - 0 - 3560,1
 item music_disc_cat 1 Item - 0 - 3700,2
