@@ -157,6 +157,18 @@ state_id block_update_shape(level &   lv,
         case VCLASS_LANTERN_BLOCK:
             result = lantern_update_shape(lv, st, pos, dir);
             break;
+        case VCLASS_DIRT_PATH_BLOCK:
+            result = dirt_path_update_shape(lv, st, pos, dir);
+            break;
+        case VCLASS_SNOWY_DIRT_BLOCK:
+            result = snowy_dirt_update_shape(st, dir, neighbor);
+            break;
+        case VCLASS_GROWING_PLANT_HEAD_BLOCK:
+            result = growing_plant_head_update_shape(lv, st, pos, dir, neighbor);
+            break;
+        case VCLASS_GROWING_PLANT_BODY_BLOCK:
+            result = growing_plant_body_update_shape(lv, st, pos, dir, neighbor);
+            break;
         case VCLASS_LADDER_BLOCK:
             result = ladder_update_shape(lv, st, pos, dir);
             break;
@@ -404,6 +416,12 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             break;
         case VCLASS_REDSTONE_TORCH_BLOCK:
             redstone_torch_tick(lv, st, pos);
+            break;
+        case VCLASS_DIRT_PATH_BLOCK:
+            dirt_path_tick(lv, pos);
+            break;
+        case VCLASS_GROWING_PLANT_BLOCK:
+            growing_plant_tick(lv, st, pos);
             break;
         case VCLASS_BUTTON_BLOCK:
             button_tick(lv, st, pos);
@@ -763,6 +781,10 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return carpet_can_survive(lv, pos);
         case VCLASS_LANTERN_BLOCK:
             return lantern_can_survive(lv, st, pos);
+        case VCLASS_DIRT_PATH_BLOCK:
+            return dirt_path_can_survive(lv, pos);
+        case VCLASS_GROWING_PLANT_BLOCK:
+            return growing_plant_can_survive(lv, st, pos);
         case VCLASS_LADDER_BLOCK:
             return ladder_can_survive(lv, st, pos);
         case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
@@ -887,6 +909,18 @@ state_id block_get_state_for_placement(level & lv, int32_t block, const block_pl
             return wall_torch_get_state_for_placement(lv, block, ctx);
         case VCLASS_LANTERN_BLOCK:
             return lantern_get_state_for_placement(lv, block, ctx);
+        case VCLASS_DIRT_PATH_BLOCK:
+            return dirt_path_get_state_for_placement(lv, block, ctx);
+        case VCLASS_SNOWY_DIRT_BLOCK:
+            return snowy_dirt_get_state_for_placement(lv, block, ctx);
+        case VCLASS_GROWING_PLANT_BLOCK:
+            return growing_plant_get_state_for_placement(lv, block, ctx);
+        case VCLASS_ABSTRACT_SKULL_BLOCK:
+            return abstract_skull_get_state_for_placement(lv, block, ctx);
+        case VCLASS_SKULL_BLOCK:
+            return skull_get_state_for_placement(lv, block, ctx);
+        case VCLASS_WALL_SKULL_BLOCK:
+            return wall_skull_get_state_for_placement(lv, block, ctx);
         case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
             return redstone_wall_torch_get_state_for_placement(lv, block, ctx);
         case VCLASS_TRAP_DOOR_BLOCK:
@@ -940,6 +974,8 @@ bool block_can_be_replaced(level & lv, state_id st, const block_place_context & 
             return slab_can_be_replaced(st, ctx);
         case VCLASS_SCAFFOLDING_BLOCK:
             return scaffolding_can_be_replaced(st, ctx);
+        case VCLASS_GROWING_PLANT_BODY_BLOCK:
+            return growing_plant_body_can_be_replaced(st, ctx);
         default:
             hook_unsupported(lv, st, HOOK_CAN_BE_REPLACED);
             return false;

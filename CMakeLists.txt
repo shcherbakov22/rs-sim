@@ -29,6 +29,8 @@ add_library(tmc STATIC
     blocks/candle-cake.cpp
     blocks/candle.cpp
     blocks/carpet.cpp
+    blocks/cave-vines-plant.cpp
+    blocks/cave-vines.cpp
     blocks/chain.cpp
     blocks/chest-block-entity.cpp
     blocks/chest.cpp
@@ -43,6 +45,7 @@ add_library(tmc STATIC
     blocks/decorated-pot.cpp
     blocks/detector-rail.cpp
     blocks/diode.cpp
+    blocks/dirt-path.cpp
     blocks/dispenser.cpp
     blocks/door.cpp
     blocks/dropper.cpp
@@ -51,10 +54,14 @@ add_library(tmc STATIC
     blocks/face-attached-horizontal-directional.cpp
     blocks/fence-gate.cpp
     blocks/fence.cpp
+    blocks/growing-plant-body.cpp
+    blocks/growing-plant-head.cpp
+    blocks/growing-plant.cpp
     blocks/hopper-block-entity.cpp
     blocks/hopper.cpp
     blocks/iron-bars.cpp
     blocks/jukebox.cpp
+    blocks/kelp.cpp
     blocks/ladder.cpp
     blocks/lantern.cpp
     blocks/lava-cauldron.cpp
@@ -84,7 +91,9 @@ add_library(tmc STATIC
     blocks/rotated-pillar.cpp
     blocks/scaffolding.cpp
     blocks/shelf.cpp
+    blocks/skull.cpp
     blocks/slab.cpp
+    blocks/snowy-dirt.cpp
     blocks/soul-sand.cpp
     blocks/stair.cpp
     blocks/target.cpp
@@ -92,6 +101,7 @@ add_library(tmc STATIC
     blocks/trapped-chest.cpp
     blocks/trip-wire-hook.cpp
     blocks/trip-wire.cpp
+    blocks/wall-skull.cpp
     blocks/wall-torch.cpp
     blocks/wall.cpp
     blocks/weighted-pressure-plate.cpp
@@ -115,6 +125,8 @@ add_library(tmc STATIC
     items/flint-and-steel-item.cpp
     items/honeycomb-item.cpp
     items/item-behaviour.cpp
+    items/shears-item.cpp
+    items/shovel-item.cpp
     items/standing-and-wall-block-item.cpp
 )
 target_include_directories(tmc PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

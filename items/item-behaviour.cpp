@@ -25,6 +25,10 @@ interaction_result item_use_on(level & lv, const use_on_context & hit) {
             return flint_and_steel_item_use_on(lv, hit);
         case ICLASS_ENDER_EYE_ITEM:
             return ender_eye_item_use_on(lv, hit);
+        case ICLASS_SHEARS_ITEM:
+            return shears_item_use_on(lv, hit);
+        case ICLASS_SHOVEL_ITEM:
+            return shovel_item_use_on(lv, hit);
         default:
             item_hook_unsupported(lv, hit.stack.item, ITEM_HOOK_USE_ON);
             return INTERACTION_RESULT_PASS;

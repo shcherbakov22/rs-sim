@@ -21,6 +21,12 @@ interaction_result axe_item_use_on(level & lv, const use_on_context & hit);
 // EnderEyeItem
 interaction_result ender_eye_item_use_on(level & lv, const use_on_context & hit);
 
+// ShearsItem
+interaction_result shears_item_use_on(level & lv, const use_on_context & hit);
+
+// ShovelItem
+interaction_result shovel_item_use_on(level & lv, const use_on_context & hit);
+
 // FlintAndSteelItem
 interaction_result flint_and_steel_item_use_on(level & lv, const use_on_context & hit);
 

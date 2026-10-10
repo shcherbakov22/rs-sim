@@ -115,7 +115,47 @@ void               ender_chest_tick(level & lv, block_pos pos);
 interaction_result ender_chest_use_without_item(level & lv, block_pos pos);
 
 // AbstractSkullBlock
-void abstract_skull_neighbor_changed(level & lv, state_id st, block_pos pos);
+void     abstract_skull_neighbor_changed(level & lv, state_id st, block_pos pos);
+state_id abstract_skull_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+
+// GrowingPlantBlock
+direction growing_plant_growth_direction(int32_t block);
+bool      growing_plant_can_survive(level & lv, state_id st, block_pos pos);
+state_id  growing_plant_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+void      growing_plant_tick(level & lv, state_id st, block_pos pos);
+
+// GrowingPlantHeadBlock
+state_id growing_plant_head_get_state_for_placement_random(level & lv, int32_t block);
+state_id growing_plant_head_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
+
+// GrowingPlantBodyBlock
+state_id growing_plant_body_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
+bool     growing_plant_body_can_be_replaced(state_id st, const block_place_context & ctx);
+
+// KelpBlock
+bool kelp_can_attach_to(state_id attached);
+
+// CaveVinesBlock
+state_id cave_vines_update_body_after_converted_from_head(state_id head, state_id body);
+
+// CaveVinesPlantBlock
+state_id cave_vines_plant_update_head_after_converted_from_body(state_id body, state_id head);
+
+// SnowyDirtBlock
+state_id snowy_dirt_update_shape(state_id st, direction dir, state_id neighbor);
+state_id snowy_dirt_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+
+// DirtPathBlock
+bool     dirt_path_can_survive(level & lv, block_pos pos);
+state_id dirt_path_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+state_id dirt_path_update_shape(level & lv, state_id st, block_pos pos, direction dir);
+void     dirt_path_tick(level & lv, block_pos pos);
+
+// SkullBlock
+state_id skull_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+
+// WallSkullBlock
+state_id wall_skull_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // BarrelBlock
 void barrel_tick(level & lv, block_pos pos);
