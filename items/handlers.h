@@ -12,5 +12,14 @@ bool               block_item_place_block(level & lv, const block_place_context 
 // DoubleHighBlockItem
 bool double_high_block_item_place_block(level & lv, const block_place_context & ctx, state_id st);
 
+// HoneycombItem
+interaction_result honeycomb_item_use_on(level & lv, const use_on_context & hit);
+
+// AxeItem
+interaction_result axe_item_use_on(level & lv, const use_on_context & hit);
+
+// FlintAndSteelItem
+interaction_result flint_and_steel_item_use_on(level & lv, const use_on_context & hit);
+
 // StandingAndWallBlockItem
 state_id standing_and_wall_block_item_get_placement_state(level & lv, const block_place_context & ctx);

@@ -17,6 +17,12 @@ interaction_result item_use_on(level & lv, const use_on_context & hit) {
             return INTERACTION_RESULT_PASS;
         case ICLASS_BLOCK_ITEM:
             return block_item_use_on(lv, hit);
+        case ICLASS_HONEYCOMB_ITEM:
+            return honeycomb_item_use_on(lv, hit);
+        case ICLASS_AXE_ITEM:
+            return axe_item_use_on(lv, hit);
+        case ICLASS_FLINT_AND_STEEL_ITEM:
+            return flint_and_steel_item_use_on(lv, hit);
         default:
             item_hook_unsupported(lv, hit.stack.item, ITEM_HOOK_USE_ON);
             return INTERACTION_RESULT_PASS;

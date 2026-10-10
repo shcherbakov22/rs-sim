@@ -102,9 +102,12 @@ add_library(tmc STATIC
     gen/blocks.cpp
     io/case-file.cpp
     io/snbt.cpp
+    items/axe-item.cpp
     items/block-item.cpp
     items/block-place-context.cpp
     items/double-high-block-item.cpp
+    items/flint-and-steel-item.cpp
+    items/honeycomb-item.cpp
     items/item-behaviour.cpp
     items/standing-and-wall-block-item.cpp
 )
