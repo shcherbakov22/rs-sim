@@ -1,7 +1,8 @@
-// Checks for what traces cannot show: the RNG port, state id <-> string and property values.
+// Checks for what traces cannot show: the RNG port, state id <-> string, property values and java.util.HashMap order.
 
 #include "core/rng.h"
 #include "core/state.h"
+#include "engine/java-hash-map.h"
 
 #include <cstring>
 
@@ -94,9 +95,28 @@ static void test_states() {
     CHECK(!block_instanceof(block_find("redstone_torch"), VCLASS_DIODE_BLOCK));
 }
 
+// expected order from java.util.HashMap in jshell, with world y = sim y + 64; 20 keys force a resize
+static void test_java_hash_map() {
+    java_hash_map m;
+    block_pos     keys[20];
+    for (int32_t i = 0; i < 20; i++) {
+        keys[i] = { (i * 7) % 5 - 2, (i * 3) % 4, (i * 11) % 6 - 3 };
+        java_hash_map_put(m, keys[i], i);
+    }
+    java_hash_map_remove(m, keys[4]);
+    java_hash_map_put(m, keys[2], 99);
+    static const int32_t expected[]          = { 8, 12, 14, 99, 19, 7, 0, 6, 18, 5, 10, 11, 15, 17, 3, 9, 13, 1, 16 };
+    std::vector<java_hash_map_entry> entries = java_hash_map_entries(m);
+    CHECK(entries.size() == 19);
+    for (size_t i = 0; i < entries.size() && i < 19; i++) {
+        CHECK(entries[i].value == expected[i]);
+    }
+}
+
 int main() {
     test_rng();
     test_states();
+    test_java_hash_map();
     if (n_fail > 0) {
         fprintf(stderr, "%d checks failed\n", n_fail);
         return 1;

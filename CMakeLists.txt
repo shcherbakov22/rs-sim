@@ -29,6 +29,7 @@ add_library(tmc STATIC
     core/state.cpp
     core/trace.cpp
     engine/case-run.cpp
+    engine/java-hash-map.cpp
     engine/level-ticks.cpp
     engine/level.cpp
     engine/neighbor-updater.cpp

@@ -1,6 +1,7 @@
 // RedStoneWireBlock, with DefaultRedstoneWireEvaluator (the evaluator without the redstone experiments)
 
 #include "blocks/handlers.h"
+#include "engine/java-hash-map.h"
 #include "engine/level.h"
 
 #include <algorithm>
@@ -201,15 +202,6 @@ static int32_t red_stone_wire_get_incoming_wire_signal(level & lv, block_pos pos
     return std::max(0, signal - 1);
 }
 
-// Bucket of a BlockPos in a 16-slot java.util.HashMap: Vec3i.hashCode of the world position, spread by HashMap.hash
-static int32_t red_stone_wire_hash_bucket(block_pos pos) {
-    uint32_t x = (uint32_t) (pos.x + LEVEL_ORIGIN.x);
-    uint32_t y = (uint32_t) (pos.y + LEVEL_ORIGIN.y);
-    uint32_t z = (uint32_t) (pos.z + LEVEL_ORIGIN.z);
-    uint32_t h = (y + z * 31u) * 31u + x;
-    return (int32_t) ((h ^ (h >> 16)) & 15);
-}
-
 // DefaultRedstoneWireEvaluator.updatePowerStrength
 static void red_stone_wire_update_power_strength(level & lv, block_pos pos, state_id st) {
     int32_t block_signal = red_stone_wire_get_block_signal(lv, pos);
@@ -221,16 +213,14 @@ static void red_stone_wire_update_power_strength(level & lv, block_pos pos, stat
     if (level_get_state(lv, pos) == st) {
         level_set_block(lv, pos, state_set(st, PROP_POWER, target), UPDATE_FLAG_CLIENTS);
     }
-    // vanilla walks a HashSet: by bucket, then insertion order; 7 entries never resize the 16-slot table
-    block_pos to_update[7] = { pos };
+    // vanilla walks a HashSet, so the order depends on the world positions
+    java_hash_map to_update;
+    java_hash_map_put(to_update, pos, 0);
     for (int32_t d = 0; d < 6; d++) {
-        to_update[1 + d] = pos_relative(pos, (direction) d);
+        java_hash_map_put(to_update, pos_relative(pos, (direction) d), 0);
     }
-    std::stable_sort(to_update, to_update + 7, [](block_pos a, block_pos b) {
-        return red_stone_wire_hash_bucket(a) < red_stone_wire_hash_bucket(b);
-    });
-    for (block_pos p : to_update) {
-        level_update_neighbors_at(lv, p, BLOCK_REDSTONE_WIRE);
+    for (const java_hash_map_entry & e : java_hash_map_entries(to_update)) {
+        level_update_neighbors_at(lv, e.key, BLOCK_REDSTONE_WIRE);
     }
 }
 
