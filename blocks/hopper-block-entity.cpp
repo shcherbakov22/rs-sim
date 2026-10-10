@@ -1,5 +1,5 @@
 // HopperBlockEntity. The sim has no entities, so the item entity and container entity lookups find nothing.
-// Hoppers and chests are no WorldlyContainer and accept any item in any slot.
+// Of the supported containers only the shulker box is a WorldlyContainer: every face sees every slot, and it refuses shulker boxes.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -58,6 +58,12 @@ static item_stack hopper_block_entity_try_move_in_item(level &           lv,
                                                        const container & to,
                                                        item_stack        s,
                                                        int32_t           slot) {
+    // HopperBlockEntity.canPlaceItemInContainer: ShulkerBoxBlockEntity.canPlaceItemThroughFace
+    int32_t block = item_defs[item_stack_get_item(s)].block;
+    if (to.first->type == BLOCK_ENTITY_TYPE_SHULKER_BOX && block >= 0 &&
+        block_instanceof(block, VCLASS_SHULKER_BOX_BLOCK)) {
+        return s;
+    }
     item_stack & current   = container_get_item(to, slot);
     bool         success   = false;
     bool         was_empty = container_is_empty(to);

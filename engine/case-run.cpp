@@ -50,8 +50,13 @@ static void case_load_items(level & lv, block_entity * be, const snbt_value & it
 // Snapshot.restore's HiddenState.apply; game times are relative to the start
 static void case_load_hidden(level & lv, block_entity * be, const snbt_value & hidden) {
     for (const snbt_entry & entry : hidden.compound) {
+        // the sim has no openers, so only a closed shulker box can be loaded
+        bool shulker_closed =
+            entry.key == "animationStatus" ? entry.value.s == "closed" : entry.value.i == 0 && entry.value.d == 0;
         if (be->type == BLOCK_ENTITY_TYPE_HOPPER && entry.key == "tickedGameTime") {
             be->ticked_game_time = lv.game_time + entry.value.i;
+        } else if (be->type == BLOCK_ENTITY_TYPE_SHULKER_BOX && shulker_closed) {
+            continue;
         } else {
             level_unsupported(lv, "hidden state %s %s", block_entity_type_names[be->type], entry.key.c_str());
             return;

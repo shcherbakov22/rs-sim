@@ -103,6 +103,7 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
         case BLOCK_ENTITY_TYPE_CHEST:
         case BLOCK_ENTITY_TYPE_TRAPPED_CHEST:
         case BLOCK_ENTITY_TYPE_BARREL:
+        case BLOCK_ENTITY_TYPE_SHULKER_BOX:
             n_items = 27;
             break;
         case BLOCK_ENTITY_TYPE_COMPARATOR:
@@ -232,11 +233,11 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
     if (block_changed && state_has(old, STATE_FLAG_BLOCK_ENTITY) &&
         !block_should_changed_state_keep_block_entity(lv, st, old)) {
         if ((flags & UPDATE_FLAG_SKIP_BLOCK_ENTITY_SIDEEFFECTS) == 0) {
-            // BlockEntity.preRemoveSideEffects: containers drop their items, moving pistons finish their move
+            // BlockEntity.preRemoveSideEffects: containers drop their items, but shulker boxes keep them
             block_entity * be = level_get_block_entity(lv, pos);
             if (be != nullptr && be->type == BLOCK_ENTITY_TYPE_PISTON) {
                 piston_moving_block_entity_final_tick(lv, be);
-            } else if (be != nullptr && block_entity_is_container(be)) {
+            } else if (be != nullptr && block_entity_is_container(be) && be->type != BLOCK_ENTITY_TYPE_SHULKER_BOX) {
                 containers_drop_contents(lv, pos, { be, nullptr });
             }
         }
@@ -566,9 +567,10 @@ static void level_tick_block_entities(level & lv) {
         if (block_entity_type_is_valid(be->type, st)) {
             if (be->type == BLOCK_ENTITY_TYPE_HOPPER) {
                 hopper_block_entity_push_items_tick(lv, pos, st, be);
-            } else {
+            } else if (be->type == BLOCK_ENTITY_TYPE_PISTON) {
                 piston_moving_block_entity_tick(lv, be);
             }
+            // ShulkerBoxBlockEntity.tick: with no openers the box stays closed and does nothing
         }
         trace_exit(lv.tr);
     }

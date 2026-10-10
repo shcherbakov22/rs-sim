@@ -17,7 +17,8 @@ void block_entity_set_changed(level & lv, block_pos pos, state_id st) {
 // the Container block entity types the sim has
 bool block_entity_is_container(const block_entity * be) {
     return be->type == BLOCK_ENTITY_TYPE_HOPPER || be->type == BLOCK_ENTITY_TYPE_CHEST ||
-           be->type == BLOCK_ENTITY_TYPE_TRAPPED_CHEST || be->type == BLOCK_ENTITY_TYPE_BARREL;
+           be->type == BLOCK_ENTITY_TYPE_TRAPPED_CHEST || be->type == BLOCK_ENTITY_TYPE_BARREL ||
+           be->type == BLOCK_ENTITY_TYPE_SHULKER_BOX;
 }
 
 int32_t container_get_container_size(const container & c) {

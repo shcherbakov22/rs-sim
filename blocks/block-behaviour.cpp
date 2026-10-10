@@ -42,6 +42,10 @@ bool block_is_face_sturdy(level & lv, state_id st, block_pos pos, direction dir,
     if (!state_has(st, STATE_FLAG_DYNAMIC_SHAPE)) {
         return (state_flags[st] & STATE_FLAG_STURDY_FULL_DOWN << (type * 6 + dir)) != 0;
     }
+    // a shulker box never opens without players, and a closed box is a full block
+    if (block_instanceof(state_block(st), VCLASS_SHULKER_BOX_BLOCK)) {
+        return true;
+    }
     // without a shape cache the support shape comes from the world; BlockBehaviour.getBlockSupportShape is the collision shape
     if (!state_is(st, BLOCK_MOVING_PISTON)) {
         level_unsupported(lv, "dynamic shape of %s", state_to_string(st).c_str());
@@ -203,6 +207,7 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
         case VCLASS_CHEST_BLOCK:
         case VCLASS_HOPPER_BLOCK:
         case VCLASS_BARREL_BLOCK:
+        case VCLASS_SHULKER_BOX_BLOCK:
             // Containers.updateNeighboursAfterDestroy
             level_update_neighbour_for_output_signal(lv, pos, state_block(st));
             break;
@@ -314,6 +319,7 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
         case VCLASS_CHEST_BLOCK:
         case VCLASS_HOPPER_BLOCK:
         case VCLASS_BARREL_BLOCK:
+        case VCLASS_SHULKER_BOX_BLOCK:
             // player.openMenu: virtual players holding containers open are not ported
             level_unsupported(lv, "container menus");
             return INTERACTION_RESULT_SUCCESS;
@@ -463,6 +469,7 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos) {
             return chest_get_analog_output_signal(lv, st, pos);
         case VCLASS_HOPPER_BLOCK:
         case VCLASS_BARREL_BLOCK:
+        case VCLASS_SHULKER_BOX_BLOCK:
             return container_get_redstone_signal_from_block_entity(lv, pos);
         default:
             hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
