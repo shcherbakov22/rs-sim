@@ -39,6 +39,19 @@ struct block_def {
     int32_t      cls;  // vanilla class, VCLASS_NONE for plain Block
 };
 
+// Box of a collision shape, in block units, per axis x y z.
+struct shape_box {
+    double min[3];
+    double max[3];
+};
+
+struct shape_def {
+    int32_t boxes_first;
+    int32_t n_boxes;
+};
+
+constexpr uint16_t SHAPE_NONE = 0xFFFF;
+
 // generated in gen/blocks.cpp
 extern const prop_def          prop_defs[];
 extern const block_prop        block_props[];
@@ -49,8 +62,12 @@ extern const int16_t      vclass_hooks[][HOOK_COUNT];  // class that overrides e
 extern const char * const vclass_names[];
 extern const char * const hook_names[];
 extern const uint64_t     state_flags[];
-extern const int32_t      n_block_defs;
-extern const int32_t      n_states;
+extern const shape_box    shape_boxes[];
+extern const shape_def    shape_defs[];
+extern const uint16_t state_collision_shapes[];  // BlockBehaviour.Cache.collisionShape, SHAPE_NONE for dynamic shapes
+extern const uint16_t state_support_shapes[];    // getBlockSupportShape without a level, SHAPE_NONE for dynamic shapes
+extern const int32_t  n_block_defs;
+extern const int32_t  n_states;
 
 constexpr state_id STATE_AIR = 0;
 
