@@ -5,7 +5,7 @@
 #include "engine/level.h"
 #include "items/handlers.h"
 
-static bool flint_and_steel_item_can_light(state_id st) {
+bool flint_and_steel_item_can_light(state_id st) {
     bool unlit = state_has_prop(st, PROP_LIT) && !state_get(st, PROP_LIT);
     // CampfireBlock.canLight and CandleBlock.canLight
     if ((state_has(st, STATE_FLAG_TAG_CAMPFIRES) || state_has(st, STATE_FLAG_TAG_CANDLES)) &&

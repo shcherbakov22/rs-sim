@@ -1,10 +1,10 @@
-// DispenserBlock and DispenserBlockEntity. Without entities only the default behaviour is ported: it spawns the item.
+// DispenserBlock, DispenserBlockEntity and DefaultDispenseItemBehavior; the other behaviours are in DispenseItemBehavior
 
 #include "blocks/handlers.h"
 #include "core/trace.h"
 #include "engine/level.h"
 
-static direction dispenser_facing(state_id st) {
+direction dispenser_facing(state_id st) {
     return (direction) state_get(st, PROP_FACING);
 }
 
@@ -37,6 +37,45 @@ item_stack default_dispense_item_behavior_dispense(level & lv, state_id st, bloc
     return dispensed;
 }
 
+// DispenserBlockEntity.insertItem: into empty slots and equal stacks, in slot order
+static item_stack dispenser_block_entity_insert_item(level & lv, block_pos pos, item_stack s) {
+    block_entity * be             = level_get_block_entity(lv, pos);
+    int32_t        max_stack_size = container_get_max_stack_size(s);
+    for (int32_t i = 0; i < (int32_t) be->items.size(); i++) {
+        item_stack & target = be->items[i];
+        if (!item_stack_is_empty(target) && !item_stack_is_same_item_same_components(s, target)) {
+            continue;
+        }
+        int32_t transfer = std::min(item_stack_get_count(s), max_stack_size - item_stack_get_count(target));
+        if (transfer > 0 && item_stack_is_empty(target)) {
+            container_set_item(lv, { be, nullptr }, i, item_stack_split(s, transfer));
+        } else if (transfer > 0) {
+            item_stack_grow(s, -transfer);
+            item_stack_grow(target, transfer);
+        }
+        if (item_stack_is_empty(s)) {
+            break;
+        }
+    }
+    return s;
+}
+
+// DefaultDispenseItemBehavior.consumeWithRemainder; addToInventoryOrDispense drops what does not fit
+item_stack default_dispense_item_behavior_consume_with_remainder(level &    lv,
+                                                                 state_id   st,
+                                                                 block_pos  pos,
+                                                                 item_stack dispensed,
+                                                                 item_stack remainder) {
+    item_stack_grow(dispensed, -1);
+    if (item_stack_is_empty(dispensed)) {
+        return remainder;
+    }
+    if (!item_stack_is_empty(dispenser_block_entity_insert_item(lv, pos, remainder))) {
+        default_dispense_item_behavior_spawn_item(lv, pos, dispenser_facing(st));
+    }
+    return dispensed;
+}
+
 static void dispenser_dispense_from(level & lv, state_id st, block_pos pos) {
     block_entity * be = level_get_block_entity(lv, pos);
     if (be == nullptr || be->type != BLOCK_ENTITY_TYPE_DISPENSER) {
@@ -46,14 +85,7 @@ static void dispenser_dispense_from(level & lv, state_id st, block_pos pos) {
     if (slot < 0) {
         return;
     }
-    item_stack s = be->items[slot];
-    // equippable items fall back to the default behaviour when no entity is in front
-    int32_t behavior = item_defs[item_stack_get_item(s)].dispense;
-    if (behavior != DISPENSE_BEHAVIOR_DEFAULT && behavior != DISPENSE_BEHAVIOR_EQUIPMENT) {
-        level_unsupported(lv, "dispense behaviour of %s", item_defs[item_stack_get_item(s)].name);
-        return;
-    }
-    container_set_item(lv, { be, nullptr }, slot, default_dispense_item_behavior_dispense(lv, st, pos, s));
+    container_set_item(lv, { be, nullptr }, slot, dispense_item_behavior_dispense(lv, st, pos, be->items[slot]));
 }
 
 void dispenser_tick(level & lv, state_id st, block_pos pos) {

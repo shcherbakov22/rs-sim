@@ -73,3 +73,9 @@ inline direction direction_clockwise(direction dir) {
 inline direction direction_counter_clockwise(direction dir) {
     return direction_opposite(direction_clockwise(dir));
 }
+
+// Direction.get2DDataValue: south, west, north, east; -1 for up and down
+inline int32_t direction_get_2d_data_value(direction dir) {
+    static constexpr int32_t values[6] = { -1, -1, 2, 0, 1, 3 };
+    return values[dir];
+}

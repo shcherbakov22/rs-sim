@@ -58,8 +58,7 @@ static bool hopper_block_entity_is_full_container(const container & c, direction
 }
 
 static bool hopper_block_entity_can_merge_items(const item_stack & a, const item_stack & b) {
-    return item_stack_get_count(a) <= item_stack_get_max_stack_size(a) &&
-           item_stack_get_item(a) == item_stack_get_item(b);
+    return item_stack_get_count(a) <= item_stack_get_max_stack_size(a) && item_stack_is_same_item_same_components(a, b);
 }
 
 // a null face is vanilla's null direction

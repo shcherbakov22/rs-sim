@@ -25,7 +25,7 @@ bool crafter_block_entity_can_place_item(const block_entity * be, int32_t slot) 
         const item_stack & s = be->items[i];
         if (!crafter_block_entity_is_slot_disabled(be, i) &&
             (item_stack_is_empty(s) || (item_stack_get_count(s) < item_stack_get_count(current) &&
-                                        item_stack_get_item(s) == item_stack_get_item(current)))) {
+                                        item_stack_is_same_item_same_components(s, current)))) {
             return false;
         }
     }
@@ -99,7 +99,7 @@ static void crafter_dispense_item(level &            lv,
     if (found && ((into.first != nullptr && into.first->type == BLOCK_ENTITY_TYPE_CRAFTER) ||
                   item_stack_get_count(results) > container_get_max_stack_size_in(into, results))) {
         while (!item_stack_is_empty(remaining)) {
-            item_stack copy = { remaining.item, 1 };
+            item_stack copy = item_stack_copy_with_count(remaining, 1);
             if (!item_stack_is_empty(hopper_block_entity_add_item(lv, &self, into, copy, &face))) {
                 break;
             }

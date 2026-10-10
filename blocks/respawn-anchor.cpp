@@ -17,9 +17,13 @@ interaction_result respawn_anchor_use_item_on(level & lv, state_id st, block_pos
     if (stack.item != ITEM_GLOWSTONE || charges >= 4) {
         return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;
     }
-    // charge
-    level_set_block(lv, pos, state_set(st, PROP_RESPAWN_ANCHOR_CHARGES, charges + 1), UPDATE_FLAG_ALL);
+    respawn_anchor_charge(lv, st, pos);
     return INTERACTION_RESULT_SUCCESS;
+}
+
+void respawn_anchor_charge(level & lv, state_id st, block_pos pos) {
+    level_set_block(lv, pos, state_set(st, PROP_RESPAWN_ANCHOR_CHARGES, state_get(st, PROP_RESPAWN_ANCHOR_CHARGES) + 1),
+                    UPDATE_FLAG_ALL);
 }
 
 // explode removes the anchor before the explosion starts

@@ -22,6 +22,10 @@ struct block_place_context {
 };
 
 block_place_context      block_place_context_init(level & lv, const use_on_context & hit);
+block_place_context      directional_place_context_init(level &            lv,
+                                                        block_pos          pos,
+                                                        direction          clicked_face,
+                                                        const item_stack & stack);
 block_pos                block_place_context_get_clicked_pos(const block_place_context & ctx);
 bool                     block_place_context_can_place(level & lv, const block_place_context & ctx);
 std::array<direction, 6> block_place_context_get_nearest_looking_directions(const block_place_context & ctx);

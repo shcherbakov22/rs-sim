@@ -17,7 +17,7 @@ interaction_result decorated_pot_use_item_on(level & lv, block_pos pos, const it
     }
     item_stack & pot_item = be->items[0];
     bool         fits =
-        item_stack_is_empty(pot_item) || (item_stack_get_item(pot_item) == item_stack_get_item(stack) &&
+        item_stack_is_empty(pot_item) || (item_stack_is_same_item_same_components(pot_item, stack) &&
                                           item_stack_get_count(pot_item) < item_stack_get_max_stack_size(pot_item));
     if (item_stack_is_empty(stack) || !fits) {
         return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;

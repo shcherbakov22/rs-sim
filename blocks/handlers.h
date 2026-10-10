@@ -176,11 +176,25 @@ item_stack hopper_block_entity_add_item(level &           lv,
                                         const direction * face);
 
 // DispenserBlock, DispenserBlockEntity, DefaultDispenseItemBehavior
+direction  dispenser_facing(state_id st);
 int32_t    dispenser_block_entity_get_random_slot(level & lv, const block_entity * be);
 void       default_dispense_item_behavior_spawn_item(level & lv, block_pos pos, direction dir);
 item_stack default_dispense_item_behavior_dispense(level & lv, state_id st, block_pos pos, item_stack dispensed);
+item_stack default_dispense_item_behavior_consume_with_remainder(level &    lv,
+                                                                 state_id   st,
+                                                                 block_pos  pos,
+                                                                 item_stack dispensed,
+                                                                 item_stack remainder);
 void       dispenser_tick(level & lv, state_id st, block_pos pos);
 void       dispenser_neighbor_changed(level & lv, state_id st, block_pos pos);
+
+// DispenseItemBehavior and its subclasses
+item_stack dispense_item_behavior_dispense(level & lv, state_id st, block_pos pos, item_stack dispensed);
+item_stack projectile_dispense_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed);
+item_stack boat_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed);
+item_stack minecart_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed);
+item_stack shulker_box_dispense_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed);
+item_stack shears_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed);
 
 // BellBlock
 bool               bell_can_survive(level & lv, state_id st, block_pos pos);
@@ -252,6 +266,8 @@ state_id           shelf_get_state_for_placement(level & lv, int32_t block, cons
 // BeehiveBlock
 int32_t            beehive_get_analog_output_signal(state_id st);
 interaction_result beehive_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
+void               beehive_drop_honeycomb(level & lv, block_pos pos);
+void               beehive_reset_honey_level(level & lv, state_id st, block_pos pos);
 
 // CopperGolemStatueBlock, WeatheringCopperGolemStatueBlock
 int32_t            copper_golem_statue_get_analog_output_signal(state_id st);
@@ -265,6 +281,7 @@ interaction_result weathering_copper_golem_statue_use_item_on(level &           
 int32_t            respawn_anchor_get_analog_output_signal(state_id st);
 interaction_result respawn_anchor_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
 interaction_result respawn_anchor_use_without_item(level & lv, state_id st, block_pos pos);
+void               respawn_anchor_charge(level & lv, state_id st, block_pos pos);
 
 // CrossCollisionBlock, FenceBlock
 prop_id  cross_collision_property_by_direction(direction dir);
@@ -317,6 +334,7 @@ state_id base_rail_get_state_for_placement(level & lv, int32_t block, const bloc
 bool       base_rail_is_rail(state_id st);
 bool       base_rail_is_straight(state_id st);
 prop_id    base_rail_get_shape_property(state_id st);
+bool       base_rail_is_slope(int32_t shape);
 bool       base_rail_can_survive(level & lv, block_pos pos);
 state_id   base_rail_update_dir(level & lv, block_pos pos, state_id st, bool first);
 state_id   base_rail_update_state(level & lv, state_id st, block_pos pos, bool moved_by_piston);
@@ -641,6 +659,15 @@ state_id end_rod_get_state_for_placement(level & lv, int32_t block, const block_
 
 // WitherSkullBlock
 void wither_skull_check_spawn(level & lv, block_pos pos);
+bool wither_skull_can_spawn_mob(level & lv, block_pos pos);
+
+// CarvedPumpkinBlock
+bool carved_pumpkin_can_spawn_golem(level & lv, block_pos pos);
+void carved_pumpkin_clear_pattern_blocks(level & lv, const block_pattern & p, const block_pattern_match & match);
+void carved_pumpkin_on_place(level & lv, state_id st, block_pos pos, state_id old);
+
+// TntBlock
+void tnt_explode(level & lv, block_pos pos);
 
 // PortalShape
 struct portal_shape {

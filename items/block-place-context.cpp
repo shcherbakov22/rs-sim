@@ -12,6 +12,20 @@ block_place_context block_place_context_init(level & lv, const use_on_context & 
     return ctx;
 }
 
+// DirectionalPlaceContext places at pos, where the block decides canPlace.
+// Only shulker boxes are placed with one, and their placement reads just the clicked face.
+block_place_context directional_place_context_init(level &            lv,
+                                                   block_pos          pos,
+                                                   direction          clicked_face,
+                                                   const item_stack & stack) {
+    block_place_context ctx = {
+        { pos, clicked_face, stack },
+        pos, true
+    };
+    ctx.replace_clicked = block_can_be_replaced(lv, level_get_state(lv, pos), ctx);
+    return ctx;
+}
+
 block_pos block_place_context_get_clicked_pos(const block_place_context & ctx) {
     return ctx.replace_clicked ? ctx.hit.pos : ctx.relative_pos;
 }

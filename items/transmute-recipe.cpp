@@ -45,12 +45,12 @@ bool transmute_recipe_matches(level & lv, int32_t recipe, const crafting_input &
     return found_input && found_material;
 }
 
-// TransmuteResult.apply on a stack with only default data components
+// TransmuteResult.apply: transmuteCopy keeps the input's DAMAGE
 item_stack transmute_recipe_assemble(int32_t recipe, const crafting_input & in) {
     const recipe_def & def = recipe_defs[recipe];
     for (const item_stack & s : in.items) {
         if (!item_stack_is_empty(s) && ingredient_test(transmute_recipe_input(def), s)) {
-            return { def.result, def.count };
+            return { def.result, def.count, s.damage };
         }
     }
     return {};

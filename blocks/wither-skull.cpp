@@ -4,11 +4,14 @@
 #include "core/trace.h"
 #include "engine/level.h"
 
-// WitherSkullBlock.getOrCreateWitherFull, top row first: '^' a wither skull, '#' a summon base block, '~' air
+// WitherSkullBlock.getOrCreateWitherFull and getOrCreateWitherBase, top row first: '^' a wither skull, '#' a summon base block, '~' air, ' ' anything
 static const char * const wither_skull_full_shape[3] = { "^^^", "###", "~#~" };
+static const char * const wither_skull_base_shape[3] = { "   ", "###", "~#~" };
 
 static bool wither_skull_test(state_id st, char c) {
     switch (c) {
+        case ' ':
+            return true;
         case '^':
             return state_is(st, BLOCK_WITHER_SKELETON_SKULL) || state_is(st, BLOCK_WITHER_SKELETON_WALL_SKULL);
         case '#':
@@ -26,16 +29,19 @@ void wither_skull_check_spawn(level & lv, block_pos pos) {
     }
     bool correct_block =
         state_is(be->state, BLOCK_WITHER_SKELETON_SKULL) || state_is(be->state, BLOCK_WITHER_SKELETON_WALL_SKULL);
+    block_pattern       full = { 3, 3, wither_skull_full_shape, wither_skull_test };
     block_pattern_match match;
-    if (!correct_block || pos.y < LEVEL_Y_MIN ||
-        !block_pattern_find(lv, { 3, 3, wither_skull_full_shape, wither_skull_test }, pos, match)) {
+    if (!correct_block || pos.y < LEVEL_Y_MIN || !block_pattern_find(lv, full, pos, match)) {
         return;
     }
-    for (int32_t x = 0; x < 3; x++) {
-        for (int32_t y = 0; y < 3; y++) {
-            level_set_block(lv, block_pattern_match_get_block(match, x, y), STATE_AIR, UPDATE_FLAG_CLIENTS);
-        }
-    }
+    carved_pumpkin_clear_pattern_blocks(lv, full, match);
     block_pos spawn = block_pattern_match_get_block(match, 1, 2);
     trace_boundary(lv.tr, "spawn wither %d %d %d", spawn.x, spawn.y, spawn.z);
+}
+
+// canSpawnMob for a wither skeleton skull stack
+bool wither_skull_can_spawn_mob(level & lv, block_pos pos) {
+    block_pattern_match match;
+    return pos.y >= LEVEL_Y_MIN + 2 &&
+           block_pattern_find(lv, { 3, 3, wither_skull_base_shape, wither_skull_test }, pos, match);
 }

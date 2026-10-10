@@ -21,7 +21,7 @@ void dropper_dispense_from(level & lv, state_id st, block_pos pos) {
     if (!hopper_block_entity_get_container_at(lv, pos_relative(pos, dir), into, composter)) {
         remaining = default_dispense_item_behavior_dispense(lv, st, pos, s);
     } else {
-        item_stack one  = { s.item, 1 };
+        item_stack one  = item_stack_copy_with_count(s, 1);
         direction  face = direction_opposite(dir);
         remaining       = s;
         if (item_stack_is_empty(hopper_block_entity_add_item(lv, &self, into, one, &face))) {

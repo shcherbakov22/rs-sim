@@ -52,8 +52,9 @@ static bool case_load_block_state(level & lv, const snbt_value & tag, state_id &
 }
 
 // ContainerHelper.loadAllItems; slots outside the container are skipped
-// ItemStack.CODEC plus the Slot of ContainerHelper; item components are not supported
+// ItemStack.CODEC plus the Slot of ContainerHelper; of the item components only DAMAGE is supported
 static bool case_load_item(level & lv, const snbt_value & tag, item_stack & s, int32_t & slot) {
+    const snbt_value * components = nullptr;
     std::string id;
     s = { ITEM_AIR, 1 };
     for (const snbt_entry & entry : tag.compound) {
@@ -64,6 +65,8 @@ static bool case_load_item(level & lv, const snbt_value & tag, item_stack & s, i
             s.item = item_find(id);
         } else if (entry.key == "count") {
             s.count = (int32_t) entry.value.i;
+        } else if (entry.key == "components") {
+            components = &entry.value;
         } else {
             level_unsupported(lv, "item data %s", entry.key.c_str());
             return false;
@@ -72,6 +75,15 @@ static bool case_load_item(level & lv, const snbt_value & tag, item_stack & s, i
     if (s.item < 0) {
         level_unsupported(lv, "item %s", id.c_str());
         return false;
+    }
+    for (int32_t i = 0; components != nullptr && i < (int32_t) components->compound.size(); i++) {
+        const snbt_entry & entry = components->compound[i];
+        if (entry.key != "minecraft:damage" || !item_stack_is_damageable_item(s)) {
+            level_unsupported(lv, "item component %s", entry.key.c_str());
+            return false;
+        }
+        // getDamageValue clamps the stored value
+        s.damage = std::clamp((int32_t) entry.value.i, 0, item_defs[s.item].max_damage);
     }
     return true;
 }

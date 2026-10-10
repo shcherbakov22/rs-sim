@@ -50,7 +50,7 @@ static state_id block_item_update_block_state_from_tag(level & lv, block_pos pos
 }
 
 // sounds, game events and the used up item are not in the trace
-static interaction_result block_item_place(level & lv, block_place_context ctx) {
+interaction_result block_item_place(level & lv, block_place_context ctx) {
     if (!block_place_context_can_place(lv, ctx) || !item_update_placement_context(lv, ctx)) {
         return INTERACTION_RESULT_FAIL;
     }

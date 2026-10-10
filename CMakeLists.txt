@@ -26,11 +26,13 @@ add_library(tmc STATIC
     blocks/bell.cpp
     blocks/block-behaviour.cpp
     blocks/block-pattern.cpp
+    blocks/boat-dispense-item-behavior.cpp
     blocks/button.cpp
     blocks/cake.cpp
     blocks/candle-cake.cpp
     blocks/candle.cpp
     blocks/carpet.cpp
+    blocks/carved-pumpkin.cpp
     blocks/cave-vines-plant.cpp
     blocks/cave-vines.cpp
     blocks/chain.cpp
@@ -48,6 +50,7 @@ add_library(tmc STATIC
     blocks/detector-rail.cpp
     blocks/diode.cpp
     blocks/dirt-path.cpp
+    blocks/dispense-item-behavior.cpp
     blocks/dispenser.cpp
     blocks/door.cpp
     blocks/dropper.cpp
@@ -75,6 +78,7 @@ add_library(tmc STATIC
     blocks/lever.cpp
     blocks/light.cpp
     blocks/lightning-rod.cpp
+    blocks/minecart-dispense-item-behavior.cpp
     blocks/moving-piston.cpp
     blocks/nether-portal.cpp
     blocks/note-block.cpp
@@ -86,6 +90,7 @@ add_library(tmc STATIC
     blocks/portal-shape.cpp
     blocks/powered-rail.cpp
     blocks/pressure-plate.cpp
+    blocks/projectile-dispense-behavior.cpp
     blocks/rail-state.cpp
     blocks/rail.cpp
     blocks/red-stone-wire.cpp
@@ -96,7 +101,9 @@ add_library(tmc STATIC
     blocks/respawn-anchor.cpp
     blocks/rotated-pillar.cpp
     blocks/scaffolding.cpp
+    blocks/shears-dispense-item-behavior.cpp
     blocks/shelf.cpp
+    blocks/shulker-box-dispense-behavior.cpp
     blocks/skull.cpp
     blocks/slab.cpp
     blocks/snowy-dirt.cpp
@@ -104,6 +111,7 @@ add_library(tmc STATIC
     blocks/soul-sand.cpp
     blocks/stair.cpp
     blocks/target.cpp
+    blocks/tnt.cpp
     blocks/trap-door.cpp
     blocks/trapped-chest.cpp
     blocks/trip-wire-hook.cpp

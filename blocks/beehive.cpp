@@ -13,10 +13,18 @@ interaction_result beehive_use_item_on(level & lv, state_id st, block_pos pos, c
         return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;
     }
     if (stack.item == ITEM_SHEARS) {
-        // dropHoneycomb: HARVEST_BEEHIVE is one constant pool of 3 honeycomb, so the loot draws nothing
-        level_pop_resource(lv, pos);
+        beehive_drop_honeycomb(lv, pos);
     }
-    // resetHoneyLevel, with or without smoke
-    level_set_block(lv, pos, state_set(st, PROP_LEVEL_HONEY, 0), UPDATE_FLAG_ALL);
+    beehive_reset_honey_level(lv, st, pos);
     return INTERACTION_RESULT_SUCCESS;
+}
+
+// HARVEST_BEEHIVE is one constant pool of 3 honeycomb, so the loot draws nothing
+void beehive_drop_honeycomb(level & lv, block_pos pos) {
+    level_pop_resource(lv, pos);
+}
+
+// releaseBeesAndResetHoneyLevel also releases the bees, and the hives hold none
+void beehive_reset_honey_level(level & lv, state_id st, block_pos pos) {
+    level_set_block(lv, pos, state_set(st, PROP_LEVEL_HONEY, 0), UPDATE_FLAG_ALL);
 }

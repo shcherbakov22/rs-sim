@@ -354,6 +354,9 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
         case VCLASS_FIRE_BLOCK:
             fire_on_place(lv, st, pos, old);
             break;
+        case VCLASS_CARVED_PUMPKIN_BLOCK:
+            carved_pumpkin_on_place(lv, st, pos, old);
+            break;
         default:
             hook_unsupported(lv, st, HOOK_ON_PLACE);
     }
@@ -1017,6 +1020,7 @@ state_id block_get_state_for_placement(level & lv, int32_t block, const block_pl
             return state_set(state_set(st, PROP_FACING, ctx.hit.face), PROP_WATERLOGGED,
                              block_place_context_is_water_source(lv, ctx));
         case VCLASS_GLAZED_TERRACOTTA_BLOCK:
+        case VCLASS_CARVED_PUMPKIN_BLOCK:
         case VCLASS_BEEHIVE_BLOCK:
         case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
         case VCLASS_LECTERN_BLOCK:

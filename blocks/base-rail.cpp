@@ -21,7 +21,7 @@ static bool base_rail_can_support_rigid_block(level & lv, block_pos pos) {
     return block_is_face_sturdy(lv, level_get_state(lv, pos), pos, DIRECTION_UP, SUPPORT_TYPE_RIGID);
 }
 
-static bool base_rail_is_slope(int32_t shape) {
+bool base_rail_is_slope(int32_t shape) {
     return shape >= RAIL_SHAPE_ASCENDING_EAST && shape <= RAIL_SHAPE_ASCENDING_SOUTH;
 }
 

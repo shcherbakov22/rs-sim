@@ -57,8 +57,9 @@ bool chiseled_book_shelf_block_entity_can_place_item(const block_entity * be, in
 bool chiseled_book_shelf_block_entity_can_take_item(const container & into, const item_stack & s) {
     for (int32_t slot = 0; slot < container_get_container_size(into); slot++) {
         const item_stack & to = container_get_item(into, slot);
-        if (item_stack_is_empty(to) || (to.item == s.item && item_stack_get_count(to) + item_stack_get_count(s) <=
-                                                                 container_get_max_stack_size(to))) {
+        if (item_stack_is_empty(to) ||
+            (item_stack_is_same_item_same_components(s, to) &&
+             item_stack_get_count(to) + item_stack_get_count(s) <= container_get_max_stack_size(to))) {
             return true;
         }
     }
