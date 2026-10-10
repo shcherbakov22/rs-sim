@@ -9,9 +9,6 @@ static bool iron_bars_attachs_to(state_id st, bool face_solid) {
 }
 
 state_id iron_bars_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor) {
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
     if (!direction_is_horizontal(dir)) {
         return st;
     }

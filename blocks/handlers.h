@@ -55,34 +55,34 @@ bool     redstone_wall_torch_has_neighbor_signal(level & lv, state_id st, block_
 int32_t  redstone_wall_torch_get_signal(state_id st, direction dir);
 
 // DiodeBlock
-bool     diode_can_survive(level & lv, block_pos pos);
-bool     diode_can_survive_on(level & lv, block_pos neighbor_pos, state_id neighbor);
-void     diode_tick(level & lv, state_id st, block_pos pos);
-int32_t  diode_get_signal(level & lv, state_id st, block_pos pos, direction dir);
-void     diode_neighbor_changed(level & lv, state_id st, block_pos pos);
-int32_t  diode_get_input_signal(level & lv, state_id st, block_pos pos);
-int32_t  diode_get_alternate_signal(level & lv, state_id st, block_pos pos);
-bool     diode_should_prioritize(level & lv, state_id st, block_pos pos);
-void     diode_update_neighbors_in_front(level & lv, state_id st, block_pos pos);
-void     diode_on_place(level & lv, state_id st, block_pos pos);
-void     diode_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
+bool    diode_can_survive(level & lv, block_pos pos);
+bool    diode_can_survive_on(level & lv, block_pos neighbor_pos, state_id neighbor);
+void    diode_tick(level & lv, state_id st, block_pos pos);
+int32_t diode_get_signal(level & lv, state_id st, block_pos pos, direction dir);
+void    diode_neighbor_changed(level & lv, state_id st, block_pos pos);
+int32_t diode_get_input_signal(level & lv, state_id st, block_pos pos);
+int32_t diode_get_alternate_signal(level & lv, state_id st, block_pos pos);
+bool    diode_should_prioritize(level & lv, state_id st, block_pos pos);
+void    diode_update_neighbors_in_front(level & lv, state_id st, block_pos pos);
+void    diode_on_place(level & lv, state_id st, block_pos pos);
+void    diode_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
 
 // RepeaterBlock
-int32_t            repeater_get_delay(state_id st);
-state_id           repeater_update_shape(level &   lv,
-                                         state_id  st,
-                                         block_pos pos,
-                                         direction dir,
-                                         block_pos neighbor_pos,
-                                         state_id  neighbor);
-bool               repeater_is_locked(level & lv, state_id st, block_pos pos);
+int32_t  repeater_get_delay(state_id st);
+state_id repeater_update_shape(level &   lv,
+                               state_id  st,
+                               block_pos pos,
+                               direction dir,
+                               block_pos neighbor_pos,
+                               state_id  neighbor);
+bool     repeater_is_locked(level & lv, state_id st, block_pos pos);
 
 // ComparatorBlock
 state_id comparator_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor);
 int32_t  comparator_get_output_signal(level & lv, block_pos pos);
-bool               comparator_should_turn_on(level & lv, state_id st, block_pos pos);
-void               comparator_check_tick_on_neighbor(level & lv, state_id st, block_pos pos);
-void               comparator_tick(level & lv, state_id st, block_pos pos);
+bool     comparator_should_turn_on(level & lv, state_id st, block_pos pos);
+void     comparator_check_tick_on_neighbor(level & lv, state_id st, block_pos pos);
+void     comparator_tick(level & lv, state_id st, block_pos pos);
 
 // BaseEntityBlock
 bool base_entity_block_trigger_event(level & lv, block_pos pos, int32_t param_a, int32_t param_b);
@@ -120,8 +120,8 @@ void     dirt_path_tick(level & lv, block_pos pos);
 void barrel_tick(level & lv, block_pos pos);
 
 // HopperBlock
-void     hopper_on_place(level & lv, state_id st, block_pos pos, state_id old);
-void     hopper_neighbor_changed(level & lv, state_id st, block_pos pos);
+void hopper_on_place(level & lv, state_id st, block_pos pos, state_id old);
+void hopper_neighbor_changed(level & lv, state_id st, block_pos pos);
 
 // HopperBlockEntity
 void hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st, block_entity * be);
@@ -152,29 +152,29 @@ item_stack boat_dispense_item_behavior_execute(level & lv, state_id st, block_po
 item_stack minecart_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed);
 
 // BellBlock
-bool               bell_can_survive(level & lv, state_id st, block_pos pos);
-state_id           bell_update_shape(level &   lv,
-                                     state_id  st,
-                                     block_pos pos,
-                                     direction dir,
-                                     block_pos neighbor_pos,
-                                     state_id  neighbor);
-void               bell_neighbor_changed(level & lv, state_id st, block_pos pos);
+bool     bell_can_survive(level & lv, state_id st, block_pos pos);
+state_id bell_update_shape(level &   lv,
+                           state_id  st,
+                           block_pos pos,
+                           direction dir,
+                           block_pos neighbor_pos,
+                           state_id  neighbor);
+void     bell_neighbor_changed(level & lv, state_id st, block_pos pos);
 
 // CrafterBlock, CrafterBlockEntity
-bool     crafter_block_entity_can_place_item(const block_entity * be, int32_t slot);
-void     crafter_block_entity_server_tick(level & lv, block_pos pos, state_id st, block_entity * be);
-int32_t  crafter_get_analog_output_signal(level & lv, block_pos pos);
-void     crafter_neighbor_changed(level & lv, state_id st, block_pos pos);
-void     crafter_tick(level & lv, state_id st, block_pos pos);
+bool    crafter_block_entity_can_place_item(const block_entity * be, int32_t slot);
+void    crafter_block_entity_server_tick(level & lv, block_pos pos, state_id st, block_entity * be);
+int32_t crafter_get_analog_output_signal(level & lv, block_pos pos);
+void    crafter_neighbor_changed(level & lv, state_id st, block_pos pos);
+void    crafter_tick(level & lv, state_id st, block_pos pos);
 
 // JukeboxBlock, JukeboxBlockEntity, JukeboxSongPlayer
-bool               jukebox_song_has_finished(int32_t record, int64_t ticks);
-void               jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack s);
-void               jukebox_block_entity_pop_out_the_item(level & lv, block_entity * be);
-void               jukebox_block_entity_tick(level & lv, block_entity * be);
-int32_t            jukebox_get_signal(level & lv, block_pos pos);
-int32_t            jukebox_get_analog_output_signal(level & lv, block_pos pos);
+bool    jukebox_song_has_finished(int32_t record, int64_t ticks);
+void    jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack s);
+void    jukebox_block_entity_pop_out_the_item(level & lv, block_entity * be);
+void    jukebox_block_entity_tick(level & lv, block_entity * be);
+int32_t jukebox_get_signal(level & lv, block_pos pos);
+int32_t jukebox_get_analog_output_signal(level & lv, block_pos pos);
 
 // ChiseledBookShelfBlock, ChiseledBookShelfBlockEntity
 item_stack chiseled_book_shelf_block_entity_remove_item(level & lv, block_entity * be, int32_t slot);
@@ -184,10 +184,10 @@ bool       chiseled_book_shelf_block_entity_can_take_item(const container & into
 int32_t    chiseled_book_shelf_get_analog_output_signal(level & lv, block_pos pos);
 
 // ShelfBlock, ShelfBlockEntity, SideChainPartBlock
-void               shelf_on_place(level & lv, state_id st, block_pos pos, state_id old);
-void               shelf_neighbor_changed(level & lv, state_id st, block_pos pos);
-void               shelf_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
-int32_t            shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
+void    shelf_on_place(level & lv, state_id st, block_pos pos, state_id old);
+void    shelf_neighbor_changed(level & lv, state_id st, block_pos pos);
+void    shelf_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
+int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
 
 // CrossCollisionBlock, FenceBlock
 prop_id  cross_collision_property_by_direction(direction dir);
@@ -204,7 +204,7 @@ state_id leaves_update_shape(level & lv, state_id st, block_pos pos, state_id ne
 state_id stair_update_shape(level & lv, state_id st, block_pos pos, direction dir);
 
 // TrapDoorBlock
-void               trap_door_neighbor_changed(level & lv, state_id st, block_pos pos);
+void trap_door_neighbor_changed(level & lv, state_id st, block_pos pos);
 
 // WallBlock
 state_id wall_update_shape(level &   lv,
@@ -215,8 +215,8 @@ state_id wall_update_shape(level &   lv,
                            state_id  neighbor);
 
 // FenceGateBlock
-state_id           fence_gate_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
-void               fence_gate_neighbor_changed(level & lv, state_id st, block_pos pos);
+state_id fence_gate_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
+void     fence_gate_neighbor_changed(level & lv, state_id st, block_pos pos);
 
 // BaseRailBlock and RailState of the straight rails
 struct rail_state {
@@ -263,9 +263,9 @@ void    copper_bulb_on_place(level & lv, state_id st, block_pos pos, state_id ol
 int32_t copper_bulb_get_analog_output_signal(level & lv, block_pos pos);
 
 // NoteBlock
-state_id           note_block_update_shape(level & lv, state_id st, block_pos pos, direction dir);
-void               note_block_neighbor_changed(level & lv, state_id st, block_pos pos);
-bool               note_block_trigger_event(level & lv, state_id st);
+state_id note_block_update_shape(level & lv, state_id st, block_pos pos, direction dir);
+void     note_block_neighbor_changed(level & lv, state_id st, block_pos pos);
+bool     note_block_trigger_event(level & lv, state_id st);
 
 // TargetBlock
 void    target_tick(level & lv, state_id st, block_pos pos);
@@ -278,38 +278,38 @@ void soul_sand_update_shape(level & lv, state_id st, block_pos pos, direction di
 void soul_sand_tick(level & lv, block_pos pos);
 
 // ScaffoldingBlock
-int32_t  scaffolding_get_distance(level & lv, block_pos pos);
-void     scaffolding_on_place(level & lv, state_id st, block_pos pos);
-void     scaffolding_update_shape(level & lv, state_id st, block_pos pos);
-void     scaffolding_tick(level & lv, state_id st, block_pos pos);
+int32_t scaffolding_get_distance(level & lv, block_pos pos);
+void    scaffolding_on_place(level & lv, state_id st, block_pos pos);
+void    scaffolding_update_shape(level & lv, state_id st, block_pos pos);
+void    scaffolding_tick(level & lv, state_id st, block_pos pos);
 
 // ComposterBlock
-void               composter_on_place(level & lv, state_id st, block_pos pos);
-void               composter_tick(level & lv, state_id st, block_pos pos);
-int32_t            composter_get_analog_output_signal(state_id st);
-void               composter_get_container(state_id st, block_pos pos, composter_container & out);
-int32_t            composter_container_get_container_size(const composter_container & c);
-int32_t            composter_container_get_slots_for_face(const composter_container & c, direction face);
-bool               composter_container_can_place_item_through_face(const composter_container & c,
-                                                                   const item_stack &          s,
-                                                                   const direction *           face);
-bool               composter_container_can_take_item_through_face(const composter_container & c,
-                                                                  const item_stack &          s,
-                                                                  direction                   face);
-void               composter_container_set_changed(level & lv, composter_container & c);
+void    composter_on_place(level & lv, state_id st, block_pos pos);
+void    composter_tick(level & lv, state_id st, block_pos pos);
+int32_t composter_get_analog_output_signal(state_id st);
+void    composter_get_container(state_id st, block_pos pos, composter_container & out);
+int32_t composter_container_get_container_size(const composter_container & c);
+int32_t composter_container_get_slots_for_face(const composter_container & c, direction face);
+bool    composter_container_can_place_item_through_face(const composter_container & c,
+                                                        const item_stack &          s,
+                                                        const direction *           face);
+bool    composter_container_can_take_item_through_face(const composter_container & c,
+                                                       const item_stack &          s,
+                                                       direction                   face);
+void    composter_container_set_changed(level & lv, composter_container & c);
 
 // DoorBlock
-bool               door_can_survive(level & lv, state_id st, block_pos pos);
-state_id           door_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
-void               door_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block);
+bool     door_can_survive(level & lv, state_id st, block_pos pos);
+state_id door_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
+void     door_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block);
 
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 
 // ChestBlock
 bool     chest_get_container(level & lv, state_id st, block_pos pos, bool ignore_being_blocked, container & out);
-state_id chest_update_shape(level & lv, state_id st, direction dir, state_id neighbor);
-state_id copper_chest_update_shape(level & lv, state_id st, direction dir, state_id neighbor);
+state_id chest_update_shape(state_id st, direction dir, state_id neighbor);
+state_id copper_chest_update_shape(state_id st, direction dir, state_id neighbor);
 int32_t  chest_get_analog_output_signal(level & lv, state_id st, block_pos pos);
 void     chest_tick(level & lv, block_pos pos);
 
@@ -327,10 +327,10 @@ state_id  face_attached_horizontal_directional_update_shape(level & lv, state_id
 direction face_attached_horizontal_directional_get_connected_direction(state_id st);
 
 // LeverBlock
-void               lever_pull(level & lv, state_id st, block_pos pos);
-void               lever_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
-int32_t            lever_get_signal(state_id st);
-int32_t            lever_get_direct_signal(state_id st, direction dir);
+void    lever_pull(level & lv, state_id st, block_pos pos);
+void    lever_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
+int32_t lever_get_signal(state_id st);
+int32_t lever_get_direct_signal(state_id st, direction dir);
 
 // RedstoneLampBlock
 void redstone_lamp_neighbor_changed(level & lv, state_id st, block_pos pos);
@@ -344,17 +344,17 @@ void     observer_on_place(level & lv, state_id st, block_pos pos, state_id old)
 void     observer_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
 
 // MovingPistonBlock
-voxel_shape        moving_piston_get_collision_shape(level & lv, block_pos pos);
+voxel_shape moving_piston_get_collision_shape(level & lv, block_pos pos);
 
 // PistonBaseBlock
-void     piston_base_neighbor_changed(level & lv, state_id st, block_pos pos);
-void     piston_base_on_place(level & lv, state_id st, block_pos pos, state_id old);
-bool     piston_base_trigger_event(level & lv, state_id st, block_pos pos, int32_t b0, int32_t b1);
-bool     piston_base_is_pushable(state_id  st,
-                                 block_pos pos,
-                                 direction dir,
-                                 bool      allow_destroyable,
-                                 direction connection_direction);
+void piston_base_neighbor_changed(level & lv, state_id st, block_pos pos);
+void piston_base_on_place(level & lv, state_id st, block_pos pos, state_id old);
+bool piston_base_trigger_event(level & lv, state_id st, block_pos pos, int32_t b0, int32_t b1);
+bool piston_base_is_pushable(state_id  st,
+                             block_pos pos,
+                             direction dir,
+                             bool      allow_destroyable,
+                             direction connection_direction);
 
 // PistonHeadBlock
 void     piston_head_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
@@ -399,9 +399,9 @@ bool     soul_fire_can_survive(level & lv, block_pos pos);
 bool     soul_fire_can_survive_on_block(state_id st);
 
 // TntBlock
-void               tnt_prime(level & lv, block_pos pos);
-void               tnt_on_place(level & lv, state_id st, block_pos pos, state_id old);
-void               tnt_neighbor_changed(level & lv, block_pos pos);
+void tnt_prime(level & lv, block_pos pos);
+void tnt_on_place(level & lv, state_id st, block_pos pos, state_id old);
+void tnt_neighbor_changed(level & lv, block_pos pos);
 
 // FallingBlock, ConcretePowderBlock
 void     falling_block_on_place(level & lv, state_id st, block_pos pos);

@@ -62,11 +62,7 @@ static bool chest_can_connect_to(state_id st, state_id neighbor) {
     return state_is(neighbor, state_block(st));
 }
 
-state_id chest_update_shape(level & lv, state_id st, direction dir, state_id neighbor) {
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-        return st;
-    }
+state_id chest_update_shape(state_id st, direction dir, state_id neighbor) {
     if (chest_can_connect_to(st, neighbor) && direction_is_horizontal(dir)) {
         chest_type neighbor_type = chest_get_type(neighbor);
         if (chest_get_type(st) == CHEST_TYPE_SINGLE && neighbor_type != CHEST_TYPE_SINGLE &&
@@ -83,8 +79,8 @@ state_id chest_update_shape(level & lv, state_id st, direction dir, state_id nei
 }
 
 // CopperChestBlock.updateShape: a double copper chest takes on the block of its other half
-state_id copper_chest_update_shape(level & lv, state_id st, direction dir, state_id neighbor) {
-    state_id result = chest_update_shape(lv, st, dir, neighbor);
+state_id copper_chest_update_shape(state_id st, direction dir, state_id neighbor) {
+    state_id result = chest_update_shape(st, dir, neighbor);
     if (chest_can_connect_to(st, neighbor) && chest_get_type(result) != CHEST_TYPE_SINGLE &&
         chest_get_connected_direction(result) == dir) {
         return block_with_properties_of(state_block(neighbor), result);

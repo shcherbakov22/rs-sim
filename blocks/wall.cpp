@@ -93,9 +93,6 @@ state_id wall_update_shape(level &   lv,
                            direction dir,
                            block_pos neighbor_pos,
                            state_id  neighbor) {
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
     if (dir == DIRECTION_DOWN) {
         return st;
     }

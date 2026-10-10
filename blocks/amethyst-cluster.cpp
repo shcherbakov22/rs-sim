@@ -10,10 +10,6 @@ bool amethyst_cluster_can_survive(level & lv, state_id st, block_pos pos) {
 }
 
 state_id amethyst_cluster_update_shape(level & lv, state_id st, block_pos pos, direction dir) {
-    // a waterlogged cluster schedules a water tick
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
     if (dir == direction_opposite((direction) state_get(st, PROP_FACING)) &&
         !amethyst_cluster_can_survive(lv, st, pos)) {
         return STATE_AIR;

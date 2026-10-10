@@ -42,9 +42,6 @@ static int32_t stair_get_stairs_shape(level & lv, state_id st, block_pos pos) {
 }
 
 state_id stair_update_shape(level & lv, state_id st, block_pos pos, direction dir) {
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
     if (!direction_is_horizontal(dir)) {
         return st;
     }

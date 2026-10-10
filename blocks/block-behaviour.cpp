@@ -80,6 +80,13 @@ state_id block_update_shape(level &   lv,
     trace_enter(lv.tr, &pos, "shape %d %d %d %s %s %s", pos.x, pos.y, pos.z, state_to_string(st).c_str(),
                 direction_defs[dir].name, state_to_string(neighbor).c_str());
     state_id result = st;
+    // SimpleWaterloggedBlock: every updateShape schedules the water tick before anything else, except a ladder's
+    if (state_has_prop(st, PROP_WATERLOGGED) && state_get(st, PROP_WATERLOGGED) &&
+        hook_owner(st, HOOK_UPDATE_SHAPE) != VCLASS_LADDER_BLOCK) {
+        level_unsupported(lv, "fluids");
+        trace_exit(lv.tr);
+        return st;
+    }
     switch (hook_owner(st, HOOK_UPDATE_SHAPE)) {
         case VCLASS_NONE:
             break;
@@ -102,9 +109,9 @@ state_id block_update_shape(level &   lv,
             result = comparator_update_shape(lv, st, dir, neighbor_pos, neighbor);
             break;
         case VCLASS_CHEST_BLOCK:
-            result = chest_update_shape(lv, st, dir, neighbor);
+            result = chest_update_shape(st, dir, neighbor);
             break;
-        // these classes only schedule the water tick of a waterlogged block
+        // these classes only schedule the water tick, checked above
         case VCLASS_ENDER_CHEST_BLOCK:
         case VCLASS_DECORATED_POT_BLOCK:
         case VCLASS_SHELF_BLOCK:
@@ -118,9 +125,6 @@ state_id block_update_shape(level &   lv,
         case VCLASS_LIGHTNING_ROD_BLOCK:
         case VCLASS_BARRIER_BLOCK:
         case VCLASS_LIGHT_BLOCK:
-            if (state_get(st, PROP_WATERLOGGED)) {
-                level_unsupported(lv, "fluids");
-            }
             break;
         case VCLASS_IRON_BARS_BLOCK:
             result = iron_bars_update_shape(lv, st, dir, neighbor_pos, neighbor);
@@ -186,7 +190,7 @@ state_id block_update_shape(level &   lv,
             result = bell_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
         case VCLASS_COPPER_CHEST_BLOCK:
-            result = copper_chest_update_shape(lv, st, dir, neighbor);
+            result = copper_chest_update_shape(st, dir, neighbor);
             break;
         case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
             result = face_attached_horizontal_directional_update_shape(lv, st, pos, dir);

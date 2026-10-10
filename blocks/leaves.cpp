@@ -31,9 +31,6 @@ void leaves_tick(level & lv, state_id st, block_pos pos) {
 
 // only a log beside leaves at distance 1 skips the tick
 state_id leaves_update_shape(level & lv, state_id st, block_pos pos, state_id neighbor) {
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
     int32_t distance_from_neighbor = leaves_get_distance_at(neighbor) + 1;
     if (distance_from_neighbor != 1 || state_get(st, PROP_DISTANCE) != distance_from_neighbor) {
         level_schedule_tick(lv, pos, state_block(st), 1);

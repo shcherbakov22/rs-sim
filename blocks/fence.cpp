@@ -13,9 +13,6 @@ static bool fence_connects_to(state_id st, state_id neighbor, bool face_solid, d
 }
 
 state_id fence_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor) {
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
     if (!direction_is_horizontal(dir)) {
         return st;
     }

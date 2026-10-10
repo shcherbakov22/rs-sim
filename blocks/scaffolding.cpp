@@ -34,9 +34,6 @@ void scaffolding_on_place(level & lv, state_id st, block_pos pos) {
 }
 
 void scaffolding_update_shape(level & lv, state_id st, block_pos pos) {
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
     level_schedule_tick(lv, pos, state_block(st), 1);
 }
 

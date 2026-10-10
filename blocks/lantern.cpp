@@ -14,8 +14,5 @@ bool lantern_can_survive(level & lv, state_id st, block_pos pos) {
 }
 
 state_id lantern_update_shape(level & lv, state_id st, block_pos pos, direction dir) {
-    if (state_get(st, PROP_WATERLOGGED)) {
-        level_unsupported(lv, "fluids");
-    }
     return lantern_support_direction(st) == dir && !block_can_survive(lv, st, pos) ? STATE_AIR : st;
 }
