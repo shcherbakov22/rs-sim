@@ -10555,6 +10555,7 @@ block copper_bars 7789 32 7820 WeatheringCopperBarsBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field WeatheringCopperBarsBlock.weatherState 0
   as_item copper_bars
   waxed waxed_copper_bars
   flag fluid 11001100110011001100110011001100
@@ -10574,6 +10575,7 @@ block exposed_copper_bars 7821 32 7852 WeatheringCopperBarsBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field WeatheringCopperBarsBlock.weatherState 1
   as_item exposed_copper_bars
   waxed waxed_exposed_copper_bars
   weathering_previous copper_bars
@@ -10594,6 +10596,7 @@ block weathered_copper_bars 7853 32 7884 WeatheringCopperBarsBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field WeatheringCopperBarsBlock.weatherState 2
   as_item weathered_copper_bars
   waxed waxed_weathered_copper_bars
   weathering_previous exposed_copper_bars
@@ -10614,6 +10617,7 @@ block oxidized_copper_bars 7885 32 7916 WeatheringCopperBarsBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field WeatheringCopperBarsBlock.weatherState 3
   as_item oxidized_copper_bars
   waxed waxed_oxidized_copper_bars
   weathering_previous weathered_copper_bars
@@ -10718,6 +10722,7 @@ block iron_chain 8045 6 8048 ChainBlock
 block copper_chain 8051 6 8054 WeatheringCopperChainBlock
   prop AXIS
   prop WATERLOGGED
+  field WeatheringCopperChainBlock.weatherState 0
   as_item copper_chain
   waxed waxed_copper_chain
   flag fluid 101010
@@ -10730,6 +10735,7 @@ block copper_chain 8051 6 8054 WeatheringCopperChainBlock
 block exposed_copper_chain 8057 6 8060 WeatheringCopperChainBlock
   prop AXIS
   prop WATERLOGGED
+  field WeatheringCopperChainBlock.weatherState 1
   as_item exposed_copper_chain
   waxed waxed_exposed_copper_chain
   weathering_previous copper_chain
@@ -10743,6 +10749,7 @@ block exposed_copper_chain 8057 6 8060 WeatheringCopperChainBlock
 block weathered_copper_chain 8063 6 8066 WeatheringCopperChainBlock
   prop AXIS
   prop WATERLOGGED
+  field WeatheringCopperChainBlock.weatherState 2
   as_item weathered_copper_chain
   waxed waxed_weathered_copper_chain
   weathering_previous exposed_copper_chain
@@ -10756,6 +10763,7 @@ block weathered_copper_chain 8063 6 8066 WeatheringCopperChainBlock
 block oxidized_copper_chain 8069 6 8072 WeatheringCopperChainBlock
   prop AXIS
   prop WATERLOGGED
+  field WeatheringCopperChainBlock.weatherState 3
   as_item oxidized_copper_chain
   waxed waxed_oxidized_copper_chain
   weathering_previous weathered_copper_chain
@@ -11387,6 +11395,7 @@ block cauldron 9259 1 9259 CauldronBlock
   support 156
 block water_cauldron 9260 3 9260 LayeredCauldronBlock
   prop LEVEL_CAULDRON
+  field LayeredCauldronBlock.precipitationType 1
   as_item cauldron
   cauldron water
   flag analog_output
@@ -11406,6 +11415,7 @@ block lava_cauldron 9263 1 9263 LavaCauldronBlock
   support 156
 block powder_snow_cauldron 9264 3 9264 LayeredCauldronBlock
   prop LEVEL_CAULDRON
+  field LayeredCauldronBlock.precipitationType 2
   as_item cauldron
   cauldron powder_snow
   flag analog_output
@@ -20572,6 +20582,7 @@ block soul_lantern 20639 4 20642 LanternBlock
 block copper_lantern 20643 4 20646 WeatheringLanternBlock
   prop HANGING
   prop WATERLOGGED
+  field WeatheringLanternBlock.weatherState 0
   as_item copper_lantern
   waxed waxed_copper_lantern
   flag fluid 1010
@@ -20584,6 +20595,7 @@ block copper_lantern 20643 4 20646 WeatheringLanternBlock
 block exposed_copper_lantern 20647 4 20650 WeatheringLanternBlock
   prop HANGING
   prop WATERLOGGED
+  field WeatheringLanternBlock.weatherState 1
   as_item exposed_copper_lantern
   waxed waxed_exposed_copper_lantern
   weathering_previous copper_lantern
@@ -20597,6 +20609,7 @@ block exposed_copper_lantern 20647 4 20650 WeatheringLanternBlock
 block weathered_copper_lantern 20651 4 20654 WeatheringLanternBlock
   prop HANGING
   prop WATERLOGGED
+  field WeatheringLanternBlock.weatherState 2
   as_item weathered_copper_lantern
   waxed waxed_weathered_copper_lantern
   weathering_previous exposed_copper_lantern
@@ -20610,6 +20623,7 @@ block weathered_copper_lantern 20651 4 20654 WeatheringLanternBlock
 block oxidized_copper_lantern 20655 4 20658 WeatheringLanternBlock
   prop HANGING
   prop WATERLOGGED
+  field WeatheringLanternBlock.weatherState 3
   as_item oxidized_copper_lantern
   waxed waxed_oxidized_copper_lantern
   weathering_previous weathered_copper_lantern
@@ -23550,6 +23564,7 @@ block sculk_shrieker 25099 8 25106 SculkShriekerBlock
   collision 72
   support 72
 block copper_block 25107 1 25107 WeatheringCopperFullBlock
+  field WeatheringCopperFullBlock.weatherState 0
   as_item copper_block
   waxed waxed_copper_block
   flag conductor
@@ -23576,6 +23591,7 @@ block copper_block 25107 1 25107 WeatheringCopperFullBlock
   collision 1
   support 1
 block exposed_copper 25108 1 25108 WeatheringCopperFullBlock
+  field WeatheringCopperFullBlock.weatherState 1
   as_item exposed_copper
   waxed waxed_exposed_copper
   weathering_previous copper_block
@@ -23603,6 +23619,7 @@ block exposed_copper 25108 1 25108 WeatheringCopperFullBlock
   collision 1
   support 1
 block weathered_copper 25109 1 25109 WeatheringCopperFullBlock
+  field WeatheringCopperFullBlock.weatherState 2
   as_item weathered_copper
   waxed waxed_weathered_copper
   weathering_previous exposed_copper
@@ -23630,6 +23647,7 @@ block weathered_copper 25109 1 25109 WeatheringCopperFullBlock
   collision 1
   support 1
 block oxidized_copper 25110 1 25110 WeatheringCopperFullBlock
+  field WeatheringCopperFullBlock.weatherState 3
   as_item oxidized_copper
   waxed waxed_oxidized_copper
   weathering_previous weathered_copper
@@ -23709,6 +23727,7 @@ block deepslate_copper_ore 25112 1 25112 DropExperienceBlock
   collision 1
   support 1
 block oxidized_cut_copper 25113 1 25113 WeatheringCopperFullBlock
+  field WeatheringCopperFullBlock.weatherState 3
   as_item oxidized_cut_copper
   waxed waxed_oxidized_cut_copper
   weathering_previous weathered_cut_copper
@@ -23736,6 +23755,7 @@ block oxidized_cut_copper 25113 1 25113 WeatheringCopperFullBlock
   collision 1
   support 1
 block weathered_cut_copper 25114 1 25114 WeatheringCopperFullBlock
+  field WeatheringCopperFullBlock.weatherState 2
   as_item weathered_cut_copper
   waxed waxed_weathered_cut_copper
   weathering_previous exposed_cut_copper
@@ -23763,6 +23783,7 @@ block weathered_cut_copper 25114 1 25114 WeatheringCopperFullBlock
   collision 1
   support 1
 block exposed_cut_copper 25115 1 25115 WeatheringCopperFullBlock
+  field WeatheringCopperFullBlock.weatherState 1
   as_item exposed_cut_copper
   waxed waxed_exposed_cut_copper
   weathering_previous cut_copper
@@ -23790,6 +23811,7 @@ block exposed_cut_copper 25115 1 25115 WeatheringCopperFullBlock
   collision 1
   support 1
 block cut_copper 25116 1 25116 WeatheringCopperFullBlock
+  field WeatheringCopperFullBlock.weatherState 0
   as_item cut_copper
   waxed waxed_cut_copper
   flag conductor
@@ -23816,6 +23838,7 @@ block cut_copper 25116 1 25116 WeatheringCopperFullBlock
   collision 1
   support 1
 block oxidized_chiseled_copper 25117 1 25117 WeatheringCopperFullBlock
+  field WeatheringCopperFullBlock.weatherState 3
   as_item oxidized_chiseled_copper
   waxed waxed_oxidized_chiseled_copper
   weathering_previous weathered_chiseled_copper
@@ -23843,6 +23866,7 @@ block oxidized_chiseled_copper 25117 1 25117 WeatheringCopperFullBlock
   collision 1
   support 1
 block weathered_chiseled_copper 25118 1 25118 WeatheringCopperFullBlock
+  field WeatheringCopperFullBlock.weatherState 2
   as_item weathered_chiseled_copper
   waxed waxed_weathered_chiseled_copper
   weathering_previous exposed_chiseled_copper
@@ -23870,6 +23894,7 @@ block weathered_chiseled_copper 25118 1 25118 WeatheringCopperFullBlock
   collision 1
   support 1
 block exposed_chiseled_copper 25119 1 25119 WeatheringCopperFullBlock
+  field WeatheringCopperFullBlock.weatherState 1
   as_item exposed_chiseled_copper
   waxed waxed_exposed_chiseled_copper
   weathering_previous chiseled_copper
@@ -23897,6 +23922,7 @@ block exposed_chiseled_copper 25119 1 25119 WeatheringCopperFullBlock
   collision 1
   support 1
 block chiseled_copper 25120 1 25120 WeatheringCopperFullBlock
+  field WeatheringCopperFullBlock.weatherState 0
   as_item chiseled_copper
   waxed waxed_chiseled_copper
   flag conductor
@@ -24031,6 +24057,7 @@ block oxidized_cut_copper_stairs 25125 80 25136 WeatheringCopperStairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field WeatheringCopperStairBlock.weatherState 3
   field StairBlock.base 1011
   as_item oxidized_cut_copper_stairs
   waxed waxed_oxidized_cut_copper_stairs
@@ -24063,6 +24090,7 @@ block weathered_cut_copper_stairs 25205 80 25216 WeatheringCopperStairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field WeatheringCopperStairBlock.weatherState 2
   field StairBlock.base 1012
   as_item weathered_cut_copper_stairs
   waxed waxed_weathered_cut_copper_stairs
@@ -24095,6 +24123,7 @@ block exposed_cut_copper_stairs 25285 80 25296 WeatheringCopperStairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field WeatheringCopperStairBlock.weatherState 1
   field StairBlock.base 1013
   as_item exposed_cut_copper_stairs
   waxed waxed_exposed_cut_copper_stairs
@@ -24127,6 +24156,7 @@ block cut_copper_stairs 25365 80 25376 WeatheringCopperStairBlock
   prop HALF
   prop STAIRS_SHAPE
   prop WATERLOGGED
+  field WeatheringCopperStairBlock.weatherState 0
   field StairBlock.base 1014
   as_item cut_copper_stairs
   waxed waxed_cut_copper_stairs
@@ -24156,6 +24186,7 @@ block cut_copper_stairs 25365 80 25376 WeatheringCopperStairBlock
 block oxidized_cut_copper_slab 25445 6 25448 WeatheringCopperSlabBlock
   prop SLAB_TYPE
   prop WATERLOGGED
+  field WeatheringCopperSlabBlock.weatherState 3
   as_item oxidized_cut_copper_slab
   waxed waxed_oxidized_cut_copper_slab
   weathering_previous weathered_cut_copper_slab
@@ -24186,6 +24217,7 @@ block oxidized_cut_copper_slab 25445 6 25448 WeatheringCopperSlabBlock
 block weathered_cut_copper_slab 25451 6 25454 WeatheringCopperSlabBlock
   prop SLAB_TYPE
   prop WATERLOGGED
+  field WeatheringCopperSlabBlock.weatherState 2
   as_item weathered_cut_copper_slab
   waxed waxed_weathered_cut_copper_slab
   weathering_previous exposed_cut_copper_slab
@@ -24216,6 +24248,7 @@ block weathered_cut_copper_slab 25451 6 25454 WeatheringCopperSlabBlock
 block exposed_cut_copper_slab 25457 6 25460 WeatheringCopperSlabBlock
   prop SLAB_TYPE
   prop WATERLOGGED
+  field WeatheringCopperSlabBlock.weatherState 1
   as_item exposed_cut_copper_slab
   waxed waxed_exposed_cut_copper_slab
   weathering_previous cut_copper_slab
@@ -24246,6 +24279,7 @@ block exposed_cut_copper_slab 25457 6 25460 WeatheringCopperSlabBlock
 block cut_copper_slab 25463 6 25466 WeatheringCopperSlabBlock
   prop SLAB_TYPE
   prop WATERLOGGED
+  field WeatheringCopperSlabBlock.weatherState 0
   as_item cut_copper_slab
   waxed waxed_cut_copper_slab
   flag conductor 000011
@@ -24726,6 +24760,7 @@ block copper_door 25821 64 25832 WeatheringCopperDoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field WeatheringCopperDoorBlock.weatherState 0
   field DoorBlock.type.canOpenByHand 1
   field DoorBlock.type.canOpenByWindCharge 1
   field DoorBlock.type.canButtonBeActivatedByArrows 0
@@ -24754,6 +24789,7 @@ block exposed_copper_door 25885 64 25896 WeatheringCopperDoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field WeatheringCopperDoorBlock.weatherState 1
   field DoorBlock.type.canOpenByHand 1
   field DoorBlock.type.canOpenByWindCharge 1
   field DoorBlock.type.canButtonBeActivatedByArrows 0
@@ -24783,6 +24819,7 @@ block oxidized_copper_door 25949 64 25960 WeatheringCopperDoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field WeatheringCopperDoorBlock.weatherState 3
   field DoorBlock.type.canOpenByHand 1
   field DoorBlock.type.canOpenByWindCharge 1
   field DoorBlock.type.canButtonBeActivatedByArrows 0
@@ -24812,6 +24849,7 @@ block weathered_copper_door 26013 64 26024 WeatheringCopperDoorBlock
   prop DOOR_HINGE
   prop OPEN
   prop POWERED
+  field WeatheringCopperDoorBlock.weatherState 2
   field DoorBlock.type.canOpenByHand 1
   field DoorBlock.type.canOpenByWindCharge 1
   field DoorBlock.type.canButtonBeActivatedByArrows 0
@@ -24953,6 +24991,7 @@ block copper_trapdoor 26333 64 26348 WeatheringCopperTrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field WeatheringCopperTrapDoorBlock.weatherState 0
   field TrapDoorBlock.type.canOpenByHand 1
   field TrapDoorBlock.type.canOpenByWindCharge 1
   field TrapDoorBlock.type.canButtonBeActivatedByArrows 0
@@ -24987,6 +25026,7 @@ block exposed_copper_trapdoor 26397 64 26412 WeatheringCopperTrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field WeatheringCopperTrapDoorBlock.weatherState 1
   field TrapDoorBlock.type.canOpenByHand 1
   field TrapDoorBlock.type.canOpenByWindCharge 1
   field TrapDoorBlock.type.canButtonBeActivatedByArrows 0
@@ -25022,6 +25062,7 @@ block oxidized_copper_trapdoor 26461 64 26476 WeatheringCopperTrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field WeatheringCopperTrapDoorBlock.weatherState 3
   field TrapDoorBlock.type.canOpenByHand 1
   field TrapDoorBlock.type.canOpenByWindCharge 1
   field TrapDoorBlock.type.canButtonBeActivatedByArrows 0
@@ -25057,6 +25098,7 @@ block weathered_copper_trapdoor 26525 64 26540 WeatheringCopperTrapDoorBlock
   prop OPEN
   prop POWERED
   prop WATERLOGGED
+  field WeatheringCopperTrapDoorBlock.weatherState 2
   field TrapDoorBlock.type.canOpenByHand 1
   field TrapDoorBlock.type.canOpenByWindCharge 1
   field TrapDoorBlock.type.canButtonBeActivatedByArrows 0
@@ -25224,6 +25266,7 @@ block waxed_weathered_copper_trapdoor 26781 64 26796 TrapDoorBlock
   support 59 59 59 59 99 99 99 99 59 59 59 59 100 100 100 100 61 61 61 61 99 99 99 99 61 61 61 61 100 100 100 100 60 60 60 60 99 99 99 99 60 60 60 60 100 100 100 100 58 58 58 58 99 99 99 99 58 58 58 58 100 100 100 100
 block copper_grate 26845 2 26846 WeatheringCopperGrateBlock
   prop WATERLOGGED
+  field WeatheringCopperGrateBlock.weatherState 0
   as_item copper_grate
   waxed waxed_copper_grate
   flag fluid 10
@@ -25251,6 +25294,7 @@ block copper_grate 26845 2 26846 WeatheringCopperGrateBlock
   support 1
 block exposed_copper_grate 26847 2 26848 WeatheringCopperGrateBlock
   prop WATERLOGGED
+  field WeatheringCopperGrateBlock.weatherState 1
   as_item exposed_copper_grate
   waxed waxed_exposed_copper_grate
   weathering_previous copper_grate
@@ -25279,6 +25323,7 @@ block exposed_copper_grate 26847 2 26848 WeatheringCopperGrateBlock
   support 1
 block weathered_copper_grate 26849 2 26850 WeatheringCopperGrateBlock
   prop WATERLOGGED
+  field WeatheringCopperGrateBlock.weatherState 2
   as_item weathered_copper_grate
   waxed waxed_weathered_copper_grate
   weathering_previous exposed_copper_grate
@@ -25307,6 +25352,7 @@ block weathered_copper_grate 26849 2 26850 WeatheringCopperGrateBlock
   support 1
 block oxidized_copper_grate 26851 2 26852 WeatheringCopperGrateBlock
   prop WATERLOGGED
+  field WeatheringCopperGrateBlock.weatherState 3
   as_item oxidized_copper_grate
   waxed waxed_oxidized_copper_grate
   weathering_previous weathered_copper_grate
@@ -25444,6 +25490,7 @@ block waxed_oxidized_copper_grate 26859 2 26860 WaterloggedTransparentBlock
 block copper_bulb 26861 4 26864 WeatheringCopperBulbBlock
   prop LIT
   prop POWERED
+  field WeatheringCopperBulbBlock.weatherState 0
   as_item copper_bulb
   waxed waxed_copper_bulb
   flag analog_output
@@ -25472,6 +25519,7 @@ block copper_bulb 26861 4 26864 WeatheringCopperBulbBlock
 block exposed_copper_bulb 26865 4 26868 WeatheringCopperBulbBlock
   prop LIT
   prop POWERED
+  field WeatheringCopperBulbBlock.weatherState 1
   as_item exposed_copper_bulb
   waxed waxed_exposed_copper_bulb
   weathering_previous copper_bulb
@@ -25501,6 +25549,7 @@ block exposed_copper_bulb 26865 4 26868 WeatheringCopperBulbBlock
 block weathered_copper_bulb 26869 4 26872 WeatheringCopperBulbBlock
   prop LIT
   prop POWERED
+  field WeatheringCopperBulbBlock.weatherState 2
   as_item weathered_copper_bulb
   waxed waxed_weathered_copper_bulb
   weathering_previous exposed_copper_bulb
@@ -25530,6 +25579,7 @@ block weathered_copper_bulb 26869 4 26872 WeatheringCopperBulbBlock
 block oxidized_copper_bulb 26873 4 26876 WeatheringCopperBulbBlock
   prop LIT
   prop POWERED
+  field WeatheringCopperBulbBlock.weatherState 3
   as_item oxidized_copper_bulb
   waxed waxed_oxidized_copper_bulb
   weathering_previous weathered_copper_bulb
@@ -25672,6 +25722,7 @@ block copper_chest 26893 24 26894 WeatheringCopperChestBlock
   prop HORIZONTAL_FACING
   prop CHEST_TYPE
   prop WATERLOGGED
+  field CopperChestBlock.weatherState 0
   as_item copper_chest
   waxed waxed_copper_chest
   entity chest
@@ -25692,6 +25743,7 @@ block exposed_copper_chest 26917 24 26918 WeatheringCopperChestBlock
   prop HORIZONTAL_FACING
   prop CHEST_TYPE
   prop WATERLOGGED
+  field CopperChestBlock.weatherState 1
   as_item exposed_copper_chest
   waxed waxed_exposed_copper_chest
   weathering_previous copper_chest
@@ -25713,6 +25765,7 @@ block weathered_copper_chest 26941 24 26942 WeatheringCopperChestBlock
   prop HORIZONTAL_FACING
   prop CHEST_TYPE
   prop WATERLOGGED
+  field CopperChestBlock.weatherState 2
   as_item weathered_copper_chest
   waxed waxed_weathered_copper_chest
   weathering_previous exposed_copper_chest
@@ -25734,6 +25787,7 @@ block oxidized_copper_chest 26965 24 26966 WeatheringCopperChestBlock
   prop HORIZONTAL_FACING
   prop CHEST_TYPE
   prop WATERLOGGED
+  field CopperChestBlock.weatherState 3
   as_item oxidized_copper_chest
   waxed waxed_oxidized_copper_chest
   weathering_previous weathered_copper_chest
@@ -25755,6 +25809,7 @@ block waxed_copper_chest 26989 24 26990 CopperChestBlock
   prop HORIZONTAL_FACING
   prop CHEST_TYPE
   prop WATERLOGGED
+  field CopperChestBlock.weatherState 0
   as_item waxed_copper_chest
   wax_off copper_chest
   entity chest
@@ -25775,6 +25830,7 @@ block waxed_exposed_copper_chest 27013 24 27014 CopperChestBlock
   prop HORIZONTAL_FACING
   prop CHEST_TYPE
   prop WATERLOGGED
+  field CopperChestBlock.weatherState 1
   as_item waxed_exposed_copper_chest
   wax_off exposed_copper_chest
   entity chest
@@ -25795,6 +25851,7 @@ block waxed_weathered_copper_chest 27037 24 27038 CopperChestBlock
   prop HORIZONTAL_FACING
   prop CHEST_TYPE
   prop WATERLOGGED
+  field CopperChestBlock.weatherState 2
   as_item waxed_weathered_copper_chest
   wax_off weathered_copper_chest
   entity chest
@@ -25815,6 +25872,7 @@ block waxed_oxidized_copper_chest 27061 24 27062 CopperChestBlock
   prop HORIZONTAL_FACING
   prop CHEST_TYPE
   prop WATERLOGGED
+  field CopperChestBlock.weatherState 3
   as_item waxed_oxidized_copper_chest
   wax_off oxidized_copper_chest
   entity chest
@@ -25835,6 +25893,7 @@ block copper_golem_statue 27085 32 27086 WeatheringCopperGolemStatueBlock
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
   prop WATERLOGGED
+  field CopperGolemStatueBlock.weatheringState 0
   as_item copper_golem_statue
   waxed waxed_copper_golem_statue
   entity copper_golem_statue
@@ -25851,6 +25910,7 @@ block exposed_copper_golem_statue 27117 32 27118 WeatheringCopperGolemStatueBloc
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
   prop WATERLOGGED
+  field CopperGolemStatueBlock.weatheringState 1
   as_item exposed_copper_golem_statue
   waxed waxed_exposed_copper_golem_statue
   weathering_previous copper_golem_statue
@@ -25868,6 +25928,7 @@ block weathered_copper_golem_statue 27149 32 27150 WeatheringCopperGolemStatueBl
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
   prop WATERLOGGED
+  field CopperGolemStatueBlock.weatheringState 2
   as_item weathered_copper_golem_statue
   waxed waxed_weathered_copper_golem_statue
   weathering_previous exposed_copper_golem_statue
@@ -25885,6 +25946,7 @@ block oxidized_copper_golem_statue 27181 32 27182 WeatheringCopperGolemStatueBlo
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
   prop WATERLOGGED
+  field CopperGolemStatueBlock.weatheringState 3
   as_item oxidized_copper_golem_statue
   waxed waxed_oxidized_copper_golem_statue
   weathering_previous weathered_copper_golem_statue
@@ -25902,6 +25964,7 @@ block waxed_copper_golem_statue 27213 32 27214 CopperGolemStatueBlock
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
   prop WATERLOGGED
+  field CopperGolemStatueBlock.weatheringState 0
   as_item waxed_copper_golem_statue
   wax_off copper_golem_statue
   entity copper_golem_statue
@@ -25918,6 +25981,7 @@ block waxed_exposed_copper_golem_statue 27245 32 27246 CopperGolemStatueBlock
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
   prop WATERLOGGED
+  field CopperGolemStatueBlock.weatheringState 1
   as_item waxed_exposed_copper_golem_statue
   wax_off exposed_copper_golem_statue
   entity copper_golem_statue
@@ -25934,6 +25998,7 @@ block waxed_weathered_copper_golem_statue 27277 32 27278 CopperGolemStatueBlock
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
   prop WATERLOGGED
+  field CopperGolemStatueBlock.weatheringState 2
   as_item waxed_weathered_copper_golem_statue
   wax_off weathered_copper_golem_statue
   entity copper_golem_statue
@@ -25950,6 +26015,7 @@ block waxed_oxidized_copper_golem_statue 27309 32 27310 CopperGolemStatueBlock
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
   prop WATERLOGGED
+  field CopperGolemStatueBlock.weatheringState 3
   as_item waxed_oxidized_copper_golem_statue
   wax_off oxidized_copper_golem_statue
   entity copper_golem_statue
@@ -25966,6 +26032,7 @@ block lightning_rod 27341 24 27360 WeatheringLightningRodBlock
   prop FACING
   prop POWERED
   prop WATERLOGGED
+  field WeatheringLightningRodBlock.weatherState 0
   as_item lightning_rod
   waxed waxed_lightning_rod
   flag fluid 101010101010101010101010
@@ -25979,6 +26046,7 @@ block exposed_lightning_rod 27365 24 27384 WeatheringLightningRodBlock
   prop FACING
   prop POWERED
   prop WATERLOGGED
+  field WeatheringLightningRodBlock.weatherState 1
   as_item exposed_lightning_rod
   waxed waxed_exposed_lightning_rod
   weathering_previous lightning_rod
@@ -25993,6 +26061,7 @@ block weathered_lightning_rod 27389 24 27408 WeatheringLightningRodBlock
   prop FACING
   prop POWERED
   prop WATERLOGGED
+  field WeatheringLightningRodBlock.weatherState 2
   as_item weathered_lightning_rod
   waxed waxed_weathered_lightning_rod
   weathering_previous exposed_lightning_rod
@@ -26007,6 +26076,7 @@ block oxidized_lightning_rod 27413 24 27432 WeatheringLightningRodBlock
   prop FACING
   prop POWERED
   prop WATERLOGGED
+  field WeatheringLightningRodBlock.weatherState 3
   as_item oxidized_lightning_rod
   waxed waxed_oxidized_lightning_rod
   weathering_previous weathered_lightning_rod
@@ -27272,6 +27342,7 @@ block pale_hanging_moss 29664 2 29664 HangingMossBlock
   collision 0
   support 0
 block open_eyeblossom 29666 1 29666 EyeblossomBlock
+  field EyeblossomBlock.type 0
   as_item open_eyeblossom
   flag drops
   flag fire_can_burn
@@ -27279,6 +27350,7 @@ block open_eyeblossom 29666 1 29666 EyeblossomBlock
   collision 0
   support 0
 block closed_eyeblossom 29667 1 29667 EyeblossomBlock
+  field EyeblossomBlock.type 1
   as_item closed_eyeblossom
   flag drops
   flag fire_can_burn
