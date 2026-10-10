@@ -239,6 +239,35 @@ state_id           fence_gate_update_shape(level & lv, state_id st, block_pos po
 interaction_result fence_gate_use_without_item(level & lv, state_id st, block_pos pos);
 void               fence_gate_neighbor_changed(level & lv, state_id st, block_pos pos);
 
+// BaseRailBlock and RailState
+struct rail_state {
+    block_pos              pos;
+    state_id               state;
+    bool                   is_straight;
+    std::vector<block_pos> connections;
+};
+
+bool       base_rail_is_rail(state_id st);
+bool       base_rail_is_straight(state_id st);
+prop_id    base_rail_get_shape_property(state_id st);
+bool       base_rail_can_survive(level & lv, block_pos pos);
+state_id   base_rail_update_dir(level & lv, block_pos pos, state_id st, bool first);
+state_id   base_rail_update_state(level & lv, state_id st, block_pos pos, bool moved_by_piston);
+void       base_rail_on_place(level & lv, state_id st, block_pos pos, state_id old, bool moved_by_piston);
+void       base_rail_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block, bool moved_by_piston);
+void       base_rail_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
+rail_state rail_state_init(state_id st, block_pos pos);
+int32_t    rail_state_count_potential_connections(level & lv, const rail_state & rs);
+void       rail_state_place(level & lv, rail_state & rs, bool has_signal, bool first, int32_t default_shape);
+
+// RailBlock, PoweredRailBlock, DetectorRailBlock
+void    rail_update_state(level & lv, state_id st, block_pos pos, int32_t block);
+void    powered_rail_update_state(level & lv, state_id st, block_pos pos);
+void    detector_rail_on_place(level & lv, state_id st, block_pos pos, state_id old, bool moved_by_piston);
+void    detector_rail_tick(level & lv, state_id st, block_pos pos);
+int32_t detector_rail_get_signal(state_id st);
+int32_t detector_rail_get_direct_signal(state_id st, direction dir);
+
 // DoorBlock
 bool               door_can_survive(level & lv, state_id st, block_pos pos);
 state_id           door_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);

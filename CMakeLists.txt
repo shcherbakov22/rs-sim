@@ -16,6 +16,7 @@ add_library(tmc STATIC
     blocks/amethyst-cluster.cpp
     blocks/barrel.cpp
     blocks/base-entity-block.cpp
+    blocks/base-rail.cpp
     blocks/base-torch.cpp
     blocks/beehive.cpp
     blocks/bell.cpp
@@ -30,6 +31,7 @@ add_library(tmc STATIC
     blocks/crafter.cpp
     blocks/cross-collision.cpp
     blocks/decorated-pot.cpp
+    blocks/detector-rail.cpp
     blocks/diode.cpp
     blocks/dispenser.cpp
     blocks/door.cpp
@@ -51,6 +53,9 @@ add_library(tmc STATIC
     blocks/piston-head.cpp
     blocks/piston-moving-block-entity.cpp
     blocks/piston-structure-resolver.cpp
+    blocks/powered-rail.cpp
+    blocks/rail-state.cpp
+    blocks/rail.cpp
     blocks/red-stone-wire.cpp
     blocks/redstone-lamp.cpp
     blocks/redstone-torch.cpp

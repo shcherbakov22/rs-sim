@@ -114,6 +114,7 @@ state_id block_update_shape(level &   lv,
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
         case VCLASS_SLAB_BLOCK:
         case VCLASS_TRAP_DOOR_BLOCK:
+        case VCLASS_BASE_RAIL_BLOCK:
             if (state_get(st, PROP_WATERLOGGED)) {
                 level_unsupported(lv, "fluids");
             }
@@ -185,6 +186,9 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
         case VCLASS_DOOR_BLOCK:
             door_neighbor_changed(lv, st, pos, block);
             break;
+        case VCLASS_BASE_RAIL_BLOCK:
+            base_rail_neighbor_changed(lv, st, pos, block, moved_by_piston);
+            break;
         case VCLASS_REDSTONE_TORCH_BLOCK:
             redstone_torch_neighbor_changed(lv, st, pos);
             break;
@@ -225,7 +229,6 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
 }
 
 void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool moved_by_piston) {
-    (void) moved_by_piston;
     switch (hook_owner(st, HOOK_ON_PLACE)) {
         case VCLASS_NONE:
             break;
@@ -250,6 +253,12 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
         case VCLASS_SHELF_BLOCK:
             shelf_on_place(lv, st, pos, old);
             break;
+        case VCLASS_BASE_RAIL_BLOCK:
+            base_rail_on_place(lv, st, pos, old, moved_by_piston);
+            break;
+        case VCLASS_DETECTOR_RAIL_BLOCK:
+            detector_rail_on_place(lv, st, pos, old, moved_by_piston);
+            break;
         default:
             hook_unsupported(lv, st, HOOK_ON_PLACE);
     }
@@ -264,6 +273,9 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
             break;
         case VCLASS_LEVER_BLOCK:
             lever_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
+            break;
+        case VCLASS_BASE_RAIL_BLOCK:
+            base_rail_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
             break;
         case VCLASS_LECTERN_BLOCK:
             lectern_affect_neighbors_after_removal(lv, st, pos);
@@ -318,6 +330,9 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             break;
         case VCLASS_LEAVES_BLOCK:
             leaves_tick(lv, st, pos);
+            break;
+        case VCLASS_DETECTOR_RAIL_BLOCK:
+            detector_rail_tick(lv, st, pos);
             break;
         case VCLASS_DIODE_BLOCK:
             diode_tick(lv, st, pos);
@@ -498,6 +513,7 @@ bool block_is_signal_source(level & lv, state_id st) {
         case VCLASS_POWERED_BLOCK:
         case VCLASS_OBSERVER_BLOCK:
         case VCLASS_TRAPPED_CHEST_BLOCK:
+        case VCLASS_DETECTOR_RAIL_BLOCK:
             return true;
         default:
             hook_unsupported(lv, st, HOOK_IS_SIGNAL_SOURCE);
@@ -531,6 +547,8 @@ int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) 
             return observer_get_signal(st, dir);
         case VCLASS_TRAPPED_CHEST_BLOCK:
             return trapped_chest_get_signal(lv, st, pos);
+        case VCLASS_DETECTOR_RAIL_BLOCK:
+            return detector_rail_get_signal(st);
         default:
             hook_unsupported(lv, st, HOOK_GET_SIGNAL);
             return 0;
@@ -556,6 +574,8 @@ int32_t block_get_direct_signal(level & lv, state_id st, block_pos pos, directio
             return block_get_signal(lv, st, pos, dir);
         case VCLASS_TRAPPED_CHEST_BLOCK:
             return trapped_chest_get_direct_signal(lv, st, pos, dir);
+        case VCLASS_DETECTOR_RAIL_BLOCK:
+            return detector_rail_get_direct_signal(st, dir);
         default:
             hook_unsupported(lv, st, HOOK_GET_DIRECT_SIGNAL);
             return 0;
@@ -576,6 +596,8 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return bell_can_survive(lv, st, pos);
         case VCLASS_DOOR_BLOCK:
             return door_can_survive(lv, st, pos);
+        case VCLASS_BASE_RAIL_BLOCK:
+            return base_rail_can_survive(lv, pos);
         case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
             return redstone_wall_torch_can_survive(lv, st, pos);
         case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
@@ -644,6 +666,9 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
             return copper_golem_statue_get_analog_output_signal(st);
         case VCLASS_CRAFTER_BLOCK:
             return crafter_get_analog_output_signal(lv, pos);
+        case VCLASS_DETECTOR_RAIL_BLOCK:
+            // only minecarts on a powered rail give an output
+            return 0;
         default:
             hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
             return 0;
