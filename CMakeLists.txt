@@ -32,6 +32,7 @@ add_library(tmc STATIC
     blocks/decorated-pot.cpp
     blocks/diode.cpp
     blocks/dispenser.cpp
+    blocks/door.cpp
     blocks/dropper.cpp
     blocks/ender-chest.cpp
     blocks/face-attached-horizontal-directional.cpp

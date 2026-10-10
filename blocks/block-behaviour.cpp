@@ -136,6 +136,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_LEAVES_BLOCK:
             result = leaves_update_shape(lv, st, pos, neighbor);
             break;
+        case VCLASS_DOOR_BLOCK:
+            result = door_update_shape(lv, st, pos, dir, neighbor);
+            break;
         case VCLASS_BELL_BLOCK:
             result = bell_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
@@ -178,6 +181,9 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
             break;
         case VCLASS_TRAP_DOOR_BLOCK:
             trap_door_neighbor_changed(lv, st, pos);
+            break;
+        case VCLASS_DOOR_BLOCK:
+            door_neighbor_changed(lv, st, pos, block);
             break;
         case VCLASS_REDSTONE_TORCH_BLOCK:
             redstone_torch_neighbor_changed(lv, st, pos);
@@ -438,6 +444,8 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return fence_gate_use_without_item(lv, st, pos);
         case VCLASS_TRAP_DOOR_BLOCK:
             return trap_door_use_without_item(lv, st, pos);
+        case VCLASS_DOOR_BLOCK:
+            return door_use_without_item(lv, st, pos);
         case VCLASS_FENCE_BLOCK:
             // LeadItem.bindPlayerMobs: no mob is ever leashed to the virtual player
             return INTERACTION_RESULT_PASS;
@@ -566,6 +574,8 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return red_stone_wire_can_survive(lv, pos);
         case VCLASS_BELL_BLOCK:
             return bell_can_survive(lv, st, pos);
+        case VCLASS_DOOR_BLOCK:
+            return door_can_survive(lv, st, pos);
         case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
             return redstone_wall_torch_can_survive(lv, st, pos);
         case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:

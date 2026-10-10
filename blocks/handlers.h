@@ -239,6 +239,12 @@ state_id           fence_gate_update_shape(level & lv, state_id st, block_pos po
 interaction_result fence_gate_use_without_item(level & lv, state_id st, block_pos pos);
 void               fence_gate_neighbor_changed(level & lv, state_id st, block_pos pos);
 
+// DoorBlock
+bool               door_can_survive(level & lv, state_id st, block_pos pos);
+state_id           door_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
+interaction_result door_use_without_item(level & lv, state_id st, block_pos pos);
+void               door_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block);
+
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 
