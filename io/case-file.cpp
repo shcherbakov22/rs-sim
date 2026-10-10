@@ -2,17 +2,16 @@
 
 #include "engine/level-ticks.h"
 
+#include <algorithm>
 #include <charconv>
 #include <map>
 
 static std::vector<std::string_view> split_ws(std::string_view line) {
     std::vector<std::string_view> out;
     size_t                        i = 0;
-    while (i < line.size()) {
-        while (i < line.size() && (line[i] == ' ' || line[i] == '\t')) i++;
-        size_t j = i;
-        while (j < line.size() && line[j] != ' ' && line[j] != '\t') j++;
-        if (j > i) out.push_back(line.substr(i, j - i));
+    while ((i = line.find_first_not_of(" \t", i)) != std::string_view::npos) {
+        size_t j = std::min(line.find_first_of(" \t", i), line.size());
+        out.push_back(line.substr(i, j - i));
         i = j;
     }
     return out;

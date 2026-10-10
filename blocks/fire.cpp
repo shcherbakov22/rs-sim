@@ -251,10 +251,7 @@ state_id base_fire_get_state(level & lv, block_pos pos) {
 static bool base_fire_is_portal(level & lv, block_pos pos, direction forward) {
     bool has_obsidian = false;
     for (int32_t d = 0; d < 6; d++) {
-        if (state_is(level_get_state(lv, pos_relative(pos, (direction) d)), BLOCK_OBSIDIAN)) {
-            has_obsidian = true;
-            break;
-        }
+        has_obsidian |= state_is(level_get_state(lv, pos_relative(pos, (direction) d)), BLOCK_OBSIDIAN);
     }
     if (!has_obsidian) return false;
     direction_axis axis;

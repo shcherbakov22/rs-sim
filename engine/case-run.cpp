@@ -200,23 +200,16 @@ static const char * const case_verb_names[] = { "place", "break", "pull" };
 
 // Inputs.apply: a pull flips a lever like LeverBlock.useWithoutItem and does nothing to other blocks
 static void case_apply_input(level & lv, const case_input & in) {
-    std::string text = std::string("input ") + case_verb_names[in.verb] + " " + std::to_string(in.pos.x) + " " +
-                       std::to_string(in.pos.y) + " " + std::to_string(in.pos.z);
-    if (in.verb == CASE_VERB_PLACE) text += " " + state_to_string(in.state);
-    trace_enter(lv.tr, nullptr, "%s", text.c_str());
-    switch (in.verb) {
-        case CASE_VERB_PLACE:
-            level_set_block(lv, in.pos, in.state, UPDATE_FLAG_ALL_IMMEDIATE);
-            break;
-        case CASE_VERB_BREAK:
-            level_destroy_block(lv, in.pos, false);
-            break;
-        case CASE_VERB_PULL:
-            {
-                state_id st = level_get_state(lv, in.pos);
-                if (block_instanceof(state_block(st), VCLASS_LEVER_BLOCK)) lever_pull(lv, st, in.pos);
-            }
-            break;
+    std::string placed = in.verb == CASE_VERB_PLACE ? " " + state_to_string(in.state) : "";
+    trace_enter(lv.tr, nullptr, "input %s %d %d %d%s", case_verb_names[in.verb], in.pos.x, in.pos.y, in.pos.z,
+                placed.c_str());
+    state_id st = level_get_state(lv, in.pos);
+    if (in.verb == CASE_VERB_PLACE) {
+        level_set_block(lv, in.pos, in.state, UPDATE_FLAG_ALL_IMMEDIATE);
+    } else if (in.verb == CASE_VERB_BREAK) {
+        level_destroy_block(lv, in.pos, false);
+    } else if (block_instanceof(state_block(st), VCLASS_LEVER_BLOCK)) {
+        lever_pull(lv, st, in.pos);
     }
     trace_exit(lv.tr);
 }
