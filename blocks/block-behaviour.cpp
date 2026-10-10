@@ -86,6 +86,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_ENDER_CHEST_BLOCK:
             result = ender_chest_update_shape(lv, st);
             break;
+        case VCLASS_COPPER_CHEST_BLOCK:
+            result = copper_chest_update_shape(lv, st, dir, neighbor);
+            break;
         case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
             result = face_attached_horizontal_directional_update_shape(lv, st, pos, dir);
             break;
@@ -464,5 +467,17 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos) {
         default:
             hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
             return 0;
+    }
+}
+
+bool block_should_changed_state_keep_block_entity(level & lv, state_id st, state_id old) {
+    switch (hook_owner(st, HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY)) {
+        case VCLASS_NONE:
+            return false;
+        case VCLASS_COPPER_CHEST_BLOCK:
+            return state_has(old, STATE_FLAG_TAG_COPPER_CHESTS);
+        default:
+            hook_unsupported(lv, st, HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY);
+            return false;
     }
 }

@@ -59,6 +59,7 @@ int32_t            block_get_signal(level & lv, state_id st, block_pos pos, dire
 int32_t            block_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir);
 bool               block_can_survive(level & lv, state_id st, block_pos pos);
 int32_t            block_get_analog_output_signal(level & lv, state_id st, block_pos pos);
+bool               block_should_changed_state_keep_block_entity(level & lv, state_id st, state_id old);
 
 // BlockStateBase.updateNeighbourShapes
 void block_update_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit);

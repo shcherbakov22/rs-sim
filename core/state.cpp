@@ -184,3 +184,15 @@ bool state_parse(std::string_view text, state_id & out, std::string & err) {
     out = (state_id) (b.state_first + index);
     return true;
 }
+
+state_id block_with_properties_of(int32_t block, state_id st) {
+    state_id          out = block_default(block);
+    const block_def & b   = block_defs[block];
+    for (int32_t i = 0; i < b.n_props; i++) {
+        prop_id prop = (prop_id) block_props[b.props_first + i].prop;
+        if (state_has_prop(st, prop)) {
+            out = state_set(out, prop, state_get(st, prop));
+        }
+    }
+    return out;
+}

@@ -94,9 +94,6 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
     if (type < 0) {
         return nullptr;
     }
-    // copper chests share the chest type but override parts of ChestBlock
-    int32_t cls       = block_defs[state_block(st)].cls;
-    bool    chest     = cls == VCLASS_CHEST_BLOCK || cls == VCLASS_TRAPPED_CHEST_BLOCK;
     int32_t n_items   = 0;
     bool    supported = true;
     switch (type) {
@@ -105,9 +102,6 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
             break;
         case BLOCK_ENTITY_TYPE_CHEST:
         case BLOCK_ENTITY_TYPE_TRAPPED_CHEST:
-            supported = chest;
-            n_items   = 27;
-            break;
         case BLOCK_ENTITY_TYPE_BARREL:
             n_items = 27;
             break;
@@ -235,7 +229,8 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
     int32_t block           = state_block(st);
     bool    block_changed   = state_block(old) != block;
     bool    moved_by_piston = (flags & UPDATE_FLAG_MOVE_BY_PISTON) != 0;
-    if (block_changed && state_has(old, STATE_FLAG_BLOCK_ENTITY)) {
+    if (block_changed && state_has(old, STATE_FLAG_BLOCK_ENTITY) &&
+        !block_should_changed_state_keep_block_entity(lv, st, old)) {
         if ((flags & UPDATE_FLAG_SKIP_BLOCK_ENTITY_SIDEEFFECTS) == 0) {
             // BlockEntity.preRemoveSideEffects: containers drop their items, moving pistons finish their move
             block_entity * be = level_get_block_entity(lv, pos);

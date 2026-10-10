@@ -125,6 +125,7 @@ void hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st,
 // ChestBlock
 bool     chest_get_container(level & lv, state_id st, block_pos pos, bool ignore_being_blocked, container & out);
 state_id chest_update_shape(level & lv, state_id st, direction dir, state_id neighbor);
+state_id copper_chest_update_shape(level & lv, state_id st, direction dir, state_id neighbor);
 int32_t  chest_get_analog_output_signal(level & lv, state_id st, block_pos pos);
 void     chest_tick(level & lv, block_pos pos);
 

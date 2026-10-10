@@ -54,13 +54,20 @@ bool chest_get_container(level & lv, state_id st, block_pos pos, bool ignore_bei
     return true;
 }
 
+// virtual: copper chests connect to any copper chest
+static bool chest_can_connect_to(state_id st, state_id neighbor) {
+    if (block_instanceof(state_block(st), VCLASS_COPPER_CHEST_BLOCK)) {
+        return state_has(neighbor, STATE_FLAG_TAG_COPPER_CHESTS) && state_has_prop(neighbor, PROP_CHEST_TYPE);
+    }
+    return state_is(neighbor, state_block(st));
+}
+
 state_id chest_update_shape(level & lv, state_id st, direction dir, state_id neighbor) {
     if (state_get(st, PROP_WATERLOGGED)) {
         level_unsupported(lv, "fluids");
         return st;
     }
-    // chestCanConnectTo: the same block
-    if (state_is(neighbor, state_block(st)) && direction_is_horizontal(dir)) {
+    if (chest_can_connect_to(st, neighbor) && direction_is_horizontal(dir)) {
         chest_type neighbor_type = chest_get_type(neighbor);
         if (chest_get_type(st) == CHEST_TYPE_SINGLE && neighbor_type != CHEST_TYPE_SINGLE &&
             chest_facing(st) == chest_facing(neighbor) &&
@@ -73,6 +80,16 @@ state_id chest_update_shape(level & lv, state_id st, direction dir, state_id nei
         return state_set(st, PROP_CHEST_TYPE, CHEST_TYPE_SINGLE);
     }
     return st;
+}
+
+// CopperChestBlock.updateShape: a double copper chest takes on the block of its other half
+state_id copper_chest_update_shape(level & lv, state_id st, direction dir, state_id neighbor) {
+    state_id result = chest_update_shape(lv, st, dir, neighbor);
+    if (chest_can_connect_to(st, neighbor) && chest_get_type(result) != CHEST_TYPE_SINGLE &&
+        chest_get_connected_direction(result) == dir) {
+        return block_with_properties_of(state_block(neighbor), result);
+    }
+    return result;
 }
 
 int32_t chest_get_analog_output_signal(level & lv, state_id st, block_pos pos) {
