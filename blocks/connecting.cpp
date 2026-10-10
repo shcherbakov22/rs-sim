@@ -1,7 +1,6 @@
 // Connecting blocks: fences, iron bars and panes, walls and stairs fit their shape to their neighbors
 
 #include "blocks/handlers.h"
-#include "core/voxel-shape.h"
 #include "engine/level.h"
 
 // CrossCollisionBlock.PROPERTY_BY_DIRECTION and WallBlock's, indexed by direction
@@ -58,25 +57,21 @@ static state_id iron_bars_update_shape(level &  lv,
 
 // WallBlock: sides connect like bars; the block above decides tall sides and the post
 
-static bool wall_is_covered(const voxel_shape & above_shape, const voxel_shape & test_shape) {
-    return !shapes_join_is_not_empty(test_shape, above_shape, BOOLEAN_OP_ONLY_FIRST);
-}
-
 // TEST_SHAPES_WALL: a 2 wide strip from the center to the side, full height
-static voxel_shape wall_test_shape_wall(direction dir) {
+static shape_box wall_test_shape_wall(direction dir) {
     switch (dir) {
         case DIRECTION_NORTH:
-            return shapes_box(7.0 / 16, 0.0, 0.0, 9.0 / 16, 1.0, 9.0 / 16);
+            return block_box(7, 0, 0, 9, 16, 9);
         case DIRECTION_EAST:
-            return shapes_box(7.0 / 16, 0.0, 7.0 / 16, 1.0, 1.0, 9.0 / 16);
+            return block_box(7, 0, 7, 16, 16, 9);
         case DIRECTION_SOUTH:
-            return shapes_box(7.0 / 16, 0.0, 7.0 / 16, 9.0 / 16, 1.0, 1.0);
+            return block_box(7, 0, 7, 9, 16, 16);
         default:
-            return shapes_box(0.0, 0.0, 7.0 / 16, 9.0 / 16, 1.0, 9.0 / 16);
+            return block_box(0, 0, 7, 9, 16, 9);
     }
 }
 
-static bool wall_should_raise_post(state_id st, state_id top, const voxel_shape & above_shape) {
+static bool wall_should_raise_post(state_id st, state_id top, const shape_face & above_shape) {
     if (block_instanceof(state_block(top), VCLASS_WALL_BLOCK) && state_get(top, PROP_UP)) {
         return true;
     }
@@ -99,7 +94,7 @@ static bool wall_should_raise_post(state_id st, state_id top, const voxel_shape 
         return false;
     }
     return state_has(top, STATE_FLAG_TAG_WALL_POST_OVERRIDE) ||
-           wall_is_covered(above_shape, shapes_box(7.0 / 16, 0.0, 7.0 / 16, 9.0 / 16, 1.0, 9.0 / 16));
+           shape_face_covers(above_shape, block_box(7, 0, 7, 9, 16, 9));
 }
 
 // the private WallBlock.updateShape: connected[] is indexed by direction
@@ -108,11 +103,11 @@ static state_id wall_update_shape_from(level &    lv,
                                        block_pos  top_pos,
                                        state_id   top,
                                        const bool connected[6]) {
-    voxel_shape above_shape = voxel_shape_get_face_shape(block_get_collision_shape(lv, top, top_pos), DIRECTION_DOWN);
+    shape_face above_shape = shape_get_face(block_get_collision_shape(lv, top, top_pos), DIRECTION_DOWN);
     for (direction dir : DIRECTION_HORIZONTAL) {
         int32_t side = WALL_SIDE_NONE;
         if (connected[dir]) {
-            side = wall_is_covered(above_shape, wall_test_shape_wall(dir)) ? WALL_SIDE_TALL : WALL_SIDE_LOW;
+            side = shape_face_covers(above_shape, wall_test_shape_wall(dir)) ? WALL_SIDE_TALL : WALL_SIDE_LOW;
         }
         st = state_set(st, WALL_PROPERTY_BY_DIRECTION[dir], side);
     }

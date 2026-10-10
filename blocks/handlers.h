@@ -1,7 +1,6 @@
 #pragma once
 
 #include "blocks/block-behaviour.h"
-#include "core/voxel-shape.h"
 #include "engine/block-entity.h"
 
 #include <vector>
@@ -94,7 +93,7 @@ bool      attached_can_survive(level & lv, state_id st, block_pos pos);
 void lever_pull(level & lv, state_id st, block_pos pos);
 
 // MovingPistonBlock
-voxel_shape moving_piston_get_collision_shape(level & lv, block_pos pos);
+shape moving_piston_get_collision_shape(level & lv, block_pos pos);
 
 // PistonMovingBlockEntity
 void piston_moving_block_entity_final_tick(level & lv, block_entity * be);

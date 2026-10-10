@@ -26,9 +26,9 @@ add_library(tmc STATIC
     blocks/redstone.cpp
     blocks/terrain.cpp
     core/rng.cpp
+    core/shape.cpp
     core/state.cpp
     core/trace.cpp
-    core/voxel-shape.cpp
     engine/case-run.cpp
     engine/java-hash-map.cpp
     engine/level-ticks.cpp

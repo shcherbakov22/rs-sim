@@ -100,43 +100,42 @@ static const block_hooks * block_hooks_for(level & lv, state_id st, hook h) {
     return b;
 }
 
-bool support_type_is_supporting(const voxel_shape & support_shape, direction dir, support_type type) {
-    voxel_shape face = voxel_shape_get_face_shape(support_shape, dir);
+// the face covers the support shape of the type: CENTER is Block.column(2.0, 0.0, 10.0), RIGID is a full block
+// without Block.column(12.0, 0.0, 16.0)
+bool support_type_is_supporting(const shape & support_shape, direction dir, support_type type) {
+    static const shape_box center  = block_box(7, 0, 7, 9, 10, 9);
+    static const shape_box rigid[] = { block_box(0, 0, 0, 2, 16, 16), block_box(14, 0, 0, 16, 16, 16),
+                                       block_box(2, 0, 0, 14, 16, 2), block_box(2, 0, 14, 14, 16, 16) };
+    shape_face             face    = shape_get_face(support_shape, dir);
     switch (type) {
         case SUPPORT_TYPE_FULL:
-            // Block.isFaceFull
-            return !shapes_join_is_not_empty(shapes_block(), face, BOOLEAN_OP_NOT_SAME);
+            return shape_face_is_full(face);
         case SUPPORT_TYPE_CENTER:
-            {
-                // Block.column(2.0, 0.0, 10.0)
-                static const voxel_shape center = shapes_box(7.0 / 16, 0.0, 7.0 / 16, 9.0 / 16, 10.0 / 16, 9.0 / 16);
-                return !shapes_join_is_not_empty(face, center, BOOLEAN_OP_ONLY_SECOND);
-            }
+            return shape_face_covers(face, center);
         case SUPPORT_TYPE_RIGID:
-            {
-                // Block.column(12.0, 0.0, 16.0) cut out of a full block
-                static const voxel_shape rigid =
-                    shapes_join(shapes_block(), shapes_box(2.0 / 16, 0.0, 2.0 / 16, 14.0 / 16, 1.0, 14.0 / 16),
-                                BOOLEAN_OP_ONLY_FIRST);
-                return !shapes_join_is_not_empty(face, rigid, BOOLEAN_OP_ONLY_SECOND);
+            for (const shape_box & b : rigid) {
+                if (!shape_face_covers(face, b)) {
+                    return false;
+                }
             }
+            return true;
     }
     TMC_ASSERT(false);
     return false;
 }
 
 // BlockState.getCollisionShape with the empty collision context
-voxel_shape block_get_collision_shape(level & lv, state_id st, block_pos pos) {
+shape block_get_collision_shape(level & lv, state_id st, block_pos pos) {
     if (state_collision_shapes[st] != SHAPE_NONE) {
-        return voxel_shape_collision(st);
+        return shape_collision(st);
     }
     // a shulker box never opens without players, and a closed box is a full block
     if (block_instanceof(state_block(st), VCLASS_SHULKER_BOX_BLOCK)) {
-        return shapes_block();
+        return shape_block();
     }
     if (!state_is(st, BLOCK_MOVING_PISTON)) {
         level_unsupported(lv, "dynamic shape of %s", state_to_string(st).c_str());
-        return voxel_shape();
+        return {};
     }
     return moving_piston_get_collision_shape(lv, pos);
 }

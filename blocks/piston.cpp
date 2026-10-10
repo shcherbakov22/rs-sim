@@ -262,10 +262,10 @@ static float piston_moving_block_entity_get_extended_progress(const block_entity
 }
 
 // the moved block at its current offset; a retracting piston also has its base, and a moving head the short arm
-static voxel_shape piston_moving_block_entity_get_collision_shape(level & lv, const block_entity * be) {
-    voxel_shape head_shape;
+static shape piston_moving_block_entity_get_collision_shape(level & lv, const block_entity * be) {
+    shape out;
     if (!be->extending && be->is_source_piston && piston_base_is_piston(be->moved_state)) {
-        head_shape = voxel_shape_collision(state_set(be->moved_state, PROP_EXTENDED, 1));
+        out = shape_collision(state_set(be->moved_state, PROP_EXTENDED, 1));
     }
     // NOCLIP is set only while entities move
     state_id st = be->moved_state;
@@ -275,13 +275,14 @@ static voxel_shape piston_moving_block_entity_get_collision_shape(level & lv, co
     }
     if (state_collision_shapes[st] == SHAPE_NONE) {
         level_unsupported(lv, "dynamic shape of %s", state_to_string(st).c_str());
-        return voxel_shape();
+        return {};
     }
     float             extended_progress = piston_moving_block_entity_get_extended_progress(be, be->progress);
     const block_pos & step              = direction_defs[be->dir].step;
-    voxel_shape       moved             = voxel_shape_move(voxel_shape_collision(st), step.x * extended_progress,
-                                                           step.y * extended_progress, step.z * extended_progress);
-    return shapes_join(head_shape, moved, BOOLEAN_OP_OR);
+    shape             moved = shape_move(shape_collision(st), step.x * extended_progress, step.y * extended_progress,
+                                         step.z * extended_progress);
+    out.boxes.insert(out.boxes.end(), moved.boxes.begin(), moved.boxes.end());
+    return out;
 }
 
 // Ends the move at once: the moved block lands in its new place.
@@ -337,9 +338,9 @@ static block_entity * moving_piston_get_block_entity(level & lv, state_id st, bl
                                                nullptr;
 }
 
-voxel_shape moving_piston_get_collision_shape(level & lv, block_pos pos) {
+shape moving_piston_get_collision_shape(level & lv, block_pos pos) {
     block_entity * be = moving_piston_get_block_entity(lv, level_get_state(lv, pos), pos);
-    return be != nullptr ? piston_moving_block_entity_get_collision_shape(lv, be) : voxel_shape();
+    return be != nullptr ? piston_moving_block_entity_get_collision_shape(lv, be) : shape();
 }
 
 // the moving piston that stands in for a moved block, or for the base or arm of a retracting or extending piston

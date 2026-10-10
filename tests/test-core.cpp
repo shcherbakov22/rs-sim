@@ -115,13 +115,13 @@ static void test_java_hash_map() {
 }
 
 // the face logic against vanilla's cached isFaceSturdy answers for every state with a fixed shape
-static void test_voxel_shape_support() {
+static void test_shape_support() {
     int32_t wrong = 0;
     for (int32_t st = 0; st < n_states; st++) {
         if (state_support_shapes[st] == SHAPE_NONE) {
             continue;
         }
-        voxel_shape support = voxel_shape_from_table(state_support_shapes[st]);
+        shape support = shape_from_table(state_support_shapes[st]);
         for (int32_t type = 0; type < 3; type++) {
             for (int32_t dir = 0; dir < 6; dir++) {
                 bool expected = (state_flags[st] & STATE_FLAG_STURDY_FULL_DOWN << (type * 6 + dir)) != 0;
@@ -140,7 +140,7 @@ int main() {
     test_rng();
     test_states();
     test_java_hash_map();
-    test_voxel_shape_support();
+    test_shape_support();
     if (n_fail > 0) {
         fprintf(stderr, "%d checks failed\n", n_fail);
         return 1;

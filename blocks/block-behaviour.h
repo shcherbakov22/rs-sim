@@ -2,8 +2,8 @@
 
 #include "core/direction.h"
 #include "core/item-stack.h"
+#include "core/shape.h"
 #include "core/state.h"
-#include "core/voxel-shape.h"
 
 struct level;
 
@@ -20,11 +20,11 @@ enum support_type {
 };
 
 // SupportType.isSupporting
-bool        support_type_is_supporting(const voxel_shape & support_shape, direction dir, support_type type);
+bool  support_type_is_supporting(const shape & support_shape, direction dir, support_type type);
 // BlockStateBase.isFaceSturdy
-voxel_shape block_get_collision_shape(level & lv, state_id st, block_pos pos);
-bool        block_is_face_sturdy(level & lv, state_id st, block_pos pos, direction dir, support_type type);
-bool        block_can_support_center(level & lv, block_pos pos, direction dir);
+shape block_get_collision_shape(level & lv, state_id st, block_pos pos);
+bool  block_is_face_sturdy(level & lv, state_id st, block_pos pos, direction dir, support_type type);
+bool  block_can_support_center(level & lv, block_pos pos, direction dir);
 
 // The BlockBehaviour methods one vanilla class overrides, one signature per hook. A hook the class overrides in
 // vanilla but leaves null here stops the run as unsupported.
