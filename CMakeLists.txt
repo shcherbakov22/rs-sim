@@ -17,6 +17,7 @@ add_library(tmc STATIC
     blocks/amethyst-cluster.cpp
     blocks/barrel.cpp
     blocks/base-entity-block.cpp
+    blocks/base-pressure-plate.cpp
     blocks/base-rail.cpp
     blocks/base-torch.cpp
     blocks/beehive.cpp
@@ -65,6 +66,7 @@ add_library(tmc STATIC
     blocks/piston-moving-block-entity.cpp
     blocks/piston-structure-resolver.cpp
     blocks/powered-rail.cpp
+    blocks/pressure-plate.cpp
     blocks/rail-state.cpp
     blocks/rail.cpp
     blocks/red-stone-wire.cpp
@@ -79,6 +81,7 @@ add_library(tmc STATIC
     blocks/trapped-chest.cpp
     blocks/wall-torch.cpp
     blocks/wall.cpp
+    blocks/weighted-pressure-plate.cpp
     core/rng.cpp
     core/state.cpp
     core/trace.cpp

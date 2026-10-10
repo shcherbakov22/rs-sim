@@ -324,6 +324,22 @@ interaction_result note_block_use_without_item(level & lv, state_id st, block_po
 void               note_block_attack(level & lv, state_id st, block_pos pos);
 bool               note_block_trigger_event(level & lv, state_id st);
 
+// BasePressurePlateBlock
+state_id base_pressure_plate_update_shape(level & lv, state_id st, block_pos pos, direction dir);
+bool     base_pressure_plate_can_survive(level & lv, block_pos pos);
+void     base_pressure_plate_tick(level & lv, state_id st, block_pos pos);
+void base_pressure_plate_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
+int32_t base_pressure_plate_get_signal(state_id st);
+int32_t base_pressure_plate_get_direct_signal(state_id st, direction dir);
+
+// PressurePlateBlock
+int32_t  pressure_plate_get_signal_for_state(state_id st);
+state_id pressure_plate_set_signal_for_state(state_id st, int32_t signal);
+
+// WeightedPressurePlateBlock
+int32_t  weighted_pressure_plate_get_signal_for_state(state_id st);
+state_id weighted_pressure_plate_set_signal_for_state(state_id st, int32_t signal);
+
 // ComposterBlock
 void               composter_on_place(level & lv, state_id st, block_pos pos);
 interaction_result composter_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
