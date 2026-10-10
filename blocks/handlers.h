@@ -198,6 +198,15 @@ interaction_result shelf_use_item_on(level & lv, state_id st, block_pos pos, dir
 int32_t            beehive_get_analog_output_signal(state_id st);
 interaction_result beehive_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
 
+// CopperGolemStatueBlock, WeatheringCopperGolemStatueBlock
+int32_t            copper_golem_statue_get_analog_output_signal(state_id st);
+state_id           copper_golem_statue_update_shape(level & lv, state_id st);
+interaction_result copper_golem_statue_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
+interaction_result weathering_copper_golem_statue_use_item_on(level &            lv,
+                                                              state_id           st,
+                                                              block_pos          pos,
+                                                              const item_stack & stack);
+
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 

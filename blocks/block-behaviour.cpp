@@ -108,6 +108,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_BEEHIVE_BLOCK:
             // a fire beside an empty hive has no bees to drive out
             break;
+        case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
+            result = copper_golem_statue_update_shape(lv, st);
+            break;
         case VCLASS_BELL_BLOCK:
             result = bell_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
@@ -246,6 +249,9 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
         case VCLASS_SHELF_BLOCK:
             shelf_affect_neighbors_after_removal(lv, st, pos);
             break;
+        case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
+            level_update_neighbour_for_output_signal(lv, pos, state_block(st));
+            break;
         case VCLASS_CHEST_BLOCK:
         case VCLASS_HOPPER_BLOCK:
         case VCLASS_BARREL_BLOCK:
@@ -362,6 +368,10 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, dir
             return shelf_use_item_on(lv, st, pos, face, stack);
         case VCLASS_BEEHIVE_BLOCK:
             return beehive_use_item_on(lv, st, pos, stack);
+        case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
+            return copper_golem_statue_use_item_on(lv, st, pos, stack);
+        case VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK:
+            return weathering_copper_golem_statue_use_item_on(lv, st, pos, stack);
         default:
             hook_unsupported(lv, st, HOOK_USE_ITEM_ON);
             return INTERACTION_RESULT_PASS;
@@ -573,6 +583,8 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
             return shelf_get_analog_output_signal(lv, st, pos, dir);
         case VCLASS_BEEHIVE_BLOCK:
             return beehive_get_analog_output_signal(st);
+        case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
+            return copper_golem_statue_get_analog_output_signal(st);
         case VCLASS_CRAFTER_BLOCK:
             return crafter_get_analog_output_signal(lv, pos);
         default:
@@ -587,6 +599,8 @@ bool block_should_changed_state_keep_block_entity(level & lv, state_id st, state
             return false;
         case VCLASS_COPPER_CHEST_BLOCK:
             return state_has(old, STATE_FLAG_TAG_COPPER_CHESTS);
+        case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
+            return state_has(old, STATE_FLAG_TAG_COPPER_GOLEM_STATUES);
         default:
             hook_unsupported(lv, st, HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY);
             return false;
