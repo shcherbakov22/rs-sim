@@ -491,26 +491,10 @@ void block_spawn_after_break(level & lv, state_id st, block_pos pos) {
     }
 }
 
+// BlockState.isSignalSource; redstone wire turns it off while it computes its own power
 bool block_is_signal_source(level & lv, state_id st) {
-    switch (hook_owner(st, HOOK_IS_SIGNAL_SOURCE)) {
-        case VCLASS_NONE:
-            return false;
-        case VCLASS_RED_STONE_WIRE_BLOCK:
-            return lv.red_stone_wire_should_signal;
-        case VCLASS_LEVER_BLOCK:
-        case VCLASS_JUKEBOX_BLOCK:
-        case VCLASS_REDSTONE_TORCH_BLOCK:
-        case VCLASS_DIODE_BLOCK:
-        case VCLASS_POWERED_BLOCK:
-        case VCLASS_OBSERVER_BLOCK:
-        case VCLASS_TRAPPED_CHEST_BLOCK:
-        case VCLASS_LIGHTNING_ROD_BLOCK:
-        case VCLASS_TARGET_BLOCK:
-            return true;
-        default:
-            hook_unsupported(lv, st, HOOK_IS_SIGNAL_SOURCE);
-            return false;
-    }
+    return state_has(st, STATE_FLAG_SIGNAL_SOURCE) &&
+           (lv.red_stone_wire_should_signal || !state_is(st, BLOCK_REDSTONE_WIRE));
 }
 
 int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) {
