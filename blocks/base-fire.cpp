@@ -25,7 +25,6 @@ void base_fire_on_place(level & lv, state_id st, block_pos pos, state_id old) {
     }
 }
 
-// the forward direction is a player's horizontal direction, so vanilla's random axis for a vertical one never runs
 static bool base_fire_is_portal(level & lv, block_pos pos, direction forward) {
     bool has_obsidian = false;
     for (int32_t d = 0; d < 6; d++) {
@@ -37,9 +36,15 @@ static bool base_fire_is_portal(level & lv, block_pos pos, direction forward) {
     if (!has_obsidian) {
         return false;
     }
+    direction_axis axis;
+    if (direction_is_horizontal(forward)) {
+        axis = direction_get_axis(direction_counter_clockwise(forward));
+    } else {
+        // Direction.Plane.HORIZONTAL.getRandomAxis: a dispenser facing up or down
+        axis = rng_next_int(lv.random, 2) == 0 ? DIRECTION_AXIS_X : DIRECTION_AXIS_Z;
+    }
     portal_shape shape;
-    return portal_shape_find_empty_portal_shape(lv, pos, direction_get_axis(direction_counter_clockwise(forward)),
-                                                shape);
+    return portal_shape_find_empty_portal_shape(lv, pos, axis, shape);
 }
 
 bool base_fire_can_be_placed_at(level & lv, block_pos pos, direction forward) {
