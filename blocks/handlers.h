@@ -340,6 +340,11 @@ state_id pressure_plate_set_signal_for_state(state_id st, int32_t signal);
 int32_t  weighted_pressure_plate_get_signal_for_state(state_id st);
 state_id weighted_pressure_plate_set_signal_for_state(state_id st, int32_t signal);
 
+// TargetBlock
+void    target_tick(level & lv, state_id st, block_pos pos);
+int32_t target_get_signal(state_id st);
+void    target_on_place(level & lv, state_id st, block_pos pos, state_id old);
+
 // ComposterBlock
 void               composter_on_place(level & lv, state_id st, block_pos pos);
 interaction_result composter_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);

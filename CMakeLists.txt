@@ -77,6 +77,7 @@ add_library(tmc STATIC
     blocks/respawn-anchor.cpp
     blocks/shelf.cpp
     blocks/stair.cpp
+    blocks/target.cpp
     blocks/trap-door.cpp
     blocks/trapped-chest.cpp
     blocks/wall-torch.cpp

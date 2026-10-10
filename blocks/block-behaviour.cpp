@@ -296,6 +296,9 @@ void block_on_place(level & lv, state_id st, block_pos pos, state_id old, bool m
         case VCLASS_COPPER_BULB_BLOCK:
             copper_bulb_on_place(lv, st, pos, old);
             break;
+        case VCLASS_TARGET_BLOCK:
+            target_on_place(lv, st, pos, old);
+            break;
         case VCLASS_COMPOSTER_BLOCK:
             composter_on_place(lv, st, pos);
             break;
@@ -385,6 +388,9 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             break;
         case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
             base_pressure_plate_tick(lv, st, pos);
+            break;
+        case VCLASS_TARGET_BLOCK:
+            target_tick(lv, st, pos);
             break;
         case VCLASS_COMPOSTER_BLOCK:
             composter_tick(lv, st, pos);
@@ -594,6 +600,7 @@ bool block_is_signal_source(level & lv, state_id st) {
         case VCLASS_DETECTOR_RAIL_BLOCK:
         case VCLASS_LIGHTNING_ROD_BLOCK:
         case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
+        case VCLASS_TARGET_BLOCK:
             return true;
         default:
             hook_unsupported(lv, st, HOOK_IS_SIGNAL_SOURCE);
@@ -633,6 +640,8 @@ int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) 
             return lightning_rod_get_signal(st);
         case VCLASS_BASE_PRESSURE_PLATE_BLOCK:
             return base_pressure_plate_get_signal(st);
+        case VCLASS_TARGET_BLOCK:
+            return target_get_signal(st);
         default:
             hook_unsupported(lv, st, HOOK_GET_SIGNAL);
             return 0;
