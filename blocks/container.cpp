@@ -183,16 +183,12 @@ bool base_entity_block_trigger_event(level & lv, state_id, block_pos pos, int32_
 
 // ChestBlock
 
-static direction chest_facing(state_id st) {
-    return (direction) state_get(st, PROP_HORIZONTAL_FACING);
-}
-
 static chest_type chest_get_type(state_id st) {
     return (chest_type) state_get(st, PROP_CHEST_TYPE);
 }
 
 static direction chest_get_connected_direction(state_id st) {
-    direction facing = chest_facing(st);
+    direction facing = state_facing(st);
     return chest_get_type(st) == CHEST_TYPE_LEFT ? direction_clockwise(facing) : direction_counter_clockwise(facing);
 }
 
@@ -216,7 +212,7 @@ bool chest_get_container(level & lv, state_id st, block_pos pos, bool ignore_bei
     block_pos neighbor_pos = pos_relative(pos, chest_get_connected_direction(st));
     state_id  neighbor     = level_get_state(lv, neighbor_pos);
     if (state_is(neighbor, state_block(st)) && chest_get_type(neighbor) != CHEST_TYPE_SINGLE &&
-        chest_get_type(neighbor) != type && chest_facing(neighbor) == chest_facing(st)) {
+        chest_get_type(neighbor) != type && state_facing(neighbor) == state_facing(st)) {
         if (!ignore_being_blocked && chest_is_blocked_at(lv, neighbor_pos)) return false;
         block_entity * neighbor_be = chest_get_typed_block_entity(lv, neighbor, neighbor_pos);
         if (neighbor_be != nullptr) {
@@ -239,7 +235,7 @@ static state_id chest_update_shape(level &, state_id st, block_pos, direction di
     if (chest_can_connect_to(st, neighbor) && direction_is_horizontal(dir)) {
         chest_type neighbor_type = chest_get_type(neighbor);
         if (chest_get_type(st) == CHEST_TYPE_SINGLE && neighbor_type != CHEST_TYPE_SINGLE &&
-            chest_facing(st) == chest_facing(neighbor) &&
+            state_facing(st) == state_facing(neighbor) &&
             chest_get_connected_direction(neighbor) == direction_opposite(dir)) {
             // ChestType.getOpposite swaps LEFT and RIGHT
             return state_set(st, PROP_CHEST_TYPE,
@@ -426,10 +422,6 @@ static int32_t chiseled_book_shelf_get_analog_output_signal(level & lv, state_id
 
 static constexpr int32_t SHELF_MAX_CHAIN_LENGTH = 3;
 
-static direction shelf_facing(state_id st) {
-    return (direction) state_get(st, PROP_HORIZONTAL_FACING);
-}
-
 static bool shelf_is_connectable(state_id st) {
     return state_has(st, STATE_FLAG_TAG_WOODEN_SHELVES) && state_get(st, PROP_POWERED);
 }
@@ -437,7 +429,7 @@ static bool shelf_is_connectable(state_id st) {
 // SideChainPartBlock.Neighbors.createNewNeighbor: the neighbor's part, or -1 for an EmptyNeighbor
 static int32_t shelf_neighbor_part(level & lv, block_pos pos, direction facing) {
     state_id st = level_get_state(lv, pos);
-    return shelf_is_connectable(st) && shelf_facing(st) == facing ? state_get(st, PROP_SIDE_CHAIN_PART) : -1;
+    return shelf_is_connectable(st) && state_facing(st) == facing ? state_get(st, PROP_SIDE_CHAIN_PART) : -1;
 }
 
 // Neighbors.left and right: left is clockwise of the facing
@@ -459,7 +451,7 @@ static int32_t side_chain_part_when_connected_to_the_left(int32_t part) {
 static std::vector<block_pos> shelf_get_all_blocks_connected_to(level & lv, block_pos pos) {
     state_id st = level_get_state(lv, pos);
     if (!shelf_is_connectable(st)) return {};
-    direction              facing  = shelf_facing(st);
+    direction              facing  = state_facing(st);
     std::vector<block_pos> results = { pos };
     for (int32_t side = 0; side < 2; side++) {
         bool left = side == 0;
@@ -486,7 +478,7 @@ static void shelf_set_part(level & lv, block_pos pos, int32_t part) {
 
 // SideChainPartBlock.updateNeighborsAfterPoweringDown: the right neighbor is read after the left one changed
 static void shelf_update_neighbors_after_powering_down(level & lv, block_pos pos, state_id st) {
-    direction facing = shelf_facing(st);
+    direction facing = state_facing(st);
     block_pos left   = shelf_neighbor_pos(pos, facing, true, 1);
     int32_t   part   = shelf_neighbor_part(lv, left, facing);
     if (part >= 0) {
@@ -517,7 +509,7 @@ static void shelf_update_self_and_neighbors_on_powering_up(level & lv, block_pos
         (shelf_is_connectable(old) && state_get(old, PROP_SIDE_CHAIN_PART) != SIDE_CHAIN_PART_UNCONNECTED)) {
         return;
     }
-    direction facing        = shelf_facing(st);
+    direction facing        = state_facing(st);
     block_pos left          = shelf_neighbor_pos(pos, facing, true, 1);
     int32_t   left_part     = shelf_neighbor_part(lv, left, facing);
     int32_t   chain_left    = left_part >= 0 ? (int32_t) shelf_get_all_blocks_connected_to(lv, left).size() : 0;
@@ -562,7 +554,7 @@ static void shelf_affect_neighbors_after_removal(level & lv, state_id st, block_
 // one bit per filled slot, only toward the back
 static int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir) {
     block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_SHELF);
-    if (dir != direction_opposite(shelf_facing(st)) || be == nullptr) return 0;
+    if (dir != direction_opposite(state_facing(st)) || be == nullptr) return 0;
     int32_t bits = 0;
     for (int32_t slot = 0; slot < 3; slot++) bits |= (item_stack_is_empty(be->items[slot]) ? 0 : 1) << slot;
     return bits;

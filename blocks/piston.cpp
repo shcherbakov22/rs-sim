@@ -19,10 +19,6 @@ enum piston_trigger {
     PISTON_TRIGGER_DROP     = 2,
 };
 
-static direction piston_base_facing(state_id st) {
-    return (direction) state_get(st, PROP_FACING);
-}
-
 static bool piston_base_is_sticky(state_id st) {
     return block_field_get(state_block(st), FIELD_PISTON_BASE_BLOCK_IS_STICKY) != 0;
 }
@@ -306,7 +302,7 @@ static state_id moving_piston_state(direction dir, bool sticky) {
 // PistonBaseBlock again: extending, retracting and moving the blocks
 
 static void piston_base_check_if_extend(level & lv, state_id st, block_pos pos) {
-    direction dir    = piston_base_facing(st);
+    direction dir    = state_facing(st);
     bool      extend = piston_base_get_neighbor_signal(lv, pos, dir);
     int32_t   block  = state_block(st);
     if (extend && !state_get(st, PROP_EXTENDED)) {
@@ -432,7 +428,7 @@ static bool piston_base_move_blocks(level & lv, state_id piston, block_pos pisto
 
 // the sound pitch draws from the level random
 static bool piston_base_trigger_event(level & lv, state_id st, block_pos pos, int32_t b0, int32_t b1) {
-    direction dir      = piston_base_facing(st);
+    direction dir      = state_facing(st);
     state_id  extended = state_set(st, PROP_EXTENDED, 1);
     bool      extend   = piston_base_get_neighbor_signal(lv, pos, dir);
     if (extend && (b0 == PISTON_TRIGGER_CONTRACT || b0 == PISTON_TRIGGER_DROP)) {
@@ -486,10 +482,6 @@ static bool piston_base_trigger_event(level & lv, state_id st, block_pos pos, in
 
 // PistonHeadBlock
 
-static direction piston_head_facing(state_id st) {
-    return (direction) state_get(st, PROP_FACING);
-}
-
 static bool piston_head_is_fitting_base(state_id arm, state_id base) {
     int32_t block = state_get(arm, PROP_PISTON_TYPE) == PISTON_TYPE_NORMAL ? BLOCK_PISTON : BLOCK_STICKY_PISTON;
     return state_is(base, block) && state_get(base, PROP_EXTENDED) &&
@@ -497,7 +489,7 @@ static bool piston_head_is_fitting_base(state_id arm, state_id base) {
 }
 
 static block_pos piston_head_base_pos(state_id st, block_pos pos) {
-    return pos_relative(pos, direction_opposite(piston_head_facing(st)));
+    return pos_relative(pos, direction_opposite(state_facing(st)));
 }
 
 // breaking the head breaks the base, with drops
@@ -519,7 +511,7 @@ static void piston_head_neighbor_changed(level & lv, state_id st, block_pos pos,
 }
 
 static state_id piston_head_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id) {
-    return direction_opposite(dir) == piston_head_facing(st) && !piston_head_can_survive(lv, st, pos) ? STATE_AIR : st;
+    return direction_opposite(dir) == state_facing(st) && !piston_head_can_survive(lv, st, pos) ? STATE_AIR : st;
 }
 
 // clang-format off

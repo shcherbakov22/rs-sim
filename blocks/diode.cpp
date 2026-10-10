@@ -14,10 +14,6 @@ static void diode_update_neighbors_in_front(level & lv, int32_t block, block_pos
 
 // DiodeBlock; RepeaterBlock and ComparatorBlock override parts of it
 
-static direction diode_facing(state_id st) {
-    return (direction) state_get(st, PROP_HORIZONTAL_FACING);
-}
-
 static bool diode_can_survive_on(level & lv, block_pos neighbor_pos, state_id neighbor) {
     return block_is_face_sturdy(lv, neighbor, neighbor_pos, DIRECTION_UP, SUPPORT_TYPE_RIGID);
 }
@@ -29,7 +25,7 @@ static bool diode_can_survive(level & lv, state_id, block_pos pos) {
 
 // repeaters only take side input from diodes (sideInputDiodesOnly)
 static int32_t diode_get_alternate_signal(level & lv, state_id st, block_pos pos) {
-    direction dir                    = diode_facing(st);
+    direction dir                    = state_facing(st);
     direction cw                     = direction_clockwise(dir);
     direction ccw                    = direction_counter_clockwise(dir);
     bool      side_input_diodes_only = state_is(st, BLOCK_REPEATER);
@@ -48,7 +44,7 @@ static int32_t diode_get_delay(state_id st) {
 }
 
 static int32_t diode_get_input_signal(level & lv, state_id st, block_pos pos) {
-    direction dir    = diode_facing(st);
+    direction dir    = state_facing(st);
     block_pos target = pos_relative(pos, dir);
     int32_t   input  = level_get_signal(lv, target, dir);
     if (input >= 15) return input;
@@ -57,9 +53,9 @@ static int32_t diode_get_input_signal(level & lv, state_id st, block_pos pos) {
 }
 
 static bool diode_should_prioritize(level & lv, state_id st, block_pos pos) {
-    direction dir      = direction_opposite(diode_facing(st));
+    direction dir      = direction_opposite(state_facing(st));
     state_id  opposite = level_get_state(lv, pos_relative(pos, dir));
-    return block_instanceof(state_block(opposite), VCLASS_DIODE_BLOCK) && diode_facing(opposite) != dir;
+    return block_instanceof(state_block(opposite), VCLASS_DIODE_BLOCK) && state_facing(opposite) != dir;
 }
 
 // ComparatorBlock
@@ -76,7 +72,7 @@ static int32_t comparator_get_output_signal(level & lv, block_pos pos) {
 // item frames are entities, which the sim does not have, so getItemFrame is always null
 static int32_t comparator_get_input_signal(level & lv, state_id st, block_pos pos) {
     int32_t   result    = diode_get_input_signal(lv, st, pos);
-    direction dir       = diode_facing(st);
+    direction dir       = state_facing(st);
     block_pos target    = pos_relative(pos, dir);
     state_id  target_st = level_get_state(lv, target);
     if (state_has(target_st, STATE_FLAG_ANALOG_OUTPUT)) {
@@ -121,7 +117,7 @@ static void comparator_tick(level & lv, state_id st, block_pos pos) {
         if (source_on != (bool) state_get(st, PROP_POWERED)) {
             level_set_block(lv, pos, state_set(st, PROP_POWERED, source_on), UPDATE_FLAG_CLIENTS);
         }
-        diode_update_neighbors_in_front(lv, state_block(st), pos, diode_facing(st));
+        diode_update_neighbors_in_front(lv, state_block(st), pos, state_facing(st));
     }
 }
 
@@ -168,7 +164,7 @@ static void diode_tick(level & lv, state_id st, block_pos pos) {
 
 // getOutputSignal is 15 for repeaters; getDirectSignal is the same
 static int32_t diode_get_signal(level & lv, state_id st, block_pos pos, direction dir) {
-    if (!state_get(st, PROP_POWERED) || diode_facing(st) != dir) return 0;
+    if (!state_get(st, PROP_POWERED) || state_facing(st) != dir) return 0;
     return state_is(st, BLOCK_COMPARATOR) ? comparator_get_output_signal(lv, pos) : 15;
 }
 
@@ -203,11 +199,11 @@ static void diode_neighbor_changed(level & lv, state_id st, block_pos pos, int32
 }
 
 static void diode_on_place(level & lv, state_id st, block_pos pos, state_id, bool) {
-    diode_update_neighbors_in_front(lv, state_block(st), pos, diode_facing(st));
+    diode_update_neighbors_in_front(lv, state_block(st), pos, state_facing(st));
 }
 
 static void diode_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston) {
-    if (!moved_by_piston) diode_update_neighbors_in_front(lv, state_block(st), pos, diode_facing(st));
+    if (!moved_by_piston) diode_update_neighbors_in_front(lv, state_block(st), pos, state_facing(st));
 }
 
 // RepeaterBlock: a powered diode beside it locks it
@@ -218,17 +214,13 @@ static state_id repeater_update_shape(level &   lv,
                                       block_pos neighbor_pos,
                                       state_id  neighbor) {
     if (dir == DIRECTION_DOWN && !diode_can_survive_on(lv, neighbor_pos, neighbor)) return STATE_AIR;
-    if (direction_get_axis(dir) != direction_get_axis(diode_facing(st))) {
+    if (direction_get_axis(dir) != direction_get_axis(state_facing(st))) {
         return state_set(st, PROP_LOCKED, diode_is_locked(lv, st, pos));
     }
     return st;
 }
 
 // ObserverBlock: a shape change in front sends a 2 tick pulse out the back
-
-static direction observer_facing(state_id st) {
-    return (direction) state_get(st, PROP_FACING);
-}
 
 static void observer_tick(level & lv, state_id st, block_pos pos) {
     if (state_get(st, PROP_POWERED)) {
@@ -237,13 +229,13 @@ static void observer_tick(level & lv, state_id st, block_pos pos) {
         level_set_block(lv, pos, state_set(st, PROP_POWERED, 1), UPDATE_FLAG_CLIENTS);
         level_schedule_tick(lv, pos, state_block(st), 2);
     }
-    diode_update_neighbors_in_front(lv, state_block(st), pos, observer_facing(st));
+    diode_update_neighbors_in_front(lv, state_block(st), pos, state_facing(st));
 }
 
 // startSignal
 static state_id observer_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id) {
     int32_t block = state_block(st);
-    if (observer_facing(st) == dir && !state_get(st, PROP_POWERED) &&
+    if (state_facing(st) == dir && !state_get(st, PROP_POWERED) &&
         !level_ticks_has_scheduled(lv.block_ticks, pos, block)) {
         level_schedule_tick(lv, pos, block, 2);
     }
@@ -252,7 +244,7 @@ static state_id observer_update_shape(level & lv, state_id st, block_pos pos, di
 
 // getDirectSignal is the same
 static int32_t observer_get_signal(level &, state_id st, block_pos, direction dir) {
-    return state_get(st, PROP_POWERED) && observer_facing(st) == dir ? 15 : 0;
+    return state_get(st, PROP_POWERED) && state_facing(st) == dir ? 15 : 0;
 }
 
 // a powered observer placed without its pending tick turns off
@@ -262,12 +254,12 @@ static void observer_on_place(level & lv, state_id st, block_pos pos, state_id o
         return;
     }
     level_set_block(lv, pos, state_set(st, PROP_POWERED, 0), UPDATE_FLAG_CLIENTS | UPDATE_FLAG_KNOWN_SHAPE);
-    diode_update_neighbors_in_front(lv, block, pos, observer_facing(st));
+    diode_update_neighbors_in_front(lv, block, pos, state_facing(st));
 }
 
 static void observer_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool) {
     if (state_get(st, PROP_POWERED) && level_ticks_has_scheduled(lv.block_ticks, pos, state_block(st))) {
-        diode_update_neighbors_in_front(lv, state_block(st), pos, observer_facing(st));
+        diode_update_neighbors_in_front(lv, state_block(st), pos, state_facing(st));
     }
 }
 

@@ -12,8 +12,7 @@ static constexpr prop_id WALL_PROPERTY_BY_DIRECTION[6]            = { PROP_COUNT
 // FenceGateBlock.connectsToDirection
 static bool fence_gate_connects_to_direction(state_id st, direction dir) {
     return block_instanceof(state_block(st), VCLASS_FENCE_GATE_BLOCK) &&
-           direction_get_axis((direction) state_get(st, PROP_HORIZONTAL_FACING)) ==
-               direction_get_axis(direction_clockwise(dir));
+           direction_get_axis(state_facing(st)) == direction_get_axis(direction_clockwise(dir));
 }
 
 // the neighbor's face toward pos is sturdy (asked first, as vanilla does) and no Block.isExceptionForConnection
@@ -131,22 +130,18 @@ static bool stair_is_stairs(state_id st) {
     return block_instanceof(state_block(st), VCLASS_STAIR_BLOCK);
 }
 
-static direction stair_facing(state_id st) {
-    return (direction) state_get(st, PROP_HORIZONTAL_FACING);
-}
-
 // no stairs of the same facing and half on that side
 static bool stair_can_take_shape(level & lv, state_id st, block_pos pos, direction neighbor) {
     state_id neighbor_state = level_get_state(lv, pos_relative(pos, neighbor));
-    return !stair_is_stairs(neighbor_state) || stair_facing(neighbor_state) != stair_facing(st) ||
+    return !stair_is_stairs(neighbor_state) || state_facing(neighbor_state) != state_facing(st) ||
            state_get(neighbor_state, PROP_HALF) != state_get(st, PROP_HALF);
 }
 
 static int32_t stair_get_stairs_shape(level & lv, state_id st, block_pos pos) {
-    direction facing = stair_facing(st);
+    direction facing = state_facing(st);
     state_id  behind = level_get_state(lv, pos_relative(pos, facing));
     if (stair_is_stairs(behind) && state_get(st, PROP_HALF) == state_get(behind, PROP_HALF)) {
-        direction behind_facing = stair_facing(behind);
+        direction behind_facing = state_facing(behind);
         if (direction_get_axis(behind_facing) != direction_get_axis(facing) &&
             stair_can_take_shape(lv, st, pos, direction_opposite(behind_facing))) {
             return behind_facing == direction_counter_clockwise(facing) ? STAIRS_SHAPE_OUTER_LEFT :
@@ -155,7 +150,7 @@ static int32_t stair_get_stairs_shape(level & lv, state_id st, block_pos pos) {
     }
     state_id front = level_get_state(lv, pos_relative(pos, direction_opposite(facing)));
     if (stair_is_stairs(front) && state_get(st, PROP_HALF) == state_get(front, PROP_HALF)) {
-        direction front_facing = stair_facing(front);
+        direction front_facing = state_facing(front);
         if (direction_get_axis(front_facing) != direction_get_axis(facing) &&
             stair_can_take_shape(lv, st, pos, front_facing)) {
             return front_facing == direction_counter_clockwise(facing) ? STAIRS_SHAPE_INNER_LEFT :

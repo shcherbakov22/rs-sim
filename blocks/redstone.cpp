@@ -44,7 +44,7 @@ static bool red_stone_wire_is_conductor(level & lv, block_pos pos) {
 static bool red_stone_wire_should_connect_to(level & lv, state_id st, int32_t dir) {
     if (state_is(st, BLOCK_REDSTONE_WIRE)) return true;
     if (state_is(st, BLOCK_REPEATER)) {
-        direction facing = (direction) state_get(st, PROP_HORIZONTAL_FACING);
+        direction facing = state_facing(st);
         return facing == dir || direction_opposite(facing) == dir;
     }
     if (state_is(st, BLOCK_OBSERVER)) return dir == state_get(st, PROP_FACING);
@@ -291,7 +291,7 @@ static int32_t redstone_torch_get_direct_signal(level & lv, state_id st, block_p
 static bool redstone_torch_has_neighbor_signal(level & lv, state_id st, block_pos pos) {
     direction side = DIRECTION_DOWN;
     if (block_instanceof(state_block(st), VCLASS_REDSTONE_WALL_TORCH_BLOCK)) {
-        side = direction_opposite((direction) state_get(st, PROP_HORIZONTAL_FACING));
+        side = direction_opposite(state_facing(st));
     }
     return level_has_signal(lv, pos_relative(pos, side), side);
 }
@@ -401,7 +401,7 @@ static void target_on_place(level & lv, state_id st, block_pos pos, state_id old
 
 // updateNeighbours: the block the rod points away from and its neighbors
 static void lightning_rod_update_neighbours(level & lv, state_id st, block_pos pos) {
-    direction front = direction_opposite((direction) state_get(st, PROP_FACING));
+    direction front = direction_opposite(state_facing(st));
     level_update_neighbors_at(lv, pos_relative(pos, front), state_block(st));
 }
 
@@ -426,7 +426,7 @@ static int32_t lightning_rod_get_signal(level &, state_id st, block_pos, directi
 }
 
 static int32_t lightning_rod_get_direct_signal(level &, state_id st, block_pos, direction dir) {
-    return state_get(st, PROP_POWERED) && (direction) state_get(st, PROP_FACING) == dir ? 15 : 0;
+    return state_get(st, PROP_POWERED) && state_facing(st) == dir ? 15 : 0;
 }
 
 // CopperBulbBlock: each rising edge of the neighbor signal toggles the light

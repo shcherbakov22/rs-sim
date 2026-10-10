@@ -11,10 +11,6 @@
 
 // DispenserBlockEntity and DefaultDispenseItemBehavior
 
-static direction dispenser_facing(state_id st) {
-    return (direction) state_get(st, PROP_FACING);
-}
-
 // DispenserBlockEntity.getRandomSlot: reservoir sampling over the filled slots
 static int32_t dispenser_block_entity_get_random_slot(level & lv, const block_entity * be) {
     int32_t replace_slot = -1;
@@ -39,7 +35,7 @@ static item_stack default_dispense_item_behavior_dispense(level &    lv,
                                                           block_pos  pos,
                                                           item_stack dispensed) {
     item_stack_split(dispensed, 1);
-    default_dispense_item_behavior_spawn_item(lv, pos, dispenser_facing(st));
+    default_dispense_item_behavior_spawn_item(lv, pos, state_facing(st));
     return dispensed;
 }
 
@@ -71,7 +67,7 @@ static item_stack default_dispense_item_behavior_consume_with_remainder(level & 
     item_stack_grow(dispensed, -1);
     if (item_stack_is_empty(dispensed)) return remainder;
     if (!item_stack_is_empty(dispenser_block_entity_insert_item(lv, pos, remainder))) {
-        default_dispense_item_behavior_spawn_item(lv, pos, dispenser_facing(st));
+        default_dispense_item_behavior_spawn_item(lv, pos, state_facing(st));
     }
     return dispensed;
 }
@@ -79,7 +75,7 @@ static item_stack default_dispense_item_behavior_consume_with_remainder(level & 
 // ProjectileDispenseBehavior: the projectile spawns at the position function of its item's DispenseConfig
 
 static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    const block_pos & step     = direction_defs[dispenser_facing(st)].step;
+    const block_pos & step     = direction_defs[state_facing(st)].step;
     int32_t           item     = item_stack_get_item(dispensed);
     // the default config: DispenserBlock.getDispensePosition with scale 0.7 and offset (0, 0.1, 0)
     double            scale    = 0.7;
@@ -111,7 +107,7 @@ static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, 
 // BoatDispenseItemBehavior: a boat needs water in front, or air in front over water; else the item drops
 
 static item_stack boat_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    block_pos front = pos_relative(pos, dispenser_facing(st));
+    block_pos front = pos_relative(pos, state_facing(st));
     state_id  at    = level_get_state(lv, front);
     if (state_has(at, STATE_FLAG_FLUID) ||
         (state_has(at, STATE_FLAG_AIR) &&
@@ -134,7 +130,7 @@ static item_stack minecart_dispense_item_behavior_execute(level &    lv,
                                                           state_id   st,
                                                           block_pos  pos,
                                                           item_stack dispensed) {
-    direction         facing  = dispenser_facing(st);
+    direction         facing  = state_facing(st);
     const block_pos & step    = direction_defs[facing].step;
     double            spawn_x = pos.x + 0.5 + step.x * 1.125;
     double            spawn_y = std::floor(pos.y + 0.5) + step.y;
@@ -162,7 +158,7 @@ static item_stack minecart_dispense_item_behavior_execute(level &    lv,
 
 // EntityType.create turns the stand by a random yaw
 static item_stack dispense_item_behavior_armor_stand(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    block_pos target = pos_relative(pos, dispenser_facing(st));
+    block_pos target = pos_relative(pos, state_facing(st));
     rng_next_float(lv.random);
     trace_boundary(lv.tr, "spawn armor_stand %d %d %d", target.x, target.y, target.z);
     return dispensed;
@@ -170,7 +166,7 @@ static item_stack dispense_item_behavior_armor_stand(level & lv, state_id st, bl
 
 // of the BucketPickup blocks only powder snow holds no fluid
 static item_stack dispense_item_behavior_bucket(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    block_pos target = pos_relative(pos, dispenser_facing(st));
+    block_pos target = pos_relative(pos, state_facing(st));
     state_id  at     = level_get_state(lv, target);
     if (state_has(at, STATE_FLAG_FLUID)) {
         level_unsupported(lv, "fluids");
@@ -193,7 +189,7 @@ static bool dispense_item_behavior_can_light(state_id st) {
 }
 
 static item_stack dispense_item_behavior_flint_and_steel(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    direction facing = dispenser_facing(st);
+    direction facing = state_facing(st);
     block_pos target = pos_relative(pos, facing);
     state_id  at     = level_get_state(lv, target);
     if (base_fire_can_be_placed_at(lv, target, facing)) {
@@ -215,20 +211,20 @@ static item_stack dispense_item_behavior_flint_and_steel(level & lv, state_id st
 
 // both growths stop the run, and a failure changes nothing
 static item_stack dispense_item_behavior_bone_meal(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    block_pos target = pos_relative(pos, dispenser_facing(st));
+    block_pos target = pos_relative(pos, state_facing(st));
     if (!bone_meal_item_grow_crop(lv, target)) bone_meal_item_grow_water_plant(lv, target);
     return dispensed;
 }
 
 // builds the same PrimedTnt as TntBlock.prime
 static item_stack dispense_item_behavior_tnt(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    tnt_prime(lv, pos_relative(pos, dispenser_facing(st)));
+    tnt_prime(lv, pos_relative(pos, state_facing(st)));
     return dispensed;
 }
 
 // filling with water makes a water potion, a stack with data components; a beehive never loads, so none is full
 static item_stack dispense_item_behavior_glass_bottle(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    block_pos target = pos_relative(pos, dispenser_facing(st));
+    block_pos target = pos_relative(pos, state_facing(st));
     if (state_has(level_get_state(lv, target), STATE_FLAG_FLUID)) {
         level_unsupported(lv, "fluids");
         return dispensed;
@@ -237,7 +233,7 @@ static item_stack dispense_item_behavior_glass_bottle(level & lv, state_id st, b
 }
 
 static item_stack dispense_item_behavior_glowstone(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    block_pos target = pos_relative(pos, dispenser_facing(st));
+    block_pos target = pos_relative(pos, state_facing(st));
     state_id  at     = level_get_state(lv, target);
     if (!state_is(at, BLOCK_RESPAWN_ANCHOR)) return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
     level_unsupported(lv, "respawn anchor");
@@ -245,7 +241,7 @@ static item_stack dispense_item_behavior_glowstone(level & lv, state_id st, bloc
 }
 
 static item_stack dispense_item_behavior_honeycomb(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    block_pos target = pos_relative(pos, dispenser_facing(st));
+    block_pos target = pos_relative(pos, state_facing(st));
     state_id  at     = level_get_state(lv, target);
     int32_t   waxed  = block_defs[state_block(at)].waxed;
     if (waxed < 0) return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
@@ -304,7 +300,7 @@ static item_stack dispense_item_behavior_dispense(level & lv, state_id st, block
 
 static item_stack dropper_dispense(level & lv, state_id st, block_pos pos, block_entity * be, item_stack s) {
     container           self = { be, nullptr };
-    direction           dir  = (direction) state_get(level_get_state(lv, pos), PROP_FACING);
+    direction           dir  = state_facing(level_get_state(lv, pos));
     container           into;
     composter_container composter;
     item_stack          remaining;

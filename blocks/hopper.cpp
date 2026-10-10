@@ -6,10 +6,6 @@
 #include "blocks/handlers.h"
 #include "engine/level.h"
 
-static direction hopper_facing(const block_entity * be) {
-    return (direction) state_get(be->state, PROP_FACING_HOPPER);
-}
-
 static bool hopper_block_entity_is_on_cooldown(const block_entity * be) {
     return be->cooldown_time > 0;
 }
@@ -129,10 +125,10 @@ item_stack hopper_block_entity_add_item(level &           lv,
 static bool hopper_block_entity_eject_items(level & lv, block_pos pos, block_entity * be) {
     container           target;
     composter_container composter;
-    if (!hopper_block_entity_get_container_at(lv, pos_relative(pos, hopper_facing(be)), target, composter)) {
+    if (!hopper_block_entity_get_container_at(lv, pos_relative(pos, state_facing(be->state)), target, composter)) {
         return false;
     }
-    direction face = direction_opposite(hopper_facing(be));
+    direction face = direction_opposite(state_facing(be->state));
     if (hopper_block_entity_is_full_container(target, face)) return false;
     container self = { be, nullptr };
     for (int32_t slot = 0; slot < container_get_container_size(self); slot++) {

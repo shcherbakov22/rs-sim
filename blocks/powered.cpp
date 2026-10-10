@@ -60,7 +60,7 @@ static state_id fence_gate_update_shape(level &   lv,
                                         direction dir,
                                         block_pos,
                                         state_id neighbor) {
-    direction facing = (direction) state_get(st, PROP_HORIZONTAL_FACING);
+    direction facing = state_facing(st);
     if (direction_get_axis(direction_clockwise(facing)) != direction_get_axis(dir)) return st;
     bool in_wall = state_has(neighbor, STATE_FLAG_TAG_WALLS) ||
                    state_has(level_get_state(lv, pos_relative(pos, direction_opposite(dir))), STATE_FLAG_TAG_WALLS);

@@ -11,7 +11,7 @@ direction face_attached_horizontal_directional_get_connected_direction(state_id 
         case ATTACH_FACE_FLOOR:
             return DIRECTION_UP;
         default:
-            return (direction) state_get(st, PROP_HORIZONTAL_FACING);
+            return state_facing(st);
     }
 }
 
@@ -24,10 +24,10 @@ static direction attached_support_side(state_id st) {
     // LanternBlock
     if (state_has_prop(st, PROP_HANGING)) return state_get(st, PROP_HANGING) ? DIRECTION_UP : DIRECTION_DOWN;
     // AmethystClusterBlock
-    if (state_has_prop(st, PROP_FACING)) return direction_opposite((direction) state_get(st, PROP_FACING));
+    if (state_has_prop(st, PROP_FACING)) return direction_opposite(state_facing(st));
     // WallTorchBlock, RedstoneWallTorchBlock, LadderBlock
     if (state_has_prop(st, PROP_HORIZONTAL_FACING)) {
-        return direction_opposite((direction) state_get(st, PROP_HORIZONTAL_FACING));
+        return direction_opposite(state_facing(st));
     }
     // BaseTorchBlock
     return DIRECTION_DOWN;
@@ -77,10 +77,6 @@ static state_id carpet_update_shape(level & lv, state_id st, block_pos pos, dire
 // BellBlock. Without entities the bell block entity shows nothing: shaking and resonating only reach entities and
 // the client.
 
-static direction bell_facing(state_id st) {
-    return (direction) state_get(st, PROP_HORIZONTAL_FACING);
-}
-
 static direction bell_get_connected_direction(state_id st) {
     switch (state_get(st, PROP_BELL_ATTACHMENT)) {
         case BELL_ATTACH_TYPE_FLOOR:
@@ -88,7 +84,7 @@ static direction bell_get_connected_direction(state_id st) {
         case BELL_ATTACH_TYPE_CEILING:
             return DIRECTION_DOWN;
         default:
-            return direction_opposite(bell_facing(st));
+            return direction_opposite(state_facing(st));
     }
 }
 
@@ -110,14 +106,14 @@ static state_id bell_update_shape(level &   lv,
     if (connected == dir && !block_can_survive(lv, st, pos) && attachment != BELL_ATTACH_TYPE_DOUBLE_WALL) {
         return STATE_AIR;
     }
-    if (direction_get_axis(dir) == direction_get_axis(bell_facing(st))) {
+    if (direction_get_axis(dir) == direction_get_axis(state_facing(st))) {
         if (attachment == BELL_ATTACH_TYPE_DOUBLE_WALL &&
             !block_is_face_sturdy(lv, neighbor, neighbor_pos, dir, SUPPORT_TYPE_FULL)) {
             st = state_set(st, PROP_BELL_ATTACHMENT, BELL_ATTACH_TYPE_SINGLE_WALL);
             return state_set(st, PROP_HORIZONTAL_FACING, direction_opposite(dir));
         }
         if (attachment == BELL_ATTACH_TYPE_SINGLE_WALL && direction_opposite(connected) == dir &&
-            block_is_face_sturdy(lv, neighbor, neighbor_pos, bell_facing(st), SUPPORT_TYPE_FULL)) {
+            block_is_face_sturdy(lv, neighbor, neighbor_pos, state_facing(st), SUPPORT_TYPE_FULL)) {
             return state_set(st, PROP_BELL_ATTACHMENT, BELL_ATTACH_TYPE_DOUBLE_WALL);
         }
     }
@@ -134,7 +130,7 @@ static void bell_attempt_to_ring(level & lv, block_pos pos, direction dir) {
 static void bell_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
     bool signal = level_has_neighbor_signal(lv, pos);
     if (signal != (state_get(st, PROP_POWERED) != 0)) {
-        if (signal) bell_attempt_to_ring(lv, pos, bell_facing(level_get_state(lv, pos)));
+        if (signal) bell_attempt_to_ring(lv, pos, state_facing(level_get_state(lv, pos)));
         level_set_block(lv, pos, state_set(st, PROP_POWERED, signal), UPDATE_FLAG_ALL);
     }
 }

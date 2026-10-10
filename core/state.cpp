@@ -85,6 +85,14 @@ int32_t state_get(state_id st, prop_id prop) {
     return prop_defs[prop].codes[state_value_index(st, bp)];
 }
 
+direction state_facing(state_id st) {
+    for (prop_id prop : { PROP_FACING, PROP_HORIZONTAL_FACING, PROP_FACING_HOPPER }) {
+        if (state_has_prop(st, prop)) return (direction) state_get(st, prop);
+    }
+    TMC_ASSERT(false);
+    return DIRECTION_DOWN;
+}
+
 state_id state_set(state_id st, prop_id prop, int32_t value) {
     const block_prop & bp = state_need_prop(st, prop);
     const prop_def &   p  = prop_defs[prop];

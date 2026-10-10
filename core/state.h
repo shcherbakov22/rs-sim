@@ -151,15 +151,16 @@ bool item_instanceof(int32_t item, item_class cls);
 
 // value of a primitive instance field of the block object
 int32_t block_field_get(int32_t block, object_field field);
-// value of an instance field of the item object
 
 // StateHolder.getValue/setValue/cycle; values are prop_def codes. The block must have the property.
-bool     state_has_prop(state_id st, prop_id prop);
-int32_t  state_get(state_id st, prop_id prop);
-state_id state_set(state_id st, prop_id prop, int32_t value);
-state_id state_cycle(state_id st, prop_id prop);
+bool      state_has_prop(state_id st, prop_id prop);
+int32_t   state_get(state_id st, prop_id prop);
+state_id  state_set(state_id st, prop_id prop, int32_t value);
+state_id  state_cycle(state_id st, prop_id prop);
+// getValue of the block's "facing": FACING, HORIZONTAL_FACING or the hopper's; a block has one property per name
+direction state_facing(state_id st);
 // Block.withPropertiesOf: the default state of block with every property it shares with st copied over
-state_id block_with_properties_of(int32_t block, state_id st);
+state_id  block_with_properties_of(int32_t block, state_id st);
 
 // trace form: "redstone_wire[east=side,...]", no namespace
 std::string state_to_string(state_id st);
