@@ -194,6 +194,10 @@ state_id           shelf_update_shape(level & lv, state_id st);
 int32_t            shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
 interaction_result shelf_use_item_on(level & lv, state_id st, block_pos pos, direction face, const item_stack & stack);
 
+// BeehiveBlock
+int32_t            beehive_get_analog_output_signal(state_id st);
+interaction_result beehive_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
+
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 

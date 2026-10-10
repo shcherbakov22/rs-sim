@@ -105,6 +105,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_SHELF_BLOCK:
             result = shelf_update_shape(lv, st);
             break;
+        case VCLASS_BEEHIVE_BLOCK:
+            // a fire beside an empty hive has no bees to drive out
+            break;
         case VCLASS_BELL_BLOCK:
             result = bell_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
@@ -357,6 +360,8 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, dir
             return chiseled_book_shelf_use_item_on(lv, st, pos, face, stack);
         case VCLASS_SHELF_BLOCK:
             return shelf_use_item_on(lv, st, pos, face, stack);
+        case VCLASS_BEEHIVE_BLOCK:
+            return beehive_use_item_on(lv, st, pos, stack);
         default:
             hook_unsupported(lv, st, HOOK_USE_ITEM_ON);
             return INTERACTION_RESULT_PASS;
@@ -566,6 +571,8 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos, d
             return chiseled_book_shelf_get_analog_output_signal(lv, pos);
         case VCLASS_SHELF_BLOCK:
             return shelf_get_analog_output_signal(lv, st, pos, dir);
+        case VCLASS_BEEHIVE_BLOCK:
+            return beehive_get_analog_output_signal(st);
         case VCLASS_CRAFTER_BLOCK:
             return crafter_get_analog_output_signal(lv, pos);
         default:

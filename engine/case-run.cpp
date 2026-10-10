@@ -117,6 +117,11 @@ static void case_load_block_entity(level & lv, block_entity * be, const snbt_val
         } else if (be->type == BLOCK_ENTITY_TYPE_SHELF && entry.key == "align_items_to_bottom") {
             // only the renderer reads it
             continue;
+        } else if (be->type == BLOCK_ENTITY_TYPE_BEEHIVE && entry.key == "bees" && value.list.empty()) {
+            continue;
+        } else if (be->type == BLOCK_ENTITY_TYPE_BEEHIVE && entry.key == "flower_pos") {
+            // only released bees read it
+            continue;
         } else if (be->type == BLOCK_ENTITY_TYPE_LECTERN && entry.key == "Book") {
             int32_t slot = -1;
             if (!case_load_item(lv, value, be->items[0], slot)) {

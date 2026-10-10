@@ -126,6 +126,7 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
         case BLOCK_ENTITY_TYPE_BELL:
         case BLOCK_ENTITY_TYPE_ENDER_CHEST:
         case BLOCK_ENTITY_TYPE_SKULL:
+        case BLOCK_ENTITY_TYPE_BEEHIVE:
             break;
         default:
             supported = false;
@@ -342,7 +343,16 @@ static double rng_next_double_between(rng & r, double min, double max) {
     return min >= max ? min : rng_next_double(r) * (max - min) + min;
 }
 
-// The first item entity ends the traced contract.
+// Block.popResource: random offset in the block, then ItemEntity's random motion; the item entity ends the traced contract
+void level_pop_resource(level & lv, block_pos pos) {
+    for (int32_t i = 0; i < 3; i++) {
+        rng_next_double_between(lv.random, -0.25, 0.25);
+    }
+    rng_next_double(lv.random);
+    rng_next_double(lv.random);
+    trace_boundary(lv.tr, "spawn item %d %d %d", pos.x, pos.y, pos.z);
+}
+
 void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be) {
     // MovingPistonBlock.getDrops: the moved block drops, or nothing without a block entity
     state_id loot = st;
@@ -354,13 +364,7 @@ void level_drop_resources(level & lv, state_id st, block_pos pos, const block_en
         return;
     }
     if (state_has(loot, STATE_FLAG_DROPS)) {
-        // Block.popResource: random offset in the block, then ItemEntity's random motion
-        for (int32_t i = 0; i < 3; i++) {
-            rng_next_double_between(lv.random, -0.25, 0.25);
-        }
-        rng_next_double(lv.random);
-        rng_next_double(lv.random);
-        trace_boundary(lv.tr, "spawn item %d %d %d", pos.x, pos.y, pos.z);
+        level_pop_resource(lv, pos);
     }
     block_spawn_after_break(lv, st, pos);
 }
@@ -595,7 +599,7 @@ static void level_tick_block_entities(level & lv) {
             } else if (be->type == BLOCK_ENTITY_TYPE_JUKEBOX) {
                 jukebox_block_entity_tick(lv, be);
             }
-            // shulker boxes without openers and bells without entities tick without effect
+            // shulker boxes without openers, bells without entities and empty beehives tick without effect
         }
         trace_exit(lv.tr);
     }

@@ -106,6 +106,7 @@ void           level_set_block_entity(level & lv, block_entity * be);
 void           level_remove_block_entity(level & lv, block_pos pos);
 
 // Block.dropResources without a tool
+void level_pop_resource(level & lv, block_pos pos);
 void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be);
 
 void level_update_neighbors_at(level & lv, block_pos pos, int32_t block);

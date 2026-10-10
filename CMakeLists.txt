@@ -17,6 +17,7 @@ add_library(tmc STATIC
     blocks/barrel.cpp
     blocks/base-entity-block.cpp
     blocks/base-torch.cpp
+    blocks/beehive.cpp
     blocks/bell.cpp
     blocks/block-behaviour.cpp
     blocks/button.cpp
