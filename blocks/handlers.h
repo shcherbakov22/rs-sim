@@ -222,6 +222,10 @@ state_id leaves_update_shape(level & lv, state_id st, block_pos pos, state_id ne
 // StairBlock
 state_id stair_update_shape(level & lv, state_id st, block_pos pos, direction dir);
 
+// TrapDoorBlock
+interaction_result trap_door_use_without_item(level & lv, state_id st, block_pos pos);
+void               trap_door_neighbor_changed(level & lv, state_id st, block_pos pos);
+
 // WallBlock
 state_id wall_update_shape(level &   lv,
                            state_id  st,

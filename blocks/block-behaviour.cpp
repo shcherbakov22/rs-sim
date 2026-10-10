@@ -113,6 +113,7 @@ state_id block_update_shape(level &   lv,
         case VCLASS_SHELF_BLOCK:
         case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
         case VCLASS_SLAB_BLOCK:
+        case VCLASS_TRAP_DOOR_BLOCK:
             if (state_get(st, PROP_WATERLOGGED)) {
                 level_unsupported(lv, "fluids");
             }
@@ -174,6 +175,9 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
             break;
         case VCLASS_FENCE_GATE_BLOCK:
             fence_gate_neighbor_changed(lv, st, pos);
+            break;
+        case VCLASS_TRAP_DOOR_BLOCK:
+            trap_door_neighbor_changed(lv, st, pos);
             break;
         case VCLASS_REDSTONE_TORCH_BLOCK:
             redstone_torch_neighbor_changed(lv, st, pos);
@@ -432,6 +436,8 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return respawn_anchor_use_without_item(lv, st, pos);
         case VCLASS_FENCE_GATE_BLOCK:
             return fence_gate_use_without_item(lv, st, pos);
+        case VCLASS_TRAP_DOOR_BLOCK:
+            return trap_door_use_without_item(lv, st, pos);
         case VCLASS_FENCE_BLOCK:
             // LeadItem.bindPlayerMobs: no mob is ever leashed to the virtual player
             return INTERACTION_RESULT_PASS;
