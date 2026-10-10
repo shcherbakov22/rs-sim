@@ -31,6 +31,7 @@ add_library(tmc STATIC
     blocks/face-attached-horizontal-directional.cpp
     blocks/hopper-block-entity.cpp
     blocks/hopper.cpp
+    blocks/lectern.cpp
     blocks/lever.cpp
     blocks/moving-piston.cpp
     blocks/observer.cpp

@@ -207,6 +207,9 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
         case VCLASS_LEVER_BLOCK:
             lever_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
             break;
+        case VCLASS_LECTERN_BLOCK:
+            lectern_affect_neighbors_after_removal(lv, st, pos);
+            break;
         case VCLASS_REDSTONE_TORCH_BLOCK:
             redstone_torch_affect_neighbors_after_removal(lv, st, pos, moved_by_piston);
             break;
@@ -263,6 +266,9 @@ void block_tick(level & lv, state_id st, block_pos pos) {
         case VCLASS_DISPENSER_BLOCK:
             dispenser_tick(lv, st, pos);
             break;
+        case VCLASS_LECTERN_BLOCK:
+            lectern_tick(lv, st, pos);
+            break;
         case VCLASS_REDSTONE_LAMP_BLOCK:
             redstone_lamp_tick(lv, st, pos);
             break;
@@ -312,10 +318,12 @@ void block_spawn_after_break(level & lv, state_id st, block_pos pos) {
     }
 }
 
-interaction_result block_use_item_on(level & lv, state_id st) {
+interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack) {
     switch (hook_owner(st, HOOK_USE_ITEM_ON)) {
         case VCLASS_NONE:
             return INTERACTION_RESULT_TRY_WITH_EMPTY_HAND;
+        case VCLASS_LECTERN_BLOCK:
+            return lectern_use_item_on(lv, st, pos, stack);
         default:
             hook_unsupported(lv, st, HOOK_USE_ITEM_ON);
             return INTERACTION_RESULT_PASS;
@@ -332,6 +340,8 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return bell_use_without_item(lv, st, pos, face);
         case VCLASS_LEVER_BLOCK:
             return lever_use_without_item(lv, st, pos);
+        case VCLASS_LECTERN_BLOCK:
+            return lectern_use_without_item(lv, st);
         case VCLASS_BUTTON_BLOCK:
             return button_use_without_item(lv, st, pos);
         case VCLASS_REPEATER_BLOCK:
@@ -372,6 +382,7 @@ bool block_is_signal_source(level & lv, state_id st) {
         case VCLASS_RED_STONE_WIRE_BLOCK:
             return lv.red_stone_wire_should_signal;
         case VCLASS_LEVER_BLOCK:
+        case VCLASS_LECTERN_BLOCK:
         case VCLASS_REDSTONE_TORCH_BLOCK:
         case VCLASS_BUTTON_BLOCK:
         case VCLASS_DIODE_BLOCK:
@@ -393,6 +404,8 @@ int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) 
             return red_stone_wire_get_signal(lv, st, pos, dir);
         case VCLASS_LEVER_BLOCK:
             return lever_get_signal(st);
+        case VCLASS_LECTERN_BLOCK:
+            return lectern_get_signal(st);
         case VCLASS_REDSTONE_TORCH_BLOCK:
             return redstone_torch_get_signal(st, dir);
         case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
@@ -421,6 +434,8 @@ int32_t block_get_direct_signal(level & lv, state_id st, block_pos pos, directio
             return red_stone_wire_get_direct_signal(lv, st, pos, dir);
         case VCLASS_LEVER_BLOCK:
             return lever_get_direct_signal(st, dir);
+        case VCLASS_LECTERN_BLOCK:
+            return lectern_get_direct_signal(st, dir);
         case VCLASS_REDSTONE_TORCH_BLOCK:
             return redstone_torch_get_direct_signal(lv, st, pos, dir);
         case VCLASS_BUTTON_BLOCK:
@@ -499,6 +514,8 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos) {
         case VCLASS_SHULKER_BOX_BLOCK:
         case VCLASS_DISPENSER_BLOCK:
             return container_get_redstone_signal_from_block_entity(lv, pos);
+        case VCLASS_LECTERN_BLOCK:
+            return lectern_get_analog_output_signal(lv, st, pos);
         default:
             hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
             return 0;

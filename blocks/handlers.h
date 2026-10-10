@@ -141,6 +141,16 @@ state_id           bell_update_shape(level &   lv,
 void               bell_neighbor_changed(level & lv, state_id st, block_pos pos);
 interaction_result bell_use_without_item(level & lv, state_id st, block_pos pos, direction face);
 
+// LecternBlock, LecternBlockEntity
+void               lectern_tick(level & lv, state_id st, block_pos pos);
+void               lectern_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
+int32_t            lectern_get_signal(state_id st);
+int32_t            lectern_get_direct_signal(state_id st, direction dir);
+int32_t            lectern_get_analog_output_signal(level & lv, state_id st, block_pos pos);
+interaction_result lectern_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
+interaction_result lectern_use_without_item(level & lv, state_id st);
+void               lectern_block_entity_pre_remove_side_effects(level & lv, block_pos pos, state_id st);
+
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 

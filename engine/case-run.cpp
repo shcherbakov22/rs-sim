@@ -19,26 +19,35 @@ static void case_place_block(level & lv, const case_file & f, block_pos pos) {
 }
 
 // ContainerHelper.loadAllItems; slots outside the container are skipped
+// ItemStack.CODEC plus the Slot of ContainerHelper; item components are not supported
+static bool case_load_item(level & lv, const snbt_value & tag, item_stack & s, int32_t & slot) {
+    std::string id;
+    s = { ITEM_AIR, 1 };
+    for (const snbt_entry & entry : tag.compound) {
+        if (entry.key == "Slot") {
+            slot = (int32_t) entry.value.i;
+        } else if (entry.key == "id") {
+            id     = entry.value.s;
+            s.item = item_find(id);
+        } else if (entry.key == "count") {
+            s.count = (int32_t) entry.value.i;
+        } else {
+            level_unsupported(lv, "item data %s", entry.key.c_str());
+            return false;
+        }
+    }
+    if (s.item < 0) {
+        level_unsupported(lv, "item %s", id.c_str());
+        return false;
+    }
+    return true;
+}
+
 static void case_load_items(level & lv, block_entity * be, const snbt_value & items) {
     for (const snbt_value & tag : items.list) {
-        int32_t     slot = -1;
-        std::string id;
-        item_stack  s = { ITEM_AIR, 1 };
-        for (const snbt_entry & entry : tag.compound) {
-            if (entry.key == "Slot") {
-                slot = (int32_t) entry.value.i;
-            } else if (entry.key == "id") {
-                id     = entry.value.s;
-                s.item = item_find(id);
-            } else if (entry.key == "count") {
-                s.count = (int32_t) entry.value.i;
-            } else {
-                level_unsupported(lv, "item data %s", entry.key.c_str());
-                return;
-            }
-        }
-        if (s.item < 0) {
-            level_unsupported(lv, "item %s", id.c_str());
+        int32_t    slot = -1;
+        item_stack s;
+        if (!case_load_item(lv, tag, s, slot)) {
             return;
         }
         if (slot >= 0 && slot < (int32_t) be->items.size()) {
@@ -60,6 +69,9 @@ static void case_load_hidden(level & lv, block_entity * be, const snbt_value & h
         } else if (be->type == BLOCK_ENTITY_TYPE_SHULKER_BOX && shulker_closed) {
             continue;
         } else if (be->type == BLOCK_ENTITY_TYPE_BELL && bell_idle) {
+            continue;
+        } else if (be->type == BLOCK_ENTITY_TYPE_LECTERN && entry.key == "page") {
+            // without pages the page never shows
             continue;
         } else {
             level_unsupported(lv, "hidden state %s %s", block_entity_type_names[be->type], entry.key.c_str());
@@ -83,6 +95,13 @@ static void case_load_block_entity(level & lv, block_entity * be, const snbt_val
             case_load_items(lv, be, value);
         } else if (be->type == BLOCK_ENTITY_TYPE_HOPPER && entry.key == "TransferCooldown") {
             be->cooldown_time = (int32_t) value.i;
+        } else if (be->type == BLOCK_ENTITY_TYPE_LECTERN && entry.key == "Book") {
+            int32_t slot = -1;
+            if (!case_load_item(lv, value, be->items[0], slot)) {
+                return;
+            }
+        } else if (be->type == BLOCK_ENTITY_TYPE_LECTERN && entry.key == "Page") {
+            continue;
         } else {
             level_unsupported(lv, "block entity data %s %s", block_entity_type_names[be->type], entry.key.c_str());
             return;
@@ -131,8 +150,13 @@ static void case_place(level & lv, const case_file & f) {
 
 // ServerPlayerGameMode.useItemOn for a player that is not sneaking; Inputs.use gives each use a fresh stack
 static void case_use(level & lv, const case_input & in) {
-    state_id           st     = level_get_state(lv, in.pos);
-    interaction_result result = block_use_item_on(lv, st);
+    state_id   st    = level_get_state(lv, in.pos);
+    item_stack stack = { in.item.empty() ? ITEM_AIR : item_find(in.item), in.count };
+    if (stack.item < 0) {
+        level_unsupported(lv, "item %s", in.item.c_str());
+        return;
+    }
+    interaction_result result = block_use_item_on(lv, st, in.pos, stack);
     if (interaction_result_consumes_action(result)) {
         return;
     }

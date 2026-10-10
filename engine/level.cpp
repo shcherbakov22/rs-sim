@@ -104,6 +104,9 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
         case BLOCK_ENTITY_TYPE_DROPPER:
             n_items = 9;
             break;
+        case BLOCK_ENTITY_TYPE_LECTERN:
+            n_items = 1;
+            break;
         case BLOCK_ENTITY_TYPE_CHEST:
         case BLOCK_ENTITY_TYPE_TRAPPED_CHEST:
         case BLOCK_ENTITY_TYPE_BARREL:
@@ -242,6 +245,8 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
             block_entity * be = level_get_block_entity(lv, pos);
             if (be != nullptr && be->type == BLOCK_ENTITY_TYPE_PISTON) {
                 piston_moving_block_entity_final_tick(lv, be);
+            } else if (be != nullptr && be->type == BLOCK_ENTITY_TYPE_LECTERN) {
+                lectern_block_entity_pre_remove_side_effects(lv, pos, old);
             } else if (be != nullptr && block_entity_is_container(be) && be->type != BLOCK_ENTITY_TYPE_SHULKER_BOX) {
                 containers_drop_contents(lv, pos, { be, nullptr });
             }
