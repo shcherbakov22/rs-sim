@@ -355,6 +355,31 @@ void level_pop_resource(level & lv, block_pos pos) {
     trace_boundary(lv.tr, "spawn item %d %d %d", pos.x, pos.y, pos.z);
 }
 
+// Block.popResourceFromFace: the item starts just past the face, so it lands in the block in front
+void level_pop_resource_from_face(level & lv, block_pos pos, direction face) {
+    const block_pos & step = direction_defs[face].step;
+    if (step.x == 0) {
+        rng_next_double_between(lv.random, -0.25, 0.25);
+    }
+    if (step.y == 0) {
+        rng_next_double_between(lv.random, -0.25, 0.25);
+    }
+    if (step.z == 0) {
+        rng_next_double_between(lv.random, -0.25, 0.25);
+    }
+    if (step.x == 0) {
+        rng_next_double_between(lv.random, -0.1, 0.1);
+    }
+    if (step.y == 0) {
+        rng_next_double_between(lv.random, 0.0, 0.1);
+    }
+    if (step.z == 0) {
+        rng_next_double_between(lv.random, -0.1, 0.1);
+    }
+    block_pos front = pos_relative(pos, face);
+    trace_boundary(lv.tr, "spawn item %d %d %d", front.x, front.y, front.z);
+}
+
 void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be) {
     // MovingPistonBlock.getDrops: the moved block drops, or nothing without a block entity
     state_id loot = st;

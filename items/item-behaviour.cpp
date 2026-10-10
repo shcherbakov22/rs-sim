@@ -31,6 +31,41 @@ interaction_result item_use_on(level & lv, const use_on_context & hit) {
             return shears_item_use_on(lv, hit);
         case ICLASS_SHOVEL_ITEM:
             return shovel_item_use_on(lv, hit);
+        case ICLASS_HOE_ITEM:
+            return hoe_item_use_on(lv, hit);
+        case ICLASS_END_CRYSTAL_ITEM:
+            return end_crystal_item_use_on(lv, hit);
+        case ICLASS_MINECART_ITEM:
+            return minecart_item_use_on(lv, hit);
+        case ICLASS_FIREWORK_ROCKET_ITEM:
+            return firework_rocket_item_use_on(lv, hit);
+        // SolidBucketItem: the empty bucket only goes back to the player's hand
+        case ICLASS_SOLID_BUCKET_ITEM:
+            return block_item_use_on(lv, hit);
+        // a lily pad or frogspawn goes on water through Item.use, which inputs never call
+        case ICLASS_PLACE_ON_WATER_BLOCK_ITEM:
+            return INTERACTION_RESULT_PASS;
+        // a fresh stack holds no potion contents, so it is never water that makes mud
+        case ICLASS_POTION_ITEM:
+            return INTERACTION_RESULT_PASS;
+        // the lodestone link is a data component of the player's stack only
+        case ICLASS_COMPASS_ITEM:
+            return state_is(level_get_state(lv, hit.pos), BLOCK_LODESTONE) ? INTERACTION_RESULT_SUCCESS :
+                                                                             INTERACTION_RESULT_PASS;
+        // a fresh map has no map id and so no saved data to mark the banner on
+        case ICLASS_MAP_ITEM:
+            return block_instanceof(state_block(level_get_state(lv, hit.pos)), VCLASS_ABSTRACT_BANNER_BLOCK) ?
+                       INTERACTION_RESULT_SUCCESS :
+                       INTERACTION_RESULT_PASS;
+        // with no entities, no mob is leashed to the player to tie to the fence
+        case ICLASS_LEAD_ITEM:
+            return INTERACTION_RESULT_PASS;
+        // the player is in survival, so canUseGameMasterBlocks is false
+        case ICLASS_DEBUG_STICK_ITEM:
+            return INTERACTION_RESULT_FAIL;
+        // the player starts to use the brush but never ticks, so it never brushes
+        case ICLASS_BRUSH_ITEM:
+            return INTERACTION_RESULT_CONSUME;
         default:
             item_hook_unsupported(lv, hit.stack.item, ITEM_HOOK_USE_ON);
             return INTERACTION_RESULT_PASS;

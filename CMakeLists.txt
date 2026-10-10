@@ -143,16 +143,20 @@ add_library(tmc STATIC
     items/book-cloning-recipe.cpp
     items/decorated-pot-recipe.cpp
     items/double-high-block-item.cpp
+    items/end-crystal-item.cpp
     items/ender-eye-item.cpp
     items/fire-charge-item.cpp
+    items/firework-rocket-item.cpp
     items/firework-rocket-recipe.cpp
     items/firework-star-fade-recipe.cpp
     items/firework-star-recipe.cpp
     items/flint-and-steel-item.cpp
+    items/hoe-item.cpp
     items/honeycomb-item.cpp
     items/item-behaviour.cpp
     items/map-cloning-recipe.cpp
     items/map-extending-recipe.cpp
+    items/minecart-item.cpp
     items/recipe-manager.cpp
     items/scaffolding-block-item.cpp
     items/repair-item-recipe.cpp
