@@ -32,6 +32,10 @@ struct block_entity {
     int32_t cooldown_time    = -1;
     int64_t ticked_game_time = 0;
 
+    // JukeboxBlockEntity: JukeboxSongPlayer.song is set while the record's song plays
+    bool    song_playing             = false;
+    int64_t ticks_since_song_started = 0;
+
     // CrafterBlockEntity
     uint32_t disabled_slots           = 0;  // bit per slot
     int32_t  crafting_ticks_remaining = 0;

@@ -26,6 +26,7 @@ bool block_entity_is_container(const block_entity * be) {
         case BLOCK_ENTITY_TYPE_DROPPER:
         case BLOCK_ENTITY_TYPE_CRAFTER:
         case BLOCK_ENTITY_TYPE_DECORATED_POT:
+        case BLOCK_ENTITY_TYPE_JUKEBOX:
             return true;
         default:
             return false;
@@ -67,10 +68,16 @@ int32_t container_get_max_stack_size(const item_stack & s) {
 
 // HopperBlockEntity and ContainerSingleItem (the decorated pot) override removeItem and setItem without setChanged
 item_stack container_remove_item(level & lv, const container & c, int32_t slot, int32_t count) {
-    block_entity * be     = container_half(c, slot);
-    item_stack &   stack  = be->items[slot];
-    item_stack     result = !item_stack_is_empty(stack) && count > 0 ? item_stack_split(stack, count) : item_stack();
-    bool           quiet  = be->type == BLOCK_ENTITY_TYPE_HOPPER || be->type == BLOCK_ENTITY_TYPE_DECORATED_POT;
+    block_entity * be = container_half(c, slot);
+    // JukeboxBlockEntity.splitTheItem hands out the whole record
+    if (be->type == BLOCK_ENTITY_TYPE_JUKEBOX) {
+        item_stack record = be->items[slot];
+        jukebox_block_entity_set_the_item(lv, be, item_stack());
+        return record;
+    }
+    item_stack & stack  = be->items[slot];
+    item_stack   result = !item_stack_is_empty(stack) && count > 0 ? item_stack_split(stack, count) : item_stack();
+    bool         quiet  = be->type == BLOCK_ENTITY_TYPE_HOPPER || be->type == BLOCK_ENTITY_TYPE_DECORATED_POT;
     if (!quiet && !item_stack_is_empty(result)) {
         block_entity_set_changed(lv, be->pos, be->state);
     }
@@ -79,7 +86,11 @@ item_stack container_remove_item(level & lv, const container & c, int32_t slot, 
 
 void container_set_item(level & lv, const container & c, int32_t slot, item_stack s) {
     block_entity * be = container_half(c, slot);
-    be->items[slot]   = s;
+    if (be->type == BLOCK_ENTITY_TYPE_JUKEBOX) {
+        jukebox_block_entity_set_the_item(lv, be, s);
+        return;
+    }
+    be->items[slot] = s;
     // ContainerSingleItem.setItem does not limit the stack either
     if (be->type == BLOCK_ENTITY_TYPE_DECORATED_POT) {
         return;

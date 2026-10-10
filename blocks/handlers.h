@@ -163,6 +163,16 @@ state_id           decorated_pot_update_shape(level & lv, state_id st);
 interaction_result decorated_pot_use_item_on(level & lv, block_pos pos, const item_stack & stack);
 interaction_result decorated_pot_use_without_item(level & lv, block_pos pos);
 
+// JukeboxBlock, JukeboxBlockEntity, JukeboxSongPlayer
+bool               jukebox_song_has_finished(int32_t record, int64_t ticks);
+void               jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack s);
+void               jukebox_block_entity_pop_out_the_item(level & lv, block_entity * be);
+void               jukebox_block_entity_tick(level & lv, block_entity * be);
+int32_t            jukebox_get_signal(level & lv, block_pos pos);
+int32_t            jukebox_get_analog_output_signal(level & lv, block_pos pos);
+interaction_result jukebox_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
+interaction_result jukebox_use_without_item(level & lv, state_id st, block_pos pos);
+
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 

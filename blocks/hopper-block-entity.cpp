@@ -1,6 +1,6 @@
 // HopperBlockEntity. The sim has no entities, so the item entity and container entity lookups find nothing.
 // Of the supported containers only the shulker box is a WorldlyContainer: every face sees every slot, and it refuses shulker boxes.
-// Only the crafter overrides Container.canPlaceItem.
+// The crafter and the jukebox override Container.canPlaceItem; the jukebox also overrides canTakeItem.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -66,6 +66,10 @@ static item_stack hopper_block_entity_try_move_in_item(level &           lv,
         return s;
     }
     if (to.first->type == BLOCK_ENTITY_TYPE_CRAFTER && !crafter_block_entity_can_place_item(to.first, slot)) {
+        return s;
+    }
+    if (to.first->type == BLOCK_ENTITY_TYPE_JUKEBOX &&
+        (item_defs[item_stack_get_item(s)].song_ticks < 0 || !item_stack_is_empty(to.first->items[slot]))) {
         return s;
     }
     item_stack & current   = container_get_item(to, slot);
@@ -137,15 +141,27 @@ static bool hopper_block_entity_try_take_in_item_from_slot(level &           lv,
     if (item_stack_is_empty(s)) {
         return false;
     }
-    int32_t    original_count = item_stack_get_count(s);
-    item_stack result = hopper_block_entity_add_item(lv, &source, hopper, container_remove_item(lv, source, slot, 1));
+    // JukeboxBlockEntity.canTakeItem: the hopper needs an empty slot
+    if (source.first->type == BLOCK_ENTITY_TYPE_JUKEBOX) {
+        bool any_empty = false;
+        for (const item_stack & h : hopper.first->items) {
+            any_empty = any_empty || item_stack_is_empty(h);
+        }
+        if (!any_empty) {
+            return false;
+        }
+    }
+    // vanilla restores the removed stack object itself; a copy stands in for it where removal empties the slot (a jukebox)
+    item_stack original = s;
+    item_stack result   = hopper_block_entity_add_item(lv, &source, hopper, container_remove_item(lv, source, slot, 1));
     if (item_stack_is_empty(result)) {
         container_set_changed(lv, source);
         return true;
     }
-    s.count = original_count;
-    if (original_count == 1) {
-        container_set_item(lv, source, slot, s);
+    if (item_stack_get_count(original) == 1) {
+        container_set_item(lv, source, slot, original);
+    } else {
+        s.count = item_stack_get_count(original);
     }
     return false;
 }

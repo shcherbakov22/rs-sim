@@ -238,6 +238,7 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
         case VCLASS_DISPENSER_BLOCK:
         case VCLASS_CRAFTER_BLOCK:
         case VCLASS_DECORATED_POT_BLOCK:
+        case VCLASS_JUKEBOX_BLOCK:
             // Containers.updateNeighboursAfterDestroy
             level_update_neighbour_for_output_signal(lv, pos, state_block(st));
             break;
@@ -337,6 +338,8 @@ interaction_result block_use_item_on(level & lv, state_id st, block_pos pos, con
             return lectern_use_item_on(lv, st, pos, stack);
         case VCLASS_DECORATED_POT_BLOCK:
             return decorated_pot_use_item_on(lv, pos, stack);
+        case VCLASS_JUKEBOX_BLOCK:
+            return jukebox_use_item_on(lv, st, pos, stack);
         default:
             hook_unsupported(lv, st, HOOK_USE_ITEM_ON);
             return INTERACTION_RESULT_PASS;
@@ -357,6 +360,8 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return lectern_use_without_item(lv, st);
         case VCLASS_DECORATED_POT_BLOCK:
             return decorated_pot_use_without_item(lv, pos);
+        case VCLASS_JUKEBOX_BLOCK:
+            return jukebox_use_without_item(lv, st, pos);
         case VCLASS_BUTTON_BLOCK:
             return button_use_without_item(lv, st, pos);
         case VCLASS_REPEATER_BLOCK:
@@ -399,6 +404,7 @@ bool block_is_signal_source(level & lv, state_id st) {
             return lv.red_stone_wire_should_signal;
         case VCLASS_LEVER_BLOCK:
         case VCLASS_LECTERN_BLOCK:
+        case VCLASS_JUKEBOX_BLOCK:
         case VCLASS_REDSTONE_TORCH_BLOCK:
         case VCLASS_BUTTON_BLOCK:
         case VCLASS_DIODE_BLOCK:
@@ -422,6 +428,8 @@ int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) 
             return lever_get_signal(st);
         case VCLASS_LECTERN_BLOCK:
             return lectern_get_signal(st);
+        case VCLASS_JUKEBOX_BLOCK:
+            return jukebox_get_signal(lv, pos);
         case VCLASS_REDSTONE_TORCH_BLOCK:
             return redstone_torch_get_signal(st, dir);
         case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
@@ -533,6 +541,8 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos) {
             return container_get_redstone_signal_from_block_entity(lv, pos);
         case VCLASS_LECTERN_BLOCK:
             return lectern_get_analog_output_signal(lv, st, pos);
+        case VCLASS_JUKEBOX_BLOCK:
+            return jukebox_get_analog_output_signal(lv, pos);
         case VCLASS_CRAFTER_BLOCK:
             return crafter_get_analog_output_signal(lv, pos);
         default:

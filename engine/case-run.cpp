@@ -73,6 +73,9 @@ static void case_load_hidden(level & lv, block_entity * be, const snbt_value & h
         } else if (be->type == BLOCK_ENTITY_TYPE_LECTERN && entry.key == "page") {
             // without pages the page never shows
             continue;
+        } else if (be->type == BLOCK_ENTITY_TYPE_JUKEBOX && entry.key == "song") {
+            // a song past its end that no tick has stopped yet
+            be->song_playing = be->song_playing || entry.value.i != 0;
         } else {
             level_unsupported(lv, "hidden state %s %s", block_entity_type_names[be->type], entry.key.c_str());
             return;
@@ -80,15 +83,16 @@ static void case_load_hidden(level & lv, block_entity * be, const snbt_value & h
     }
 }
 
-// BlockEntity.loadWithComponents
+// BlockEntity.loadWithComponents, then HiddenState.apply
 static void case_load_block_entity(level & lv, block_entity * be, const snbt_value & tag) {
+    const snbt_value * hidden = nullptr;
     for (const snbt_entry & entry : tag.compound) {
         const snbt_value & value = entry.value;
         if (entry.key == "components" && value.compound.empty()) {
             continue;
         }
         if (entry.key == "tmc:hidden") {
-            case_load_hidden(lv, be, value);
+            hidden = &value;
         } else if (be->type == BLOCK_ENTITY_TYPE_COMPARATOR && entry.key == "OutputSignal") {
             be->output_signal = (int32_t) value.i;
         } else if (block_entity_is_container(be) && entry.key == "Items") {
@@ -100,6 +104,14 @@ static void case_load_block_entity(level & lv, block_entity * be, const snbt_val
             if (!case_load_item(lv, value, be->items[0], slot)) {
                 return;
             }
+        } else if (be->type == BLOCK_ENTITY_TYPE_JUKEBOX && entry.key == "RecordItem") {
+            int32_t slot = -1;
+            if (!case_load_item(lv, value, be->items[0], slot)) {
+                return;
+            }
+        } else if (be->type == BLOCK_ENTITY_TYPE_JUKEBOX && entry.key == "ticks_since_song_started") {
+            be->ticks_since_song_started = value.i;
+            be->song_playing             = true;
         } else if (be->type == BLOCK_ENTITY_TYPE_LECTERN && entry.key == "Book") {
             int32_t slot = -1;
             if (!case_load_item(lv, value, be->items[0], slot)) {
@@ -123,11 +135,20 @@ static void case_load_block_entity(level & lv, block_entity * be, const snbt_val
             return;
         }
     }
+    // JukeboxBlockEntity.loadAdditional: JukeboxSongPlayer.setSongWithoutPlaying skips a missing or finished song
+    if (be->song_playing) {
+        int32_t record = be->items[0].item;
+        be->song_playing =
+            item_defs[record].song_ticks >= 0 && !jukebox_song_has_finished(record, be->ticks_since_song_started);
+    }
     // CrafterBlockEntity.loadAdditional reads the items first and disables only empty slots
     for (int32_t slot = 0; slot < (int32_t) be->items.size(); slot++) {
         if (be->type == BLOCK_ENTITY_TYPE_CRAFTER && !item_stack_is_empty(be->items[slot])) {
             be->disabled_slots &= ~(1u << slot);
         }
+    }
+    if (hidden != nullptr) {
+        case_load_hidden(lv, be, *hidden);
     }
 }
 

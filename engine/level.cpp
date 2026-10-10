@@ -107,6 +107,7 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
             break;
         case BLOCK_ENTITY_TYPE_LECTERN:
         case BLOCK_ENTITY_TYPE_DECORATED_POT:
+        case BLOCK_ENTITY_TYPE_JUKEBOX:
             n_items = 1;
             break;
         case BLOCK_ENTITY_TYPE_CHEST:
@@ -249,6 +250,8 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
                 piston_moving_block_entity_final_tick(lv, be);
             } else if (be != nullptr && be->type == BLOCK_ENTITY_TYPE_LECTERN) {
                 lectern_block_entity_pre_remove_side_effects(lv, pos, old);
+            } else if (be != nullptr && be->type == BLOCK_ENTITY_TYPE_JUKEBOX) {
+                jukebox_block_entity_pop_out_the_item(lv, be);
             } else if (be != nullptr && block_entity_is_container(be) && be->type != BLOCK_ENTITY_TYPE_SHULKER_BOX) {
                 containers_drop_contents(lv, pos, { be, nullptr });
             }
@@ -583,6 +586,8 @@ static void level_tick_block_entities(level & lv) {
                 piston_moving_block_entity_tick(lv, be);
             } else if (be->type == BLOCK_ENTITY_TYPE_CRAFTER) {
                 crafter_block_entity_server_tick(lv, pos, st, be);
+            } else if (be->type == BLOCK_ENTITY_TYPE_JUKEBOX) {
+                jukebox_block_entity_tick(lv, be);
             }
             // shulker boxes without openers and bells without entities tick without effect
         }
