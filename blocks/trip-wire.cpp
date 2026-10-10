@@ -2,6 +2,7 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
+#include "items/block-place-context.h"
 
 static bool trip_wire_should_connect_to(state_id st, state_id neighbor, direction dir) {
     if (state_is(neighbor, block_field_get(state_block(st), FIELD_TRIP_WIRE_BLOCK_HOOK))) {
@@ -57,4 +58,14 @@ void trip_wire_tick(level & lv, block_pos pos) {
         level_set_block(lv, pos, st, UPDATE_FLAG_ALL);
         trip_wire_update_source(lv, pos, st);
     }
+}
+
+state_id trip_wire_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
+    block_pos pos = block_place_context_get_clicked_pos(ctx);
+    state_id  st  = block_default(block);
+    for (direction dir : DIRECTION_HORIZONTAL) {
+        st = state_set(st, cross_collision_property_by_direction(dir),
+                       trip_wire_should_connect_to(st, level_get_state(lv, pos_relative(pos, dir)), dir));
+    }
+    return st;
 }

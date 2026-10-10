@@ -3,6 +3,7 @@
 #include "blocks/handlers.h"
 #include "core/trace.h"
 #include "engine/level.h"
+#include "items/block-place-context.h"
 
 static int16_t hook_owner(state_id st, hook h) {
     return vclass_hooks[block_defs[state_block(st)].cls][h];
@@ -767,6 +768,8 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return trip_wire_hook_can_survive(lv, st, pos);
         case VCLASS_SCAFFOLDING_BLOCK:
             return scaffolding_can_survive(lv, pos);
+        case VCLASS_CANDLE_BLOCK:
+            return candle_can_survive(lv, pos);
         case VCLASS_CANDLE_CAKE_BLOCK:
             return candle_cake_can_survive(lv, pos);
         default:
@@ -860,4 +863,82 @@ bool block_should_changed_state_keep_block_entity(level & lv, state_id st, state
             hook_unsupported(lv, st, HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY);
             return false;
     }
+}
+
+state_id block_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
+    state_id st = block_default(block);
+    switch (hook_owner(st, HOOK_GET_STATE_FOR_PLACEMENT)) {
+        case VCLASS_NONE:
+            return st;
+        case VCLASS_DOOR_BLOCK:
+            return door_get_state_for_placement(lv, block, ctx);
+        case VCLASS_OBSERVER_BLOCK:
+            return observer_get_state_for_placement(block);
+        case VCLASS_NOTE_BLOCK:
+            return note_block_get_state_for_placement(lv, block, ctx);
+        case VCLASS_WALL_TORCH_BLOCK:
+            return wall_torch_get_state_for_placement(lv, block, ctx);
+        case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
+            return redstone_wall_torch_get_state_for_placement(lv, block, ctx);
+        case VCLASS_TRAP_DOOR_BLOCK:
+            return trap_door_get_state_for_placement(lv, block, ctx);
+        case VCLASS_DIODE_BLOCK:
+            return diode_get_state_for_placement(block);
+        case VCLASS_REPEATER_BLOCK:
+            return repeater_get_state_for_placement(lv, block, ctx);
+        case VCLASS_CANDLE_BLOCK:
+            return candle_get_state_for_placement(lv, block, ctx);
+        case VCLASS_CHEST_BLOCK:
+            return chest_get_state_for_placement(lv, block, ctx);
+        case VCLASS_HOPPER_BLOCK:
+            return hopper_get_state_for_placement(block, ctx);
+        case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
+            return face_attached_horizontal_directional_get_state_for_placement(lv, block, ctx);
+        case VCLASS_TRIP_WIRE_BLOCK:
+            return trip_wire_get_state_for_placement(lv, block, ctx);
+        case VCLASS_BASE_RAIL_BLOCK:
+            return base_rail_get_state_for_placement(lv, block, ctx);
+        case VCLASS_RED_STONE_WIRE_BLOCK:
+            return red_stone_wire_get_state_for_placement(lv, ctx);
+        default:
+            hook_unsupported(lv, st, HOOK_GET_STATE_FOR_PLACEMENT);
+            return STATE_NONE;
+    }
+}
+
+bool block_behaviour_can_be_replaced(state_id st, const block_place_context & ctx) {
+    return state_has(st, STATE_FLAG_REPLACEABLE) &&
+           (item_stack_is_empty(ctx.hit.stack) || ctx.hit.stack.item != block_defs[state_block(st)].as_item);
+}
+
+bool block_can_be_replaced(level & lv, state_id st, const block_place_context & ctx) {
+    switch (hook_owner(st, HOOK_CAN_BE_REPLACED)) {
+        case VCLASS_NONE:
+            return block_behaviour_can_be_replaced(st, ctx);
+        case VCLASS_CANDLE_BLOCK:
+            return candle_can_be_replaced(st, ctx);
+        default:
+            hook_unsupported(lv, st, HOOK_CAN_BE_REPLACED);
+            return false;
+    }
+}
+
+void block_set_placed_by(level & lv, state_id st, block_pos pos) {
+    switch (hook_owner(st, HOOK_SET_PLACED_BY)) {
+        case VCLASS_NONE:
+            return;
+        case VCLASS_DOOR_BLOCK:
+            door_set_placed_by(lv, st, pos);
+            return;
+        case VCLASS_DIODE_BLOCK:
+            diode_set_placed_by(lv, st, pos);
+            return;
+        default:
+            hook_unsupported(lv, st, HOOK_SET_PLACED_BY);
+    }
+}
+
+// Block.isShapeFullBlock of the collision shape
+bool block_is_collision_shape_full_block(level & lv, state_id st, block_pos pos) {
+    return !shapes_join_is_not_empty(shapes_block(), block_get_collision_shape(lv, st, pos), BOOLEAN_OP_NOT_SAME);
 }

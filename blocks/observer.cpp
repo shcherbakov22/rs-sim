@@ -54,3 +54,8 @@ void observer_affect_neighbors_after_removal(level & lv, state_id st, block_pos 
         observer_update_neighbors_in_front(lv, state_set(st, PROP_POWERED, 0), pos);
     }
 }
+
+// vanilla flips the nearest looking direction twice
+state_id observer_get_state_for_placement(int32_t block) {
+    return state_set(block_default(block), PROP_FACING, player_nearest_directions[0]);
+}

@@ -3,6 +3,7 @@
 #include "blocks/handlers.h"
 #include "engine/java-hash-map.h"
 #include "engine/level.h"
+#include "items/block-place-context.h"
 
 #include <algorithm>
 
@@ -328,4 +329,9 @@ interaction_result red_stone_wire_use_without_item(level & lv, state_id st, bloc
     level_set_block(lv, pos, st_new, UPDATE_FLAG_ALL);
     red_stone_wire_updates_on_shape_change(lv, pos, st, st_new);
     return INTERACTION_RESULT_SUCCESS;
+}
+
+state_id red_stone_wire_get_state_for_placement(level & lv, const block_place_context & ctx) {
+    return red_stone_wire_get_connection_state(lv, red_stone_wire_cross_state(),
+                                               block_place_context_get_clicked_pos(ctx));
 }

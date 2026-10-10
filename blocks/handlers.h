@@ -20,6 +20,7 @@ bool     base_torch_can_survive(level & lv, block_pos pos);
 // WallTorchBlock
 state_id wall_torch_update_shape(level & lv, state_id st, block_pos pos, direction dir);
 bool     wall_torch_can_survive(level & lv, block_pos pos, direction facing);
+state_id wall_torch_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // RedStoneWireBlock
 state_id red_stone_wire_update_shape(level &   lv,
@@ -40,6 +41,7 @@ void     red_stone_wire_neighbor_changed(level & lv, state_id st, block_pos pos)
 int32_t  red_stone_wire_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir);
 int32_t  red_stone_wire_get_signal(level & lv, state_id st, block_pos pos, direction dir);
 interaction_result red_stone_wire_use_without_item(level & lv, state_id st, block_pos pos);
+state_id           red_stone_wire_get_state_for_placement(level & lv, const block_place_context & ctx);
 
 // RedstoneTorchBlock
 void    redstone_torch_on_place(level & lv, state_id st, block_pos pos);
@@ -54,19 +56,22 @@ bool     redstone_wall_torch_can_survive(level & lv, state_id st, block_pos pos)
 state_id redstone_wall_torch_update_shape(level & lv, state_id st, block_pos pos, direction dir);
 bool     redstone_wall_torch_has_neighbor_signal(level & lv, state_id st, block_pos pos);
 int32_t  redstone_wall_torch_get_signal(state_id st, direction dir);
+state_id redstone_wall_torch_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // DiodeBlock
-bool    diode_can_survive(level & lv, block_pos pos);
-bool    diode_can_survive_on(level & lv, block_pos neighbor_pos, state_id neighbor);
-void    diode_tick(level & lv, state_id st, block_pos pos);
-int32_t diode_get_signal(level & lv, state_id st, block_pos pos, direction dir);
-void    diode_neighbor_changed(level & lv, state_id st, block_pos pos);
-int32_t diode_get_input_signal(level & lv, state_id st, block_pos pos);
-int32_t diode_get_alternate_signal(level & lv, state_id st, block_pos pos);
-bool    diode_should_prioritize(level & lv, state_id st, block_pos pos);
-void    diode_update_neighbors_in_front(level & lv, state_id st, block_pos pos);
-void    diode_on_place(level & lv, state_id st, block_pos pos);
-void    diode_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
+bool     diode_can_survive(level & lv, block_pos pos);
+bool     diode_can_survive_on(level & lv, block_pos neighbor_pos, state_id neighbor);
+void     diode_tick(level & lv, state_id st, block_pos pos);
+int32_t  diode_get_signal(level & lv, state_id st, block_pos pos, direction dir);
+void     diode_neighbor_changed(level & lv, state_id st, block_pos pos);
+int32_t  diode_get_input_signal(level & lv, state_id st, block_pos pos);
+int32_t  diode_get_alternate_signal(level & lv, state_id st, block_pos pos);
+bool     diode_should_prioritize(level & lv, state_id st, block_pos pos);
+void     diode_update_neighbors_in_front(level & lv, state_id st, block_pos pos);
+void     diode_on_place(level & lv, state_id st, block_pos pos);
+void     diode_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
+state_id diode_get_state_for_placement(int32_t block);
+void     diode_set_placed_by(level & lv, state_id st, block_pos pos);
 
 // RepeaterBlock
 interaction_result repeater_use_without_item(level & lv, state_id st, block_pos pos);
@@ -78,6 +83,7 @@ state_id           repeater_update_shape(level &   lv,
                                          block_pos neighbor_pos,
                                          state_id  neighbor);
 bool               repeater_is_locked(level & lv, state_id st, block_pos pos);
+state_id           repeater_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // ComparatorBlock
 state_id comparator_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor);
@@ -115,8 +121,9 @@ void abstract_skull_neighbor_changed(level & lv, state_id st, block_pos pos);
 void barrel_tick(level & lv, block_pos pos);
 
 // HopperBlock
-void hopper_on_place(level & lv, state_id st, block_pos pos, state_id old);
-void hopper_neighbor_changed(level & lv, state_id st, block_pos pos);
+void     hopper_on_place(level & lv, state_id st, block_pos pos, state_id old);
+void     hopper_neighbor_changed(level & lv, state_id st, block_pos pos);
+state_id hopper_get_state_for_placement(int32_t block, const block_place_context & ctx);
 
 // HopperBlockEntity
 void       hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st, block_entity * be);
@@ -225,6 +232,7 @@ state_id stair_update_shape(level & lv, state_id st, block_pos pos, direction di
 // TrapDoorBlock
 interaction_result trap_door_use_without_item(level & lv, state_id st, block_pos pos);
 void               trap_door_neighbor_changed(level & lv, state_id st, block_pos pos);
+state_id           trap_door_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // WallBlock
 state_id wall_update_shape(level &   lv,
@@ -246,6 +254,8 @@ struct rail_state {
     bool                   is_straight;
     std::vector<block_pos> connections;
 };
+
+state_id base_rail_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 bool       base_rail_is_rail(state_id st);
 bool       base_rail_is_straight(state_id st);
@@ -284,6 +294,9 @@ int32_t            cake_get_analog_output_signal(state_id st);
 
 // CandleBlock
 interaction_result candle_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
+state_id           candle_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+bool               candle_can_be_replaced(state_id st, const block_place_context & ctx);
+bool               candle_can_survive(level & lv, block_pos pos);
 
 // CandleCakeBlock
 interaction_result candle_cake_use_item_on(level &            lv,
@@ -323,6 +336,7 @@ interaction_result note_block_use_item_on(const item_stack & stack, direction fa
 interaction_result note_block_use_without_item(level & lv, state_id st, block_pos pos);
 void               note_block_attack(level & lv, state_id st, block_pos pos);
 bool               note_block_trigger_event(level & lv, state_id st);
+state_id           note_block_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // BasePressurePlateBlock
 state_id base_pressure_plate_update_shape(level & lv, state_id st, block_pos pos, direction dir);
@@ -373,6 +387,7 @@ state_id trip_wire_update_shape(state_id st, direction dir, state_id neighbor);
 void     trip_wire_on_place(level & lv, state_id st, block_pos pos, state_id old);
 void     trip_wire_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
 void     trip_wire_tick(level & lv, block_pos pos);
+state_id trip_wire_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // ScaffoldingBlock
 void scaffolding_on_place(level & lv, state_id st, block_pos pos);
@@ -398,6 +413,8 @@ bool               door_can_survive(level & lv, state_id st, block_pos pos);
 state_id           door_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
 interaction_result door_use_without_item(level & lv, state_id st, block_pos pos);
 void               door_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block);
+state_id           door_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+void               door_set_placed_by(level & lv, state_id st, block_pos pos);
 
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
@@ -408,6 +425,7 @@ state_id chest_update_shape(level & lv, state_id st, direction dir, state_id nei
 state_id copper_chest_update_shape(level & lv, state_id st, direction dir, state_id neighbor);
 int32_t  chest_get_analog_output_signal(level & lv, state_id st, block_pos pos);
 void     chest_tick(level & lv, block_pos pos);
+state_id chest_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // ChestBlockEntity
 void    chest_block_entity_recheck_open(level & lv, block_entity * be);
@@ -421,6 +439,9 @@ int32_t trapped_chest_get_direct_signal(level & lv, state_id st, block_pos pos, 
 bool      face_attached_horizontal_directional_can_survive(level & lv, state_id st, block_pos pos);
 state_id  face_attached_horizontal_directional_update_shape(level & lv, state_id st, block_pos pos, direction dir);
 direction face_attached_horizontal_directional_get_connected_direction(state_id st);
+state_id  face_attached_horizontal_directional_get_state_for_placement(level &                     lv,
+                                                                       int32_t                     block,
+                                                                       const block_place_context & ctx);
 
 // LeverBlock
 interaction_result lever_use_without_item(level & lv, state_id st, block_pos pos);
@@ -445,6 +466,7 @@ state_id observer_update_shape(level & lv, state_id st, block_pos pos, direction
 int32_t  observer_get_signal(state_id st, direction dir);
 void     observer_on_place(level & lv, state_id st, block_pos pos, state_id old);
 void     observer_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
+state_id observer_get_state_for_placement(int32_t block);
 
 // MovingPistonBlock
 interaction_result moving_piston_use_without_item(level & lv, block_pos pos);

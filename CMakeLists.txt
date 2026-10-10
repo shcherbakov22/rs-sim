@@ -102,6 +102,11 @@ add_library(tmc STATIC
     gen/blocks.cpp
     io/case-file.cpp
     io/snbt.cpp
+    items/block-item.cpp
+    items/block-place-context.cpp
+    items/double-high-block-item.cpp
+    items/item-behaviour.cpp
+    items/standing-and-wall-block-item.cpp
 )
 target_include_directories(tmc PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 

@@ -6,6 +6,7 @@
 #include "core/voxel-shape.h"
 
 struct level;
+struct block_place_context;
 
 // BlockBehaviour.UPDATE_SHAPE_ORDER
 inline constexpr direction UPDATE_SHAPE_ORDER[6] = {
@@ -63,6 +64,16 @@ int32_t            block_get_direct_signal(level & lv, state_id st, block_pos po
 bool               block_can_survive(level & lv, state_id st, block_pos pos);
 int32_t            block_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
 bool               block_should_changed_state_keep_block_entity(level & lv, state_id st, state_id old);
+state_id           block_get_state_for_placement(level &                     lv,
+                                                 int32_t                     block,
+                                                 const block_place_context & ctx);  // STATE_NONE for null
+bool               block_can_be_replaced(level & lv, state_id st, const block_place_context & ctx);
+void               block_set_placed_by(level & lv, state_id st, block_pos pos);
+
+// BlockBehaviour.canBeReplaced: a replaceable block, unless the hand holds its own item
+bool block_behaviour_can_be_replaced(state_id st, const block_place_context & ctx);
+// BlockStateBase.isCollisionShapeFullBlock
+bool block_is_collision_shape_full_block(level & lv, state_id st, block_pos pos);
 
 // BlockStateBase.updateNeighbourShapes
 void block_update_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit);

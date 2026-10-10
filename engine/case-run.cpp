@@ -3,6 +3,7 @@
 #include "blocks/block-behaviour.h"
 #include "blocks/handlers.h"
 #include "engine/level.h"
+#include "items/item-behaviour.h"
 
 #include <algorithm>
 
@@ -217,8 +218,8 @@ static void case_use(level & lv, const case_input & in) {
         interaction_result_consumes_action(block_use_without_item(lv, st, in.pos, in.face))) {
         return;
     }
-    if (!in.item.empty()) {
-        level_unsupported(lv, "item useOn");
+    if (!item_stack_is_empty(stack)) {
+        item_use_on(lv, { in.pos, in.face, stack });
     }
 }
 

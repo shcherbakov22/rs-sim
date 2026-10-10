@@ -135,3 +135,13 @@ void diode_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
         diode_update_neighbors_in_front(lv, st, pos);
     }
 }
+
+state_id diode_get_state_for_placement(int32_t block) {
+    return state_set(block_default(block), PROP_HORIZONTAL_FACING, direction_opposite(player_direction));
+}
+
+void diode_set_placed_by(level & lv, state_id st, block_pos pos) {
+    if (diode_should_turn_on(lv, st, pos)) {
+        level_schedule_tick(lv, pos, state_block(st), 1);
+    }
+}

@@ -20,3 +20,11 @@ bool redstone_wall_torch_has_neighbor_signal(level & lv, state_id st, block_pos 
 int32_t redstone_wall_torch_get_signal(state_id st, direction dir) {
     return state_get(st, PROP_LIT) && state_get(st, PROP_HORIZONTAL_FACING) != dir ? 15 : 0;
 }
+
+// asks the plain wall torch for the facing
+state_id redstone_wall_torch_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
+    state_id st = wall_torch_get_state_for_placement(lv, BLOCK_WALL_TORCH, ctx);
+    return st == STATE_NONE ?
+               STATE_NONE :
+               state_set(block_default(block), PROP_HORIZONTAL_FACING, state_get(st, PROP_HORIZONTAL_FACING));
+}

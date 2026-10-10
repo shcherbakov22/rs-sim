@@ -2,6 +2,7 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
+#include "items/block-place-context.h"
 
 // NoteBlockInstrument.worksAboveNoteBlock: every instrument that is not tunable
 static bool note_block_instrument_works_above(int32_t instrument) {
@@ -68,4 +69,8 @@ bool note_block_trigger_event(level & lv, state_id st) {
     }
     rng_next_long(lv.random);
     return true;
+}
+
+state_id note_block_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
+    return note_block_set_instrument(lv, block_place_context_get_clicked_pos(ctx), block_default(block));
 }

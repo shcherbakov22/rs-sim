@@ -2,6 +2,7 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
+#include "items/block-place-context.h"
 
 bool base_rail_is_rail(state_id st) {
     return state_has(st, STATE_FLAG_TAG_RAILS) && block_instanceof(state_block(st), VCLASS_BASE_RAIL_BLOCK);
@@ -96,4 +97,12 @@ void base_rail_affect_neighbors_after_removal(level & lv, state_id st, block_pos
         level_update_neighbors_at(lv, pos, state_block(st));
         level_update_neighbors_at(lv, pos_relative(pos, DIRECTION_DOWN), state_block(st));
     }
+}
+
+state_id base_rail_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
+    bool     water     = block_place_context_is_water_source(lv, ctx);
+    state_id st        = block_default(block);
+    bool     east_west = player_direction == DIRECTION_EAST || player_direction == DIRECTION_WEST;
+    st = state_set(st, base_rail_get_shape_property(st), east_west ? RAIL_SHAPE_EAST_WEST : RAIL_SHAPE_NORTH_SOUTH);
+    return state_set(st, PROP_WATERLOGGED, water);
 }
