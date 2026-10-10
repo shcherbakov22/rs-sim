@@ -44,6 +44,8 @@ struct block_def {
 struct item_def {
     const char * name;
     int32_t      max_stack_size;  // default MAX_STACK_SIZE component
+    int32_t      cls;             // item_class
+    int32_t      block;           // BlockItem.getBlock, -1 for other items
 };
 
 // Box of a collision shape, in block units, per axis x y z.
@@ -107,6 +109,8 @@ bool     state_has_prop(state_id st, prop_id prop);
 int32_t  state_get(state_id st, prop_id prop);
 state_id state_set(state_id st, prop_id prop, int32_t value);
 state_id state_cycle(state_id st, prop_id prop);
+// Block.withPropertiesOf: the default state of block with every property it shares with st copied over
+state_id block_with_properties_of(int32_t block, state_id st);
 
 // trace form: "redstone_wire[east=side,...]", no namespace
 std::string state_to_string(state_id st);
