@@ -27,6 +27,9 @@ interaction_result shears_item_use_on(level & lv, const use_on_context & hit);
 // ShovelItem
 interaction_result shovel_item_use_on(level & lv, const use_on_context & hit);
 
+// FireChargeItem
+interaction_result fire_charge_item_use_on(level & lv, const use_on_context & hit);
+
 // FlintAndSteelItem
 interaction_result flint_and_steel_item_use_on(level & lv, const use_on_context & hit);
 

@@ -23,6 +23,8 @@ interaction_result item_use_on(level & lv, const use_on_context & hit) {
             return axe_item_use_on(lv, hit);
         case ICLASS_FLINT_AND_STEEL_ITEM:
             return flint_and_steel_item_use_on(lv, hit);
+        case ICLASS_FIRE_CHARGE_ITEM:
+            return fire_charge_item_use_on(lv, hit);
         case ICLASS_ENDER_EYE_ITEM:
             return ender_eye_item_use_on(lv, hit);
         case ICLASS_SHEARS_ITEM:

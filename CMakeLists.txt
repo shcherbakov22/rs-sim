@@ -18,6 +18,7 @@ add_library(tmc STATIC
     blocks/amethyst-cluster.cpp
     blocks/barrel.cpp
     blocks/base-entity-block.cpp
+    blocks/base-fire.cpp
     blocks/base-pressure-plate.cpp
     blocks/base-rail.cpp
     blocks/base-torch.cpp
@@ -54,6 +55,7 @@ add_library(tmc STATIC
     blocks/face-attached-horizontal-directional.cpp
     blocks/fence-gate.cpp
     blocks/fence.cpp
+    blocks/fire.cpp
     blocks/growing-plant-body.cpp
     blocks/growing-plant-head.cpp
     blocks/growing-plant.cpp
@@ -72,12 +74,14 @@ add_library(tmc STATIC
     blocks/light.cpp
     blocks/lightning-rod.cpp
     blocks/moving-piston.cpp
+    blocks/nether-portal.cpp
     blocks/note-block.cpp
     blocks/observer.cpp
     blocks/piston-base.cpp
     blocks/piston-head.cpp
     blocks/piston-moving-block-entity.cpp
     blocks/piston-structure-resolver.cpp
+    blocks/portal-shape.cpp
     blocks/powered-rail.cpp
     blocks/pressure-plate.cpp
     blocks/rail-state.cpp
@@ -94,6 +98,7 @@ add_library(tmc STATIC
     blocks/skull.cpp
     blocks/slab.cpp
     blocks/snowy-dirt.cpp
+    blocks/soul-fire.cpp
     blocks/soul-sand.cpp
     blocks/stair.cpp
     blocks/target.cpp
@@ -122,6 +127,7 @@ add_library(tmc STATIC
     items/block-place-context.cpp
     items/double-high-block-item.cpp
     items/ender-eye-item.cpp
+    items/fire-charge-item.cpp
     items/flint-and-steel-item.cpp
     items/honeycomb-item.cpp
     items/item-behaviour.cpp
