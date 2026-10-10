@@ -2,7 +2,8 @@
 version 1.21.11
 hooks updateShape neighborChanged onPlace affectNeighborsAfterRemoval tick triggerEvent updateIndirectNeighbourShapes spawnAfterBreak useItemOn useWithoutItem attack isSignalSource getSignal getDirectSignal canSurvive getAnalogOutputSignal shouldChangedStateKeepBlockEntity getStateForPlacement setPlacedBy canBeReplaced
 flags air block_entity analog_output conductor fluid drops drops_random dynamic_shape unbreakable tag_copper_chests tag_copper_golem_statues tag_unstable_bottom_center tag_wooden_shelves tag_walls tag_fences tag_wooden_fences tag_wall_post_override tag_logs tag_rails tag_campfires tag_candles tag_snow tag_candle_cakes tag_fire tag_soul_fire_base_blocks fire_can_burn connection_exception solid replaceable note_tunable note_custom_sound ticker push_destroy push_block push_ignore push_push_only sturdy_full_down sturdy_full_up sturdy_full_north sturdy_full_south sturdy_full_west sturdy_full_east sturdy_center_down sturdy_center_up sturdy_center_north sturdy_center_south sturdy_center_west sturdy_center_east sturdy_rigid_down sturdy_rigid_up sturdy_rigid_north sturdy_rigid_south sturdy_rigid_west sturdy_rigid_east
-item_hooks useOn updatePlacementContext getPlacementState placeBlock mustSurvive updateCustomBlockEntityTag canPlace
+item_hooks useOn updatePlacementContext getPlacementState placeBlock mustSurvive updateCustomBlockEntityTag canPlace onCraftedPostProcess
+item_components block_state max_damage damage written_book_content map_id banner_patterns
 cauldron_interactions empty water_bucket,lava_bucket,powder_snow_bucket,potion
 cauldron_interactions water white_shulker_box,orange_shulker_box,magenta_shulker_box,light_blue_shulker_box,yellow_shulker_box,lime_shulker_box,pink_shulker_box,gray_shulker_box,light_gray_shulker_box,cyan_shulker_box,purple_shulker_box,blue_shulker_box,brown_shulker_box,green_shulker_box,red_shulker_box,black_shulker_box,wolf_armor,leather_helmet,leather_chestplate,leather_leggings,leather_boots,bucket,water_bucket,lava_bucket,powder_snow_bucket,glass_bottle,potion,leather_horse_armor,white_banner,orange_banner,magenta_banner,light_blue_banner,yellow_banner,lime_banner,pink_banner,gray_banner,light_gray_banner,cyan_banner,purple_banner,blue_banner,brown_banner,green_banner,red_banner,black_banner
 cauldron_interactions lava bucket,water_bucket,lava_bucket,powder_snow_bucket
@@ -1047,11 +1048,17 @@ item furnace_minecart 1 MinecartItem - 1 - - -
 item tnt_minecart 1 MinecartItem - 1 - - -
 item hopper_minecart 1 MinecartItem - 1 - - -
 item carrot_on_a_stick 1 FoodOnAStickItem - 0 - - -
+  component max_damage
+  component damage
   field FoodOnAStickItem.consumeItemDamage 7
 item warped_fungus_on_a_stick 1 FoodOnAStickItem - 0 - - -
+  component max_damage
+  component damage
   field FoodOnAStickItem.consumeItemDamage 1
 item phantom_membrane 64 Item - 0 - - -
 item elytra 1 Item - 0 - - -
+  component max_damage
+  component damage
 item oak_boat 1 BoatItem - 1 - - -
 item oak_chest_boat 1 BoatItem - 1 - - -
 item spruce_boat 1 BoatItem - 1 - - -
@@ -1078,13 +1085,21 @@ item test_block 64 GameMasterBlockItem test_block 0 - - -
   component block_state
 item test_instance_block 64 GameMasterBlockItem test_instance_block 0 - - -
 item turtle_helmet 1 Item - 0 - - -
+  component max_damage
+  component damage
 item turtle_scute 64 Item - 0 - - -
 item armadillo_scute 64 Item - 0 - - -
-item wolf_armor 1 Item - 0 - - -
+item wolf_armor 1 Item - 0 dyeable - -
+  component max_damage
+  component damage
 item flint_and_steel 1 FlintAndSteelItem - 1 - - -
+  component max_damage
+  component damage
 item bowl 64 Item - 0 - - -
 item apple 64 Item - 0 - - 0.65
 item bow 1 BowItem - 0 - - -
+  component max_damage
+  component damage
 item arrow 64 ArrowItem - 1 - - -
 item coal 64 Item - 0 - - -
 item charcoal 64 Item - 0 - - -
@@ -1102,40 +1117,110 @@ item gold_ingot 64 Item - 0 - - -
 item netherite_ingot 64 Item - 0 - - -
 item netherite_scrap 64 Item - 0 - - -
 item wooden_sword 1 Item - 0 - - -
+  component max_damage
+  component damage
 item wooden_shovel 1 ShovelItem - 0 - - -
+  component max_damage
+  component damage
 item wooden_pickaxe 1 Item - 0 - - -
+  component max_damage
+  component damage
 item wooden_axe 1 AxeItem - 0 axes - -
+  component max_damage
+  component damage
 item wooden_hoe 1 HoeItem - 0 - - -
+  component max_damage
+  component damage
 item copper_sword 1 Item - 0 - - -
+  component max_damage
+  component damage
 item copper_shovel 1 ShovelItem - 0 - - -
+  component max_damage
+  component damage
 item copper_pickaxe 1 Item - 0 - - -
+  component max_damage
+  component damage
 item copper_axe 1 AxeItem - 0 axes - -
+  component max_damage
+  component damage
 item copper_hoe 1 HoeItem - 0 - - -
+  component max_damage
+  component damage
 item stone_sword 1 Item - 0 - - -
+  component max_damage
+  component damage
 item stone_shovel 1 ShovelItem - 0 - - -
+  component max_damage
+  component damage
 item stone_pickaxe 1 Item - 0 - - -
+  component max_damage
+  component damage
 item stone_axe 1 AxeItem - 0 axes - -
+  component max_damage
+  component damage
 item stone_hoe 1 HoeItem - 0 - - -
+  component max_damage
+  component damage
 item golden_sword 1 Item - 0 - - -
+  component max_damage
+  component damage
 item golden_shovel 1 ShovelItem - 0 - - -
+  component max_damage
+  component damage
 item golden_pickaxe 1 Item - 0 - - -
+  component max_damage
+  component damage
 item golden_axe 1 AxeItem - 0 axes - -
+  component max_damage
+  component damage
 item golden_hoe 1 HoeItem - 0 - - -
+  component max_damage
+  component damage
 item iron_sword 1 Item - 0 - - -
+  component max_damage
+  component damage
 item iron_shovel 1 ShovelItem - 0 - - -
+  component max_damage
+  component damage
 item iron_pickaxe 1 Item - 0 - - -
+  component max_damage
+  component damage
 item iron_axe 1 AxeItem - 0 axes - -
+  component max_damage
+  component damage
 item iron_hoe 1 HoeItem - 0 - - -
+  component max_damage
+  component damage
 item diamond_sword 1 Item - 0 - - -
+  component max_damage
+  component damage
 item diamond_shovel 1 ShovelItem - 0 - - -
+  component max_damage
+  component damage
 item diamond_pickaxe 1 Item - 0 - - -
+  component max_damage
+  component damage
 item diamond_axe 1 AxeItem - 0 axes - -
+  component max_damage
+  component damage
 item diamond_hoe 1 HoeItem - 0 - - -
+  component max_damage
+  component damage
 item netherite_sword 1 Item - 0 - - -
+  component max_damage
+  component damage
 item netherite_shovel 1 ShovelItem - 0 - - -
+  component max_damage
+  component damage
 item netherite_pickaxe 1 Item - 0 - - -
+  component max_damage
+  component damage
 item netherite_axe 1 AxeItem - 0 axes - -
+  component max_damage
+  component damage
 item netherite_hoe 1 HoeItem - 0 - - -
+  component max_damage
+  component damage
 item stick 64 Item - 0 - - -
 item mushroom_stew 1 Item - 0 - - -
 item string 64 BlockItem tripwire 0 - - -
@@ -1144,34 +1229,90 @@ item gunpowder 64 Item - 0 - - -
 item wheat_seeds 64 BlockItem wheat 0 - - 0.3
 item wheat 64 Item - 0 - - 0.65
 item bread 64 Item - 0 - - 0.85
-item leather_helmet 1 Item - 0 - - -
-item leather_chestplate 1 Item - 0 - - -
-item leather_leggings 1 Item - 0 - - -
-item leather_boots 1 Item - 0 - - -
+item leather_helmet 1 Item - 0 dyeable - -
+  component max_damage
+  component damage
+item leather_chestplate 1 Item - 0 dyeable - -
+  component max_damage
+  component damage
+item leather_leggings 1 Item - 0 dyeable - -
+  component max_damage
+  component damage
+item leather_boots 1 Item - 0 dyeable - -
+  component max_damage
+  component damage
 item copper_helmet 1 Item - 0 - - -
+  component max_damage
+  component damage
 item copper_chestplate 1 Item - 0 - - -
+  component max_damage
+  component damage
 item copper_leggings 1 Item - 0 - - -
+  component max_damage
+  component damage
 item copper_boots 1 Item - 0 - - -
+  component max_damage
+  component damage
 item chainmail_helmet 1 Item - 0 - - -
+  component max_damage
+  component damage
 item chainmail_chestplate 1 Item - 0 - - -
+  component max_damage
+  component damage
 item chainmail_leggings 1 Item - 0 - - -
+  component max_damage
+  component damage
 item chainmail_boots 1 Item - 0 - - -
+  component max_damage
+  component damage
 item iron_helmet 1 Item - 0 - - -
+  component max_damage
+  component damage
 item iron_chestplate 1 Item - 0 - - -
+  component max_damage
+  component damage
 item iron_leggings 1 Item - 0 - - -
+  component max_damage
+  component damage
 item iron_boots 1 Item - 0 - - -
+  component max_damage
+  component damage
 item diamond_helmet 1 Item - 0 - - -
+  component max_damage
+  component damage
 item diamond_chestplate 1 Item - 0 - - -
+  component max_damage
+  component damage
 item diamond_leggings 1 Item - 0 - - -
+  component max_damage
+  component damage
 item diamond_boots 1 Item - 0 - - -
+  component max_damage
+  component damage
 item golden_helmet 1 Item - 0 - - -
+  component max_damage
+  component damage
 item golden_chestplate 1 Item - 0 - - -
+  component max_damage
+  component damage
 item golden_leggings 1 Item - 0 - - -
+  component max_damage
+  component damage
 item golden_boots 1 Item - 0 - - -
+  component max_damage
+  component damage
 item netherite_helmet 1 Item - 0 - - -
+  component max_damage
+  component damage
 item netherite_chestplate 1 Item - 0 - - -
+  component max_damage
+  component damage
 item netherite_leggings 1 Item - 0 - - -
+  component max_damage
+  component damage
 item netherite_boots 1 Item - 0 - - -
+  component max_damage
+  component damage
 item flint 64 Item - 0 - - -
 item porkchop 64 Item - 0 - - -
 item cooked_porkchop 64 Item - 0 - - -
@@ -1252,18 +1393,21 @@ item warped_hanging_sign 16 HangingSignItem warped_hanging_sign 0 - - -
   field StandingAndWallBlockItem.attachmentDirection 1
 item bucket 16 BucketItem - 1 - - -
 item water_bucket 1 BucketItem - 1 - - -
+  remainder bucket 1
 item lava_bucket 1 BucketItem - 1 - - -
+  remainder bucket 1
 item powder_snow_bucket 1 SolidBucketItem powder_snow 1 - - -
 item snowball 16 SnowballItem - 1 - - -
 item leather 64 Item - 0 - - -
 item milk_bucket 1 Item - 0 - - -
+  remainder bucket 1
 item pufferfish_bucket 1 MobBucketItem - 1 - - -
 item salmon_bucket 1 MobBucketItem - 1 - - -
 item cod_bucket 1 MobBucketItem - 1 - - -
 item tropical_fish_bucket 1 MobBucketItem - 1 - - -
 item axolotl_bucket 1 MobBucketItem - 1 - - -
 item tadpole_bucket 1 MobBucketItem - 1 - - -
-item brick 64 Item - 0 - - -
+item brick 64 Item - 0 decorated_pot_ingredients - -
 item clay_ball 64 Item - 0 - - -
 item dried_kelp_block 64 BlockItem dried_kelp_block 0 - - 0.5
 item paper 64 Item - 0 - - -
@@ -1292,6 +1436,8 @@ item green_bundle 1 BundleItem - 0 - - -
 item red_bundle 1 BundleItem - 0 - - -
 item black_bundle 1 BundleItem - 0 - - -
 item fishing_rod 1 FishingRodItem - 0 - - -
+  component max_damage
+  component damage
 item clock 64 Item - 0 - - -
 item spyglass 1 SpyglassItem - 0 - - -
 item glowstone_dust 64 Item - 0 - - -
@@ -1305,21 +1451,37 @@ item ink_sac 64 InkSacItem - 0 - - -
 item glow_ink_sac 64 GlowInkSacItem - 0 - - -
 item cocoa_beans 64 BlockItem cocoa 0 - - 0.65
 item white_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 0
 item orange_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 1
 item magenta_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 2
 item light_blue_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 3
 item yellow_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 4
 item lime_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 5
 item pink_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 6
 item gray_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 7
 item light_gray_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 8
 item cyan_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 9
 item purple_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 10
 item blue_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 11
 item brown_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 12
 item green_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 13
 item red_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 14
 item black_dye 64 DyeItem - 0 - - -
+  field DyeItem.dyeColor 15
 item bone_meal 64 BoneMealItem - 1 - - -
 item bone 64 Item - 0 - - -
 item sugar 64 Item - 0 - - -
@@ -1344,6 +1506,8 @@ item cookie 64 Item - 0 - - 0.85
 item crafter 64 BlockItem crafter 0 - - -
 item filled_map 64 MapItem - 0 - - -
 item shears 1 ShearsItem - 1 - - -
+  component max_damage
+  component damage
 item melon_slice 64 Item - 0 - - 0.5
 item dried_kelp 64 Item - 0 - - 0.3
 item pumpkin_seeds 64 BlockItem pumpkin_stem 0 - - 0.3
@@ -1458,10 +1622,12 @@ item shulker_spawn_egg 64 SpawnEggItem - 1 - - -
 item experience_bottle 64 ExperienceBottleItem - 1 - - -
 item fire_charge 64 FireChargeItem - 1 - - -
 item wind_charge 64 WindChargeItem - 1 - - -
-item writable_book 1 WritableBookItem - 0 lectern_books,bookshelf_books - -
+item writable_book 1 WritableBookItem - 0 lectern_books,bookshelf_books,book_cloning_target - -
 item written_book 16 WrittenBookItem - 0 lectern_books,bookshelf_books - -
 item breeze_rod 64 Item - 0 - - -
 item mace 1 MaceItem - 0 - - -
+  component max_damage
+  component damage
 item item_frame 64 ItemFrameItem - 0 - - -
 item glow_item_frame 64 ItemFrameItem - 0 - - -
 item flower_pot 64 BlockItem flower_pot 0 - - -
@@ -1512,7 +1678,7 @@ item iron_horse_armor 1 Item - 0 - - -
 item golden_horse_armor 1 Item - 0 - - -
 item diamond_horse_armor 1 Item - 0 - - -
 item netherite_horse_armor 1 Item - 0 - - -
-item leather_horse_armor 1 Item - 0 - - -
+item leather_horse_armor 1 Item - 0 dyeable - -
 item lead 64 LeadItem - 0 - - -
 item name_tag 64 NameTagItem - 0 - - -
 item command_block_minecart 1 MinecartItem - 1 - - -
@@ -1575,18 +1741,35 @@ item beetroot 64 Item - 0 - - 0.65
 item beetroot_seeds 64 BlockItem beetroots 0 - - 0.3
 item beetroot_soup 1 Item - 0 - - -
 item dragon_breath 64 Item - 0 - - -
+  remainder glass_bottle 1
 item splash_potion 1 SplashPotionItem - 1 - - -
 item spectral_arrow 64 SpectralArrowItem - 1 - - -
 item tipped_arrow 64 TippedArrowItem - 1 - - -
 item lingering_potion 1 LingeringPotionItem - 1 - - -
 item shield 1 ShieldItem - 0 - - -
+  component max_damage
+  component damage
 item wooden_spear 1 Item - 0 - - -
+  component max_damage
+  component damage
 item stone_spear 1 Item - 0 - - -
+  component max_damage
+  component damage
 item copper_spear 1 Item - 0 - - -
+  component max_damage
+  component damage
 item iron_spear 1 Item - 0 - - -
+  component max_damage
+  component damage
 item golden_spear 1 Item - 0 - - -
+  component max_damage
+  component damage
 item diamond_spear 1 Item - 0 - - -
+  component max_damage
+  component damage
 item netherite_spear 1 Item - 0 - - -
+  component max_damage
+  component damage
 item totem_of_undying 1 Item - 0 - - -
 item shulker_shell 64 Item - 0 - - -
 item iron_nugget 64 Item - 0 - - -
@@ -1616,6 +1799,8 @@ item music_disc_precipice 1 Item - 0 - 5980,13 -
 item music_disc_tears 1 Item - 0 - 3500,10 -
 item disc_fragment_5 64 DiscFragmentItem - 0 - - -
 item trident 1 TridentItem - 0 - - -
+  component max_damage
+  component damage
 item nautilus_shell 64 Item - 0 - - -
 item iron_nautilus_armor 1 Item - 0 - - -
 item golden_nautilus_armor 1 Item - 0 - - -
@@ -1624,6 +1809,8 @@ item netherite_nautilus_armor 1 Item - 0 - - -
 item copper_nautilus_armor 1 Item - 0 - - -
 item heart_of_the_sea 64 Item - 0 - - -
 item crossbow 1 CrossbowItem - 0 - - -
+  component max_damage
+  component damage
   field CrossbowItem.startSoundPlayed 0
   field CrossbowItem.midLoadSoundPlayed 0
 item suspicious_stew 1 Item - 0 - - -
@@ -1670,6 +1857,7 @@ item bee_nest 64 BlockItem bee_nest 0 - - -
 item beehive 64 BlockItem beehive 0 - - -
   component block_state
 item honey_bottle 16 Item - 0 - - -
+  remainder glass_bottle 1
 item honeycomb_block 64 BlockItem honeycomb_block 0 - - -
 item lodestone 64 BlockItem lodestone 0 - - -
 item crying_obsidian 64 BlockItem crying_obsidian 0 - - -
@@ -1714,6 +1902,8 @@ item pearlescent_froglight 64 BlockItem pearlescent_froglight 0 - - -
 item frogspawn 64 PlaceOnWaterBlockItem frogspawn 0 - - -
 item echo_shard 64 Item - 0 - - -
 item brush 1 BrushItem - 1 - - -
+  component max_damage
+  component damage
 item netherite_upgrade_smithing_template 64 SmithingTemplateItem - 0 - - -
 item sentry_armor_trim_smithing_template 64 SmithingTemplateItem - 0 - - -
 item dune_armor_trim_smithing_template 64 SmithingTemplateItem - 0 - - -
@@ -1733,29 +1923,29 @@ item raiser_armor_trim_smithing_template 64 SmithingTemplateItem - 0 - - -
 item host_armor_trim_smithing_template 64 SmithingTemplateItem - 0 - - -
 item flow_armor_trim_smithing_template 64 SmithingTemplateItem - 0 - - -
 item bolt_armor_trim_smithing_template 64 SmithingTemplateItem - 0 - - -
-item angler_pottery_sherd 64 Item - 0 - - -
-item archer_pottery_sherd 64 Item - 0 - - -
-item arms_up_pottery_sherd 64 Item - 0 - - -
-item blade_pottery_sherd 64 Item - 0 - - -
-item brewer_pottery_sherd 64 Item - 0 - - -
-item burn_pottery_sherd 64 Item - 0 - - -
-item danger_pottery_sherd 64 Item - 0 - - -
-item explorer_pottery_sherd 64 Item - 0 - - -
-item flow_pottery_sherd 64 Item - 0 - - -
-item friend_pottery_sherd 64 Item - 0 - - -
-item guster_pottery_sherd 64 Item - 0 - - -
-item heart_pottery_sherd 64 Item - 0 - - -
-item heartbreak_pottery_sherd 64 Item - 0 - - -
-item howl_pottery_sherd 64 Item - 0 - - -
-item miner_pottery_sherd 64 Item - 0 - - -
-item mourner_pottery_sherd 64 Item - 0 - - -
-item plenty_pottery_sherd 64 Item - 0 - - -
-item prize_pottery_sherd 64 Item - 0 - - -
-item scrape_pottery_sherd 64 Item - 0 - - -
-item sheaf_pottery_sherd 64 Item - 0 - - -
-item shelter_pottery_sherd 64 Item - 0 - - -
-item skull_pottery_sherd 64 Item - 0 - - -
-item snort_pottery_sherd 64 Item - 0 - - -
+item angler_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item archer_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item arms_up_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item blade_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item brewer_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item burn_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item danger_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item explorer_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item flow_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item friend_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item guster_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item heart_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item heartbreak_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item howl_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item miner_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item mourner_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item plenty_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item prize_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item scrape_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item sheaf_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item shelter_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item skull_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
+item snort_pottery_sherd 64 Item - 0 decorated_pot_ingredients - -
 item copper_grate 64 BlockItem copper_grate 0 - - -
 item exposed_copper_grate 64 BlockItem exposed_copper_grate 0 - - -
 item weathered_copper_grate 64 BlockItem weathered_copper_grate 0 - - -
@@ -1866,6 +2056,7 @@ iclass BedItem BlockItem
   hook placeBlock BedItem
 iclass MapItem -
   hook useOn MapItem
+  hook onCraftedPostProcess MapItem
 iclass ShearsItem -
   hook useOn ShearsItem
 iclass EnderpearlItem -
@@ -5942,6 +6133,7 @@ block white_bed 1731 16 1734 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 0
   as_item white_bed
   entity bed
   flag block_entity
@@ -5954,6 +6146,7 @@ block orange_bed 1747 16 1750 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 1
   as_item orange_bed
   entity bed
   flag block_entity
@@ -5966,6 +6159,7 @@ block magenta_bed 1763 16 1766 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 2
   as_item magenta_bed
   entity bed
   flag block_entity
@@ -5978,6 +6172,7 @@ block light_blue_bed 1779 16 1782 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 3
   as_item light_blue_bed
   entity bed
   flag block_entity
@@ -5990,6 +6185,7 @@ block yellow_bed 1795 16 1798 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 4
   as_item yellow_bed
   entity bed
   flag block_entity
@@ -6002,6 +6198,7 @@ block lime_bed 1811 16 1814 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 5
   as_item lime_bed
   entity bed
   flag block_entity
@@ -6014,6 +6211,7 @@ block pink_bed 1827 16 1830 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 6
   as_item pink_bed
   entity bed
   flag block_entity
@@ -6026,6 +6224,7 @@ block gray_bed 1843 16 1846 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 7
   as_item gray_bed
   entity bed
   flag block_entity
@@ -6038,6 +6237,7 @@ block light_gray_bed 1859 16 1862 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 8
   as_item light_gray_bed
   entity bed
   flag block_entity
@@ -6050,6 +6250,7 @@ block cyan_bed 1875 16 1878 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 9
   as_item cyan_bed
   entity bed
   flag block_entity
@@ -6062,6 +6263,7 @@ block purple_bed 1891 16 1894 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 10
   as_item purple_bed
   entity bed
   flag block_entity
@@ -6074,6 +6276,7 @@ block blue_bed 1907 16 1910 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 11
   as_item blue_bed
   entity bed
   flag block_entity
@@ -6086,6 +6289,7 @@ block brown_bed 1923 16 1926 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 12
   as_item brown_bed
   entity bed
   flag block_entity
@@ -6098,6 +6302,7 @@ block green_bed 1939 16 1942 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 13
   as_item green_bed
   entity bed
   flag block_entity
@@ -6110,6 +6315,7 @@ block red_bed 1955 16 1958 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 14
   as_item red_bed
   entity bed
   flag block_entity
@@ -6122,6 +6328,7 @@ block black_bed 1971 16 1974 BedBlock
   prop HORIZONTAL_FACING
   prop OCCUPIED
   prop BED_PART
+  field BedBlock.color 15
   as_item black_bed
   entity bed
   flag block_entity
@@ -9185,6 +9392,7 @@ block repeater 6833 64 6836 RepeaterBlock
   collision 69
   support 69
 block white_stained_glass 6897 1 6897 StainedGlassBlock
+  field StainedGlassBlock.color 0
   as_item white_stained_glass
   instrument HAT
   flag solid
@@ -9209,6 +9417,7 @@ block white_stained_glass 6897 1 6897 StainedGlassBlock
   collision 1
   support 1
 block orange_stained_glass 6898 1 6898 StainedGlassBlock
+  field StainedGlassBlock.color 1
   as_item orange_stained_glass
   instrument HAT
   flag solid
@@ -9233,6 +9442,7 @@ block orange_stained_glass 6898 1 6898 StainedGlassBlock
   collision 1
   support 1
 block magenta_stained_glass 6899 1 6899 StainedGlassBlock
+  field StainedGlassBlock.color 2
   as_item magenta_stained_glass
   instrument HAT
   flag solid
@@ -9257,6 +9467,7 @@ block magenta_stained_glass 6899 1 6899 StainedGlassBlock
   collision 1
   support 1
 block light_blue_stained_glass 6900 1 6900 StainedGlassBlock
+  field StainedGlassBlock.color 3
   as_item light_blue_stained_glass
   instrument HAT
   flag solid
@@ -9281,6 +9492,7 @@ block light_blue_stained_glass 6900 1 6900 StainedGlassBlock
   collision 1
   support 1
 block yellow_stained_glass 6901 1 6901 StainedGlassBlock
+  field StainedGlassBlock.color 4
   as_item yellow_stained_glass
   instrument HAT
   flag solid
@@ -9305,6 +9517,7 @@ block yellow_stained_glass 6901 1 6901 StainedGlassBlock
   collision 1
   support 1
 block lime_stained_glass 6902 1 6902 StainedGlassBlock
+  field StainedGlassBlock.color 5
   as_item lime_stained_glass
   instrument HAT
   flag solid
@@ -9329,6 +9542,7 @@ block lime_stained_glass 6902 1 6902 StainedGlassBlock
   collision 1
   support 1
 block pink_stained_glass 6903 1 6903 StainedGlassBlock
+  field StainedGlassBlock.color 6
   as_item pink_stained_glass
   instrument HAT
   flag solid
@@ -9353,6 +9567,7 @@ block pink_stained_glass 6903 1 6903 StainedGlassBlock
   collision 1
   support 1
 block gray_stained_glass 6904 1 6904 StainedGlassBlock
+  field StainedGlassBlock.color 7
   as_item gray_stained_glass
   instrument HAT
   flag solid
@@ -9377,6 +9592,7 @@ block gray_stained_glass 6904 1 6904 StainedGlassBlock
   collision 1
   support 1
 block light_gray_stained_glass 6905 1 6905 StainedGlassBlock
+  field StainedGlassBlock.color 8
   as_item light_gray_stained_glass
   instrument HAT
   flag solid
@@ -9401,6 +9617,7 @@ block light_gray_stained_glass 6905 1 6905 StainedGlassBlock
   collision 1
   support 1
 block cyan_stained_glass 6906 1 6906 StainedGlassBlock
+  field StainedGlassBlock.color 9
   as_item cyan_stained_glass
   instrument HAT
   flag solid
@@ -9425,6 +9642,7 @@ block cyan_stained_glass 6906 1 6906 StainedGlassBlock
   collision 1
   support 1
 block purple_stained_glass 6907 1 6907 StainedGlassBlock
+  field StainedGlassBlock.color 10
   as_item purple_stained_glass
   instrument HAT
   flag solid
@@ -9449,6 +9667,7 @@ block purple_stained_glass 6907 1 6907 StainedGlassBlock
   collision 1
   support 1
 block blue_stained_glass 6908 1 6908 StainedGlassBlock
+  field StainedGlassBlock.color 11
   as_item blue_stained_glass
   instrument HAT
   flag solid
@@ -9473,6 +9692,7 @@ block blue_stained_glass 6908 1 6908 StainedGlassBlock
   collision 1
   support 1
 block brown_stained_glass 6909 1 6909 StainedGlassBlock
+  field StainedGlassBlock.color 12
   as_item brown_stained_glass
   instrument HAT
   flag solid
@@ -9497,6 +9717,7 @@ block brown_stained_glass 6909 1 6909 StainedGlassBlock
   collision 1
   support 1
 block green_stained_glass 6910 1 6910 StainedGlassBlock
+  field StainedGlassBlock.color 13
   as_item green_stained_glass
   instrument HAT
   flag solid
@@ -9521,6 +9742,7 @@ block green_stained_glass 6910 1 6910 StainedGlassBlock
   collision 1
   support 1
 block red_stained_glass 6911 1 6911 StainedGlassBlock
+  field StainedGlassBlock.color 14
   as_item red_stained_glass
   instrument HAT
   flag solid
@@ -9545,6 +9767,7 @@ block red_stained_glass 6911 1 6911 StainedGlassBlock
   collision 1
   support 1
 block black_stained_glass 6912 1 6912 StainedGlassBlock
+  field StainedGlassBlock.color 15
   as_item black_stained_glass
   instrument HAT
   flag solid
@@ -12874,6 +13097,7 @@ block white_stained_glass_pane 11258 32 11289 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 0
   as_item white_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -12892,6 +13116,7 @@ block orange_stained_glass_pane 11290 32 11321 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 1
   as_item orange_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -12910,6 +13135,7 @@ block magenta_stained_glass_pane 11322 32 11353 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 2
   as_item magenta_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -12928,6 +13154,7 @@ block light_blue_stained_glass_pane 11354 32 11385 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 3
   as_item light_blue_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -12946,6 +13173,7 @@ block yellow_stained_glass_pane 11386 32 11417 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 4
   as_item yellow_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -12964,6 +13192,7 @@ block lime_stained_glass_pane 11418 32 11449 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 5
   as_item lime_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -12982,6 +13211,7 @@ block pink_stained_glass_pane 11450 32 11481 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 6
   as_item pink_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -13000,6 +13230,7 @@ block gray_stained_glass_pane 11482 32 11513 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 7
   as_item gray_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -13018,6 +13249,7 @@ block light_gray_stained_glass_pane 11514 32 11545 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 8
   as_item light_gray_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -13036,6 +13268,7 @@ block cyan_stained_glass_pane 11546 32 11577 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 9
   as_item cyan_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -13054,6 +13287,7 @@ block purple_stained_glass_pane 11578 32 11609 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 10
   as_item purple_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -13072,6 +13306,7 @@ block blue_stained_glass_pane 11610 32 11641 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 11
   as_item blue_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -13090,6 +13325,7 @@ block brown_stained_glass_pane 11642 32 11673 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 12
   as_item brown_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -13108,6 +13344,7 @@ block green_stained_glass_pane 11674 32 11705 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 13
   as_item green_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -13126,6 +13363,7 @@ block red_stained_glass_pane 11706 32 11737 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 14
   as_item red_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -13144,6 +13382,7 @@ block black_stained_glass_pane 11738 32 11769 StainedGlassPaneBlock
   prop SOUTH
   prop WATERLOGGED
   prop WEST
+  field StainedGlassPaneBlock.color 15
   as_item black_stained_glass_pane
   instrument HAT
   flag fluid 11001100110011001100110011001100
@@ -13788,6 +14027,7 @@ block hay_block 12691 3 12692 HayBlock
   collision 1
   support 1
 block white_carpet 12694 1 12694 WoolCarpetBlock
+  field WoolCarpetBlock.color 0
   as_item white_carpet
   flag drops
   flag fire_can_burn
@@ -13797,6 +14037,7 @@ block white_carpet 12694 1 12694 WoolCarpetBlock
   collision 190
   support 190
 block orange_carpet 12695 1 12695 WoolCarpetBlock
+  field WoolCarpetBlock.color 1
   as_item orange_carpet
   flag drops
   flag fire_can_burn
@@ -13806,6 +14047,7 @@ block orange_carpet 12695 1 12695 WoolCarpetBlock
   collision 190
   support 190
 block magenta_carpet 12696 1 12696 WoolCarpetBlock
+  field WoolCarpetBlock.color 2
   as_item magenta_carpet
   flag drops
   flag fire_can_burn
@@ -13815,6 +14057,7 @@ block magenta_carpet 12696 1 12696 WoolCarpetBlock
   collision 190
   support 190
 block light_blue_carpet 12697 1 12697 WoolCarpetBlock
+  field WoolCarpetBlock.color 3
   as_item light_blue_carpet
   flag drops
   flag fire_can_burn
@@ -13824,6 +14067,7 @@ block light_blue_carpet 12697 1 12697 WoolCarpetBlock
   collision 190
   support 190
 block yellow_carpet 12698 1 12698 WoolCarpetBlock
+  field WoolCarpetBlock.color 4
   as_item yellow_carpet
   flag drops
   flag fire_can_burn
@@ -13833,6 +14077,7 @@ block yellow_carpet 12698 1 12698 WoolCarpetBlock
   collision 190
   support 190
 block lime_carpet 12699 1 12699 WoolCarpetBlock
+  field WoolCarpetBlock.color 5
   as_item lime_carpet
   flag drops
   flag fire_can_burn
@@ -13842,6 +14087,7 @@ block lime_carpet 12699 1 12699 WoolCarpetBlock
   collision 190
   support 190
 block pink_carpet 12700 1 12700 WoolCarpetBlock
+  field WoolCarpetBlock.color 6
   as_item pink_carpet
   flag drops
   flag fire_can_burn
@@ -13851,6 +14097,7 @@ block pink_carpet 12700 1 12700 WoolCarpetBlock
   collision 190
   support 190
 block gray_carpet 12701 1 12701 WoolCarpetBlock
+  field WoolCarpetBlock.color 7
   as_item gray_carpet
   flag drops
   flag fire_can_burn
@@ -13860,6 +14107,7 @@ block gray_carpet 12701 1 12701 WoolCarpetBlock
   collision 190
   support 190
 block light_gray_carpet 12702 1 12702 WoolCarpetBlock
+  field WoolCarpetBlock.color 8
   as_item light_gray_carpet
   flag drops
   flag fire_can_burn
@@ -13869,6 +14117,7 @@ block light_gray_carpet 12702 1 12702 WoolCarpetBlock
   collision 190
   support 190
 block cyan_carpet 12703 1 12703 WoolCarpetBlock
+  field WoolCarpetBlock.color 9
   as_item cyan_carpet
   flag drops
   flag fire_can_burn
@@ -13878,6 +14127,7 @@ block cyan_carpet 12703 1 12703 WoolCarpetBlock
   collision 190
   support 190
 block purple_carpet 12704 1 12704 WoolCarpetBlock
+  field WoolCarpetBlock.color 10
   as_item purple_carpet
   flag drops
   flag fire_can_burn
@@ -13887,6 +14137,7 @@ block purple_carpet 12704 1 12704 WoolCarpetBlock
   collision 190
   support 190
 block blue_carpet 12705 1 12705 WoolCarpetBlock
+  field WoolCarpetBlock.color 11
   as_item blue_carpet
   flag drops
   flag fire_can_burn
@@ -13896,6 +14147,7 @@ block blue_carpet 12705 1 12705 WoolCarpetBlock
   collision 190
   support 190
 block brown_carpet 12706 1 12706 WoolCarpetBlock
+  field WoolCarpetBlock.color 12
   as_item brown_carpet
   flag drops
   flag fire_can_burn
@@ -13905,6 +14157,7 @@ block brown_carpet 12706 1 12706 WoolCarpetBlock
   collision 190
   support 190
 block green_carpet 12707 1 12707 WoolCarpetBlock
+  field WoolCarpetBlock.color 13
   as_item green_carpet
   flag drops
   flag fire_can_burn
@@ -13914,6 +14167,7 @@ block green_carpet 12707 1 12707 WoolCarpetBlock
   collision 190
   support 190
 block red_carpet 12708 1 12708 WoolCarpetBlock
+  field WoolCarpetBlock.color 14
   as_item red_carpet
   flag drops
   flag fire_can_burn
@@ -13923,6 +14177,7 @@ block red_carpet 12708 1 12708 WoolCarpetBlock
   collision 190
   support 190
 block black_carpet 12709 1 12709 WoolCarpetBlock
+  field WoolCarpetBlock.color 15
   as_item black_carpet
   flag drops
   flag fire_can_burn
@@ -14059,6 +14314,7 @@ block large_fern 12723 2 12724 DoublePlantBlock
   support 0
 block white_banner 12725 16 12725 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 0
   as_item white_banner
   instrument BASS
   entity banner
@@ -14070,6 +14326,7 @@ block white_banner 12725 16 12725 BannerBlock
   support 0
 block orange_banner 12741 16 12741 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 1
   as_item orange_banner
   instrument BASS
   entity banner
@@ -14081,6 +14338,7 @@ block orange_banner 12741 16 12741 BannerBlock
   support 0
 block magenta_banner 12757 16 12757 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 2
   as_item magenta_banner
   instrument BASS
   entity banner
@@ -14092,6 +14350,7 @@ block magenta_banner 12757 16 12757 BannerBlock
   support 0
 block light_blue_banner 12773 16 12773 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 3
   as_item light_blue_banner
   instrument BASS
   entity banner
@@ -14103,6 +14362,7 @@ block light_blue_banner 12773 16 12773 BannerBlock
   support 0
 block yellow_banner 12789 16 12789 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 4
   as_item yellow_banner
   instrument BASS
   entity banner
@@ -14114,6 +14374,7 @@ block yellow_banner 12789 16 12789 BannerBlock
   support 0
 block lime_banner 12805 16 12805 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 5
   as_item lime_banner
   instrument BASS
   entity banner
@@ -14125,6 +14386,7 @@ block lime_banner 12805 16 12805 BannerBlock
   support 0
 block pink_banner 12821 16 12821 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 6
   as_item pink_banner
   instrument BASS
   entity banner
@@ -14136,6 +14398,7 @@ block pink_banner 12821 16 12821 BannerBlock
   support 0
 block gray_banner 12837 16 12837 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 7
   as_item gray_banner
   instrument BASS
   entity banner
@@ -14147,6 +14410,7 @@ block gray_banner 12837 16 12837 BannerBlock
   support 0
 block light_gray_banner 12853 16 12853 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 8
   as_item light_gray_banner
   instrument BASS
   entity banner
@@ -14158,6 +14422,7 @@ block light_gray_banner 12853 16 12853 BannerBlock
   support 0
 block cyan_banner 12869 16 12869 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 9
   as_item cyan_banner
   instrument BASS
   entity banner
@@ -14169,6 +14434,7 @@ block cyan_banner 12869 16 12869 BannerBlock
   support 0
 block purple_banner 12885 16 12885 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 10
   as_item purple_banner
   instrument BASS
   entity banner
@@ -14180,6 +14446,7 @@ block purple_banner 12885 16 12885 BannerBlock
   support 0
 block blue_banner 12901 16 12901 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 11
   as_item blue_banner
   instrument BASS
   entity banner
@@ -14191,6 +14458,7 @@ block blue_banner 12901 16 12901 BannerBlock
   support 0
 block brown_banner 12917 16 12917 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 12
   as_item brown_banner
   instrument BASS
   entity banner
@@ -14202,6 +14470,7 @@ block brown_banner 12917 16 12917 BannerBlock
   support 0
 block green_banner 12933 16 12933 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 13
   as_item green_banner
   instrument BASS
   entity banner
@@ -14213,6 +14482,7 @@ block green_banner 12933 16 12933 BannerBlock
   support 0
 block red_banner 12949 16 12949 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 14
   as_item red_banner
   instrument BASS
   entity banner
@@ -14224,6 +14494,7 @@ block red_banner 12949 16 12949 BannerBlock
   support 0
 block black_banner 12965 16 12965 BannerBlock
   prop ROTATION_16
+  field AbstractBannerBlock.color 15
   as_item black_banner
   instrument BASS
   entity banner
@@ -14235,6 +14506,7 @@ block black_banner 12965 16 12965 BannerBlock
   support 0
 block white_wall_banner 12981 4 12981 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 0
   as_item white_banner
   instrument BASS
   entity banner
@@ -14246,6 +14518,7 @@ block white_wall_banner 12981 4 12981 WallBannerBlock
   support 0
 block orange_wall_banner 12985 4 12985 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 1
   as_item orange_banner
   instrument BASS
   entity banner
@@ -14257,6 +14530,7 @@ block orange_wall_banner 12985 4 12985 WallBannerBlock
   support 0
 block magenta_wall_banner 12989 4 12989 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 2
   as_item magenta_banner
   instrument BASS
   entity banner
@@ -14268,6 +14542,7 @@ block magenta_wall_banner 12989 4 12989 WallBannerBlock
   support 0
 block light_blue_wall_banner 12993 4 12993 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 3
   as_item light_blue_banner
   instrument BASS
   entity banner
@@ -14279,6 +14554,7 @@ block light_blue_wall_banner 12993 4 12993 WallBannerBlock
   support 0
 block yellow_wall_banner 12997 4 12997 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 4
   as_item yellow_banner
   instrument BASS
   entity banner
@@ -14290,6 +14566,7 @@ block yellow_wall_banner 12997 4 12997 WallBannerBlock
   support 0
 block lime_wall_banner 13001 4 13001 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 5
   as_item lime_banner
   instrument BASS
   entity banner
@@ -14301,6 +14578,7 @@ block lime_wall_banner 13001 4 13001 WallBannerBlock
   support 0
 block pink_wall_banner 13005 4 13005 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 6
   as_item pink_banner
   instrument BASS
   entity banner
@@ -14312,6 +14590,7 @@ block pink_wall_banner 13005 4 13005 WallBannerBlock
   support 0
 block gray_wall_banner 13009 4 13009 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 7
   as_item gray_banner
   instrument BASS
   entity banner
@@ -14323,6 +14602,7 @@ block gray_wall_banner 13009 4 13009 WallBannerBlock
   support 0
 block light_gray_wall_banner 13013 4 13013 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 8
   as_item light_gray_banner
   instrument BASS
   entity banner
@@ -14334,6 +14614,7 @@ block light_gray_wall_banner 13013 4 13013 WallBannerBlock
   support 0
 block cyan_wall_banner 13017 4 13017 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 9
   as_item cyan_banner
   instrument BASS
   entity banner
@@ -14345,6 +14626,7 @@ block cyan_wall_banner 13017 4 13017 WallBannerBlock
   support 0
 block purple_wall_banner 13021 4 13021 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 10
   as_item purple_banner
   instrument BASS
   entity banner
@@ -14356,6 +14638,7 @@ block purple_wall_banner 13021 4 13021 WallBannerBlock
   support 0
 block blue_wall_banner 13025 4 13025 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 11
   as_item blue_banner
   instrument BASS
   entity banner
@@ -14367,6 +14650,7 @@ block blue_wall_banner 13025 4 13025 WallBannerBlock
   support 0
 block brown_wall_banner 13029 4 13029 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 12
   as_item brown_banner
   instrument BASS
   entity banner
@@ -14378,6 +14662,7 @@ block brown_wall_banner 13029 4 13029 WallBannerBlock
   support 0
 block green_wall_banner 13033 4 13033 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 13
   as_item green_banner
   instrument BASS
   entity banner
@@ -14389,6 +14674,7 @@ block green_wall_banner 13033 4 13033 WallBannerBlock
   support 0
 block red_wall_banner 13037 4 13037 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 14
   as_item red_banner
   instrument BASS
   entity banner
@@ -14400,6 +14686,7 @@ block red_wall_banner 13037 4 13037 WallBannerBlock
   support 0
 block black_wall_banner 13041 4 13041 WallBannerBlock
   prop HORIZONTAL_FACING
+  field AbstractBannerBlock.color 15
   as_item black_banner
   instrument BASS
   entity banner
@@ -16351,6 +16638,7 @@ block observer 14650 12 14655 ObserverBlock
   support 1
 block shulker_box 14662 6 14666 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color -1
   as_item shulker_box
   entity shulker_box
   flag block_entity
@@ -16384,6 +16672,7 @@ block shulker_box 14662 6 14666 ShulkerBoxBlock
   support -
 block white_shulker_box 14668 6 14672 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 0
   as_item white_shulker_box
   entity shulker_box
   flag block_entity
@@ -16417,6 +16706,7 @@ block white_shulker_box 14668 6 14672 ShulkerBoxBlock
   support -
 block orange_shulker_box 14674 6 14678 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 1
   as_item orange_shulker_box
   entity shulker_box
   flag block_entity
@@ -16450,6 +16740,7 @@ block orange_shulker_box 14674 6 14678 ShulkerBoxBlock
   support -
 block magenta_shulker_box 14680 6 14684 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 2
   as_item magenta_shulker_box
   entity shulker_box
   flag block_entity
@@ -16483,6 +16774,7 @@ block magenta_shulker_box 14680 6 14684 ShulkerBoxBlock
   support -
 block light_blue_shulker_box 14686 6 14690 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 3
   as_item light_blue_shulker_box
   entity shulker_box
   flag block_entity
@@ -16516,6 +16808,7 @@ block light_blue_shulker_box 14686 6 14690 ShulkerBoxBlock
   support -
 block yellow_shulker_box 14692 6 14696 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 4
   as_item yellow_shulker_box
   entity shulker_box
   flag block_entity
@@ -16549,6 +16842,7 @@ block yellow_shulker_box 14692 6 14696 ShulkerBoxBlock
   support -
 block lime_shulker_box 14698 6 14702 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 5
   as_item lime_shulker_box
   entity shulker_box
   flag block_entity
@@ -16582,6 +16876,7 @@ block lime_shulker_box 14698 6 14702 ShulkerBoxBlock
   support -
 block pink_shulker_box 14704 6 14708 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 6
   as_item pink_shulker_box
   entity shulker_box
   flag block_entity
@@ -16615,6 +16910,7 @@ block pink_shulker_box 14704 6 14708 ShulkerBoxBlock
   support -
 block gray_shulker_box 14710 6 14714 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 7
   as_item gray_shulker_box
   entity shulker_box
   flag block_entity
@@ -16648,6 +16944,7 @@ block gray_shulker_box 14710 6 14714 ShulkerBoxBlock
   support -
 block light_gray_shulker_box 14716 6 14720 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 8
   as_item light_gray_shulker_box
   entity shulker_box
   flag block_entity
@@ -16681,6 +16978,7 @@ block light_gray_shulker_box 14716 6 14720 ShulkerBoxBlock
   support -
 block cyan_shulker_box 14722 6 14726 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 9
   as_item cyan_shulker_box
   entity shulker_box
   flag block_entity
@@ -16714,6 +17012,7 @@ block cyan_shulker_box 14722 6 14726 ShulkerBoxBlock
   support -
 block purple_shulker_box 14728 6 14732 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 10
   as_item purple_shulker_box
   entity shulker_box
   flag block_entity
@@ -16747,6 +17046,7 @@ block purple_shulker_box 14728 6 14732 ShulkerBoxBlock
   support -
 block blue_shulker_box 14734 6 14738 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 11
   as_item blue_shulker_box
   entity shulker_box
   flag block_entity
@@ -16780,6 +17080,7 @@ block blue_shulker_box 14734 6 14738 ShulkerBoxBlock
   support -
 block brown_shulker_box 14740 6 14744 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 12
   as_item brown_shulker_box
   entity shulker_box
   flag block_entity
@@ -16813,6 +17114,7 @@ block brown_shulker_box 14740 6 14744 ShulkerBoxBlock
   support -
 block green_shulker_box 14746 6 14750 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 13
   as_item green_shulker_box
   entity shulker_box
   flag block_entity
@@ -16846,6 +17148,7 @@ block green_shulker_box 14746 6 14750 ShulkerBoxBlock
   support -
 block red_shulker_box 14752 6 14756 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 14
   as_item red_shulker_box
   entity shulker_box
   flag block_entity
@@ -16879,6 +17182,7 @@ block red_shulker_box 14752 6 14756 ShulkerBoxBlock
   support -
 block black_shulker_box 14758 6 14762 ShulkerBoxBlock
   prop FACING
+  field ShulkerBoxBlock.color 15
   as_item black_shulker_box
   entity shulker_box
   flag block_entity
@@ -27327,3 +27631,1591 @@ shape 321 0.1875 0.0 0.1875 0.8125 0.875 0.8125
 shape 322 0.375 0.0 0.375 0.625 1.0 0.625 0.0 0.5 0.0 0.375 1.0 1.0 0.375 0.5 0.0 1.0 1.0 0.375 0.375 0.5 0.625 1.0 1.0 1.0 0.625 0.5 0.375 1.0 1.0 0.625
 shape 323 0.0 0.6875 0.0 1.0 0.9375 1.0
 shape 324 0.0 0.6875 0.0 1.0 0.8125 1.0
+ingredient 0 acacia_planks
+ingredient 1 chest
+ingredient 2 acacia_boat
+ingredient 3 stick
+ingredient 4 iron_chain
+ingredient 5 stripped_acacia_log
+ingredient 6 acacia_log,acacia_wood,stripped_acacia_log,stripped_acacia_wood
+ingredient 7 acacia_log
+ingredient 8 iron_ingot
+ingredient 9 redstone_torch
+ingredient 10 amethyst_shard
+ingredient 11 diorite
+ingredient 12 cobblestone
+ingredient 13 andesite
+ingredient 14 iron_block
+ingredient 15 smooth_stone_slab
+ingredient 16 flint
+ingredient 17 feather
+ingredient 18 bamboo
+ingredient 19 bamboo_planks
+ingredient 20 bamboo_raft
+ingredient 21 stripped_bamboo_block
+ingredient 22 bamboo_slab
+ingredient 23 bamboo_mosaic
+ingredient 24 bamboo_block,stripped_bamboo_block
+ingredient 25 acacia_planks,bamboo_planks,birch_planks,cherry_planks,crimson_planks,dark_oak_planks,jungle_planks,mangrove_planks,oak_planks,pale_oak_planks,spruce_planks,warped_planks
+ingredient 26 acacia_slab,bamboo_slab,birch_slab,cherry_slab,crimson_slab,dark_oak_slab,jungle_slab,mangrove_slab,oak_slab,pale_oak_slab,spruce_slab,warped_slab
+ingredient 27 glass
+ingredient 28 nether_star
+ingredient 29 obsidian
+ingredient 30 honeycomb
+ingredient 31 bowl
+ingredient 32 beetroot
+ingredient 33 birch_planks
+ingredient 34 birch_boat
+ingredient 35 stripped_birch_log
+ingredient 36 birch_log,birch_wood,stripped_birch_log,stripped_birch_wood
+ingredient 37 birch_log
+ingredient 38 black_wool
+ingredient 39 black_bundle,blue_bundle,brown_bundle,bundle,cyan_bundle,gray_bundle,green_bundle,light_blue_bundle,light_gray_bundle,lime_bundle,magenta_bundle,orange_bundle,pink_bundle,purple_bundle,red_bundle,white_bundle,yellow_bundle
+ingredient 40 black_dye
+ingredient 41 candle
+ingredient 42 sand
+ingredient 43 gravel
+ingredient 44 ink_sac
+ingredient 45 wither_rose
+ingredient 46 leather
+ingredient 47 black_shulker_box,blue_shulker_box,brown_shulker_box,cyan_shulker_box,gray_shulker_box,green_shulker_box,light_blue_shulker_box,light_gray_shulker_box,lime_shulker_box,magenta_shulker_box,orange_shulker_box,pink_shulker_box,purple_shulker_box,red_shulker_box,shulker_box,white_shulker_box,yellow_shulker_box
+ingredient 48 black_stained_glass
+ingredient 49 glass_pane
+ingredient 50 terracotta
+ingredient 51 blackstone
+ingredient 52 furnace
+ingredient 53 smooth_stone
+ingredient 54 blaze_rod
+ingredient 55 blue_wool
+ingredient 56 blue_dye
+ingredient 57 lapis_lazuli
+ingredient 58 cornflower
+ingredient 59 packed_ice
+ingredient 60 blue_stained_glass
+ingredient 61 diamond
+ingredient 62 bolt_armor_trim_smithing_template
+ingredient 63 copper_block,waxed_copper_block
+ingredient 64 bone_meal
+ingredient 65 bone
+ingredient 66 bone_block
+ingredient 67 paper
+ingredient 68 book
+ingredient 69 vine
+ingredient 70 string
+ingredient 71 wheat
+ingredient 72 blackstone,cobbled_deepslate,cobblestone
+ingredient 73 bricks
+ingredient 74 brick
+ingredient 75 brown_wool
+ingredient 76 brown_dye
+ingredient 77 cocoa_beans
+ingredient 78 brown_stained_glass
+ingredient 79 copper_ingot
+ingredient 80 milk_bucket
+ingredient 81 sugar
+ingredient 82 blue_egg,brown_egg,egg
+ingredient 83 sculk_sensor
+ingredient 84 charcoal,coal
+ingredient 85 acacia_log,acacia_wood,birch_log,birch_wood,cherry_log,cherry_wood,crimson_hyphae,crimson_stem,dark_oak_log,dark_oak_wood,jungle_log,jungle_wood,mangrove_log,mangrove_wood,oak_log,oak_wood,pale_oak_log,pale_oak_wood,spruce_log,spruce_wood,stripped_acacia_log,stripped_acacia_wood,stripped_birch_log,stripped_birch_wood,stripped_cherry_log,stripped_cherry_wood,stripped_crimson_hyphae,stripped_crimson_stem,stripped_dark_oak_log,stripped_dark_oak_wood,stripped_jungle_log,stripped_jungle_wood,stripped_mangrove_log,stripped_mangrove_wood,stripped_oak_log,stripped_oak_wood,stripped_pale_oak_log,stripped_pale_oak_wood,stripped_spruce_log,stripped_spruce_wood,stripped_warped_hyphae,stripped_warped_stem,warped_hyphae,warped_stem
+ingredient 86 fishing_rod
+ingredient 87 carrot
+ingredient 88 cherry_planks
+ingredient 89 cherry_boat
+ingredient 90 stripped_cherry_log
+ingredient 91 cherry_log,cherry_wood,stripped_cherry_log,stripped_cherry_wood
+ingredient 92 cherry_log
+ingredient 93 minecart
+ingredient 94 cut_copper_slab
+ingredient 95 cobbled_deepslate_slab
+ingredient 96 nether_brick_slab
+ingredient 97 polished_blackstone_slab
+ingredient 98 quartz_slab
+ingredient 99 red_sandstone_slab
+ingredient 100 resin_brick_slab
+ingredient 101 sandstone_slab
+ingredient 102 stone_brick_slab
+ingredient 103 tuff_slab
+ingredient 104 tuff_brick_slab
+ingredient 105 clay_ball
+ingredient 106 gold_ingot
+ingredient 107 redstone
+ingredient 108 coal_block
+ingredient 109 coal
+ingredient 110 dirt
+ingredient 111 coast_armor_trim_smithing_template
+ingredient 112 cobbled_deepslate
+ingredient 113 quartz
+ingredient 114 stone
+ingredient 115 nautilus_shell
+ingredient 116 heart_of_the_sea
+ingredient 117 copper_block
+ingredient 118 copper_nugget
+ingredient 119 waxed_copper_block
+ingredient 120 copper_torch
+ingredient 121 crafting_table
+ingredient 122 dropper
+ingredient 123 pale_oak_log
+ingredient 124 resin_block
+ingredient 125 creeper_head
+ingredient 126 crimson_planks
+ingredient 127 stripped_crimson_stem
+ingredient 128 crimson_stem
+ingredient 129 crimson_hyphae,crimson_stem,stripped_crimson_hyphae,stripped_crimson_stem
+ingredient 130 tripwire_hook
+ingredient 131 cut_copper
+ingredient 132 red_sandstone
+ingredient 133 cut_red_sandstone
+ingredient 134 sandstone
+ingredient 135 cut_sandstone
+ingredient 136 cyan_wool
+ingredient 137 cyan_dye
+ingredient 138 green_dye
+ingredient 139 pitcher_plant
+ingredient 140 cyan_stained_glass
+ingredient 141 dark_oak_planks
+ingredient 142 dark_oak_boat
+ingredient 143 stripped_dark_oak_log
+ingredient 144 dark_oak_log,dark_oak_wood,stripped_dark_oak_log,stripped_dark_oak_wood
+ingredient 145 dark_oak_log
+ingredient 146 prismarine_shard
+ingredient 147 dark_prismarine
+ingredient 148 deepslate_bricks
+ingredient 149 polished_deepslate
+ingredient 150 deepslate_tiles
+ingredient 151 stone_pressure_plate
+ingredient 152 diamond_block
+ingredient 153 bow
+ingredient 154 ghast_tear
+ingredient 155 soul_sand
+ingredient 156 dried_kelp_block
+ingredient 157 dried_kelp
+ingredient 158 pointed_dripstone
+ingredient 159 dune_armor_trim_smithing_template
+ingredient 160 blue_bed,brown_bed,cyan_bed,gray_bed,green_bed,light_blue_bed,light_gray_bed,lime_bed,magenta_bed,orange_bed,pink_bed,purple_bed,red_bed,white_bed,yellow_bed
+ingredient 161 blue_carpet,brown_carpet,cyan_carpet,gray_carpet,green_carpet,light_blue_carpet,light_gray_carpet,lime_carpet,magenta_carpet,orange_carpet,pink_carpet,purple_carpet,red_carpet,white_carpet,yellow_carpet
+ingredient 162 blue_harness,brown_harness,cyan_harness,gray_harness,green_harness,light_blue_harness,light_gray_harness,lime_harness,magenta_harness,orange_harness,pink_harness,purple_harness,red_harness,white_harness,yellow_harness
+ingredient 163 blue_wool,brown_wool,cyan_wool,gray_wool,green_wool,light_blue_wool,light_gray_wool,lime_wool,magenta_wool,orange_wool,pink_wool,purple_wool,red_wool,white_wool,yellow_wool
+ingredient 164 black_bed,brown_bed,cyan_bed,gray_bed,green_bed,light_blue_bed,light_gray_bed,lime_bed,magenta_bed,orange_bed,pink_bed,purple_bed,red_bed,white_bed,yellow_bed
+ingredient 165 black_carpet,brown_carpet,cyan_carpet,gray_carpet,green_carpet,light_blue_carpet,light_gray_carpet,lime_carpet,magenta_carpet,orange_carpet,pink_carpet,purple_carpet,red_carpet,white_carpet,yellow_carpet
+ingredient 166 black_harness,brown_harness,cyan_harness,gray_harness,green_harness,light_blue_harness,light_gray_harness,lime_harness,magenta_harness,orange_harness,pink_harness,purple_harness,red_harness,white_harness,yellow_harness
+ingredient 167 black_wool,brown_wool,cyan_wool,gray_wool,green_wool,light_blue_wool,light_gray_wool,lime_wool,magenta_wool,orange_wool,pink_wool,purple_wool,red_wool,white_wool,yellow_wool
+ingredient 168 black_bed,blue_bed,cyan_bed,gray_bed,green_bed,light_blue_bed,light_gray_bed,lime_bed,magenta_bed,orange_bed,pink_bed,purple_bed,red_bed,white_bed,yellow_bed
+ingredient 169 black_carpet,blue_carpet,cyan_carpet,gray_carpet,green_carpet,light_blue_carpet,light_gray_carpet,lime_carpet,magenta_carpet,orange_carpet,pink_carpet,purple_carpet,red_carpet,white_carpet,yellow_carpet
+ingredient 170 black_harness,blue_harness,cyan_harness,gray_harness,green_harness,light_blue_harness,light_gray_harness,lime_harness,magenta_harness,orange_harness,pink_harness,purple_harness,red_harness,white_harness,yellow_harness
+ingredient 171 black_wool,blue_wool,cyan_wool,gray_wool,green_wool,light_blue_wool,light_gray_wool,lime_wool,magenta_wool,orange_wool,pink_wool,purple_wool,red_wool,white_wool,yellow_wool
+ingredient 172 black_bed,blue_bed,brown_bed,gray_bed,green_bed,light_blue_bed,light_gray_bed,lime_bed,magenta_bed,orange_bed,pink_bed,purple_bed,red_bed,white_bed,yellow_bed
+ingredient 173 black_carpet,blue_carpet,brown_carpet,gray_carpet,green_carpet,light_blue_carpet,light_gray_carpet,lime_carpet,magenta_carpet,orange_carpet,pink_carpet,purple_carpet,red_carpet,white_carpet,yellow_carpet
+ingredient 174 black_harness,blue_harness,brown_harness,gray_harness,green_harness,light_blue_harness,light_gray_harness,lime_harness,magenta_harness,orange_harness,pink_harness,purple_harness,red_harness,white_harness,yellow_harness
+ingredient 175 black_wool,blue_wool,brown_wool,gray_wool,green_wool,light_blue_wool,light_gray_wool,lime_wool,magenta_wool,orange_wool,pink_wool,purple_wool,red_wool,white_wool,yellow_wool
+ingredient 176 gray_dye
+ingredient 177 black_bed,blue_bed,brown_bed,cyan_bed,green_bed,light_blue_bed,light_gray_bed,lime_bed,magenta_bed,orange_bed,pink_bed,purple_bed,red_bed,white_bed,yellow_bed
+ingredient 178 black_carpet,blue_carpet,brown_carpet,cyan_carpet,green_carpet,light_blue_carpet,light_gray_carpet,lime_carpet,magenta_carpet,orange_carpet,pink_carpet,purple_carpet,red_carpet,white_carpet,yellow_carpet
+ingredient 179 black_harness,blue_harness,brown_harness,cyan_harness,green_harness,light_blue_harness,light_gray_harness,lime_harness,magenta_harness,orange_harness,pink_harness,purple_harness,red_harness,white_harness,yellow_harness
+ingredient 180 black_wool,blue_wool,brown_wool,cyan_wool,green_wool,light_blue_wool,light_gray_wool,lime_wool,magenta_wool,orange_wool,pink_wool,purple_wool,red_wool,white_wool,yellow_wool
+ingredient 181 black_bed,blue_bed,brown_bed,cyan_bed,gray_bed,light_blue_bed,light_gray_bed,lime_bed,magenta_bed,orange_bed,pink_bed,purple_bed,red_bed,white_bed,yellow_bed
+ingredient 182 black_carpet,blue_carpet,brown_carpet,cyan_carpet,gray_carpet,light_blue_carpet,light_gray_carpet,lime_carpet,magenta_carpet,orange_carpet,pink_carpet,purple_carpet,red_carpet,white_carpet,yellow_carpet
+ingredient 183 black_harness,blue_harness,brown_harness,cyan_harness,gray_harness,light_blue_harness,light_gray_harness,lime_harness,magenta_harness,orange_harness,pink_harness,purple_harness,red_harness,white_harness,yellow_harness
+ingredient 184 black_wool,blue_wool,brown_wool,cyan_wool,gray_wool,light_blue_wool,light_gray_wool,lime_wool,magenta_wool,orange_wool,pink_wool,purple_wool,red_wool,white_wool,yellow_wool
+ingredient 185 light_blue_dye
+ingredient 186 black_bed,blue_bed,brown_bed,cyan_bed,gray_bed,green_bed,light_gray_bed,lime_bed,magenta_bed,orange_bed,pink_bed,purple_bed,red_bed,white_bed,yellow_bed
+ingredient 187 black_carpet,blue_carpet,brown_carpet,cyan_carpet,gray_carpet,green_carpet,light_gray_carpet,lime_carpet,magenta_carpet,orange_carpet,pink_carpet,purple_carpet,red_carpet,white_carpet,yellow_carpet
+ingredient 188 black_harness,blue_harness,brown_harness,cyan_harness,gray_harness,green_harness,light_gray_harness,lime_harness,magenta_harness,orange_harness,pink_harness,purple_harness,red_harness,white_harness,yellow_harness
+ingredient 189 black_wool,blue_wool,brown_wool,cyan_wool,gray_wool,green_wool,light_gray_wool,lime_wool,magenta_wool,orange_wool,pink_wool,purple_wool,red_wool,white_wool,yellow_wool
+ingredient 190 light_gray_dye
+ingredient 191 black_bed,blue_bed,brown_bed,cyan_bed,gray_bed,green_bed,light_blue_bed,lime_bed,magenta_bed,orange_bed,pink_bed,purple_bed,red_bed,white_bed,yellow_bed
+ingredient 192 black_carpet,blue_carpet,brown_carpet,cyan_carpet,gray_carpet,green_carpet,light_blue_carpet,lime_carpet,magenta_carpet,orange_carpet,pink_carpet,purple_carpet,red_carpet,white_carpet,yellow_carpet
+ingredient 193 black_harness,blue_harness,brown_harness,cyan_harness,gray_harness,green_harness,light_blue_harness,lime_harness,magenta_harness,orange_harness,pink_harness,purple_harness,red_harness,white_harness,yellow_harness
+ingredient 194 black_wool,blue_wool,brown_wool,cyan_wool,gray_wool,green_wool,light_blue_wool,lime_wool,magenta_wool,orange_wool,pink_wool,purple_wool,red_wool,white_wool,yellow_wool
+ingredient 195 lime_dye
+ingredient 196 black_bed,blue_bed,brown_bed,cyan_bed,gray_bed,green_bed,light_blue_bed,light_gray_bed,magenta_bed,orange_bed,pink_bed,purple_bed,red_bed,white_bed,yellow_bed
+ingredient 197 black_carpet,blue_carpet,brown_carpet,cyan_carpet,gray_carpet,green_carpet,light_blue_carpet,light_gray_carpet,magenta_carpet,orange_carpet,pink_carpet,purple_carpet,red_carpet,white_carpet,yellow_carpet
+ingredient 198 black_harness,blue_harness,brown_harness,cyan_harness,gray_harness,green_harness,light_blue_harness,light_gray_harness,magenta_harness,orange_harness,pink_harness,purple_harness,red_harness,white_harness,yellow_harness
+ingredient 199 black_wool,blue_wool,brown_wool,cyan_wool,gray_wool,green_wool,light_blue_wool,light_gray_wool,magenta_wool,orange_wool,pink_wool,purple_wool,red_wool,white_wool,yellow_wool
+ingredient 200 magenta_dye
+ingredient 201 black_bed,blue_bed,brown_bed,cyan_bed,gray_bed,green_bed,light_blue_bed,light_gray_bed,lime_bed,orange_bed,pink_bed,purple_bed,red_bed,white_bed,yellow_bed
+ingredient 202 black_carpet,blue_carpet,brown_carpet,cyan_carpet,gray_carpet,green_carpet,light_blue_carpet,light_gray_carpet,lime_carpet,orange_carpet,pink_carpet,purple_carpet,red_carpet,white_carpet,yellow_carpet
+ingredient 203 black_harness,blue_harness,brown_harness,cyan_harness,gray_harness,green_harness,light_blue_harness,light_gray_harness,lime_harness,orange_harness,pink_harness,purple_harness,red_harness,white_harness,yellow_harness
+ingredient 204 black_wool,blue_wool,brown_wool,cyan_wool,gray_wool,green_wool,light_blue_wool,light_gray_wool,lime_wool,orange_wool,pink_wool,purple_wool,red_wool,white_wool,yellow_wool
+ingredient 205 orange_dye
+ingredient 206 black_bed,blue_bed,brown_bed,cyan_bed,gray_bed,green_bed,light_blue_bed,light_gray_bed,lime_bed,magenta_bed,pink_bed,purple_bed,red_bed,white_bed,yellow_bed
+ingredient 207 black_carpet,blue_carpet,brown_carpet,cyan_carpet,gray_carpet,green_carpet,light_blue_carpet,light_gray_carpet,lime_carpet,magenta_carpet,pink_carpet,purple_carpet,red_carpet,white_carpet,yellow_carpet
+ingredient 208 black_harness,blue_harness,brown_harness,cyan_harness,gray_harness,green_harness,light_blue_harness,light_gray_harness,lime_harness,magenta_harness,pink_harness,purple_harness,red_harness,white_harness,yellow_harness
+ingredient 209 black_wool,blue_wool,brown_wool,cyan_wool,gray_wool,green_wool,light_blue_wool,light_gray_wool,lime_wool,magenta_wool,pink_wool,purple_wool,red_wool,white_wool,yellow_wool
+ingredient 210 pink_dye
+ingredient 211 black_bed,blue_bed,brown_bed,cyan_bed,gray_bed,green_bed,light_blue_bed,light_gray_bed,lime_bed,magenta_bed,orange_bed,purple_bed,red_bed,white_bed,yellow_bed
+ingredient 212 black_carpet,blue_carpet,brown_carpet,cyan_carpet,gray_carpet,green_carpet,light_blue_carpet,light_gray_carpet,lime_carpet,magenta_carpet,orange_carpet,purple_carpet,red_carpet,white_carpet,yellow_carpet
+ingredient 213 black_harness,blue_harness,brown_harness,cyan_harness,gray_harness,green_harness,light_blue_harness,light_gray_harness,lime_harness,magenta_harness,orange_harness,purple_harness,red_harness,white_harness,yellow_harness
+ingredient 214 black_wool,blue_wool,brown_wool,cyan_wool,gray_wool,green_wool,light_blue_wool,light_gray_wool,lime_wool,magenta_wool,orange_wool,purple_wool,red_wool,white_wool,yellow_wool
+ingredient 215 purple_dye
+ingredient 216 black_bed,blue_bed,brown_bed,cyan_bed,gray_bed,green_bed,light_blue_bed,light_gray_bed,lime_bed,magenta_bed,orange_bed,pink_bed,red_bed,white_bed,yellow_bed
+ingredient 217 black_carpet,blue_carpet,brown_carpet,cyan_carpet,gray_carpet,green_carpet,light_blue_carpet,light_gray_carpet,lime_carpet,magenta_carpet,orange_carpet,pink_carpet,red_carpet,white_carpet,yellow_carpet
+ingredient 218 black_harness,blue_harness,brown_harness,cyan_harness,gray_harness,green_harness,light_blue_harness,light_gray_harness,lime_harness,magenta_harness,orange_harness,pink_harness,red_harness,white_harness,yellow_harness
+ingredient 219 black_wool,blue_wool,brown_wool,cyan_wool,gray_wool,green_wool,light_blue_wool,light_gray_wool,lime_wool,magenta_wool,orange_wool,pink_wool,red_wool,white_wool,yellow_wool
+ingredient 220 red_dye
+ingredient 221 black_bed,blue_bed,brown_bed,cyan_bed,gray_bed,green_bed,light_blue_bed,light_gray_bed,lime_bed,magenta_bed,orange_bed,pink_bed,purple_bed,white_bed,yellow_bed
+ingredient 222 black_carpet,blue_carpet,brown_carpet,cyan_carpet,gray_carpet,green_carpet,light_blue_carpet,light_gray_carpet,lime_carpet,magenta_carpet,orange_carpet,pink_carpet,purple_carpet,white_carpet,yellow_carpet
+ingredient 223 black_harness,blue_harness,brown_harness,cyan_harness,gray_harness,green_harness,light_blue_harness,light_gray_harness,lime_harness,magenta_harness,orange_harness,pink_harness,purple_harness,white_harness,yellow_harness
+ingredient 224 black_wool,blue_wool,brown_wool,cyan_wool,gray_wool,green_wool,light_blue_wool,light_gray_wool,lime_wool,magenta_wool,orange_wool,pink_wool,purple_wool,white_wool,yellow_wool
+ingredient 225 white_dye
+ingredient 226 black_bed,blue_bed,brown_bed,cyan_bed,gray_bed,green_bed,light_blue_bed,light_gray_bed,lime_bed,magenta_bed,orange_bed,pink_bed,purple_bed,red_bed,yellow_bed
+ingredient 227 black_carpet,blue_carpet,brown_carpet,cyan_carpet,gray_carpet,green_carpet,light_blue_carpet,light_gray_carpet,lime_carpet,magenta_carpet,orange_carpet,pink_carpet,purple_carpet,red_carpet,yellow_carpet
+ingredient 228 black_harness,blue_harness,brown_harness,cyan_harness,gray_harness,green_harness,light_blue_harness,light_gray_harness,lime_harness,magenta_harness,orange_harness,pink_harness,purple_harness,red_harness,yellow_harness
+ingredient 229 black_wool,blue_wool,brown_wool,cyan_wool,gray_wool,green_wool,light_blue_wool,light_gray_wool,lime_wool,magenta_wool,orange_wool,pink_wool,purple_wool,red_wool,yellow_wool
+ingredient 230 yellow_dye
+ingredient 231 black_bed,blue_bed,brown_bed,cyan_bed,gray_bed,green_bed,light_blue_bed,light_gray_bed,lime_bed,magenta_bed,orange_bed,pink_bed,purple_bed,red_bed,white_bed
+ingredient 232 black_carpet,blue_carpet,brown_carpet,cyan_carpet,gray_carpet,green_carpet,light_blue_carpet,light_gray_carpet,lime_carpet,magenta_carpet,orange_carpet,pink_carpet,purple_carpet,red_carpet,white_carpet
+ingredient 233 black_harness,blue_harness,brown_harness,cyan_harness,gray_harness,green_harness,light_blue_harness,light_gray_harness,lime_harness,magenta_harness,orange_harness,pink_harness,purple_harness,red_harness,white_harness
+ingredient 234 black_wool,blue_wool,brown_wool,cyan_wool,gray_wool,green_wool,light_blue_wool,light_gray_wool,lime_wool,magenta_wool,orange_wool,pink_wool,purple_wool,red_wool,white_wool
+ingredient 235 emerald_block
+ingredient 236 emerald
+ingredient 237 ender_eye
+ingredient 238 popped_chorus_fruit
+ingredient 239 end_stone_bricks
+ingredient 240 end_stone
+ingredient 241 ender_pearl
+ingredient 242 blaze_powder
+ingredient 243 exposed_cut_copper_slab
+ingredient 244 exposed_copper
+ingredient 245 exposed_cut_copper
+ingredient 246 eye_armor_trim_smithing_template
+ingredient 247 spider_eye
+ingredient 248 brown_mushroom
+ingredient 249 gunpowder
+ingredient 250 flow_armor_trim_smithing_template
+ingredient 251 breeze_rod
+ingredient 252 oxeye_daisy
+ingredient 253 gold_nugget
+ingredient 254 melon_slice
+ingredient 255 item_frame
+ingredient 256 glow_ink_sac
+ingredient 257 glowstone_dust
+ingredient 258 gold_block
+ingredient 259 apple
+ingredient 260 granite
+ingredient 261 gray_wool
+ingredient 262 closed_eyeblossom
+ingredient 263 gray_stained_glass
+ingredient 264 green_wool
+ingredient 265 green_stained_glass
+ingredient 266 stone_slab
+ingredient 267 honey_bottle
+ingredient 268 honey_block
+ingredient 269 glass_bottle
+ingredient 270 hopper
+ingredient 271 host_armor_trim_smithing_template
+ingredient 272 iron_nugget
+ingredient 273 carved_pumpkin
+ingredient 274 torch
+ingredient 275 jungle_planks
+ingredient 276 jungle_boat
+ingredient 277 stripped_jungle_log
+ingredient 278 jungle_log,jungle_wood,stripped_jungle_log,stripped_jungle_wood
+ingredient 279 jungle_log
+ingredient 280 lapis_block
+ingredient 281 rabbit_hide
+ingredient 282 bookshelf
+ingredient 283 light_blue_wool
+ingredient 284 blue_orchid
+ingredient 285 light_blue_stained_glass
+ingredient 286 light_gray_wool
+ingredient 287 azure_bluet
+ingredient 288 white_tulip
+ingredient 289 light_gray_stained_glass
+ingredient 290 lime_wool
+ingredient 291 lime_stained_glass
+ingredient 292 chiseled_stone_bricks
+ingredient 293 heavy_core
+ingredient 294 magenta_wool
+ingredient 295 allium
+ingredient 296 lilac
+ingredient 297 magenta_stained_glass
+ingredient 298 magma_cream
+ingredient 299 slime_ball
+ingredient 300 mangrove_planks
+ingredient 301 mangrove_boat
+ingredient 302 stripped_mangrove_log
+ingredient 303 mangrove_log,mangrove_wood,stripped_mangrove_log,stripped_mangrove_wood
+ingredient 304 mangrove_log
+ingredient 305 compass
+ingredient 306 filled_map
+ingredient 307 enchanted_golden_apple
+ingredient 308 moss_block
+ingredient 309 mossy_cobblestone
+ingredient 310 mossy_stone_bricks
+ingredient 311 stone_bricks
+ingredient 312 mud_bricks
+ingredient 313 packed_mud
+ingredient 314 mud
+ingredient 315 mangrove_roots
+ingredient 316 red_mushroom
+ingredient 317 disc_fragment_5
+ingredient 318 nether_bricks
+ingredient 319 nether_brick
+ingredient 320 nether_wart
+ingredient 321 netherite_ingot
+ingredient 322 netherite_scrap
+ingredient 323 netherite_block
+ingredient 324 netherite_upgrade_smithing_template
+ingredient 325 netherrack
+ingredient 326 oak_planks
+ingredient 327 oak_boat
+ingredient 328 stripped_oak_log
+ingredient 329 oak_log,oak_wood,stripped_oak_log,stripped_oak_wood
+ingredient 330 oak_log
+ingredient 331 orange_wool
+ingredient 332 open_eyeblossom
+ingredient 333 orange_tulip
+ingredient 334 torchflower
+ingredient 335 orange_stained_glass
+ingredient 336 oxidized_cut_copper_slab
+ingredient 337 oxidized_copper
+ingredient 338 oxidized_cut_copper
+ingredient 339 ice
+ingredient 340 black_wool,blue_wool,brown_wool,cyan_wool,gray_wool,green_wool,light_blue_wool,light_gray_wool,lime_wool,magenta_wool,orange_wool,pink_wool,purple_wool,red_wool,white_wool,yellow_wool
+ingredient 341 pale_moss_block
+ingredient 342 pale_oak_planks
+ingredient 343 pale_oak_boat
+ingredient 344 stripped_pale_oak_log
+ingredient 345 pale_oak_log,pale_oak_wood,stripped_pale_oak_log,stripped_pale_oak_wood
+ingredient 346 sugar_cane
+ingredient 347 pink_wool
+ingredient 348 cactus_flower
+ingredient 349 peony
+ingredient 350 pink_petals
+ingredient 351 pink_tulip
+ingredient 352 pink_stained_glass
+ingredient 353 polished_andesite
+ingredient 354 basalt
+ingredient 355 polished_blackstone_bricks
+ingredient 356 polished_blackstone
+ingredient 357 polished_diorite
+ingredient 358 polished_granite
+ingredient 359 tuff
+ingredient 360 polished_tuff
+ingredient 361 prismarine_bricks
+ingredient 362 prismarine
+ingredient 363 pumpkin
+ingredient 364 purple_wool
+ingredient 365 purple_stained_glass
+ingredient 366 purpur_slab
+ingredient 367 purpur_block,purpur_pillar
+ingredient 368 quartz_block
+ingredient 369 chiseled_quartz_block,quartz_block,quartz_pillar
+ingredient 370 baked_potato
+ingredient 371 cooked_rabbit
+ingredient 372 raiser_armor_trim_smithing_template
+ingredient 373 raw_copper_block
+ingredient 374 raw_copper
+ingredient 375 raw_gold_block
+ingredient 376 raw_gold
+ingredient 377 raw_iron_block
+ingredient 378 raw_iron
+ingredient 379 echo_shard
+ingredient 380 red_wool
+ingredient 381 poppy
+ingredient 382 rose_bush
+ingredient 383 red_tulip
+ingredient 384 red_nether_bricks
+ingredient 385 red_sand
+ingredient 386 chiseled_red_sandstone,red_sandstone
+ingredient 387 chiseled_red_sandstone,cut_red_sandstone,red_sandstone
+ingredient 388 red_stained_glass
+ingredient 389 redstone_block
+ingredient 390 glowstone
+ingredient 391 resin_clump
+ingredient 392 resin_bricks
+ingredient 393 resin_brick
+ingredient 394 crying_obsidian
+ingredient 395 rib_armor_trim_smithing_template
+ingredient 396 chiseled_sandstone,sandstone
+ingredient 397 chiseled_sandstone,cut_sandstone,sandstone
+ingredient 398 prismarine_crystals
+ingredient 399 sentry_armor_trim_smithing_template
+ingredient 400 shaper_armor_trim_smithing_template
+ingredient 401 shulker_shell
+ingredient 402 silence_armor_trim_smithing_template
+ingredient 403 wither_skeleton_skull
+ingredient 404 slime_block
+ingredient 405 smooth_quartz
+ingredient 406 smooth_red_sandstone
+ingredient 407 smooth_sandstone
+ingredient 408 snout_armor_trim_smithing_template
+ingredient 409 snow_block
+ingredient 410 snowball
+ingredient 411 soul_sand,soul_soil
+ingredient 412 soul_torch
+ingredient 413 arrow
+ingredient 414 spire_armor_trim_smithing_template
+ingredient 415 purpur_block
+ingredient 416 spruce_planks
+ingredient 417 spruce_boat
+ingredient 418 stripped_spruce_log
+ingredient 419 spruce_log,spruce_wood,stripped_spruce_log,stripped_spruce_wood
+ingredient 420 spruce_log
+ingredient 421 piston
+ingredient 422 stripped_warped_stem
+ingredient 423 dandelion
+ingredient 424 lily_of_the_valley
+ingredient 425 hay_block
+ingredient 426 tide_armor_trim_smithing_template
+ingredient 427 red_sand,sand
+ingredient 428 tnt
+ingredient 429 tuff_bricks
+ingredient 430 turtle_scute
+ingredient 431 vex_armor_trim_smithing_template
+ingredient 432 ward_armor_trim_smithing_template
+ingredient 433 warped_planks
+ingredient 434 warped_fungus
+ingredient 435 warped_stem
+ingredient 436 stripped_warped_hyphae,stripped_warped_stem,warped_hyphae,warped_stem
+ingredient 437 waxed_cut_copper_slab
+ingredient 438 chiseled_copper
+ingredient 439 copper_bars
+ingredient 440 copper_bulb
+ingredient 441 copper_chain
+ingredient 442 copper_chest
+ingredient 443 copper_door
+ingredient 444 copper_golem_statue
+ingredient 445 copper_grate
+ingredient 446 copper_lantern
+ingredient 447 copper_trapdoor
+ingredient 448 waxed_cut_copper
+ingredient 449 cut_copper_stairs
+ingredient 450 waxed_exposed_cut_copper_slab
+ingredient 451 exposed_chiseled_copper
+ingredient 452 exposed_copper_bars
+ingredient 453 waxed_exposed_copper
+ingredient 454 exposed_copper_bulb
+ingredient 455 exposed_copper_chain
+ingredient 456 exposed_copper_chest
+ingredient 457 exposed_copper_door
+ingredient 458 exposed_copper_golem_statue
+ingredient 459 exposed_copper_grate
+ingredient 460 exposed_copper_lantern
+ingredient 461 exposed_copper_trapdoor
+ingredient 462 waxed_exposed_cut_copper
+ingredient 463 exposed_cut_copper_stairs
+ingredient 464 exposed_lightning_rod
+ingredient 465 lightning_rod
+ingredient 466 waxed_oxidized_cut_copper_slab
+ingredient 467 oxidized_chiseled_copper
+ingredient 468 oxidized_copper_bars
+ingredient 469 waxed_oxidized_copper
+ingredient 470 oxidized_copper_bulb
+ingredient 471 oxidized_copper_chain
+ingredient 472 oxidized_copper_chest
+ingredient 473 oxidized_copper_door
+ingredient 474 oxidized_copper_golem_statue
+ingredient 475 oxidized_copper_grate
+ingredient 476 oxidized_copper_lantern
+ingredient 477 oxidized_copper_trapdoor
+ingredient 478 waxed_oxidized_cut_copper
+ingredient 479 oxidized_cut_copper_stairs
+ingredient 480 oxidized_lightning_rod
+ingredient 481 waxed_weathered_cut_copper_slab
+ingredient 482 weathered_chiseled_copper
+ingredient 483 weathered_copper_bars
+ingredient 484 waxed_weathered_copper
+ingredient 485 weathered_copper_bulb
+ingredient 486 weathered_copper_chain
+ingredient 487 weathered_copper_chest
+ingredient 488 weathered_copper_door
+ingredient 489 weathered_copper
+ingredient 490 weathered_copper_golem_statue
+ingredient 491 weathered_copper_grate
+ingredient 492 weathered_copper_lantern
+ingredient 493 weathered_copper_trapdoor
+ingredient 494 weathered_cut_copper
+ingredient 495 waxed_weathered_cut_copper
+ingredient 496 weathered_cut_copper_slab
+ingredient 497 weathered_cut_copper_stairs
+ingredient 498 weathered_lightning_rod
+ingredient 499 wayfinder_armor_trim_smithing_template
+ingredient 500 white_wool
+ingredient 501 white_stained_glass
+ingredient 502 wild_armor_trim_smithing_template
+ingredient 503 armadillo_scute
+ingredient 504 yellow_wool
+ingredient 505 sunflower
+ingredient 506 wildflowers
+ingredient 507 yellow_stained_glass
+ingredient 508 firework_star
+ingredient 509 creeper_head,dragon_head,feather,fire_charge,gold_nugget,piglin_head,player_head,skeleton_skull,wither_skeleton_skull,zombie_head
+recipe acacia_boat ShapedRecipe shaped 3 2 acacia_boat 1 0 0 - 0 0 0 0
+recipe acacia_button ShapelessRecipe shapeless acacia_button 1 0 0
+recipe acacia_chest_boat ShapelessRecipe shapeless acacia_chest_boat 1 0 1 2
+recipe acacia_door ShapedRecipe shaped 2 3 acacia_door 3 0 0 0 0 0 0 0
+recipe acacia_fence ShapedRecipe shaped 3 2 acacia_fence 3 0 0 3 0 0 3 0
+recipe acacia_fence_gate ShapedRecipe shaped 3 2 acacia_fence_gate 1 0 3 0 3 3 0 3
+recipe acacia_hanging_sign ShapedRecipe shaped 3 3 acacia_hanging_sign 6 0 4 - 4 5 5 5 5 5 5
+recipe acacia_planks ShapelessRecipe shapeless acacia_planks 4 0 6
+recipe acacia_pressure_plate ShapedRecipe shaped 2 1 acacia_pressure_plate 1 0 0 0
+recipe acacia_shelf ShapedRecipe shaped 3 3 acacia_shelf 6 0 5 5 5 - - - 5 5 5
+recipe acacia_sign ShapedRecipe shaped 3 3 acacia_sign 3 0 0 0 0 0 0 0 - 3 -
+recipe acacia_slab ShapedRecipe shaped 3 1 acacia_slab 6 0 0 0 0
+recipe acacia_stairs ShapedRecipe shaped 3 3 acacia_stairs 4 0 0 - - 0 0 - 0 0 0
+recipe acacia_trapdoor ShapedRecipe shaped 3 2 acacia_trapdoor 2 0 0 0 0 0 0 0
+recipe acacia_wood ShapedRecipe shaped 2 2 acacia_wood 3 0 7 7 7 7
+recipe activator_rail ShapedRecipe shaped 3 3 activator_rail 6 0 8 3 8 8 9 8 8 3 8
+recipe amethyst_block ShapedRecipe shaped 2 2 amethyst_block 1 0 10 10 10 10
+recipe andesite ShapelessRecipe shapeless andesite 2 0 11 12
+recipe andesite_slab ShapedRecipe shaped 3 1 andesite_slab 6 0 13 13 13
+recipe andesite_stairs ShapedRecipe shaped 3 3 andesite_stairs 4 0 13 - - 13 13 - 13 13 13
+recipe andesite_wall ShapedRecipe shaped 3 2 andesite_wall 6 0 13 13 13 13 13 13
+recipe anvil ShapedRecipe shaped 3 3 anvil 1 0 14 14 14 - 8 - 8 8 8
+recipe armor_dye ArmorDyeRecipe special
+recipe armor_stand ShapedRecipe shaped 3 3 armor_stand 1 0 3 3 3 - 3 - 3 15 3
+recipe arrow ShapedRecipe shaped 1 3 arrow 4 0 16 3 17
+recipe bamboo_block ShapelessRecipe shapeless bamboo_block 1 0 18 18 18 18 18 18 18 18 18
+recipe bamboo_button ShapelessRecipe shapeless bamboo_button 1 0 19
+recipe bamboo_chest_raft ShapelessRecipe shapeless bamboo_chest_raft 1 0 1 20
+recipe bamboo_door ShapedRecipe shaped 2 3 bamboo_door 3 0 19 19 19 19 19 19
+recipe bamboo_fence ShapedRecipe shaped 3 2 bamboo_fence 3 0 19 3 19 19 3 19
+recipe bamboo_fence_gate ShapedRecipe shaped 3 2 bamboo_fence_gate 1 0 3 19 3 3 19 3
+recipe bamboo_hanging_sign ShapedRecipe shaped 3 3 bamboo_hanging_sign 6 0 4 - 4 21 21 21 21 21 21
+recipe bamboo_mosaic ShapedRecipe shaped 1 2 bamboo_mosaic 1 0 22 22
+recipe bamboo_mosaic_slab ShapedRecipe shaped 3 1 bamboo_mosaic_slab 6 0 23 23 23
+recipe bamboo_mosaic_stairs ShapedRecipe shaped 3 3 bamboo_mosaic_stairs 4 0 23 - - 23 23 - 23 23 23
+recipe bamboo_planks ShapelessRecipe shapeless bamboo_planks 2 0 24
+recipe bamboo_pressure_plate ShapedRecipe shaped 2 1 bamboo_pressure_plate 1 0 19 19
+recipe bamboo_raft ShapedRecipe shaped 3 2 bamboo_raft 1 0 19 - 19 19 19 19
+recipe bamboo_shelf ShapedRecipe shaped 3 3 bamboo_shelf 6 0 21 21 21 - - - 21 21 21
+recipe bamboo_sign ShapedRecipe shaped 3 3 bamboo_sign 3 0 19 19 19 19 19 19 - 3 -
+recipe bamboo_slab ShapedRecipe shaped 3 1 bamboo_slab 6 0 19 19 19
+recipe bamboo_stairs ShapedRecipe shaped 3 3 bamboo_stairs 4 0 19 - - 19 19 - 19 19 19
+recipe bamboo_trapdoor ShapedRecipe shaped 3 2 bamboo_trapdoor 2 0 19 19 19 19 19 19
+recipe banner_duplicate BannerDuplicateRecipe special
+recipe barrel ShapedRecipe shaped 3 3 barrel 1 0 25 26 25 25 - 25 25 26 25
+recipe beacon ShapedRecipe shaped 3 3 beacon 1 0 27 27 27 27 28 27 29 29 29
+recipe beehive ShapedRecipe shaped 3 3 beehive 1 0 25 25 25 30 30 30 25 25 25
+recipe beetroot_soup ShapelessRecipe shapeless beetroot_soup 1 0 31 32 32 32 32 32 32
+recipe birch_boat ShapedRecipe shaped 3 2 birch_boat 1 0 33 - 33 33 33 33
+recipe birch_button ShapelessRecipe shapeless birch_button 1 0 33
+recipe birch_chest_boat ShapelessRecipe shapeless birch_chest_boat 1 0 1 34
+recipe birch_door ShapedRecipe shaped 2 3 birch_door 3 0 33 33 33 33 33 33
+recipe birch_fence ShapedRecipe shaped 3 2 birch_fence 3 0 33 3 33 33 3 33
+recipe birch_fence_gate ShapedRecipe shaped 3 2 birch_fence_gate 1 0 3 33 3 3 33 3
+recipe birch_hanging_sign ShapedRecipe shaped 3 3 birch_hanging_sign 6 0 4 - 4 35 35 35 35 35 35
+recipe birch_planks ShapelessRecipe shapeless birch_planks 4 0 36
+recipe birch_pressure_plate ShapedRecipe shaped 2 1 birch_pressure_plate 1 0 33 33
+recipe birch_shelf ShapedRecipe shaped 3 3 birch_shelf 6 0 35 35 35 - - - 35 35 35
+recipe birch_sign ShapedRecipe shaped 3 3 birch_sign 3 0 33 33 33 33 33 33 - 3 -
+recipe birch_slab ShapedRecipe shaped 3 1 birch_slab 6 0 33 33 33
+recipe birch_stairs ShapedRecipe shaped 3 3 birch_stairs 4 0 33 - - 33 33 - 33 33 33
+recipe birch_trapdoor ShapedRecipe shaped 3 2 birch_trapdoor 2 0 33 33 33 33 33 33
+recipe birch_wood ShapedRecipe shaped 2 2 birch_wood 3 0 37 37 37 37
+recipe black_banner ShapedRecipe shaped 3 3 black_banner 1 0 38 38 38 38 38 38 - 3 -
+recipe black_bed ShapedRecipe shaped 3 2 black_bed 1 0 38 38 38 25 25 25
+recipe black_bundle TransmuteRecipe transmute black_bundle 1 0 39 40
+recipe black_candle ShapelessRecipe shapeless black_candle 1 0 41 40
+recipe black_carpet ShapedRecipe shaped 2 1 black_carpet 3 0 38 38
+recipe black_concrete_powder ShapelessRecipe shapeless black_concrete_powder 8 0 40 42 42 42 42 43 43 43 43
+recipe black_dye ShapelessRecipe shapeless black_dye 1 0 44
+recipe black_dye_from_wither_rose ShapelessRecipe shapeless black_dye 1 0 45
+recipe black_harness ShapedRecipe shaped 3 2 black_harness 1 0 46 46 46 27 38 27
+recipe black_shulker_box TransmuteRecipe transmute black_shulker_box 1 0 47 40
+recipe black_stained_glass ShapedRecipe shaped 3 3 black_stained_glass 8 0 27 27 27 27 40 27 27 27 27
+recipe black_stained_glass_pane ShapedRecipe shaped 3 2 black_stained_glass_pane 16 0 48 48 48 48 48 48
+recipe black_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 black_stained_glass_pane 8 0 49 49 49 49 40 49 49 49 49
+recipe black_terracotta ShapedRecipe shaped 3 3 black_terracotta 8 0 50 50 50 50 40 50 50 50 50
+recipe blackstone_slab ShapedRecipe shaped 3 1 blackstone_slab 6 0 51 51 51
+recipe blackstone_stairs ShapedRecipe shaped 3 3 blackstone_stairs 4 0 51 - - 51 51 - 51 51 51
+recipe blackstone_wall ShapedRecipe shaped 3 2 blackstone_wall 6 0 51 51 51 51 51 51
+recipe blast_furnace ShapedRecipe shaped 3 3 blast_furnace 1 0 8 8 8 8 52 8 53 53 53
+recipe blaze_powder ShapelessRecipe shapeless blaze_powder 2 0 54
+recipe blue_banner ShapedRecipe shaped 3 3 blue_banner 1 0 55 55 55 55 55 55 - 3 -
+recipe blue_bed ShapedRecipe shaped 3 2 blue_bed 1 0 55 55 55 25 25 25
+recipe blue_bundle TransmuteRecipe transmute blue_bundle 1 0 39 56
+recipe blue_candle ShapelessRecipe shapeless blue_candle 1 0 41 56
+recipe blue_carpet ShapedRecipe shaped 2 1 blue_carpet 3 0 55 55
+recipe blue_concrete_powder ShapelessRecipe shapeless blue_concrete_powder 8 0 56 42 42 42 42 43 43 43 43
+recipe blue_dye ShapelessRecipe shapeless blue_dye 1 0 57
+recipe blue_dye_from_cornflower ShapelessRecipe shapeless blue_dye 1 0 58
+recipe blue_harness ShapedRecipe shaped 3 2 blue_harness 1 0 46 46 46 27 55 27
+recipe blue_ice ShapelessRecipe shapeless blue_ice 1 0 59 59 59 59 59 59 59 59 59
+recipe blue_shulker_box TransmuteRecipe transmute blue_shulker_box 1 0 47 56
+recipe blue_stained_glass ShapedRecipe shaped 3 3 blue_stained_glass 8 0 27 27 27 27 56 27 27 27 27
+recipe blue_stained_glass_pane ShapedRecipe shaped 3 2 blue_stained_glass_pane 16 0 60 60 60 60 60 60
+recipe blue_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 blue_stained_glass_pane 8 0 49 49 49 49 56 49 49 49 49
+recipe blue_terracotta ShapedRecipe shaped 3 3 blue_terracotta 8 0 50 50 50 50 56 50 50 50 50
+recipe bolt_armor_trim_smithing_template ShapedRecipe shaped 3 3 bolt_armor_trim_smithing_template 2 0 61 62 61 61 63 61 61 61 61
+recipe bone_block ShapedRecipe shaped 3 3 bone_block 1 0 64 64 64 64 64 64 64 64 64
+recipe bone_meal ShapelessRecipe shapeless bone_meal 3 0 65
+recipe bone_meal_from_bone_block ShapelessRecipe shapeless bone_meal 9 0 66
+recipe book ShapelessRecipe shapeless book 1 0 67 67 67 46
+recipe book_cloning BookCloningRecipe special
+recipe bookshelf ShapedRecipe shaped 3 3 bookshelf 1 0 25 25 25 68 68 68 25 25 25
+recipe bordure_indented_banner_pattern ShapelessRecipe shapeless bordure_indented_banner_pattern 1 0 67 69
+recipe bow ShapedRecipe shaped 3 3 bow 1 0 - 3 70 3 - 70 - 3 70
+recipe bowl ShapedRecipe shaped 3 2 bowl 4 0 25 - 25 - 25 -
+recipe bread ShapedRecipe shaped 3 1 bread 1 0 71 71 71
+recipe brewing_stand ShapedRecipe shaped 3 2 brewing_stand 1 0 - 54 - 72 72 72
+recipe brick_slab ShapedRecipe shaped 3 1 brick_slab 6 0 73 73 73
+recipe brick_stairs ShapedRecipe shaped 3 3 brick_stairs 4 0 73 - - 73 73 - 73 73 73
+recipe brick_wall ShapedRecipe shaped 3 2 brick_wall 6 0 73 73 73 73 73 73
+recipe bricks ShapedRecipe shaped 2 2 bricks 1 0 74 74 74 74
+recipe brown_banner ShapedRecipe shaped 3 3 brown_banner 1 0 75 75 75 75 75 75 - 3 -
+recipe brown_bed ShapedRecipe shaped 3 2 brown_bed 1 0 75 75 75 25 25 25
+recipe brown_bundle TransmuteRecipe transmute brown_bundle 1 0 39 76
+recipe brown_candle ShapelessRecipe shapeless brown_candle 1 0 41 76
+recipe brown_carpet ShapedRecipe shaped 2 1 brown_carpet 3 0 75 75
+recipe brown_concrete_powder ShapelessRecipe shapeless brown_concrete_powder 8 0 76 42 42 42 42 43 43 43 43
+recipe brown_dye ShapelessRecipe shapeless brown_dye 1 0 77
+recipe brown_harness ShapedRecipe shaped 3 2 brown_harness 1 0 46 46 46 27 75 27
+recipe brown_shulker_box TransmuteRecipe transmute brown_shulker_box 1 0 47 76
+recipe brown_stained_glass ShapedRecipe shaped 3 3 brown_stained_glass 8 0 27 27 27 27 76 27 27 27 27
+recipe brown_stained_glass_pane ShapedRecipe shaped 3 2 brown_stained_glass_pane 16 0 78 78 78 78 78 78
+recipe brown_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 brown_stained_glass_pane 8 0 49 49 49 49 76 49 49 49 49
+recipe brown_terracotta ShapedRecipe shaped 3 3 brown_terracotta 8 0 50 50 50 50 76 50 50 50 50
+recipe brush ShapedRecipe shaped 1 3 brush 1 0 17 79 3
+recipe bucket ShapedRecipe shaped 3 2 bucket 1 0 8 - 8 - 8 -
+recipe bundle ShapedRecipe shaped 1 2 bundle 1 0 70 46
+recipe cake ShapedRecipe shaped 3 3 cake 1 0 80 80 80 81 82 81 71 71 71
+recipe calibrated_sculk_sensor ShapedRecipe shaped 3 2 calibrated_sculk_sensor 1 0 - 10 - 10 83 10
+recipe campfire ShapedRecipe shaped 3 3 campfire 1 0 - 3 - 3 84 3 85 85 85
+recipe candle ShapedRecipe shaped 1 2 candle 1 0 70 30
+recipe carrot_on_a_stick ShapedRecipe shaped 2 2 carrot_on_a_stick 1 0 86 - - 87
+recipe cartography_table ShapedRecipe shaped 2 3 cartography_table 1 0 67 67 25 25 25 25
+recipe cauldron ShapedRecipe shaped 3 3 cauldron 1 0 8 - 8 8 - 8 8 8 8
+recipe cherry_boat ShapedRecipe shaped 3 2 cherry_boat 1 0 88 - 88 88 88 88
+recipe cherry_button ShapelessRecipe shapeless cherry_button 1 0 88
+recipe cherry_chest_boat ShapelessRecipe shapeless cherry_chest_boat 1 0 1 89
+recipe cherry_door ShapedRecipe shaped 2 3 cherry_door 3 0 88 88 88 88 88 88
+recipe cherry_fence ShapedRecipe shaped 3 2 cherry_fence 3 0 88 3 88 88 3 88
+recipe cherry_fence_gate ShapedRecipe shaped 3 2 cherry_fence_gate 1 0 3 88 3 3 88 3
+recipe cherry_hanging_sign ShapedRecipe shaped 3 3 cherry_hanging_sign 6 0 4 - 4 90 90 90 90 90 90
+recipe cherry_planks ShapelessRecipe shapeless cherry_planks 4 0 91
+recipe cherry_pressure_plate ShapedRecipe shaped 2 1 cherry_pressure_plate 1 0 88 88
+recipe cherry_shelf ShapedRecipe shaped 3 3 cherry_shelf 6 0 90 90 90 - - - 90 90 90
+recipe cherry_sign ShapedRecipe shaped 3 3 cherry_sign 3 0 88 88 88 88 88 88 - 3 -
+recipe cherry_slab ShapedRecipe shaped 3 1 cherry_slab 6 0 88 88 88
+recipe cherry_stairs ShapedRecipe shaped 3 3 cherry_stairs 4 0 88 - - 88 88 - 88 88 88
+recipe cherry_trapdoor ShapedRecipe shaped 3 2 cherry_trapdoor 2 0 88 88 88 88 88 88
+recipe cherry_wood ShapedRecipe shaped 2 2 cherry_wood 3 0 92 92 92 92
+recipe chest ShapedRecipe shaped 3 3 chest 1 0 25 25 25 25 - 25 25 25 25
+recipe chest_minecart ShapelessRecipe shapeless chest_minecart 1 0 1 93
+recipe chiseled_bookshelf ShapedRecipe shaped 3 3 chiseled_bookshelf 1 0 25 25 25 26 26 26 25 25 25
+recipe chiseled_copper ShapedRecipe shaped 1 2 chiseled_copper 1 0 94 94
+recipe chiseled_deepslate ShapedRecipe shaped 1 2 chiseled_deepslate 1 0 95 95
+recipe chiseled_nether_bricks ShapedRecipe shaped 1 2 chiseled_nether_bricks 1 0 96 96
+recipe chiseled_polished_blackstone ShapedRecipe shaped 1 2 chiseled_polished_blackstone 1 0 97 97
+recipe chiseled_quartz_block ShapedRecipe shaped 1 2 chiseled_quartz_block 1 0 98 98
+recipe chiseled_red_sandstone ShapedRecipe shaped 1 2 chiseled_red_sandstone 1 0 99 99
+recipe chiseled_resin_bricks ShapedRecipe shaped 1 2 chiseled_resin_bricks 1 0 100 100
+recipe chiseled_sandstone ShapedRecipe shaped 1 2 chiseled_sandstone 1 0 101 101
+recipe chiseled_stone_bricks ShapedRecipe shaped 1 2 chiseled_stone_bricks 1 0 102 102
+recipe chiseled_tuff ShapedRecipe shaped 1 2 chiseled_tuff 1 0 103 103
+recipe chiseled_tuff_bricks ShapedRecipe shaped 1 2 chiseled_tuff_bricks 1 0 104 104
+recipe clay ShapedRecipe shaped 2 2 clay 1 0 105 105 105 105
+recipe clock ShapedRecipe shaped 3 3 clock 1 0 - 106 - 106 107 106 - 106 -
+recipe coal ShapelessRecipe shapeless coal 9 0 108
+recipe coal_block ShapedRecipe shaped 3 3 coal_block 1 0 109 109 109 109 109 109 109 109 109
+recipe coarse_dirt ShapedRecipe shaped 2 2 coarse_dirt 4 0 110 43 43 110
+recipe coast_armor_trim_smithing_template ShapedRecipe shaped 3 3 coast_armor_trim_smithing_template 2 0 61 111 61 61 12 61 61 61 61
+recipe cobbled_deepslate_slab ShapedRecipe shaped 3 1 cobbled_deepslate_slab 6 0 112 112 112
+recipe cobbled_deepslate_stairs ShapedRecipe shaped 3 3 cobbled_deepslate_stairs 4 0 112 - - 112 112 - 112 112 112
+recipe cobbled_deepslate_wall ShapedRecipe shaped 3 2 cobbled_deepslate_wall 6 0 112 112 112 112 112 112
+recipe cobblestone_slab ShapedRecipe shaped 3 1 cobblestone_slab 6 0 12 12 12
+recipe cobblestone_stairs ShapedRecipe shaped 3 3 cobblestone_stairs 4 0 12 - - 12 12 - 12 12 12
+recipe cobblestone_wall ShapedRecipe shaped 3 2 cobblestone_wall 6 0 12 12 12 12 12 12
+recipe comparator ShapedRecipe shaped 3 3 comparator 1 0 - 9 - 9 113 9 114 114 114
+recipe compass ShapedRecipe shaped 3 3 compass 1 0 - 8 - 8 107 8 - 8 -
+recipe composter ShapedRecipe shaped 3 3 composter 1 0 26 - 26 26 - 26 26 26 26
+recipe conduit ShapedRecipe shaped 3 3 conduit 1 0 115 115 115 115 116 115 115 115 115
+recipe cookie ShapedRecipe shaped 3 1 cookie 8 0 71 77 71
+recipe copper_axe ShapedRecipe shaped 2 3 copper_axe 1 0 79 79 79 3 - 3
+recipe copper_bars ShapedRecipe shaped 3 2 copper_bars 16 0 79 79 79 79 79 79
+recipe copper_block ShapedRecipe shaped 3 3 copper_block 1 0 79 79 79 79 79 79 79 79 79
+recipe copper_boots ShapedRecipe shaped 3 2 copper_boots 1 0 79 - 79 79 - 79
+recipe copper_bulb ShapedRecipe shaped 3 3 copper_bulb 4 0 - 117 - 117 54 117 - 107 -
+recipe copper_chain ShapedRecipe shaped 1 3 copper_chain 1 0 118 79 118
+recipe copper_chest ShapedRecipe shaped 3 3 copper_chest 1 0 79 79 79 79 1 79 79 79 79
+recipe copper_chestplate ShapedRecipe shaped 3 3 copper_chestplate 1 0 79 - 79 79 79 79 79 79 79
+recipe copper_door ShapedRecipe shaped 2 3 copper_door 3 0 79 79 79 79 79 79
+recipe copper_grate ShapedRecipe shaped 3 3 copper_grate 4 0 - 117 - 117 - 117 - 117 -
+recipe copper_helmet ShapedRecipe shaped 3 2 copper_helmet 1 0 79 79 79 79 - 79
+recipe copper_hoe ShapedRecipe shaped 2 3 copper_hoe 1 0 79 79 - 3 - 3
+recipe copper_ingot ShapelessRecipe shapeless copper_ingot 9 0 117
+recipe copper_ingot_from_nuggets ShapedRecipe shaped 3 3 copper_ingot 1 0 118 118 118 118 118 118 118 118 118
+recipe copper_ingot_from_waxed_copper_block ShapelessRecipe shapeless copper_ingot 9 0 119
+recipe copper_lantern ShapedRecipe shaped 3 3 copper_lantern 1 0 118 118 118 118 120 118 118 118 118
+recipe copper_leggings ShapedRecipe shaped 3 3 copper_leggings 1 0 79 79 79 79 - 79 79 - 79
+recipe copper_nugget ShapelessRecipe shapeless copper_nugget 9 0 79
+recipe copper_pickaxe ShapedRecipe shaped 3 3 copper_pickaxe 1 0 79 79 79 - 3 - - 3 -
+recipe copper_shovel ShapedRecipe shaped 1 3 copper_shovel 1 0 79 3 3
+recipe copper_spear ShapedRecipe shaped 3 3 copper_spear 1 0 - - 79 - 3 - 3 - -
+recipe copper_sword ShapedRecipe shaped 1 3 copper_sword 1 0 79 79 3
+recipe copper_torch ShapedRecipe shaped 1 3 copper_torch 4 0 118 84 3
+recipe copper_trapdoor ShapedRecipe shaped 2 2 copper_trapdoor 1 0 79 79 79 79
+recipe crafter ShapedRecipe shaped 3 3 crafter 1 0 8 8 8 8 121 8 107 122 107
+recipe crafting_table ShapedRecipe shaped 2 2 crafting_table 1 0 25 25 25 25
+recipe creaking_heart ShapedRecipe shaped 1 3 creaking_heart 1 0 123 124 123
+recipe creeper_banner_pattern ShapelessRecipe shapeless creeper_banner_pattern 1 0 67 125
+recipe crimson_button ShapelessRecipe shapeless crimson_button 1 0 126
+recipe crimson_door ShapedRecipe shaped 2 3 crimson_door 3 0 126 126 126 126 126 126
+recipe crimson_fence ShapedRecipe shaped 3 2 crimson_fence 3 0 126 3 126 126 3 126
+recipe crimson_fence_gate ShapedRecipe shaped 3 2 crimson_fence_gate 1 0 3 126 3 3 126 3
+recipe crimson_hanging_sign ShapedRecipe shaped 3 3 crimson_hanging_sign 6 0 4 - 4 127 127 127 127 127 127
+recipe crimson_hyphae ShapedRecipe shaped 2 2 crimson_hyphae 3 0 128 128 128 128
+recipe crimson_planks ShapelessRecipe shapeless crimson_planks 4 0 129
+recipe crimson_pressure_plate ShapedRecipe shaped 2 1 crimson_pressure_plate 1 0 126 126
+recipe crimson_shelf ShapedRecipe shaped 3 3 crimson_shelf 6 0 127 127 127 - - - 127 127 127
+recipe crimson_sign ShapedRecipe shaped 3 3 crimson_sign 3 0 126 126 126 126 126 126 - 3 -
+recipe crimson_slab ShapedRecipe shaped 3 1 crimson_slab 6 0 126 126 126
+recipe crimson_stairs ShapedRecipe shaped 3 3 crimson_stairs 4 0 126 - - 126 126 - 126 126 126
+recipe crimson_trapdoor ShapedRecipe shaped 3 2 crimson_trapdoor 2 0 126 126 126 126 126 126
+recipe crossbow ShapedRecipe shaped 3 3 crossbow 1 0 3 8 3 70 130 70 - 3 -
+recipe cut_copper ShapedRecipe shaped 2 2 cut_copper 4 0 117 117 117 117
+recipe cut_copper_slab ShapedRecipe shaped 3 1 cut_copper_slab 6 0 131 131 131
+recipe cut_copper_stairs ShapedRecipe shaped 3 3 cut_copper_stairs 4 0 131 - - 131 131 - 131 131 131
+recipe cut_red_sandstone ShapedRecipe shaped 2 2 cut_red_sandstone 4 0 132 132 132 132
+recipe cut_red_sandstone_slab ShapedRecipe shaped 3 1 cut_red_sandstone_slab 6 0 133 133 133
+recipe cut_sandstone ShapedRecipe shaped 2 2 cut_sandstone 4 0 134 134 134 134
+recipe cut_sandstone_slab ShapedRecipe shaped 3 1 cut_sandstone_slab 6 0 135 135 135
+recipe cyan_banner ShapedRecipe shaped 3 3 cyan_banner 1 0 136 136 136 136 136 136 - 3 -
+recipe cyan_bed ShapedRecipe shaped 3 2 cyan_bed 1 0 136 136 136 25 25 25
+recipe cyan_bundle TransmuteRecipe transmute cyan_bundle 1 0 39 137
+recipe cyan_candle ShapelessRecipe shapeless cyan_candle 1 0 41 137
+recipe cyan_carpet ShapedRecipe shaped 2 1 cyan_carpet 3 0 136 136
+recipe cyan_concrete_powder ShapelessRecipe shapeless cyan_concrete_powder 8 0 137 42 42 42 42 43 43 43 43
+recipe cyan_dye ShapelessRecipe shapeless cyan_dye 2 0 56 138
+recipe cyan_dye_from_pitcher_plant ShapelessRecipe shapeless cyan_dye 2 0 139
+recipe cyan_harness ShapedRecipe shaped 3 2 cyan_harness 1 0 46 46 46 27 136 27
+recipe cyan_shulker_box TransmuteRecipe transmute cyan_shulker_box 1 0 47 137
+recipe cyan_stained_glass ShapedRecipe shaped 3 3 cyan_stained_glass 8 0 27 27 27 27 137 27 27 27 27
+recipe cyan_stained_glass_pane ShapedRecipe shaped 3 2 cyan_stained_glass_pane 16 0 140 140 140 140 140 140
+recipe cyan_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 cyan_stained_glass_pane 8 0 49 49 49 49 137 49 49 49 49
+recipe cyan_terracotta ShapedRecipe shaped 3 3 cyan_terracotta 8 0 50 50 50 50 137 50 50 50 50
+recipe dark_oak_boat ShapedRecipe shaped 3 2 dark_oak_boat 1 0 141 - 141 141 141 141
+recipe dark_oak_button ShapelessRecipe shapeless dark_oak_button 1 0 141
+recipe dark_oak_chest_boat ShapelessRecipe shapeless dark_oak_chest_boat 1 0 1 142
+recipe dark_oak_door ShapedRecipe shaped 2 3 dark_oak_door 3 0 141 141 141 141 141 141
+recipe dark_oak_fence ShapedRecipe shaped 3 2 dark_oak_fence 3 0 141 3 141 141 3 141
+recipe dark_oak_fence_gate ShapedRecipe shaped 3 2 dark_oak_fence_gate 1 0 3 141 3 3 141 3
+recipe dark_oak_hanging_sign ShapedRecipe shaped 3 3 dark_oak_hanging_sign 6 0 4 - 4 143 143 143 143 143 143
+recipe dark_oak_planks ShapelessRecipe shapeless dark_oak_planks 4 0 144
+recipe dark_oak_pressure_plate ShapedRecipe shaped 2 1 dark_oak_pressure_plate 1 0 141 141
+recipe dark_oak_shelf ShapedRecipe shaped 3 3 dark_oak_shelf 6 0 143 143 143 - - - 143 143 143
+recipe dark_oak_sign ShapedRecipe shaped 3 3 dark_oak_sign 3 0 141 141 141 141 141 141 - 3 -
+recipe dark_oak_slab ShapedRecipe shaped 3 1 dark_oak_slab 6 0 141 141 141
+recipe dark_oak_stairs ShapedRecipe shaped 3 3 dark_oak_stairs 4 0 141 - - 141 141 - 141 141 141
+recipe dark_oak_trapdoor ShapedRecipe shaped 3 2 dark_oak_trapdoor 2 0 141 141 141 141 141 141
+recipe dark_oak_wood ShapedRecipe shaped 2 2 dark_oak_wood 3 0 145 145 145 145
+recipe dark_prismarine ShapedRecipe shaped 3 3 dark_prismarine 1 0 146 146 146 146 40 146 146 146 146
+recipe dark_prismarine_slab ShapedRecipe shaped 3 1 dark_prismarine_slab 6 0 147 147 147
+recipe dark_prismarine_stairs ShapedRecipe shaped 3 3 dark_prismarine_stairs 4 0 147 - - 147 147 - 147 147 147
+recipe daylight_detector ShapedRecipe shaped 3 3 daylight_detector 1 0 27 27 27 113 113 113 26 26 26
+recipe decorated_pot DecoratedPotRecipe special
+recipe decorated_pot_simple ShapedRecipe shaped 3 3 decorated_pot 1 0 - 74 - 74 - 74 - 74 -
+recipe deepslate_brick_slab ShapedRecipe shaped 3 1 deepslate_brick_slab 6 0 148 148 148
+recipe deepslate_brick_stairs ShapedRecipe shaped 3 3 deepslate_brick_stairs 4 0 148 - - 148 148 - 148 148 148
+recipe deepslate_brick_wall ShapedRecipe shaped 3 2 deepslate_brick_wall 6 0 148 148 148 148 148 148
+recipe deepslate_bricks ShapedRecipe shaped 2 2 deepslate_bricks 4 0 149 149 149 149
+recipe deepslate_tile_slab ShapedRecipe shaped 3 1 deepslate_tile_slab 6 0 150 150 150
+recipe deepslate_tile_stairs ShapedRecipe shaped 3 3 deepslate_tile_stairs 4 0 150 - - 150 150 - 150 150 150
+recipe deepslate_tile_wall ShapedRecipe shaped 3 2 deepslate_tile_wall 6 0 150 150 150 150 150 150
+recipe deepslate_tiles ShapedRecipe shaped 2 2 deepslate_tiles 4 0 148 148 148 148
+recipe detector_rail ShapedRecipe shaped 3 3 detector_rail 6 0 8 - 8 8 151 8 8 107 8
+recipe diamond ShapelessRecipe shapeless diamond 9 0 152
+recipe diamond_axe ShapedRecipe shaped 2 3 diamond_axe 1 0 61 61 61 3 - 3
+recipe diamond_block ShapedRecipe shaped 3 3 diamond_block 1 0 61 61 61 61 61 61 61 61 61
+recipe diamond_boots ShapedRecipe shaped 3 2 diamond_boots 1 0 61 - 61 61 - 61
+recipe diamond_chestplate ShapedRecipe shaped 3 3 diamond_chestplate 1 0 61 - 61 61 61 61 61 61 61
+recipe diamond_helmet ShapedRecipe shaped 3 2 diamond_helmet 1 0 61 61 61 61 - 61
+recipe diamond_hoe ShapedRecipe shaped 2 3 diamond_hoe 1 0 61 61 - 3 - 3
+recipe diamond_leggings ShapedRecipe shaped 3 3 diamond_leggings 1 0 61 61 61 61 - 61 61 - 61
+recipe diamond_pickaxe ShapedRecipe shaped 3 3 diamond_pickaxe 1 0 61 61 61 - 3 - - 3 -
+recipe diamond_shovel ShapedRecipe shaped 1 3 diamond_shovel 1 0 61 3 3
+recipe diamond_spear ShapedRecipe shaped 3 3 diamond_spear 1 0 - - 61 - 3 - 3 - -
+recipe diamond_sword ShapedRecipe shaped 1 3 diamond_sword 1 0 61 61 3
+recipe diorite ShapedRecipe shaped 2 2 diorite 2 0 12 113 113 12
+recipe diorite_slab ShapedRecipe shaped 3 1 diorite_slab 6 0 11 11 11
+recipe diorite_stairs ShapedRecipe shaped 3 3 diorite_stairs 4 0 11 - - 11 11 - 11 11 11
+recipe diorite_wall ShapedRecipe shaped 3 2 diorite_wall 6 0 11 11 11 11 11 11
+recipe dispenser ShapedRecipe shaped 3 3 dispenser 1 0 12 12 12 12 153 12 12 107 12
+recipe dried_ghast ShapedRecipe shaped 3 3 dried_ghast 1 0 154 154 154 154 155 154 154 154 154
+recipe dried_kelp ShapelessRecipe shapeless dried_kelp 9 0 156
+recipe dried_kelp_block ShapedRecipe shaped 3 3 dried_kelp_block 1 0 157 157 157 157 157 157 157 157 157
+recipe dripstone_block ShapedRecipe shaped 2 2 dripstone_block 1 0 158 158 158 158
+recipe dropper ShapedRecipe shaped 3 3 dropper 1 0 12 12 12 12 - 12 12 107 12
+recipe dune_armor_trim_smithing_template ShapedRecipe shaped 3 3 dune_armor_trim_smithing_template 2 0 61 159 61 61 134 61 61 61 61
+recipe dye_black_bed ShapelessRecipe shapeless black_bed 1 0 40 160
+recipe dye_black_carpet ShapelessRecipe shapeless black_carpet 1 0 40 161
+recipe dye_black_harness ShapelessRecipe shapeless black_harness 1 0 40 162
+recipe dye_black_wool ShapelessRecipe shapeless black_wool 1 0 40 163
+recipe dye_blue_bed ShapelessRecipe shapeless blue_bed 1 0 56 164
+recipe dye_blue_carpet ShapelessRecipe shapeless blue_carpet 1 0 56 165
+recipe dye_blue_harness ShapelessRecipe shapeless blue_harness 1 0 56 166
+recipe dye_blue_wool ShapelessRecipe shapeless blue_wool 1 0 56 167
+recipe dye_brown_bed ShapelessRecipe shapeless brown_bed 1 0 76 168
+recipe dye_brown_carpet ShapelessRecipe shapeless brown_carpet 1 0 76 169
+recipe dye_brown_harness ShapelessRecipe shapeless brown_harness 1 0 76 170
+recipe dye_brown_wool ShapelessRecipe shapeless brown_wool 1 0 76 171
+recipe dye_cyan_bed ShapelessRecipe shapeless cyan_bed 1 0 137 172
+recipe dye_cyan_carpet ShapelessRecipe shapeless cyan_carpet 1 0 137 173
+recipe dye_cyan_harness ShapelessRecipe shapeless cyan_harness 1 0 137 174
+recipe dye_cyan_wool ShapelessRecipe shapeless cyan_wool 1 0 137 175
+recipe dye_gray_bed ShapelessRecipe shapeless gray_bed 1 0 176 177
+recipe dye_gray_carpet ShapelessRecipe shapeless gray_carpet 1 0 176 178
+recipe dye_gray_harness ShapelessRecipe shapeless gray_harness 1 0 176 179
+recipe dye_gray_wool ShapelessRecipe shapeless gray_wool 1 0 176 180
+recipe dye_green_bed ShapelessRecipe shapeless green_bed 1 0 138 181
+recipe dye_green_carpet ShapelessRecipe shapeless green_carpet 1 0 138 182
+recipe dye_green_harness ShapelessRecipe shapeless green_harness 1 0 138 183
+recipe dye_green_wool ShapelessRecipe shapeless green_wool 1 0 138 184
+recipe dye_light_blue_bed ShapelessRecipe shapeless light_blue_bed 1 0 185 186
+recipe dye_light_blue_carpet ShapelessRecipe shapeless light_blue_carpet 1 0 185 187
+recipe dye_light_blue_harness ShapelessRecipe shapeless light_blue_harness 1 0 185 188
+recipe dye_light_blue_wool ShapelessRecipe shapeless light_blue_wool 1 0 185 189
+recipe dye_light_gray_bed ShapelessRecipe shapeless light_gray_bed 1 0 190 191
+recipe dye_light_gray_carpet ShapelessRecipe shapeless light_gray_carpet 1 0 190 192
+recipe dye_light_gray_harness ShapelessRecipe shapeless light_gray_harness 1 0 190 193
+recipe dye_light_gray_wool ShapelessRecipe shapeless light_gray_wool 1 0 190 194
+recipe dye_lime_bed ShapelessRecipe shapeless lime_bed 1 0 195 196
+recipe dye_lime_carpet ShapelessRecipe shapeless lime_carpet 1 0 195 197
+recipe dye_lime_harness ShapelessRecipe shapeless lime_harness 1 0 195 198
+recipe dye_lime_wool ShapelessRecipe shapeless lime_wool 1 0 195 199
+recipe dye_magenta_bed ShapelessRecipe shapeless magenta_bed 1 0 200 201
+recipe dye_magenta_carpet ShapelessRecipe shapeless magenta_carpet 1 0 200 202
+recipe dye_magenta_harness ShapelessRecipe shapeless magenta_harness 1 0 200 203
+recipe dye_magenta_wool ShapelessRecipe shapeless magenta_wool 1 0 200 204
+recipe dye_orange_bed ShapelessRecipe shapeless orange_bed 1 0 205 206
+recipe dye_orange_carpet ShapelessRecipe shapeless orange_carpet 1 0 205 207
+recipe dye_orange_harness ShapelessRecipe shapeless orange_harness 1 0 205 208
+recipe dye_orange_wool ShapelessRecipe shapeless orange_wool 1 0 205 209
+recipe dye_pink_bed ShapelessRecipe shapeless pink_bed 1 0 210 211
+recipe dye_pink_carpet ShapelessRecipe shapeless pink_carpet 1 0 210 212
+recipe dye_pink_harness ShapelessRecipe shapeless pink_harness 1 0 210 213
+recipe dye_pink_wool ShapelessRecipe shapeless pink_wool 1 0 210 214
+recipe dye_purple_bed ShapelessRecipe shapeless purple_bed 1 0 215 216
+recipe dye_purple_carpet ShapelessRecipe shapeless purple_carpet 1 0 215 217
+recipe dye_purple_harness ShapelessRecipe shapeless purple_harness 1 0 215 218
+recipe dye_purple_wool ShapelessRecipe shapeless purple_wool 1 0 215 219
+recipe dye_red_bed ShapelessRecipe shapeless red_bed 1 0 220 221
+recipe dye_red_carpet ShapelessRecipe shapeless red_carpet 1 0 220 222
+recipe dye_red_harness ShapelessRecipe shapeless red_harness 1 0 220 223
+recipe dye_red_wool ShapelessRecipe shapeless red_wool 1 0 220 224
+recipe dye_white_bed ShapelessRecipe shapeless white_bed 1 0 225 226
+recipe dye_white_carpet ShapelessRecipe shapeless white_carpet 1 0 225 227
+recipe dye_white_harness ShapelessRecipe shapeless white_harness 1 0 225 228
+recipe dye_white_wool ShapelessRecipe shapeless white_wool 1 0 225 229
+recipe dye_yellow_bed ShapelessRecipe shapeless yellow_bed 1 0 230 231
+recipe dye_yellow_carpet ShapelessRecipe shapeless yellow_carpet 1 0 230 232
+recipe dye_yellow_harness ShapelessRecipe shapeless yellow_harness 1 0 230 233
+recipe dye_yellow_wool ShapelessRecipe shapeless yellow_wool 1 0 230 234
+recipe emerald ShapelessRecipe shapeless emerald 9 0 235
+recipe emerald_block ShapedRecipe shaped 3 3 emerald_block 1 0 236 236 236 236 236 236 236 236 236
+recipe enchanting_table ShapedRecipe shaped 3 3 enchanting_table 1 0 - 68 - 61 29 61 29 29 29
+recipe end_crystal ShapedRecipe shaped 3 3 end_crystal 1 0 27 27 27 27 237 27 27 154 27
+recipe end_rod ShapedRecipe shaped 1 2 end_rod 4 0 54 238
+recipe end_stone_brick_slab ShapedRecipe shaped 3 1 end_stone_brick_slab 6 0 239 239 239
+recipe end_stone_brick_stairs ShapedRecipe shaped 3 3 end_stone_brick_stairs 4 0 239 - - 239 239 - 239 239 239
+recipe end_stone_brick_wall ShapedRecipe shaped 3 2 end_stone_brick_wall 6 0 239 239 239 239 239 239
+recipe end_stone_bricks ShapedRecipe shaped 2 2 end_stone_bricks 4 0 240 240 240 240
+recipe ender_chest ShapedRecipe shaped 3 3 ender_chest 1 0 29 29 29 29 237 29 29 29 29
+recipe ender_eye ShapelessRecipe shapeless ender_eye 1 0 241 242
+recipe exposed_chiseled_copper ShapedRecipe shaped 1 2 exposed_chiseled_copper 1 0 243 243
+recipe exposed_copper_bulb ShapedRecipe shaped 3 3 exposed_copper_bulb 4 0 - 244 - 244 54 244 - 107 -
+recipe exposed_copper_grate ShapedRecipe shaped 3 3 exposed_copper_grate 4 0 - 244 - 244 - 244 - 244 -
+recipe exposed_cut_copper ShapedRecipe shaped 2 2 exposed_cut_copper 4 0 244 244 244 244
+recipe exposed_cut_copper_slab ShapedRecipe shaped 3 1 exposed_cut_copper_slab 6 0 245 245 245
+recipe exposed_cut_copper_stairs ShapedRecipe shaped 3 3 exposed_cut_copper_stairs 4 0 245 - - 245 245 - 245 245 245
+recipe eye_armor_trim_smithing_template ShapedRecipe shaped 3 3 eye_armor_trim_smithing_template 2 0 61 246 61 61 240 61 61 61 61
+recipe fermented_spider_eye ShapelessRecipe shapeless fermented_spider_eye 1 0 247 248 81
+recipe field_masoned_banner_pattern ShapelessRecipe shapeless field_masoned_banner_pattern 1 0 67 73
+recipe fire_charge ShapelessRecipe shapeless fire_charge 3 0 249 242 84
+recipe firework_rocket FireworkRocketRecipe special
+recipe firework_rocket_simple ShapelessRecipe shapeless firework_rocket 3 0 249 67
+recipe firework_star FireworkStarRecipe special
+recipe firework_star_fade FireworkStarFadeRecipe special
+recipe fishing_rod ShapedRecipe shaped 3 3 fishing_rod 1 0 - - 3 - 3 70 3 - 70
+recipe fletching_table ShapedRecipe shaped 2 3 fletching_table 1 0 16 16 25 25 25 25
+recipe flint_and_steel ShapelessRecipe shapeless flint_and_steel 1 0 8 16
+recipe flow_armor_trim_smithing_template ShapedRecipe shaped 3 3 flow_armor_trim_smithing_template 2 0 61 250 61 61 251 61 61 61 61
+recipe flower_banner_pattern ShapelessRecipe shapeless flower_banner_pattern 1 0 67 252
+recipe flower_pot ShapedRecipe shaped 3 2 flower_pot 1 0 74 - 74 - 74 -
+recipe furnace ShapedRecipe shaped 3 3 furnace 1 0 72 72 72 72 - 72 72 72 72
+recipe furnace_minecart ShapelessRecipe shapeless furnace_minecart 1 0 52 93
+recipe glass_bottle ShapedRecipe shaped 3 2 glass_bottle 3 0 27 - 27 - 27 -
+recipe glass_pane ShapedRecipe shaped 3 2 glass_pane 16 0 27 27 27 27 27 27
+recipe glistering_melon_slice ShapedRecipe shaped 3 3 glistering_melon_slice 1 0 253 253 253 253 254 253 253 253 253
+recipe glow_item_frame ShapelessRecipe shapeless glow_item_frame 1 0 255 256
+recipe glowstone ShapedRecipe shaped 2 2 glowstone 1 0 257 257 257 257
+recipe gold_block ShapedRecipe shaped 3 3 gold_block 1 0 106 106 106 106 106 106 106 106 106
+recipe gold_ingot_from_gold_block ShapelessRecipe shapeless gold_ingot 9 0 258
+recipe gold_ingot_from_nuggets ShapedRecipe shaped 3 3 gold_ingot 1 0 253 253 253 253 253 253 253 253 253
+recipe gold_nugget ShapelessRecipe shapeless gold_nugget 9 0 106
+recipe golden_apple ShapedRecipe shaped 3 3 golden_apple 1 0 106 106 106 106 259 106 106 106 106
+recipe golden_axe ShapedRecipe shaped 2 3 golden_axe 1 0 106 106 106 3 - 3
+recipe golden_boots ShapedRecipe shaped 3 2 golden_boots 1 0 106 - 106 106 - 106
+recipe golden_carrot ShapedRecipe shaped 3 3 golden_carrot 1 0 253 253 253 253 87 253 253 253 253
+recipe golden_chestplate ShapedRecipe shaped 3 3 golden_chestplate 1 0 106 - 106 106 106 106 106 106 106
+recipe golden_helmet ShapedRecipe shaped 3 2 golden_helmet 1 0 106 106 106 106 - 106
+recipe golden_hoe ShapedRecipe shaped 2 3 golden_hoe 1 0 106 106 - 3 - 3
+recipe golden_leggings ShapedRecipe shaped 3 3 golden_leggings 1 0 106 106 106 106 - 106 106 - 106
+recipe golden_pickaxe ShapedRecipe shaped 3 3 golden_pickaxe 1 0 106 106 106 - 3 - - 3 -
+recipe golden_shovel ShapedRecipe shaped 1 3 golden_shovel 1 0 106 3 3
+recipe golden_spear ShapedRecipe shaped 3 3 golden_spear 1 0 - - 106 - 3 - 3 - -
+recipe golden_sword ShapedRecipe shaped 1 3 golden_sword 1 0 106 106 3
+recipe granite ShapelessRecipe shapeless granite 1 0 11 113
+recipe granite_slab ShapedRecipe shaped 3 1 granite_slab 6 0 260 260 260
+recipe granite_stairs ShapedRecipe shaped 3 3 granite_stairs 4 0 260 - - 260 260 - 260 260 260
+recipe granite_wall ShapedRecipe shaped 3 2 granite_wall 6 0 260 260 260 260 260 260
+recipe gray_banner ShapedRecipe shaped 3 3 gray_banner 1 0 261 261 261 261 261 261 - 3 -
+recipe gray_bed ShapedRecipe shaped 3 2 gray_bed 1 0 261 261 261 25 25 25
+recipe gray_bundle TransmuteRecipe transmute gray_bundle 1 0 39 176
+recipe gray_candle ShapelessRecipe shapeless gray_candle 1 0 41 176
+recipe gray_carpet ShapedRecipe shaped 2 1 gray_carpet 3 0 261 261
+recipe gray_concrete_powder ShapelessRecipe shapeless gray_concrete_powder 8 0 176 42 42 42 42 43 43 43 43
+recipe gray_dye ShapelessRecipe shapeless gray_dye 2 0 40 225
+recipe gray_dye_from_closed_eyeblossom ShapelessRecipe shapeless gray_dye 1 0 262
+recipe gray_harness ShapedRecipe shaped 3 2 gray_harness 1 0 46 46 46 27 261 27
+recipe gray_shulker_box TransmuteRecipe transmute gray_shulker_box 1 0 47 176
+recipe gray_stained_glass ShapedRecipe shaped 3 3 gray_stained_glass 8 0 27 27 27 27 176 27 27 27 27
+recipe gray_stained_glass_pane ShapedRecipe shaped 3 2 gray_stained_glass_pane 16 0 263 263 263 263 263 263
+recipe gray_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 gray_stained_glass_pane 8 0 49 49 49 49 176 49 49 49 49
+recipe gray_terracotta ShapedRecipe shaped 3 3 gray_terracotta 8 0 50 50 50 50 176 50 50 50 50
+recipe green_banner ShapedRecipe shaped 3 3 green_banner 1 0 264 264 264 264 264 264 - 3 -
+recipe green_bed ShapedRecipe shaped 3 2 green_bed 1 0 264 264 264 25 25 25
+recipe green_bundle TransmuteRecipe transmute green_bundle 1 0 39 138
+recipe green_candle ShapelessRecipe shapeless green_candle 1 0 41 138
+recipe green_carpet ShapedRecipe shaped 2 1 green_carpet 3 0 264 264
+recipe green_concrete_powder ShapelessRecipe shapeless green_concrete_powder 8 0 138 42 42 42 42 43 43 43 43
+recipe green_harness ShapedRecipe shaped 3 2 green_harness 1 0 46 46 46 27 264 27
+recipe green_shulker_box TransmuteRecipe transmute green_shulker_box 1 0 47 138
+recipe green_stained_glass ShapedRecipe shaped 3 3 green_stained_glass 8 0 27 27 27 27 138 27 27 27 27
+recipe green_stained_glass_pane ShapedRecipe shaped 3 2 green_stained_glass_pane 16 0 265 265 265 265 265 265
+recipe green_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 green_stained_glass_pane 8 0 49 49 49 49 138 49 49 49 49
+recipe green_terracotta ShapedRecipe shaped 3 3 green_terracotta 8 0 50 50 50 50 138 50 50 50 50
+recipe grindstone ShapedRecipe shaped 3 2 grindstone 1 0 3 266 3 25 - 25
+recipe hay_block ShapelessRecipe shapeless hay_block 1 0 71 71 71 71 71 71 71 71 71
+recipe heavy_weighted_pressure_plate ShapedRecipe shaped 2 1 heavy_weighted_pressure_plate 1 0 8 8
+recipe honey_block ShapedRecipe shaped 2 2 honey_block 1 0 267 267 267 267
+recipe honey_bottle ShapelessRecipe shapeless honey_bottle 4 0 268 269 269 269 269
+recipe honeycomb_block ShapedRecipe shaped 2 2 honeycomb_block 1 0 30 30 30 30
+recipe hopper ShapedRecipe shaped 3 3 hopper 1 0 8 - 8 8 1 8 - 8 -
+recipe hopper_minecart ShapelessRecipe shapeless hopper_minecart 1 0 270 93
+recipe host_armor_trim_smithing_template ShapedRecipe shaped 3 3 host_armor_trim_smithing_template 2 0 61 271 61 61 50 61 61 61 61
+recipe iron_axe ShapedRecipe shaped 2 3 iron_axe 1 0 8 8 8 3 - 3
+recipe iron_bars ShapedRecipe shaped 3 2 iron_bars 16 0 8 8 8 8 8 8
+recipe iron_block ShapedRecipe shaped 3 3 iron_block 1 0 8 8 8 8 8 8 8 8 8
+recipe iron_boots ShapedRecipe shaped 3 2 iron_boots 1 0 8 - 8 8 - 8
+recipe iron_chain ShapedRecipe shaped 1 3 iron_chain 1 0 272 8 272
+recipe iron_chestplate ShapedRecipe shaped 3 3 iron_chestplate 1 0 8 - 8 8 8 8 8 8 8
+recipe iron_door ShapedRecipe shaped 2 3 iron_door 3 0 8 8 8 8 8 8
+recipe iron_helmet ShapedRecipe shaped 3 2 iron_helmet 1 0 8 8 8 8 - 8
+recipe iron_hoe ShapedRecipe shaped 2 3 iron_hoe 1 0 8 8 - 3 - 3
+recipe iron_ingot_from_iron_block ShapelessRecipe shapeless iron_ingot 9 0 14
+recipe iron_ingot_from_nuggets ShapedRecipe shaped 3 3 iron_ingot 1 0 272 272 272 272 272 272 272 272 272
+recipe iron_leggings ShapedRecipe shaped 3 3 iron_leggings 1 0 8 8 8 8 - 8 8 - 8
+recipe iron_nugget ShapelessRecipe shapeless iron_nugget 9 0 8
+recipe iron_pickaxe ShapedRecipe shaped 3 3 iron_pickaxe 1 0 8 8 8 - 3 - - 3 -
+recipe iron_shovel ShapedRecipe shaped 1 3 iron_shovel 1 0 8 3 3
+recipe iron_spear ShapedRecipe shaped 3 3 iron_spear 1 0 - - 8 - 3 - 3 - -
+recipe iron_sword ShapedRecipe shaped 1 3 iron_sword 1 0 8 8 3
+recipe iron_trapdoor ShapedRecipe shaped 2 2 iron_trapdoor 1 0 8 8 8 8
+recipe item_frame ShapedRecipe shaped 3 3 item_frame 1 0 3 3 3 3 46 3 3 3 3
+recipe jack_o_lantern ShapedRecipe shaped 1 2 jack_o_lantern 1 0 273 274
+recipe jukebox ShapedRecipe shaped 3 3 jukebox 1 0 25 25 25 25 61 25 25 25 25
+recipe jungle_boat ShapedRecipe shaped 3 2 jungle_boat 1 0 275 - 275 275 275 275
+recipe jungle_button ShapelessRecipe shapeless jungle_button 1 0 275
+recipe jungle_chest_boat ShapelessRecipe shapeless jungle_chest_boat 1 0 1 276
+recipe jungle_door ShapedRecipe shaped 2 3 jungle_door 3 0 275 275 275 275 275 275
+recipe jungle_fence ShapedRecipe shaped 3 2 jungle_fence 3 0 275 3 275 275 3 275
+recipe jungle_fence_gate ShapedRecipe shaped 3 2 jungle_fence_gate 1 0 3 275 3 3 275 3
+recipe jungle_hanging_sign ShapedRecipe shaped 3 3 jungle_hanging_sign 6 0 4 - 4 277 277 277 277 277 277
+recipe jungle_planks ShapelessRecipe shapeless jungle_planks 4 0 278
+recipe jungle_pressure_plate ShapedRecipe shaped 2 1 jungle_pressure_plate 1 0 275 275
+recipe jungle_shelf ShapedRecipe shaped 3 3 jungle_shelf 6 0 277 277 277 - - - 277 277 277
+recipe jungle_sign ShapedRecipe shaped 3 3 jungle_sign 3 0 275 275 275 275 275 275 - 3 -
+recipe jungle_slab ShapedRecipe shaped 3 1 jungle_slab 6 0 275 275 275
+recipe jungle_stairs ShapedRecipe shaped 3 3 jungle_stairs 4 0 275 - - 275 275 - 275 275 275
+recipe jungle_trapdoor ShapedRecipe shaped 3 2 jungle_trapdoor 2 0 275 275 275 275 275 275
+recipe jungle_wood ShapedRecipe shaped 2 2 jungle_wood 3 0 279 279 279 279
+recipe ladder ShapedRecipe shaped 3 3 ladder 3 0 3 - 3 3 3 3 3 - 3
+recipe lantern ShapedRecipe shaped 3 3 lantern 1 0 272 272 272 272 274 272 272 272 272
+recipe lapis_block ShapedRecipe shaped 3 3 lapis_block 1 0 57 57 57 57 57 57 57 57 57
+recipe lapis_lazuli ShapelessRecipe shapeless lapis_lazuli 9 0 280
+recipe lead ShapedRecipe shaped 3 3 lead 2 0 70 70 - 70 70 - - - 70
+recipe leather ShapedRecipe shaped 2 2 leather 1 0 281 281 281 281
+recipe leather_boots ShapedRecipe shaped 3 2 leather_boots 1 0 46 - 46 46 - 46
+recipe leather_chestplate ShapedRecipe shaped 3 3 leather_chestplate 1 0 46 - 46 46 46 46 46 46 46
+recipe leather_helmet ShapedRecipe shaped 3 2 leather_helmet 1 0 46 46 46 46 - 46
+recipe leather_horse_armor ShapedRecipe shaped 3 3 leather_horse_armor 1 0 46 - 46 46 46 46 46 - 46
+recipe leather_leggings ShapedRecipe shaped 3 3 leather_leggings 1 0 46 46 46 46 - 46 46 - 46
+recipe lectern ShapedRecipe shaped 3 3 lectern 1 0 26 26 26 - 282 - - 26 -
+recipe lever ShapedRecipe shaped 1 2 lever 1 0 3 12
+recipe light_blue_banner ShapedRecipe shaped 3 3 light_blue_banner 1 0 283 283 283 283 283 283 - 3 -
+recipe light_blue_bed ShapedRecipe shaped 3 2 light_blue_bed 1 0 283 283 283 25 25 25
+recipe light_blue_bundle TransmuteRecipe transmute light_blue_bundle 1 0 39 185
+recipe light_blue_candle ShapelessRecipe shapeless light_blue_candle 1 0 41 185
+recipe light_blue_carpet ShapedRecipe shaped 2 1 light_blue_carpet 3 0 283 283
+recipe light_blue_concrete_powder ShapelessRecipe shapeless light_blue_concrete_powder 8 0 185 42 42 42 42 43 43 43 43
+recipe light_blue_dye_from_blue_orchid ShapelessRecipe shapeless light_blue_dye 1 0 284
+recipe light_blue_dye_from_blue_white_dye ShapelessRecipe shapeless light_blue_dye 2 0 56 225
+recipe light_blue_harness ShapedRecipe shaped 3 2 light_blue_harness 1 0 46 46 46 27 283 27
+recipe light_blue_shulker_box TransmuteRecipe transmute light_blue_shulker_box 1 0 47 185
+recipe light_blue_stained_glass ShapedRecipe shaped 3 3 light_blue_stained_glass 8 0 27 27 27 27 185 27 27 27 27
+recipe light_blue_stained_glass_pane ShapedRecipe shaped 3 2 light_blue_stained_glass_pane 16 0 285 285 285 285 285 285
+recipe light_blue_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 light_blue_stained_glass_pane 8 0 49 49 49 49 185 49 49 49 49
+recipe light_blue_terracotta ShapedRecipe shaped 3 3 light_blue_terracotta 8 0 50 50 50 50 185 50 50 50 50
+recipe light_gray_banner ShapedRecipe shaped 3 3 light_gray_banner 1 0 286 286 286 286 286 286 - 3 -
+recipe light_gray_bed ShapedRecipe shaped 3 2 light_gray_bed 1 0 286 286 286 25 25 25
+recipe light_gray_bundle TransmuteRecipe transmute light_gray_bundle 1 0 39 190
+recipe light_gray_candle ShapelessRecipe shapeless light_gray_candle 1 0 41 190
+recipe light_gray_carpet ShapedRecipe shaped 2 1 light_gray_carpet 3 0 286 286
+recipe light_gray_concrete_powder ShapelessRecipe shapeless light_gray_concrete_powder 8 0 190 42 42 42 42 43 43 43 43
+recipe light_gray_dye_from_azure_bluet ShapelessRecipe shapeless light_gray_dye 1 0 287
+recipe light_gray_dye_from_black_white_dye ShapelessRecipe shapeless light_gray_dye 3 0 40 225 225
+recipe light_gray_dye_from_gray_white_dye ShapelessRecipe shapeless light_gray_dye 2 0 176 225
+recipe light_gray_dye_from_oxeye_daisy ShapelessRecipe shapeless light_gray_dye 1 0 252
+recipe light_gray_dye_from_white_tulip ShapelessRecipe shapeless light_gray_dye 1 0 288
+recipe light_gray_harness ShapedRecipe shaped 3 2 light_gray_harness 1 0 46 46 46 27 286 27
+recipe light_gray_shulker_box TransmuteRecipe transmute light_gray_shulker_box 1 0 47 190
+recipe light_gray_stained_glass ShapedRecipe shaped 3 3 light_gray_stained_glass 8 0 27 27 27 27 190 27 27 27 27
+recipe light_gray_stained_glass_pane ShapedRecipe shaped 3 2 light_gray_stained_glass_pane 16 0 289 289 289 289 289 289
+recipe light_gray_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 light_gray_stained_glass_pane 8 0 49 49 49 49 190 49 49 49 49
+recipe light_gray_terracotta ShapedRecipe shaped 3 3 light_gray_terracotta 8 0 50 50 50 50 190 50 50 50 50
+recipe light_weighted_pressure_plate ShapedRecipe shaped 2 1 light_weighted_pressure_plate 1 0 106 106
+recipe lightning_rod ShapedRecipe shaped 1 3 lightning_rod 1 0 79 79 79
+recipe lime_banner ShapedRecipe shaped 3 3 lime_banner 1 0 290 290 290 290 290 290 - 3 -
+recipe lime_bed ShapedRecipe shaped 3 2 lime_bed 1 0 290 290 290 25 25 25
+recipe lime_bundle TransmuteRecipe transmute lime_bundle 1 0 39 195
+recipe lime_candle ShapelessRecipe shapeless lime_candle 1 0 41 195
+recipe lime_carpet ShapedRecipe shaped 2 1 lime_carpet 3 0 290 290
+recipe lime_concrete_powder ShapelessRecipe shapeless lime_concrete_powder 8 0 195 42 42 42 42 43 43 43 43
+recipe lime_dye ShapelessRecipe shapeless lime_dye 2 0 138 225
+recipe lime_harness ShapedRecipe shaped 3 2 lime_harness 1 0 46 46 46 27 290 27
+recipe lime_shulker_box TransmuteRecipe transmute lime_shulker_box 1 0 47 195
+recipe lime_stained_glass ShapedRecipe shaped 3 3 lime_stained_glass 8 0 27 27 27 27 195 27 27 27 27
+recipe lime_stained_glass_pane ShapedRecipe shaped 3 2 lime_stained_glass_pane 16 0 291 291 291 291 291 291
+recipe lime_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 lime_stained_glass_pane 8 0 49 49 49 49 195 49 49 49 49
+recipe lime_terracotta ShapedRecipe shaped 3 3 lime_terracotta 8 0 50 50 50 50 195 50 50 50 50
+recipe lodestone ShapedRecipe shaped 3 3 lodestone 1 0 292 292 292 292 8 292 292 292 292
+recipe loom ShapedRecipe shaped 2 2 loom 1 0 70 70 25 25
+recipe mace ShapedRecipe shaped 1 2 mace 1 0 293 251
+recipe magenta_banner ShapedRecipe shaped 3 3 magenta_banner 1 0 294 294 294 294 294 294 - 3 -
+recipe magenta_bed ShapedRecipe shaped 3 2 magenta_bed 1 0 294 294 294 25 25 25
+recipe magenta_bundle TransmuteRecipe transmute magenta_bundle 1 0 39 200
+recipe magenta_candle ShapelessRecipe shapeless magenta_candle 1 0 41 200
+recipe magenta_carpet ShapedRecipe shaped 2 1 magenta_carpet 3 0 294 294
+recipe magenta_concrete_powder ShapelessRecipe shapeless magenta_concrete_powder 8 0 200 42 42 42 42 43 43 43 43
+recipe magenta_dye_from_allium ShapelessRecipe shapeless magenta_dye 1 0 295
+recipe magenta_dye_from_blue_red_pink ShapelessRecipe shapeless magenta_dye 3 0 56 220 210
+recipe magenta_dye_from_blue_red_white_dye ShapelessRecipe shapeless magenta_dye 4 0 56 220 220 225
+recipe magenta_dye_from_lilac ShapelessRecipe shapeless magenta_dye 2 0 296
+recipe magenta_dye_from_purple_and_pink ShapelessRecipe shapeless magenta_dye 2 0 215 210
+recipe magenta_harness ShapedRecipe shaped 3 2 magenta_harness 1 0 46 46 46 27 294 27
+recipe magenta_shulker_box TransmuteRecipe transmute magenta_shulker_box 1 0 47 200
+recipe magenta_stained_glass ShapedRecipe shaped 3 3 magenta_stained_glass 8 0 27 27 27 27 200 27 27 27 27
+recipe magenta_stained_glass_pane ShapedRecipe shaped 3 2 magenta_stained_glass_pane 16 0 297 297 297 297 297 297
+recipe magenta_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 magenta_stained_glass_pane 8 0 49 49 49 49 200 49 49 49 49
+recipe magenta_terracotta ShapedRecipe shaped 3 3 magenta_terracotta 8 0 50 50 50 50 200 50 50 50 50
+recipe magma_block ShapedRecipe shaped 2 2 magma_block 1 0 298 298 298 298
+recipe magma_cream ShapelessRecipe shapeless magma_cream 1 0 242 299
+recipe mangrove_boat ShapedRecipe shaped 3 2 mangrove_boat 1 0 300 - 300 300 300 300
+recipe mangrove_button ShapelessRecipe shapeless mangrove_button 1 0 300
+recipe mangrove_chest_boat ShapelessRecipe shapeless mangrove_chest_boat 1 0 1 301
+recipe mangrove_door ShapedRecipe shaped 2 3 mangrove_door 3 0 300 300 300 300 300 300
+recipe mangrove_fence ShapedRecipe shaped 3 2 mangrove_fence 3 0 300 3 300 300 3 300
+recipe mangrove_fence_gate ShapedRecipe shaped 3 2 mangrove_fence_gate 1 0 3 300 3 3 300 3
+recipe mangrove_hanging_sign ShapedRecipe shaped 3 3 mangrove_hanging_sign 6 0 4 - 4 302 302 302 302 302 302
+recipe mangrove_planks ShapelessRecipe shapeless mangrove_planks 4 0 303
+recipe mangrove_pressure_plate ShapedRecipe shaped 2 1 mangrove_pressure_plate 1 0 300 300
+recipe mangrove_shelf ShapedRecipe shaped 3 3 mangrove_shelf 6 0 302 302 302 - - - 302 302 302
+recipe mangrove_sign ShapedRecipe shaped 3 3 mangrove_sign 3 0 300 300 300 300 300 300 - 3 -
+recipe mangrove_slab ShapedRecipe shaped 3 1 mangrove_slab 6 0 300 300 300
+recipe mangrove_stairs ShapedRecipe shaped 3 3 mangrove_stairs 4 0 300 - - 300 300 - 300 300 300
+recipe mangrove_trapdoor ShapedRecipe shaped 3 2 mangrove_trapdoor 2 0 300 300 300 300 300 300
+recipe mangrove_wood ShapedRecipe shaped 2 2 mangrove_wood 3 0 304 304 304 304
+recipe map ShapedRecipe shaped 3 3 map 1 0 67 67 67 67 305 67 67 67 67
+recipe map_cloning MapCloningRecipe special
+recipe map_extending MapExtendingRecipe shaped 3 3 map 1 0 67 67 67 67 306 67 67 67 67
+recipe melon ShapelessRecipe shapeless melon 1 0 254 254 254 254 254 254 254 254 254
+recipe melon_seeds ShapelessRecipe shapeless melon_seeds 1 0 254
+recipe minecart ShapedRecipe shaped 3 2 minecart 1 0 8 - 8 8 8 8
+recipe mojang_banner_pattern ShapelessRecipe shapeless mojang_banner_pattern 1 0 67 307
+recipe moss_carpet ShapedRecipe shaped 2 1 moss_carpet 3 0 308 308
+recipe mossy_cobblestone_from_moss_block ShapelessRecipe shapeless mossy_cobblestone 1 0 12 308
+recipe mossy_cobblestone_from_vine ShapelessRecipe shapeless mossy_cobblestone 1 0 12 69
+recipe mossy_cobblestone_slab ShapedRecipe shaped 3 1 mossy_cobblestone_slab 6 0 309 309 309
+recipe mossy_cobblestone_stairs ShapedRecipe shaped 3 3 mossy_cobblestone_stairs 4 0 309 - - 309 309 - 309 309 309
+recipe mossy_cobblestone_wall ShapedRecipe shaped 3 2 mossy_cobblestone_wall 6 0 309 309 309 309 309 309
+recipe mossy_stone_brick_slab ShapedRecipe shaped 3 1 mossy_stone_brick_slab 6 0 310 310 310
+recipe mossy_stone_brick_stairs ShapedRecipe shaped 3 3 mossy_stone_brick_stairs 4 0 310 - - 310 310 - 310 310 310
+recipe mossy_stone_brick_wall ShapedRecipe shaped 3 2 mossy_stone_brick_wall 6 0 310 310 310 310 310 310
+recipe mossy_stone_bricks_from_moss_block ShapelessRecipe shapeless mossy_stone_bricks 1 0 311 308
+recipe mossy_stone_bricks_from_vine ShapelessRecipe shapeless mossy_stone_bricks 1 0 311 69
+recipe mud_brick_slab ShapedRecipe shaped 3 1 mud_brick_slab 6 0 312 312 312
+recipe mud_brick_stairs ShapedRecipe shaped 3 3 mud_brick_stairs 4 0 312 - - 312 312 - 312 312 312
+recipe mud_brick_wall ShapedRecipe shaped 3 2 mud_brick_wall 6 0 312 312 312 312 312 312
+recipe mud_bricks ShapedRecipe shaped 2 2 mud_bricks 4 0 313 313 313 313
+recipe muddy_mangrove_roots ShapelessRecipe shapeless muddy_mangrove_roots 1 0 314 315
+recipe mushroom_stew ShapelessRecipe shapeless mushroom_stew 1 0 248 316 31
+recipe music_disc_5 ShapelessRecipe shapeless music_disc_5 1 0 317 317 317 317 317 317 317 317 317
+recipe nether_brick_fence ShapedRecipe shaped 3 2 nether_brick_fence 6 0 318 319 318 318 319 318
+recipe nether_brick_slab ShapedRecipe shaped 3 1 nether_brick_slab 6 0 318 318 318
+recipe nether_brick_stairs ShapedRecipe shaped 3 3 nether_brick_stairs 4 0 318 - - 318 318 - 318 318 318
+recipe nether_brick_wall ShapedRecipe shaped 3 2 nether_brick_wall 6 0 318 318 318 318 318 318
+recipe nether_bricks ShapedRecipe shaped 2 2 nether_bricks 1 0 319 319 319 319
+recipe nether_wart_block ShapelessRecipe shapeless nether_wart_block 1 0 320 320 320 320 320 320 320 320 320
+recipe netherite_block ShapedRecipe shaped 3 3 netherite_block 1 0 321 321 321 321 321 321 321 321 321
+recipe netherite_ingot ShapelessRecipe shapeless netherite_ingot 1 0 322 322 322 322 106 106 106 106
+recipe netherite_ingot_from_netherite_block ShapelessRecipe shapeless netherite_ingot 9 0 323
+recipe netherite_upgrade_smithing_template ShapedRecipe shaped 3 3 netherite_upgrade_smithing_template 2 0 61 324 61 61 325 61 61 61 61
+recipe note_block ShapedRecipe shaped 3 3 note_block 1 0 25 25 25 25 107 25 25 25 25
+recipe oak_boat ShapedRecipe shaped 3 2 oak_boat 1 0 326 - 326 326 326 326
+recipe oak_button ShapelessRecipe shapeless oak_button 1 0 326
+recipe oak_chest_boat ShapelessRecipe shapeless oak_chest_boat 1 0 1 327
+recipe oak_door ShapedRecipe shaped 2 3 oak_door 3 0 326 326 326 326 326 326
+recipe oak_fence ShapedRecipe shaped 3 2 oak_fence 3 0 326 3 326 326 3 326
+recipe oak_fence_gate ShapedRecipe shaped 3 2 oak_fence_gate 1 0 3 326 3 3 326 3
+recipe oak_hanging_sign ShapedRecipe shaped 3 3 oak_hanging_sign 6 0 4 - 4 328 328 328 328 328 328
+recipe oak_planks ShapelessRecipe shapeless oak_planks 4 0 329
+recipe oak_pressure_plate ShapedRecipe shaped 2 1 oak_pressure_plate 1 0 326 326
+recipe oak_shelf ShapedRecipe shaped 3 3 oak_shelf 6 0 328 328 328 - - - 328 328 328
+recipe oak_sign ShapedRecipe shaped 3 3 oak_sign 3 0 326 326 326 326 326 326 - 3 -
+recipe oak_slab ShapedRecipe shaped 3 1 oak_slab 6 0 326 326 326
+recipe oak_stairs ShapedRecipe shaped 3 3 oak_stairs 4 0 326 - - 326 326 - 326 326 326
+recipe oak_trapdoor ShapedRecipe shaped 3 2 oak_trapdoor 2 0 326 326 326 326 326 326
+recipe oak_wood ShapedRecipe shaped 2 2 oak_wood 3 0 330 330 330 330
+recipe observer ShapedRecipe shaped 3 3 observer 1 0 12 12 12 107 107 113 12 12 12
+recipe orange_banner ShapedRecipe shaped 3 3 orange_banner 1 0 331 331 331 331 331 331 - 3 -
+recipe orange_bed ShapedRecipe shaped 3 2 orange_bed 1 0 331 331 331 25 25 25
+recipe orange_bundle TransmuteRecipe transmute orange_bundle 1 0 39 205
+recipe orange_candle ShapelessRecipe shapeless orange_candle 1 0 41 205
+recipe orange_carpet ShapedRecipe shaped 2 1 orange_carpet 3 0 331 331
+recipe orange_concrete_powder ShapelessRecipe shapeless orange_concrete_powder 8 0 205 42 42 42 42 43 43 43 43
+recipe orange_dye_from_open_eyeblossom ShapelessRecipe shapeless orange_dye 1 0 332
+recipe orange_dye_from_orange_tulip ShapelessRecipe shapeless orange_dye 1 0 333
+recipe orange_dye_from_red_yellow ShapelessRecipe shapeless orange_dye 2 0 220 230
+recipe orange_dye_from_torchflower ShapelessRecipe shapeless orange_dye 1 0 334
+recipe orange_harness ShapedRecipe shaped 3 2 orange_harness 1 0 46 46 46 27 331 27
+recipe orange_shulker_box TransmuteRecipe transmute orange_shulker_box 1 0 47 205
+recipe orange_stained_glass ShapedRecipe shaped 3 3 orange_stained_glass 8 0 27 27 27 27 205 27 27 27 27
+recipe orange_stained_glass_pane ShapedRecipe shaped 3 2 orange_stained_glass_pane 16 0 335 335 335 335 335 335
+recipe orange_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 orange_stained_glass_pane 8 0 49 49 49 49 205 49 49 49 49
+recipe orange_terracotta ShapedRecipe shaped 3 3 orange_terracotta 8 0 50 50 50 50 205 50 50 50 50
+recipe oxidized_chiseled_copper ShapedRecipe shaped 1 2 oxidized_chiseled_copper 1 0 336 336
+recipe oxidized_copper_bulb ShapedRecipe shaped 3 3 oxidized_copper_bulb 4 0 - 337 - 337 54 337 - 107 -
+recipe oxidized_copper_grate ShapedRecipe shaped 3 3 oxidized_copper_grate 4 0 - 337 - 337 - 337 - 337 -
+recipe oxidized_cut_copper ShapedRecipe shaped 2 2 oxidized_cut_copper 4 0 337 337 337 337
+recipe oxidized_cut_copper_slab ShapedRecipe shaped 3 1 oxidized_cut_copper_slab 6 0 338 338 338
+recipe oxidized_cut_copper_stairs ShapedRecipe shaped 3 3 oxidized_cut_copper_stairs 4 0 338 - - 338 338 - 338 338 338
+recipe packed_ice ShapelessRecipe shapeless packed_ice 1 0 339 339 339 339 339 339 339 339 339
+recipe packed_mud ShapelessRecipe shapeless packed_mud 1 0 314 71
+recipe painting ShapedRecipe shaped 3 3 painting 1 0 3 3 3 3 340 3 3 3 3
+recipe pale_moss_carpet ShapedRecipe shaped 2 1 pale_moss_carpet 3 0 341 341
+recipe pale_oak_boat ShapedRecipe shaped 3 2 pale_oak_boat 1 0 342 - 342 342 342 342
+recipe pale_oak_button ShapelessRecipe shapeless pale_oak_button 1 0 342
+recipe pale_oak_chest_boat ShapelessRecipe shapeless pale_oak_chest_boat 1 0 1 343
+recipe pale_oak_door ShapedRecipe shaped 2 3 pale_oak_door 3 0 342 342 342 342 342 342
+recipe pale_oak_fence ShapedRecipe shaped 3 2 pale_oak_fence 3 0 342 3 342 342 3 342
+recipe pale_oak_fence_gate ShapedRecipe shaped 3 2 pale_oak_fence_gate 1 0 3 342 3 3 342 3
+recipe pale_oak_hanging_sign ShapedRecipe shaped 3 3 pale_oak_hanging_sign 6 0 4 - 4 344 344 344 344 344 344
+recipe pale_oak_planks ShapelessRecipe shapeless pale_oak_planks 4 0 345
+recipe pale_oak_pressure_plate ShapedRecipe shaped 2 1 pale_oak_pressure_plate 1 0 342 342
+recipe pale_oak_shelf ShapedRecipe shaped 3 3 pale_oak_shelf 6 0 344 344 344 - - - 344 344 344
+recipe pale_oak_sign ShapedRecipe shaped 3 3 pale_oak_sign 3 0 342 342 342 342 342 342 - 3 -
+recipe pale_oak_slab ShapedRecipe shaped 3 1 pale_oak_slab 6 0 342 342 342
+recipe pale_oak_stairs ShapedRecipe shaped 3 3 pale_oak_stairs 4 0 342 - - 342 342 - 342 342 342
+recipe pale_oak_trapdoor ShapedRecipe shaped 3 2 pale_oak_trapdoor 2 0 342 342 342 342 342 342
+recipe pale_oak_wood ShapedRecipe shaped 2 2 pale_oak_wood 3 0 123 123 123 123
+recipe paper ShapedRecipe shaped 3 1 paper 3 0 346 346 346
+recipe pink_banner ShapedRecipe shaped 3 3 pink_banner 1 0 347 347 347 347 347 347 - 3 -
+recipe pink_bed ShapedRecipe shaped 3 2 pink_bed 1 0 347 347 347 25 25 25
+recipe pink_bundle TransmuteRecipe transmute pink_bundle 1 0 39 210
+recipe pink_candle ShapelessRecipe shapeless pink_candle 1 0 41 210
+recipe pink_carpet ShapedRecipe shaped 2 1 pink_carpet 3 0 347 347
+recipe pink_concrete_powder ShapelessRecipe shapeless pink_concrete_powder 8 0 210 42 42 42 42 43 43 43 43
+recipe pink_dye_from_cactus_flower ShapelessRecipe shapeless pink_dye 1 0 348
+recipe pink_dye_from_peony ShapelessRecipe shapeless pink_dye 2 0 349
+recipe pink_dye_from_pink_petals ShapelessRecipe shapeless pink_dye 1 0 350
+recipe pink_dye_from_pink_tulip ShapelessRecipe shapeless pink_dye 1 0 351
+recipe pink_dye_from_red_white_dye ShapelessRecipe shapeless pink_dye 2 0 220 225
+recipe pink_harness ShapedRecipe shaped 3 2 pink_harness 1 0 46 46 46 27 347 27
+recipe pink_shulker_box TransmuteRecipe transmute pink_shulker_box 1 0 47 210
+recipe pink_stained_glass ShapedRecipe shaped 3 3 pink_stained_glass 8 0 27 27 27 27 210 27 27 27 27
+recipe pink_stained_glass_pane ShapedRecipe shaped 3 2 pink_stained_glass_pane 16 0 352 352 352 352 352 352
+recipe pink_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 pink_stained_glass_pane 8 0 49 49 49 49 210 49 49 49 49
+recipe pink_terracotta ShapedRecipe shaped 3 3 pink_terracotta 8 0 50 50 50 50 210 50 50 50 50
+recipe piston ShapedRecipe shaped 3 3 piston 1 0 25 25 25 12 8 12 12 107 12
+recipe polished_andesite ShapedRecipe shaped 2 2 polished_andesite 4 0 13 13 13 13
+recipe polished_andesite_slab ShapedRecipe shaped 3 1 polished_andesite_slab 6 0 353 353 353
+recipe polished_andesite_stairs ShapedRecipe shaped 3 3 polished_andesite_stairs 4 0 353 - - 353 353 - 353 353 353
+recipe polished_basalt ShapedRecipe shaped 2 2 polished_basalt 4 0 354 354 354 354
+recipe polished_blackstone ShapedRecipe shaped 2 2 polished_blackstone 4 0 51 51 51 51
+recipe polished_blackstone_brick_slab ShapedRecipe shaped 3 1 polished_blackstone_brick_slab 6 0 355 355 355
+recipe polished_blackstone_brick_stairs ShapedRecipe shaped 3 3 polished_blackstone_brick_stairs 4 0 355 - - 355 355 - 355 355 355
+recipe polished_blackstone_brick_wall ShapedRecipe shaped 3 2 polished_blackstone_brick_wall 6 0 355 355 355 355 355 355
+recipe polished_blackstone_bricks ShapedRecipe shaped 2 2 polished_blackstone_bricks 4 0 356 356 356 356
+recipe polished_blackstone_button ShapelessRecipe shapeless polished_blackstone_button 1 0 356
+recipe polished_blackstone_pressure_plate ShapedRecipe shaped 2 1 polished_blackstone_pressure_plate 1 0 356 356
+recipe polished_blackstone_slab ShapedRecipe shaped 3 1 polished_blackstone_slab 6 0 356 356 356
+recipe polished_blackstone_stairs ShapedRecipe shaped 3 3 polished_blackstone_stairs 4 0 356 - - 356 356 - 356 356 356
+recipe polished_blackstone_wall ShapedRecipe shaped 3 2 polished_blackstone_wall 6 0 356 356 356 356 356 356
+recipe polished_deepslate ShapedRecipe shaped 2 2 polished_deepslate 4 0 112 112 112 112
+recipe polished_deepslate_slab ShapedRecipe shaped 3 1 polished_deepslate_slab 6 0 149 149 149
+recipe polished_deepslate_stairs ShapedRecipe shaped 3 3 polished_deepslate_stairs 4 0 149 - - 149 149 - 149 149 149
+recipe polished_deepslate_wall ShapedRecipe shaped 3 2 polished_deepslate_wall 6 0 149 149 149 149 149 149
+recipe polished_diorite ShapedRecipe shaped 2 2 polished_diorite 4 0 11 11 11 11
+recipe polished_diorite_slab ShapedRecipe shaped 3 1 polished_diorite_slab 6 0 357 357 357
+recipe polished_diorite_stairs ShapedRecipe shaped 3 3 polished_diorite_stairs 4 0 357 - - 357 357 - 357 357 357
+recipe polished_granite ShapedRecipe shaped 2 2 polished_granite 4 0 260 260 260 260
+recipe polished_granite_slab ShapedRecipe shaped 3 1 polished_granite_slab 6 0 358 358 358
+recipe polished_granite_stairs ShapedRecipe shaped 3 3 polished_granite_stairs 4 0 358 - - 358 358 - 358 358 358
+recipe polished_tuff ShapedRecipe shaped 2 2 polished_tuff 4 0 359 359 359 359
+recipe polished_tuff_slab ShapedRecipe shaped 3 1 polished_tuff_slab 6 0 360 360 360
+recipe polished_tuff_stairs ShapedRecipe shaped 3 3 polished_tuff_stairs 4 0 360 - - 360 360 - 360 360 360
+recipe polished_tuff_wall ShapedRecipe shaped 3 2 polished_tuff_wall 6 0 360 360 360 360 360 360
+recipe powered_rail ShapedRecipe shaped 3 3 powered_rail 6 0 106 - 106 106 3 106 106 107 106
+recipe prismarine ShapedRecipe shaped 2 2 prismarine 1 0 146 146 146 146
+recipe prismarine_brick_slab ShapedRecipe shaped 3 1 prismarine_brick_slab 6 0 361 361 361
+recipe prismarine_brick_stairs ShapedRecipe shaped 3 3 prismarine_brick_stairs 4 0 361 - - 361 361 - 361 361 361
+recipe prismarine_bricks ShapelessRecipe shapeless prismarine_bricks 1 0 146 146 146 146 146 146 146 146 146
+recipe prismarine_slab ShapedRecipe shaped 3 1 prismarine_slab 6 0 362 362 362
+recipe prismarine_stairs ShapedRecipe shaped 3 3 prismarine_stairs 4 0 362 - - 362 362 - 362 362 362
+recipe prismarine_wall ShapedRecipe shaped 3 2 prismarine_wall 6 0 362 362 362 362 362 362
+recipe pumpkin_pie ShapelessRecipe shapeless pumpkin_pie 1 0 363 81 82
+recipe pumpkin_seeds ShapelessRecipe shapeless pumpkin_seeds 4 0 363
+recipe purple_banner ShapedRecipe shaped 3 3 purple_banner 1 0 364 364 364 364 364 364 - 3 -
+recipe purple_bed ShapedRecipe shaped 3 2 purple_bed 1 0 364 364 364 25 25 25
+recipe purple_bundle TransmuteRecipe transmute purple_bundle 1 0 39 215
+recipe purple_candle ShapelessRecipe shapeless purple_candle 1 0 41 215
+recipe purple_carpet ShapedRecipe shaped 2 1 purple_carpet 3 0 364 364
+recipe purple_concrete_powder ShapelessRecipe shapeless purple_concrete_powder 8 0 215 42 42 42 42 43 43 43 43
+recipe purple_dye ShapelessRecipe shapeless purple_dye 2 0 56 220
+recipe purple_harness ShapedRecipe shaped 3 2 purple_harness 1 0 46 46 46 27 364 27
+recipe purple_shulker_box TransmuteRecipe transmute purple_shulker_box 1 0 47 215
+recipe purple_stained_glass ShapedRecipe shaped 3 3 purple_stained_glass 8 0 27 27 27 27 215 27 27 27 27
+recipe purple_stained_glass_pane ShapedRecipe shaped 3 2 purple_stained_glass_pane 16 0 365 365 365 365 365 365
+recipe purple_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 purple_stained_glass_pane 8 0 49 49 49 49 215 49 49 49 49
+recipe purple_terracotta ShapedRecipe shaped 3 3 purple_terracotta 8 0 50 50 50 50 215 50 50 50 50
+recipe purpur_block ShapedRecipe shaped 2 2 purpur_block 4 0 238 238 238 238
+recipe purpur_pillar ShapedRecipe shaped 1 2 purpur_pillar 1 0 366 366
+recipe purpur_slab ShapedRecipe shaped 3 1 purpur_slab 6 0 367 367 367
+recipe purpur_stairs ShapedRecipe shaped 3 3 purpur_stairs 4 0 367 - - 367 367 - 367 367 367
+recipe quartz_block ShapedRecipe shaped 2 2 quartz_block 1 0 113 113 113 113
+recipe quartz_bricks ShapedRecipe shaped 2 2 quartz_bricks 4 0 368 368 368 368
+recipe quartz_pillar ShapedRecipe shaped 1 2 quartz_pillar 2 0 368 368
+recipe quartz_slab ShapedRecipe shaped 3 1 quartz_slab 6 0 369 369 369
+recipe quartz_stairs ShapedRecipe shaped 3 3 quartz_stairs 4 0 369 - - 369 369 - 369 369 369
+recipe rabbit_stew_from_brown_mushroom ShapelessRecipe shapeless rabbit_stew 1 0 370 371 31 87 248
+recipe rabbit_stew_from_red_mushroom ShapelessRecipe shapeless rabbit_stew 1 0 370 371 31 87 316
+recipe rail ShapedRecipe shaped 3 3 rail 16 0 8 - 8 8 3 8 8 - 8
+recipe raiser_armor_trim_smithing_template ShapedRecipe shaped 3 3 raiser_armor_trim_smithing_template 2 0 61 372 61 61 50 61 61 61 61
+recipe raw_copper ShapelessRecipe shapeless raw_copper 9 0 373
+recipe raw_copper_block ShapedRecipe shaped 3 3 raw_copper_block 1 0 374 374 374 374 374 374 374 374 374
+recipe raw_gold ShapelessRecipe shapeless raw_gold 9 0 375
+recipe raw_gold_block ShapedRecipe shaped 3 3 raw_gold_block 1 0 376 376 376 376 376 376 376 376 376
+recipe raw_iron ShapelessRecipe shapeless raw_iron 9 0 377
+recipe raw_iron_block ShapedRecipe shaped 3 3 raw_iron_block 1 0 378 378 378 378 378 378 378 378 378
+recipe recovery_compass ShapedRecipe shaped 3 3 recovery_compass 1 0 379 379 379 379 305 379 379 379 379
+recipe red_banner ShapedRecipe shaped 3 3 red_banner 1 0 380 380 380 380 380 380 - 3 -
+recipe red_bed ShapedRecipe shaped 3 2 red_bed 1 0 380 380 380 25 25 25
+recipe red_bundle TransmuteRecipe transmute red_bundle 1 0 39 220
+recipe red_candle ShapelessRecipe shapeless red_candle 1 0 41 220
+recipe red_carpet ShapedRecipe shaped 2 1 red_carpet 3 0 380 380
+recipe red_concrete_powder ShapelessRecipe shapeless red_concrete_powder 8 0 220 42 42 42 42 43 43 43 43
+recipe red_dye_from_beetroot ShapelessRecipe shapeless red_dye 1 0 32
+recipe red_dye_from_poppy ShapelessRecipe shapeless red_dye 1 0 381
+recipe red_dye_from_rose_bush ShapelessRecipe shapeless red_dye 2 0 382
+recipe red_dye_from_tulip ShapelessRecipe shapeless red_dye 1 0 383
+recipe red_harness ShapedRecipe shaped 3 2 red_harness 1 0 46 46 46 27 380 27
+recipe red_nether_brick_slab ShapedRecipe shaped 3 1 red_nether_brick_slab 6 0 384 384 384
+recipe red_nether_brick_stairs ShapedRecipe shaped 3 3 red_nether_brick_stairs 4 0 384 - - 384 384 - 384 384 384
+recipe red_nether_brick_wall ShapedRecipe shaped 3 2 red_nether_brick_wall 6 0 384 384 384 384 384 384
+recipe red_nether_bricks ShapedRecipe shaped 2 2 red_nether_bricks 1 0 319 320 320 319
+recipe red_sandstone ShapedRecipe shaped 2 2 red_sandstone 1 0 385 385 385 385
+recipe red_sandstone_slab ShapedRecipe shaped 3 1 red_sandstone_slab 6 0 386 386 386
+recipe red_sandstone_stairs ShapedRecipe shaped 3 3 red_sandstone_stairs 4 0 387 - - 387 387 - 387 387 387
+recipe red_sandstone_wall ShapedRecipe shaped 3 2 red_sandstone_wall 6 0 132 132 132 132 132 132
+recipe red_shulker_box TransmuteRecipe transmute red_shulker_box 1 0 47 220
+recipe red_stained_glass ShapedRecipe shaped 3 3 red_stained_glass 8 0 27 27 27 27 220 27 27 27 27
+recipe red_stained_glass_pane ShapedRecipe shaped 3 2 red_stained_glass_pane 16 0 388 388 388 388 388 388
+recipe red_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 red_stained_glass_pane 8 0 49 49 49 49 220 49 49 49 49
+recipe red_terracotta ShapedRecipe shaped 3 3 red_terracotta 8 0 50 50 50 50 220 50 50 50 50
+recipe redstone ShapelessRecipe shapeless redstone 9 0 389
+recipe redstone_block ShapedRecipe shaped 3 3 redstone_block 1 0 107 107 107 107 107 107 107 107 107
+recipe redstone_lamp ShapedRecipe shaped 3 3 redstone_lamp 1 0 - 107 - 107 390 107 - 107 -
+recipe redstone_torch ShapedRecipe shaped 1 2 redstone_torch 1 0 107 3
+recipe repair_item RepairItemRecipe special
+recipe repeater ShapedRecipe shaped 3 2 repeater 1 0 9 107 9 114 114 114
+recipe resin_block ShapedRecipe shaped 3 3 resin_block 1 0 391 391 391 391 391 391 391 391 391
+recipe resin_brick_slab ShapedRecipe shaped 3 1 resin_brick_slab 6 0 392 392 392
+recipe resin_brick_stairs ShapedRecipe shaped 3 3 resin_brick_stairs 4 0 392 - - 392 392 - 392 392 392
+recipe resin_brick_wall ShapedRecipe shaped 3 2 resin_brick_wall 6 0 392 392 392 392 392 392
+recipe resin_bricks ShapedRecipe shaped 2 2 resin_bricks 1 0 393 393 393 393
+recipe resin_clump ShapelessRecipe shapeless resin_clump 9 0 124
+recipe respawn_anchor ShapedRecipe shaped 3 3 respawn_anchor 1 0 394 394 394 390 390 390 394 394 394
+recipe rib_armor_trim_smithing_template ShapedRecipe shaped 3 3 rib_armor_trim_smithing_template 2 0 61 395 61 61 325 61 61 61 61
+recipe saddle ShapedRecipe shaped 3 2 saddle 1 0 - 46 - 46 8 46
+recipe sandstone ShapedRecipe shaped 2 2 sandstone 1 0 42 42 42 42
+recipe sandstone_slab ShapedRecipe shaped 3 1 sandstone_slab 6 0 396 396 396
+recipe sandstone_stairs ShapedRecipe shaped 3 3 sandstone_stairs 4 0 397 - - 397 397 - 397 397 397
+recipe sandstone_wall ShapedRecipe shaped 3 2 sandstone_wall 6 0 134 134 134 134 134 134
+recipe scaffolding ShapedRecipe shaped 3 3 scaffolding 6 0 18 70 18 18 - 18 18 - 18
+recipe sea_lantern ShapedRecipe shaped 3 3 sea_lantern 1 0 146 398 146 398 398 398 146 398 146
+recipe sentry_armor_trim_smithing_template ShapedRecipe shaped 3 3 sentry_armor_trim_smithing_template 2 0 61 399 61 61 12 61 61 61 61
+recipe shaper_armor_trim_smithing_template ShapedRecipe shaped 3 3 shaper_armor_trim_smithing_template 2 0 61 400 61 61 50 61 61 61 61
+recipe shears ShapedRecipe shaped 2 2 shears 1 0 - 8 8 -
+recipe shield ShapedRecipe shaped 3 3 shield 1 0 25 8 25 25 25 25 - 25 -
+recipe shield_decoration ShieldDecorationRecipe special
+recipe shulker_box ShapedRecipe shaped 1 3 shulker_box 1 0 401 1 401
+recipe silence_armor_trim_smithing_template ShapedRecipe shaped 3 3 silence_armor_trim_smithing_template 2 0 61 402 61 61 112 61 61 61 61
+recipe skull_banner_pattern ShapelessRecipe shapeless skull_banner_pattern 1 0 67 403
+recipe slime_ball ShapelessRecipe shapeless slime_ball 9 0 404
+recipe slime_block ShapedRecipe shaped 3 3 slime_block 1 0 299 299 299 299 299 299 299 299 299
+recipe smithing_table ShapedRecipe shaped 2 3 smithing_table 1 0 8 8 25 25 25 25
+recipe smoker ShapedRecipe shaped 3 3 smoker 1 0 - 85 - 85 52 85 - 85 -
+recipe smooth_quartz_slab ShapedRecipe shaped 3 1 smooth_quartz_slab 6 0 405 405 405
+recipe smooth_quartz_stairs ShapedRecipe shaped 3 3 smooth_quartz_stairs 4 0 405 - - 405 405 - 405 405 405
+recipe smooth_red_sandstone_slab ShapedRecipe shaped 3 1 smooth_red_sandstone_slab 6 0 406 406 406
+recipe smooth_red_sandstone_stairs ShapedRecipe shaped 3 3 smooth_red_sandstone_stairs 4 0 406 - - 406 406 - 406 406 406
+recipe smooth_sandstone_slab ShapedRecipe shaped 3 1 smooth_sandstone_slab 6 0 407 407 407
+recipe smooth_sandstone_stairs ShapedRecipe shaped 3 3 smooth_sandstone_stairs 4 0 407 - - 407 407 - 407 407 407
+recipe smooth_stone_slab ShapedRecipe shaped 3 1 smooth_stone_slab 6 0 53 53 53
+recipe snout_armor_trim_smithing_template ShapedRecipe shaped 3 3 snout_armor_trim_smithing_template 2 0 61 408 61 61 51 61 61 61 61
+recipe snow ShapedRecipe shaped 3 1 snow 6 0 409 409 409
+recipe snow_block ShapedRecipe shaped 2 2 snow_block 1 0 410 410 410 410
+recipe soul_campfire ShapedRecipe shaped 3 3 soul_campfire 1 0 - 3 - 3 411 3 85 85 85
+recipe soul_lantern ShapedRecipe shaped 3 3 soul_lantern 1 0 272 272 272 272 412 272 272 272 272
+recipe soul_torch ShapedRecipe shaped 1 3 soul_torch 4 0 84 3 411
+recipe spectral_arrow ShapedRecipe shaped 3 3 spectral_arrow 2 0 - 257 - 257 413 257 - 257 -
+recipe spire_armor_trim_smithing_template ShapedRecipe shaped 3 3 spire_armor_trim_smithing_template 2 0 61 414 61 61 415 61 61 61 61
+recipe spruce_boat ShapedRecipe shaped 3 2 spruce_boat 1 0 416 - 416 416 416 416
+recipe spruce_button ShapelessRecipe shapeless spruce_button 1 0 416
+recipe spruce_chest_boat ShapelessRecipe shapeless spruce_chest_boat 1 0 1 417
+recipe spruce_door ShapedRecipe shaped 2 3 spruce_door 3 0 416 416 416 416 416 416
+recipe spruce_fence ShapedRecipe shaped 3 2 spruce_fence 3 0 416 3 416 416 3 416
+recipe spruce_fence_gate ShapedRecipe shaped 3 2 spruce_fence_gate 1 0 3 416 3 3 416 3
+recipe spruce_hanging_sign ShapedRecipe shaped 3 3 spruce_hanging_sign 6 0 4 - 4 418 418 418 418 418 418
+recipe spruce_planks ShapelessRecipe shapeless spruce_planks 4 0 419
+recipe spruce_pressure_plate ShapedRecipe shaped 2 1 spruce_pressure_plate 1 0 416 416
+recipe spruce_shelf ShapedRecipe shaped 3 3 spruce_shelf 6 0 418 418 418 - - - 418 418 418
+recipe spruce_sign ShapedRecipe shaped 3 3 spruce_sign 3 0 416 416 416 416 416 416 - 3 -
+recipe spruce_slab ShapedRecipe shaped 3 1 spruce_slab 6 0 416 416 416
+recipe spruce_stairs ShapedRecipe shaped 3 3 spruce_stairs 4 0 416 - - 416 416 - 416 416 416
+recipe spruce_trapdoor ShapedRecipe shaped 3 2 spruce_trapdoor 2 0 416 416 416 416 416 416
+recipe spruce_wood ShapedRecipe shaped 2 2 spruce_wood 3 0 420 420 420 420
+recipe spyglass ShapedRecipe shaped 1 3 spyglass 1 0 10 79 79
+recipe stick ShapedRecipe shaped 1 2 stick 4 0 25 25
+recipe stick_from_bamboo_item ShapedRecipe shaped 1 2 stick 1 0 18 18
+recipe sticky_piston ShapedRecipe shaped 1 2 sticky_piston 1 0 299 421
+recipe stone_axe ShapedRecipe shaped 2 3 stone_axe 1 0 72 72 72 3 - 3
+recipe stone_brick_slab ShapedRecipe shaped 3 1 stone_brick_slab 6 0 311 311 311
+recipe stone_brick_stairs ShapedRecipe shaped 3 3 stone_brick_stairs 4 0 311 - - 311 311 - 311 311 311
+recipe stone_brick_wall ShapedRecipe shaped 3 2 stone_brick_wall 6 0 311 311 311 311 311 311
+recipe stone_bricks ShapedRecipe shaped 2 2 stone_bricks 4 0 114 114 114 114
+recipe stone_button ShapelessRecipe shapeless stone_button 1 0 114
+recipe stone_hoe ShapedRecipe shaped 2 3 stone_hoe 1 0 72 72 - 3 - 3
+recipe stone_pickaxe ShapedRecipe shaped 3 3 stone_pickaxe 1 0 72 72 72 - 3 - - 3 -
+recipe stone_pressure_plate ShapedRecipe shaped 2 1 stone_pressure_plate 1 0 114 114
+recipe stone_shovel ShapedRecipe shaped 1 3 stone_shovel 1 0 72 3 3
+recipe stone_slab ShapedRecipe shaped 3 1 stone_slab 6 0 114 114 114
+recipe stone_spear ShapedRecipe shaped 3 3 stone_spear 1 0 - - 72 - 3 - 3 - -
+recipe stone_stairs ShapedRecipe shaped 3 3 stone_stairs 4 0 114 - - 114 114 - 114 114 114
+recipe stone_sword ShapedRecipe shaped 1 3 stone_sword 1 0 72 72 3
+recipe stonecutter ShapedRecipe shaped 3 2 stonecutter 1 0 - 8 - 114 114 114
+recipe stripped_acacia_wood ShapedRecipe shaped 2 2 stripped_acacia_wood 3 0 5 5 5 5
+recipe stripped_birch_wood ShapedRecipe shaped 2 2 stripped_birch_wood 3 0 35 35 35 35
+recipe stripped_cherry_wood ShapedRecipe shaped 2 2 stripped_cherry_wood 3 0 90 90 90 90
+recipe stripped_crimson_hyphae ShapedRecipe shaped 2 2 stripped_crimson_hyphae 3 0 127 127 127 127
+recipe stripped_dark_oak_wood ShapedRecipe shaped 2 2 stripped_dark_oak_wood 3 0 143 143 143 143
+recipe stripped_jungle_wood ShapedRecipe shaped 2 2 stripped_jungle_wood 3 0 277 277 277 277
+recipe stripped_mangrove_wood ShapedRecipe shaped 2 2 stripped_mangrove_wood 3 0 302 302 302 302
+recipe stripped_oak_wood ShapedRecipe shaped 2 2 stripped_oak_wood 3 0 328 328 328 328
+recipe stripped_pale_oak_wood ShapedRecipe shaped 2 2 stripped_pale_oak_wood 3 0 344 344 344 344
+recipe stripped_spruce_wood ShapedRecipe shaped 2 2 stripped_spruce_wood 3 0 418 418 418 418
+recipe stripped_warped_hyphae ShapedRecipe shaped 2 2 stripped_warped_hyphae 3 0 422 422 422 422
+recipe sugar_from_honey_bottle ShapelessRecipe shapeless sugar 3 0 267
+recipe sugar_from_sugar_cane ShapelessRecipe shapeless sugar 1 0 346
+recipe suspicious_stew_from_allium ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 295
+recipe suspicious_stew_from_azure_bluet ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 287
+recipe suspicious_stew_from_blue_orchid ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 284
+recipe suspicious_stew_from_closed_eyeblossom ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 262
+recipe suspicious_stew_from_cornflower ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 58
+recipe suspicious_stew_from_dandelion ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 423
+recipe suspicious_stew_from_lily_of_the_valley ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 424
+recipe suspicious_stew_from_open_eyeblossom ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 332
+recipe suspicious_stew_from_orange_tulip ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 333
+recipe suspicious_stew_from_oxeye_daisy ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 252
+recipe suspicious_stew_from_pink_tulip ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 351
+recipe suspicious_stew_from_poppy ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 381
+recipe suspicious_stew_from_red_tulip ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 383
+recipe suspicious_stew_from_torchflower ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 334
+recipe suspicious_stew_from_white_tulip ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 288
+recipe suspicious_stew_from_wither_rose ShapelessRecipe shapeless suspicious_stew 1 1 31 248 316 45
+recipe target ShapedRecipe shaped 3 3 target 1 0 - 107 - 107 425 107 - 107 -
+recipe tide_armor_trim_smithing_template ShapedRecipe shaped 3 3 tide_armor_trim_smithing_template 2 0 61 426 61 61 362 61 61 61 61
+recipe tinted_glass ShapedRecipe shaped 3 3 tinted_glass 2 0 - 10 - 10 27 10 - 10 -
+recipe tipped_arrow TippedArrowRecipe special
+recipe tnt ShapedRecipe shaped 3 3 tnt 1 0 249 427 249 427 249 427 249 427 249
+recipe tnt_minecart ShapelessRecipe shapeless tnt_minecart 1 0 428 93
+recipe torch ShapedRecipe shaped 1 2 torch 4 0 84 3
+recipe trapped_chest ShapelessRecipe shapeless trapped_chest 1 0 1 130
+recipe tripwire_hook ShapedRecipe shaped 1 3 tripwire_hook 2 0 8 3 25
+recipe tuff_brick_slab ShapedRecipe shaped 3 1 tuff_brick_slab 6 0 429 429 429
+recipe tuff_brick_stairs ShapedRecipe shaped 3 3 tuff_brick_stairs 4 0 429 - - 429 429 - 429 429 429
+recipe tuff_brick_wall ShapedRecipe shaped 3 2 tuff_brick_wall 6 0 429 429 429 429 429 429
+recipe tuff_bricks ShapedRecipe shaped 2 2 tuff_bricks 4 0 360 360 360 360
+recipe tuff_slab ShapedRecipe shaped 3 1 tuff_slab 6 0 359 359 359
+recipe tuff_stairs ShapedRecipe shaped 3 3 tuff_stairs 4 0 359 - - 359 359 - 359 359 359
+recipe tuff_wall ShapedRecipe shaped 3 2 tuff_wall 6 0 359 359 359 359 359 359
+recipe turtle_helmet ShapedRecipe shaped 3 2 turtle_helmet 1 0 430 430 430 430 - 430
+recipe vex_armor_trim_smithing_template ShapedRecipe shaped 3 3 vex_armor_trim_smithing_template 2 0 61 431 61 61 12 61 61 61 61
+recipe ward_armor_trim_smithing_template ShapedRecipe shaped 3 3 ward_armor_trim_smithing_template 2 0 61 432 61 61 112 61 61 61 61
+recipe warped_button ShapelessRecipe shapeless warped_button 1 0 433
+recipe warped_door ShapedRecipe shaped 2 3 warped_door 3 0 433 433 433 433 433 433
+recipe warped_fence ShapedRecipe shaped 3 2 warped_fence 3 0 433 3 433 433 3 433
+recipe warped_fence_gate ShapedRecipe shaped 3 2 warped_fence_gate 1 0 3 433 3 3 433 3
+recipe warped_fungus_on_a_stick ShapedRecipe shaped 2 2 warped_fungus_on_a_stick 1 0 86 - - 434
+recipe warped_hanging_sign ShapedRecipe shaped 3 3 warped_hanging_sign 6 0 4 - 4 422 422 422 422 422 422
+recipe warped_hyphae ShapedRecipe shaped 2 2 warped_hyphae 3 0 435 435 435 435
+recipe warped_planks ShapelessRecipe shapeless warped_planks 4 0 436
+recipe warped_pressure_plate ShapedRecipe shaped 2 1 warped_pressure_plate 1 0 433 433
+recipe warped_shelf ShapedRecipe shaped 3 3 warped_shelf 6 0 422 422 422 - - - 422 422 422
+recipe warped_sign ShapedRecipe shaped 3 3 warped_sign 3 0 433 433 433 433 433 433 - 3 -
+recipe warped_slab ShapedRecipe shaped 3 1 warped_slab 6 0 433 433 433
+recipe warped_stairs ShapedRecipe shaped 3 3 warped_stairs 4 0 433 - - 433 433 - 433 433 433
+recipe warped_trapdoor ShapedRecipe shaped 3 2 warped_trapdoor 2 0 433 433 433 433 433 433
+recipe waxed_chiseled_copper ShapedRecipe shaped 1 2 waxed_chiseled_copper 1 0 437 437
+recipe waxed_chiseled_copper_from_honeycomb ShapelessRecipe shapeless waxed_chiseled_copper 1 0 438 30
+recipe waxed_copper_bars_from_honeycomb ShapelessRecipe shapeless waxed_copper_bars 1 0 439 30
+recipe waxed_copper_block_from_honeycomb ShapelessRecipe shapeless waxed_copper_block 1 0 117 30
+recipe waxed_copper_bulb ShapedRecipe shaped 3 3 waxed_copper_bulb 4 0 - 119 - 119 54 119 - 107 -
+recipe waxed_copper_bulb_from_honeycomb ShapelessRecipe shapeless waxed_copper_bulb 1 0 440 30
+recipe waxed_copper_chain_from_honeycomb ShapelessRecipe shapeless waxed_copper_chain 1 0 441 30
+recipe waxed_copper_chest_from_honeycomb ShapelessRecipe shapeless waxed_copper_chest 1 0 442 30
+recipe waxed_copper_door_from_honeycomb ShapelessRecipe shapeless waxed_copper_door 1 0 443 30
+recipe waxed_copper_golem_statue_from_honeycomb ShapelessRecipe shapeless waxed_copper_golem_statue 1 0 444 30
+recipe waxed_copper_grate ShapedRecipe shaped 3 3 waxed_copper_grate 4 0 - 119 - 119 - 119 - 119 -
+recipe waxed_copper_grate_from_honeycomb ShapelessRecipe shapeless waxed_copper_grate 1 0 445 30
+recipe waxed_copper_lantern_from_honeycomb ShapelessRecipe shapeless waxed_copper_lantern 1 0 446 30
+recipe waxed_copper_trapdoor_from_honeycomb ShapelessRecipe shapeless waxed_copper_trapdoor 1 0 447 30
+recipe waxed_cut_copper ShapedRecipe shaped 2 2 waxed_cut_copper 4 0 119 119 119 119
+recipe waxed_cut_copper_from_honeycomb ShapelessRecipe shapeless waxed_cut_copper 1 0 131 30
+recipe waxed_cut_copper_slab ShapedRecipe shaped 3 1 waxed_cut_copper_slab 6 0 448 448 448
+recipe waxed_cut_copper_slab_from_honeycomb ShapelessRecipe shapeless waxed_cut_copper_slab 1 0 94 30
+recipe waxed_cut_copper_stairs ShapedRecipe shaped 3 3 waxed_cut_copper_stairs 4 0 448 - - 448 448 - 448 448 448
+recipe waxed_cut_copper_stairs_from_honeycomb ShapelessRecipe shapeless waxed_cut_copper_stairs 1 0 449 30
+recipe waxed_exposed_chiseled_copper ShapedRecipe shaped 1 2 waxed_exposed_chiseled_copper 1 0 450 450
+recipe waxed_exposed_chiseled_copper_from_honeycomb ShapelessRecipe shapeless waxed_exposed_chiseled_copper 1 0 451 30
+recipe waxed_exposed_copper_bars_from_honeycomb ShapelessRecipe shapeless waxed_exposed_copper_bars 1 0 452 30
+recipe waxed_exposed_copper_bulb ShapedRecipe shaped 3 3 waxed_exposed_copper_bulb 4 0 - 453 - 453 54 453 - 107 -
+recipe waxed_exposed_copper_bulb_from_honeycomb ShapelessRecipe shapeless waxed_exposed_copper_bulb 1 0 454 30
+recipe waxed_exposed_copper_chain_from_honeycomb ShapelessRecipe shapeless waxed_exposed_copper_chain 1 0 455 30
+recipe waxed_exposed_copper_chest_from_honeycomb ShapelessRecipe shapeless waxed_exposed_copper_chest 1 0 456 30
+recipe waxed_exposed_copper_door_from_honeycomb ShapelessRecipe shapeless waxed_exposed_copper_door 1 0 457 30
+recipe waxed_exposed_copper_from_honeycomb ShapelessRecipe shapeless waxed_exposed_copper 1 0 244 30
+recipe waxed_exposed_copper_golem_statue_from_honeycomb ShapelessRecipe shapeless waxed_exposed_copper_golem_statue 1 0 458 30
+recipe waxed_exposed_copper_grate ShapedRecipe shaped 3 3 waxed_exposed_copper_grate 4 0 - 453 - 453 - 453 - 453 -
+recipe waxed_exposed_copper_grate_from_honeycomb ShapelessRecipe shapeless waxed_exposed_copper_grate 1 0 459 30
+recipe waxed_exposed_copper_lantern_from_honeycomb ShapelessRecipe shapeless waxed_exposed_copper_lantern 1 0 460 30
+recipe waxed_exposed_copper_trapdoor_from_honeycomb ShapelessRecipe shapeless waxed_exposed_copper_trapdoor 1 0 461 30
+recipe waxed_exposed_cut_copper ShapedRecipe shaped 2 2 waxed_exposed_cut_copper 4 0 453 453 453 453
+recipe waxed_exposed_cut_copper_from_honeycomb ShapelessRecipe shapeless waxed_exposed_cut_copper 1 0 245 30
+recipe waxed_exposed_cut_copper_slab ShapedRecipe shaped 3 1 waxed_exposed_cut_copper_slab 6 0 462 462 462
+recipe waxed_exposed_cut_copper_slab_from_honeycomb ShapelessRecipe shapeless waxed_exposed_cut_copper_slab 1 0 243 30
+recipe waxed_exposed_cut_copper_stairs ShapedRecipe shaped 3 3 waxed_exposed_cut_copper_stairs 4 0 462 - - 462 462 - 462 462 462
+recipe waxed_exposed_cut_copper_stairs_from_honeycomb ShapelessRecipe shapeless waxed_exposed_cut_copper_stairs 1 0 463 30
+recipe waxed_exposed_lightning_rod_from_honeycomb ShapelessRecipe shapeless waxed_exposed_lightning_rod 1 0 464 30
+recipe waxed_lightning_rod_from_honeycomb ShapelessRecipe shapeless waxed_lightning_rod 1 0 465 30
+recipe waxed_oxidized_chiseled_copper ShapedRecipe shaped 1 2 waxed_oxidized_chiseled_copper 1 0 466 466
+recipe waxed_oxidized_chiseled_copper_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_chiseled_copper 1 0 467 30
+recipe waxed_oxidized_copper_bars_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_copper_bars 1 0 468 30
+recipe waxed_oxidized_copper_bulb ShapedRecipe shaped 3 3 waxed_oxidized_copper_bulb 4 0 - 469 - 469 54 469 - 107 -
+recipe waxed_oxidized_copper_bulb_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_copper_bulb 1 0 470 30
+recipe waxed_oxidized_copper_chain_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_copper_chain 1 0 471 30
+recipe waxed_oxidized_copper_chest_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_copper_chest 1 0 472 30
+recipe waxed_oxidized_copper_door_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_copper_door 1 0 473 30
+recipe waxed_oxidized_copper_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_copper 1 0 337 30
+recipe waxed_oxidized_copper_golem_statue_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_copper_golem_statue 1 0 474 30
+recipe waxed_oxidized_copper_grate ShapedRecipe shaped 3 3 waxed_oxidized_copper_grate 4 0 - 469 - 469 - 469 - 469 -
+recipe waxed_oxidized_copper_grate_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_copper_grate 1 0 475 30
+recipe waxed_oxidized_copper_lantern_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_copper_lantern 1 0 476 30
+recipe waxed_oxidized_copper_trapdoor_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_copper_trapdoor 1 0 477 30
+recipe waxed_oxidized_cut_copper ShapedRecipe shaped 2 2 waxed_oxidized_cut_copper 4 0 469 469 469 469
+recipe waxed_oxidized_cut_copper_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_cut_copper 1 0 338 30
+recipe waxed_oxidized_cut_copper_slab ShapedRecipe shaped 3 1 waxed_oxidized_cut_copper_slab 6 0 478 478 478
+recipe waxed_oxidized_cut_copper_slab_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_cut_copper_slab 1 0 336 30
+recipe waxed_oxidized_cut_copper_stairs ShapedRecipe shaped 3 3 waxed_oxidized_cut_copper_stairs 4 0 478 - - 478 478 - 478 478 478
+recipe waxed_oxidized_cut_copper_stairs_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_cut_copper_stairs 1 0 479 30
+recipe waxed_oxidized_lightning_rod_from_honeycomb ShapelessRecipe shapeless waxed_oxidized_lightning_rod 1 0 480 30
+recipe waxed_weathered_chiseled_copper ShapedRecipe shaped 1 2 waxed_weathered_chiseled_copper 1 0 481 481
+recipe waxed_weathered_chiseled_copper_from_honeycomb ShapelessRecipe shapeless waxed_weathered_chiseled_copper 1 0 482 30
+recipe waxed_weathered_copper_bars_from_honeycomb ShapelessRecipe shapeless waxed_weathered_copper_bars 1 0 483 30
+recipe waxed_weathered_copper_bulb ShapedRecipe shaped 3 3 waxed_weathered_copper_bulb 4 0 - 484 - 484 54 484 - 107 -
+recipe waxed_weathered_copper_bulb_from_honeycomb ShapelessRecipe shapeless waxed_weathered_copper_bulb 1 0 485 30
+recipe waxed_weathered_copper_chain_from_honeycomb ShapelessRecipe shapeless waxed_weathered_copper_chain 1 0 486 30
+recipe waxed_weathered_copper_chest_from_honeycomb ShapelessRecipe shapeless waxed_weathered_copper_chest 1 0 487 30
+recipe waxed_weathered_copper_door_from_honeycomb ShapelessRecipe shapeless waxed_weathered_copper_door 1 0 488 30
+recipe waxed_weathered_copper_from_honeycomb ShapelessRecipe shapeless waxed_weathered_copper 1 0 489 30
+recipe waxed_weathered_copper_golem_statue_from_honeycomb ShapelessRecipe shapeless waxed_weathered_copper_golem_statue 1 0 490 30
+recipe waxed_weathered_copper_grate ShapedRecipe shaped 3 3 waxed_weathered_copper_grate 4 0 - 484 - 484 - 484 - 484 -
+recipe waxed_weathered_copper_grate_from_honeycomb ShapelessRecipe shapeless waxed_weathered_copper_grate 1 0 491 30
+recipe waxed_weathered_copper_lantern_from_honeycomb ShapelessRecipe shapeless waxed_weathered_copper_lantern 1 0 492 30
+recipe waxed_weathered_copper_trapdoor_from_honeycomb ShapelessRecipe shapeless waxed_weathered_copper_trapdoor 1 0 493 30
+recipe waxed_weathered_cut_copper ShapedRecipe shaped 2 2 waxed_weathered_cut_copper 4 0 484 484 484 484
+recipe waxed_weathered_cut_copper_from_honeycomb ShapelessRecipe shapeless waxed_weathered_cut_copper 1 0 494 30
+recipe waxed_weathered_cut_copper_slab ShapedRecipe shaped 3 1 waxed_weathered_cut_copper_slab 6 0 495 495 495
+recipe waxed_weathered_cut_copper_slab_from_honeycomb ShapelessRecipe shapeless waxed_weathered_cut_copper_slab 1 0 496 30
+recipe waxed_weathered_cut_copper_stairs ShapedRecipe shaped 3 3 waxed_weathered_cut_copper_stairs 4 0 495 - - 495 495 - 495 495 495
+recipe waxed_weathered_cut_copper_stairs_from_honeycomb ShapelessRecipe shapeless waxed_weathered_cut_copper_stairs 1 0 497 30
+recipe waxed_weathered_lightning_rod_from_honeycomb ShapelessRecipe shapeless waxed_weathered_lightning_rod 1 0 498 30
+recipe wayfinder_armor_trim_smithing_template ShapedRecipe shaped 3 3 wayfinder_armor_trim_smithing_template 2 0 61 499 61 61 50 61 61 61 61
+recipe weathered_chiseled_copper ShapedRecipe shaped 1 2 weathered_chiseled_copper 1 0 496 496
+recipe weathered_copper_bulb ShapedRecipe shaped 3 3 weathered_copper_bulb 4 0 - 489 - 489 54 489 - 107 -
+recipe weathered_copper_grate ShapedRecipe shaped 3 3 weathered_copper_grate 4 0 - 489 - 489 - 489 - 489 -
+recipe weathered_cut_copper ShapedRecipe shaped 2 2 weathered_cut_copper 4 0 489 489 489 489
+recipe weathered_cut_copper_slab ShapedRecipe shaped 3 1 weathered_cut_copper_slab 6 0 494 494 494
+recipe weathered_cut_copper_stairs ShapedRecipe shaped 3 3 weathered_cut_copper_stairs 4 0 494 - - 494 494 - 494 494 494
+recipe wheat ShapelessRecipe shapeless wheat 9 0 425
+recipe white_banner ShapedRecipe shaped 3 3 white_banner 1 0 500 500 500 500 500 500 - 3 -
+recipe white_bed ShapedRecipe shaped 3 2 white_bed 1 0 500 500 500 25 25 25
+recipe white_bundle TransmuteRecipe transmute white_bundle 1 0 39 225
+recipe white_candle ShapelessRecipe shapeless white_candle 1 0 41 225
+recipe white_carpet ShapedRecipe shaped 2 1 white_carpet 3 0 500 500
+recipe white_concrete_powder ShapelessRecipe shapeless white_concrete_powder 8 0 225 42 42 42 42 43 43 43 43
+recipe white_dye ShapelessRecipe shapeless white_dye 1 0 64
+recipe white_dye_from_lily_of_the_valley ShapelessRecipe shapeless white_dye 1 0 424
+recipe white_harness ShapedRecipe shaped 3 2 white_harness 1 0 46 46 46 27 500 27
+recipe white_shulker_box TransmuteRecipe transmute white_shulker_box 1 0 47 225
+recipe white_stained_glass ShapedRecipe shaped 3 3 white_stained_glass 8 0 27 27 27 27 225 27 27 27 27
+recipe white_stained_glass_pane ShapedRecipe shaped 3 2 white_stained_glass_pane 16 0 501 501 501 501 501 501
+recipe white_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 white_stained_glass_pane 8 0 49 49 49 49 225 49 49 49 49
+recipe white_terracotta ShapedRecipe shaped 3 3 white_terracotta 8 0 50 50 50 50 225 50 50 50 50
+recipe white_wool_from_string ShapedRecipe shaped 2 2 white_wool 1 0 70 70 70 70
+recipe wild_armor_trim_smithing_template ShapedRecipe shaped 3 3 wild_armor_trim_smithing_template 2 0 61 502 61 61 309 61 61 61 61
+recipe wind_charge ShapelessRecipe shapeless wind_charge 4 0 251
+recipe wolf_armor ShapedRecipe shaped 3 3 wolf_armor 1 0 503 - - 503 503 503 503 - 503
+recipe wooden_axe ShapedRecipe shaped 2 3 wooden_axe 1 0 25 25 25 3 - 3
+recipe wooden_hoe ShapedRecipe shaped 2 3 wooden_hoe 1 0 25 25 - 3 - 3
+recipe wooden_pickaxe ShapedRecipe shaped 3 3 wooden_pickaxe 1 0 25 25 25 - 3 - - 3 -
+recipe wooden_shovel ShapedRecipe shaped 1 3 wooden_shovel 1 0 25 3 3
+recipe wooden_spear ShapedRecipe shaped 3 3 wooden_spear 1 0 - - 25 - 3 - 3 - -
+recipe wooden_sword ShapedRecipe shaped 1 3 wooden_sword 1 0 25 25 3
+recipe writable_book ShapelessRecipe shapeless writable_book 1 0 68 44 17
+recipe yellow_banner ShapedRecipe shaped 3 3 yellow_banner 1 0 504 504 504 504 504 504 - 3 -
+recipe yellow_bed ShapedRecipe shaped 3 2 yellow_bed 1 0 504 504 504 25 25 25
+recipe yellow_bundle TransmuteRecipe transmute yellow_bundle 1 0 39 230
+recipe yellow_candle ShapelessRecipe shapeless yellow_candle 1 0 41 230
+recipe yellow_carpet ShapedRecipe shaped 2 1 yellow_carpet 3 0 504 504
+recipe yellow_concrete_powder ShapelessRecipe shapeless yellow_concrete_powder 8 0 230 42 42 42 42 43 43 43 43
+recipe yellow_dye_from_dandelion ShapelessRecipe shapeless yellow_dye 1 0 423
+recipe yellow_dye_from_sunflower ShapelessRecipe shapeless yellow_dye 2 0 505
+recipe yellow_dye_from_wildflowers ShapelessRecipe shapeless yellow_dye 1 0 506
+recipe yellow_harness ShapedRecipe shaped 3 2 yellow_harness 1 0 46 46 46 27 504 27
+recipe yellow_shulker_box TransmuteRecipe transmute yellow_shulker_box 1 0 47 230
+recipe yellow_stained_glass ShapedRecipe shaped 3 3 yellow_stained_glass 8 0 27 27 27 27 230 27 27 27 27
+recipe yellow_stained_glass_pane ShapedRecipe shaped 3 2 yellow_stained_glass_pane 16 0 507 507 507 507 507 507
+recipe yellow_stained_glass_pane_from_glass_pane ShapedRecipe shaped 3 3 yellow_stained_glass_pane 8 0 49 49 49 49 230 49 49 49 49
+recipe yellow_terracotta ShapedRecipe shaped 3 3 yellow_terracotta 8 0 50 50 50 50 230 50 50 50 50
+recipe_field FireworkRocketRecipe.PAPER_INGREDIENT 67
+recipe_field FireworkRocketRecipe.GUNPOWDER_INGREDIENT 249
+recipe_field FireworkRocketRecipe.STAR_INGREDIENT 508
+recipe_field FireworkStarRecipe.SHAPE_BY_ITEM 509
+recipe_field FireworkStarRecipe.TRAIL_INGREDIENT 61
+recipe_field FireworkStarRecipe.TWINKLE_INGREDIENT 257
+recipe_field FireworkStarRecipe.GUNPOWDER_INGREDIENT 249
+recipe_field FireworkStarFadeRecipe.STAR_INGREDIENT 508

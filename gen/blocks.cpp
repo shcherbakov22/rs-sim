@@ -1152,6 +1152,22 @@ const field_value block_field_values[] = {
     { FIELD_COLORED_FALLING_BLOCK_DUST_COLOR_RGBA, 11098145 },  // red_sand
     { FIELD_COLORED_FALLING_BLOCK_DUST_COLOR_RGBA, -8356741 },  // gravel
     { FIELD_BRUSHABLE_BLOCK_TURNS_INTO, 40 },  // suspicious_gravel
+    { FIELD_BED_BLOCK_COLOR, 0 },  // white_bed
+    { FIELD_BED_BLOCK_COLOR, 1 },  // orange_bed
+    { FIELD_BED_BLOCK_COLOR, 2 },  // magenta_bed
+    { FIELD_BED_BLOCK_COLOR, 3 },  // light_blue_bed
+    { FIELD_BED_BLOCK_COLOR, 4 },  // yellow_bed
+    { FIELD_BED_BLOCK_COLOR, 5 },  // lime_bed
+    { FIELD_BED_BLOCK_COLOR, 6 },  // pink_bed
+    { FIELD_BED_BLOCK_COLOR, 7 },  // gray_bed
+    { FIELD_BED_BLOCK_COLOR, 8 },  // light_gray_bed
+    { FIELD_BED_BLOCK_COLOR, 9 },  // cyan_bed
+    { FIELD_BED_BLOCK_COLOR, 10 },  // purple_bed
+    { FIELD_BED_BLOCK_COLOR, 11 },  // blue_bed
+    { FIELD_BED_BLOCK_COLOR, 12 },  // brown_bed
+    { FIELD_BED_BLOCK_COLOR, 13 },  // green_bed
+    { FIELD_BED_BLOCK_COLOR, 14 },  // red_bed
+    { FIELD_BED_BLOCK_COLOR, 15 },  // black_bed
     { FIELD_BASE_RAIL_BLOCK_IS_STRAIGHT, 1 },  // powered_rail
     { FIELD_BASE_RAIL_BLOCK_IS_STRAIGHT, 1 },  // detector_rail
     { FIELD_PISTON_BASE_BLOCK_IS_STICKY, 1 },  // sticky_piston
@@ -1174,6 +1190,22 @@ const field_value block_field_values[] = {
     { FIELD_BASE_PRESSURE_PLATE_BLOCK_TYPE_CAN_OPEN_BY_HAND, 1 }, { FIELD_BASE_PRESSURE_PLATE_BLOCK_TYPE_CAN_OPEN_BY_WIND_CHARGE, 1 }, { FIELD_BASE_PRESSURE_PLATE_BLOCK_TYPE_CAN_BUTTON_BE_ACTIVATED_BY_ARROWS, 1 },  // mangrove_pressure_plate
     { FIELD_BASE_PRESSURE_PLATE_BLOCK_TYPE_CAN_OPEN_BY_HAND, 1 }, { FIELD_BASE_PRESSURE_PLATE_BLOCK_TYPE_CAN_OPEN_BY_WIND_CHARGE, 1 }, { FIELD_BASE_PRESSURE_PLATE_BLOCK_TYPE_CAN_BUTTON_BE_ACTIVATED_BY_ARROWS, 1 },  // bamboo_pressure_plate
     { FIELD_BUTTON_BLOCK_TYPE_CAN_OPEN_BY_HAND, 1 }, { FIELD_BUTTON_BLOCK_TYPE_CAN_OPEN_BY_WIND_CHARGE, 1 }, { FIELD_BUTTON_BLOCK_TYPE_CAN_BUTTON_BE_ACTIVATED_BY_ARROWS, 0 }, { FIELD_BUTTON_BLOCK_TICKS_TO_STAY_PRESSED, 20 },  // stone_button
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 0 },  // white_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 1 },  // orange_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 2 },  // magenta_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 3 },  // light_blue_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 4 },  // yellow_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 5 },  // lime_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 6 },  // pink_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 7 },  // gray_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 8 },  // light_gray_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 9 },  // cyan_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 10 },  // purple_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 11 },  // blue_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 12 },  // brown_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 13 },  // green_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 14 },  // red_stained_glass
+    { FIELD_STAINED_GLASS_BLOCK_COLOR, 15 },  // black_stained_glass
     { FIELD_TRAP_DOOR_BLOCK_TYPE_CAN_OPEN_BY_HAND, 1 }, { FIELD_TRAP_DOOR_BLOCK_TYPE_CAN_OPEN_BY_WIND_CHARGE, 1 }, { FIELD_TRAP_DOOR_BLOCK_TYPE_CAN_BUTTON_BE_ACTIVATED_BY_ARROWS, 1 },  // oak_trapdoor
     { FIELD_TRAP_DOOR_BLOCK_TYPE_CAN_OPEN_BY_HAND, 1 }, { FIELD_TRAP_DOOR_BLOCK_TYPE_CAN_OPEN_BY_WIND_CHARGE, 1 }, { FIELD_TRAP_DOOR_BLOCK_TYPE_CAN_BUTTON_BE_ACTIVATED_BY_ARROWS, 1 },  // spruce_trapdoor
     { FIELD_TRAP_DOOR_BLOCK_TYPE_CAN_OPEN_BY_HAND, 1 }, { FIELD_TRAP_DOOR_BLOCK_TYPE_CAN_OPEN_BY_WIND_CHARGE, 1 }, { FIELD_TRAP_DOOR_BLOCK_TYPE_CAN_BUTTON_BE_ACTIVATED_BY_ARROWS, 1 },  // birch_trapdoor
@@ -1246,6 +1278,22 @@ const field_value block_field_values[] = {
     { FIELD_WEIGHTED_PRESSURE_PLATE_BLOCK_MAX_WEIGHT, 150 }, { FIELD_BASE_PRESSURE_PLATE_BLOCK_TYPE_CAN_OPEN_BY_HAND, 0 }, { FIELD_BASE_PRESSURE_PLATE_BLOCK_TYPE_CAN_OPEN_BY_WIND_CHARGE, 0 }, { FIELD_BASE_PRESSURE_PLATE_BLOCK_TYPE_CAN_BUTTON_BE_ACTIVATED_BY_ARROWS, 0 },  // heavy_weighted_pressure_plate
     { FIELD_STAIR_BLOCK_BASE, 476 },  // quartz_stairs
     { FIELD_BASE_RAIL_BLOCK_IS_STRAIGHT, 1 },  // activator_rail
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 0 },  // white_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 1 },  // orange_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 2 },  // magenta_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 3 },  // light_blue_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 4 },  // yellow_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 5 },  // lime_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 6 },  // pink_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 7 },  // gray_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 8 },  // light_gray_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 9 },  // cyan_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 10 },  // purple_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 11 },  // blue_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 12 },  // brown_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 13 },  // green_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 14 },  // red_stained_glass_pane
+    { FIELD_STAINED_GLASS_PANE_BLOCK_COLOR, 15 },  // black_stained_glass_pane
     { FIELD_STAIR_BLOCK_BASE, 17 },  // acacia_stairs
     { FIELD_STAIR_BLOCK_BASE, 18 },  // cherry_stairs
     { FIELD_STAIR_BLOCK_BASE, 19 },  // dark_oak_stairs
@@ -1257,6 +1305,54 @@ const field_value block_field_values[] = {
     { FIELD_STAIR_BLOCK_BASE, 525 },  // prismarine_stairs
     { FIELD_STAIR_BLOCK_BASE, 526 },  // prismarine_brick_stairs
     { FIELD_STAIR_BLOCK_BASE, 527 },  // dark_prismarine_stairs
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 0 },  // white_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 1 },  // orange_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 2 },  // magenta_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 3 },  // light_blue_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 4 },  // yellow_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 5 },  // lime_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 6 },  // pink_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 7 },  // gray_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 8 },  // light_gray_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 9 },  // cyan_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 10 },  // purple_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 11 },  // blue_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 12 },  // brown_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 13 },  // green_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 14 },  // red_carpet
+    { FIELD_WOOL_CARPET_BLOCK_COLOR, 15 },  // black_carpet
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 0 },  // white_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 1 },  // orange_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 2 },  // magenta_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 3 },  // light_blue_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 4 },  // yellow_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 5 },  // lime_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 6 },  // pink_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 7 },  // gray_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 8 },  // light_gray_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 9 },  // cyan_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 10 },  // purple_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 11 },  // blue_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 12 },  // brown_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 13 },  // green_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 14 },  // red_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 15 },  // black_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 0 },  // white_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 1 },  // orange_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 2 },  // magenta_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 3 },  // light_blue_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 4 },  // yellow_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 5 },  // lime_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 6 },  // pink_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 7 },  // gray_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 8 },  // light_gray_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 9 },  // cyan_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 10 },  // purple_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 11 },  // blue_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 12 },  // brown_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 13 },  // green_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 14 },  // red_wall_banner
+    { FIELD_ABSTRACT_BANNER_BLOCK_COLOR, 15 },  // black_wall_banner
     { FIELD_STAIR_BLOCK_BASE, 593 },  // red_sandstone_stairs
     { FIELD_DOOR_BLOCK_TYPE_CAN_OPEN_BY_HAND, 1 }, { FIELD_DOOR_BLOCK_TYPE_CAN_OPEN_BY_WIND_CHARGE, 1 }, { FIELD_DOOR_BLOCK_TYPE_CAN_BUTTON_BE_ACTIVATED_BY_ARROWS, 1 },  // spruce_door
     { FIELD_DOOR_BLOCK_TYPE_CAN_OPEN_BY_HAND, 1 }, { FIELD_DOOR_BLOCK_TYPE_CAN_OPEN_BY_WIND_CHARGE, 1 }, { FIELD_DOOR_BLOCK_TYPE_CAN_BUTTON_BE_ACTIVATED_BY_ARROWS, 1 },  // birch_door
@@ -1271,6 +1367,23 @@ const field_value block_field_values[] = {
     { FIELD_STAIR_BLOCK_BASE, 656 },  // purpur_stairs
     { FIELD_COMMAND_BLOCK_AUTOMATIC, 0 },  // repeating_command_block
     { FIELD_COMMAND_BLOCK_AUTOMATIC, 1 },  // chain_command_block
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, -1 },  // shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 0 },  // white_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 1 },  // orange_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 2 },  // magenta_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 3 },  // light_blue_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 4 },  // yellow_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 5 },  // lime_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 6 },  // pink_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 7 },  // gray_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 8 },  // light_gray_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 9 },  // cyan_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 10 },  // purple_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 11 },  // blue_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 12 },  // brown_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 13 },  // green_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 14 },  // red_shulker_box
+    { FIELD_SHULKER_BOX_BLOCK_COLOR, 15 },  // black_shulker_box
     { FIELD_CONCRETE_POWDER_BLOCK_CONCRETE, 708 },  // white_concrete_powder
     { FIELD_CONCRETE_POWDER_BLOCK_CONCRETE, 709 },  // orange_concrete_powder
     { FIELD_CONCRETE_POWDER_BLOCK_CONCRETE, 710 },  // magenta_concrete_powder
@@ -2002,7 +2115,7 @@ const int16_t vclass_hooks[][HOOK_COUNT] = {
 };
 
 const char * const cauldron_map_names[] = { "empty", "water", "lava", "powder_snow" };
-const char * const item_hook_names[] = { "useOn", "updatePlacementContext", "getPlacementState", "placeBlock", "mustSurvive", "updateCustomBlockEntityTag", "canPlace" };
+const char * const item_hook_names[] = { "useOn", "updatePlacementContext", "getPlacementState", "placeBlock", "mustSurvive", "updateCustomBlockEntityTag", "canPlace", "onCraftedPostProcess" };
 const char * const iclass_names[] = { "Item", "AirItem", "ArmorStandItem", "ArrowItem", "AxeItem", "BannerItem", "BedItem", "BlockItem", "BoatItem", "BoneMealItem", "BottleItem", "BowItem", "BrushItem", "BucketItem", "BundleItem", "CompassItem", "CrossbowItem", "DebugStickItem", "DiscFragmentItem", "DoubleHighBlockItem", "DyeItem", "EggItem", "EmptyMapItem", "EndCrystalItem", "EnderEyeItem", "EnderpearlItem", "ExperienceBottleItem", "FireChargeItem", "FireworkRocketItem", "FishingRodItem", "FlintAndSteelItem", "FoodOnAStickItem", "GameMasterBlockItem", "GlowInkSacItem", "HangingEntityItem", "HangingSignItem", "HoeItem", "HoneycombItem", "InkSacItem", "InstrumentItem", "ItemFrameItem", "KnowledgeBookItem", "LeadItem", "LingeringPotionItem", "MaceItem", "MapItem", "MinecartItem", "MobBucketItem", "NameTagItem", "PlaceOnWaterBlockItem", "PlayerHeadItem", "PotionItem", "ProjectileWeaponItem", "ScaffoldingBlockItem", "ShearsItem", "ShieldItem", "ShovelItem", "SignItem", "SmithingTemplateItem", "SnowballItem", "SolidBucketItem", "SpawnEggItem", "SpectralArrowItem", "SplashPotionItem", "SpyglassItem", "StandingAndWallBlockItem", "ThrowablePotionItem", "TippedArrowItem", "TridentItem", "WindChargeItem", "WritableBookItem", "WrittenBookItem" };
 
 const int16_t iclass_super[] = {
@@ -2082,78 +2195,78 @@ const int16_t iclass_super[] = {
 
 // class that overrides each item hook, seen from each item class
 const int16_t iclass_hooks[][ITEM_HOOK_COUNT] = {
-    { 0, 0, 0, 0, 0, 0, 0 },
-    { 0, 0, 0, 0, 0, 0, 0 },  // AirItem
-    { ICLASS_ARMOR_STAND_ITEM, 0, 0, 0, 0, 0, 0 },  // ArmorStandItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // ArrowItem
-    { ICLASS_AXE_ITEM, 0, 0, 0, 0, 0, 0 },  // AxeItem
-    { ICLASS_BLOCK_ITEM, 0, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 0, 0, 0, 0 },  // BannerItem
-    { ICLASS_BLOCK_ITEM, 0, 0, ICLASS_BED_ITEM, 0, 0, 0 },  // BedItem
-    { ICLASS_BLOCK_ITEM, 0, 0, 0, 0, 0, 0 },  // BlockItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // BoatItem
-    { ICLASS_BONE_MEAL_ITEM, 0, 0, 0, 0, 0, 0 },  // BoneMealItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // BottleItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // BowItem
-    { ICLASS_BRUSH_ITEM, 0, 0, 0, 0, 0, 0 },  // BrushItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // BucketItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // BundleItem
-    { ICLASS_COMPASS_ITEM, 0, 0, 0, 0, 0, 0 },  // CompassItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // CrossbowItem
-    { ICLASS_DEBUG_STICK_ITEM, 0, 0, 0, 0, 0, 0 },  // DebugStickItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // DiscFragmentItem
-    { ICLASS_BLOCK_ITEM, 0, 0, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 0, 0, 0 },  // DoubleHighBlockItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // DyeItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // EggItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // EmptyMapItem
-    { ICLASS_END_CRYSTAL_ITEM, 0, 0, 0, 0, 0, 0 },  // EndCrystalItem
-    { ICLASS_ENDER_EYE_ITEM, 0, 0, 0, 0, 0, 0 },  // EnderEyeItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // EnderpearlItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // ExperienceBottleItem
-    { ICLASS_FIRE_CHARGE_ITEM, 0, 0, 0, 0, 0, 0 },  // FireChargeItem
-    { ICLASS_FIREWORK_ROCKET_ITEM, 0, 0, 0, 0, 0, 0 },  // FireworkRocketItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // FishingRodItem
-    { ICLASS_FLINT_AND_STEEL_ITEM, 0, 0, 0, 0, 0, 0 },  // FlintAndSteelItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // FoodOnAStickItem
-    { ICLASS_BLOCK_ITEM, 0, ICLASS_GAME_MASTER_BLOCK_ITEM, 0, 0, 0, 0 },  // GameMasterBlockItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // GlowInkSacItem
-    { ICLASS_HANGING_ENTITY_ITEM, 0, 0, 0, 0, 0, 0 },  // HangingEntityItem
-    { ICLASS_BLOCK_ITEM, 0, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 0, 0, ICLASS_SIGN_ITEM, ICLASS_HANGING_SIGN_ITEM },  // HangingSignItem
-    { ICLASS_HOE_ITEM, 0, 0, 0, 0, 0, 0 },  // HoeItem
-    { ICLASS_HONEYCOMB_ITEM, 0, 0, 0, 0, 0, 0 },  // HoneycombItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // InkSacItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // InstrumentItem
-    { ICLASS_HANGING_ENTITY_ITEM, 0, 0, 0, 0, 0, 0 },  // ItemFrameItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // KnowledgeBookItem
-    { ICLASS_LEAD_ITEM, 0, 0, 0, 0, 0, 0 },  // LeadItem
-    { ICLASS_POTION_ITEM, 0, 0, 0, 0, 0, 0 },  // LingeringPotionItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // MaceItem
-    { ICLASS_MAP_ITEM, 0, 0, 0, 0, 0, 0 },  // MapItem
-    { ICLASS_MINECART_ITEM, 0, 0, 0, 0, 0, 0 },  // MinecartItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // MobBucketItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // NameTagItem
-    { ICLASS_PLACE_ON_WATER_BLOCK_ITEM, 0, 0, 0, 0, 0, 0 },  // PlaceOnWaterBlockItem
-    { ICLASS_BLOCK_ITEM, 0, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 0, 0, 0, 0 },  // PlayerHeadItem
-    { ICLASS_POTION_ITEM, 0, 0, 0, 0, 0, 0 },  // PotionItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // ProjectileWeaponItem
-    { ICLASS_BLOCK_ITEM, ICLASS_SCAFFOLDING_BLOCK_ITEM, 0, 0, ICLASS_SCAFFOLDING_BLOCK_ITEM, 0, 0 },  // ScaffoldingBlockItem
-    { ICLASS_SHEARS_ITEM, 0, 0, 0, 0, 0, 0 },  // ShearsItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // ShieldItem
-    { ICLASS_SHOVEL_ITEM, 0, 0, 0, 0, 0, 0 },  // ShovelItem
-    { ICLASS_BLOCK_ITEM, 0, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 0, 0, ICLASS_SIGN_ITEM, 0 },  // SignItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // SmithingTemplateItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // SnowballItem
-    { ICLASS_SOLID_BUCKET_ITEM, 0, 0, 0, 0, 0, 0 },  // SolidBucketItem
-    { ICLASS_SPAWN_EGG_ITEM, 0, 0, 0, 0, 0, 0 },  // SpawnEggItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // SpectralArrowItem
-    { ICLASS_POTION_ITEM, 0, 0, 0, 0, 0, 0 },  // SplashPotionItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // SpyglassItem
-    { ICLASS_BLOCK_ITEM, 0, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 0, 0, 0, 0 },  // StandingAndWallBlockItem
-    { ICLASS_POTION_ITEM, 0, 0, 0, 0, 0, 0 },  // ThrowablePotionItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // TippedArrowItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // TridentItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // WindChargeItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // WritableBookItem
-    { 0, 0, 0, 0, 0, 0, 0 },  // WrittenBookItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // AirItem
+    { ICLASS_ARMOR_STAND_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // ArmorStandItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // ArrowItem
+    { ICLASS_AXE_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // AxeItem
+    { ICLASS_BLOCK_ITEM, 0, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 0, 0, 0, 0, 0 },  // BannerItem
+    { ICLASS_BLOCK_ITEM, 0, 0, ICLASS_BED_ITEM, 0, 0, 0, 0 },  // BedItem
+    { ICLASS_BLOCK_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // BlockItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // BoatItem
+    { ICLASS_BONE_MEAL_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // BoneMealItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // BottleItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // BowItem
+    { ICLASS_BRUSH_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // BrushItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // BucketItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // BundleItem
+    { ICLASS_COMPASS_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // CompassItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // CrossbowItem
+    { ICLASS_DEBUG_STICK_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // DebugStickItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // DiscFragmentItem
+    { ICLASS_BLOCK_ITEM, 0, 0, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 0, 0, 0, 0 },  // DoubleHighBlockItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // DyeItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // EggItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // EmptyMapItem
+    { ICLASS_END_CRYSTAL_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // EndCrystalItem
+    { ICLASS_ENDER_EYE_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // EnderEyeItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // EnderpearlItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // ExperienceBottleItem
+    { ICLASS_FIRE_CHARGE_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // FireChargeItem
+    { ICLASS_FIREWORK_ROCKET_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // FireworkRocketItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // FishingRodItem
+    { ICLASS_FLINT_AND_STEEL_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // FlintAndSteelItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // FoodOnAStickItem
+    { ICLASS_BLOCK_ITEM, 0, ICLASS_GAME_MASTER_BLOCK_ITEM, 0, 0, 0, 0, 0 },  // GameMasterBlockItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // GlowInkSacItem
+    { ICLASS_HANGING_ENTITY_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // HangingEntityItem
+    { ICLASS_BLOCK_ITEM, 0, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 0, 0, ICLASS_SIGN_ITEM, ICLASS_HANGING_SIGN_ITEM, 0 },  // HangingSignItem
+    { ICLASS_HOE_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // HoeItem
+    { ICLASS_HONEYCOMB_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // HoneycombItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // InkSacItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // InstrumentItem
+    { ICLASS_HANGING_ENTITY_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // ItemFrameItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // KnowledgeBookItem
+    { ICLASS_LEAD_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // LeadItem
+    { ICLASS_POTION_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // LingeringPotionItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // MaceItem
+    { ICLASS_MAP_ITEM, 0, 0, 0, 0, 0, 0, ICLASS_MAP_ITEM },  // MapItem
+    { ICLASS_MINECART_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // MinecartItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // MobBucketItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // NameTagItem
+    { ICLASS_PLACE_ON_WATER_BLOCK_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // PlaceOnWaterBlockItem
+    { ICLASS_BLOCK_ITEM, 0, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 0, 0, 0, 0, 0 },  // PlayerHeadItem
+    { ICLASS_POTION_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // PotionItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // ProjectileWeaponItem
+    { ICLASS_BLOCK_ITEM, ICLASS_SCAFFOLDING_BLOCK_ITEM, 0, 0, ICLASS_SCAFFOLDING_BLOCK_ITEM, 0, 0, 0 },  // ScaffoldingBlockItem
+    { ICLASS_SHEARS_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // ShearsItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // ShieldItem
+    { ICLASS_SHOVEL_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // ShovelItem
+    { ICLASS_BLOCK_ITEM, 0, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 0, 0, ICLASS_SIGN_ITEM, 0, 0 },  // SignItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // SmithingTemplateItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // SnowballItem
+    { ICLASS_SOLID_BUCKET_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // SolidBucketItem
+    { ICLASS_SPAWN_EGG_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // SpawnEggItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // SpectralArrowItem
+    { ICLASS_POTION_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // SplashPotionItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // SpyglassItem
+    { ICLASS_BLOCK_ITEM, 0, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 0, 0, 0, 0, 0 },  // StandingAndWallBlockItem
+    { ICLASS_POTION_ITEM, 0, 0, 0, 0, 0, 0, 0 },  // ThrowablePotionItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // TippedArrowItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // TridentItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // WindChargeItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // WritableBookItem
+    { 0, 0, 0, 0, 0, 0, 0, 0 },  // WrittenBookItem
 };
 
 const direction player_direction = DIRECTION_SOUTH;
@@ -2161,1511 +2274,1511 @@ const direction player_nearest_directions[6] = { DIRECTION_SOUTH, DIRECTION_WEST
 const int32_t   player_rotation_segment = 0;
 
 const item_def item_defs[] = {
-    { "air", 64, ICLASS_AIR_ITEM, -1, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stone", 64, ICLASS_BLOCK_ITEM, 1, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "granite", 64, ICLASS_BLOCK_ITEM, 2, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "polished_granite", 64, ICLASS_BLOCK_ITEM, 3, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "diorite", 64, ICLASS_BLOCK_ITEM, 4, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "polished_diorite", 64, ICLASS_BLOCK_ITEM, 5, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "andesite", 64, ICLASS_BLOCK_ITEM, 6, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "polished_andesite", 64, ICLASS_BLOCK_ITEM, 7, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "deepslate", 64, ICLASS_BLOCK_ITEM, 1121, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cobbled_deepslate", 64, ICLASS_BLOCK_ITEM, 1122, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "polished_deepslate", 64, ICLASS_BLOCK_ITEM, 1126, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "calcite", 64, ICLASS_BLOCK_ITEM, 996, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "tuff", 64, ICLASS_BLOCK_ITEM, 982, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "tuff_slab", 64, ICLASS_BLOCK_ITEM, 983, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "tuff_stairs", 64, ICLASS_BLOCK_ITEM, 984, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "tuff_wall", 64, ICLASS_BLOCK_ITEM, 985, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "chiseled_tuff", 64, ICLASS_BLOCK_ITEM, 990, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "polished_tuff", 64, ICLASS_BLOCK_ITEM, 986, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "polished_tuff_slab", 64, ICLASS_BLOCK_ITEM, 987, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "polished_tuff_stairs", 64, ICLASS_BLOCK_ITEM, 988, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "polished_tuff_wall", 64, ICLASS_BLOCK_ITEM, 989, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "tuff_bricks", 64, ICLASS_BLOCK_ITEM, 991, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "tuff_brick_slab", 64, ICLASS_BLOCK_ITEM, 992, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "tuff_brick_stairs", 64, ICLASS_BLOCK_ITEM, 993, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "tuff_brick_wall", 64, ICLASS_BLOCK_ITEM, 994, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "chiseled_tuff_bricks", 64, ICLASS_BLOCK_ITEM, 995, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "dripstone_block", 64, ICLASS_BLOCK_ITEM, 1104, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "grass_block", 64, ICLASS_BLOCK_ITEM, 8, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "dirt", 64, ICLASS_BLOCK_ITEM, 9, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "coarse_dirt", 64, ICLASS_BLOCK_ITEM, 10, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "podzol", 64, ICLASS_BLOCK_ITEM, 11, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "rooted_dirt", 64, ICLASS_BLOCK_ITEM, 1119, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "mud", 64, ICLASS_BLOCK_ITEM, 1120, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "crimson_nylium", 64, ICLASS_BLOCK_ITEM, 873, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "warped_nylium", 64, ICLASS_BLOCK_ITEM, 864, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cobblestone", 64, ICLASS_BLOCK_ITEM, 12, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "oak_planks", 64, ICLASS_BLOCK_ITEM, 13, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "spruce_planks", 64, ICLASS_BLOCK_ITEM, 14, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "birch_planks", 64, ICLASS_BLOCK_ITEM, 15, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "jungle_planks", 64, ICLASS_BLOCK_ITEM, 16, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "acacia_planks", 64, ICLASS_BLOCK_ITEM, 17, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cherry_planks", 64, ICLASS_BLOCK_ITEM, 18, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "dark_oak_planks", 64, ICLASS_BLOCK_ITEM, 19, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "pale_oak_planks", 64, ICLASS_BLOCK_ITEM, 21, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "mangrove_planks", 64, ICLASS_BLOCK_ITEM, 22, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "bamboo_planks", 64, ICLASS_BLOCK_ITEM, 23, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "crimson_planks", 64, ICLASS_BLOCK_ITEM, 881, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "warped_planks", 64, ICLASS_BLOCK_ITEM, 882, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "bamboo_mosaic", 64, ICLASS_BLOCK_ITEM, 24, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "oak_sapling", 64, ICLASS_BLOCK_ITEM, 25, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "spruce_sapling", 64, ICLASS_BLOCK_ITEM, 26, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "birch_sapling", 64, ICLASS_BLOCK_ITEM, 27, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "jungle_sapling", 64, ICLASS_BLOCK_ITEM, 28, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "acacia_sapling", 64, ICLASS_BLOCK_ITEM, 29, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "cherry_sapling", 64, ICLASS_BLOCK_ITEM, 30, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "dark_oak_sapling", 64, ICLASS_BLOCK_ITEM, 31, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "pale_oak_sapling", 64, ICLASS_BLOCK_ITEM, 32, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "mangrove_propagule", 64, ICLASS_BLOCK_ITEM, 33, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "bedrock", 64, ICLASS_BLOCK_ITEM, 34, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "sand", 64, ICLASS_BLOCK_ITEM, 37, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "suspicious_sand", 64, ICLASS_BLOCK_ITEM, 38, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "suspicious_gravel", 64, ICLASS_BLOCK_ITEM, 41, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "red_sand", 64, ICLASS_BLOCK_ITEM, 39, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "gravel", 64, ICLASS_BLOCK_ITEM, 40, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "coal_ore", 64, ICLASS_BLOCK_ITEM, 46, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "deepslate_coal_ore", 64, ICLASS_BLOCK_ITEM, 47, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "iron_ore", 64, ICLASS_BLOCK_ITEM, 44, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "deepslate_iron_ore", 64, ICLASS_BLOCK_ITEM, 45, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "copper_ore", 64, ICLASS_BLOCK_ITEM, 1009, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "deepslate_copper_ore", 64, ICLASS_BLOCK_ITEM, 1010, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "gold_ore", 64, ICLASS_BLOCK_ITEM, 42, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "deepslate_gold_ore", 64, ICLASS_BLOCK_ITEM, 43, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "redstone_ore", 64, ICLASS_BLOCK_ITEM, 270, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "deepslate_redstone_ore", 64, ICLASS_BLOCK_ITEM, 271, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "emerald_ore", 64, ICLASS_BLOCK_ITEM, 397, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "deepslate_emerald_ore", 64, ICLASS_BLOCK_ITEM, 398, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "lapis_ore", 64, ICLASS_BLOCK_ITEM, 102, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "deepslate_lapis_ore", 64, ICLASS_BLOCK_ITEM, 103, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "diamond_ore", 64, ICLASS_BLOCK_ITEM, 202, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "deepslate_diamond_ore", 64, ICLASS_BLOCK_ITEM, 203, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "nether_gold_ore", 64, ICLASS_BLOCK_ITEM, 48, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "nether_quartz_ore", 64, ICLASS_BLOCK_ITEM, 474, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "ancient_debris", 64, ICLASS_BLOCK_ITEM, 914, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "coal_block", 64, ICLASS_BLOCK_ITEM, 553, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "raw_iron_block", 64, ICLASS_BLOCK_ITEM, 1143, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "raw_copper_block", 64, ICLASS_BLOCK_ITEM, 1144, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "raw_gold_block", 64, ICLASS_BLOCK_ITEM, 1145, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "heavy_core", 64, ICLASS_BLOCK_ITEM, 1157, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "amethyst_block", 64, ICLASS_BLOCK_ITEM, 976, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "budding_amethyst", 64, ICLASS_BLOCK_ITEM, 977, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "iron_block", 64, ICLASS_BLOCK_ITEM, 174, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "copper_block", 64, ICLASS_BLOCK_ITEM, 1005, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "gold_block", 64, ICLASS_BLOCK_ITEM, 173, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "diamond_block", 64, ICLASS_BLOCK_ITEM, 204, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "netherite_block", 64, ICLASS_BLOCK_ITEM, 913, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "exposed_copper", 64, ICLASS_BLOCK_ITEM, 1006, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "weathered_copper", 64, ICLASS_BLOCK_ITEM, 1007, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "oxidized_copper", 64, ICLASS_BLOCK_ITEM, 1008, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1018, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "exposed_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1017, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "weathered_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1016, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "oxidized_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1015, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cut_copper", 64, ICLASS_BLOCK_ITEM, 1014, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "exposed_cut_copper", 64, ICLASS_BLOCK_ITEM, 1013, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "weathered_cut_copper", 64, ICLASS_BLOCK_ITEM, 1012, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "oxidized_cut_copper", 64, ICLASS_BLOCK_ITEM, 1011, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1026, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "exposed_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1025, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "weathered_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1024, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "oxidized_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1023, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1030, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "exposed_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1029, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "weathered_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1028, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "oxidized_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1027, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_copper_block", 64, ICLASS_BLOCK_ITEM, 1031, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_exposed_copper", 64, ICLASS_BLOCK_ITEM, 1033, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_weathered_copper", 64, ICLASS_BLOCK_ITEM, 1032, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_oxidized_copper", 64, ICLASS_BLOCK_ITEM, 1034, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1022, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_exposed_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1021, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_weathered_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1020, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_oxidized_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1019, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_cut_copper", 64, ICLASS_BLOCK_ITEM, 1038, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_exposed_cut_copper", 64, ICLASS_BLOCK_ITEM, 1037, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_weathered_cut_copper", 64, ICLASS_BLOCK_ITEM, 1036, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_oxidized_cut_copper", 64, ICLASS_BLOCK_ITEM, 1035, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1042, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_exposed_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1041, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_weathered_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1040, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_oxidized_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1039, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1046, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_exposed_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1045, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_weathered_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1044, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "waxed_oxidized_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1043, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "oak_log", 64, ICLASS_BLOCK_ITEM, 49, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "spruce_log", 64, ICLASS_BLOCK_ITEM, 50, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "birch_log", 64, ICLASS_BLOCK_ITEM, 51, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "jungle_log", 64, ICLASS_BLOCK_ITEM, 52, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "acacia_log", 64, ICLASS_BLOCK_ITEM, 53, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cherry_log", 64, ICLASS_BLOCK_ITEM, 54, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "pale_oak_log", 64, ICLASS_BLOCK_ITEM, 56, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "dark_oak_log", 64, ICLASS_BLOCK_ITEM, 55, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "mangrove_log", 64, ICLASS_BLOCK_ITEM, 57, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "mangrove_roots", 64, ICLASS_BLOCK_ITEM, 58, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "muddy_mangrove_roots", 64, ICLASS_BLOCK_ITEM, 59, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "crimson_stem", 64, ICLASS_BLOCK_ITEM, 869, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "warped_stem", 64, ICLASS_BLOCK_ITEM, 860, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "bamboo_block", 64, ICLASS_BLOCK_ITEM, 60, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_oak_log", 64, ICLASS_BLOCK_ITEM, 68, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_spruce_log", 64, ICLASS_BLOCK_ITEM, 61, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_birch_log", 64, ICLASS_BLOCK_ITEM, 62, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_jungle_log", 64, ICLASS_BLOCK_ITEM, 63, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_acacia_log", 64, ICLASS_BLOCK_ITEM, 64, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_cherry_log", 64, ICLASS_BLOCK_ITEM, 65, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_dark_oak_log", 64, ICLASS_BLOCK_ITEM, 66, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_pale_oak_log", 64, ICLASS_BLOCK_ITEM, 67, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_mangrove_log", 64, ICLASS_BLOCK_ITEM, 69, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_crimson_stem", 64, ICLASS_BLOCK_ITEM, 870, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_warped_stem", 64, ICLASS_BLOCK_ITEM, 861, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_oak_wood", 64, ICLASS_BLOCK_ITEM, 79, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_spruce_wood", 64, ICLASS_BLOCK_ITEM, 80, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_birch_wood", 64, ICLASS_BLOCK_ITEM, 81, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_jungle_wood", 64, ICLASS_BLOCK_ITEM, 82, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_acacia_wood", 64, ICLASS_BLOCK_ITEM, 83, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_cherry_wood", 64, ICLASS_BLOCK_ITEM, 84, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_dark_oak_wood", 64, ICLASS_BLOCK_ITEM, 85, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_pale_oak_wood", 64, ICLASS_BLOCK_ITEM, 86, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_mangrove_wood", 64, ICLASS_BLOCK_ITEM, 87, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_crimson_hyphae", 64, ICLASS_BLOCK_ITEM, 872, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_warped_hyphae", 64, ICLASS_BLOCK_ITEM, 863, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stripped_bamboo_block", 64, ICLASS_BLOCK_ITEM, 70, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "oak_wood", 64, ICLASS_BLOCK_ITEM, 71, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "spruce_wood", 64, ICLASS_BLOCK_ITEM, 72, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "birch_wood", 64, ICLASS_BLOCK_ITEM, 73, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "jungle_wood", 64, ICLASS_BLOCK_ITEM, 74, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "acacia_wood", 64, ICLASS_BLOCK_ITEM, 75, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cherry_wood", 64, ICLASS_BLOCK_ITEM, 76, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "pale_oak_wood", 64, ICLASS_BLOCK_ITEM, 20, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "dark_oak_wood", 64, ICLASS_BLOCK_ITEM, 77, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "mangrove_wood", 64, ICLASS_BLOCK_ITEM, 78, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "crimson_hyphae", 64, ICLASS_BLOCK_ITEM, 871, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "warped_hyphae", 64, ICLASS_BLOCK_ITEM, 862, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "oak_leaves", 64, ICLASS_BLOCK_ITEM, 88, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "spruce_leaves", 64, ICLASS_BLOCK_ITEM, 89, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "birch_leaves", 64, ICLASS_BLOCK_ITEM, 90, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "jungle_leaves", 64, ICLASS_BLOCK_ITEM, 91, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "acacia_leaves", 64, ICLASS_BLOCK_ITEM, 92, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "cherry_leaves", 64, ICLASS_BLOCK_ITEM, 93, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "dark_oak_leaves", 64, ICLASS_BLOCK_ITEM, 94, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "pale_oak_leaves", 64, ICLASS_BLOCK_ITEM, 95, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "mangrove_leaves", 64, ICLASS_BLOCK_ITEM, 96, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "azalea_leaves", 64, ICLASS_BLOCK_ITEM, 97, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "flowering_azalea_leaves", 64, ICLASS_BLOCK_ITEM, 98, false, 0, -1, 0, 0.5f, 0, 0, 0, 0 },
-    { "sponge", 64, ICLASS_BLOCK_ITEM, 99, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "wet_sponge", 64, ICLASS_BLOCK_ITEM, 100, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "glass", 64, ICLASS_BLOCK_ITEM, 101, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "tinted_glass", 64, ICLASS_BLOCK_ITEM, 997, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "lapis_block", 64, ICLASS_BLOCK_ITEM, 104, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "sandstone", 64, ICLASS_BLOCK_ITEM, 106, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "chiseled_sandstone", 64, ICLASS_BLOCK_ITEM, 107, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cut_sandstone", 64, ICLASS_BLOCK_ITEM, 108, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cobweb", 64, ICLASS_BLOCK_ITEM, 129, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "short_grass", 64, ICLASS_BLOCK_ITEM, 130, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "fern", 64, ICLASS_BLOCK_ITEM, 131, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "bush", 64, ICLASS_BLOCK_ITEM, 133, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "azalea", 64, ICLASS_BLOCK_ITEM, 1108, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "flowering_azalea", 64, ICLASS_BLOCK_ITEM, 1109, false, 0, -1, 0, 0.85f, 0, 0, 0, 0 },
-    { "dead_bush", 64, ICLASS_BLOCK_ITEM, 132, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "firefly_bush", 64, ICLASS_BLOCK_ITEM, 1165, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "short_dry_grass", 64, ICLASS_BLOCK_ITEM, 134, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "tall_dry_grass", 64, ICLASS_BLOCK_ITEM, 135, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "seagrass", 64, ICLASS_BLOCK_ITEM, 136, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "sea_pickle", 64, ICLASS_BLOCK_ITEM, 786, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "white_wool", 64, ICLASS_BLOCK_ITEM, 140, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "orange_wool", 64, ICLASS_BLOCK_ITEM, 141, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "magenta_wool", 64, ICLASS_BLOCK_ITEM, 142, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "light_blue_wool", 64, ICLASS_BLOCK_ITEM, 143, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "yellow_wool", 64, ICLASS_BLOCK_ITEM, 144, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "lime_wool", 64, ICLASS_BLOCK_ITEM, 145, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "pink_wool", 64, ICLASS_BLOCK_ITEM, 146, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "gray_wool", 64, ICLASS_BLOCK_ITEM, 147, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "light_gray_wool", 64, ICLASS_BLOCK_ITEM, 148, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cyan_wool", 64, ICLASS_BLOCK_ITEM, 149, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "purple_wool", 64, ICLASS_BLOCK_ITEM, 150, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "blue_wool", 64, ICLASS_BLOCK_ITEM, 151, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "brown_wool", 64, ICLASS_BLOCK_ITEM, 152, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "green_wool", 64, ICLASS_BLOCK_ITEM, 153, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "red_wool", 64, ICLASS_BLOCK_ITEM, 154, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "black_wool", 64, ICLASS_BLOCK_ITEM, 155, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "dandelion", 64, ICLASS_BLOCK_ITEM, 157, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "open_eyeblossom", 64, ICLASS_BLOCK_ITEM, 1161, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "closed_eyeblossom", 64, ICLASS_BLOCK_ITEM, 1162, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "poppy", 64, ICLASS_BLOCK_ITEM, 159, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "blue_orchid", 64, ICLASS_BLOCK_ITEM, 160, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "allium", 64, ICLASS_BLOCK_ITEM, 161, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "azure_bluet", 64, ICLASS_BLOCK_ITEM, 162, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "red_tulip", 64, ICLASS_BLOCK_ITEM, 163, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "orange_tulip", 64, ICLASS_BLOCK_ITEM, 164, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "white_tulip", 64, ICLASS_BLOCK_ITEM, 165, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "pink_tulip", 64, ICLASS_BLOCK_ITEM, 166, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "oxeye_daisy", 64, ICLASS_BLOCK_ITEM, 167, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "cornflower", 64, ICLASS_BLOCK_ITEM, 168, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "lily_of_the_valley", 64, ICLASS_BLOCK_ITEM, 170, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "wither_rose", 64, ICLASS_BLOCK_ITEM, 169, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "torchflower", 64, ICLASS_BLOCK_ITEM, 158, false, 0, -1, 0, 0.85f, 0, 0, 0, 0 },
-    { "pitcher_plant", 64, ICLASS_BLOCK_ITEM, 662, false, 0, -1, 0, 0.85f, 0, 0, 0, 0 },
-    { "spore_blossom", 64, ICLASS_BLOCK_ITEM, 1107, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "brown_mushroom", 64, ICLASS_BLOCK_ITEM, 171, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "red_mushroom", 64, ICLASS_BLOCK_ITEM, 172, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "crimson_fungus", 64, ICLASS_BLOCK_ITEM, 874, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "warped_fungus", 64, ICLASS_BLOCK_ITEM, 865, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "crimson_roots", 64, ICLASS_BLOCK_ITEM, 880, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "warped_roots", 64, ICLASS_BLOCK_ITEM, 867, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "nether_sprouts", 64, ICLASS_BLOCK_ITEM, 868, false, 0, -1, 0, 0.5f, 0, 0, 0, 0 },
-    { "weeping_vines", 64, ICLASS_BLOCK_ITEM, 876, false, 0, -1, 0, 0.5f, 0, 0, 0, 0 },
-    { "twisting_vines", 64, ICLASS_BLOCK_ITEM, 878, false, 0, -1, 0, 0.5f, 0, 0, 0, 0 },
-    { "sugar_cane", 64, ICLASS_BLOCK_ITEM, 281, false, 0, -1, 0, 0.5f, 0, 0, 0, 0 },
-    { "kelp", 64, ICLASS_BLOCK_ITEM, 740, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "pink_petals", 64, ICLASS_BLOCK_ITEM, 1111, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "wildflowers", 64, ICLASS_BLOCK_ITEM, 1112, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "leaf_litter", 64, ICLASS_BLOCK_ITEM, 1113, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "moss_carpet", 64, ICLASS_BLOCK_ITEM, 1110, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "moss_block", 64, ICLASS_BLOCK_ITEM, 1114, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "pale_moss_carpet", 64, ICLASS_BLOCK_ITEM, 1159, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "pale_hanging_moss", 64, ICLASS_BLOCK_ITEM, 1160, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "pale_moss_block", 64, ICLASS_BLOCK_ITEM, 1158, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "hanging_roots", 64, ICLASS_BLOCK_ITEM, 1118, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "big_dripleaf", 64, ICLASS_BLOCK_ITEM, 1115, false, 0, -1, 0, 0.65f, 0, 0, 0, 0 },
-    { "small_dripleaf", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1117, false, 0, -1, 0, 0.3f, 0, 0, 0, 0 },
-    { "bamboo", 64, ICLASS_BLOCK_ITEM, 790, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "oak_slab", 64, ICLASS_BLOCK_ITEM, 597, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "spruce_slab", 64, ICLASS_BLOCK_ITEM, 598, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "birch_slab", 64, ICLASS_BLOCK_ITEM, 599, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "jungle_slab", 64, ICLASS_BLOCK_ITEM, 600, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "acacia_slab", 64, ICLASS_BLOCK_ITEM, 601, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cherry_slab", 64, ICLASS_BLOCK_ITEM, 602, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "dark_oak_slab", 64, ICLASS_BLOCK_ITEM, 603, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "pale_oak_slab", 64, ICLASS_BLOCK_ITEM, 604, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "mangrove_slab", 64, ICLASS_BLOCK_ITEM, 605, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "bamboo_slab", 64, ICLASS_BLOCK_ITEM, 606, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "bamboo_mosaic_slab", 64, ICLASS_BLOCK_ITEM, 607, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "crimson_slab", 64, ICLASS_BLOCK_ITEM, 883, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "warped_slab", 64, ICLASS_BLOCK_ITEM, 884, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stone_slab", 64, ICLASS_BLOCK_ITEM, 608, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "smooth_stone_slab", 64, ICLASS_BLOCK_ITEM, 609, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "sandstone_slab", 64, ICLASS_BLOCK_ITEM, 610, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cut_sandstone_slab", 64, ICLASS_BLOCK_ITEM, 611, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "petrified_oak_slab", 64, ICLASS_BLOCK_ITEM, 612, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cobblestone_slab", 64, ICLASS_BLOCK_ITEM, 613, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "brick_slab", 64, ICLASS_BLOCK_ITEM, 614, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "stone_brick_slab", 64, ICLASS_BLOCK_ITEM, 615, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "mud_brick_slab", 64, ICLASS_BLOCK_ITEM, 616, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "nether_brick_slab", 64, ICLASS_BLOCK_ITEM, 617, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "quartz_slab", 64, ICLASS_BLOCK_ITEM, 618, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "red_sandstone_slab", 64, ICLASS_BLOCK_ITEM, 619, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cut_red_sandstone_slab", 64, ICLASS_BLOCK_ITEM, 620, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "purpur_slab", 64, ICLASS_BLOCK_ITEM, 621, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "prismarine_slab", 64, ICLASS_BLOCK_ITEM, 531, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "prismarine_brick_slab", 64, ICLASS_BLOCK_ITEM, 532, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "dark_prismarine_slab", 64, ICLASS_BLOCK_ITEM, 533, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "smooth_quartz", 64, ICLASS_BLOCK_ITEM, 624, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "smooth_red_sandstone", 64, ICLASS_BLOCK_ITEM, 625, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "smooth_sandstone", 64, ICLASS_BLOCK_ITEM, 623, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "smooth_stone", 64, ICLASS_BLOCK_ITEM, 622, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "bricks", 64, ICLASS_BLOCK_ITEM, 175, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "acacia_shelf", 64, ICLASS_BLOCK_ITEM, 179, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "bamboo_shelf", 64, ICLASS_BLOCK_ITEM, 180, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "birch_shelf", 64, ICLASS_BLOCK_ITEM, 181, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "cherry_shelf", 64, ICLASS_BLOCK_ITEM, 182, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "crimson_shelf", 64, ICLASS_BLOCK_ITEM, 183, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "dark_oak_shelf", 64, ICLASS_BLOCK_ITEM, 184, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "jungle_shelf", 64, ICLASS_BLOCK_ITEM, 185, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "mangrove_shelf", 64, ICLASS_BLOCK_ITEM, 186, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "oak_shelf", 64, ICLASS_BLOCK_ITEM, 187, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "pale_oak_shelf", 64, ICLASS_BLOCK_ITEM, 188, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "spruce_shelf", 64, ICLASS_BLOCK_ITEM, 189, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "warped_shelf", 64, ICLASS_BLOCK_ITEM, 190, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "bookshelf", 64, ICLASS_BLOCK_ITEM, 177, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "chiseled_bookshelf", 64, ICLASS_BLOCK_ITEM, 178, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "decorated_pot", 64, ICLASS_BLOCK_ITEM, 1153, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "mossy_cobblestone", 64, ICLASS_BLOCK_ITEM, 191, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "obsidian", 64, ICLASS_BLOCK_ITEM, 192, false, 0, -1, 0, -1.0f, 0, 0, 0, 0 },
-    { "torch", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 193, false, 0, -1, 0, -1.0f, 0, 2, 0, 0 },
-    { "end_rod", 64, ICLASS_BLOCK_ITEM, 653, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "chorus_plant", 64, ICLASS_BLOCK_ITEM, 654, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "chorus_flower", 64, ICLASS_BLOCK_ITEM, 655, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "purpur_block", 64, ICLASS_BLOCK_ITEM, 656, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "purpur_pillar", 64, ICLASS_BLOCK_ITEM, 657, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "purpur_stairs", 64, ICLASS_BLOCK_ITEM, 658, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "spawner", 64, ICLASS_BLOCK_ITEM, 197, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "creaking_heart", 64, ICLASS_BLOCK_ITEM, 198, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "chest", 64, ICLASS_BLOCK_ITEM, 200, true, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "crafting_table", 64, ICLASS_BLOCK_ITEM, 205, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "farmland", 64, ICLASS_BLOCK_ITEM, 207, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "furnace", 64, ICLASS_BLOCK_ITEM, 208, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "ladder", 64, ICLASS_BLOCK_ITEM, 220, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "cobblestone_stairs", 64, ICLASS_BLOCK_ITEM, 222, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "snow", 64, ICLASS_BLOCK_ITEM, 275, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "ice", 64, ICLASS_BLOCK_ITEM, 276, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "snow_block", 64, ICLASS_BLOCK_ITEM, 277, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "cactus", 64, ICLASS_BLOCK_ITEM, 278, false, 0, -1, 0, 0.5f, 2, 0, 0, 0 },
-    { "cactus_flower", 64, ICLASS_BLOCK_ITEM, 279, false, 0, -1, 0, 0.3f, 2, 0, 0, 0 },
-    { "clay", 64, ICLASS_BLOCK_ITEM, 280, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "jukebox", 64, ICLASS_BLOCK_ITEM, 282, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "oak_fence", 64, ICLASS_BLOCK_ITEM, 283, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "spruce_fence", 64, ICLASS_BLOCK_ITEM, 635, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "birch_fence", 64, ICLASS_BLOCK_ITEM, 636, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "jungle_fence", 64, ICLASS_BLOCK_ITEM, 637, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "acacia_fence", 64, ICLASS_BLOCK_ITEM, 638, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "cherry_fence", 64, ICLASS_BLOCK_ITEM, 639, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "dark_oak_fence", 64, ICLASS_BLOCK_ITEM, 640, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "pale_oak_fence", 64, ICLASS_BLOCK_ITEM, 641, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "mangrove_fence", 64, ICLASS_BLOCK_ITEM, 642, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "bamboo_fence", 64, ICLASS_BLOCK_ITEM, 643, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "crimson_fence", 64, ICLASS_BLOCK_ITEM, 887, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "warped_fence", 64, ICLASS_BLOCK_ITEM, 888, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "pumpkin", 64, ICLASS_BLOCK_ITEM, 359, false, 0, -1, 0, 0.65f, 2, 0, 0, 0 },
-    { "carved_pumpkin", 64, ICLASS_BLOCK_ITEM, 295, true, 0, -1, 0, 0.65f, 2, 0, 0, 0 },
-    { "jack_o_lantern", 64, ICLASS_BLOCK_ITEM, 296, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "netherrack", 64, ICLASS_BLOCK_ITEM, 284, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "soul_sand", 64, ICLASS_BLOCK_ITEM, 285, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "soul_soil", 64, ICLASS_BLOCK_ITEM, 286, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "basalt", 64, ICLASS_BLOCK_ITEM, 287, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "polished_basalt", 64, ICLASS_BLOCK_ITEM, 288, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "smooth_basalt", 64, ICLASS_BLOCK_ITEM, 1142, false, 0, -1, 0, -1.0f, 2, 0, 0, 0 },
-    { "soul_torch", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 289, false, 0, -1, 0, -1.0f, 2, 2, 0, 0 },
-    { "copper_torch", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 291, false, 0, -1, 0, -1.0f, 4, 2, 0, 0 },
-    { "glowstone", 64, ICLASS_BLOCK_ITEM, 293, true, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "infested_stone", 64, ICLASS_BLOCK_ITEM, 331, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "infested_cobblestone", 64, ICLASS_BLOCK_ITEM, 332, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "infested_stone_bricks", 64, ICLASS_BLOCK_ITEM, 333, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "infested_mossy_stone_bricks", 64, ICLASS_BLOCK_ITEM, 334, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "infested_cracked_stone_bricks", 64, ICLASS_BLOCK_ITEM, 335, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "infested_chiseled_stone_bricks", 64, ICLASS_BLOCK_ITEM, 336, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "infested_deepslate", 64, ICLASS_BLOCK_ITEM, 1141, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "stone_bricks", 64, ICLASS_BLOCK_ITEM, 325, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "mossy_stone_bricks", 64, ICLASS_BLOCK_ITEM, 326, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cracked_stone_bricks", 64, ICLASS_BLOCK_ITEM, 327, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "chiseled_stone_bricks", 64, ICLASS_BLOCK_ITEM, 328, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "packed_mud", 64, ICLASS_BLOCK_ITEM, 329, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "mud_bricks", 64, ICLASS_BLOCK_ITEM, 330, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "deepslate_bricks", 64, ICLASS_BLOCK_ITEM, 1134, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cracked_deepslate_bricks", 64, ICLASS_BLOCK_ITEM, 1139, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "deepslate_tiles", 64, ICLASS_BLOCK_ITEM, 1130, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cracked_deepslate_tiles", 64, ICLASS_BLOCK_ITEM, 1140, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "chiseled_deepslate", 64, ICLASS_BLOCK_ITEM, 1138, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "reinforced_deepslate", 64, ICLASS_BLOCK_ITEM, 1152, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "brown_mushroom_block", 64, ICLASS_BLOCK_ITEM, 337, false, 0, -1, 0, 0.85f, 6, 0, 0, 0 },
-    { "red_mushroom_block", 64, ICLASS_BLOCK_ITEM, 338, false, 0, -1, 0, 0.85f, 6, 0, 0, 0 },
-    { "mushroom_stem", 64, ICLASS_BLOCK_ITEM, 339, false, 0, -1, 0, 0.65f, 6, 0, 0, 0 },
-    { "iron_bars", 64, ICLASS_BLOCK_ITEM, 340, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "copper_bars", 64, ICLASS_BLOCK_ITEM, 341, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "exposed_copper_bars", 64, ICLASS_BLOCK_ITEM, 342, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "weathered_copper_bars", 64, ICLASS_BLOCK_ITEM, 343, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "oxidized_copper_bars", 64, ICLASS_BLOCK_ITEM, 344, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "waxed_copper_bars", 64, ICLASS_BLOCK_ITEM, 345, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "waxed_exposed_copper_bars", 64, ICLASS_BLOCK_ITEM, 346, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "waxed_weathered_copper_bars", 64, ICLASS_BLOCK_ITEM, 347, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "waxed_oxidized_copper_bars", 64, ICLASS_BLOCK_ITEM, 348, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "iron_chain", 64, ICLASS_BLOCK_ITEM, 349, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "copper_chain", 64, ICLASS_BLOCK_ITEM, 350, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "exposed_copper_chain", 64, ICLASS_BLOCK_ITEM, 351, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "weathered_copper_chain", 64, ICLASS_BLOCK_ITEM, 352, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "oxidized_copper_chain", 64, ICLASS_BLOCK_ITEM, 353, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "waxed_copper_chain", 64, ICLASS_BLOCK_ITEM, 354, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "waxed_exposed_copper_chain", 64, ICLASS_BLOCK_ITEM, 355, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "waxed_weathered_copper_chain", 64, ICLASS_BLOCK_ITEM, 356, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "waxed_oxidized_copper_chain", 64, ICLASS_BLOCK_ITEM, 357, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "glass_pane", 64, ICLASS_BLOCK_ITEM, 358, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "melon", 64, ICLASS_BLOCK_ITEM, 360, false, 0, -1, 0, 0.65f, 6, 0, 0, 0 },
-    { "vine", 64, ICLASS_BLOCK_ITEM, 365, false, 0, -1, 0, 0.5f, 6, 0, 0, 0 },
-    { "glow_lichen", 64, ICLASS_BLOCK_ITEM, 366, false, 0, -1, 0, 0.5f, 6, 0, 0, 0 },
-    { "resin_clump", 64, ICLASS_BLOCK_ITEM, 367, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "resin_block", 64, ICLASS_BLOCK_ITEM, 374, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "resin_bricks", 64, ICLASS_BLOCK_ITEM, 375, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "resin_brick_stairs", 64, ICLASS_BLOCK_ITEM, 376, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "resin_brick_slab", 64, ICLASS_BLOCK_ITEM, 377, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "resin_brick_wall", 64, ICLASS_BLOCK_ITEM, 378, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "chiseled_resin_bricks", 64, ICLASS_BLOCK_ITEM, 379, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "brick_stairs", 64, ICLASS_BLOCK_ITEM, 369, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "stone_brick_stairs", 64, ICLASS_BLOCK_ITEM, 370, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "mud_brick_stairs", 64, ICLASS_BLOCK_ITEM, 371, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "mycelium", 64, ICLASS_BLOCK_ITEM, 372, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "lily_pad", 64, ICLASS_PLACE_ON_WATER_BLOCK_ITEM, 373, false, 0, -1, 0, 0.65f, 6, 0, 0, 0 },
-    { "nether_bricks", 64, ICLASS_BLOCK_ITEM, 380, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cracked_nether_bricks", 64, ICLASS_BLOCK_ITEM, 940, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "chiseled_nether_bricks", 64, ICLASS_BLOCK_ITEM, 939, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "nether_brick_fence", 64, ICLASS_BLOCK_ITEM, 381, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "nether_brick_stairs", 64, ICLASS_BLOCK_ITEM, 382, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "sculk", 64, ICLASS_BLOCK_ITEM, 1001, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "sculk_vein", 64, ICLASS_BLOCK_ITEM, 1002, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "sculk_catalyst", 64, ICLASS_BLOCK_ITEM, 1003, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "sculk_shrieker", 64, ICLASS_BLOCK_ITEM, 1004, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "enchanting_table", 64, ICLASS_BLOCK_ITEM, 384, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "end_portal_frame", 64, ICLASS_BLOCK_ITEM, 391, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "end_stone", 64, ICLASS_BLOCK_ITEM, 392, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "end_stone_bricks", 64, ICLASS_BLOCK_ITEM, 659, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dragon_egg", 64, ICLASS_BLOCK_ITEM, 393, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "sandstone_stairs", 64, ICLASS_BLOCK_ITEM, 396, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "ender_chest", 64, ICLASS_BLOCK_ITEM, 399, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "emerald_block", 64, ICLASS_BLOCK_ITEM, 402, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "oak_stairs", 64, ICLASS_BLOCK_ITEM, 199, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "spruce_stairs", 64, ICLASS_BLOCK_ITEM, 403, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "birch_stairs", 64, ICLASS_BLOCK_ITEM, 404, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "jungle_stairs", 64, ICLASS_BLOCK_ITEM, 405, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "acacia_stairs", 64, ICLASS_BLOCK_ITEM, 514, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cherry_stairs", 64, ICLASS_BLOCK_ITEM, 515, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dark_oak_stairs", 64, ICLASS_BLOCK_ITEM, 516, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "pale_oak_stairs", 64, ICLASS_BLOCK_ITEM, 517, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "mangrove_stairs", 64, ICLASS_BLOCK_ITEM, 518, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "bamboo_stairs", 64, ICLASS_BLOCK_ITEM, 519, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "bamboo_mosaic_stairs", 64, ICLASS_BLOCK_ITEM, 520, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "crimson_stairs", 64, ICLASS_BLOCK_ITEM, 893, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "warped_stairs", 64, ICLASS_BLOCK_ITEM, 894, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "command_block", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 406, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "beacon", 64, ICLASS_BLOCK_ITEM, 407, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cobblestone_wall", 64, ICLASS_BLOCK_ITEM, 408, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "mossy_cobblestone_wall", 64, ICLASS_BLOCK_ITEM, 409, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "brick_wall", 64, ICLASS_BLOCK_ITEM, 822, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "prismarine_wall", 64, ICLASS_BLOCK_ITEM, 823, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "red_sandstone_wall", 64, ICLASS_BLOCK_ITEM, 824, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "mossy_stone_brick_wall", 64, ICLASS_BLOCK_ITEM, 825, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "granite_wall", 64, ICLASS_BLOCK_ITEM, 826, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "stone_brick_wall", 64, ICLASS_BLOCK_ITEM, 827, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "mud_brick_wall", 64, ICLASS_BLOCK_ITEM, 828, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "nether_brick_wall", 64, ICLASS_BLOCK_ITEM, 829, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "andesite_wall", 64, ICLASS_BLOCK_ITEM, 830, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "red_nether_brick_wall", 64, ICLASS_BLOCK_ITEM, 831, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "sandstone_wall", 64, ICLASS_BLOCK_ITEM, 832, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "end_stone_brick_wall", 64, ICLASS_BLOCK_ITEM, 833, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "diorite_wall", 64, ICLASS_BLOCK_ITEM, 834, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "blackstone_wall", 64, ICLASS_BLOCK_ITEM, 924, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "polished_blackstone_wall", 64, ICLASS_BLOCK_ITEM, 938, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "polished_blackstone_brick_wall", 64, ICLASS_BLOCK_ITEM, 932, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cobbled_deepslate_wall", 64, ICLASS_BLOCK_ITEM, 1125, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "polished_deepslate_wall", 64, ICLASS_BLOCK_ITEM, 1129, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "deepslate_brick_wall", 64, ICLASS_BLOCK_ITEM, 1137, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "deepslate_tile_wall", 64, ICLASS_BLOCK_ITEM, 1133, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "anvil", 64, ICLASS_BLOCK_ITEM, 465, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "chipped_anvil", 64, ICLASS_BLOCK_ITEM, 466, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "damaged_anvil", 64, ICLASS_BLOCK_ITEM, 467, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "chiseled_quartz_block", 64, ICLASS_BLOCK_ITEM, 477, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "quartz_block", 64, ICLASS_BLOCK_ITEM, 476, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "quartz_bricks", 64, ICLASS_BLOCK_ITEM, 941, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "quartz_pillar", 64, ICLASS_BLOCK_ITEM, 478, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "quartz_stairs", 64, ICLASS_BLOCK_ITEM, 479, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "white_terracotta", 64, ICLASS_BLOCK_ITEM, 482, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "orange_terracotta", 64, ICLASS_BLOCK_ITEM, 483, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "magenta_terracotta", 64, ICLASS_BLOCK_ITEM, 484, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_blue_terracotta", 64, ICLASS_BLOCK_ITEM, 485, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "yellow_terracotta", 64, ICLASS_BLOCK_ITEM, 486, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "lime_terracotta", 64, ICLASS_BLOCK_ITEM, 487, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "pink_terracotta", 64, ICLASS_BLOCK_ITEM, 488, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "gray_terracotta", 64, ICLASS_BLOCK_ITEM, 489, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_gray_terracotta", 64, ICLASS_BLOCK_ITEM, 490, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cyan_terracotta", 64, ICLASS_BLOCK_ITEM, 491, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "purple_terracotta", 64, ICLASS_BLOCK_ITEM, 492, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "blue_terracotta", 64, ICLASS_BLOCK_ITEM, 493, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "brown_terracotta", 64, ICLASS_BLOCK_ITEM, 494, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "green_terracotta", 64, ICLASS_BLOCK_ITEM, 495, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "red_terracotta", 64, ICLASS_BLOCK_ITEM, 496, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "black_terracotta", 64, ICLASS_BLOCK_ITEM, 497, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "barrier", 64, ICLASS_BLOCK_ITEM, 522, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light", 64, ICLASS_BLOCK_ITEM, 523, false, 0, -1, 0, -1.0f, 6, 0, ITEM_COMPONENT_BLOCK_STATE, 0 },
-    { "hay_block", 64, ICLASS_BLOCK_ITEM, 535, false, 0, -1, 0, 0.85f, 6, 0, 0, 0 },
-    { "white_carpet", 64, ICLASS_BLOCK_ITEM, 536, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "orange_carpet", 64, ICLASS_BLOCK_ITEM, 537, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "magenta_carpet", 64, ICLASS_BLOCK_ITEM, 538, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_blue_carpet", 64, ICLASS_BLOCK_ITEM, 539, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "yellow_carpet", 64, ICLASS_BLOCK_ITEM, 540, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "lime_carpet", 64, ICLASS_BLOCK_ITEM, 541, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "pink_carpet", 64, ICLASS_BLOCK_ITEM, 542, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "gray_carpet", 64, ICLASS_BLOCK_ITEM, 543, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_gray_carpet", 64, ICLASS_BLOCK_ITEM, 544, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cyan_carpet", 64, ICLASS_BLOCK_ITEM, 545, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "purple_carpet", 64, ICLASS_BLOCK_ITEM, 546, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "blue_carpet", 64, ICLASS_BLOCK_ITEM, 547, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "brown_carpet", 64, ICLASS_BLOCK_ITEM, 548, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "green_carpet", 64, ICLASS_BLOCK_ITEM, 549, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "red_carpet", 64, ICLASS_BLOCK_ITEM, 550, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "black_carpet", 64, ICLASS_BLOCK_ITEM, 551, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "terracotta", 64, ICLASS_BLOCK_ITEM, 552, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "packed_ice", 64, ICLASS_BLOCK_ITEM, 554, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dirt_path", 64, ICLASS_BLOCK_ITEM, 664, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "sunflower", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 555, false, 0, -1, 0, 0.65f, 6, 0, 0, 0 },
-    { "lilac", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 556, false, 0, -1, 0, 0.65f, 6, 0, 0, 0 },
-    { "rose_bush", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 557, false, 0, -1, 0, 0.65f, 6, 0, 0, 0 },
-    { "peony", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 558, false, 0, -1, 0, 0.65f, 6, 0, 0, 0 },
-    { "tall_grass", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 559, false, 0, -1, 0, 0.5f, 6, 0, 0, 0 },
-    { "large_fern", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 560, false, 0, -1, 0, 0.65f, 6, 0, 0, 0 },
-    { "white_stained_glass", 64, ICLASS_BLOCK_ITEM, 299, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "orange_stained_glass", 64, ICLASS_BLOCK_ITEM, 300, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "magenta_stained_glass", 64, ICLASS_BLOCK_ITEM, 301, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_blue_stained_glass", 64, ICLASS_BLOCK_ITEM, 302, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "yellow_stained_glass", 64, ICLASS_BLOCK_ITEM, 303, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "lime_stained_glass", 64, ICLASS_BLOCK_ITEM, 304, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "pink_stained_glass", 64, ICLASS_BLOCK_ITEM, 305, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "gray_stained_glass", 64, ICLASS_BLOCK_ITEM, 306, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_gray_stained_glass", 64, ICLASS_BLOCK_ITEM, 307, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cyan_stained_glass", 64, ICLASS_BLOCK_ITEM, 308, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "purple_stained_glass", 64, ICLASS_BLOCK_ITEM, 309, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "blue_stained_glass", 64, ICLASS_BLOCK_ITEM, 310, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "brown_stained_glass", 64, ICLASS_BLOCK_ITEM, 311, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "green_stained_glass", 64, ICLASS_BLOCK_ITEM, 312, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "red_stained_glass", 64, ICLASS_BLOCK_ITEM, 313, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "black_stained_glass", 64, ICLASS_BLOCK_ITEM, 314, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "white_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 498, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "orange_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 499, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "magenta_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 500, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_blue_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 501, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "yellow_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 502, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "lime_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 503, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "pink_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 504, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "gray_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 505, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_gray_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 506, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cyan_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 507, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "purple_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 508, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "blue_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 509, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "brown_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 510, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "green_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 511, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "red_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 512, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "black_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 513, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "prismarine", 64, ICLASS_BLOCK_ITEM, 525, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "prismarine_bricks", 64, ICLASS_BLOCK_ITEM, 526, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dark_prismarine", 64, ICLASS_BLOCK_ITEM, 527, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "prismarine_stairs", 64, ICLASS_BLOCK_ITEM, 528, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "prismarine_brick_stairs", 64, ICLASS_BLOCK_ITEM, 529, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dark_prismarine_stairs", 64, ICLASS_BLOCK_ITEM, 530, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "sea_lantern", 64, ICLASS_BLOCK_ITEM, 534, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "red_sandstone", 64, ICLASS_BLOCK_ITEM, 593, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "chiseled_red_sandstone", 64, ICLASS_BLOCK_ITEM, 594, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cut_red_sandstone", 64, ICLASS_BLOCK_ITEM, 595, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "red_sandstone_stairs", 64, ICLASS_BLOCK_ITEM, 596, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "repeating_command_block", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 666, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "chain_command_block", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 667, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "magma_block", 64, ICLASS_BLOCK_ITEM, 669, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "nether_wart_block", 64, ICLASS_BLOCK_ITEM, 670, false, 0, -1, 0, 0.85f, 6, 0, 0, 0 },
-    { "warped_wart_block", 64, ICLASS_BLOCK_ITEM, 866, false, 0, -1, 0, 0.85f, 6, 0, 0, 0 },
-    { "red_nether_bricks", 64, ICLASS_BLOCK_ITEM, 671, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "bone_block", 64, ICLASS_BLOCK_ITEM, 672, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "structure_void", 64, ICLASS_BLOCK_ITEM, 673, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "shulker_box", 1, ICLASS_BLOCK_ITEM, 675, true, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "white_shulker_box", 1, ICLASS_BLOCK_ITEM, 676, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "orange_shulker_box", 1, ICLASS_BLOCK_ITEM, 677, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "magenta_shulker_box", 1, ICLASS_BLOCK_ITEM, 678, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "light_blue_shulker_box", 1, ICLASS_BLOCK_ITEM, 679, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "yellow_shulker_box", 1, ICLASS_BLOCK_ITEM, 680, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "lime_shulker_box", 1, ICLASS_BLOCK_ITEM, 681, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "pink_shulker_box", 1, ICLASS_BLOCK_ITEM, 682, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "gray_shulker_box", 1, ICLASS_BLOCK_ITEM, 683, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "light_gray_shulker_box", 1, ICLASS_BLOCK_ITEM, 684, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "cyan_shulker_box", 1, ICLASS_BLOCK_ITEM, 685, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "purple_shulker_box", 1, ICLASS_BLOCK_ITEM, 686, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "blue_shulker_box", 1, ICLASS_BLOCK_ITEM, 687, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "brown_shulker_box", 1, ICLASS_BLOCK_ITEM, 688, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "green_shulker_box", 1, ICLASS_BLOCK_ITEM, 689, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "red_shulker_box", 1, ICLASS_BLOCK_ITEM, 690, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "black_shulker_box", 1, ICLASS_BLOCK_ITEM, 691, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "white_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 692, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "orange_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 693, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "magenta_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 694, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_blue_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 695, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "yellow_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 696, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "lime_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 697, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "pink_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 698, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "gray_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 699, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_gray_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 700, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cyan_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 701, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "purple_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 702, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "blue_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 703, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "brown_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 704, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "green_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 705, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "red_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 706, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "black_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 707, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "white_concrete", 64, ICLASS_BLOCK_ITEM, 708, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "orange_concrete", 64, ICLASS_BLOCK_ITEM, 709, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "magenta_concrete", 64, ICLASS_BLOCK_ITEM, 710, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_blue_concrete", 64, ICLASS_BLOCK_ITEM, 711, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "yellow_concrete", 64, ICLASS_BLOCK_ITEM, 712, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "lime_concrete", 64, ICLASS_BLOCK_ITEM, 713, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "pink_concrete", 64, ICLASS_BLOCK_ITEM, 714, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "gray_concrete", 64, ICLASS_BLOCK_ITEM, 715, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_gray_concrete", 64, ICLASS_BLOCK_ITEM, 716, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cyan_concrete", 64, ICLASS_BLOCK_ITEM, 717, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "purple_concrete", 64, ICLASS_BLOCK_ITEM, 718, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "blue_concrete", 64, ICLASS_BLOCK_ITEM, 719, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "brown_concrete", 64, ICLASS_BLOCK_ITEM, 720, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "green_concrete", 64, ICLASS_BLOCK_ITEM, 721, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "red_concrete", 64, ICLASS_BLOCK_ITEM, 722, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "black_concrete", 64, ICLASS_BLOCK_ITEM, 723, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "white_concrete_powder", 64, ICLASS_BLOCK_ITEM, 724, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "orange_concrete_powder", 64, ICLASS_BLOCK_ITEM, 725, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "magenta_concrete_powder", 64, ICLASS_BLOCK_ITEM, 726, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_blue_concrete_powder", 64, ICLASS_BLOCK_ITEM, 727, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "yellow_concrete_powder", 64, ICLASS_BLOCK_ITEM, 728, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "lime_concrete_powder", 64, ICLASS_BLOCK_ITEM, 729, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "pink_concrete_powder", 64, ICLASS_BLOCK_ITEM, 730, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "gray_concrete_powder", 64, ICLASS_BLOCK_ITEM, 731, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "light_gray_concrete_powder", 64, ICLASS_BLOCK_ITEM, 732, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "cyan_concrete_powder", 64, ICLASS_BLOCK_ITEM, 733, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "purple_concrete_powder", 64, ICLASS_BLOCK_ITEM, 734, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "blue_concrete_powder", 64, ICLASS_BLOCK_ITEM, 735, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "brown_concrete_powder", 64, ICLASS_BLOCK_ITEM, 736, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "green_concrete_powder", 64, ICLASS_BLOCK_ITEM, 737, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "red_concrete_powder", 64, ICLASS_BLOCK_ITEM, 738, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "black_concrete_powder", 64, ICLASS_BLOCK_ITEM, 739, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "turtle_egg", 64, ICLASS_BLOCK_ITEM, 743, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "sniffer_egg", 64, ICLASS_BLOCK_ITEM, 744, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dried_ghast", 64, ICLASS_BLOCK_ITEM, 745, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dead_tube_coral_block", 64, ICLASS_BLOCK_ITEM, 746, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dead_brain_coral_block", 64, ICLASS_BLOCK_ITEM, 747, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dead_bubble_coral_block", 64, ICLASS_BLOCK_ITEM, 748, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dead_fire_coral_block", 64, ICLASS_BLOCK_ITEM, 749, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dead_horn_coral_block", 64, ICLASS_BLOCK_ITEM, 750, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "tube_coral_block", 64, ICLASS_BLOCK_ITEM, 751, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "brain_coral_block", 64, ICLASS_BLOCK_ITEM, 752, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "bubble_coral_block", 64, ICLASS_BLOCK_ITEM, 753, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "fire_coral_block", 64, ICLASS_BLOCK_ITEM, 754, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "horn_coral_block", 64, ICLASS_BLOCK_ITEM, 755, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "tube_coral", 64, ICLASS_BLOCK_ITEM, 761, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "brain_coral", 64, ICLASS_BLOCK_ITEM, 762, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "bubble_coral", 64, ICLASS_BLOCK_ITEM, 763, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "fire_coral", 64, ICLASS_BLOCK_ITEM, 764, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "horn_coral", 64, ICLASS_BLOCK_ITEM, 765, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dead_brain_coral", 64, ICLASS_BLOCK_ITEM, 757, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dead_bubble_coral", 64, ICLASS_BLOCK_ITEM, 758, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dead_fire_coral", 64, ICLASS_BLOCK_ITEM, 759, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dead_horn_coral", 64, ICLASS_BLOCK_ITEM, 760, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "dead_tube_coral", 64, ICLASS_BLOCK_ITEM, 756, false, 0, -1, 0, -1.0f, 6, 0, 0, 0 },
-    { "tube_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 771, false, 0, -1, 0, -1.0f, 6, 2, 0, 0 },
-    { "brain_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 772, false, 0, -1, 0, -1.0f, 8, 2, 0, 0 },
-    { "bubble_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 773, false, 0, -1, 0, -1.0f, 10, 2, 0, 0 },
-    { "fire_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 774, false, 0, -1, 0, -1.0f, 12, 2, 0, 0 },
-    { "horn_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 775, false, 0, -1, 0, -1.0f, 14, 2, 0, 0 },
-    { "dead_tube_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 766, false, 0, -1, 0, -1.0f, 16, 2, 0, 0 },
-    { "dead_brain_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 767, false, 0, -1, 0, -1.0f, 18, 2, 0, 0 },
-    { "dead_bubble_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 768, false, 0, -1, 0, -1.0f, 20, 2, 0, 0 },
-    { "dead_fire_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 769, false, 0, -1, 0, -1.0f, 22, 2, 0, 0 },
-    { "dead_horn_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 770, false, 0, -1, 0, -1.0f, 24, 2, 0, 0 },
-    { "blue_ice", 64, ICLASS_BLOCK_ITEM, 787, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "conduit", 64, ICLASS_BLOCK_ITEM, 788, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "polished_granite_stairs", 64, ICLASS_BLOCK_ITEM, 795, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "smooth_red_sandstone_stairs", 64, ICLASS_BLOCK_ITEM, 796, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "mossy_stone_brick_stairs", 64, ICLASS_BLOCK_ITEM, 797, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "polished_diorite_stairs", 64, ICLASS_BLOCK_ITEM, 798, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "mossy_cobblestone_stairs", 64, ICLASS_BLOCK_ITEM, 799, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "end_stone_brick_stairs", 64, ICLASS_BLOCK_ITEM, 800, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "stone_stairs", 64, ICLASS_BLOCK_ITEM, 801, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "smooth_sandstone_stairs", 64, ICLASS_BLOCK_ITEM, 802, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "smooth_quartz_stairs", 64, ICLASS_BLOCK_ITEM, 803, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "granite_stairs", 64, ICLASS_BLOCK_ITEM, 804, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "andesite_stairs", 64, ICLASS_BLOCK_ITEM, 805, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "red_nether_brick_stairs", 64, ICLASS_BLOCK_ITEM, 806, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "polished_andesite_stairs", 64, ICLASS_BLOCK_ITEM, 807, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "diorite_stairs", 64, ICLASS_BLOCK_ITEM, 808, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "cobbled_deepslate_stairs", 64, ICLASS_BLOCK_ITEM, 1123, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "polished_deepslate_stairs", 64, ICLASS_BLOCK_ITEM, 1127, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "deepslate_brick_stairs", 64, ICLASS_BLOCK_ITEM, 1135, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "deepslate_tile_stairs", 64, ICLASS_BLOCK_ITEM, 1131, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "polished_granite_slab", 64, ICLASS_BLOCK_ITEM, 809, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "smooth_red_sandstone_slab", 64, ICLASS_BLOCK_ITEM, 810, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "mossy_stone_brick_slab", 64, ICLASS_BLOCK_ITEM, 811, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "polished_diorite_slab", 64, ICLASS_BLOCK_ITEM, 812, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "mossy_cobblestone_slab", 64, ICLASS_BLOCK_ITEM, 813, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "end_stone_brick_slab", 64, ICLASS_BLOCK_ITEM, 814, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "smooth_sandstone_slab", 64, ICLASS_BLOCK_ITEM, 815, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "smooth_quartz_slab", 64, ICLASS_BLOCK_ITEM, 816, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "granite_slab", 64, ICLASS_BLOCK_ITEM, 817, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "andesite_slab", 64, ICLASS_BLOCK_ITEM, 818, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "red_nether_brick_slab", 64, ICLASS_BLOCK_ITEM, 819, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "polished_andesite_slab", 64, ICLASS_BLOCK_ITEM, 820, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "diorite_slab", 64, ICLASS_BLOCK_ITEM, 821, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "cobbled_deepslate_slab", 64, ICLASS_BLOCK_ITEM, 1124, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "polished_deepslate_slab", 64, ICLASS_BLOCK_ITEM, 1128, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "deepslate_brick_slab", 64, ICLASS_BLOCK_ITEM, 1136, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "deepslate_tile_slab", 64, ICLASS_BLOCK_ITEM, 1132, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "scaffolding", 64, ICLASS_SCAFFOLDING_BLOCK_ITEM, 835, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "redstone", 64, ICLASS_BLOCK_ITEM, 201, false, 0, -1, 0, -1.0f, 26, 0, 0, 0 },
-    { "redstone_torch", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 272, false, 0, -1, 0, -1.0f, 26, 2, 0, 0 },
-    { "redstone_block", 64, ICLASS_BLOCK_ITEM, 473, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "repeater", 64, ICLASS_BLOCK_ITEM, 298, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "comparator", 64, ICLASS_BLOCK_ITEM, 471, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "piston", 64, ICLASS_BLOCK_ITEM, 138, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "sticky_piston", 64, ICLASS_BLOCK_ITEM, 128, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "slime_block", 64, ICLASS_BLOCK_ITEM, 521, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "honey_block", 64, ICLASS_BLOCK_ITEM, 911, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "observer", 64, ICLASS_BLOCK_ITEM, 674, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "hopper", 64, ICLASS_BLOCK_ITEM, 475, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "dispenser", 64, ICLASS_BLOCK_ITEM, 105, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "dropper", 64, ICLASS_BLOCK_ITEM, 481, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "lectern", 64, ICLASS_BLOCK_ITEM, 843, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "target", 64, ICLASS_BLOCK_ITEM, 908, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "lever", 64, ICLASS_BLOCK_ITEM, 257, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "lightning_rod", 64, ICLASS_BLOCK_ITEM, 1095, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "exposed_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1096, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "weathered_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1097, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "oxidized_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1098, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "waxed_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1099, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "waxed_exposed_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1100, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "waxed_weathered_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1101, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "waxed_oxidized_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1102, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "daylight_detector", 64, ICLASS_BLOCK_ITEM, 472, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "sculk_sensor", 64, ICLASS_BLOCK_ITEM, 999, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "calibrated_sculk_sensor", 64, ICLASS_BLOCK_ITEM, 1000, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "tripwire_hook", 64, ICLASS_BLOCK_ITEM, 400, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "trapped_chest", 64, ICLASS_BLOCK_ITEM, 468, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "tnt", 64, ICLASS_BLOCK_ITEM, 176, true, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "redstone_lamp", 64, ICLASS_BLOCK_ITEM, 394, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "note_block", 64, ICLASS_BLOCK_ITEM, 109, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "stone_button", 64, ICLASS_BLOCK_ITEM, 274, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "polished_blackstone_button", 64, ICLASS_BLOCK_ITEM, 937, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "oak_button", 64, ICLASS_BLOCK_ITEM, 441, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "spruce_button", 64, ICLASS_BLOCK_ITEM, 442, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "birch_button", 64, ICLASS_BLOCK_ITEM, 443, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "jungle_button", 64, ICLASS_BLOCK_ITEM, 444, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "acacia_button", 64, ICLASS_BLOCK_ITEM, 445, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "cherry_button", 64, ICLASS_BLOCK_ITEM, 446, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "dark_oak_button", 64, ICLASS_BLOCK_ITEM, 447, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "pale_oak_button", 64, ICLASS_BLOCK_ITEM, 448, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "mangrove_button", 64, ICLASS_BLOCK_ITEM, 449, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "bamboo_button", 64, ICLASS_BLOCK_ITEM, 450, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "crimson_button", 64, ICLASS_BLOCK_ITEM, 895, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "warped_button", 64, ICLASS_BLOCK_ITEM, 896, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "stone_pressure_plate", 64, ICLASS_BLOCK_ITEM, 258, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "polished_blackstone_pressure_plate", 64, ICLASS_BLOCK_ITEM, 936, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "light_weighted_pressure_plate", 64, ICLASS_BLOCK_ITEM, 469, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "heavy_weighted_pressure_plate", 64, ICLASS_BLOCK_ITEM, 470, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "oak_pressure_plate", 64, ICLASS_BLOCK_ITEM, 260, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "spruce_pressure_plate", 64, ICLASS_BLOCK_ITEM, 261, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "birch_pressure_plate", 64, ICLASS_BLOCK_ITEM, 262, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "jungle_pressure_plate", 64, ICLASS_BLOCK_ITEM, 263, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "acacia_pressure_plate", 64, ICLASS_BLOCK_ITEM, 264, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "cherry_pressure_plate", 64, ICLASS_BLOCK_ITEM, 265, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "dark_oak_pressure_plate", 64, ICLASS_BLOCK_ITEM, 266, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "pale_oak_pressure_plate", 64, ICLASS_BLOCK_ITEM, 267, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "mangrove_pressure_plate", 64, ICLASS_BLOCK_ITEM, 268, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "bamboo_pressure_plate", 64, ICLASS_BLOCK_ITEM, 269, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "crimson_pressure_plate", 64, ICLASS_BLOCK_ITEM, 885, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "warped_pressure_plate", 64, ICLASS_BLOCK_ITEM, 886, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "iron_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 259, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "oak_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 219, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "spruce_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 644, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "birch_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 645, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "jungle_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 646, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "acacia_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 647, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "cherry_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 648, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "dark_oak_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 649, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "pale_oak_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 650, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "mangrove_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 651, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "bamboo_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 652, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "crimson_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 897, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "warped_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 898, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1047, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "exposed_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1048, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "weathered_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1050, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "oxidized_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1049, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "waxed_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1051, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "waxed_exposed_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1052, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "waxed_weathered_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1054, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "waxed_oxidized_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1053, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "iron_trapdoor", 64, ICLASS_BLOCK_ITEM, 524, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "oak_trapdoor", 64, ICLASS_BLOCK_ITEM, 315, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "spruce_trapdoor", 64, ICLASS_BLOCK_ITEM, 316, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "birch_trapdoor", 64, ICLASS_BLOCK_ITEM, 317, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "jungle_trapdoor", 64, ICLASS_BLOCK_ITEM, 318, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "acacia_trapdoor", 64, ICLASS_BLOCK_ITEM, 319, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "cherry_trapdoor", 64, ICLASS_BLOCK_ITEM, 320, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "dark_oak_trapdoor", 64, ICLASS_BLOCK_ITEM, 321, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "pale_oak_trapdoor", 64, ICLASS_BLOCK_ITEM, 322, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "mangrove_trapdoor", 64, ICLASS_BLOCK_ITEM, 323, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "bamboo_trapdoor", 64, ICLASS_BLOCK_ITEM, 324, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "crimson_trapdoor", 64, ICLASS_BLOCK_ITEM, 889, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "warped_trapdoor", 64, ICLASS_BLOCK_ITEM, 890, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1055, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "exposed_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1056, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "weathered_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1058, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "oxidized_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1057, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "waxed_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1059, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "waxed_exposed_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1060, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "waxed_weathered_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1062, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "waxed_oxidized_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1061, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "oak_fence_gate", 64, ICLASS_BLOCK_ITEM, 368, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "spruce_fence_gate", 64, ICLASS_BLOCK_ITEM, 626, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "birch_fence_gate", 64, ICLASS_BLOCK_ITEM, 627, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "jungle_fence_gate", 64, ICLASS_BLOCK_ITEM, 628, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "acacia_fence_gate", 64, ICLASS_BLOCK_ITEM, 629, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "cherry_fence_gate", 64, ICLASS_BLOCK_ITEM, 630, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "dark_oak_fence_gate", 64, ICLASS_BLOCK_ITEM, 631, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "pale_oak_fence_gate", 64, ICLASS_BLOCK_ITEM, 632, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "mangrove_fence_gate", 64, ICLASS_BLOCK_ITEM, 633, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "bamboo_fence_gate", 64, ICLASS_BLOCK_ITEM, 634, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "crimson_fence_gate", 64, ICLASS_BLOCK_ITEM, 891, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "warped_fence_gate", 64, ICLASS_BLOCK_ITEM, 892, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "powered_rail", 64, ICLASS_BLOCK_ITEM, 126, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "detector_rail", 64, ICLASS_BLOCK_ITEM, 127, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "rail", 64, ICLASS_BLOCK_ITEM, 221, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "activator_rail", 64, ICLASS_BLOCK_ITEM, 480, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "saddle", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "white_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "orange_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "magenta_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "light_blue_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "yellow_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "lime_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "pink_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "gray_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "light_gray_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "cyan_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "purple_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "blue_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "brown_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "green_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "red_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "black_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "minecart", 1, ICLASS_MINECART_ITEM, -1, true, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "chest_minecart", 1, ICLASS_MINECART_ITEM, -1, true, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "furnace_minecart", 1, ICLASS_MINECART_ITEM, -1, true, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "tnt_minecart", 1, ICLASS_MINECART_ITEM, -1, true, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "hopper_minecart", 1, ICLASS_MINECART_ITEM, -1, true, 0, -1, 0, -1.0f, 28, 0, 0, 0 },
-    { "carrot_on_a_stick", 1, ICLASS_FOOD_ON_ASTICK_ITEM, -1, false, 0, -1, 0, -1.0f, 28, 1, 0, 0 },
-    { "warped_fungus_on_a_stick", 1, ICLASS_FOOD_ON_ASTICK_ITEM, -1, false, 0, -1, 0, -1.0f, 29, 1, 0, 0 },
-    { "phantom_membrane", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "elytra", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "oak_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "oak_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "spruce_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "spruce_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "birch_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "birch_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "jungle_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "jungle_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "acacia_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "acacia_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "cherry_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "cherry_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "dark_oak_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "dark_oak_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "pale_oak_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "pale_oak_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "mangrove_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "mangrove_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "bamboo_raft", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "bamboo_chest_raft", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "structure_block", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 903, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "jigsaw", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 904, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "test_block", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 905, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_BLOCK_STATE, 0 },
-    { "test_instance_block", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 906, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "turtle_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "turtle_scute", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "armadillo_scute", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "wolf_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "flint_and_steel", 1, ICLASS_FLINT_AND_STEEL_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "bowl", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "apple", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.65f, 30, 0, 0, 0 },
-    { "bow", 1, ICLASS_BOW_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "arrow", 64, ICLASS_ARROW_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "coal", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "charcoal", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "diamond", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "emerald", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "lapis_lazuli", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "quartz", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "amethyst_shard", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "raw_iron", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "iron_ingot", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "raw_copper", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "copper_ingot", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "raw_gold", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "gold_ingot", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "netherite_ingot", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "netherite_scrap", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "wooden_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "wooden_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "wooden_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "wooden_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "wooden_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "copper_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "copper_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "copper_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "copper_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "copper_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "stone_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "stone_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "stone_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "stone_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "stone_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "golden_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "golden_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "golden_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "golden_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "golden_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "iron_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "iron_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "iron_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "iron_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "iron_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "diamond_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "diamond_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "diamond_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "diamond_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "diamond_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "netherite_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "netherite_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "netherite_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "netherite_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "netherite_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "stick", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "mushroom_stew", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "string", 64, ICLASS_BLOCK_ITEM, 401, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "feather", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "gunpowder", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "wheat_seeds", 64, ICLASS_BLOCK_ITEM, 206, false, 0, -1, 0, 0.3f, 30, 0, 0, 0 },
-    { "wheat", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.65f, 30, 0, 0, 0 },
-    { "bread", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.85f, 30, 0, 0, 0 },
-    { "leather_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "leather_chestplate", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "leather_leggings", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "leather_boots", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "copper_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "copper_chestplate", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "copper_leggings", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "copper_boots", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "chainmail_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "chainmail_chestplate", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "chainmail_leggings", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "chainmail_boots", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "iron_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "iron_chestplate", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "iron_leggings", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "iron_boots", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "diamond_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "diamond_chestplate", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "diamond_leggings", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "diamond_boots", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "golden_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "golden_chestplate", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "golden_leggings", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "golden_boots", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "netherite_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "netherite_chestplate", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "netherite_leggings", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "netherite_boots", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "flint", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "porkchop", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "cooked_porkchop", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "painting", 64, ICLASS_HANGING_ENTITY_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "golden_apple", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "enchanted_golden_apple", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0 },
-    { "oak_sign", 16, ICLASS_SIGN_ITEM, 209, false, 0, -1, 0, -1.0f, 30, 2, 0, 0 },
-    { "spruce_sign", 16, ICLASS_SIGN_ITEM, 210, false, 0, -1, 0, -1.0f, 32, 2, 0, 0 },
-    { "birch_sign", 16, ICLASS_SIGN_ITEM, 211, false, 0, -1, 0, -1.0f, 34, 2, 0, 0 },
-    { "jungle_sign", 16, ICLASS_SIGN_ITEM, 214, false, 0, -1, 0, -1.0f, 36, 2, 0, 0 },
-    { "acacia_sign", 16, ICLASS_SIGN_ITEM, 212, false, 0, -1, 0, -1.0f, 38, 2, 0, 0 },
-    { "cherry_sign", 16, ICLASS_SIGN_ITEM, 213, false, 0, -1, 0, -1.0f, 40, 2, 0, 0 },
-    { "dark_oak_sign", 16, ICLASS_SIGN_ITEM, 215, false, 0, -1, 0, -1.0f, 42, 2, 0, 0 },
-    { "pale_oak_sign", 16, ICLASS_SIGN_ITEM, 216, false, 0, -1, 0, -1.0f, 44, 2, 0, 0 },
-    { "mangrove_sign", 16, ICLASS_SIGN_ITEM, 217, false, 0, -1, 0, -1.0f, 46, 2, 0, 0 },
-    { "bamboo_sign", 16, ICLASS_SIGN_ITEM, 218, false, 0, -1, 0, -1.0f, 48, 2, 0, 0 },
-    { "crimson_sign", 16, ICLASS_SIGN_ITEM, 899, false, 0, -1, 0, -1.0f, 50, 2, 0, 0 },
-    { "warped_sign", 16, ICLASS_SIGN_ITEM, 900, false, 0, -1, 0, -1.0f, 52, 2, 0, 0 },
-    { "oak_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 233, false, 0, -1, 0, -1.0f, 54, 2, 0, 0 },
-    { "spruce_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 234, false, 0, -1, 0, -1.0f, 56, 2, 0, 0 },
-    { "birch_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 235, false, 0, -1, 0, -1.0f, 58, 2, 0, 0 },
-    { "jungle_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 238, false, 0, -1, 0, -1.0f, 60, 2, 0, 0 },
-    { "acacia_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 236, false, 0, -1, 0, -1.0f, 62, 2, 0, 0 },
-    { "cherry_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 237, false, 0, -1, 0, -1.0f, 64, 2, 0, 0 },
-    { "dark_oak_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 239, false, 0, -1, 0, -1.0f, 66, 2, 0, 0 },
-    { "pale_oak_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 240, false, 0, -1, 0, -1.0f, 68, 2, 0, 0 },
-    { "mangrove_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 243, false, 0, -1, 0, -1.0f, 70, 2, 0, 0 },
-    { "bamboo_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 244, false, 0, -1, 0, -1.0f, 72, 2, 0, 0 },
-    { "crimson_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 241, false, 0, -1, 0, -1.0f, 74, 2, 0, 0 },
-    { "warped_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 242, false, 0, -1, 0, -1.0f, 76, 2, 0, 0 },
-    { "bucket", 16, ICLASS_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 1u << CAULDRON_MAP_WATER | 1u << CAULDRON_MAP_LAVA | 1u << CAULDRON_MAP_POWDER_SNOW },
-    { "water_bucket", 1, ICLASS_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 1u << CAULDRON_MAP_EMPTY | 1u << CAULDRON_MAP_WATER | 1u << CAULDRON_MAP_LAVA | 1u << CAULDRON_MAP_POWDER_SNOW },
-    { "lava_bucket", 1, ICLASS_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 1u << CAULDRON_MAP_EMPTY | 1u << CAULDRON_MAP_WATER | 1u << CAULDRON_MAP_LAVA | 1u << CAULDRON_MAP_POWDER_SNOW },
-    { "powder_snow_bucket", 1, ICLASS_SOLID_BUCKET_ITEM, 998, true, 0, -1, 0, -1.0f, 78, 0, 0, 1u << CAULDRON_MAP_EMPTY | 1u << CAULDRON_MAP_WATER | 1u << CAULDRON_MAP_LAVA | 1u << CAULDRON_MAP_POWDER_SNOW },
-    { "snowball", 16, ICLASS_SNOWBALL_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "leather", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "milk_bucket", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "pufferfish_bucket", 1, ICLASS_MOB_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "salmon_bucket", 1, ICLASS_MOB_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cod_bucket", 1, ICLASS_MOB_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "tropical_fish_bucket", 1, ICLASS_MOB_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "axolotl_bucket", 1, ICLASS_MOB_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "tadpole_bucket", 1, ICLASS_MOB_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "brick", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "clay_ball", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "dried_kelp_block", 64, ICLASS_BLOCK_ITEM, 742, false, 0, -1, 0, 0.5f, 78, 0, 0, 0 },
-    { "paper", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "book", 64, ICLASS_NONE, -1, false, ITEM_TAG_BOOKSHELF_BOOKS, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "slime_ball", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "egg", 16, ICLASS_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "blue_egg", 16, ICLASS_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "brown_egg", 16, ICLASS_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "compass", 64, ICLASS_COMPASS_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "recovery_compass", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "white_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "orange_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "magenta_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "light_blue_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "yellow_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "lime_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "pink_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "gray_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "light_gray_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cyan_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "purple_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "blue_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "brown_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "green_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "red_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "black_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "fishing_rod", 1, ICLASS_FISHING_ROD_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "clock", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "spyglass", 1, ICLASS_SPYGLASS_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "glowstone_dust", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cod", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "salmon", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "tropical_fish", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "pufferfish", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cooked_cod", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cooked_salmon", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "ink_sac", 64, ICLASS_INK_SAC_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "glow_ink_sac", 64, ICLASS_GLOW_INK_SAC_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cocoa_beans", 64, ICLASS_BLOCK_ITEM, 395, false, 0, -1, 0, 0.65f, 78, 0, 0, 0 },
-    { "white_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "orange_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "magenta_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "light_blue_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "yellow_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "lime_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "pink_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "gray_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "light_gray_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cyan_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "purple_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "blue_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "brown_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "green_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "red_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "black_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "bone_meal", 64, ICLASS_BONE_MEAL_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "bone", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "sugar", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cake", 1, ICLASS_BLOCK_ITEM, 297, false, 0, -1, 0, 1.0f, 78, 0, 0, 0 },
-    { "white_bed", 1, ICLASS_BED_ITEM, 110, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "orange_bed", 1, ICLASS_BED_ITEM, 111, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "magenta_bed", 1, ICLASS_BED_ITEM, 112, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "light_blue_bed", 1, ICLASS_BED_ITEM, 113, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "yellow_bed", 1, ICLASS_BED_ITEM, 114, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "lime_bed", 1, ICLASS_BED_ITEM, 115, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "pink_bed", 1, ICLASS_BED_ITEM, 116, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "gray_bed", 1, ICLASS_BED_ITEM, 117, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "light_gray_bed", 1, ICLASS_BED_ITEM, 118, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cyan_bed", 1, ICLASS_BED_ITEM, 119, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "purple_bed", 1, ICLASS_BED_ITEM, 120, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "blue_bed", 1, ICLASS_BED_ITEM, 121, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "brown_bed", 1, ICLASS_BED_ITEM, 122, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "green_bed", 1, ICLASS_BED_ITEM, 123, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "red_bed", 1, ICLASS_BED_ITEM, 124, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "black_bed", 1, ICLASS_BED_ITEM, 125, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cookie", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.85f, 78, 0, 0, 0 },
-    { "crafter", 64, ICLASS_BLOCK_ITEM, 1154, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "filled_map", 64, ICLASS_MAP_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "shears", 1, ICLASS_SHEARS_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "melon_slice", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.5f, 78, 0, 0, 0 },
-    { "dried_kelp", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.3f, 78, 0, 0, 0 },
-    { "pumpkin_seeds", 64, ICLASS_BLOCK_ITEM, 363, false, 0, -1, 0, 0.3f, 78, 0, 0, 0 },
-    { "melon_seeds", 64, ICLASS_BLOCK_ITEM, 364, false, 0, -1, 0, 0.3f, 78, 0, 0, 0 },
-    { "beef", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cooked_beef", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "chicken", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cooked_chicken", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "rotten_flesh", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "ender_pearl", 16, ICLASS_ENDERPEARL_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "blaze_rod", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "ghast_tear", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "gold_nugget", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "nether_wart", 64, ICLASS_BLOCK_ITEM, 383, false, 0, -1, 0, 0.65f, 78, 0, 0, 0 },
-    { "glass_bottle", 64, ICLASS_BOTTLE_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "potion", 1, ICLASS_POTION_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 1u << CAULDRON_MAP_EMPTY | 1u << CAULDRON_MAP_WATER },
-    { "spider_eye", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "fermented_spider_eye", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "blaze_powder", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "magma_cream", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "brewing_stand", 64, ICLASS_BLOCK_ITEM, 385, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cauldron", 64, ICLASS_BLOCK_ITEM, 386, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "ender_eye", 64, ICLASS_ENDER_EYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "glistering_melon_slice", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "chicken_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cow_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "pig_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "sheep_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "camel_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "donkey_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "horse_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "mule_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cat_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "parrot_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "wolf_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "armadillo_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "bat_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "bee_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "fox_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "goat_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "llama_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "ocelot_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "panda_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "polar_bear_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "rabbit_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "axolotl_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cod_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "dolphin_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "frog_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "glow_squid_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "nautilus_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "pufferfish_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "salmon_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "squid_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "tadpole_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "tropical_fish_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "turtle_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "allay_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "mooshroom_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "sniffer_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "copper_golem_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "iron_golem_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "snow_golem_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "trader_llama_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "villager_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "wandering_trader_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "bogged_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "camel_husk_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "drowned_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "husk_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "parched_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "skeleton_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "skeleton_horse_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "stray_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "wither_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "wither_skeleton_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "zombie_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "zombie_horse_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "zombie_nautilus_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "zombie_villager_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "cave_spider_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "spider_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "breeze_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "creaking_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "creeper_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "elder_guardian_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "guardian_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "phantom_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "silverfish_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "slime_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "warden_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "witch_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "evoker_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "pillager_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "ravager_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "vindicator_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "vex_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "blaze_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "ghast_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "happy_ghast_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "hoglin_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "magma_cube_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "piglin_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "piglin_brute_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "strider_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "zoglin_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "zombified_piglin_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "ender_dragon_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "enderman_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "endermite_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "shulker_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "experience_bottle", 64, ICLASS_EXPERIENCE_BOTTLE_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "fire_charge", 64, ICLASS_FIRE_CHARGE_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "wind_charge", 64, ICLASS_WIND_CHARGE_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "writable_book", 1, ICLASS_WRITABLE_BOOK_ITEM, -1, false, ITEM_TAG_LECTERN_BOOKS | ITEM_TAG_BOOKSHELF_BOOKS, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "written_book", 16, ICLASS_WRITTEN_BOOK_ITEM, -1, false, ITEM_TAG_LECTERN_BOOKS | ITEM_TAG_BOOKSHELF_BOOKS, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "breeze_rod", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "mace", 1, ICLASS_MACE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "item_frame", 64, ICLASS_ITEM_FRAME_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "glow_item_frame", 64, ICLASS_ITEM_FRAME_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "flower_pot", 64, ICLASS_BLOCK_ITEM, 410, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "carrot", 64, ICLASS_BLOCK_ITEM, 439, false, 0, -1, 0, 0.65f, 78, 0, 0, 0 },
-    { "potato", 64, ICLASS_BLOCK_ITEM, 440, false, 0, -1, 0, 0.65f, 78, 0, 0, 0 },
-    { "baked_potato", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.85f, 78, 0, 0, 0 },
-    { "poisonous_potato", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "map", 64, ICLASS_EMPTY_MAP_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "golden_carrot", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0 },
-    { "skeleton_skull", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 451, false, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 78, 2, 0, 0 },
-    { "wither_skeleton_skull", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 453, true, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 80, 2, 0, 0 },
-    { "player_head", 64, ICLASS_PLAYER_HEAD_ITEM, 457, false, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 82, 2, 0, 0 },
-    { "zombie_head", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 455, false, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 84, 2, 0, 0 },
-    { "creeper_head", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 459, false, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 86, 2, 0, 0 },
-    { "dragon_head", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 461, false, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 88, 2, 0, 0 },
-    { "piglin_head", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 463, false, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 90, 2, 0, 0 },
-    { "nether_star", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "pumpkin_pie", 64, ICLASS_NONE, -1, false, 0, -1, 0, 1.0f, 92, 0, 0, 0 },
-    { "firework_rocket", 64, ICLASS_FIREWORK_ROCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "firework_star", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "enchanted_book", 1, ICLASS_NONE, -1, false, ITEM_TAG_BOOKSHELF_BOOKS, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "nether_brick", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "resin_brick", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "prismarine_shard", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "prismarine_crystals", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "rabbit", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "cooked_rabbit", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "rabbit_stew", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "rabbit_foot", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "rabbit_hide", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "armor_stand", 16, ICLASS_ARMOR_STAND_ITEM, -1, true, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "copper_horse_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "iron_horse_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "golden_horse_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "diamond_horse_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "netherite_horse_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "leather_horse_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 1u << CAULDRON_MAP_WATER },
-    { "lead", 64, ICLASS_LEAD_ITEM, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "name_tag", 64, ICLASS_NAME_TAG_ITEM, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "command_block_minecart", 1, ICLASS_MINECART_ITEM, -1, true, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "mutton", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "cooked_mutton", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 92, 0, 0, 0 },
-    { "white_banner", 16, ICLASS_BANNER_ITEM, 561, false, 0, -1, 0, -1.0f, 92, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "orange_banner", 16, ICLASS_BANNER_ITEM, 562, false, 0, -1, 0, -1.0f, 94, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "magenta_banner", 16, ICLASS_BANNER_ITEM, 563, false, 0, -1, 0, -1.0f, 96, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "light_blue_banner", 16, ICLASS_BANNER_ITEM, 564, false, 0, -1, 0, -1.0f, 98, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "yellow_banner", 16, ICLASS_BANNER_ITEM, 565, false, 0, -1, 0, -1.0f, 100, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "lime_banner", 16, ICLASS_BANNER_ITEM, 566, false, 0, -1, 0, -1.0f, 102, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "pink_banner", 16, ICLASS_BANNER_ITEM, 567, false, 0, -1, 0, -1.0f, 104, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "gray_banner", 16, ICLASS_BANNER_ITEM, 568, false, 0, -1, 0, -1.0f, 106, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "light_gray_banner", 16, ICLASS_BANNER_ITEM, 569, false, 0, -1, 0, -1.0f, 108, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "cyan_banner", 16, ICLASS_BANNER_ITEM, 570, false, 0, -1, 0, -1.0f, 110, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "purple_banner", 16, ICLASS_BANNER_ITEM, 571, false, 0, -1, 0, -1.0f, 112, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "blue_banner", 16, ICLASS_BANNER_ITEM, 572, false, 0, -1, 0, -1.0f, 114, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "brown_banner", 16, ICLASS_BANNER_ITEM, 573, false, 0, -1, 0, -1.0f, 116, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "green_banner", 16, ICLASS_BANNER_ITEM, 574, false, 0, -1, 0, -1.0f, 118, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "red_banner", 16, ICLASS_BANNER_ITEM, 575, false, 0, -1, 0, -1.0f, 120, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "black_banner", 16, ICLASS_BANNER_ITEM, 576, false, 0, -1, 0, -1.0f, 122, 2, 0, 1u << CAULDRON_MAP_WATER },
-    { "end_crystal", 64, ICLASS_END_CRYSTAL_ITEM, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "chorus_fruit", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "popped_chorus_fruit", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "torchflower_seeds", 64, ICLASS_BLOCK_ITEM, 660, false, 0, -1, 0, 0.3f, 124, 0, 0, 0 },
-    { "pitcher_pod", 64, ICLASS_BLOCK_ITEM, 661, false, 0, -1, 0, 0.3f, 124, 0, 0, 0 },
-    { "beetroot", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.65f, 124, 0, 0, 0 },
-    { "beetroot_seeds", 64, ICLASS_BLOCK_ITEM, 663, false, 0, -1, 0, 0.3f, 124, 0, 0, 0 },
-    { "beetroot_soup", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "dragon_breath", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "splash_potion", 1, ICLASS_SPLASH_POTION_ITEM, -1, true, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "spectral_arrow", 64, ICLASS_SPECTRAL_ARROW_ITEM, -1, true, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "tipped_arrow", 64, ICLASS_TIPPED_ARROW_ITEM, -1, true, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "lingering_potion", 1, ICLASS_LINGERING_POTION_ITEM, -1, true, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "shield", 1, ICLASS_SHIELD_ITEM, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "wooden_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "stone_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "copper_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "iron_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "golden_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "diamond_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "netherite_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "totem_of_undying", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "shulker_shell", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "iron_nugget", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "copper_nugget", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "knowledge_book", 1, ICLASS_KNOWLEDGE_BOOK_ITEM, -1, false, ITEM_TAG_BOOKSHELF_BOOKS, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "debug_stick", 1, ICLASS_DEBUG_STICK_ITEM, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_13", 1, ICLASS_NONE, -1, false, 0, 3560, 1, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_cat", 1, ICLASS_NONE, -1, false, 0, 3700, 2, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_blocks", 1, ICLASS_NONE, -1, false, 0, 6900, 3, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_chirp", 1, ICLASS_NONE, -1, false, 0, 3700, 4, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_creator", 1, ICLASS_NONE, -1, false, 0, 3520, 12, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_creator_music_box", 1, ICLASS_NONE, -1, false, 0, 1460, 11, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_far", 1, ICLASS_NONE, -1, false, 0, 3480, 5, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_lava_chicken", 1, ICLASS_NONE, -1, false, 0, 2680, 9, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_mall", 1, ICLASS_NONE, -1, false, 0, 3940, 6, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_mellohi", 1, ICLASS_NONE, -1, false, 0, 1920, 7, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_stal", 1, ICLASS_NONE, -1, false, 0, 3000, 8, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_strad", 1, ICLASS_NONE, -1, false, 0, 3760, 9, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_ward", 1, ICLASS_NONE, -1, false, 0, 5020, 10, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_11", 1, ICLASS_NONE, -1, false, 0, 1420, 11, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_wait", 1, ICLASS_NONE, -1, false, 0, 4760, 12, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_otherside", 1, ICLASS_NONE, -1, false, 0, 3900, 14, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_relic", 1, ICLASS_NONE, -1, false, 0, 4360, 14, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_5", 1, ICLASS_NONE, -1, false, 0, 3560, 15, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_pigstep", 1, ICLASS_NONE, -1, false, 0, 2980, 13, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_precipice", 1, ICLASS_NONE, -1, false, 0, 5980, 13, -1.0f, 124, 0, 0, 0 },
-    { "music_disc_tears", 1, ICLASS_NONE, -1, false, 0, 3500, 10, -1.0f, 124, 0, 0, 0 },
-    { "disc_fragment_5", 64, ICLASS_DISC_FRAGMENT_ITEM, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "trident", 1, ICLASS_TRIDENT_ITEM, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "nautilus_shell", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "iron_nautilus_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "golden_nautilus_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "diamond_nautilus_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "netherite_nautilus_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "copper_nautilus_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "heart_of_the_sea", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 124, 0, 0, 0 },
-    { "crossbow", 1, ICLASS_CROSSBOW_ITEM, -1, false, 0, -1, 0, -1.0f, 124, 2, 0, 0 },
-    { "suspicious_stew", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "loom", 64, ICLASS_BLOCK_ITEM, 836, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "flower_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "creeper_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "skull_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "mojang_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "globe_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "piglin_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "flow_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "guster_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "field_masoned_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "bordure_indented_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "goat_horn", 1, ICLASS_INSTRUMENT_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "composter", 64, ICLASS_BLOCK_ITEM, 907, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "barrel", 64, ICLASS_BLOCK_ITEM, 837, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "smoker", 64, ICLASS_BLOCK_ITEM, 838, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "blast_furnace", 64, ICLASS_BLOCK_ITEM, 839, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "cartography_table", 64, ICLASS_BLOCK_ITEM, 840, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "fletching_table", 64, ICLASS_BLOCK_ITEM, 841, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "grindstone", 64, ICLASS_BLOCK_ITEM, 842, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "smithing_table", 64, ICLASS_BLOCK_ITEM, 844, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "stonecutter", 64, ICLASS_BLOCK_ITEM, 845, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "bell", 64, ICLASS_BLOCK_ITEM, 846, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "lantern", 64, ICLASS_BLOCK_ITEM, 847, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "soul_lantern", 64, ICLASS_BLOCK_ITEM, 848, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "copper_lantern", 64, ICLASS_BLOCK_ITEM, 849, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "exposed_copper_lantern", 64, ICLASS_BLOCK_ITEM, 850, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "weathered_copper_lantern", 64, ICLASS_BLOCK_ITEM, 851, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "oxidized_copper_lantern", 64, ICLASS_BLOCK_ITEM, 852, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_copper_lantern", 64, ICLASS_BLOCK_ITEM, 853, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_exposed_copper_lantern", 64, ICLASS_BLOCK_ITEM, 854, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_weathered_copper_lantern", 64, ICLASS_BLOCK_ITEM, 855, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_oxidized_copper_lantern", 64, ICLASS_BLOCK_ITEM, 856, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "sweet_berries", 64, ICLASS_BLOCK_ITEM, 859, false, 0, -1, 0, 0.3f, 126, 0, 0, 0 },
-    { "glow_berries", 64, ICLASS_BLOCK_ITEM, 1105, false, 0, -1, 0, 0.3f, 126, 0, 0, 0 },
-    { "campfire", 64, ICLASS_BLOCK_ITEM, 857, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "soul_campfire", 64, ICLASS_BLOCK_ITEM, 858, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "shroomlight", 64, ICLASS_BLOCK_ITEM, 875, false, 0, -1, 0, 0.65f, 126, 0, 0, 0 },
-    { "honeycomb", 64, ICLASS_HONEYCOMB_ITEM, -1, true, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "bee_nest", 64, ICLASS_BLOCK_ITEM, 909, false, 0, -1, 0, -1.0f, 126, 0, ITEM_COMPONENT_BLOCK_STATE, 0 },
-    { "beehive", 64, ICLASS_BLOCK_ITEM, 910, false, 0, -1, 0, -1.0f, 126, 0, ITEM_COMPONENT_BLOCK_STATE, 0 },
-    { "honey_bottle", 16, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "honeycomb_block", 64, ICLASS_BLOCK_ITEM, 912, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "lodestone", 64, ICLASS_BLOCK_ITEM, 921, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "crying_obsidian", 64, ICLASS_BLOCK_ITEM, 915, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "blackstone", 64, ICLASS_BLOCK_ITEM, 922, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "blackstone_slab", 64, ICLASS_BLOCK_ITEM, 925, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "blackstone_stairs", 64, ICLASS_BLOCK_ITEM, 923, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "gilded_blackstone", 64, ICLASS_BLOCK_ITEM, 933, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "polished_blackstone", 64, ICLASS_BLOCK_ITEM, 926, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "polished_blackstone_slab", 64, ICLASS_BLOCK_ITEM, 935, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "polished_blackstone_stairs", 64, ICLASS_BLOCK_ITEM, 934, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "chiseled_polished_blackstone", 64, ICLASS_BLOCK_ITEM, 929, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "polished_blackstone_bricks", 64, ICLASS_BLOCK_ITEM, 927, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "polished_blackstone_brick_slab", 64, ICLASS_BLOCK_ITEM, 930, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "polished_blackstone_brick_stairs", 64, ICLASS_BLOCK_ITEM, 931, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "cracked_polished_blackstone_bricks", 64, ICLASS_BLOCK_ITEM, 928, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "respawn_anchor", 64, ICLASS_BLOCK_ITEM, 916, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "candle", 64, ICLASS_BLOCK_ITEM, 942, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "white_candle", 64, ICLASS_BLOCK_ITEM, 943, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "orange_candle", 64, ICLASS_BLOCK_ITEM, 944, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "magenta_candle", 64, ICLASS_BLOCK_ITEM, 945, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "light_blue_candle", 64, ICLASS_BLOCK_ITEM, 946, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "yellow_candle", 64, ICLASS_BLOCK_ITEM, 947, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "lime_candle", 64, ICLASS_BLOCK_ITEM, 948, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "pink_candle", 64, ICLASS_BLOCK_ITEM, 949, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "gray_candle", 64, ICLASS_BLOCK_ITEM, 950, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "light_gray_candle", 64, ICLASS_BLOCK_ITEM, 951, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "cyan_candle", 64, ICLASS_BLOCK_ITEM, 952, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "purple_candle", 64, ICLASS_BLOCK_ITEM, 953, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "blue_candle", 64, ICLASS_BLOCK_ITEM, 954, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "brown_candle", 64, ICLASS_BLOCK_ITEM, 955, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "green_candle", 64, ICLASS_BLOCK_ITEM, 956, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "red_candle", 64, ICLASS_BLOCK_ITEM, 957, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "black_candle", 64, ICLASS_BLOCK_ITEM, 958, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "small_amethyst_bud", 64, ICLASS_BLOCK_ITEM, 981, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "medium_amethyst_bud", 64, ICLASS_BLOCK_ITEM, 980, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "large_amethyst_bud", 64, ICLASS_BLOCK_ITEM, 979, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "amethyst_cluster", 64, ICLASS_BLOCK_ITEM, 978, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "pointed_dripstone", 64, ICLASS_BLOCK_ITEM, 1103, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "ochre_froglight", 64, ICLASS_BLOCK_ITEM, 1148, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "verdant_froglight", 64, ICLASS_BLOCK_ITEM, 1149, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "pearlescent_froglight", 64, ICLASS_BLOCK_ITEM, 1150, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "frogspawn", 64, ICLASS_PLACE_ON_WATER_BLOCK_ITEM, 1151, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "echo_shard", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "brush", 1, ICLASS_BRUSH_ITEM, -1, true, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "netherite_upgrade_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "sentry_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "dune_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "coast_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "wild_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "ward_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "eye_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "vex_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "tide_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "snout_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "rib_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "spire_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "wayfinder_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "shaper_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "silence_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "raiser_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "host_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "flow_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "bolt_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "angler_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "archer_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "arms_up_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "blade_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "brewer_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "burn_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "danger_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "explorer_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "flow_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "friend_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "guster_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "heart_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "heartbreak_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "howl_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "miner_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "mourner_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "plenty_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "prize_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "scrape_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "sheaf_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "shelter_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "skull_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "snort_pottery_sherd", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "copper_grate", 64, ICLASS_BLOCK_ITEM, 1063, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "exposed_copper_grate", 64, ICLASS_BLOCK_ITEM, 1064, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "weathered_copper_grate", 64, ICLASS_BLOCK_ITEM, 1065, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "oxidized_copper_grate", 64, ICLASS_BLOCK_ITEM, 1066, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_copper_grate", 64, ICLASS_BLOCK_ITEM, 1067, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_exposed_copper_grate", 64, ICLASS_BLOCK_ITEM, 1068, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_weathered_copper_grate", 64, ICLASS_BLOCK_ITEM, 1069, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_oxidized_copper_grate", 64, ICLASS_BLOCK_ITEM, 1070, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "copper_bulb", 64, ICLASS_BLOCK_ITEM, 1071, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "exposed_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1072, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "weathered_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1073, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "oxidized_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1074, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1075, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_exposed_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1076, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_weathered_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1077, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_oxidized_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1078, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "copper_chest", 64, ICLASS_BLOCK_ITEM, 1079, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "exposed_copper_chest", 64, ICLASS_BLOCK_ITEM, 1080, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "weathered_copper_chest", 64, ICLASS_BLOCK_ITEM, 1081, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "oxidized_copper_chest", 64, ICLASS_BLOCK_ITEM, 1082, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_copper_chest", 64, ICLASS_BLOCK_ITEM, 1083, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_exposed_copper_chest", 64, ICLASS_BLOCK_ITEM, 1084, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_weathered_copper_chest", 64, ICLASS_BLOCK_ITEM, 1085, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "waxed_oxidized_copper_chest", 64, ICLASS_BLOCK_ITEM, 1086, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1087, false, 0, -1, 0, -1.0f, 126, 0, ITEM_COMPONENT_BLOCK_STATE, 0 },
-    { "exposed_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1088, false, 0, -1, 0, -1.0f, 126, 0, ITEM_COMPONENT_BLOCK_STATE, 0 },
-    { "weathered_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1089, false, 0, -1, 0, -1.0f, 126, 0, ITEM_COMPONENT_BLOCK_STATE, 0 },
-    { "oxidized_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1090, false, 0, -1, 0, -1.0f, 126, 0, ITEM_COMPONENT_BLOCK_STATE, 0 },
-    { "waxed_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1091, false, 0, -1, 0, -1.0f, 126, 0, ITEM_COMPONENT_BLOCK_STATE, 0 },
-    { "waxed_exposed_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1092, false, 0, -1, 0, -1.0f, 126, 0, ITEM_COMPONENT_BLOCK_STATE, 0 },
-    { "waxed_weathered_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1093, false, 0, -1, 0, -1.0f, 126, 0, ITEM_COMPONENT_BLOCK_STATE, 0 },
-    { "waxed_oxidized_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1094, false, 0, -1, 0, -1.0f, 126, 0, ITEM_COMPONENT_BLOCK_STATE, 0 },
-    { "trial_spawner", 64, ICLASS_BLOCK_ITEM, 1155, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "trial_key", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "ominous_trial_key", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "vault", 64, ICLASS_BLOCK_ITEM, 1156, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
-    { "ominous_bottle", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 126, 0, 0, 0 },
+    { "air", 64, ICLASS_AIR_ITEM, -1, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stone", 64, ICLASS_BLOCK_ITEM, 1, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "granite", 64, ICLASS_BLOCK_ITEM, 2, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "polished_granite", 64, ICLASS_BLOCK_ITEM, 3, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "diorite", 64, ICLASS_BLOCK_ITEM, 4, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "polished_diorite", 64, ICLASS_BLOCK_ITEM, 5, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "andesite", 64, ICLASS_BLOCK_ITEM, 6, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "polished_andesite", 64, ICLASS_BLOCK_ITEM, 7, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "deepslate", 64, ICLASS_BLOCK_ITEM, 1121, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cobbled_deepslate", 64, ICLASS_BLOCK_ITEM, 1122, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "polished_deepslate", 64, ICLASS_BLOCK_ITEM, 1126, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "calcite", 64, ICLASS_BLOCK_ITEM, 996, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "tuff", 64, ICLASS_BLOCK_ITEM, 982, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "tuff_slab", 64, ICLASS_BLOCK_ITEM, 983, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "tuff_stairs", 64, ICLASS_BLOCK_ITEM, 984, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "tuff_wall", 64, ICLASS_BLOCK_ITEM, 985, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "chiseled_tuff", 64, ICLASS_BLOCK_ITEM, 990, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "polished_tuff", 64, ICLASS_BLOCK_ITEM, 986, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "polished_tuff_slab", 64, ICLASS_BLOCK_ITEM, 987, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "polished_tuff_stairs", 64, ICLASS_BLOCK_ITEM, 988, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "polished_tuff_wall", 64, ICLASS_BLOCK_ITEM, 989, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "tuff_bricks", 64, ICLASS_BLOCK_ITEM, 991, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "tuff_brick_slab", 64, ICLASS_BLOCK_ITEM, 992, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "tuff_brick_stairs", 64, ICLASS_BLOCK_ITEM, 993, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "tuff_brick_wall", 64, ICLASS_BLOCK_ITEM, 994, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "chiseled_tuff_bricks", 64, ICLASS_BLOCK_ITEM, 995, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "dripstone_block", 64, ICLASS_BLOCK_ITEM, 1104, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "grass_block", 64, ICLASS_BLOCK_ITEM, 8, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "dirt", 64, ICLASS_BLOCK_ITEM, 9, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "coarse_dirt", 64, ICLASS_BLOCK_ITEM, 10, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "podzol", 64, ICLASS_BLOCK_ITEM, 11, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "rooted_dirt", 64, ICLASS_BLOCK_ITEM, 1119, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "mud", 64, ICLASS_BLOCK_ITEM, 1120, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "crimson_nylium", 64, ICLASS_BLOCK_ITEM, 873, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "warped_nylium", 64, ICLASS_BLOCK_ITEM, 864, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cobblestone", 64, ICLASS_BLOCK_ITEM, 12, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "oak_planks", 64, ICLASS_BLOCK_ITEM, 13, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "spruce_planks", 64, ICLASS_BLOCK_ITEM, 14, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "birch_planks", 64, ICLASS_BLOCK_ITEM, 15, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "jungle_planks", 64, ICLASS_BLOCK_ITEM, 16, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "acacia_planks", 64, ICLASS_BLOCK_ITEM, 17, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cherry_planks", 64, ICLASS_BLOCK_ITEM, 18, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "dark_oak_planks", 64, ICLASS_BLOCK_ITEM, 19, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "pale_oak_planks", 64, ICLASS_BLOCK_ITEM, 21, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "mangrove_planks", 64, ICLASS_BLOCK_ITEM, 22, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "bamboo_planks", 64, ICLASS_BLOCK_ITEM, 23, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "crimson_planks", 64, ICLASS_BLOCK_ITEM, 881, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "warped_planks", 64, ICLASS_BLOCK_ITEM, 882, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "bamboo_mosaic", 64, ICLASS_BLOCK_ITEM, 24, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "oak_sapling", 64, ICLASS_BLOCK_ITEM, 25, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "spruce_sapling", 64, ICLASS_BLOCK_ITEM, 26, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "birch_sapling", 64, ICLASS_BLOCK_ITEM, 27, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "jungle_sapling", 64, ICLASS_BLOCK_ITEM, 28, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "acacia_sapling", 64, ICLASS_BLOCK_ITEM, 29, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "cherry_sapling", 64, ICLASS_BLOCK_ITEM, 30, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "dark_oak_sapling", 64, ICLASS_BLOCK_ITEM, 31, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "pale_oak_sapling", 64, ICLASS_BLOCK_ITEM, 32, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "mangrove_propagule", 64, ICLASS_BLOCK_ITEM, 33, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "bedrock", 64, ICLASS_BLOCK_ITEM, 34, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "sand", 64, ICLASS_BLOCK_ITEM, 37, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "suspicious_sand", 64, ICLASS_BLOCK_ITEM, 38, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "suspicious_gravel", 64, ICLASS_BLOCK_ITEM, 41, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "red_sand", 64, ICLASS_BLOCK_ITEM, 39, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "gravel", 64, ICLASS_BLOCK_ITEM, 40, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "coal_ore", 64, ICLASS_BLOCK_ITEM, 46, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "deepslate_coal_ore", 64, ICLASS_BLOCK_ITEM, 47, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "iron_ore", 64, ICLASS_BLOCK_ITEM, 44, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "deepslate_iron_ore", 64, ICLASS_BLOCK_ITEM, 45, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "copper_ore", 64, ICLASS_BLOCK_ITEM, 1009, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "deepslate_copper_ore", 64, ICLASS_BLOCK_ITEM, 1010, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "gold_ore", 64, ICLASS_BLOCK_ITEM, 42, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "deepslate_gold_ore", 64, ICLASS_BLOCK_ITEM, 43, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "redstone_ore", 64, ICLASS_BLOCK_ITEM, 270, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "deepslate_redstone_ore", 64, ICLASS_BLOCK_ITEM, 271, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "emerald_ore", 64, ICLASS_BLOCK_ITEM, 397, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "deepslate_emerald_ore", 64, ICLASS_BLOCK_ITEM, 398, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "lapis_ore", 64, ICLASS_BLOCK_ITEM, 102, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "deepslate_lapis_ore", 64, ICLASS_BLOCK_ITEM, 103, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "diamond_ore", 64, ICLASS_BLOCK_ITEM, 202, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "deepslate_diamond_ore", 64, ICLASS_BLOCK_ITEM, 203, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "nether_gold_ore", 64, ICLASS_BLOCK_ITEM, 48, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "nether_quartz_ore", 64, ICLASS_BLOCK_ITEM, 474, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "ancient_debris", 64, ICLASS_BLOCK_ITEM, 914, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "coal_block", 64, ICLASS_BLOCK_ITEM, 553, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "raw_iron_block", 64, ICLASS_BLOCK_ITEM, 1143, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "raw_copper_block", 64, ICLASS_BLOCK_ITEM, 1144, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "raw_gold_block", 64, ICLASS_BLOCK_ITEM, 1145, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "heavy_core", 64, ICLASS_BLOCK_ITEM, 1157, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "amethyst_block", 64, ICLASS_BLOCK_ITEM, 976, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "budding_amethyst", 64, ICLASS_BLOCK_ITEM, 977, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "iron_block", 64, ICLASS_BLOCK_ITEM, 174, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "copper_block", 64, ICLASS_BLOCK_ITEM, 1005, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "gold_block", 64, ICLASS_BLOCK_ITEM, 173, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "diamond_block", 64, ICLASS_BLOCK_ITEM, 204, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "netherite_block", 64, ICLASS_BLOCK_ITEM, 913, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "exposed_copper", 64, ICLASS_BLOCK_ITEM, 1006, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "weathered_copper", 64, ICLASS_BLOCK_ITEM, 1007, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "oxidized_copper", 64, ICLASS_BLOCK_ITEM, 1008, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1018, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "exposed_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1017, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "weathered_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1016, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "oxidized_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1015, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cut_copper", 64, ICLASS_BLOCK_ITEM, 1014, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "exposed_cut_copper", 64, ICLASS_BLOCK_ITEM, 1013, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "weathered_cut_copper", 64, ICLASS_BLOCK_ITEM, 1012, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "oxidized_cut_copper", 64, ICLASS_BLOCK_ITEM, 1011, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1026, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "exposed_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1025, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "weathered_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1024, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "oxidized_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1023, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1030, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "exposed_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1029, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "weathered_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1028, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "oxidized_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1027, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_copper_block", 64, ICLASS_BLOCK_ITEM, 1031, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_exposed_copper", 64, ICLASS_BLOCK_ITEM, 1033, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_weathered_copper", 64, ICLASS_BLOCK_ITEM, 1032, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_oxidized_copper", 64, ICLASS_BLOCK_ITEM, 1034, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1022, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_exposed_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1021, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_weathered_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1020, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_oxidized_chiseled_copper", 64, ICLASS_BLOCK_ITEM, 1019, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_cut_copper", 64, ICLASS_BLOCK_ITEM, 1038, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_exposed_cut_copper", 64, ICLASS_BLOCK_ITEM, 1037, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_weathered_cut_copper", 64, ICLASS_BLOCK_ITEM, 1036, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_oxidized_cut_copper", 64, ICLASS_BLOCK_ITEM, 1035, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1042, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_exposed_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1041, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_weathered_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1040, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_oxidized_cut_copper_stairs", 64, ICLASS_BLOCK_ITEM, 1039, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1046, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_exposed_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1045, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_weathered_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1044, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "waxed_oxidized_cut_copper_slab", 64, ICLASS_BLOCK_ITEM, 1043, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "oak_log", 64, ICLASS_BLOCK_ITEM, 49, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "spruce_log", 64, ICLASS_BLOCK_ITEM, 50, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "birch_log", 64, ICLASS_BLOCK_ITEM, 51, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "jungle_log", 64, ICLASS_BLOCK_ITEM, 52, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "acacia_log", 64, ICLASS_BLOCK_ITEM, 53, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cherry_log", 64, ICLASS_BLOCK_ITEM, 54, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "pale_oak_log", 64, ICLASS_BLOCK_ITEM, 56, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "dark_oak_log", 64, ICLASS_BLOCK_ITEM, 55, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "mangrove_log", 64, ICLASS_BLOCK_ITEM, 57, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "mangrove_roots", 64, ICLASS_BLOCK_ITEM, 58, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "muddy_mangrove_roots", 64, ICLASS_BLOCK_ITEM, 59, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "crimson_stem", 64, ICLASS_BLOCK_ITEM, 869, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "warped_stem", 64, ICLASS_BLOCK_ITEM, 860, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "bamboo_block", 64, ICLASS_BLOCK_ITEM, 60, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_oak_log", 64, ICLASS_BLOCK_ITEM, 68, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_spruce_log", 64, ICLASS_BLOCK_ITEM, 61, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_birch_log", 64, ICLASS_BLOCK_ITEM, 62, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_jungle_log", 64, ICLASS_BLOCK_ITEM, 63, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_acacia_log", 64, ICLASS_BLOCK_ITEM, 64, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_cherry_log", 64, ICLASS_BLOCK_ITEM, 65, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_dark_oak_log", 64, ICLASS_BLOCK_ITEM, 66, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_pale_oak_log", 64, ICLASS_BLOCK_ITEM, 67, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_mangrove_log", 64, ICLASS_BLOCK_ITEM, 69, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_crimson_stem", 64, ICLASS_BLOCK_ITEM, 870, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_warped_stem", 64, ICLASS_BLOCK_ITEM, 861, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_oak_wood", 64, ICLASS_BLOCK_ITEM, 79, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_spruce_wood", 64, ICLASS_BLOCK_ITEM, 80, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_birch_wood", 64, ICLASS_BLOCK_ITEM, 81, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_jungle_wood", 64, ICLASS_BLOCK_ITEM, 82, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_acacia_wood", 64, ICLASS_BLOCK_ITEM, 83, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_cherry_wood", 64, ICLASS_BLOCK_ITEM, 84, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_dark_oak_wood", 64, ICLASS_BLOCK_ITEM, 85, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_pale_oak_wood", 64, ICLASS_BLOCK_ITEM, 86, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_mangrove_wood", 64, ICLASS_BLOCK_ITEM, 87, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_crimson_hyphae", 64, ICLASS_BLOCK_ITEM, 872, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_warped_hyphae", 64, ICLASS_BLOCK_ITEM, 863, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stripped_bamboo_block", 64, ICLASS_BLOCK_ITEM, 70, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "oak_wood", 64, ICLASS_BLOCK_ITEM, 71, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "spruce_wood", 64, ICLASS_BLOCK_ITEM, 72, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "birch_wood", 64, ICLASS_BLOCK_ITEM, 73, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "jungle_wood", 64, ICLASS_BLOCK_ITEM, 74, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "acacia_wood", 64, ICLASS_BLOCK_ITEM, 75, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cherry_wood", 64, ICLASS_BLOCK_ITEM, 76, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "pale_oak_wood", 64, ICLASS_BLOCK_ITEM, 20, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "dark_oak_wood", 64, ICLASS_BLOCK_ITEM, 77, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "mangrove_wood", 64, ICLASS_BLOCK_ITEM, 78, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "crimson_hyphae", 64, ICLASS_BLOCK_ITEM, 871, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "warped_hyphae", 64, ICLASS_BLOCK_ITEM, 862, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "oak_leaves", 64, ICLASS_BLOCK_ITEM, 88, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "spruce_leaves", 64, ICLASS_BLOCK_ITEM, 89, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "birch_leaves", 64, ICLASS_BLOCK_ITEM, 90, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "jungle_leaves", 64, ICLASS_BLOCK_ITEM, 91, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "acacia_leaves", 64, ICLASS_BLOCK_ITEM, 92, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "cherry_leaves", 64, ICLASS_BLOCK_ITEM, 93, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "dark_oak_leaves", 64, ICLASS_BLOCK_ITEM, 94, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "pale_oak_leaves", 64, ICLASS_BLOCK_ITEM, 95, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "mangrove_leaves", 64, ICLASS_BLOCK_ITEM, 96, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "azalea_leaves", 64, ICLASS_BLOCK_ITEM, 97, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "flowering_azalea_leaves", 64, ICLASS_BLOCK_ITEM, 98, false, 0, -1, 0, 0.5f, 0, 0, 0, 0, -1 },
+    { "sponge", 64, ICLASS_BLOCK_ITEM, 99, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "wet_sponge", 64, ICLASS_BLOCK_ITEM, 100, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "glass", 64, ICLASS_BLOCK_ITEM, 101, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "tinted_glass", 64, ICLASS_BLOCK_ITEM, 997, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "lapis_block", 64, ICLASS_BLOCK_ITEM, 104, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "sandstone", 64, ICLASS_BLOCK_ITEM, 106, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "chiseled_sandstone", 64, ICLASS_BLOCK_ITEM, 107, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cut_sandstone", 64, ICLASS_BLOCK_ITEM, 108, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cobweb", 64, ICLASS_BLOCK_ITEM, 129, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "short_grass", 64, ICLASS_BLOCK_ITEM, 130, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "fern", 64, ICLASS_BLOCK_ITEM, 131, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "bush", 64, ICLASS_BLOCK_ITEM, 133, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "azalea", 64, ICLASS_BLOCK_ITEM, 1108, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "flowering_azalea", 64, ICLASS_BLOCK_ITEM, 1109, false, 0, -1, 0, 0.85f, 0, 0, 0, 0, -1 },
+    { "dead_bush", 64, ICLASS_BLOCK_ITEM, 132, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "firefly_bush", 64, ICLASS_BLOCK_ITEM, 1165, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "short_dry_grass", 64, ICLASS_BLOCK_ITEM, 134, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "tall_dry_grass", 64, ICLASS_BLOCK_ITEM, 135, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "seagrass", 64, ICLASS_BLOCK_ITEM, 136, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "sea_pickle", 64, ICLASS_BLOCK_ITEM, 786, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "white_wool", 64, ICLASS_BLOCK_ITEM, 140, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "orange_wool", 64, ICLASS_BLOCK_ITEM, 141, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "magenta_wool", 64, ICLASS_BLOCK_ITEM, 142, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "light_blue_wool", 64, ICLASS_BLOCK_ITEM, 143, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "yellow_wool", 64, ICLASS_BLOCK_ITEM, 144, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "lime_wool", 64, ICLASS_BLOCK_ITEM, 145, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "pink_wool", 64, ICLASS_BLOCK_ITEM, 146, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "gray_wool", 64, ICLASS_BLOCK_ITEM, 147, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "light_gray_wool", 64, ICLASS_BLOCK_ITEM, 148, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cyan_wool", 64, ICLASS_BLOCK_ITEM, 149, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "purple_wool", 64, ICLASS_BLOCK_ITEM, 150, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "blue_wool", 64, ICLASS_BLOCK_ITEM, 151, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "brown_wool", 64, ICLASS_BLOCK_ITEM, 152, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "green_wool", 64, ICLASS_BLOCK_ITEM, 153, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "red_wool", 64, ICLASS_BLOCK_ITEM, 154, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "black_wool", 64, ICLASS_BLOCK_ITEM, 155, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "dandelion", 64, ICLASS_BLOCK_ITEM, 157, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "open_eyeblossom", 64, ICLASS_BLOCK_ITEM, 1161, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "closed_eyeblossom", 64, ICLASS_BLOCK_ITEM, 1162, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "poppy", 64, ICLASS_BLOCK_ITEM, 159, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "blue_orchid", 64, ICLASS_BLOCK_ITEM, 160, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "allium", 64, ICLASS_BLOCK_ITEM, 161, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "azure_bluet", 64, ICLASS_BLOCK_ITEM, 162, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "red_tulip", 64, ICLASS_BLOCK_ITEM, 163, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "orange_tulip", 64, ICLASS_BLOCK_ITEM, 164, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "white_tulip", 64, ICLASS_BLOCK_ITEM, 165, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "pink_tulip", 64, ICLASS_BLOCK_ITEM, 166, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "oxeye_daisy", 64, ICLASS_BLOCK_ITEM, 167, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "cornflower", 64, ICLASS_BLOCK_ITEM, 168, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "lily_of_the_valley", 64, ICLASS_BLOCK_ITEM, 170, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "wither_rose", 64, ICLASS_BLOCK_ITEM, 169, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "torchflower", 64, ICLASS_BLOCK_ITEM, 158, false, 0, -1, 0, 0.85f, 0, 0, 0, 0, -1 },
+    { "pitcher_plant", 64, ICLASS_BLOCK_ITEM, 662, false, 0, -1, 0, 0.85f, 0, 0, 0, 0, -1 },
+    { "spore_blossom", 64, ICLASS_BLOCK_ITEM, 1107, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "brown_mushroom", 64, ICLASS_BLOCK_ITEM, 171, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "red_mushroom", 64, ICLASS_BLOCK_ITEM, 172, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "crimson_fungus", 64, ICLASS_BLOCK_ITEM, 874, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "warped_fungus", 64, ICLASS_BLOCK_ITEM, 865, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "crimson_roots", 64, ICLASS_BLOCK_ITEM, 880, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "warped_roots", 64, ICLASS_BLOCK_ITEM, 867, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "nether_sprouts", 64, ICLASS_BLOCK_ITEM, 868, false, 0, -1, 0, 0.5f, 0, 0, 0, 0, -1 },
+    { "weeping_vines", 64, ICLASS_BLOCK_ITEM, 876, false, 0, -1, 0, 0.5f, 0, 0, 0, 0, -1 },
+    { "twisting_vines", 64, ICLASS_BLOCK_ITEM, 878, false, 0, -1, 0, 0.5f, 0, 0, 0, 0, -1 },
+    { "sugar_cane", 64, ICLASS_BLOCK_ITEM, 281, false, 0, -1, 0, 0.5f, 0, 0, 0, 0, -1 },
+    { "kelp", 64, ICLASS_BLOCK_ITEM, 740, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "pink_petals", 64, ICLASS_BLOCK_ITEM, 1111, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "wildflowers", 64, ICLASS_BLOCK_ITEM, 1112, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "leaf_litter", 64, ICLASS_BLOCK_ITEM, 1113, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "moss_carpet", 64, ICLASS_BLOCK_ITEM, 1110, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "moss_block", 64, ICLASS_BLOCK_ITEM, 1114, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "pale_moss_carpet", 64, ICLASS_BLOCK_ITEM, 1159, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "pale_hanging_moss", 64, ICLASS_BLOCK_ITEM, 1160, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "pale_moss_block", 64, ICLASS_BLOCK_ITEM, 1158, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "hanging_roots", 64, ICLASS_BLOCK_ITEM, 1118, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "big_dripleaf", 64, ICLASS_BLOCK_ITEM, 1115, false, 0, -1, 0, 0.65f, 0, 0, 0, 0, -1 },
+    { "small_dripleaf", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1117, false, 0, -1, 0, 0.3f, 0, 0, 0, 0, -1 },
+    { "bamboo", 64, ICLASS_BLOCK_ITEM, 790, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "oak_slab", 64, ICLASS_BLOCK_ITEM, 597, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "spruce_slab", 64, ICLASS_BLOCK_ITEM, 598, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "birch_slab", 64, ICLASS_BLOCK_ITEM, 599, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "jungle_slab", 64, ICLASS_BLOCK_ITEM, 600, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "acacia_slab", 64, ICLASS_BLOCK_ITEM, 601, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cherry_slab", 64, ICLASS_BLOCK_ITEM, 602, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "dark_oak_slab", 64, ICLASS_BLOCK_ITEM, 603, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "pale_oak_slab", 64, ICLASS_BLOCK_ITEM, 604, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "mangrove_slab", 64, ICLASS_BLOCK_ITEM, 605, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "bamboo_slab", 64, ICLASS_BLOCK_ITEM, 606, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "bamboo_mosaic_slab", 64, ICLASS_BLOCK_ITEM, 607, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "crimson_slab", 64, ICLASS_BLOCK_ITEM, 883, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "warped_slab", 64, ICLASS_BLOCK_ITEM, 884, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stone_slab", 64, ICLASS_BLOCK_ITEM, 608, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "smooth_stone_slab", 64, ICLASS_BLOCK_ITEM, 609, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "sandstone_slab", 64, ICLASS_BLOCK_ITEM, 610, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cut_sandstone_slab", 64, ICLASS_BLOCK_ITEM, 611, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "petrified_oak_slab", 64, ICLASS_BLOCK_ITEM, 612, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cobblestone_slab", 64, ICLASS_BLOCK_ITEM, 613, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "brick_slab", 64, ICLASS_BLOCK_ITEM, 614, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "stone_brick_slab", 64, ICLASS_BLOCK_ITEM, 615, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "mud_brick_slab", 64, ICLASS_BLOCK_ITEM, 616, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "nether_brick_slab", 64, ICLASS_BLOCK_ITEM, 617, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "quartz_slab", 64, ICLASS_BLOCK_ITEM, 618, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "red_sandstone_slab", 64, ICLASS_BLOCK_ITEM, 619, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cut_red_sandstone_slab", 64, ICLASS_BLOCK_ITEM, 620, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "purpur_slab", 64, ICLASS_BLOCK_ITEM, 621, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "prismarine_slab", 64, ICLASS_BLOCK_ITEM, 531, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "prismarine_brick_slab", 64, ICLASS_BLOCK_ITEM, 532, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "dark_prismarine_slab", 64, ICLASS_BLOCK_ITEM, 533, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "smooth_quartz", 64, ICLASS_BLOCK_ITEM, 624, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "smooth_red_sandstone", 64, ICLASS_BLOCK_ITEM, 625, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "smooth_sandstone", 64, ICLASS_BLOCK_ITEM, 623, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "smooth_stone", 64, ICLASS_BLOCK_ITEM, 622, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "bricks", 64, ICLASS_BLOCK_ITEM, 175, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "acacia_shelf", 64, ICLASS_BLOCK_ITEM, 179, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "bamboo_shelf", 64, ICLASS_BLOCK_ITEM, 180, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "birch_shelf", 64, ICLASS_BLOCK_ITEM, 181, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "cherry_shelf", 64, ICLASS_BLOCK_ITEM, 182, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "crimson_shelf", 64, ICLASS_BLOCK_ITEM, 183, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "dark_oak_shelf", 64, ICLASS_BLOCK_ITEM, 184, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "jungle_shelf", 64, ICLASS_BLOCK_ITEM, 185, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "mangrove_shelf", 64, ICLASS_BLOCK_ITEM, 186, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "oak_shelf", 64, ICLASS_BLOCK_ITEM, 187, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "pale_oak_shelf", 64, ICLASS_BLOCK_ITEM, 188, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "spruce_shelf", 64, ICLASS_BLOCK_ITEM, 189, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "warped_shelf", 64, ICLASS_BLOCK_ITEM, 190, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "bookshelf", 64, ICLASS_BLOCK_ITEM, 177, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "chiseled_bookshelf", 64, ICLASS_BLOCK_ITEM, 178, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "decorated_pot", 64, ICLASS_BLOCK_ITEM, 1153, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "mossy_cobblestone", 64, ICLASS_BLOCK_ITEM, 191, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "obsidian", 64, ICLASS_BLOCK_ITEM, 192, false, 0, -1, 0, -1.0f, 0, 0, 0, 0, -1 },
+    { "torch", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 193, false, 0, -1, 0, -1.0f, 0, 2, 0, 0, -1 },
+    { "end_rod", 64, ICLASS_BLOCK_ITEM, 653, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "chorus_plant", 64, ICLASS_BLOCK_ITEM, 654, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "chorus_flower", 64, ICLASS_BLOCK_ITEM, 655, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "purpur_block", 64, ICLASS_BLOCK_ITEM, 656, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "purpur_pillar", 64, ICLASS_BLOCK_ITEM, 657, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "purpur_stairs", 64, ICLASS_BLOCK_ITEM, 658, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "spawner", 64, ICLASS_BLOCK_ITEM, 197, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "creaking_heart", 64, ICLASS_BLOCK_ITEM, 198, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "chest", 64, ICLASS_BLOCK_ITEM, 200, true, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "crafting_table", 64, ICLASS_BLOCK_ITEM, 205, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "farmland", 64, ICLASS_BLOCK_ITEM, 207, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "furnace", 64, ICLASS_BLOCK_ITEM, 208, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "ladder", 64, ICLASS_BLOCK_ITEM, 220, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "cobblestone_stairs", 64, ICLASS_BLOCK_ITEM, 222, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "snow", 64, ICLASS_BLOCK_ITEM, 275, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "ice", 64, ICLASS_BLOCK_ITEM, 276, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "snow_block", 64, ICLASS_BLOCK_ITEM, 277, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "cactus", 64, ICLASS_BLOCK_ITEM, 278, false, 0, -1, 0, 0.5f, 2, 0, 0, 0, -1 },
+    { "cactus_flower", 64, ICLASS_BLOCK_ITEM, 279, false, 0, -1, 0, 0.3f, 2, 0, 0, 0, -1 },
+    { "clay", 64, ICLASS_BLOCK_ITEM, 280, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "jukebox", 64, ICLASS_BLOCK_ITEM, 282, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "oak_fence", 64, ICLASS_BLOCK_ITEM, 283, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "spruce_fence", 64, ICLASS_BLOCK_ITEM, 635, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "birch_fence", 64, ICLASS_BLOCK_ITEM, 636, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "jungle_fence", 64, ICLASS_BLOCK_ITEM, 637, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "acacia_fence", 64, ICLASS_BLOCK_ITEM, 638, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "cherry_fence", 64, ICLASS_BLOCK_ITEM, 639, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "dark_oak_fence", 64, ICLASS_BLOCK_ITEM, 640, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "pale_oak_fence", 64, ICLASS_BLOCK_ITEM, 641, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "mangrove_fence", 64, ICLASS_BLOCK_ITEM, 642, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "bamboo_fence", 64, ICLASS_BLOCK_ITEM, 643, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "crimson_fence", 64, ICLASS_BLOCK_ITEM, 887, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "warped_fence", 64, ICLASS_BLOCK_ITEM, 888, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "pumpkin", 64, ICLASS_BLOCK_ITEM, 359, false, 0, -1, 0, 0.65f, 2, 0, 0, 0, -1 },
+    { "carved_pumpkin", 64, ICLASS_BLOCK_ITEM, 295, true, 0, -1, 0, 0.65f, 2, 0, 0, 0, -1 },
+    { "jack_o_lantern", 64, ICLASS_BLOCK_ITEM, 296, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "netherrack", 64, ICLASS_BLOCK_ITEM, 284, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "soul_sand", 64, ICLASS_BLOCK_ITEM, 285, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "soul_soil", 64, ICLASS_BLOCK_ITEM, 286, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "basalt", 64, ICLASS_BLOCK_ITEM, 287, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "polished_basalt", 64, ICLASS_BLOCK_ITEM, 288, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "smooth_basalt", 64, ICLASS_BLOCK_ITEM, 1142, false, 0, -1, 0, -1.0f, 2, 0, 0, 0, -1 },
+    { "soul_torch", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 289, false, 0, -1, 0, -1.0f, 2, 2, 0, 0, -1 },
+    { "copper_torch", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 291, false, 0, -1, 0, -1.0f, 4, 2, 0, 0, -1 },
+    { "glowstone", 64, ICLASS_BLOCK_ITEM, 293, true, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "infested_stone", 64, ICLASS_BLOCK_ITEM, 331, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "infested_cobblestone", 64, ICLASS_BLOCK_ITEM, 332, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "infested_stone_bricks", 64, ICLASS_BLOCK_ITEM, 333, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "infested_mossy_stone_bricks", 64, ICLASS_BLOCK_ITEM, 334, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "infested_cracked_stone_bricks", 64, ICLASS_BLOCK_ITEM, 335, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "infested_chiseled_stone_bricks", 64, ICLASS_BLOCK_ITEM, 336, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "infested_deepslate", 64, ICLASS_BLOCK_ITEM, 1141, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "stone_bricks", 64, ICLASS_BLOCK_ITEM, 325, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "mossy_stone_bricks", 64, ICLASS_BLOCK_ITEM, 326, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cracked_stone_bricks", 64, ICLASS_BLOCK_ITEM, 327, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "chiseled_stone_bricks", 64, ICLASS_BLOCK_ITEM, 328, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "packed_mud", 64, ICLASS_BLOCK_ITEM, 329, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "mud_bricks", 64, ICLASS_BLOCK_ITEM, 330, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "deepslate_bricks", 64, ICLASS_BLOCK_ITEM, 1134, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cracked_deepslate_bricks", 64, ICLASS_BLOCK_ITEM, 1139, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "deepslate_tiles", 64, ICLASS_BLOCK_ITEM, 1130, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cracked_deepslate_tiles", 64, ICLASS_BLOCK_ITEM, 1140, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "chiseled_deepslate", 64, ICLASS_BLOCK_ITEM, 1138, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "reinforced_deepslate", 64, ICLASS_BLOCK_ITEM, 1152, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "brown_mushroom_block", 64, ICLASS_BLOCK_ITEM, 337, false, 0, -1, 0, 0.85f, 6, 0, 0, 0, -1 },
+    { "red_mushroom_block", 64, ICLASS_BLOCK_ITEM, 338, false, 0, -1, 0, 0.85f, 6, 0, 0, 0, -1 },
+    { "mushroom_stem", 64, ICLASS_BLOCK_ITEM, 339, false, 0, -1, 0, 0.65f, 6, 0, 0, 0, -1 },
+    { "iron_bars", 64, ICLASS_BLOCK_ITEM, 340, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "copper_bars", 64, ICLASS_BLOCK_ITEM, 341, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "exposed_copper_bars", 64, ICLASS_BLOCK_ITEM, 342, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "weathered_copper_bars", 64, ICLASS_BLOCK_ITEM, 343, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "oxidized_copper_bars", 64, ICLASS_BLOCK_ITEM, 344, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "waxed_copper_bars", 64, ICLASS_BLOCK_ITEM, 345, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "waxed_exposed_copper_bars", 64, ICLASS_BLOCK_ITEM, 346, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "waxed_weathered_copper_bars", 64, ICLASS_BLOCK_ITEM, 347, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "waxed_oxidized_copper_bars", 64, ICLASS_BLOCK_ITEM, 348, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "iron_chain", 64, ICLASS_BLOCK_ITEM, 349, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "copper_chain", 64, ICLASS_BLOCK_ITEM, 350, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "exposed_copper_chain", 64, ICLASS_BLOCK_ITEM, 351, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "weathered_copper_chain", 64, ICLASS_BLOCK_ITEM, 352, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "oxidized_copper_chain", 64, ICLASS_BLOCK_ITEM, 353, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "waxed_copper_chain", 64, ICLASS_BLOCK_ITEM, 354, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "waxed_exposed_copper_chain", 64, ICLASS_BLOCK_ITEM, 355, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "waxed_weathered_copper_chain", 64, ICLASS_BLOCK_ITEM, 356, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "waxed_oxidized_copper_chain", 64, ICLASS_BLOCK_ITEM, 357, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "glass_pane", 64, ICLASS_BLOCK_ITEM, 358, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "melon", 64, ICLASS_BLOCK_ITEM, 360, false, 0, -1, 0, 0.65f, 6, 0, 0, 0, -1 },
+    { "vine", 64, ICLASS_BLOCK_ITEM, 365, false, 0, -1, 0, 0.5f, 6, 0, 0, 0, -1 },
+    { "glow_lichen", 64, ICLASS_BLOCK_ITEM, 366, false, 0, -1, 0, 0.5f, 6, 0, 0, 0, -1 },
+    { "resin_clump", 64, ICLASS_BLOCK_ITEM, 367, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "resin_block", 64, ICLASS_BLOCK_ITEM, 374, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "resin_bricks", 64, ICLASS_BLOCK_ITEM, 375, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "resin_brick_stairs", 64, ICLASS_BLOCK_ITEM, 376, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "resin_brick_slab", 64, ICLASS_BLOCK_ITEM, 377, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "resin_brick_wall", 64, ICLASS_BLOCK_ITEM, 378, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "chiseled_resin_bricks", 64, ICLASS_BLOCK_ITEM, 379, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "brick_stairs", 64, ICLASS_BLOCK_ITEM, 369, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "stone_brick_stairs", 64, ICLASS_BLOCK_ITEM, 370, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "mud_brick_stairs", 64, ICLASS_BLOCK_ITEM, 371, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "mycelium", 64, ICLASS_BLOCK_ITEM, 372, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "lily_pad", 64, ICLASS_PLACE_ON_WATER_BLOCK_ITEM, 373, false, 0, -1, 0, 0.65f, 6, 0, 0, 0, -1 },
+    { "nether_bricks", 64, ICLASS_BLOCK_ITEM, 380, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cracked_nether_bricks", 64, ICLASS_BLOCK_ITEM, 940, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "chiseled_nether_bricks", 64, ICLASS_BLOCK_ITEM, 939, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "nether_brick_fence", 64, ICLASS_BLOCK_ITEM, 381, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "nether_brick_stairs", 64, ICLASS_BLOCK_ITEM, 382, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "sculk", 64, ICLASS_BLOCK_ITEM, 1001, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "sculk_vein", 64, ICLASS_BLOCK_ITEM, 1002, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "sculk_catalyst", 64, ICLASS_BLOCK_ITEM, 1003, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "sculk_shrieker", 64, ICLASS_BLOCK_ITEM, 1004, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "enchanting_table", 64, ICLASS_BLOCK_ITEM, 384, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "end_portal_frame", 64, ICLASS_BLOCK_ITEM, 391, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "end_stone", 64, ICLASS_BLOCK_ITEM, 392, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "end_stone_bricks", 64, ICLASS_BLOCK_ITEM, 659, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dragon_egg", 64, ICLASS_BLOCK_ITEM, 393, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "sandstone_stairs", 64, ICLASS_BLOCK_ITEM, 396, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "ender_chest", 64, ICLASS_BLOCK_ITEM, 399, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "emerald_block", 64, ICLASS_BLOCK_ITEM, 402, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "oak_stairs", 64, ICLASS_BLOCK_ITEM, 199, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "spruce_stairs", 64, ICLASS_BLOCK_ITEM, 403, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "birch_stairs", 64, ICLASS_BLOCK_ITEM, 404, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "jungle_stairs", 64, ICLASS_BLOCK_ITEM, 405, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "acacia_stairs", 64, ICLASS_BLOCK_ITEM, 514, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cherry_stairs", 64, ICLASS_BLOCK_ITEM, 515, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dark_oak_stairs", 64, ICLASS_BLOCK_ITEM, 516, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "pale_oak_stairs", 64, ICLASS_BLOCK_ITEM, 517, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "mangrove_stairs", 64, ICLASS_BLOCK_ITEM, 518, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "bamboo_stairs", 64, ICLASS_BLOCK_ITEM, 519, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "bamboo_mosaic_stairs", 64, ICLASS_BLOCK_ITEM, 520, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "crimson_stairs", 64, ICLASS_BLOCK_ITEM, 893, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "warped_stairs", 64, ICLASS_BLOCK_ITEM, 894, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "command_block", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 406, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "beacon", 64, ICLASS_BLOCK_ITEM, 407, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cobblestone_wall", 64, ICLASS_BLOCK_ITEM, 408, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "mossy_cobblestone_wall", 64, ICLASS_BLOCK_ITEM, 409, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "brick_wall", 64, ICLASS_BLOCK_ITEM, 822, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "prismarine_wall", 64, ICLASS_BLOCK_ITEM, 823, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "red_sandstone_wall", 64, ICLASS_BLOCK_ITEM, 824, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "mossy_stone_brick_wall", 64, ICLASS_BLOCK_ITEM, 825, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "granite_wall", 64, ICLASS_BLOCK_ITEM, 826, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "stone_brick_wall", 64, ICLASS_BLOCK_ITEM, 827, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "mud_brick_wall", 64, ICLASS_BLOCK_ITEM, 828, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "nether_brick_wall", 64, ICLASS_BLOCK_ITEM, 829, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "andesite_wall", 64, ICLASS_BLOCK_ITEM, 830, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "red_nether_brick_wall", 64, ICLASS_BLOCK_ITEM, 831, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "sandstone_wall", 64, ICLASS_BLOCK_ITEM, 832, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "end_stone_brick_wall", 64, ICLASS_BLOCK_ITEM, 833, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "diorite_wall", 64, ICLASS_BLOCK_ITEM, 834, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "blackstone_wall", 64, ICLASS_BLOCK_ITEM, 924, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "polished_blackstone_wall", 64, ICLASS_BLOCK_ITEM, 938, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "polished_blackstone_brick_wall", 64, ICLASS_BLOCK_ITEM, 932, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cobbled_deepslate_wall", 64, ICLASS_BLOCK_ITEM, 1125, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "polished_deepslate_wall", 64, ICLASS_BLOCK_ITEM, 1129, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "deepslate_brick_wall", 64, ICLASS_BLOCK_ITEM, 1137, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "deepslate_tile_wall", 64, ICLASS_BLOCK_ITEM, 1133, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "anvil", 64, ICLASS_BLOCK_ITEM, 465, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "chipped_anvil", 64, ICLASS_BLOCK_ITEM, 466, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "damaged_anvil", 64, ICLASS_BLOCK_ITEM, 467, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "chiseled_quartz_block", 64, ICLASS_BLOCK_ITEM, 477, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "quartz_block", 64, ICLASS_BLOCK_ITEM, 476, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "quartz_bricks", 64, ICLASS_BLOCK_ITEM, 941, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "quartz_pillar", 64, ICLASS_BLOCK_ITEM, 478, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "quartz_stairs", 64, ICLASS_BLOCK_ITEM, 479, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "white_terracotta", 64, ICLASS_BLOCK_ITEM, 482, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "orange_terracotta", 64, ICLASS_BLOCK_ITEM, 483, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "magenta_terracotta", 64, ICLASS_BLOCK_ITEM, 484, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_blue_terracotta", 64, ICLASS_BLOCK_ITEM, 485, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "yellow_terracotta", 64, ICLASS_BLOCK_ITEM, 486, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "lime_terracotta", 64, ICLASS_BLOCK_ITEM, 487, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "pink_terracotta", 64, ICLASS_BLOCK_ITEM, 488, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "gray_terracotta", 64, ICLASS_BLOCK_ITEM, 489, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_gray_terracotta", 64, ICLASS_BLOCK_ITEM, 490, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cyan_terracotta", 64, ICLASS_BLOCK_ITEM, 491, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "purple_terracotta", 64, ICLASS_BLOCK_ITEM, 492, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "blue_terracotta", 64, ICLASS_BLOCK_ITEM, 493, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "brown_terracotta", 64, ICLASS_BLOCK_ITEM, 494, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "green_terracotta", 64, ICLASS_BLOCK_ITEM, 495, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "red_terracotta", 64, ICLASS_BLOCK_ITEM, 496, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "black_terracotta", 64, ICLASS_BLOCK_ITEM, 497, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "barrier", 64, ICLASS_BLOCK_ITEM, 522, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light", 64, ICLASS_BLOCK_ITEM, 523, false, 0, -1, 0, -1.0f, 6, 0, ITEM_COMPONENT_BLOCK_STATE, 0, -1 },
+    { "hay_block", 64, ICLASS_BLOCK_ITEM, 535, false, 0, -1, 0, 0.85f, 6, 0, 0, 0, -1 },
+    { "white_carpet", 64, ICLASS_BLOCK_ITEM, 536, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "orange_carpet", 64, ICLASS_BLOCK_ITEM, 537, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "magenta_carpet", 64, ICLASS_BLOCK_ITEM, 538, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_blue_carpet", 64, ICLASS_BLOCK_ITEM, 539, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "yellow_carpet", 64, ICLASS_BLOCK_ITEM, 540, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "lime_carpet", 64, ICLASS_BLOCK_ITEM, 541, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "pink_carpet", 64, ICLASS_BLOCK_ITEM, 542, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "gray_carpet", 64, ICLASS_BLOCK_ITEM, 543, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_gray_carpet", 64, ICLASS_BLOCK_ITEM, 544, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cyan_carpet", 64, ICLASS_BLOCK_ITEM, 545, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "purple_carpet", 64, ICLASS_BLOCK_ITEM, 546, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "blue_carpet", 64, ICLASS_BLOCK_ITEM, 547, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "brown_carpet", 64, ICLASS_BLOCK_ITEM, 548, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "green_carpet", 64, ICLASS_BLOCK_ITEM, 549, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "red_carpet", 64, ICLASS_BLOCK_ITEM, 550, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "black_carpet", 64, ICLASS_BLOCK_ITEM, 551, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "terracotta", 64, ICLASS_BLOCK_ITEM, 552, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "packed_ice", 64, ICLASS_BLOCK_ITEM, 554, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dirt_path", 64, ICLASS_BLOCK_ITEM, 664, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "sunflower", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 555, false, 0, -1, 0, 0.65f, 6, 0, 0, 0, -1 },
+    { "lilac", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 556, false, 0, -1, 0, 0.65f, 6, 0, 0, 0, -1 },
+    { "rose_bush", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 557, false, 0, -1, 0, 0.65f, 6, 0, 0, 0, -1 },
+    { "peony", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 558, false, 0, -1, 0, 0.65f, 6, 0, 0, 0, -1 },
+    { "tall_grass", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 559, false, 0, -1, 0, 0.5f, 6, 0, 0, 0, -1 },
+    { "large_fern", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 560, false, 0, -1, 0, 0.65f, 6, 0, 0, 0, -1 },
+    { "white_stained_glass", 64, ICLASS_BLOCK_ITEM, 299, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "orange_stained_glass", 64, ICLASS_BLOCK_ITEM, 300, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "magenta_stained_glass", 64, ICLASS_BLOCK_ITEM, 301, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_blue_stained_glass", 64, ICLASS_BLOCK_ITEM, 302, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "yellow_stained_glass", 64, ICLASS_BLOCK_ITEM, 303, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "lime_stained_glass", 64, ICLASS_BLOCK_ITEM, 304, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "pink_stained_glass", 64, ICLASS_BLOCK_ITEM, 305, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "gray_stained_glass", 64, ICLASS_BLOCK_ITEM, 306, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_gray_stained_glass", 64, ICLASS_BLOCK_ITEM, 307, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cyan_stained_glass", 64, ICLASS_BLOCK_ITEM, 308, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "purple_stained_glass", 64, ICLASS_BLOCK_ITEM, 309, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "blue_stained_glass", 64, ICLASS_BLOCK_ITEM, 310, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "brown_stained_glass", 64, ICLASS_BLOCK_ITEM, 311, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "green_stained_glass", 64, ICLASS_BLOCK_ITEM, 312, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "red_stained_glass", 64, ICLASS_BLOCK_ITEM, 313, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "black_stained_glass", 64, ICLASS_BLOCK_ITEM, 314, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "white_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 498, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "orange_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 499, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "magenta_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 500, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_blue_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 501, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "yellow_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 502, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "lime_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 503, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "pink_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 504, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "gray_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 505, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_gray_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 506, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cyan_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 507, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "purple_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 508, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "blue_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 509, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "brown_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 510, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "green_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 511, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "red_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 512, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "black_stained_glass_pane", 64, ICLASS_BLOCK_ITEM, 513, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "prismarine", 64, ICLASS_BLOCK_ITEM, 525, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "prismarine_bricks", 64, ICLASS_BLOCK_ITEM, 526, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dark_prismarine", 64, ICLASS_BLOCK_ITEM, 527, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "prismarine_stairs", 64, ICLASS_BLOCK_ITEM, 528, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "prismarine_brick_stairs", 64, ICLASS_BLOCK_ITEM, 529, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dark_prismarine_stairs", 64, ICLASS_BLOCK_ITEM, 530, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "sea_lantern", 64, ICLASS_BLOCK_ITEM, 534, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "red_sandstone", 64, ICLASS_BLOCK_ITEM, 593, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "chiseled_red_sandstone", 64, ICLASS_BLOCK_ITEM, 594, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cut_red_sandstone", 64, ICLASS_BLOCK_ITEM, 595, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "red_sandstone_stairs", 64, ICLASS_BLOCK_ITEM, 596, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "repeating_command_block", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 666, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "chain_command_block", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 667, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "magma_block", 64, ICLASS_BLOCK_ITEM, 669, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "nether_wart_block", 64, ICLASS_BLOCK_ITEM, 670, false, 0, -1, 0, 0.85f, 6, 0, 0, 0, -1 },
+    { "warped_wart_block", 64, ICLASS_BLOCK_ITEM, 866, false, 0, -1, 0, 0.85f, 6, 0, 0, 0, -1 },
+    { "red_nether_bricks", 64, ICLASS_BLOCK_ITEM, 671, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "bone_block", 64, ICLASS_BLOCK_ITEM, 672, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "structure_void", 64, ICLASS_BLOCK_ITEM, 673, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "shulker_box", 1, ICLASS_BLOCK_ITEM, 675, true, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "white_shulker_box", 1, ICLASS_BLOCK_ITEM, 676, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "orange_shulker_box", 1, ICLASS_BLOCK_ITEM, 677, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "magenta_shulker_box", 1, ICLASS_BLOCK_ITEM, 678, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "light_blue_shulker_box", 1, ICLASS_BLOCK_ITEM, 679, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "yellow_shulker_box", 1, ICLASS_BLOCK_ITEM, 680, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "lime_shulker_box", 1, ICLASS_BLOCK_ITEM, 681, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "pink_shulker_box", 1, ICLASS_BLOCK_ITEM, 682, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "gray_shulker_box", 1, ICLASS_BLOCK_ITEM, 683, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "light_gray_shulker_box", 1, ICLASS_BLOCK_ITEM, 684, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "cyan_shulker_box", 1, ICLASS_BLOCK_ITEM, 685, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "purple_shulker_box", 1, ICLASS_BLOCK_ITEM, 686, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "blue_shulker_box", 1, ICLASS_BLOCK_ITEM, 687, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "brown_shulker_box", 1, ICLASS_BLOCK_ITEM, 688, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "green_shulker_box", 1, ICLASS_BLOCK_ITEM, 689, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "red_shulker_box", 1, ICLASS_BLOCK_ITEM, 690, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "black_shulker_box", 1, ICLASS_BLOCK_ITEM, 691, true, 0, -1, 0, -1.0f, 6, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "white_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 692, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "orange_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 693, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "magenta_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 694, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_blue_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 695, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "yellow_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 696, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "lime_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 697, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "pink_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 698, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "gray_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 699, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_gray_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 700, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cyan_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 701, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "purple_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 702, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "blue_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 703, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "brown_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 704, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "green_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 705, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "red_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 706, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "black_glazed_terracotta", 64, ICLASS_BLOCK_ITEM, 707, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "white_concrete", 64, ICLASS_BLOCK_ITEM, 708, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "orange_concrete", 64, ICLASS_BLOCK_ITEM, 709, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "magenta_concrete", 64, ICLASS_BLOCK_ITEM, 710, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_blue_concrete", 64, ICLASS_BLOCK_ITEM, 711, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "yellow_concrete", 64, ICLASS_BLOCK_ITEM, 712, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "lime_concrete", 64, ICLASS_BLOCK_ITEM, 713, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "pink_concrete", 64, ICLASS_BLOCK_ITEM, 714, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "gray_concrete", 64, ICLASS_BLOCK_ITEM, 715, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_gray_concrete", 64, ICLASS_BLOCK_ITEM, 716, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cyan_concrete", 64, ICLASS_BLOCK_ITEM, 717, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "purple_concrete", 64, ICLASS_BLOCK_ITEM, 718, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "blue_concrete", 64, ICLASS_BLOCK_ITEM, 719, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "brown_concrete", 64, ICLASS_BLOCK_ITEM, 720, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "green_concrete", 64, ICLASS_BLOCK_ITEM, 721, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "red_concrete", 64, ICLASS_BLOCK_ITEM, 722, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "black_concrete", 64, ICLASS_BLOCK_ITEM, 723, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "white_concrete_powder", 64, ICLASS_BLOCK_ITEM, 724, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "orange_concrete_powder", 64, ICLASS_BLOCK_ITEM, 725, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "magenta_concrete_powder", 64, ICLASS_BLOCK_ITEM, 726, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_blue_concrete_powder", 64, ICLASS_BLOCK_ITEM, 727, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "yellow_concrete_powder", 64, ICLASS_BLOCK_ITEM, 728, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "lime_concrete_powder", 64, ICLASS_BLOCK_ITEM, 729, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "pink_concrete_powder", 64, ICLASS_BLOCK_ITEM, 730, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "gray_concrete_powder", 64, ICLASS_BLOCK_ITEM, 731, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "light_gray_concrete_powder", 64, ICLASS_BLOCK_ITEM, 732, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "cyan_concrete_powder", 64, ICLASS_BLOCK_ITEM, 733, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "purple_concrete_powder", 64, ICLASS_BLOCK_ITEM, 734, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "blue_concrete_powder", 64, ICLASS_BLOCK_ITEM, 735, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "brown_concrete_powder", 64, ICLASS_BLOCK_ITEM, 736, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "green_concrete_powder", 64, ICLASS_BLOCK_ITEM, 737, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "red_concrete_powder", 64, ICLASS_BLOCK_ITEM, 738, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "black_concrete_powder", 64, ICLASS_BLOCK_ITEM, 739, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "turtle_egg", 64, ICLASS_BLOCK_ITEM, 743, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "sniffer_egg", 64, ICLASS_BLOCK_ITEM, 744, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dried_ghast", 64, ICLASS_BLOCK_ITEM, 745, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dead_tube_coral_block", 64, ICLASS_BLOCK_ITEM, 746, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dead_brain_coral_block", 64, ICLASS_BLOCK_ITEM, 747, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dead_bubble_coral_block", 64, ICLASS_BLOCK_ITEM, 748, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dead_fire_coral_block", 64, ICLASS_BLOCK_ITEM, 749, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dead_horn_coral_block", 64, ICLASS_BLOCK_ITEM, 750, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "tube_coral_block", 64, ICLASS_BLOCK_ITEM, 751, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "brain_coral_block", 64, ICLASS_BLOCK_ITEM, 752, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "bubble_coral_block", 64, ICLASS_BLOCK_ITEM, 753, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "fire_coral_block", 64, ICLASS_BLOCK_ITEM, 754, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "horn_coral_block", 64, ICLASS_BLOCK_ITEM, 755, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "tube_coral", 64, ICLASS_BLOCK_ITEM, 761, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "brain_coral", 64, ICLASS_BLOCK_ITEM, 762, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "bubble_coral", 64, ICLASS_BLOCK_ITEM, 763, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "fire_coral", 64, ICLASS_BLOCK_ITEM, 764, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "horn_coral", 64, ICLASS_BLOCK_ITEM, 765, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dead_brain_coral", 64, ICLASS_BLOCK_ITEM, 757, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dead_bubble_coral", 64, ICLASS_BLOCK_ITEM, 758, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dead_fire_coral", 64, ICLASS_BLOCK_ITEM, 759, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dead_horn_coral", 64, ICLASS_BLOCK_ITEM, 760, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "dead_tube_coral", 64, ICLASS_BLOCK_ITEM, 756, false, 0, -1, 0, -1.0f, 6, 0, 0, 0, -1 },
+    { "tube_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 771, false, 0, -1, 0, -1.0f, 6, 2, 0, 0, -1 },
+    { "brain_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 772, false, 0, -1, 0, -1.0f, 8, 2, 0, 0, -1 },
+    { "bubble_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 773, false, 0, -1, 0, -1.0f, 10, 2, 0, 0, -1 },
+    { "fire_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 774, false, 0, -1, 0, -1.0f, 12, 2, 0, 0, -1 },
+    { "horn_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 775, false, 0, -1, 0, -1.0f, 14, 2, 0, 0, -1 },
+    { "dead_tube_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 766, false, 0, -1, 0, -1.0f, 16, 2, 0, 0, -1 },
+    { "dead_brain_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 767, false, 0, -1, 0, -1.0f, 18, 2, 0, 0, -1 },
+    { "dead_bubble_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 768, false, 0, -1, 0, -1.0f, 20, 2, 0, 0, -1 },
+    { "dead_fire_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 769, false, 0, -1, 0, -1.0f, 22, 2, 0, 0, -1 },
+    { "dead_horn_coral_fan", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 770, false, 0, -1, 0, -1.0f, 24, 2, 0, 0, -1 },
+    { "blue_ice", 64, ICLASS_BLOCK_ITEM, 787, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "conduit", 64, ICLASS_BLOCK_ITEM, 788, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "polished_granite_stairs", 64, ICLASS_BLOCK_ITEM, 795, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "smooth_red_sandstone_stairs", 64, ICLASS_BLOCK_ITEM, 796, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "mossy_stone_brick_stairs", 64, ICLASS_BLOCK_ITEM, 797, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "polished_diorite_stairs", 64, ICLASS_BLOCK_ITEM, 798, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "mossy_cobblestone_stairs", 64, ICLASS_BLOCK_ITEM, 799, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "end_stone_brick_stairs", 64, ICLASS_BLOCK_ITEM, 800, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "stone_stairs", 64, ICLASS_BLOCK_ITEM, 801, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "smooth_sandstone_stairs", 64, ICLASS_BLOCK_ITEM, 802, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "smooth_quartz_stairs", 64, ICLASS_BLOCK_ITEM, 803, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "granite_stairs", 64, ICLASS_BLOCK_ITEM, 804, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "andesite_stairs", 64, ICLASS_BLOCK_ITEM, 805, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "red_nether_brick_stairs", 64, ICLASS_BLOCK_ITEM, 806, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "polished_andesite_stairs", 64, ICLASS_BLOCK_ITEM, 807, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "diorite_stairs", 64, ICLASS_BLOCK_ITEM, 808, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "cobbled_deepslate_stairs", 64, ICLASS_BLOCK_ITEM, 1123, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "polished_deepslate_stairs", 64, ICLASS_BLOCK_ITEM, 1127, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "deepslate_brick_stairs", 64, ICLASS_BLOCK_ITEM, 1135, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "deepslate_tile_stairs", 64, ICLASS_BLOCK_ITEM, 1131, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "polished_granite_slab", 64, ICLASS_BLOCK_ITEM, 809, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "smooth_red_sandstone_slab", 64, ICLASS_BLOCK_ITEM, 810, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "mossy_stone_brick_slab", 64, ICLASS_BLOCK_ITEM, 811, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "polished_diorite_slab", 64, ICLASS_BLOCK_ITEM, 812, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "mossy_cobblestone_slab", 64, ICLASS_BLOCK_ITEM, 813, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "end_stone_brick_slab", 64, ICLASS_BLOCK_ITEM, 814, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "smooth_sandstone_slab", 64, ICLASS_BLOCK_ITEM, 815, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "smooth_quartz_slab", 64, ICLASS_BLOCK_ITEM, 816, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "granite_slab", 64, ICLASS_BLOCK_ITEM, 817, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "andesite_slab", 64, ICLASS_BLOCK_ITEM, 818, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "red_nether_brick_slab", 64, ICLASS_BLOCK_ITEM, 819, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "polished_andesite_slab", 64, ICLASS_BLOCK_ITEM, 820, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "diorite_slab", 64, ICLASS_BLOCK_ITEM, 821, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "cobbled_deepslate_slab", 64, ICLASS_BLOCK_ITEM, 1124, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "polished_deepslate_slab", 64, ICLASS_BLOCK_ITEM, 1128, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "deepslate_brick_slab", 64, ICLASS_BLOCK_ITEM, 1136, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "deepslate_tile_slab", 64, ICLASS_BLOCK_ITEM, 1132, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "scaffolding", 64, ICLASS_SCAFFOLDING_BLOCK_ITEM, 835, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "redstone", 64, ICLASS_BLOCK_ITEM, 201, false, 0, -1, 0, -1.0f, 26, 0, 0, 0, -1 },
+    { "redstone_torch", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 272, false, 0, -1, 0, -1.0f, 26, 2, 0, 0, -1 },
+    { "redstone_block", 64, ICLASS_BLOCK_ITEM, 473, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "repeater", 64, ICLASS_BLOCK_ITEM, 298, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "comparator", 64, ICLASS_BLOCK_ITEM, 471, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "piston", 64, ICLASS_BLOCK_ITEM, 138, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "sticky_piston", 64, ICLASS_BLOCK_ITEM, 128, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "slime_block", 64, ICLASS_BLOCK_ITEM, 521, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "honey_block", 64, ICLASS_BLOCK_ITEM, 911, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "observer", 64, ICLASS_BLOCK_ITEM, 674, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "hopper", 64, ICLASS_BLOCK_ITEM, 475, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "dispenser", 64, ICLASS_BLOCK_ITEM, 105, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "dropper", 64, ICLASS_BLOCK_ITEM, 481, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "lectern", 64, ICLASS_BLOCK_ITEM, 843, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "target", 64, ICLASS_BLOCK_ITEM, 908, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "lever", 64, ICLASS_BLOCK_ITEM, 257, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "lightning_rod", 64, ICLASS_BLOCK_ITEM, 1095, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "exposed_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1096, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "weathered_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1097, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "oxidized_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1098, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "waxed_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1099, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "waxed_exposed_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1100, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "waxed_weathered_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1101, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "waxed_oxidized_lightning_rod", 64, ICLASS_BLOCK_ITEM, 1102, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "daylight_detector", 64, ICLASS_BLOCK_ITEM, 472, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "sculk_sensor", 64, ICLASS_BLOCK_ITEM, 999, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "calibrated_sculk_sensor", 64, ICLASS_BLOCK_ITEM, 1000, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "tripwire_hook", 64, ICLASS_BLOCK_ITEM, 400, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "trapped_chest", 64, ICLASS_BLOCK_ITEM, 468, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "tnt", 64, ICLASS_BLOCK_ITEM, 176, true, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "redstone_lamp", 64, ICLASS_BLOCK_ITEM, 394, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "note_block", 64, ICLASS_BLOCK_ITEM, 109, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "stone_button", 64, ICLASS_BLOCK_ITEM, 274, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "polished_blackstone_button", 64, ICLASS_BLOCK_ITEM, 937, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "oak_button", 64, ICLASS_BLOCK_ITEM, 441, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "spruce_button", 64, ICLASS_BLOCK_ITEM, 442, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "birch_button", 64, ICLASS_BLOCK_ITEM, 443, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "jungle_button", 64, ICLASS_BLOCK_ITEM, 444, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "acacia_button", 64, ICLASS_BLOCK_ITEM, 445, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "cherry_button", 64, ICLASS_BLOCK_ITEM, 446, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "dark_oak_button", 64, ICLASS_BLOCK_ITEM, 447, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "pale_oak_button", 64, ICLASS_BLOCK_ITEM, 448, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "mangrove_button", 64, ICLASS_BLOCK_ITEM, 449, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "bamboo_button", 64, ICLASS_BLOCK_ITEM, 450, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "crimson_button", 64, ICLASS_BLOCK_ITEM, 895, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "warped_button", 64, ICLASS_BLOCK_ITEM, 896, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "stone_pressure_plate", 64, ICLASS_BLOCK_ITEM, 258, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "polished_blackstone_pressure_plate", 64, ICLASS_BLOCK_ITEM, 936, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "light_weighted_pressure_plate", 64, ICLASS_BLOCK_ITEM, 469, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "heavy_weighted_pressure_plate", 64, ICLASS_BLOCK_ITEM, 470, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "oak_pressure_plate", 64, ICLASS_BLOCK_ITEM, 260, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "spruce_pressure_plate", 64, ICLASS_BLOCK_ITEM, 261, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "birch_pressure_plate", 64, ICLASS_BLOCK_ITEM, 262, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "jungle_pressure_plate", 64, ICLASS_BLOCK_ITEM, 263, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "acacia_pressure_plate", 64, ICLASS_BLOCK_ITEM, 264, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "cherry_pressure_plate", 64, ICLASS_BLOCK_ITEM, 265, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "dark_oak_pressure_plate", 64, ICLASS_BLOCK_ITEM, 266, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "pale_oak_pressure_plate", 64, ICLASS_BLOCK_ITEM, 267, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "mangrove_pressure_plate", 64, ICLASS_BLOCK_ITEM, 268, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "bamboo_pressure_plate", 64, ICLASS_BLOCK_ITEM, 269, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "crimson_pressure_plate", 64, ICLASS_BLOCK_ITEM, 885, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "warped_pressure_plate", 64, ICLASS_BLOCK_ITEM, 886, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "iron_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 259, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "oak_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 219, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "spruce_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 644, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "birch_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 645, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "jungle_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 646, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "acacia_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 647, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "cherry_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 648, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "dark_oak_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 649, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "pale_oak_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 650, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "mangrove_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 651, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "bamboo_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 652, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "crimson_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 897, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "warped_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 898, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1047, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "exposed_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1048, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "weathered_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1050, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "oxidized_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1049, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "waxed_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1051, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "waxed_exposed_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1052, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "waxed_weathered_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1054, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "waxed_oxidized_copper_door", 64, ICLASS_DOUBLE_HIGH_BLOCK_ITEM, 1053, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "iron_trapdoor", 64, ICLASS_BLOCK_ITEM, 524, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "oak_trapdoor", 64, ICLASS_BLOCK_ITEM, 315, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "spruce_trapdoor", 64, ICLASS_BLOCK_ITEM, 316, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "birch_trapdoor", 64, ICLASS_BLOCK_ITEM, 317, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "jungle_trapdoor", 64, ICLASS_BLOCK_ITEM, 318, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "acacia_trapdoor", 64, ICLASS_BLOCK_ITEM, 319, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "cherry_trapdoor", 64, ICLASS_BLOCK_ITEM, 320, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "dark_oak_trapdoor", 64, ICLASS_BLOCK_ITEM, 321, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "pale_oak_trapdoor", 64, ICLASS_BLOCK_ITEM, 322, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "mangrove_trapdoor", 64, ICLASS_BLOCK_ITEM, 323, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "bamboo_trapdoor", 64, ICLASS_BLOCK_ITEM, 324, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "crimson_trapdoor", 64, ICLASS_BLOCK_ITEM, 889, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "warped_trapdoor", 64, ICLASS_BLOCK_ITEM, 890, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1055, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "exposed_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1056, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "weathered_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1058, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "oxidized_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1057, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "waxed_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1059, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "waxed_exposed_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1060, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "waxed_weathered_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1062, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "waxed_oxidized_copper_trapdoor", 64, ICLASS_BLOCK_ITEM, 1061, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "oak_fence_gate", 64, ICLASS_BLOCK_ITEM, 368, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "spruce_fence_gate", 64, ICLASS_BLOCK_ITEM, 626, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "birch_fence_gate", 64, ICLASS_BLOCK_ITEM, 627, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "jungle_fence_gate", 64, ICLASS_BLOCK_ITEM, 628, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "acacia_fence_gate", 64, ICLASS_BLOCK_ITEM, 629, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "cherry_fence_gate", 64, ICLASS_BLOCK_ITEM, 630, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "dark_oak_fence_gate", 64, ICLASS_BLOCK_ITEM, 631, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "pale_oak_fence_gate", 64, ICLASS_BLOCK_ITEM, 632, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "mangrove_fence_gate", 64, ICLASS_BLOCK_ITEM, 633, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "bamboo_fence_gate", 64, ICLASS_BLOCK_ITEM, 634, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "crimson_fence_gate", 64, ICLASS_BLOCK_ITEM, 891, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "warped_fence_gate", 64, ICLASS_BLOCK_ITEM, 892, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "powered_rail", 64, ICLASS_BLOCK_ITEM, 126, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "detector_rail", 64, ICLASS_BLOCK_ITEM, 127, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "rail", 64, ICLASS_BLOCK_ITEM, 221, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "activator_rail", 64, ICLASS_BLOCK_ITEM, 480, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "saddle", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "white_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "orange_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "magenta_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "light_blue_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "yellow_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "lime_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "pink_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "gray_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "light_gray_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "cyan_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "purple_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "blue_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "brown_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "green_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "red_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "black_harness", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "minecart", 1, ICLASS_MINECART_ITEM, -1, true, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "chest_minecart", 1, ICLASS_MINECART_ITEM, -1, true, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "furnace_minecart", 1, ICLASS_MINECART_ITEM, -1, true, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "tnt_minecart", 1, ICLASS_MINECART_ITEM, -1, true, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "hopper_minecart", 1, ICLASS_MINECART_ITEM, -1, true, 0, -1, 0, -1.0f, 28, 0, 0, 0, -1 },
+    { "carrot_on_a_stick", 1, ICLASS_FOOD_ON_ASTICK_ITEM, -1, false, 0, -1, 0, -1.0f, 28, 1, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "warped_fungus_on_a_stick", 1, ICLASS_FOOD_ON_ASTICK_ITEM, -1, false, 0, -1, 0, -1.0f, 29, 1, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "phantom_membrane", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "elytra", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "oak_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "oak_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "spruce_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "spruce_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "birch_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "birch_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "jungle_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "jungle_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "acacia_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "acacia_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "cherry_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "cherry_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "dark_oak_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "dark_oak_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "pale_oak_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "pale_oak_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "mangrove_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "mangrove_chest_boat", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "bamboo_raft", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "bamboo_chest_raft", 1, ICLASS_BOAT_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "structure_block", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 903, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "jigsaw", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 904, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "test_block", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 905, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_BLOCK_STATE, 0, -1 },
+    { "test_instance_block", 64, ICLASS_GAME_MASTER_BLOCK_ITEM, 906, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "turtle_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "turtle_scute", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "armadillo_scute", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "wolf_armor", 1, ICLASS_NONE, -1, false, ITEM_TAG_DYEABLE, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 1u << CAULDRON_MAP_WATER, -1 },
+    { "flint_and_steel", 1, ICLASS_FLINT_AND_STEEL_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "bowl", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "apple", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.65f, 30, 0, 0, 0, -1 },
+    { "bow", 1, ICLASS_BOW_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "arrow", 64, ICLASS_ARROW_ITEM, -1, true, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "coal", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "charcoal", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "diamond", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "emerald", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "lapis_lazuli", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "quartz", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "amethyst_shard", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "raw_iron", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "iron_ingot", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "raw_copper", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "copper_ingot", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "raw_gold", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "gold_ingot", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "netherite_ingot", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "netherite_scrap", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "wooden_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "wooden_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "wooden_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "wooden_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "wooden_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "copper_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "copper_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "copper_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "copper_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "copper_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "stone_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "stone_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "stone_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "stone_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "stone_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "golden_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "golden_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "golden_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "golden_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "golden_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "iron_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "iron_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "iron_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "iron_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "iron_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "diamond_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "diamond_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "diamond_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "diamond_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "diamond_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "netherite_sword", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "netherite_shovel", 1, ICLASS_SHOVEL_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "netherite_pickaxe", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "netherite_axe", 1, ICLASS_AXE_ITEM, -1, false, ITEM_TAG_AXES, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "netherite_hoe", 1, ICLASS_HOE_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "stick", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "mushroom_stew", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "string", 64, ICLASS_BLOCK_ITEM, 401, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "feather", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "gunpowder", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "wheat_seeds", 64, ICLASS_BLOCK_ITEM, 206, false, 0, -1, 0, 0.3f, 30, 0, 0, 0, -1 },
+    { "wheat", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.65f, 30, 0, 0, 0, -1 },
+    { "bread", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.85f, 30, 0, 0, 0, -1 },
+    { "leather_helmet", 1, ICLASS_NONE, -1, false, ITEM_TAG_DYEABLE, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 1u << CAULDRON_MAP_WATER, -1 },
+    { "leather_chestplate", 1, ICLASS_NONE, -1, false, ITEM_TAG_DYEABLE, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 1u << CAULDRON_MAP_WATER, -1 },
+    { "leather_leggings", 1, ICLASS_NONE, -1, false, ITEM_TAG_DYEABLE, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 1u << CAULDRON_MAP_WATER, -1 },
+    { "leather_boots", 1, ICLASS_NONE, -1, false, ITEM_TAG_DYEABLE, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 1u << CAULDRON_MAP_WATER, -1 },
+    { "copper_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "copper_chestplate", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "copper_leggings", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "copper_boots", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "chainmail_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "chainmail_chestplate", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "chainmail_leggings", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "chainmail_boots", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "iron_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "iron_chestplate", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "iron_leggings", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "iron_boots", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "diamond_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "diamond_chestplate", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "diamond_leggings", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "diamond_boots", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "golden_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "golden_chestplate", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "golden_leggings", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "golden_boots", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "netherite_helmet", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "netherite_chestplate", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "netherite_leggings", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "netherite_boots", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "flint", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "porkchop", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "cooked_porkchop", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "painting", 64, ICLASS_HANGING_ENTITY_ITEM, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "golden_apple", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "enchanted_golden_apple", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 30, 0, 0, 0, -1 },
+    { "oak_sign", 16, ICLASS_SIGN_ITEM, 209, false, 0, -1, 0, -1.0f, 30, 2, 0, 0, -1 },
+    { "spruce_sign", 16, ICLASS_SIGN_ITEM, 210, false, 0, -1, 0, -1.0f, 32, 2, 0, 0, -1 },
+    { "birch_sign", 16, ICLASS_SIGN_ITEM, 211, false, 0, -1, 0, -1.0f, 34, 2, 0, 0, -1 },
+    { "jungle_sign", 16, ICLASS_SIGN_ITEM, 214, false, 0, -1, 0, -1.0f, 36, 2, 0, 0, -1 },
+    { "acacia_sign", 16, ICLASS_SIGN_ITEM, 212, false, 0, -1, 0, -1.0f, 38, 2, 0, 0, -1 },
+    { "cherry_sign", 16, ICLASS_SIGN_ITEM, 213, false, 0, -1, 0, -1.0f, 40, 2, 0, 0, -1 },
+    { "dark_oak_sign", 16, ICLASS_SIGN_ITEM, 215, false, 0, -1, 0, -1.0f, 42, 2, 0, 0, -1 },
+    { "pale_oak_sign", 16, ICLASS_SIGN_ITEM, 216, false, 0, -1, 0, -1.0f, 44, 2, 0, 0, -1 },
+    { "mangrove_sign", 16, ICLASS_SIGN_ITEM, 217, false, 0, -1, 0, -1.0f, 46, 2, 0, 0, -1 },
+    { "bamboo_sign", 16, ICLASS_SIGN_ITEM, 218, false, 0, -1, 0, -1.0f, 48, 2, 0, 0, -1 },
+    { "crimson_sign", 16, ICLASS_SIGN_ITEM, 899, false, 0, -1, 0, -1.0f, 50, 2, 0, 0, -1 },
+    { "warped_sign", 16, ICLASS_SIGN_ITEM, 900, false, 0, -1, 0, -1.0f, 52, 2, 0, 0, -1 },
+    { "oak_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 233, false, 0, -1, 0, -1.0f, 54, 2, 0, 0, -1 },
+    { "spruce_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 234, false, 0, -1, 0, -1.0f, 56, 2, 0, 0, -1 },
+    { "birch_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 235, false, 0, -1, 0, -1.0f, 58, 2, 0, 0, -1 },
+    { "jungle_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 238, false, 0, -1, 0, -1.0f, 60, 2, 0, 0, -1 },
+    { "acacia_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 236, false, 0, -1, 0, -1.0f, 62, 2, 0, 0, -1 },
+    { "cherry_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 237, false, 0, -1, 0, -1.0f, 64, 2, 0, 0, -1 },
+    { "dark_oak_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 239, false, 0, -1, 0, -1.0f, 66, 2, 0, 0, -1 },
+    { "pale_oak_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 240, false, 0, -1, 0, -1.0f, 68, 2, 0, 0, -1 },
+    { "mangrove_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 243, false, 0, -1, 0, -1.0f, 70, 2, 0, 0, -1 },
+    { "bamboo_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 244, false, 0, -1, 0, -1.0f, 72, 2, 0, 0, -1 },
+    { "crimson_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 241, false, 0, -1, 0, -1.0f, 74, 2, 0, 0, -1 },
+    { "warped_hanging_sign", 16, ICLASS_HANGING_SIGN_ITEM, 242, false, 0, -1, 0, -1.0f, 76, 2, 0, 0, -1 },
+    { "bucket", 16, ICLASS_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 1u << CAULDRON_MAP_WATER | 1u << CAULDRON_MAP_LAVA | 1u << CAULDRON_MAP_POWDER_SNOW, -1 },
+    { "water_bucket", 1, ICLASS_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 1u << CAULDRON_MAP_EMPTY | 1u << CAULDRON_MAP_WATER | 1u << CAULDRON_MAP_LAVA | 1u << CAULDRON_MAP_POWDER_SNOW, 1012 },
+    { "lava_bucket", 1, ICLASS_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 1u << CAULDRON_MAP_EMPTY | 1u << CAULDRON_MAP_WATER | 1u << CAULDRON_MAP_LAVA | 1u << CAULDRON_MAP_POWDER_SNOW, 1012 },
+    { "powder_snow_bucket", 1, ICLASS_SOLID_BUCKET_ITEM, 998, true, 0, -1, 0, -1.0f, 78, 0, 0, 1u << CAULDRON_MAP_EMPTY | 1u << CAULDRON_MAP_WATER | 1u << CAULDRON_MAP_LAVA | 1u << CAULDRON_MAP_POWDER_SNOW, -1 },
+    { "snowball", 16, ICLASS_SNOWBALL_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "leather", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "milk_bucket", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, 1012 },
+    { "pufferfish_bucket", 1, ICLASS_MOB_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "salmon_bucket", 1, ICLASS_MOB_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "cod_bucket", 1, ICLASS_MOB_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "tropical_fish_bucket", 1, ICLASS_MOB_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "axolotl_bucket", 1, ICLASS_MOB_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "tadpole_bucket", 1, ICLASS_MOB_BUCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "brick", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "clay_ball", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "dried_kelp_block", 64, ICLASS_BLOCK_ITEM, 742, false, 0, -1, 0, 0.5f, 78, 0, 0, 0, -1 },
+    { "paper", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "book", 64, ICLASS_NONE, -1, false, ITEM_TAG_BOOKSHELF_BOOKS, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "slime_ball", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "egg", 16, ICLASS_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "blue_egg", 16, ICLASS_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "brown_egg", 16, ICLASS_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "compass", 64, ICLASS_COMPASS_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "recovery_compass", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "white_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "orange_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "magenta_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "light_blue_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "yellow_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "lime_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "pink_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "gray_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "light_gray_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "cyan_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "purple_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "blue_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "brown_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "green_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "red_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "black_bundle", 1, ICLASS_BUNDLE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "fishing_rod", 1, ICLASS_FISHING_ROD_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "clock", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "spyglass", 1, ICLASS_SPYGLASS_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "glowstone_dust", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "cod", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "salmon", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "tropical_fish", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "pufferfish", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "cooked_cod", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "cooked_salmon", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "ink_sac", 64, ICLASS_INK_SAC_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "glow_ink_sac", 64, ICLASS_GLOW_INK_SAC_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 0, 0, 0, -1 },
+    { "cocoa_beans", 64, ICLASS_BLOCK_ITEM, 395, false, 0, -1, 0, 0.65f, 78, 0, 0, 0, -1 },
+    { "white_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 78, 1, 0, 0, -1 },
+    { "orange_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 79, 1, 0, 0, -1 },
+    { "magenta_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 80, 1, 0, 0, -1 },
+    { "light_blue_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 81, 1, 0, 0, -1 },
+    { "yellow_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 82, 1, 0, 0, -1 },
+    { "lime_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 83, 1, 0, 0, -1 },
+    { "pink_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 84, 1, 0, 0, -1 },
+    { "gray_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 85, 1, 0, 0, -1 },
+    { "light_gray_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 86, 1, 0, 0, -1 },
+    { "cyan_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 87, 1, 0, 0, -1 },
+    { "purple_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 88, 1, 0, 0, -1 },
+    { "blue_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 89, 1, 0, 0, -1 },
+    { "brown_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 90, 1, 0, 0, -1 },
+    { "green_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 91, 1, 0, 0, -1 },
+    { "red_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 92, 1, 0, 0, -1 },
+    { "black_dye", 64, ICLASS_DYE_ITEM, -1, false, 0, -1, 0, -1.0f, 93, 1, 0, 0, -1 },
+    { "bone_meal", 64, ICLASS_BONE_MEAL_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "bone", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "sugar", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "cake", 1, ICLASS_BLOCK_ITEM, 297, false, 0, -1, 0, 1.0f, 94, 0, 0, 0, -1 },
+    { "white_bed", 1, ICLASS_BED_ITEM, 110, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "orange_bed", 1, ICLASS_BED_ITEM, 111, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "magenta_bed", 1, ICLASS_BED_ITEM, 112, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "light_blue_bed", 1, ICLASS_BED_ITEM, 113, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "yellow_bed", 1, ICLASS_BED_ITEM, 114, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "lime_bed", 1, ICLASS_BED_ITEM, 115, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "pink_bed", 1, ICLASS_BED_ITEM, 116, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "gray_bed", 1, ICLASS_BED_ITEM, 117, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "light_gray_bed", 1, ICLASS_BED_ITEM, 118, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "cyan_bed", 1, ICLASS_BED_ITEM, 119, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "purple_bed", 1, ICLASS_BED_ITEM, 120, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "blue_bed", 1, ICLASS_BED_ITEM, 121, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "brown_bed", 1, ICLASS_BED_ITEM, 122, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "green_bed", 1, ICLASS_BED_ITEM, 123, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "red_bed", 1, ICLASS_BED_ITEM, 124, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "black_bed", 1, ICLASS_BED_ITEM, 125, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "cookie", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.85f, 94, 0, 0, 0, -1 },
+    { "crafter", 64, ICLASS_BLOCK_ITEM, 1154, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "filled_map", 64, ICLASS_MAP_ITEM, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "shears", 1, ICLASS_SHEARS_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "melon_slice", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.5f, 94, 0, 0, 0, -1 },
+    { "dried_kelp", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.3f, 94, 0, 0, 0, -1 },
+    { "pumpkin_seeds", 64, ICLASS_BLOCK_ITEM, 363, false, 0, -1, 0, 0.3f, 94, 0, 0, 0, -1 },
+    { "melon_seeds", 64, ICLASS_BLOCK_ITEM, 364, false, 0, -1, 0, 0.3f, 94, 0, 0, 0, -1 },
+    { "beef", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "cooked_beef", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "chicken", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "cooked_chicken", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "rotten_flesh", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "ender_pearl", 16, ICLASS_ENDERPEARL_ITEM, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "blaze_rod", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "ghast_tear", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "gold_nugget", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "nether_wart", 64, ICLASS_BLOCK_ITEM, 383, false, 0, -1, 0, 0.65f, 94, 0, 0, 0, -1 },
+    { "glass_bottle", 64, ICLASS_BOTTLE_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "potion", 1, ICLASS_POTION_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 1u << CAULDRON_MAP_EMPTY | 1u << CAULDRON_MAP_WATER, -1 },
+    { "spider_eye", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "fermented_spider_eye", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "blaze_powder", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "magma_cream", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "brewing_stand", 64, ICLASS_BLOCK_ITEM, 385, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "cauldron", 64, ICLASS_BLOCK_ITEM, 386, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "ender_eye", 64, ICLASS_ENDER_EYE_ITEM, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "glistering_melon_slice", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "chicken_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "cow_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "pig_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "sheep_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "camel_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "donkey_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "horse_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "mule_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "cat_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "parrot_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "wolf_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "armadillo_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "bat_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "bee_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "fox_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "goat_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "llama_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "ocelot_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "panda_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "polar_bear_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "rabbit_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "axolotl_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "cod_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "dolphin_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "frog_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "glow_squid_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "nautilus_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "pufferfish_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "salmon_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "squid_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "tadpole_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "tropical_fish_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "turtle_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "allay_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "mooshroom_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "sniffer_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "copper_golem_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "iron_golem_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "snow_golem_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "trader_llama_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "villager_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "wandering_trader_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "bogged_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "camel_husk_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "drowned_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "husk_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "parched_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "skeleton_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "skeleton_horse_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "stray_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "wither_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "wither_skeleton_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "zombie_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "zombie_horse_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "zombie_nautilus_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "zombie_villager_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "cave_spider_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "spider_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "breeze_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "creaking_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "creeper_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "elder_guardian_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "guardian_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "phantom_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "silverfish_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "slime_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "warden_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "witch_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "evoker_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "pillager_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "ravager_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "vindicator_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "vex_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "blaze_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "ghast_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "happy_ghast_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "hoglin_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "magma_cube_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "piglin_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "piglin_brute_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "strider_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "zoglin_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "zombified_piglin_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "ender_dragon_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "enderman_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "endermite_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "shulker_spawn_egg", 64, ICLASS_SPAWN_EGG_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "experience_bottle", 64, ICLASS_EXPERIENCE_BOTTLE_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "fire_charge", 64, ICLASS_FIRE_CHARGE_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "wind_charge", 64, ICLASS_WIND_CHARGE_ITEM, -1, true, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "writable_book", 1, ICLASS_WRITABLE_BOOK_ITEM, -1, false, ITEM_TAG_LECTERN_BOOKS | ITEM_TAG_BOOKSHELF_BOOKS | ITEM_TAG_BOOK_CLONING_TARGET, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "written_book", 16, ICLASS_WRITTEN_BOOK_ITEM, -1, false, ITEM_TAG_LECTERN_BOOKS | ITEM_TAG_BOOKSHELF_BOOKS, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "breeze_rod", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "mace", 1, ICLASS_MACE_ITEM, -1, false, 0, -1, 0, -1.0f, 94, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "item_frame", 64, ICLASS_ITEM_FRAME_ITEM, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "glow_item_frame", 64, ICLASS_ITEM_FRAME_ITEM, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "flower_pot", 64, ICLASS_BLOCK_ITEM, 410, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "carrot", 64, ICLASS_BLOCK_ITEM, 439, false, 0, -1, 0, 0.65f, 94, 0, 0, 0, -1 },
+    { "potato", 64, ICLASS_BLOCK_ITEM, 440, false, 0, -1, 0, 0.65f, 94, 0, 0, 0, -1 },
+    { "baked_potato", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.85f, 94, 0, 0, 0, -1 },
+    { "poisonous_potato", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "map", 64, ICLASS_EMPTY_MAP_ITEM, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "golden_carrot", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 94, 0, 0, 0, -1 },
+    { "skeleton_skull", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 451, false, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 94, 2, 0, 0, -1 },
+    { "wither_skeleton_skull", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 453, true, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 96, 2, 0, 0, -1 },
+    { "player_head", 64, ICLASS_PLAYER_HEAD_ITEM, 457, false, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 98, 2, 0, 0, -1 },
+    { "zombie_head", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 455, false, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 100, 2, 0, 0, -1 },
+    { "creeper_head", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 459, false, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 102, 2, 0, 0, -1 },
+    { "dragon_head", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 461, false, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 104, 2, 0, 0, -1 },
+    { "piglin_head", 64, ICLASS_STANDING_AND_WALL_BLOCK_ITEM, 463, false, ITEM_TAG_NOTEBLOCK_TOP_INSTRUMENTS, -1, 0, -1.0f, 106, 2, 0, 0, -1 },
+    { "nether_star", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "pumpkin_pie", 64, ICLASS_NONE, -1, false, 0, -1, 0, 1.0f, 108, 0, 0, 0, -1 },
+    { "firework_rocket", 64, ICLASS_FIREWORK_ROCKET_ITEM, -1, true, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "firework_star", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "enchanted_book", 1, ICLASS_NONE, -1, false, ITEM_TAG_BOOKSHELF_BOOKS, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "nether_brick", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "resin_brick", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "prismarine_shard", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "prismarine_crystals", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "rabbit", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "cooked_rabbit", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "rabbit_stew", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "rabbit_foot", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "rabbit_hide", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "armor_stand", 16, ICLASS_ARMOR_STAND_ITEM, -1, true, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "copper_horse_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "iron_horse_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "golden_horse_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "diamond_horse_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "netherite_horse_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "leather_horse_armor", 1, ICLASS_NONE, -1, false, ITEM_TAG_DYEABLE, -1, 0, -1.0f, 108, 0, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "lead", 64, ICLASS_LEAD_ITEM, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "name_tag", 64, ICLASS_NAME_TAG_ITEM, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "command_block_minecart", 1, ICLASS_MINECART_ITEM, -1, true, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "mutton", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "cooked_mutton", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 108, 0, 0, 0, -1 },
+    { "white_banner", 16, ICLASS_BANNER_ITEM, 561, false, 0, -1, 0, -1.0f, 108, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "orange_banner", 16, ICLASS_BANNER_ITEM, 562, false, 0, -1, 0, -1.0f, 110, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "magenta_banner", 16, ICLASS_BANNER_ITEM, 563, false, 0, -1, 0, -1.0f, 112, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "light_blue_banner", 16, ICLASS_BANNER_ITEM, 564, false, 0, -1, 0, -1.0f, 114, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "yellow_banner", 16, ICLASS_BANNER_ITEM, 565, false, 0, -1, 0, -1.0f, 116, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "lime_banner", 16, ICLASS_BANNER_ITEM, 566, false, 0, -1, 0, -1.0f, 118, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "pink_banner", 16, ICLASS_BANNER_ITEM, 567, false, 0, -1, 0, -1.0f, 120, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "gray_banner", 16, ICLASS_BANNER_ITEM, 568, false, 0, -1, 0, -1.0f, 122, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "light_gray_banner", 16, ICLASS_BANNER_ITEM, 569, false, 0, -1, 0, -1.0f, 124, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "cyan_banner", 16, ICLASS_BANNER_ITEM, 570, false, 0, -1, 0, -1.0f, 126, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "purple_banner", 16, ICLASS_BANNER_ITEM, 571, false, 0, -1, 0, -1.0f, 128, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "blue_banner", 16, ICLASS_BANNER_ITEM, 572, false, 0, -1, 0, -1.0f, 130, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "brown_banner", 16, ICLASS_BANNER_ITEM, 573, false, 0, -1, 0, -1.0f, 132, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "green_banner", 16, ICLASS_BANNER_ITEM, 574, false, 0, -1, 0, -1.0f, 134, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "red_banner", 16, ICLASS_BANNER_ITEM, 575, false, 0, -1, 0, -1.0f, 136, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "black_banner", 16, ICLASS_BANNER_ITEM, 576, false, 0, -1, 0, -1.0f, 138, 2, 0, 1u << CAULDRON_MAP_WATER, -1 },
+    { "end_crystal", 64, ICLASS_END_CRYSTAL_ITEM, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "chorus_fruit", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "popped_chorus_fruit", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "torchflower_seeds", 64, ICLASS_BLOCK_ITEM, 660, false, 0, -1, 0, 0.3f, 140, 0, 0, 0, -1 },
+    { "pitcher_pod", 64, ICLASS_BLOCK_ITEM, 661, false, 0, -1, 0, 0.3f, 140, 0, 0, 0, -1 },
+    { "beetroot", 64, ICLASS_NONE, -1, false, 0, -1, 0, 0.65f, 140, 0, 0, 0, -1 },
+    { "beetroot_seeds", 64, ICLASS_BLOCK_ITEM, 663, false, 0, -1, 0, 0.3f, 140, 0, 0, 0, -1 },
+    { "beetroot_soup", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "dragon_breath", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, 1120 },
+    { "splash_potion", 1, ICLASS_SPLASH_POTION_ITEM, -1, true, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "spectral_arrow", 64, ICLASS_SPECTRAL_ARROW_ITEM, -1, true, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "tipped_arrow", 64, ICLASS_TIPPED_ARROW_ITEM, -1, true, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "lingering_potion", 1, ICLASS_LINGERING_POTION_ITEM, -1, true, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "shield", 1, ICLASS_SHIELD_ITEM, -1, false, 0, -1, 0, -1.0f, 140, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "wooden_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "stone_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "copper_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "iron_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "golden_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "diamond_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "netherite_spear", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "totem_of_undying", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "shulker_shell", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "iron_nugget", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "copper_nugget", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "knowledge_book", 1, ICLASS_KNOWLEDGE_BOOK_ITEM, -1, false, ITEM_TAG_BOOKSHELF_BOOKS, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "debug_stick", 1, ICLASS_DEBUG_STICK_ITEM, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_13", 1, ICLASS_NONE, -1, false, 0, 3560, 1, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_cat", 1, ICLASS_NONE, -1, false, 0, 3700, 2, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_blocks", 1, ICLASS_NONE, -1, false, 0, 6900, 3, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_chirp", 1, ICLASS_NONE, -1, false, 0, 3700, 4, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_creator", 1, ICLASS_NONE, -1, false, 0, 3520, 12, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_creator_music_box", 1, ICLASS_NONE, -1, false, 0, 1460, 11, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_far", 1, ICLASS_NONE, -1, false, 0, 3480, 5, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_lava_chicken", 1, ICLASS_NONE, -1, false, 0, 2680, 9, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_mall", 1, ICLASS_NONE, -1, false, 0, 3940, 6, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_mellohi", 1, ICLASS_NONE, -1, false, 0, 1920, 7, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_stal", 1, ICLASS_NONE, -1, false, 0, 3000, 8, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_strad", 1, ICLASS_NONE, -1, false, 0, 3760, 9, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_ward", 1, ICLASS_NONE, -1, false, 0, 5020, 10, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_11", 1, ICLASS_NONE, -1, false, 0, 1420, 11, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_wait", 1, ICLASS_NONE, -1, false, 0, 4760, 12, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_otherside", 1, ICLASS_NONE, -1, false, 0, 3900, 14, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_relic", 1, ICLASS_NONE, -1, false, 0, 4360, 14, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_5", 1, ICLASS_NONE, -1, false, 0, 3560, 15, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_pigstep", 1, ICLASS_NONE, -1, false, 0, 2980, 13, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_precipice", 1, ICLASS_NONE, -1, false, 0, 5980, 13, -1.0f, 140, 0, 0, 0, -1 },
+    { "music_disc_tears", 1, ICLASS_NONE, -1, false, 0, 3500, 10, -1.0f, 140, 0, 0, 0, -1 },
+    { "disc_fragment_5", 64, ICLASS_DISC_FRAGMENT_ITEM, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "trident", 1, ICLASS_TRIDENT_ITEM, -1, false, 0, -1, 0, -1.0f, 140, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "nautilus_shell", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "iron_nautilus_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "golden_nautilus_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "diamond_nautilus_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "netherite_nautilus_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "copper_nautilus_armor", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "heart_of_the_sea", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 140, 0, 0, 0, -1 },
+    { "crossbow", 1, ICLASS_CROSSBOW_ITEM, -1, false, 0, -1, 0, -1.0f, 140, 2, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "suspicious_stew", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "loom", 64, ICLASS_BLOCK_ITEM, 836, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "flower_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "creeper_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "skull_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "mojang_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "globe_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "piglin_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "flow_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "guster_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "field_masoned_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "bordure_indented_banner_pattern", 1, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "goat_horn", 1, ICLASS_INSTRUMENT_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "composter", 64, ICLASS_BLOCK_ITEM, 907, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "barrel", 64, ICLASS_BLOCK_ITEM, 837, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "smoker", 64, ICLASS_BLOCK_ITEM, 838, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "blast_furnace", 64, ICLASS_BLOCK_ITEM, 839, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "cartography_table", 64, ICLASS_BLOCK_ITEM, 840, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "fletching_table", 64, ICLASS_BLOCK_ITEM, 841, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "grindstone", 64, ICLASS_BLOCK_ITEM, 842, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "smithing_table", 64, ICLASS_BLOCK_ITEM, 844, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "stonecutter", 64, ICLASS_BLOCK_ITEM, 845, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "bell", 64, ICLASS_BLOCK_ITEM, 846, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "lantern", 64, ICLASS_BLOCK_ITEM, 847, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "soul_lantern", 64, ICLASS_BLOCK_ITEM, 848, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "copper_lantern", 64, ICLASS_BLOCK_ITEM, 849, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "exposed_copper_lantern", 64, ICLASS_BLOCK_ITEM, 850, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "weathered_copper_lantern", 64, ICLASS_BLOCK_ITEM, 851, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "oxidized_copper_lantern", 64, ICLASS_BLOCK_ITEM, 852, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_copper_lantern", 64, ICLASS_BLOCK_ITEM, 853, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_exposed_copper_lantern", 64, ICLASS_BLOCK_ITEM, 854, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_weathered_copper_lantern", 64, ICLASS_BLOCK_ITEM, 855, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_oxidized_copper_lantern", 64, ICLASS_BLOCK_ITEM, 856, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "sweet_berries", 64, ICLASS_BLOCK_ITEM, 859, false, 0, -1, 0, 0.3f, 142, 0, 0, 0, -1 },
+    { "glow_berries", 64, ICLASS_BLOCK_ITEM, 1105, false, 0, -1, 0, 0.3f, 142, 0, 0, 0, -1 },
+    { "campfire", 64, ICLASS_BLOCK_ITEM, 857, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "soul_campfire", 64, ICLASS_BLOCK_ITEM, 858, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "shroomlight", 64, ICLASS_BLOCK_ITEM, 875, false, 0, -1, 0, 0.65f, 142, 0, 0, 0, -1 },
+    { "honeycomb", 64, ICLASS_HONEYCOMB_ITEM, -1, true, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "bee_nest", 64, ICLASS_BLOCK_ITEM, 909, false, 0, -1, 0, -1.0f, 142, 0, ITEM_COMPONENT_BLOCK_STATE, 0, -1 },
+    { "beehive", 64, ICLASS_BLOCK_ITEM, 910, false, 0, -1, 0, -1.0f, 142, 0, ITEM_COMPONENT_BLOCK_STATE, 0, -1 },
+    { "honey_bottle", 16, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, 1120 },
+    { "honeycomb_block", 64, ICLASS_BLOCK_ITEM, 912, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "lodestone", 64, ICLASS_BLOCK_ITEM, 921, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "crying_obsidian", 64, ICLASS_BLOCK_ITEM, 915, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "blackstone", 64, ICLASS_BLOCK_ITEM, 922, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "blackstone_slab", 64, ICLASS_BLOCK_ITEM, 925, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "blackstone_stairs", 64, ICLASS_BLOCK_ITEM, 923, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "gilded_blackstone", 64, ICLASS_BLOCK_ITEM, 933, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "polished_blackstone", 64, ICLASS_BLOCK_ITEM, 926, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "polished_blackstone_slab", 64, ICLASS_BLOCK_ITEM, 935, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "polished_blackstone_stairs", 64, ICLASS_BLOCK_ITEM, 934, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "chiseled_polished_blackstone", 64, ICLASS_BLOCK_ITEM, 929, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "polished_blackstone_bricks", 64, ICLASS_BLOCK_ITEM, 927, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "polished_blackstone_brick_slab", 64, ICLASS_BLOCK_ITEM, 930, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "polished_blackstone_brick_stairs", 64, ICLASS_BLOCK_ITEM, 931, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "cracked_polished_blackstone_bricks", 64, ICLASS_BLOCK_ITEM, 928, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "respawn_anchor", 64, ICLASS_BLOCK_ITEM, 916, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "candle", 64, ICLASS_BLOCK_ITEM, 942, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "white_candle", 64, ICLASS_BLOCK_ITEM, 943, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "orange_candle", 64, ICLASS_BLOCK_ITEM, 944, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "magenta_candle", 64, ICLASS_BLOCK_ITEM, 945, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "light_blue_candle", 64, ICLASS_BLOCK_ITEM, 946, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "yellow_candle", 64, ICLASS_BLOCK_ITEM, 947, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "lime_candle", 64, ICLASS_BLOCK_ITEM, 948, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "pink_candle", 64, ICLASS_BLOCK_ITEM, 949, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "gray_candle", 64, ICLASS_BLOCK_ITEM, 950, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "light_gray_candle", 64, ICLASS_BLOCK_ITEM, 951, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "cyan_candle", 64, ICLASS_BLOCK_ITEM, 952, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "purple_candle", 64, ICLASS_BLOCK_ITEM, 953, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "blue_candle", 64, ICLASS_BLOCK_ITEM, 954, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "brown_candle", 64, ICLASS_BLOCK_ITEM, 955, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "green_candle", 64, ICLASS_BLOCK_ITEM, 956, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "red_candle", 64, ICLASS_BLOCK_ITEM, 957, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "black_candle", 64, ICLASS_BLOCK_ITEM, 958, false, ITEM_TAG_CANDLES, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "small_amethyst_bud", 64, ICLASS_BLOCK_ITEM, 981, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "medium_amethyst_bud", 64, ICLASS_BLOCK_ITEM, 980, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "large_amethyst_bud", 64, ICLASS_BLOCK_ITEM, 979, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "amethyst_cluster", 64, ICLASS_BLOCK_ITEM, 978, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "pointed_dripstone", 64, ICLASS_BLOCK_ITEM, 1103, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "ochre_froglight", 64, ICLASS_BLOCK_ITEM, 1148, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "verdant_froglight", 64, ICLASS_BLOCK_ITEM, 1149, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "pearlescent_froglight", 64, ICLASS_BLOCK_ITEM, 1150, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "frogspawn", 64, ICLASS_PLACE_ON_WATER_BLOCK_ITEM, 1151, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "echo_shard", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "brush", 1, ICLASS_BRUSH_ITEM, -1, true, 0, -1, 0, -1.0f, 142, 0, ITEM_COMPONENT_MAX_DAMAGE | ITEM_COMPONENT_DAMAGE, 0, -1 },
+    { "netherite_upgrade_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "sentry_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "dune_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "coast_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "wild_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "ward_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "eye_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "vex_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "tide_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "snout_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "rib_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "spire_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "wayfinder_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "shaper_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "silence_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "raiser_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "host_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "flow_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "bolt_armor_trim_smithing_template", 64, ICLASS_SMITHING_TEMPLATE_ITEM, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "angler_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "archer_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "arms_up_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "blade_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "brewer_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "burn_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "danger_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "explorer_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "flow_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "friend_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "guster_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "heart_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "heartbreak_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "howl_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "miner_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "mourner_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "plenty_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "prize_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "scrape_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "sheaf_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "shelter_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "skull_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "snort_pottery_sherd", 64, ICLASS_NONE, -1, false, ITEM_TAG_DECORATED_POT_INGREDIENTS, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "copper_grate", 64, ICLASS_BLOCK_ITEM, 1063, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "exposed_copper_grate", 64, ICLASS_BLOCK_ITEM, 1064, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "weathered_copper_grate", 64, ICLASS_BLOCK_ITEM, 1065, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "oxidized_copper_grate", 64, ICLASS_BLOCK_ITEM, 1066, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_copper_grate", 64, ICLASS_BLOCK_ITEM, 1067, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_exposed_copper_grate", 64, ICLASS_BLOCK_ITEM, 1068, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_weathered_copper_grate", 64, ICLASS_BLOCK_ITEM, 1069, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_oxidized_copper_grate", 64, ICLASS_BLOCK_ITEM, 1070, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "copper_bulb", 64, ICLASS_BLOCK_ITEM, 1071, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "exposed_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1072, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "weathered_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1073, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "oxidized_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1074, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1075, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_exposed_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1076, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_weathered_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1077, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_oxidized_copper_bulb", 64, ICLASS_BLOCK_ITEM, 1078, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "copper_chest", 64, ICLASS_BLOCK_ITEM, 1079, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "exposed_copper_chest", 64, ICLASS_BLOCK_ITEM, 1080, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "weathered_copper_chest", 64, ICLASS_BLOCK_ITEM, 1081, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "oxidized_copper_chest", 64, ICLASS_BLOCK_ITEM, 1082, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_copper_chest", 64, ICLASS_BLOCK_ITEM, 1083, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_exposed_copper_chest", 64, ICLASS_BLOCK_ITEM, 1084, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_weathered_copper_chest", 64, ICLASS_BLOCK_ITEM, 1085, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "waxed_oxidized_copper_chest", 64, ICLASS_BLOCK_ITEM, 1086, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1087, false, 0, -1, 0, -1.0f, 142, 0, ITEM_COMPONENT_BLOCK_STATE, 0, -1 },
+    { "exposed_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1088, false, 0, -1, 0, -1.0f, 142, 0, ITEM_COMPONENT_BLOCK_STATE, 0, -1 },
+    { "weathered_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1089, false, 0, -1, 0, -1.0f, 142, 0, ITEM_COMPONENT_BLOCK_STATE, 0, -1 },
+    { "oxidized_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1090, false, 0, -1, 0, -1.0f, 142, 0, ITEM_COMPONENT_BLOCK_STATE, 0, -1 },
+    { "waxed_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1091, false, 0, -1, 0, -1.0f, 142, 0, ITEM_COMPONENT_BLOCK_STATE, 0, -1 },
+    { "waxed_exposed_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1092, false, 0, -1, 0, -1.0f, 142, 0, ITEM_COMPONENT_BLOCK_STATE, 0, -1 },
+    { "waxed_weathered_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1093, false, 0, -1, 0, -1.0f, 142, 0, ITEM_COMPONENT_BLOCK_STATE, 0, -1 },
+    { "waxed_oxidized_copper_golem_statue", 64, ICLASS_BLOCK_ITEM, 1094, false, 0, -1, 0, -1.0f, 142, 0, ITEM_COMPONENT_BLOCK_STATE, 0, -1 },
+    { "trial_spawner", 64, ICLASS_BLOCK_ITEM, 1155, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "trial_key", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "ominous_trial_key", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "vault", 64, ICLASS_BLOCK_ITEM, 1156, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
+    { "ominous_bottle", 64, ICLASS_NONE, -1, false, 0, -1, 0, -1.0f, 142, 0, 0, 0, -1 },
 };
 
 const field_value item_field_values[] = {
@@ -3709,6 +3822,22 @@ const field_value item_field_values[] = {
     { FIELD_STANDING_AND_WALL_BLOCK_ITEM_WALL_BLOCK, 256 }, { FIELD_STANDING_AND_WALL_BLOCK_ITEM_ATTACHMENT_DIRECTION, 1 },  // bamboo_hanging_sign
     { FIELD_STANDING_AND_WALL_BLOCK_ITEM_WALL_BLOCK, 254 }, { FIELD_STANDING_AND_WALL_BLOCK_ITEM_ATTACHMENT_DIRECTION, 1 },  // crimson_hanging_sign
     { FIELD_STANDING_AND_WALL_BLOCK_ITEM_WALL_BLOCK, 255 }, { FIELD_STANDING_AND_WALL_BLOCK_ITEM_ATTACHMENT_DIRECTION, 1 },  // warped_hanging_sign
+    { FIELD_DYE_ITEM_DYE_COLOR, 0 },  // white_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 1 },  // orange_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 2 },  // magenta_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 3 },  // light_blue_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 4 },  // yellow_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 5 },  // lime_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 6 },  // pink_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 7 },  // gray_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 8 },  // light_gray_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 9 },  // cyan_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 10 },  // purple_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 11 },  // blue_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 12 },  // brown_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 13 },  // green_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 14 },  // red_dye
+    { FIELD_DYE_ITEM_DYE_COLOR, 15 },  // black_dye
     { FIELD_STANDING_AND_WALL_BLOCK_ITEM_WALL_BLOCK, 452 }, { FIELD_STANDING_AND_WALL_BLOCK_ITEM_ATTACHMENT_DIRECTION, 0 },  // skeleton_skull
     { FIELD_STANDING_AND_WALL_BLOCK_ITEM_WALL_BLOCK, 454 }, { FIELD_STANDING_AND_WALL_BLOCK_ITEM_ATTACHMENT_DIRECTION, 0 },  // wither_skeleton_skull
     { FIELD_STANDING_AND_WALL_BLOCK_ITEM_WALL_BLOCK, 458 }, { FIELD_STANDING_AND_WALL_BLOCK_ITEM_ATTACHMENT_DIRECTION, 0 },  // player_head
@@ -3848,1062 +3977,1062 @@ const block_def block_defs[] = {
     { "chiseled_sandstone", 579, 1, 579, 93, 0, 5, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 199, -1, -1, -1, -1, -1, -1, -1, -1 },
     { "cut_sandstone", 580, 1, 580, 93, 0, 5, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 200, -1, -1, -1, -1, -1, -1, -1, -1 },
     { "note_block", 581, 1150, 582, 93, 3, 5, 0, VCLASS_NOTE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 748, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_bed", 1731, 16, 1734, 96, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1086, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_bed", 1747, 16, 1750, 99, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1087, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_bed", 1763, 16, 1766, 102, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1088, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_bed", 1779, 16, 1782, 105, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1089, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_bed", 1795, 16, 1798, 108, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1090, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_bed", 1811, 16, 1814, 111, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1091, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_bed", 1827, 16, 1830, 114, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1092, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_bed", 1843, 16, 1846, 117, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1093, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_bed", 1859, 16, 1862, 120, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1094, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_bed", 1875, 16, 1878, 123, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1095, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_bed", 1891, 16, 1894, 126, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1096, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_bed", 1907, 16, 1910, 129, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1097, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_bed", 1923, 16, 1926, 132, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1098, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_bed", 1939, 16, 1942, 135, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1099, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_bed", 1955, 16, 1958, 138, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1100, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_bed", 1971, 16, 1974, 141, 3, 5, 0, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1101, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "powered_rail", 1987, 24, 2000, 144, 3, 5, 1, VCLASS_POWERED_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 833, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "detector_rail", 2011, 24, 2024, 147, 3, 6, 1, VCLASS_DETECTOR_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 834, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sticky_piston", 2035, 12, 2041, 150, 2, 7, 1, VCLASS_PISTON_BASE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 723, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cobweb", 2047, 1, 2047, 152, 0, 8, 0, VCLASS_WEB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 201, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "short_grass", 2048, 1, 2048, 152, 0, 8, 0, VCLASS_TALL_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 202, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "fern", 2049, 1, 2049, 152, 0, 8, 0, VCLASS_TALL_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 203, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_bush", 2050, 1, 2050, 152, 0, 8, 0, VCLASS_DRY_VEGETATION_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 207, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bush", 2051, 1, 2051, 152, 0, 8, 0, VCLASS_BUSH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 204, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "short_dry_grass", 2052, 1, 2052, 152, 0, 8, 0, VCLASS_SHORT_DRY_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 209, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tall_dry_grass", 2053, 1, 2053, 152, 0, 8, 0, VCLASS_TALL_DRY_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 210, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "seagrass", 2054, 1, 2054, 152, 0, 8, 0, VCLASS_SEAGRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 211, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tall_seagrass", 2055, 2, 2056, 152, 1, 8, 0, VCLASS_TALL_SEAGRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "piston", 2057, 12, 2063, 153, 2, 8, 1, VCLASS_PISTON_BASE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 722, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "piston_head", 2069, 24, 2071, 155, 3, 9, 0, VCLASS_PISTON_HEAD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_wool", 2093, 1, 2093, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 213, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_wool", 2094, 1, 2094, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 214, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_wool", 2095, 1, 2095, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 215, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_wool", 2096, 1, 2096, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 216, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_wool", 2097, 1, 2097, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 217, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_wool", 2098, 1, 2098, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 218, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_wool", 2099, 1, 2099, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 219, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_wool", 2100, 1, 2100, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 220, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_wool", 2101, 1, 2101, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 221, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_wool", 2102, 1, 2102, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 222, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_wool", 2103, 1, 2103, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 223, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_wool", 2104, 1, 2104, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 224, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_wool", 2105, 1, 2105, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 225, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_wool", 2106, 1, 2106, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 226, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_wool", 2107, 1, 2107, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 227, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_wool", 2108, 1, 2108, 158, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 228, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "moving_piston", 2109, 12, 2109, 158, 2, 9, 0, VCLASS_MOVING_PISTON_BLOCK, -1, BLOCK_ENTITY_TYPE_PISTON, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dandelion", 2121, 1, 2121, 160, 0, 9, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 229, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "torchflower", 2122, 1, 2122, 160, 0, 9, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 244, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "poppy", 2123, 1, 2123, 160, 0, 9, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 232, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_orchid", 2124, 1, 2124, 160, 0, 9, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 233, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "allium", 2125, 1, 2125, 160, 0, 9, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 234, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "azure_bluet", 2126, 1, 2126, 160, 0, 9, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 235, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_tulip", 2127, 1, 2127, 160, 0, 9, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 236, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_tulip", 2128, 1, 2128, 160, 0, 9, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 237, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_tulip", 2129, 1, 2129, 160, 0, 9, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 238, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_tulip", 2130, 1, 2130, 160, 0, 9, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 239, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oxeye_daisy", 2131, 1, 2131, 160, 0, 9, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 240, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cornflower", 2132, 1, 2132, 160, 0, 9, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 241, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "wither_rose", 2133, 1, 2133, 160, 0, 9, 0, VCLASS_WITHER_ROSE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 243, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lily_of_the_valley", 2134, 1, 2134, 160, 0, 9, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 242, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_mushroom", 2135, 1, 2135, 160, 0, 9, 0, VCLASS_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 247, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_mushroom", 2136, 1, 2136, 160, 0, 9, 0, VCLASS_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 248, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gold_block", 2137, 1, 2137, 160, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BELL, 92, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "iron_block", 2138, 1, 2138, 160, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_IRON_XYLOPHONE, 90, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bricks", 2139, 1, 2139, 160, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 304, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tnt", 2140, 2, 2141, 160, 1, 9, 0, VCLASS_TNT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 746, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bookshelf", 2142, 1, 2142, 161, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 317, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chiseled_bookshelf", 2143, 256, 2206, 161, 7, 9, 0, VCLASS_CHISELED_BOOK_SHELF_BLOCK, BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF, BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF, NOTE_BLOCK_INSTRUMENT_BASS, 318, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "acacia_shelf", 2399, 64, 2408, 168, 4, 9, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 305, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_shelf", 2463, 64, 2472, 172, 4, 9, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 306, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "birch_shelf", 2527, 64, 2536, 176, 4, 9, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 307, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cherry_shelf", 2591, 64, 2600, 180, 4, 9, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 308, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_shelf", 2655, 64, 2664, 184, 4, 9, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 309, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_oak_shelf", 2719, 64, 2728, 188, 4, 9, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 310, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jungle_shelf", 2783, 64, 2792, 192, 4, 9, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 311, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mangrove_shelf", 2847, 64, 2856, 196, 4, 9, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 312, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oak_shelf", 2911, 64, 2920, 200, 4, 9, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 313, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_oak_shelf", 2975, 64, 2984, 204, 4, 9, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 314, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spruce_shelf", 3039, 64, 3048, 208, 4, 9, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 315, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_shelf", 3103, 64, 3112, 212, 4, 9, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 316, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mossy_cobblestone", 3167, 1, 3167, 216, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 320, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "obsidian", 3168, 1, 3168, 216, 0, 9, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 321, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "torch", 3169, 1, 3169, 216, 0, 9, 0, VCLASS_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 322, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "wall_torch", 3170, 4, 3170, 216, 1, 9, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 322, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "fire", 3174, 512, 3205, 217, 6, 9, 0, VCLASS_FIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "soul_fire", 3686, 1, 3686, 223, 0, 9, 0, VCLASS_SOUL_FIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spawner", 3687, 1, 3687, 223, 0, 9, 0, VCLASS_SPAWNER_BLOCK, BLOCK_ENTITY_TYPE_MOB_SPAWNER, BLOCK_ENTITY_TYPE_MOB_SPAWNER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 329, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "creaking_heart", 3688, 18, 3695, 223, 3, 9, 0, VCLASS_CREAKING_HEART_BLOCK, BLOCK_ENTITY_TYPE_CREAKING_HEART, BLOCK_ENTITY_TYPE_CREAKING_HEART, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 330, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oak_stairs", 3706, 80, 3717, 226, 4, 9, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 441, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chest", 3786, 24, 3787, 230, 3, 10, 0, VCLASS_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_BASS, 331, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "redstone_wire", 3810, 1296, 4970, 233, 5, 10, 1, VCLASS_RED_STONE_WIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 717, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "diamond_ore", 5106, 1, 5106, 238, 0, 11, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 78, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "deepslate_diamond_ore", 5107, 1, 5107, 238, 0, 11, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 79, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "diamond_block", 5108, 1, 5108, 238, 0, 11, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 93, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crafting_table", 5109, 1, 5109, 238, 0, 11, 0, VCLASS_CRAFTING_TABLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 332, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "wheat", 5110, 8, 5110, 238, 1, 11, 0, VCLASS_CROP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 951, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "farmland", 5118, 8, 5118, 239, 1, 11, 0, VCLASS_FARM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 333, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "furnace", 5126, 8, 5127, 240, 2, 11, 0, VCLASS_FURNACE_BLOCK, BLOCK_ENTITY_TYPE_FURNACE, BLOCK_ENTITY_TYPE_FURNACE, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 334, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oak_sign", 5134, 32, 5135, 242, 2, 11, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 988, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spruce_sign", 5166, 32, 5167, 244, 2, 11, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 989, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "birch_sign", 5198, 32, 5199, 246, 2, 11, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 990, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "acacia_sign", 5230, 32, 5231, 248, 2, 11, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 992, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cherry_sign", 5262, 32, 5263, 250, 2, 11, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 993, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jungle_sign", 5294, 32, 5295, 252, 2, 11, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 991, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_oak_sign", 5326, 32, 5327, 254, 2, 11, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 994, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_oak_sign", 5358, 32, 5359, 256, 2, 11, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 995, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mangrove_sign", 5390, 32, 5391, 258, 2, 11, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 996, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_sign", 5422, 32, 5423, 260, 2, 11, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 997, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oak_door", 5454, 64, 5465, 262, 5, 11, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 780, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "ladder", 5518, 8, 5519, 267, 2, 14, 0, VCLASS_LADDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 335, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "rail", 5526, 20, 5527, 269, 2, 14, 1, VCLASS_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 835, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cobblestone_stairs", 5546, 80, 5557, 271, 4, 15, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 336, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oak_wall_sign", 5626, 8, 5627, 275, 2, 16, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 988, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spruce_wall_sign", 5634, 8, 5635, 277, 2, 16, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 989, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "birch_wall_sign", 5642, 8, 5643, 279, 2, 16, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 990, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "acacia_wall_sign", 5650, 8, 5651, 281, 2, 16, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 992, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cherry_wall_sign", 5658, 8, 5659, 283, 2, 16, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 993, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jungle_wall_sign", 5666, 8, 5667, 285, 2, 16, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 991, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_oak_wall_sign", 5674, 8, 5675, 287, 2, 16, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 994, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_oak_wall_sign", 5682, 8, 5683, 289, 2, 16, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 995, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mangrove_wall_sign", 5690, 8, 5691, 291, 2, 16, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 996, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_wall_sign", 5698, 8, 5699, 293, 2, 16, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 997, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oak_hanging_sign", 5706, 64, 5739, 295, 3, 16, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1000, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spruce_hanging_sign", 5770, 64, 5803, 298, 3, 16, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1001, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "birch_hanging_sign", 5834, 64, 5867, 301, 3, 16, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1002, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "acacia_hanging_sign", 5898, 64, 5931, 304, 3, 16, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1004, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cherry_hanging_sign", 5962, 64, 5995, 307, 3, 16, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1005, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jungle_hanging_sign", 6026, 64, 6059, 310, 3, 16, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1003, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_oak_hanging_sign", 6090, 64, 6123, 313, 3, 16, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1006, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_oak_hanging_sign", 6154, 64, 6187, 316, 3, 16, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1007, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_hanging_sign", 6218, 64, 6251, 319, 3, 16, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1010, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_hanging_sign", 6282, 64, 6315, 322, 3, 16, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1011, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mangrove_hanging_sign", 6346, 64, 6379, 325, 3, 16, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1008, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_hanging_sign", 6410, 64, 6443, 328, 3, 16, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1009, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oak_wall_hanging_sign", 6474, 8, 6475, 331, 2, 16, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1000, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spruce_wall_hanging_sign", 6482, 8, 6483, 333, 2, 16, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1001, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "birch_wall_hanging_sign", 6490, 8, 6491, 335, 2, 16, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1002, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "acacia_wall_hanging_sign", 6498, 8, 6499, 337, 2, 16, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1004, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cherry_wall_hanging_sign", 6506, 8, 6507, 339, 2, 16, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1005, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jungle_wall_hanging_sign", 6514, 8, 6515, 341, 2, 16, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1003, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_oak_wall_hanging_sign", 6522, 8, 6523, 343, 2, 16, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1006, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_oak_wall_hanging_sign", 6530, 8, 6531, 345, 2, 16, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1007, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mangrove_wall_hanging_sign", 6538, 8, 6539, 347, 2, 16, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1008, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_wall_hanging_sign", 6546, 8, 6547, 349, 2, 16, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1010, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_wall_hanging_sign", 6554, 8, 6555, 351, 2, 16, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1011, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_wall_hanging_sign", 6562, 8, 6563, 353, 2, 16, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1009, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lever", 6570, 24, 6579, 355, 3, 16, 0, VCLASS_LEVER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 732, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "stone_pressure_plate", 6594, 2, 6595, 358, 1, 16, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 763, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "iron_door", 6596, 64, 6607, 359, 5, 19, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 779, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oak_pressure_plate", 6660, 2, 6661, 364, 1, 22, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 767, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spruce_pressure_plate", 6662, 2, 6663, 365, 1, 25, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 768, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "birch_pressure_plate", 6664, 2, 6665, 366, 1, 28, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 769, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jungle_pressure_plate", 6666, 2, 6667, 367, 1, 31, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 770, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "acacia_pressure_plate", 6668, 2, 6669, 368, 1, 34, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 771, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cherry_pressure_plate", 6670, 2, 6671, 369, 1, 37, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 772, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_oak_pressure_plate", 6672, 2, 6673, 370, 1, 40, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 773, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_oak_pressure_plate", 6674, 2, 6675, 371, 1, 43, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 774, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mangrove_pressure_plate", 6676, 2, 6677, 372, 1, 46, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 775, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_pressure_plate", 6678, 2, 6679, 373, 1, 49, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 776, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "redstone_ore", 6680, 2, 6681, 374, 1, 52, 0, VCLASS_RED_STONE_ORE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 72, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "deepslate_redstone_ore", 6682, 2, 6683, 375, 1, 52, 0, VCLASS_RED_STONE_ORE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 73, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "redstone_torch", 6684, 2, 6684, 376, 1, 52, 0, VCLASS_REDSTONE_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 718, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "redstone_wall_torch", 6686, 8, 6686, 377, 2, 52, 0, VCLASS_REDSTONE_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 718, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "stone_button", 6694, 24, 6703, 379, 3, 52, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 749, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "snow", 6718, 8, 6718, 382, 1, 56, 0, VCLASS_SNOW_LAYER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 337, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "ice", 6726, 1, 6726, 383, 0, 56, 0, VCLASS_ICE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 338, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "snow_block", 6727, 1, 6727, 383, 0, 56, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 339, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cactus", 6728, 16, 6728, 383, 1, 56, 0, VCLASS_CACTUS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 340, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cactus_flower", 6744, 1, 6744, 384, 0, 56, 0, VCLASS_CACTUS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 341, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "clay", 6745, 1, 6745, 384, 0, 56, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_FLUTE, 342, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sugar_cane", 6746, 16, 6746, 384, 1, 56, 0, VCLASS_SUGAR_CANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 256, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jukebox", 6762, 2, 6763, 385, 1, 56, 0, VCLASS_JUKEBOX_BLOCK, BLOCK_ENTITY_TYPE_JUKEBOX, BLOCK_ENTITY_TYPE_JUKEBOX, NOTE_BLOCK_INSTRUMENT_BASS, 343, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oak_fence", 6764, 32, 6795, 386, 5, 56, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 344, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "netherrack", 6796, 1, 6796, 391, 0, 56, 0, VCLASS_NETHERRACK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 359, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "soul_sand", 6797, 1, 6797, 391, 0, 56, 0, VCLASS_SOUL_SAND_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_COW_BELL, 360, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "soul_soil", 6798, 1, 6798, 391, 0, 56, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 361, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "basalt", 6799, 3, 6800, 391, 1, 56, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 362, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_basalt", 6802, 3, 6803, 392, 1, 56, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 363, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "soul_torch", 6805, 1, 6805, 393, 0, 56, 0, VCLASS_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 365, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "soul_wall_torch", 6806, 4, 6806, 393, 1, 56, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 365, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "copper_torch", 6810, 1, 6810, 394, 0, 56, 0, VCLASS_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 366, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "copper_wall_torch", 6811, 4, 6811, 394, 1, 56, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 366, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "glowstone", 6815, 1, 6815, 395, 0, 56, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_PLING, 367, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "nether_portal", 6816, 2, 6816, 395, 1, 56, 0, VCLASS_NETHER_PORTAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "carved_pumpkin", 6818, 4, 6818, 396, 1, 56, 0, VCLASS_CARVED_PUMPKIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 357, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jack_o_lantern", 6822, 4, 6822, 397, 1, 56, 0, VCLASS_CARVED_PUMPKIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 358, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cake", 6826, 7, 6826, 398, 1, 56, 0, VCLASS_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1085, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "repeater", 6833, 64, 6836, 399, 4, 56, 0, VCLASS_REPEATER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 720, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_stained_glass", 6897, 1, 6897, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 530, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_stained_glass", 6898, 1, 6898, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 531, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_stained_glass", 6899, 1, 6899, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 532, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_stained_glass", 6900, 1, 6900, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 533, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_stained_glass", 6901, 1, 6901, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 534, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_stained_glass", 6902, 1, 6902, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 535, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_stained_glass", 6903, 1, 6903, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 536, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_stained_glass", 6904, 1, 6904, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 537, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_stained_glass", 6905, 1, 6905, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 538, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_stained_glass", 6906, 1, 6906, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 539, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_stained_glass", 6907, 1, 6907, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 540, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_stained_glass", 6908, 1, 6908, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 541, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_stained_glass", 6909, 1, 6909, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 542, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_stained_glass", 6910, 1, 6910, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 543, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_stained_glass", 6911, 1, 6911, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 544, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_stained_glass", 6912, 1, 6912, 403, 0, 56, 0, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 545, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oak_trapdoor", 6913, 64, 6928, 403, 5, 56, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 801, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spruce_trapdoor", 6977, 64, 6992, 408, 5, 59, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 802, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "birch_trapdoor", 7041, 64, 7056, 413, 5, 62, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 803, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jungle_trapdoor", 7105, 64, 7120, 418, 5, 65, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 804, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "acacia_trapdoor", 7169, 64, 7184, 423, 5, 68, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 805, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cherry_trapdoor", 7233, 64, 7248, 428, 5, 71, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 806, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_oak_trapdoor", 7297, 64, 7312, 433, 5, 74, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 807, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_oak_trapdoor", 7361, 64, 7376, 438, 5, 77, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 808, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mangrove_trapdoor", 7425, 64, 7440, 443, 5, 80, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 809, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_trapdoor", 7489, 64, 7504, 448, 5, 83, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 810, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "stone_bricks", 7553, 1, 7553, 453, 0, 86, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 375, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mossy_stone_bricks", 7554, 1, 7554, 453, 0, 86, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 376, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cracked_stone_bricks", 7555, 1, 7555, 453, 0, 86, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 377, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chiseled_stone_bricks", 7556, 1, 7556, 453, 0, 86, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 378, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "packed_mud", 7557, 1, 7557, 453, 0, 86, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 379, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mud_bricks", 7558, 1, 7558, 453, 0, 86, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 380, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "infested_stone", 7559, 1, 7559, 453, 0, 86, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 368, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "infested_cobblestone", 7560, 1, 7560, 453, 0, 87, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 369, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "infested_stone_bricks", 7561, 1, 7561, 453, 0, 88, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 370, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "infested_mossy_stone_bricks", 7562, 1, 7562, 453, 0, 89, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 371, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "infested_cracked_stone_bricks", 7563, 1, 7563, 453, 0, 90, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 372, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "infested_chiseled_stone_bricks", 7564, 1, 7564, 453, 0, 91, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 373, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_mushroom_block", 7565, 64, 7565, 453, 6, 92, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 387, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_mushroom_block", 7629, 64, 7629, 459, 6, 92, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 388, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mushroom_stem", 7693, 64, 7693, 465, 6, 92, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 389, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "iron_bars", 7757, 32, 7788, 471, 5, 92, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 390, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "copper_bars", 7789, 32, 7820, 476, 5, 92, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 391, 345, -1, -1, -1, -1, -1, -1, -1 },
-    { "exposed_copper_bars", 7821, 32, 7852, 481, 5, 92, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 392, 346, -1, 341, -1, -1, -1, -1, -1 },
-    { "weathered_copper_bars", 7853, 32, 7884, 486, 5, 92, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 393, 347, -1, 342, -1, -1, -1, -1, -1 },
-    { "oxidized_copper_bars", 7885, 32, 7916, 491, 5, 92, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 394, 348, -1, 343, -1, -1, -1, -1, -1 },
-    { "waxed_copper_bars", 7917, 32, 7948, 496, 5, 92, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 395, -1, 341, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_copper_bars", 7949, 32, 7980, 501, 5, 92, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 396, -1, 342, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_copper_bars", 7981, 32, 8012, 506, 5, 92, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 397, -1, 343, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_copper_bars", 8013, 32, 8044, 511, 5, 92, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 398, -1, 344, -1, -1, -1, -1, -1, -1 },
-    { "iron_chain", 8045, 6, 8048, 516, 2, 92, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 399, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "copper_chain", 8051, 6, 8054, 518, 2, 92, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 400, 354, -1, -1, -1, -1, -1, -1, -1 },
-    { "exposed_copper_chain", 8057, 6, 8060, 520, 2, 92, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 401, 355, -1, 350, -1, -1, -1, -1, -1 },
-    { "weathered_copper_chain", 8063, 6, 8066, 522, 2, 92, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 402, 356, -1, 351, -1, -1, -1, -1, -1 },
-    { "oxidized_copper_chain", 8069, 6, 8072, 524, 2, 92, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 403, 357, -1, 352, -1, -1, -1, -1, -1 },
-    { "waxed_copper_chain", 8075, 6, 8078, 526, 2, 92, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 404, -1, 350, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_copper_chain", 8081, 6, 8084, 528, 2, 92, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 405, -1, 351, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_copper_chain", 8087, 6, 8090, 530, 2, 92, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 406, -1, 352, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_copper_chain", 8093, 6, 8096, 532, 2, 92, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 407, -1, 353, -1, -1, -1, -1, -1, -1 },
-    { "glass_pane", 8099, 32, 8130, 534, 5, 92, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 408, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pumpkin", 8131, 1, 8131, 539, 0, 92, 0, VCLASS_PUMPKIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_DIDGERIDOO, 356, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "melon", 8132, 1, 8132, 539, 0, 92, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 409, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "attached_pumpkin_stem", 8133, 4, 8133, 539, 1, 92, 0, VCLASS_ATTACHED_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "attached_melon_stem", 8137, 4, 8137, 540, 1, 92, 0, VCLASS_ATTACHED_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pumpkin_stem", 8141, 8, 8141, 541, 1, 92, 0, VCLASS_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1108, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "melon_stem", 8149, 8, 8149, 542, 1, 92, 0, VCLASS_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1109, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "vine", 8157, 32, 8188, 543, 5, 92, 0, VCLASS_VINE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 410, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "glow_lichen", 8189, 128, 8316, 548, 7, 92, 3, VCLASS_GLOW_LICHEN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 411, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "resin_clump", 8317, 128, 8444, 555, 7, 95, 3, VCLASS_MULTIFACE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 412, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oak_fence_gate", 8445, 32, 8452, 562, 4, 98, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 821, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brick_stairs", 8477, 80, 8488, 566, 4, 98, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 419, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "stone_brick_stairs", 8557, 80, 8568, 570, 4, 99, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 420, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mud_brick_stairs", 8637, 80, 8648, 574, 4, 100, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 421, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mycelium", 8717, 2, 8718, 578, 1, 101, 0, VCLASS_MYCELIUM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 422, -1, -1, -1, -1, 664, -1, -1, -1 },
-    { "lily_pad", 8719, 1, 8719, 579, 0, 101, 0, VCLASS_WATERLILY_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 423, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "resin_block", 8720, 1, 8720, 579, 0, 101, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 413, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "resin_bricks", 8721, 1, 8721, 579, 0, 101, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 414, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "resin_brick_stairs", 8722, 80, 8733, 579, 4, 101, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 415, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "resin_brick_slab", 8802, 6, 8805, 583, 2, 102, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 416, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "resin_brick_wall", 8808, 324, 8811, 585, 6, 102, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 417, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chiseled_resin_bricks", 9132, 1, 9132, 591, 0, 102, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 418, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "nether_bricks", 9133, 1, 9133, 591, 0, 102, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 424, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "nether_brick_fence", 9134, 32, 9165, 591, 5, 102, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 427, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "nether_brick_stairs", 9166, 80, 9177, 596, 4, 102, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 428, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "nether_wart", 9246, 4, 9246, 600, 1, 103, 0, VCLASS_NETHER_WART_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1119, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "enchanting_table", 9250, 1, 9250, 601, 0, 103, 0, VCLASS_ENCHANTING_TABLE_BLOCK, BLOCK_ENTITY_TYPE_ENCHANTING_TABLE, BLOCK_ENTITY_TYPE_ENCHANTING_TABLE, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 433, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brewing_stand", 9251, 8, 9258, 601, 3, 103, 0, VCLASS_BREWING_STAND_BLOCK, BLOCK_ENTITY_TYPE_BREWING_STAND, BLOCK_ENTITY_TYPE_BREWING_STAND, NOTE_BLOCK_INSTRUMENT_HARP, 1126, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cauldron", 9259, 1, 9259, 604, 0, 103, 0, VCLASS_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1127, -1, -1, -1, -1, -1, -1, -1, CAULDRON_MAP_EMPTY },
-    { "water_cauldron", 9260, 3, 9260, 604, 1, 103, 0, VCLASS_LAYERED_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1127, -1, -1, -1, -1, -1, -1, -1, CAULDRON_MAP_WATER },
-    { "lava_cauldron", 9263, 1, 9263, 605, 0, 103, 0, VCLASS_LAVA_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1127, -1, -1, -1, -1, -1, -1, -1, CAULDRON_MAP_LAVA },
-    { "powder_snow_cauldron", 9264, 3, 9264, 605, 1, 103, 0, VCLASS_LAYERED_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1127, -1, -1, -1, -1, -1, -1, -1, CAULDRON_MAP_POWDER_SNOW },
-    { "end_portal", 9267, 1, 9267, 606, 0, 103, 0, VCLASS_END_PORTAL_BLOCK, BLOCK_ENTITY_TYPE_END_PORTAL, BLOCK_ENTITY_TYPE_END_PORTAL, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "end_portal_frame", 9268, 8, 9272, 606, 2, 103, 0, VCLASS_END_PORTAL_FRAME_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 434, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "end_stone", 9276, 1, 9276, 608, 0, 103, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 435, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dragon_egg", 9277, 1, 9277, 608, 0, 103, 0, VCLASS_DRAGON_EGG_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 437, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "redstone_lamp", 9278, 2, 9279, 608, 1, 103, 0, VCLASS_REDSTONE_LAMP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 747, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cocoa", 9280, 12, 9280, 609, 2, 103, 0, VCLASS_COCOA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1065, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sandstone_stairs", 9292, 80, 9303, 611, 4, 103, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 438, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "emerald_ore", 9372, 1, 9372, 615, 0, 104, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 74, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "deepslate_emerald_ore", 9373, 1, 9373, 615, 0, 104, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 75, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "ender_chest", 9374, 8, 9375, 615, 2, 104, 0, VCLASS_ENDER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_ENDER_CHEST, BLOCK_ENTITY_TYPE_ENDER_CHEST, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 439, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tripwire_hook", 9382, 16, 9391, 617, 3, 104, 0, VCLASS_TRIP_WIRE_HOOK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 744, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tripwire", 9398, 128, 9525, 620, 7, 104, 1, VCLASS_TRIP_WIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 948, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "emerald_block", 9526, 1, 9526, 627, 0, 105, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BIT, 440, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spruce_stairs", 9527, 80, 9538, 627, 4, 105, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 442, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "birch_stairs", 9607, 80, 9618, 631, 4, 106, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 443, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jungle_stairs", 9687, 80, 9698, 635, 4, 107, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 444, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "command_block", 9767, 12, 9773, 639, 2, 108, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, 454, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "beacon", 9779, 1, 9779, 641, 0, 109, 0, VCLASS_BEACON_BLOCK, BLOCK_ENTITY_TYPE_BEACON, BLOCK_ENTITY_TYPE_BEACON, NOTE_BLOCK_INSTRUMENT_HAT, 455, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cobblestone_wall", 9780, 324, 9783, 641, 6, 109, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 456, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mossy_cobblestone_wall", 10104, 324, 10107, 647, 6, 109, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 457, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "flower_pot", 10428, 1, 10428, 653, 0, 109, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1226, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_torchflower", 10429, 1, 10429, 653, 0, 110, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_oak_sapling", 10430, 1, 10430, 653, 0, 111, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_spruce_sapling", 10431, 1, 10431, 653, 0, 112, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_birch_sapling", 10432, 1, 10432, 653, 0, 113, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_jungle_sapling", 10433, 1, 10433, 653, 0, 114, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_acacia_sapling", 10434, 1, 10434, 653, 0, 115, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_cherry_sapling", 10435, 1, 10435, 653, 0, 116, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_dark_oak_sapling", 10436, 1, 10436, 653, 0, 117, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_pale_oak_sapling", 10437, 1, 10437, 653, 0, 118, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_mangrove_propagule", 10438, 1, 10438, 653, 0, 119, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_fern", 10439, 1, 10439, 653, 0, 120, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_dandelion", 10440, 1, 10440, 653, 0, 121, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_poppy", 10441, 1, 10441, 653, 0, 122, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_blue_orchid", 10442, 1, 10442, 653, 0, 123, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_allium", 10443, 1, 10443, 653, 0, 124, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_azure_bluet", 10444, 1, 10444, 653, 0, 125, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_red_tulip", 10445, 1, 10445, 653, 0, 126, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_orange_tulip", 10446, 1, 10446, 653, 0, 127, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_white_tulip", 10447, 1, 10447, 653, 0, 128, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_pink_tulip", 10448, 1, 10448, 653, 0, 129, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_oxeye_daisy", 10449, 1, 10449, 653, 0, 130, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_cornflower", 10450, 1, 10450, 653, 0, 131, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_lily_of_the_valley", 10451, 1, 10451, 653, 0, 132, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_wither_rose", 10452, 1, 10452, 653, 0, 133, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_red_mushroom", 10453, 1, 10453, 653, 0, 134, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_brown_mushroom", 10454, 1, 10454, 653, 0, 135, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_dead_bush", 10455, 1, 10455, 653, 0, 136, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_cactus", 10456, 1, 10456, 653, 0, 137, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "carrots", 10457, 8, 10457, 653, 1, 138, 0, VCLASS_CARROT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1227, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potatoes", 10465, 8, 10465, 654, 1, 138, 0, VCLASS_POTATO_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1228, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oak_button", 10473, 24, 10482, 655, 3, 138, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 751, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spruce_button", 10497, 24, 10506, 658, 3, 142, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 752, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "birch_button", 10521, 24, 10530, 661, 3, 146, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 753, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jungle_button", 10545, 24, 10554, 664, 3, 150, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 754, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "acacia_button", 10569, 24, 10578, 667, 3, 154, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 755, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cherry_button", 10593, 24, 10602, 670, 3, 158, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 756, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_oak_button", 10617, 24, 10626, 673, 3, 162, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 757, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_oak_button", 10641, 24, 10650, 676, 3, 166, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 758, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mangrove_button", 10665, 24, 10674, 679, 3, 170, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 759, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_button", 10689, 24, 10698, 682, 3, 174, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 760, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "skeleton_skull", 10713, 32, 10729, 685, 2, 178, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_SKELETON, 1233, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "skeleton_wall_skull", 10745, 8, 10746, 687, 2, 178, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1233, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "wither_skeleton_skull", 10753, 32, 10769, 689, 2, 178, 0, VCLASS_WITHER_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_WITHER_SKELETON, 1234, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "wither_skeleton_wall_skull", 10785, 8, 10786, 691, 2, 178, 0, VCLASS_WITHER_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1234, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "zombie_head", 10793, 32, 10809, 693, 2, 178, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_ZOMBIE, 1236, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "zombie_wall_head", 10825, 8, 10826, 695, 2, 178, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1236, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "player_head", 10833, 32, 10849, 697, 2, 178, 0, VCLASS_PLAYER_HEAD_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_CUSTOM_HEAD, 1235, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "player_wall_head", 10865, 8, 10866, 699, 2, 178, 0, VCLASS_PLAYER_WALL_HEAD_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1235, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "creeper_head", 10873, 32, 10889, 701, 2, 178, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_CREEPER, 1237, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "creeper_wall_head", 10905, 8, 10906, 703, 2, 178, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1237, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dragon_head", 10913, 32, 10929, 705, 2, 178, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_DRAGON, 1238, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dragon_wall_head", 10945, 8, 10946, 707, 2, 178, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1238, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "piglin_head", 10953, 32, 10969, 709, 2, 178, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_PIGLIN, 1239, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "piglin_wall_head", 10985, 8, 10986, 711, 2, 178, 0, VCLASS_PIGLIN_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1239, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "anvil", 10993, 4, 10993, 713, 1, 178, 0, VCLASS_ANVIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 478, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chipped_anvil", 10997, 4, 10997, 714, 1, 178, 0, VCLASS_ANVIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 479, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "damaged_anvil", 11001, 4, 11001, 715, 1, 178, 0, VCLASS_ANVIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 480, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "trapped_chest", 11005, 24, 11006, 716, 3, 178, 0, VCLASS_TRAPPED_CHEST_BLOCK, BLOCK_ENTITY_TYPE_TRAPPED_CHEST, BLOCK_ENTITY_TYPE_TRAPPED_CHEST, NOTE_BLOCK_INSTRUMENT_BASS, 745, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_weighted_pressure_plate", 11029, 16, 11029, 719, 1, 178, 4, VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 765, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "heavy_weighted_pressure_plate", 11045, 16, 11045, 720, 1, 182, 4, VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 766, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "comparator", 11061, 16, 11062, 721, 3, 186, 0, VCLASS_COMPARATOR_BLOCK, BLOCK_ENTITY_TYPE_COMPARATOR, BLOCK_ENTITY_TYPE_COMPARATOR, NOTE_BLOCK_INSTRUMENT_HARP, 721, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "daylight_detector", 11077, 32, 11093, 724, 2, 186, 0, VCLASS_DAYLIGHT_DETECTOR_BLOCK, BLOCK_ENTITY_TYPE_DAYLIGHT_DETECTOR, BLOCK_ENTITY_TYPE_DAYLIGHT_DETECTOR, NOTE_BLOCK_INSTRUMENT_BASS, 741, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "redstone_block", 11109, 1, 11109, 726, 0, 186, 0, VCLASS_POWERED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 719, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "nether_quartz_ore", 11110, 1, 11110, 726, 0, 186, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 81, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "hopper", 11111, 10, 11111, 726, 2, 186, 0, VCLASS_HOPPER_BLOCK, BLOCK_ENTITY_TYPE_HOPPER, BLOCK_ENTITY_TYPE_HOPPER, NOTE_BLOCK_INSTRUMENT_HARP, 727, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "quartz_block", 11121, 1, 11121, 728, 0, 186, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 482, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chiseled_quartz_block", 11122, 1, 11122, 728, 0, 186, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 481, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "quartz_pillar", 11123, 3, 11124, 728, 1, 186, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 484, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "quartz_stairs", 11126, 80, 11137, 729, 4, 186, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 485, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "activator_rail", 11206, 24, 11219, 733, 3, 187, 1, VCLASS_POWERED_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 836, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dropper", 11230, 12, 11231, 736, 2, 188, 0, VCLASS_DROPPER_BLOCK, BLOCK_ENTITY_TYPE_DROPPER, BLOCK_ENTITY_TYPE_DROPPER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 729, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_terracotta", 11242, 1, 11242, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 486, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_terracotta", 11243, 1, 11243, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 487, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_terracotta", 11244, 1, 11244, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 488, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_terracotta", 11245, 1, 11245, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 489, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_terracotta", 11246, 1, 11246, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 490, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_terracotta", 11247, 1, 11247, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 491, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_terracotta", 11248, 1, 11248, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 492, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_terracotta", 11249, 1, 11249, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 493, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_terracotta", 11250, 1, 11250, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 494, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_terracotta", 11251, 1, 11251, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 495, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_terracotta", 11252, 1, 11252, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 496, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_terracotta", 11253, 1, 11253, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 497, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_terracotta", 11254, 1, 11254, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 498, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_terracotta", 11255, 1, 11255, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 499, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_terracotta", 11256, 1, 11256, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 500, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_terracotta", 11257, 1, 11257, 738, 0, 188, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 501, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_stained_glass_pane", 11258, 32, 11289, 738, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 546, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_stained_glass_pane", 11290, 32, 11321, 743, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 547, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_stained_glass_pane", 11322, 32, 11353, 748, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 548, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_stained_glass_pane", 11354, 32, 11385, 753, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 549, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_stained_glass_pane", 11386, 32, 11417, 758, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 550, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_stained_glass_pane", 11418, 32, 11449, 763, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 551, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_stained_glass_pane", 11450, 32, 11481, 768, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 552, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_stained_glass_pane", 11482, 32, 11513, 773, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 553, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_stained_glass_pane", 11514, 32, 11545, 778, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 554, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_stained_glass_pane", 11546, 32, 11577, 783, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 555, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_stained_glass_pane", 11578, 32, 11609, 788, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 556, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_stained_glass_pane", 11610, 32, 11641, 793, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 557, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_stained_glass_pane", 11642, 32, 11673, 798, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 558, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_stained_glass_pane", 11674, 32, 11705, 803, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 559, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_stained_glass_pane", 11706, 32, 11737, 808, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 560, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_stained_glass_pane", 11738, 32, 11769, 813, 5, 188, 0, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 561, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "acacia_stairs", 11770, 80, 11781, 818, 4, 188, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 445, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cherry_stairs", 11850, 80, 11861, 822, 4, 189, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 446, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_oak_stairs", 11930, 80, 11941, 826, 4, 190, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 447, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_oak_stairs", 12010, 80, 12021, 830, 4, 191, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 448, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mangrove_stairs", 12090, 80, 12101, 834, 4, 192, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 449, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_stairs", 12170, 80, 12181, 838, 4, 193, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 450, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_mosaic_stairs", 12250, 80, 12261, 842, 4, 194, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 451, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "slime_block", 12330, 1, 12330, 846, 0, 195, 0, VCLASS_SLIME_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 724, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "barrier", 12331, 2, 12332, 846, 1, 195, 0, VCLASS_BARRIER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 502, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light", 12333, 32, 12364, 847, 2, 195, 0, VCLASS_LIGHT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 503, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "iron_trapdoor", 12365, 64, 12380, 849, 5, 195, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 800, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "prismarine", 12429, 1, 12429, 854, 0, 198, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 562, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "prismarine_bricks", 12430, 1, 12430, 854, 0, 198, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 563, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_prismarine", 12431, 1, 12431, 854, 0, 198, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 564, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "prismarine_stairs", 12432, 80, 12443, 854, 4, 198, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 565, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "prismarine_brick_stairs", 12512, 80, 12523, 858, 4, 199, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 566, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_prismarine_stairs", 12592, 80, 12603, 862, 4, 200, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 567, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "prismarine_slab", 12672, 6, 12675, 866, 2, 201, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 297, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "prismarine_brick_slab", 12678, 6, 12681, 868, 2, 201, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 298, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_prismarine_slab", 12684, 6, 12687, 870, 2, 201, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 299, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sea_lantern", 12690, 1, 12690, 872, 0, 201, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 568, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "hay_block", 12691, 3, 12692, 872, 1, 201, 0, VCLASS_HAY_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BANJO, 504, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_carpet", 12694, 1, 12694, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 505, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_carpet", 12695, 1, 12695, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 506, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_carpet", 12696, 1, 12696, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 507, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_carpet", 12697, 1, 12697, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 508, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_carpet", 12698, 1, 12698, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 509, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_carpet", 12699, 1, 12699, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 510, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_carpet", 12700, 1, 12700, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 511, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_carpet", 12701, 1, 12701, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 512, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_carpet", 12702, 1, 12702, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 513, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_carpet", 12703, 1, 12703, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 514, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_carpet", 12704, 1, 12704, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 515, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_carpet", 12705, 1, 12705, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 516, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_carpet", 12706, 1, 12706, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 517, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_carpet", 12707, 1, 12707, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 518, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_carpet", 12708, 1, 12708, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 519, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_carpet", 12709, 1, 12709, 873, 0, 201, 0, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 520, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "terracotta", 12710, 1, 12710, 873, 0, 201, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 521, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "coal_block", 12711, 1, 12711, 873, 0, 201, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 83, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "packed_ice", 12712, 1, 12712, 873, 0, 201, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_CHIME, 522, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sunflower", 12713, 2, 12714, 873, 1, 201, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 524, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lilac", 12715, 2, 12716, 874, 1, 201, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 525, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "rose_bush", 12717, 2, 12718, 875, 1, 201, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 526, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "peony", 12719, 2, 12720, 876, 1, 201, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 527, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tall_grass", 12721, 2, 12722, 877, 1, 201, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 528, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "large_fern", 12723, 2, 12724, 878, 1, 201, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 529, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_banner", 12725, 16, 12725, 879, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1266, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_banner", 12741, 16, 12741, 880, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1267, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_banner", 12757, 16, 12757, 881, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1268, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_banner", 12773, 16, 12773, 882, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1269, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_banner", 12789, 16, 12789, 883, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1270, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_banner", 12805, 16, 12805, 884, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1271, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_banner", 12821, 16, 12821, 885, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1272, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_banner", 12837, 16, 12837, 886, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1273, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_banner", 12853, 16, 12853, 887, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1274, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_banner", 12869, 16, 12869, 888, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1275, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_banner", 12885, 16, 12885, 889, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1276, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_banner", 12901, 16, 12901, 890, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1277, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_banner", 12917, 16, 12917, 891, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1278, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_banner", 12933, 16, 12933, 892, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1279, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_banner", 12949, 16, 12949, 893, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1280, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_banner", 12965, 16, 12965, 894, 1, 201, 0, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1281, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_wall_banner", 12981, 4, 12981, 895, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1266, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_wall_banner", 12985, 4, 12985, 896, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1267, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_wall_banner", 12989, 4, 12989, 897, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1268, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_wall_banner", 12993, 4, 12993, 898, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1269, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_wall_banner", 12997, 4, 12997, 899, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1270, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_wall_banner", 13001, 4, 13001, 900, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1271, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_wall_banner", 13005, 4, 13005, 901, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1272, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_wall_banner", 13009, 4, 13009, 902, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1273, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_wall_banner", 13013, 4, 13013, 903, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1274, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_wall_banner", 13017, 4, 13017, 904, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1275, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_wall_banner", 13021, 4, 13021, 905, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1276, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_wall_banner", 13025, 4, 13025, 906, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1277, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_wall_banner", 13029, 4, 13029, 907, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1278, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_wall_banner", 13033, 4, 13033, 908, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1279, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_wall_banner", 13037, 4, 13037, 909, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1280, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_wall_banner", 13041, 4, 13041, 910, 1, 201, 0, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1281, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_sandstone", 13045, 1, 13045, 911, 0, 201, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 569, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chiseled_red_sandstone", 13046, 1, 13046, 911, 0, 201, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 570, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cut_red_sandstone", 13047, 1, 13047, 911, 0, 201, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 571, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_sandstone_stairs", 13048, 80, 13059, 911, 4, 201, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 572, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oak_slab", 13128, 6, 13131, 915, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 270, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spruce_slab", 13134, 6, 13137, 917, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 271, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "birch_slab", 13140, 6, 13143, 919, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 272, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jungle_slab", 13146, 6, 13149, 921, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 273, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "acacia_slab", 13152, 6, 13155, 923, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 274, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cherry_slab", 13158, 6, 13161, 925, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 275, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_oak_slab", 13164, 6, 13167, 927, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 276, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_oak_slab", 13170, 6, 13173, 929, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 277, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mangrove_slab", 13176, 6, 13179, 931, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 278, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_slab", 13182, 6, 13185, 933, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 279, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_mosaic_slab", 13188, 6, 13191, 935, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 280, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "stone_slab", 13194, 6, 13197, 937, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 283, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smooth_stone_slab", 13200, 6, 13203, 939, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 284, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sandstone_slab", 13206, 6, 13209, 941, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 285, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cut_sandstone_slab", 13212, 6, 13215, 943, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 286, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "petrified_oak_slab", 13218, 6, 13221, 945, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 287, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cobblestone_slab", 13224, 6, 13227, 947, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 288, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brick_slab", 13230, 6, 13233, 949, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 289, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "stone_brick_slab", 13236, 6, 13239, 951, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 290, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mud_brick_slab", 13242, 6, 13245, 953, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 291, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "nether_brick_slab", 13248, 6, 13251, 955, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 292, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "quartz_slab", 13254, 6, 13257, 957, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 293, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_sandstone_slab", 13260, 6, 13263, 959, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 294, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cut_red_sandstone_slab", 13266, 6, 13269, 961, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 295, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purpur_slab", 13272, 6, 13275, 963, 2, 202, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 296, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smooth_stone", 13278, 1, 13278, 965, 0, 202, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 303, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smooth_sandstone", 13279, 1, 13279, 965, 0, 202, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 302, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smooth_quartz", 13280, 1, 13280, 965, 0, 202, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 300, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smooth_red_sandstone", 13281, 1, 13281, 965, 0, 202, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 301, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spruce_fence_gate", 13282, 32, 13289, 965, 4, 202, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 822, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "birch_fence_gate", 13314, 32, 13321, 969, 4, 202, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 823, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jungle_fence_gate", 13346, 32, 13353, 973, 4, 202, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 824, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "acacia_fence_gate", 13378, 32, 13385, 977, 4, 202, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 825, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cherry_fence_gate", 13410, 32, 13417, 981, 4, 202, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 826, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_oak_fence_gate", 13442, 32, 13449, 985, 4, 202, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 827, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_oak_fence_gate", 13474, 32, 13481, 989, 4, 202, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 828, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mangrove_fence_gate", 13506, 32, 13513, 993, 4, 202, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 829, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_fence_gate", 13538, 32, 13545, 997, 4, 202, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 830, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spruce_fence", 13570, 32, 13601, 1001, 5, 202, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 345, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "birch_fence", 13602, 32, 13633, 1006, 5, 202, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 346, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jungle_fence", 13634, 32, 13665, 1011, 5, 202, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 347, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "acacia_fence", 13666, 32, 13697, 1016, 5, 202, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 348, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cherry_fence", 13698, 32, 13729, 1021, 5, 202, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 349, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_oak_fence", 13730, 32, 13761, 1026, 5, 202, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 350, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_oak_fence", 13762, 32, 13793, 1031, 5, 202, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 351, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mangrove_fence", 13794, 32, 13825, 1036, 5, 202, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 352, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_fence", 13826, 32, 13857, 1041, 5, 202, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 353, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "spruce_door", 13858, 64, 13869, 1046, 5, 202, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 781, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "birch_door", 13922, 64, 13933, 1051, 5, 205, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 782, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jungle_door", 13986, 64, 13997, 1056, 5, 208, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 783, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "acacia_door", 14050, 64, 14061, 1061, 5, 211, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 784, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cherry_door", 14114, 64, 14125, 1066, 5, 214, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 785, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dark_oak_door", 14178, 64, 14189, 1071, 5, 217, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 786, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_oak_door", 14242, 64, 14253, 1076, 5, 220, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 787, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mangrove_door", 14306, 64, 14317, 1081, 5, 223, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 788, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_door", 14370, 64, 14381, 1086, 5, 226, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 789, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "end_rod", 14434, 6, 14438, 1091, 1, 229, 0, VCLASS_END_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 323, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chorus_plant", 14440, 64, 14503, 1092, 6, 229, 0, VCLASS_CHORUS_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 324, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chorus_flower", 14504, 6, 14504, 1098, 1, 229, 1, VCLASS_CHORUS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 325, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purpur_block", 14510, 1, 14510, 1099, 0, 230, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 326, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purpur_pillar", 14511, 3, 14512, 1099, 1, 230, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 327, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purpur_stairs", 14514, 80, 14525, 1100, 4, 230, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 328, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "end_stone_bricks", 14594, 1, 14594, 1104, 0, 231, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 436, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "torchflower_crop", 14595, 2, 14595, 1104, 1, 231, 0, VCLASS_TORCHFLOWER_CROP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1285, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pitcher_crop", 14597, 10, 14598, 1105, 2, 231, 0, VCLASS_PITCHER_CROP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1286, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pitcher_plant", 14607, 2, 14608, 1107, 1, 231, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 245, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "beetroots", 14609, 4, 14609, 1108, 1, 231, 0, VCLASS_BEETROOT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1288, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dirt_path", 14613, 1, 14613, 1109, 0, 231, 0, VCLASS_DIRT_PATH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 523, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "end_gateway", 14614, 1, 14614, 1109, 0, 231, 0, VCLASS_END_GATEWAY_BLOCK, BLOCK_ENTITY_TYPE_END_GATEWAY, BLOCK_ENTITY_TYPE_END_GATEWAY, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "repeating_command_block", 14615, 12, 14621, 1109, 2, 231, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, 573, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chain_command_block", 14627, 12, 14633, 1111, 2, 232, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, 574, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "frosted_ice", 14639, 4, 14639, 1113, 1, 233, 0, VCLASS_FROSTED_ICE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magma_block", 14643, 1, 14643, 1114, 0, 233, 0, VCLASS_MAGMA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 575, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "nether_wart_block", 14644, 1, 14644, 1114, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 576, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_nether_bricks", 14645, 1, 14645, 1114, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 578, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bone_block", 14646, 3, 14647, 1114, 1, 233, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_XYLOPHONE, 579, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "structure_void", 14649, 1, 14649, 1115, 0, 233, 0, VCLASS_STRUCTURE_VOID_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 580, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "observer", 14650, 12, 14655, 1115, 2, 233, 0, VCLASS_OBSERVER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 726, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "shulker_box", 14662, 6, 14666, 1117, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 581, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_shulker_box", 14668, 6, 14672, 1118, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 582, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_shulker_box", 14674, 6, 14678, 1119, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 583, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_shulker_box", 14680, 6, 14684, 1120, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 584, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_shulker_box", 14686, 6, 14690, 1121, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 585, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_shulker_box", 14692, 6, 14696, 1122, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 586, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_shulker_box", 14698, 6, 14702, 1123, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 587, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_shulker_box", 14704, 6, 14708, 1124, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 588, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_shulker_box", 14710, 6, 14714, 1125, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 589, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_shulker_box", 14716, 6, 14720, 1126, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 590, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_shulker_box", 14722, 6, 14726, 1127, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 591, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_shulker_box", 14728, 6, 14732, 1128, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 592, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_shulker_box", 14734, 6, 14738, 1129, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 593, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_shulker_box", 14740, 6, 14744, 1130, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 594, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_shulker_box", 14746, 6, 14750, 1131, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 595, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_shulker_box", 14752, 6, 14756, 1132, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 596, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_shulker_box", 14758, 6, 14762, 1133, 1, 233, 0, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 597, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_glazed_terracotta", 14764, 4, 14764, 1134, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 598, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_glazed_terracotta", 14768, 4, 14768, 1135, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 599, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_glazed_terracotta", 14772, 4, 14772, 1136, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 600, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_glazed_terracotta", 14776, 4, 14776, 1137, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 601, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_glazed_terracotta", 14780, 4, 14780, 1138, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 602, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_glazed_terracotta", 14784, 4, 14784, 1139, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 603, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_glazed_terracotta", 14788, 4, 14788, 1140, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 604, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_glazed_terracotta", 14792, 4, 14792, 1141, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 605, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_glazed_terracotta", 14796, 4, 14796, 1142, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 606, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_glazed_terracotta", 14800, 4, 14800, 1143, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 607, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_glazed_terracotta", 14804, 4, 14804, 1144, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 608, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_glazed_terracotta", 14808, 4, 14808, 1145, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 609, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_glazed_terracotta", 14812, 4, 14812, 1146, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 610, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_glazed_terracotta", 14816, 4, 14816, 1147, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 611, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_glazed_terracotta", 14820, 4, 14820, 1148, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 612, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_glazed_terracotta", 14824, 4, 14824, 1149, 1, 233, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 613, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_concrete", 14828, 1, 14828, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 614, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_concrete", 14829, 1, 14829, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 615, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_concrete", 14830, 1, 14830, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 616, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_concrete", 14831, 1, 14831, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 617, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_concrete", 14832, 1, 14832, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 618, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_concrete", 14833, 1, 14833, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 619, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_concrete", 14834, 1, 14834, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 620, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_concrete", 14835, 1, 14835, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 621, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_concrete", 14836, 1, 14836, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 622, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_concrete", 14837, 1, 14837, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 623, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_concrete", 14838, 1, 14838, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 624, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_concrete", 14839, 1, 14839, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 625, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_concrete", 14840, 1, 14840, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 626, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_concrete", 14841, 1, 14841, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 627, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_concrete", 14842, 1, 14842, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 628, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_concrete", 14843, 1, 14843, 1150, 0, 233, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 629, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_concrete_powder", 14844, 1, 14844, 1150, 0, 233, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 630, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_concrete_powder", 14845, 1, 14845, 1150, 0, 234, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 631, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_concrete_powder", 14846, 1, 14846, 1150, 0, 235, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 632, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_concrete_powder", 14847, 1, 14847, 1150, 0, 236, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 633, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_concrete_powder", 14848, 1, 14848, 1150, 0, 237, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 634, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_concrete_powder", 14849, 1, 14849, 1150, 0, 238, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 635, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_concrete_powder", 14850, 1, 14850, 1150, 0, 239, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 636, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_concrete_powder", 14851, 1, 14851, 1150, 0, 240, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 637, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_concrete_powder", 14852, 1, 14852, 1150, 0, 241, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 638, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_concrete_powder", 14853, 1, 14853, 1150, 0, 242, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 639, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_concrete_powder", 14854, 1, 14854, 1150, 0, 243, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 640, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_concrete_powder", 14855, 1, 14855, 1150, 0, 244, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 641, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_concrete_powder", 14856, 1, 14856, 1150, 0, 245, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 642, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_concrete_powder", 14857, 1, 14857, 1150, 0, 246, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 643, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_concrete_powder", 14858, 1, 14858, 1150, 0, 247, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 644, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_concrete_powder", 14859, 1, 14859, 1150, 0, 248, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 645, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "kelp", 14860, 26, 14860, 1150, 1, 249, 2, VCLASS_KELP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 257, -1, -1, -1, -1, -1, 740, 741, -1 },
-    { "kelp_plant", 14886, 1, 14886, 1151, 0, 251, 2, VCLASS_KELP_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, 740, 741, -1 },
-    { "dried_kelp_block", 14887, 1, 14887, 1151, 0, 253, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1027, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "turtle_egg", 14888, 12, 14888, 1151, 2, 253, 0, VCLASS_TURTLE_EGG_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 646, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sniffer_egg", 14900, 3, 14900, 1153, 1, 253, 0, VCLASS_SNIFFER_EGG_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 647, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dried_ghast", 14903, 32, 14904, 1154, 3, 253, 0, VCLASS_DRIED_GHAST_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 648, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_tube_coral_block", 14935, 1, 14935, 1157, 0, 253, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 649, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_brain_coral_block", 14936, 1, 14936, 1157, 0, 253, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 650, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_bubble_coral_block", 14937, 1, 14937, 1157, 0, 253, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 651, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_fire_coral_block", 14938, 1, 14938, 1157, 0, 253, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 652, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_horn_coral_block", 14939, 1, 14939, 1157, 0, 253, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 653, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tube_coral_block", 14940, 1, 14940, 1157, 0, 253, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 654, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brain_coral_block", 14941, 1, 14941, 1157, 0, 254, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 655, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bubble_coral_block", 14942, 1, 14942, 1157, 0, 255, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 656, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "fire_coral_block", 14943, 1, 14943, 1157, 0, 256, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 657, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "horn_coral_block", 14944, 1, 14944, 1157, 0, 257, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 658, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_tube_coral", 14945, 2, 14945, 1157, 1, 258, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 668, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_brain_coral", 14947, 2, 14947, 1158, 1, 258, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 664, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_bubble_coral", 14949, 2, 14949, 1159, 1, 258, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 665, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_fire_coral", 14951, 2, 14951, 1160, 1, 258, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 666, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_horn_coral", 14953, 2, 14953, 1161, 1, 258, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 667, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tube_coral", 14955, 2, 14955, 1162, 1, 258, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 659, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brain_coral", 14957, 2, 14957, 1163, 1, 259, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 660, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bubble_coral", 14959, 2, 14959, 1164, 1, 260, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 661, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "fire_coral", 14961, 2, 14961, 1165, 1, 261, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 662, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "horn_coral", 14963, 2, 14963, 1166, 1, 262, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 663, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_tube_coral_fan", 14965, 2, 14965, 1167, 1, 263, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 674, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_brain_coral_fan", 14967, 2, 14967, 1168, 1, 263, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 675, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_bubble_coral_fan", 14969, 2, 14969, 1169, 1, 263, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 676, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_fire_coral_fan", 14971, 2, 14971, 1170, 1, 263, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 677, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_horn_coral_fan", 14973, 2, 14973, 1171, 1, 263, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 678, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tube_coral_fan", 14975, 2, 14975, 1172, 1, 263, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 669, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brain_coral_fan", 14977, 2, 14977, 1173, 1, 264, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 670, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bubble_coral_fan", 14979, 2, 14979, 1174, 1, 265, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 671, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "fire_coral_fan", 14981, 2, 14981, 1175, 1, 266, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 672, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "horn_coral_fan", 14983, 2, 14983, 1176, 1, 267, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 673, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_tube_coral_wall_fan", 14985, 8, 14985, 1177, 2, 268, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 674, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_brain_coral_wall_fan", 14993, 8, 14993, 1179, 2, 268, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 675, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_bubble_coral_wall_fan", 15001, 8, 15001, 1181, 2, 268, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 676, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_fire_coral_wall_fan", 15009, 8, 15009, 1183, 2, 268, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 677, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dead_horn_coral_wall_fan", 15017, 8, 15017, 1185, 2, 268, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 678, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tube_coral_wall_fan", 15025, 8, 15025, 1187, 2, 268, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 669, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brain_coral_wall_fan", 15033, 8, 15033, 1189, 2, 269, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 670, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bubble_coral_wall_fan", 15041, 8, 15041, 1191, 2, 270, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 671, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "fire_coral_wall_fan", 15049, 8, 15049, 1193, 2, 271, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 672, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "horn_coral_wall_fan", 15057, 8, 15057, 1195, 2, 272, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 673, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sea_pickle", 15065, 8, 15065, 1197, 2, 273, 0, VCLASS_SEA_PICKLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 212, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_ice", 15073, 1, 15073, 1199, 0, 273, 0, VCLASS_HALF_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 679, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "conduit", 15074, 2, 15074, 1199, 1, 273, 0, VCLASS_CONDUIT_BLOCK, BLOCK_ENTITY_TYPE_CONDUIT, BLOCK_ENTITY_TYPE_CONDUIT, NOTE_BLOCK_INSTRUMENT_HAT, 680, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo_sapling", 15076, 1, 15076, 1200, 0, 273, 0, VCLASS_BAMBOO_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bamboo", 15077, 12, 15077, 1200, 3, 273, 0, VCLASS_BAMBOO_STALK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 269, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_bamboo", 15089, 1, 15089, 1203, 0, 273, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "void_air", 15090, 1, 15090, 1203, 0, 274, 0, VCLASS_AIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cave_air", 15091, 1, 15091, 1203, 0, 274, 0, VCLASS_AIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bubble_column", 15092, 2, 15092, 1203, 1, 274, 0, VCLASS_BUBBLE_COLUMN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_granite_stairs", 15094, 80, 15105, 1204, 4, 274, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 681, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smooth_red_sandstone_stairs", 15174, 80, 15185, 1208, 4, 275, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 682, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mossy_stone_brick_stairs", 15254, 80, 15265, 1212, 4, 276, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 683, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_diorite_stairs", 15334, 80, 15345, 1216, 4, 277, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 684, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mossy_cobblestone_stairs", 15414, 80, 15425, 1220, 4, 278, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 685, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "end_stone_brick_stairs", 15494, 80, 15505, 1224, 4, 279, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 686, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "stone_stairs", 15574, 80, 15585, 1228, 4, 280, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 687, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smooth_sandstone_stairs", 15654, 80, 15665, 1232, 4, 281, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 688, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smooth_quartz_stairs", 15734, 80, 15745, 1236, 4, 282, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 689, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "granite_stairs", 15814, 80, 15825, 1240, 4, 283, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 690, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "andesite_stairs", 15894, 80, 15905, 1244, 4, 284, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 691, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_nether_brick_stairs", 15974, 80, 15985, 1248, 4, 285, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 692, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_andesite_stairs", 16054, 80, 16065, 1252, 4, 286, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 693, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "diorite_stairs", 16134, 80, 16145, 1256, 4, 287, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 694, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_granite_slab", 16214, 6, 16217, 1260, 2, 288, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 699, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smooth_red_sandstone_slab", 16220, 6, 16223, 1262, 2, 288, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 700, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mossy_stone_brick_slab", 16226, 6, 16229, 1264, 2, 288, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 701, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_diorite_slab", 16232, 6, 16235, 1266, 2, 288, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 702, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mossy_cobblestone_slab", 16238, 6, 16241, 1268, 2, 288, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 703, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "end_stone_brick_slab", 16244, 6, 16247, 1270, 2, 288, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 704, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smooth_sandstone_slab", 16250, 6, 16253, 1272, 2, 288, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 705, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smooth_quartz_slab", 16256, 6, 16259, 1274, 2, 288, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 706, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "granite_slab", 16262, 6, 16265, 1276, 2, 288, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 707, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "andesite_slab", 16268, 6, 16271, 1278, 2, 288, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 708, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_nether_brick_slab", 16274, 6, 16277, 1280, 2, 288, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 709, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_andesite_slab", 16280, 6, 16283, 1282, 2, 288, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 710, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "diorite_slab", 16286, 6, 16289, 1284, 2, 288, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 711, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brick_wall", 16292, 324, 16295, 1286, 6, 288, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 458, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "prismarine_wall", 16616, 324, 16619, 1292, 6, 288, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 459, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_sandstone_wall", 16940, 324, 16943, 1298, 6, 288, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 460, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mossy_stone_brick_wall", 17264, 324, 17267, 1304, 6, 288, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 461, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "granite_wall", 17588, 324, 17591, 1310, 6, 288, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 462, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "stone_brick_wall", 17912, 324, 17915, 1316, 6, 288, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 463, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "mud_brick_wall", 18236, 324, 18239, 1322, 6, 288, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 464, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "nether_brick_wall", 18560, 324, 18563, 1328, 6, 288, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 465, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "andesite_wall", 18884, 324, 18887, 1334, 6, 288, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 466, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_nether_brick_wall", 19208, 324, 19211, 1340, 6, 288, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 467, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sandstone_wall", 19532, 324, 19535, 1346, 6, 288, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 468, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "end_stone_brick_wall", 19856, 324, 19859, 1352, 6, 288, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 469, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "diorite_wall", 20180, 324, 20183, 1358, 6, 288, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 470, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "scaffolding", 20504, 32, 20535, 1364, 3, 288, 0, VCLASS_SCAFFOLDING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 716, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "loom", 20536, 4, 20536, 1367, 1, 288, 0, VCLASS_LOOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 1341, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "barrel", 20540, 12, 20541, 1368, 2, 288, 0, VCLASS_BARREL_BLOCK, BLOCK_ENTITY_TYPE_BARREL, BLOCK_ENTITY_TYPE_BARREL, NOTE_BLOCK_INSTRUMENT_BASS, 1354, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smoker", 20552, 8, 20553, 1370, 2, 288, 0, VCLASS_SMOKER_BLOCK, BLOCK_ENTITY_TYPE_SMOKER, BLOCK_ENTITY_TYPE_SMOKER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1355, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blast_furnace", 20560, 8, 20561, 1372, 2, 288, 0, VCLASS_BLAST_FURNACE_BLOCK, BLOCK_ENTITY_TYPE_BLAST_FURNACE, BLOCK_ENTITY_TYPE_BLAST_FURNACE, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1356, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cartography_table", 20568, 1, 20568, 1374, 0, 288, 0, VCLASS_CARTOGRAPHY_TABLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 1357, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "fletching_table", 20569, 1, 20569, 1374, 0, 288, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 1358, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "grindstone", 20570, 12, 20574, 1374, 2, 288, 0, VCLASS_GRINDSTONE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1359, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lectern", 20582, 16, 20585, 1376, 3, 288, 0, VCLASS_LECTERN_BLOCK, BLOCK_ENTITY_TYPE_LECTERN, BLOCK_ENTITY_TYPE_LECTERN, NOTE_BLOCK_INSTRUMENT_BASS, 730, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smithing_table", 20598, 1, 20598, 1379, 0, 288, 0, VCLASS_SMITHING_TABLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 1360, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "stonecutter", 20599, 4, 20599, 1379, 1, 288, 0, VCLASS_STONECUTTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1361, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bell", 20603, 32, 20604, 1380, 3, 288, 0, VCLASS_BELL_BLOCK, BLOCK_ENTITY_TYPE_BELL, BLOCK_ENTITY_TYPE_BELL, NOTE_BLOCK_INSTRUMENT_HARP, 1362, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lantern", 20635, 4, 20638, 1383, 2, 288, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1363, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "soul_lantern", 20639, 4, 20642, 1385, 2, 288, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1364, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "copper_lantern", 20643, 4, 20646, 1387, 2, 288, 0, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1365, 853, -1, -1, -1, -1, -1, -1, -1 },
-    { "exposed_copper_lantern", 20647, 4, 20650, 1389, 2, 288, 0, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1366, 854, -1, 849, -1, -1, -1, -1, -1 },
-    { "weathered_copper_lantern", 20651, 4, 20654, 1391, 2, 288, 0, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1367, 855, -1, 850, -1, -1, -1, -1, -1 },
-    { "oxidized_copper_lantern", 20655, 4, 20658, 1393, 2, 288, 0, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1368, 856, -1, 851, -1, -1, -1, -1, -1 },
-    { "waxed_copper_lantern", 20659, 4, 20662, 1395, 2, 288, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1369, -1, 849, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_copper_lantern", 20663, 4, 20666, 1397, 2, 288, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1370, -1, 850, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_copper_lantern", 20667, 4, 20670, 1399, 2, 288, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1371, -1, 851, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_copper_lantern", 20671, 4, 20674, 1401, 2, 288, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1372, -1, 852, -1, -1, -1, -1, -1, -1 },
-    { "campfire", 20675, 32, 20678, 1403, 4, 288, 2, VCLASS_CAMPFIRE_BLOCK, BLOCK_ENTITY_TYPE_CAMPFIRE, BLOCK_ENTITY_TYPE_CAMPFIRE, NOTE_BLOCK_INSTRUMENT_BASS, 1375, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "soul_campfire", 20707, 32, 20710, 1407, 4, 290, 2, VCLASS_CAMPFIRE_BLOCK, BLOCK_ENTITY_TYPE_CAMPFIRE, BLOCK_ENTITY_TYPE_CAMPFIRE, NOTE_BLOCK_INSTRUMENT_BASS, 1376, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sweet_berry_bush", 20739, 4, 20739, 1411, 1, 292, 0, VCLASS_SWEET_BERRY_BUSH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1373, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_stem", 20743, 3, 20744, 1412, 1, 292, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 146, -1, -1, -1, 861, -1, -1, -1, -1 },
-    { "stripped_warped_stem", 20746, 3, 20747, 1413, 1, 292, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 158, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_hyphae", 20749, 3, 20750, 1414, 1, 292, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 181, -1, -1, -1, 863, -1, -1, -1, -1 },
-    { "stripped_warped_hyphae", 20752, 3, 20753, 1415, 1, 292, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 169, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_nylium", 20755, 1, 20755, 1416, 0, 292, 0, VCLASS_NYLIUM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 34, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_fungus", 20756, 1, 20756, 1416, 0, 292, 1, VCLASS_FUNGUS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 250, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_wart_block", 20757, 1, 20757, 1416, 0, 293, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 577, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_roots", 20758, 1, 20758, 1416, 0, 293, 0, VCLASS_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 252, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "nether_sprouts", 20759, 1, 20759, 1416, 0, 293, 0, VCLASS_NETHER_SPROUTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 253, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_stem", 20760, 3, 20761, 1416, 1, 293, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 145, -1, -1, -1, 870, -1, -1, -1, -1 },
-    { "stripped_crimson_stem", 20763, 3, 20764, 1417, 1, 293, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 157, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_hyphae", 20766, 3, 20767, 1418, 1, 293, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 180, -1, -1, -1, 872, -1, -1, -1, -1 },
-    { "stripped_crimson_hyphae", 20769, 3, 20770, 1419, 1, 293, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 168, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_nylium", 20772, 1, 20772, 1420, 0, 293, 0, VCLASS_NYLIUM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 33, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_fungus", 20773, 1, 20773, 1420, 0, 293, 1, VCLASS_FUNGUS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 249, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "shroomlight", 20774, 1, 20774, 1420, 0, 294, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1377, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "weeping_vines", 20775, 26, 20775, 1420, 1, 294, 2, VCLASS_WEEPING_VINES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 254, -1, -1, -1, -1, -1, 876, 877, -1 },
-    { "weeping_vines_plant", 20801, 1, 20801, 1421, 0, 296, 2, VCLASS_WEEPING_VINES_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, 876, 877, -1 },
-    { "twisting_vines", 20802, 26, 20802, 1421, 1, 298, 2, VCLASS_TWISTING_VINES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 255, -1, -1, -1, -1, -1, 878, 879, -1 },
-    { "twisting_vines_plant", 20828, 1, 20828, 1422, 0, 300, 2, VCLASS_TWISTING_VINES_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, 878, 879, -1 },
-    { "crimson_roots", 20829, 1, 20829, 1422, 0, 302, 0, VCLASS_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 251, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_planks", 20830, 1, 20830, 1422, 0, 302, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 46, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_planks", 20831, 1, 20831, 1422, 0, 302, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 47, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_slab", 20832, 6, 20835, 1422, 2, 302, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 281, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_slab", 20838, 6, 20841, 1424, 2, 302, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 282, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_pressure_plate", 20844, 2, 20845, 1426, 1, 302, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 777, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_pressure_plate", 20846, 2, 20847, 1427, 1, 305, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 778, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_fence", 20848, 32, 20879, 1428, 5, 308, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 354, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_fence", 20880, 32, 20911, 1433, 5, 308, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 355, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_trapdoor", 20912, 64, 20927, 1438, 5, 308, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 811, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_trapdoor", 20976, 64, 20991, 1443, 5, 311, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 812, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_fence_gate", 21040, 32, 21047, 1448, 4, 314, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 831, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_fence_gate", 21072, 32, 21079, 1452, 4, 314, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 832, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_stairs", 21104, 80, 21115, 1456, 4, 314, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 452, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_stairs", 21184, 80, 21195, 1460, 4, 315, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 453, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_button", 21264, 24, 21273, 1464, 3, 316, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 761, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_button", 21288, 24, 21297, 1467, 3, 320, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 762, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_door", 21312, 64, 21323, 1470, 5, 324, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 790, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_door", 21376, 64, 21387, 1475, 5, 327, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 791, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_sign", 21440, 32, 21441, 1480, 2, 330, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 998, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_sign", 21472, 32, 21473, 1482, 2, 330, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 999, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crimson_wall_sign", 21504, 8, 21505, 1484, 2, 330, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 998, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "warped_wall_sign", 21512, 8, 21513, 1486, 2, 330, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 999, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "structure_block", 21520, 4, 21521, 1488, 1, 330, 0, VCLASS_STRUCTURE_BLOCK, BLOCK_ENTITY_TYPE_STRUCTURE_BLOCK, BLOCK_ENTITY_TYPE_STRUCTURE_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, 883, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "jigsaw", 21524, 12, 21534, 1489, 1, 330, 0, VCLASS_JIGSAW_BLOCK, BLOCK_ENTITY_TYPE_JIGSAW, BLOCK_ENTITY_TYPE_JIGSAW, NOTE_BLOCK_INSTRUMENT_HARP, 884, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "test_block", 21536, 4, 21536, 1490, 1, 330, 0, VCLASS_TEST_BLOCK, BLOCK_ENTITY_TYPE_TEST_BLOCK, BLOCK_ENTITY_TYPE_TEST_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, 885, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "test_instance_block", 21540, 1, 21540, 1491, 0, 330, 0, VCLASS_TEST_INSTANCE_BLOCK, BLOCK_ENTITY_TYPE_TEST_INSTANCE_BLOCK, BLOCK_ENTITY_TYPE_TEST_INSTANCE_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, 886, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "composter", 21541, 9, 21541, 1491, 1, 330, 0, VCLASS_COMPOSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 1353, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "target", 21550, 16, 21550, 1492, 1, 330, 0, VCLASS_TARGET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 731, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "bee_nest", 21566, 24, 21566, 1493, 2, 330, 0, VCLASS_BEEHIVE_BLOCK, BLOCK_ENTITY_TYPE_BEEHIVE, BLOCK_ENTITY_TYPE_BEEHIVE, NOTE_BLOCK_INSTRUMENT_BASS, 1379, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "beehive", 21590, 24, 21590, 1495, 2, 330, 0, VCLASS_BEEHIVE_BLOCK, BLOCK_ENTITY_TYPE_BEEHIVE, BLOCK_ENTITY_TYPE_BEEHIVE, NOTE_BLOCK_INSTRUMENT_BASS, 1380, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "honey_block", 21614, 1, 21614, 1497, 0, 330, 0, VCLASS_HONEY_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 725, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "honeycomb_block", 21615, 1, 21615, 1497, 0, 330, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1382, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "netherite_block", 21616, 1, 21616, 1497, 0, 330, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 94, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "ancient_debris", 21617, 1, 21617, 1497, 0, 330, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 82, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crying_obsidian", 21618, 1, 21618, 1497, 0, 330, 0, VCLASS_CRYING_OBSIDIAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1384, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "respawn_anchor", 21619, 5, 21619, 1497, 1, 330, 0, VCLASS_RESPAWN_ANCHOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1397, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_crimson_fungus", 21624, 1, 21624, 1498, 0, 330, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_warped_fungus", 21625, 1, 21625, 1498, 0, 331, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_crimson_roots", 21626, 1, 21626, 1498, 0, 332, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_warped_roots", 21627, 1, 21627, 1498, 0, 333, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lodestone", 21628, 1, 21628, 1498, 0, 334, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1383, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blackstone", 21629, 1, 21629, 1498, 0, 334, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1385, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blackstone_stairs", 21630, 80, 21641, 1498, 4, 334, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1387, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blackstone_wall", 21710, 324, 21713, 1502, 6, 335, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 471, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blackstone_slab", 22034, 6, 22037, 1508, 2, 335, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1386, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_blackstone", 22040, 1, 22040, 1510, 0, 335, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1389, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_blackstone_bricks", 22041, 1, 22041, 1510, 0, 335, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1393, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cracked_polished_blackstone_bricks", 22042, 1, 22042, 1510, 0, 335, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1396, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chiseled_polished_blackstone", 22043, 1, 22043, 1510, 0, 335, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1392, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_blackstone_brick_slab", 22044, 6, 22047, 1510, 2, 335, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1394, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_blackstone_brick_stairs", 22050, 80, 22061, 1512, 4, 335, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1395, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_blackstone_brick_wall", 22130, 324, 22133, 1516, 6, 336, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 473, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gilded_blackstone", 22454, 1, 22454, 1522, 0, 336, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1388, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_blackstone_stairs", 22455, 80, 22466, 1522, 4, 336, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1391, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_blackstone_slab", 22535, 6, 22538, 1526, 2, 337, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1390, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_blackstone_pressure_plate", 22541, 2, 22542, 1528, 1, 337, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 764, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_blackstone_button", 22543, 24, 22552, 1529, 3, 340, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 750, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_blackstone_wall", 22567, 324, 22570, 1532, 6, 344, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 472, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chiseled_nether_bricks", 22891, 1, 22891, 1538, 0, 344, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 426, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cracked_nether_bricks", 22892, 1, 22892, 1538, 0, 344, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 425, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "quartz_bricks", 22893, 1, 22893, 1538, 0, 344, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 483, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "candle", 22894, 16, 22897, 1538, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1398, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_candle", 22910, 16, 22913, 1541, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1399, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_candle", 22926, 16, 22929, 1544, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1400, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_candle", 22942, 16, 22945, 1547, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1401, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_candle", 22958, 16, 22961, 1550, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1402, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_candle", 22974, 16, 22977, 1553, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1403, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_candle", 22990, 16, 22993, 1556, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1404, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_candle", 23006, 16, 23009, 1559, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1405, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_candle", 23022, 16, 23025, 1562, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1406, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_candle", 23038, 16, 23041, 1565, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1407, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_candle", 23054, 16, 23057, 1568, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1408, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_candle", 23070, 16, 23073, 1571, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1409, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_candle", 23086, 16, 23089, 1574, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1410, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_candle", 23102, 16, 23105, 1577, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1411, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_candle", 23118, 16, 23121, 1580, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1412, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_candle", 23134, 16, 23137, 1583, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1413, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_candle", 23150, 16, 23153, 1586, 3, 344, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1414, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "candle_cake", 23166, 2, 23167, 1589, 1, 344, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "white_candle_cake", 23168, 2, 23169, 1590, 1, 345, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "orange_candle_cake", 23170, 2, 23171, 1591, 1, 346, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "magenta_candle_cake", 23172, 2, 23173, 1592, 1, 347, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_blue_candle_cake", 23174, 2, 23175, 1593, 1, 348, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "yellow_candle_cake", 23176, 2, 23177, 1594, 1, 349, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "lime_candle_cake", 23178, 2, 23179, 1595, 1, 350, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_candle_cake", 23180, 2, 23181, 1596, 1, 351, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "gray_candle_cake", 23182, 2, 23183, 1597, 1, 352, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "light_gray_candle_cake", 23184, 2, 23185, 1598, 1, 353, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cyan_candle_cake", 23186, 2, 23187, 1599, 1, 354, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "purple_candle_cake", 23188, 2, 23189, 1600, 1, 355, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "blue_candle_cake", 23190, 2, 23191, 1601, 1, 356, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "brown_candle_cake", 23192, 2, 23193, 1602, 1, 357, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "green_candle_cake", 23194, 2, 23195, 1603, 1, 358, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "red_candle_cake", 23196, 2, 23197, 1604, 1, 359, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "black_candle_cake", 23198, 2, 23199, 1605, 1, 360, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "amethyst_block", 23200, 1, 23200, 1606, 0, 361, 0, VCLASS_AMETHYST_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 88, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "budding_amethyst", 23201, 1, 23201, 1606, 0, 361, 0, VCLASS_BUDDING_AMETHYST_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 89, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "amethyst_cluster", 23202, 12, 23211, 1606, 2, 361, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1418, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "large_amethyst_bud", 23214, 12, 23223, 1608, 2, 361, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1417, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "medium_amethyst_bud", 23226, 12, 23235, 1610, 2, 361, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1416, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "small_amethyst_bud", 23238, 12, 23247, 1612, 2, 361, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1415, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tuff", 23250, 1, 23250, 1614, 0, 361, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 12, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tuff_slab", 23251, 6, 23254, 1614, 2, 361, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 13, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tuff_stairs", 23257, 80, 23268, 1616, 4, 361, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 14, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tuff_wall", 23337, 324, 23340, 1620, 6, 362, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 15, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_tuff", 23661, 1, 23661, 1626, 0, 362, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 17, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_tuff_slab", 23662, 6, 23665, 1626, 2, 362, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 18, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_tuff_stairs", 23668, 80, 23679, 1628, 4, 362, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 19, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_tuff_wall", 23748, 324, 23751, 1632, 6, 363, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 20, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chiseled_tuff", 24072, 1, 24072, 1638, 0, 363, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 16, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tuff_bricks", 24073, 1, 24073, 1638, 0, 363, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 21, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tuff_brick_slab", 24074, 6, 24077, 1638, 2, 363, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 22, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tuff_brick_stairs", 24080, 80, 24091, 1640, 4, 363, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 23, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tuff_brick_wall", 24160, 324, 24163, 1644, 6, 364, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 24, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chiseled_tuff_bricks", 24484, 1, 24484, 1650, 0, 364, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 25, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "calcite", 24485, 1, 24485, 1650, 0, 364, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 11, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "tinted_glass", 24486, 1, 24486, 1650, 0, 364, 0, VCLASS_TINTED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 196, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "powder_snow", 24487, 1, 24487, 1650, 0, 364, 0, VCLASS_POWDER_SNOW_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1015, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sculk_sensor", 24488, 96, 24489, 1650, 3, 364, 0, VCLASS_SCULK_SENSOR_BLOCK, BLOCK_ENTITY_TYPE_SCULK_SENSOR, BLOCK_ENTITY_TYPE_SCULK_SENSOR, NOTE_BLOCK_INSTRUMENT_HARP, 742, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "calibrated_sculk_sensor", 24584, 384, 24585, 1653, 4, 364, 0, VCLASS_CALIBRATED_SCULK_SENSOR_BLOCK, BLOCK_ENTITY_TYPE_CALIBRATED_SCULK_SENSOR, BLOCK_ENTITY_TYPE_CALIBRATED_SCULK_SENSOR, NOTE_BLOCK_INSTRUMENT_HARP, 743, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sculk", 24968, 1, 24968, 1657, 0, 364, 0, VCLASS_SCULK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 429, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sculk_vein", 24969, 128, 25096, 1657, 7, 364, 3, VCLASS_SCULK_VEIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 430, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sculk_catalyst", 25097, 2, 25098, 1664, 1, 367, 0, VCLASS_SCULK_CATALYST_BLOCK, BLOCK_ENTITY_TYPE_SCULK_CATALYST, BLOCK_ENTITY_TYPE_SCULK_CATALYST, NOTE_BLOCK_INSTRUMENT_HARP, 431, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "sculk_shrieker", 25099, 8, 25106, 1665, 3, 367, 0, VCLASS_SCULK_SHRIEKER_BLOCK, BLOCK_ENTITY_TYPE_SCULK_SHRIEKER, BLOCK_ENTITY_TYPE_SCULK_SHRIEKER, NOTE_BLOCK_INSTRUMENT_HARP, 432, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "copper_block", 25107, 1, 25107, 1668, 0, 367, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 91, 1031, -1, -1, -1, -1, -1, -1, -1 },
-    { "exposed_copper", 25108, 1, 25108, 1668, 0, 367, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 95, 1033, -1, 1005, -1, -1, -1, -1, -1 },
-    { "weathered_copper", 25109, 1, 25109, 1668, 0, 367, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 96, 1032, -1, 1006, -1, -1, -1, -1, -1 },
-    { "oxidized_copper", 25110, 1, 25110, 1668, 0, 367, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 97, 1034, -1, 1007, -1, -1, -1, -1, -1 },
-    { "copper_ore", 25111, 1, 25111, 1668, 0, 367, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 68, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "deepslate_copper_ore", 25112, 1, 25112, 1668, 0, 367, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 69, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "oxidized_cut_copper", 25113, 1, 25113, 1668, 0, 367, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 105, 1035, -1, 1012, -1, -1, -1, -1, -1 },
-    { "weathered_cut_copper", 25114, 1, 25114, 1668, 0, 367, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 104, 1036, -1, 1013, -1, -1, -1, -1, -1 },
-    { "exposed_cut_copper", 25115, 1, 25115, 1668, 0, 367, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 103, 1037, -1, 1014, -1, -1, -1, -1, -1 },
-    { "cut_copper", 25116, 1, 25116, 1668, 0, 367, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 102, 1038, -1, -1, -1, -1, -1, -1, -1 },
-    { "oxidized_chiseled_copper", 25117, 1, 25117, 1668, 0, 367, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 101, 1019, -1, 1016, -1, -1, -1, -1, -1 },
-    { "weathered_chiseled_copper", 25118, 1, 25118, 1668, 0, 367, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 100, 1020, -1, 1017, -1, -1, -1, -1, -1 },
-    { "exposed_chiseled_copper", 25119, 1, 25119, 1668, 0, 367, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 99, 1021, -1, 1018, -1, -1, -1, -1, -1 },
-    { "chiseled_copper", 25120, 1, 25120, 1668, 0, 367, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 98, 1022, -1, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_chiseled_copper", 25121, 1, 25121, 1668, 0, 367, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 121, -1, 1015, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_chiseled_copper", 25122, 1, 25122, 1668, 0, 367, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 120, -1, 1016, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_chiseled_copper", 25123, 1, 25123, 1668, 0, 367, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 119, -1, 1017, -1, -1, -1, -1, -1, -1 },
-    { "waxed_chiseled_copper", 25124, 1, 25124, 1668, 0, 367, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 118, -1, 1018, -1, -1, -1, -1, -1, -1 },
-    { "oxidized_cut_copper_stairs", 25125, 80, 25136, 1668, 4, 367, 1, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 109, 1039, -1, 1024, -1, -1, -1, -1, -1 },
-    { "weathered_cut_copper_stairs", 25205, 80, 25216, 1672, 4, 368, 1, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 108, 1040, -1, 1025, -1, -1, -1, -1, -1 },
-    { "exposed_cut_copper_stairs", 25285, 80, 25296, 1676, 4, 369, 1, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 107, 1041, -1, 1026, -1, -1, -1, -1, -1 },
-    { "cut_copper_stairs", 25365, 80, 25376, 1680, 4, 370, 1, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 106, 1042, -1, -1, -1, -1, -1, -1, -1 },
-    { "oxidized_cut_copper_slab", 25445, 6, 25448, 1684, 2, 371, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 113, 1043, -1, 1028, -1, -1, -1, -1, -1 },
-    { "weathered_cut_copper_slab", 25451, 6, 25454, 1686, 2, 371, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 112, 1044, -1, 1029, -1, -1, -1, -1, -1 },
-    { "exposed_cut_copper_slab", 25457, 6, 25460, 1688, 2, 371, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 111, 1045, -1, 1030, -1, -1, -1, -1, -1 },
-    { "cut_copper_slab", 25463, 6, 25466, 1690, 2, 371, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 110, 1046, -1, -1, -1, -1, -1, -1, -1 },
-    { "waxed_copper_block", 25469, 1, 25469, 1692, 0, 371, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 114, -1, 1005, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_copper", 25470, 1, 25470, 1692, 0, 371, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 116, -1, 1007, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_copper", 25471, 1, 25471, 1692, 0, 371, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 115, -1, 1006, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_copper", 25472, 1, 25472, 1692, 0, 371, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 117, -1, 1008, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_cut_copper", 25473, 1, 25473, 1692, 0, 371, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 125, -1, 1011, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_cut_copper", 25474, 1, 25474, 1692, 0, 371, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 124, -1, 1012, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_cut_copper", 25475, 1, 25475, 1692, 0, 371, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 123, -1, 1013, -1, -1, -1, -1, -1, -1 },
-    { "waxed_cut_copper", 25476, 1, 25476, 1692, 0, 371, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 122, -1, 1014, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_cut_copper_stairs", 25477, 80, 25488, 1692, 4, 371, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 129, -1, 1023, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_cut_copper_stairs", 25557, 80, 25568, 1696, 4, 372, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 128, -1, 1024, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_cut_copper_stairs", 25637, 80, 25648, 1700, 4, 373, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 127, -1, 1025, -1, -1, -1, -1, -1, -1 },
-    { "waxed_cut_copper_stairs", 25717, 80, 25728, 1704, 4, 374, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 126, -1, 1026, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_cut_copper_slab", 25797, 6, 25800, 1708, 2, 375, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 133, -1, 1027, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_cut_copper_slab", 25803, 6, 25806, 1710, 2, 375, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 132, -1, 1028, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_cut_copper_slab", 25809, 6, 25812, 1712, 2, 375, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 131, -1, 1029, -1, -1, -1, -1, -1, -1 },
-    { "waxed_cut_copper_slab", 25815, 6, 25818, 1714, 2, 375, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 130, -1, 1030, -1, -1, -1, -1, -1, -1 },
-    { "copper_door", 25821, 64, 25832, 1716, 5, 375, 3, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 792, 1051, -1, -1, -1, -1, -1, -1, -1 },
-    { "exposed_copper_door", 25885, 64, 25896, 1721, 5, 378, 3, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 793, 1052, -1, 1047, -1, -1, -1, -1, -1 },
-    { "oxidized_copper_door", 25949, 64, 25960, 1726, 5, 381, 3, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 795, 1053, -1, 1050, -1, -1, -1, -1, -1 },
-    { "weathered_copper_door", 26013, 64, 26024, 1731, 5, 384, 3, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 794, 1054, -1, 1048, -1, -1, -1, -1, -1 },
-    { "waxed_copper_door", 26077, 64, 26088, 1736, 5, 387, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 796, -1, 1047, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_copper_door", 26141, 64, 26152, 1741, 5, 390, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 797, -1, 1048, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_copper_door", 26205, 64, 26216, 1746, 5, 393, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 799, -1, 1049, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_copper_door", 26269, 64, 26280, 1751, 5, 396, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 798, -1, 1050, -1, -1, -1, -1, -1, -1 },
-    { "copper_trapdoor", 26333, 64, 26348, 1756, 5, 399, 3, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 813, 1059, -1, -1, -1, -1, -1, -1, -1 },
-    { "exposed_copper_trapdoor", 26397, 64, 26412, 1761, 5, 402, 3, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 814, 1060, -1, 1055, -1, -1, -1, -1, -1 },
-    { "oxidized_copper_trapdoor", 26461, 64, 26476, 1766, 5, 405, 3, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 816, 1061, -1, 1058, -1, -1, -1, -1, -1 },
-    { "weathered_copper_trapdoor", 26525, 64, 26540, 1771, 5, 408, 3, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 815, 1062, -1, 1056, -1, -1, -1, -1, -1 },
-    { "waxed_copper_trapdoor", 26589, 64, 26604, 1776, 5, 411, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 817, -1, 1055, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_copper_trapdoor", 26653, 64, 26668, 1781, 5, 414, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 818, -1, 1056, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_copper_trapdoor", 26717, 64, 26732, 1786, 5, 417, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 820, -1, 1057, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_copper_trapdoor", 26781, 64, 26796, 1791, 5, 420, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 819, -1, 1058, -1, -1, -1, -1, -1, -1 },
-    { "copper_grate", 26845, 2, 26846, 1796, 1, 423, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1468, 1067, -1, -1, -1, -1, -1, -1, -1 },
-    { "exposed_copper_grate", 26847, 2, 26848, 1797, 1, 423, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1469, 1068, -1, 1063, -1, -1, -1, -1, -1 },
-    { "weathered_copper_grate", 26849, 2, 26850, 1798, 1, 423, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1470, 1069, -1, 1064, -1, -1, -1, -1, -1 },
-    { "oxidized_copper_grate", 26851, 2, 26852, 1799, 1, 423, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1471, 1070, -1, 1065, -1, -1, -1, -1, -1 },
-    { "waxed_copper_grate", 26853, 2, 26854, 1800, 1, 423, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1472, -1, 1063, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_copper_grate", 26855, 2, 26856, 1801, 1, 423, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1473, -1, 1064, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_copper_grate", 26857, 2, 26858, 1802, 1, 423, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1474, -1, 1065, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_copper_grate", 26859, 2, 26860, 1803, 1, 423, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1475, -1, 1066, -1, -1, -1, -1, -1, -1 },
-    { "copper_bulb", 26861, 4, 26864, 1804, 2, 423, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1476, 1075, -1, -1, -1, -1, -1, -1, -1 },
-    { "exposed_copper_bulb", 26865, 4, 26868, 1806, 2, 423, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1477, 1076, -1, 1071, -1, -1, -1, -1, -1 },
-    { "weathered_copper_bulb", 26869, 4, 26872, 1808, 2, 423, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1478, 1077, -1, 1072, -1, -1, -1, -1, -1 },
-    { "oxidized_copper_bulb", 26873, 4, 26876, 1810, 2, 423, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1479, 1078, -1, 1073, -1, -1, -1, -1, -1 },
-    { "waxed_copper_bulb", 26877, 4, 26880, 1812, 2, 423, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1480, -1, 1071, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_copper_bulb", 26881, 4, 26884, 1814, 2, 423, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1481, -1, 1072, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_copper_bulb", 26885, 4, 26888, 1816, 2, 423, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1482, -1, 1073, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_copper_bulb", 26889, 4, 26892, 1818, 2, 423, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1483, -1, 1074, -1, -1, -1, -1, -1, -1 },
-    { "copper_chest", 26893, 24, 26894, 1820, 3, 423, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1484, 1083, -1, -1, -1, -1, -1, -1, -1 },
-    { "exposed_copper_chest", 26917, 24, 26918, 1823, 3, 423, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1485, 1084, -1, 1079, -1, -1, -1, -1, -1 },
-    { "weathered_copper_chest", 26941, 24, 26942, 1826, 3, 423, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1486, 1085, -1, 1080, -1, -1, -1, -1, -1 },
-    { "oxidized_copper_chest", 26965, 24, 26966, 1829, 3, 423, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1487, 1086, -1, 1081, -1, -1, -1, -1, -1 },
-    { "waxed_copper_chest", 26989, 24, 26990, 1832, 3, 423, 0, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1488, -1, 1079, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_copper_chest", 27013, 24, 27014, 1835, 3, 423, 0, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1489, -1, 1080, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_copper_chest", 27037, 24, 27038, 1838, 3, 423, 0, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1490, -1, 1081, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_copper_chest", 27061, 24, 27062, 1841, 3, 423, 0, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1491, -1, 1082, -1, -1, -1, -1, -1, -1 },
-    { "copper_golem_statue", 27085, 32, 27086, 1844, 3, 423, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1492, 1091, -1, -1, -1, -1, -1, -1, -1 },
-    { "exposed_copper_golem_statue", 27117, 32, 27118, 1847, 3, 423, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1493, 1092, -1, 1087, -1, -1, -1, -1, -1 },
-    { "weathered_copper_golem_statue", 27149, 32, 27150, 1850, 3, 423, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1494, 1093, -1, 1088, -1, -1, -1, -1, -1 },
-    { "oxidized_copper_golem_statue", 27181, 32, 27182, 1853, 3, 423, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1495, 1094, -1, 1089, -1, -1, -1, -1, -1 },
-    { "waxed_copper_golem_statue", 27213, 32, 27214, 1856, 3, 423, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1496, -1, 1087, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_copper_golem_statue", 27245, 32, 27246, 1859, 3, 423, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1497, -1, 1088, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_copper_golem_statue", 27277, 32, 27278, 1862, 3, 423, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1498, -1, 1089, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_copper_golem_statue", 27309, 32, 27310, 1865, 3, 423, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1499, -1, 1090, -1, -1, -1, -1, -1, -1 },
-    { "lightning_rod", 27341, 24, 27360, 1868, 3, 423, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 733, 1099, -1, -1, -1, -1, -1, -1, -1 },
-    { "exposed_lightning_rod", 27365, 24, 27384, 1871, 3, 423, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 734, 1100, -1, 1095, -1, -1, -1, -1, -1 },
-    { "weathered_lightning_rod", 27389, 24, 27408, 1874, 3, 423, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 735, 1101, -1, 1096, -1, -1, -1, -1, -1 },
-    { "oxidized_lightning_rod", 27413, 24, 27432, 1877, 3, 423, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 736, 1102, -1, 1097, -1, -1, -1, -1, -1 },
-    { "waxed_lightning_rod", 27437, 24, 27456, 1880, 3, 423, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 737, -1, 1095, -1, -1, -1, -1, -1, -1 },
-    { "waxed_exposed_lightning_rod", 27461, 24, 27480, 1883, 3, 423, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 738, -1, 1096, -1, -1, -1, -1, -1, -1 },
-    { "waxed_weathered_lightning_rod", 27485, 24, 27504, 1886, 3, 423, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 739, -1, 1097, -1, -1, -1, -1, -1, -1 },
-    { "waxed_oxidized_lightning_rod", 27509, 24, 27528, 1889, 3, 423, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 740, -1, 1098, -1, -1, -1, -1, -1, -1 },
-    { "pointed_dripstone", 27533, 20, 27538, 1892, 3, 423, 0, VCLASS_POINTED_DRIPSTONE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1419, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "dripstone_block", 27553, 1, 27553, 1895, 0, 423, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 26, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cave_vines", 27554, 52, 27555, 1895, 2, 423, 2, VCLASS_CAVE_VINES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1374, -1, -1, -1, -1, -1, 1105, 1106, -1 },
-    { "cave_vines_plant", 27606, 2, 27607, 1897, 1, 425, 2, VCLASS_CAVE_VINES_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, 1105, 1106, -1 },
-    { "spore_blossom", 27608, 1, 27608, 1898, 0, 427, 0, VCLASS_SPORE_BLOSSOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 246, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "azalea", 27609, 1, 27609, 1898, 0, 427, 0, VCLASS_AZALEA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 205, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "flowering_azalea", 27610, 1, 27610, 1898, 0, 427, 0, VCLASS_AZALEA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 206, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "moss_carpet", 27611, 1, 27611, 1898, 0, 427, 0, VCLASS_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 261, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pink_petals", 27612, 16, 27612, 1898, 2, 427, 0, VCLASS_FLOWER_BED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 258, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "wildflowers", 27628, 16, 27628, 1900, 2, 427, 0, VCLASS_FLOWER_BED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 259, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "leaf_litter", 27644, 16, 27644, 1902, 2, 427, 0, VCLASS_LEAF_LITTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 260, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "moss_block", 27660, 1, 27660, 1904, 0, 427, 0, VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 262, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "big_dripleaf", 27661, 32, 27662, 1904, 3, 427, 0, VCLASS_BIG_DRIPLEAF_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 267, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "big_dripleaf_stem", 27693, 8, 27694, 1907, 2, 427, 0, VCLASS_BIG_DRIPLEAF_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 267, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "small_dripleaf", 27701, 16, 27704, 1909, 3, 427, 0, VCLASS_SMALL_DRIPLEAF_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 268, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "hanging_roots", 27717, 2, 27718, 1912, 1, 427, 0, VCLASS_HANGING_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 266, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "rooted_dirt", 27719, 1, 27719, 1913, 0, 427, 0, VCLASS_ROOTED_DIRT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 31, -1, -1, -1, -1, 664, -1, -1, -1 },
-    { "mud", 27720, 1, 27720, 1913, 0, 427, 0, VCLASS_MUD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 32, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "deepslate", 27721, 3, 27722, 1913, 1, 427, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 8, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cobbled_deepslate", 27724, 1, 27724, 1914, 0, 427, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 9, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cobbled_deepslate_stairs", 27725, 80, 27736, 1914, 4, 427, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 695, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cobbled_deepslate_slab", 27805, 6, 27808, 1918, 2, 428, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 712, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cobbled_deepslate_wall", 27811, 324, 27814, 1920, 6, 428, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 474, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_deepslate", 28135, 1, 28135, 1926, 0, 428, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 10, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_deepslate_stairs", 28136, 80, 28147, 1926, 4, 428, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 696, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_deepslate_slab", 28216, 6, 28219, 1930, 2, 429, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 713, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "polished_deepslate_wall", 28222, 324, 28225, 1932, 6, 429, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 475, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "deepslate_tiles", 28546, 1, 28546, 1938, 0, 429, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 383, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "deepslate_tile_stairs", 28547, 80, 28558, 1938, 4, 429, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 698, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "deepslate_tile_slab", 28627, 6, 28630, 1942, 2, 430, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 715, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "deepslate_tile_wall", 28633, 324, 28636, 1944, 6, 430, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 477, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "deepslate_bricks", 28957, 1, 28957, 1950, 0, 430, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 381, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "deepslate_brick_stairs", 28958, 80, 28969, 1950, 4, 430, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 697, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "deepslate_brick_slab", 29038, 6, 29041, 1954, 2, 431, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 714, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "deepslate_brick_wall", 29044, 324, 29047, 1956, 6, 431, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 476, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "chiseled_deepslate", 29368, 1, 29368, 1962, 0, 431, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 385, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cracked_deepslate_bricks", 29369, 1, 29369, 1962, 0, 431, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 382, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "cracked_deepslate_tiles", 29370, 1, 29370, 1962, 0, 431, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 384, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "infested_deepslate", 29371, 3, 29372, 1962, 1, 431, 1, VCLASS_INFESTED_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 374, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "smooth_basalt", 29374, 1, 29374, 1963, 0, 432, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 364, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "raw_iron_block", 29375, 1, 29375, 1963, 0, 432, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 84, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "raw_copper_block", 29376, 1, 29376, 1963, 0, 432, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 85, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "raw_gold_block", 29377, 1, 29377, 1963, 0, 432, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 86, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_azalea_bush", 29378, 1, 29378, 1963, 0, 432, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_flowering_azalea_bush", 29379, 1, 29379, 1963, 0, 433, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "ochre_froglight", 29380, 3, 29381, 1963, 1, 434, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1420, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "verdant_froglight", 29383, 3, 29384, 1964, 1, 434, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1421, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pearlescent_froglight", 29386, 3, 29387, 1965, 1, 434, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1422, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "frogspawn", 29389, 1, 29389, 1966, 0, 434, 0, VCLASS_FROGSPAWN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1423, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "reinforced_deepslate", 29390, 1, 29390, 1966, 0, 434, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 386, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "decorated_pot", 29391, 16, 29400, 1966, 3, 434, 0, VCLASS_DECORATED_POT_BLOCK, BLOCK_ENTITY_TYPE_DECORATED_POT, BLOCK_ENTITY_TYPE_DECORATED_POT, NOTE_BLOCK_INSTRUMENT_HARP, 319, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "crafter", 29407, 48, 29452, 1969, 3, 434, 0, VCLASS_CRAFTER_BLOCK, BLOCK_ENTITY_TYPE_CRAFTER, BLOCK_ENTITY_TYPE_CRAFTER, NOTE_BLOCK_INSTRUMENT_HARP, 1103, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "trial_spawner", 29455, 12, 29461, 1972, 2, 434, 0, VCLASS_TRIAL_SPAWNER_BLOCK, BLOCK_ENTITY_TYPE_TRIAL_SPAWNER, BLOCK_ENTITY_TYPE_TRIAL_SPAWNER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1500, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "vault", 29467, 32, 29471, 1974, 3, 434, 0, VCLASS_VAULT_BLOCK, BLOCK_ENTITY_TYPE_VAULT, BLOCK_ENTITY_TYPE_VAULT, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1503, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "heavy_core", 29499, 2, 29500, 1977, 1, 434, 0, VCLASS_HEAVY_CORE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 87, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_moss_block", 29501, 1, 29501, 1978, 0, 434, 0, VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 265, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_moss_carpet", 29502, 162, 29502, 1978, 5, 434, 0, VCLASS_MOSSY_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 263, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "pale_hanging_moss", 29664, 2, 29664, 1983, 1, 434, 0, VCLASS_HANGING_MOSS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 264, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "open_eyeblossom", 29666, 1, 29666, 1984, 0, 434, 0, VCLASS_EYEBLOSSOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 230, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "closed_eyeblossom", 29667, 1, 29667, 1984, 0, 434, 0, VCLASS_EYEBLOSSOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 231, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_open_eyeblossom", 29668, 1, 29668, 1984, 0, 434, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "potted_closed_eyeblossom", 29669, 1, 29669, 1984, 0, 435, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
-    { "firefly_bush", 29670, 1, 29670, 1984, 0, 436, 0, VCLASS_FIREFLY_BUSH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 208, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_bed", 1731, 16, 1734, 96, 3, 5, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1086, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_bed", 1747, 16, 1750, 99, 3, 6, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1087, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_bed", 1763, 16, 1766, 102, 3, 7, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1088, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_bed", 1779, 16, 1782, 105, 3, 8, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1089, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_bed", 1795, 16, 1798, 108, 3, 9, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1090, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_bed", 1811, 16, 1814, 111, 3, 10, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1091, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_bed", 1827, 16, 1830, 114, 3, 11, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1092, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_bed", 1843, 16, 1846, 117, 3, 12, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1093, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_bed", 1859, 16, 1862, 120, 3, 13, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1094, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_bed", 1875, 16, 1878, 123, 3, 14, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1095, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_bed", 1891, 16, 1894, 126, 3, 15, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1096, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_bed", 1907, 16, 1910, 129, 3, 16, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1097, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_bed", 1923, 16, 1926, 132, 3, 17, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1098, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_bed", 1939, 16, 1942, 135, 3, 18, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1099, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_bed", 1955, 16, 1958, 138, 3, 19, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1100, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_bed", 1971, 16, 1974, 141, 3, 20, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, 1101, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "powered_rail", 1987, 24, 2000, 144, 3, 21, 1, VCLASS_POWERED_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 833, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "detector_rail", 2011, 24, 2024, 147, 3, 22, 1, VCLASS_DETECTOR_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 834, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sticky_piston", 2035, 12, 2041, 150, 2, 23, 1, VCLASS_PISTON_BASE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 723, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cobweb", 2047, 1, 2047, 152, 0, 24, 0, VCLASS_WEB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 201, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "short_grass", 2048, 1, 2048, 152, 0, 24, 0, VCLASS_TALL_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 202, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "fern", 2049, 1, 2049, 152, 0, 24, 0, VCLASS_TALL_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 203, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_bush", 2050, 1, 2050, 152, 0, 24, 0, VCLASS_DRY_VEGETATION_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 207, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bush", 2051, 1, 2051, 152, 0, 24, 0, VCLASS_BUSH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 204, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "short_dry_grass", 2052, 1, 2052, 152, 0, 24, 0, VCLASS_SHORT_DRY_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 209, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tall_dry_grass", 2053, 1, 2053, 152, 0, 24, 0, VCLASS_TALL_DRY_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 210, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "seagrass", 2054, 1, 2054, 152, 0, 24, 0, VCLASS_SEAGRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 211, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tall_seagrass", 2055, 2, 2056, 152, 1, 24, 0, VCLASS_TALL_SEAGRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "piston", 2057, 12, 2063, 153, 2, 24, 1, VCLASS_PISTON_BASE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 722, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "piston_head", 2069, 24, 2071, 155, 3, 25, 0, VCLASS_PISTON_HEAD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_wool", 2093, 1, 2093, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 213, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_wool", 2094, 1, 2094, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 214, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_wool", 2095, 1, 2095, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 215, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_wool", 2096, 1, 2096, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 216, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_wool", 2097, 1, 2097, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 217, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_wool", 2098, 1, 2098, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 218, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_wool", 2099, 1, 2099, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 219, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_wool", 2100, 1, 2100, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 220, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_wool", 2101, 1, 2101, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 221, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_wool", 2102, 1, 2102, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 222, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_wool", 2103, 1, 2103, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 223, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_wool", 2104, 1, 2104, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 224, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_wool", 2105, 1, 2105, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 225, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_wool", 2106, 1, 2106, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 226, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_wool", 2107, 1, 2107, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 227, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_wool", 2108, 1, 2108, 158, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, 228, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "moving_piston", 2109, 12, 2109, 158, 2, 25, 0, VCLASS_MOVING_PISTON_BLOCK, -1, BLOCK_ENTITY_TYPE_PISTON, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dandelion", 2121, 1, 2121, 160, 0, 25, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 229, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "torchflower", 2122, 1, 2122, 160, 0, 25, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 244, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "poppy", 2123, 1, 2123, 160, 0, 25, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 232, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_orchid", 2124, 1, 2124, 160, 0, 25, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 233, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "allium", 2125, 1, 2125, 160, 0, 25, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 234, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "azure_bluet", 2126, 1, 2126, 160, 0, 25, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 235, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_tulip", 2127, 1, 2127, 160, 0, 25, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 236, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_tulip", 2128, 1, 2128, 160, 0, 25, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 237, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_tulip", 2129, 1, 2129, 160, 0, 25, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 238, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_tulip", 2130, 1, 2130, 160, 0, 25, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 239, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oxeye_daisy", 2131, 1, 2131, 160, 0, 25, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 240, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cornflower", 2132, 1, 2132, 160, 0, 25, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 241, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "wither_rose", 2133, 1, 2133, 160, 0, 25, 0, VCLASS_WITHER_ROSE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 243, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lily_of_the_valley", 2134, 1, 2134, 160, 0, 25, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 242, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_mushroom", 2135, 1, 2135, 160, 0, 25, 0, VCLASS_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 247, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_mushroom", 2136, 1, 2136, 160, 0, 25, 0, VCLASS_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 248, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gold_block", 2137, 1, 2137, 160, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BELL, 92, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "iron_block", 2138, 1, 2138, 160, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_IRON_XYLOPHONE, 90, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bricks", 2139, 1, 2139, 160, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 304, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tnt", 2140, 2, 2141, 160, 1, 25, 0, VCLASS_TNT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 746, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bookshelf", 2142, 1, 2142, 161, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 317, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chiseled_bookshelf", 2143, 256, 2206, 161, 7, 25, 0, VCLASS_CHISELED_BOOK_SHELF_BLOCK, BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF, BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF, NOTE_BLOCK_INSTRUMENT_BASS, 318, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "acacia_shelf", 2399, 64, 2408, 168, 4, 25, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 305, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_shelf", 2463, 64, 2472, 172, 4, 25, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 306, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "birch_shelf", 2527, 64, 2536, 176, 4, 25, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 307, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cherry_shelf", 2591, 64, 2600, 180, 4, 25, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 308, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_shelf", 2655, 64, 2664, 184, 4, 25, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 309, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_oak_shelf", 2719, 64, 2728, 188, 4, 25, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 310, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jungle_shelf", 2783, 64, 2792, 192, 4, 25, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 311, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mangrove_shelf", 2847, 64, 2856, 196, 4, 25, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 312, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oak_shelf", 2911, 64, 2920, 200, 4, 25, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 313, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_oak_shelf", 2975, 64, 2984, 204, 4, 25, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 314, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spruce_shelf", 3039, 64, 3048, 208, 4, 25, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 315, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_shelf", 3103, 64, 3112, 212, 4, 25, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, 316, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mossy_cobblestone", 3167, 1, 3167, 216, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 320, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "obsidian", 3168, 1, 3168, 216, 0, 25, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 321, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "torch", 3169, 1, 3169, 216, 0, 25, 0, VCLASS_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 322, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "wall_torch", 3170, 4, 3170, 216, 1, 25, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 322, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "fire", 3174, 512, 3205, 217, 6, 25, 0, VCLASS_FIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "soul_fire", 3686, 1, 3686, 223, 0, 25, 0, VCLASS_SOUL_FIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spawner", 3687, 1, 3687, 223, 0, 25, 0, VCLASS_SPAWNER_BLOCK, BLOCK_ENTITY_TYPE_MOB_SPAWNER, BLOCK_ENTITY_TYPE_MOB_SPAWNER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 329, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "creaking_heart", 3688, 18, 3695, 223, 3, 25, 0, VCLASS_CREAKING_HEART_BLOCK, BLOCK_ENTITY_TYPE_CREAKING_HEART, BLOCK_ENTITY_TYPE_CREAKING_HEART, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 330, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oak_stairs", 3706, 80, 3717, 226, 4, 25, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 441, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chest", 3786, 24, 3787, 230, 3, 26, 0, VCLASS_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_BASS, 331, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "redstone_wire", 3810, 1296, 4970, 233, 5, 26, 1, VCLASS_RED_STONE_WIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 717, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "diamond_ore", 5106, 1, 5106, 238, 0, 27, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 78, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "deepslate_diamond_ore", 5107, 1, 5107, 238, 0, 27, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 79, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "diamond_block", 5108, 1, 5108, 238, 0, 27, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 93, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crafting_table", 5109, 1, 5109, 238, 0, 27, 0, VCLASS_CRAFTING_TABLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 332, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "wheat", 5110, 8, 5110, 238, 1, 27, 0, VCLASS_CROP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 951, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "farmland", 5118, 8, 5118, 239, 1, 27, 0, VCLASS_FARM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 333, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "furnace", 5126, 8, 5127, 240, 2, 27, 0, VCLASS_FURNACE_BLOCK, BLOCK_ENTITY_TYPE_FURNACE, BLOCK_ENTITY_TYPE_FURNACE, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 334, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oak_sign", 5134, 32, 5135, 242, 2, 27, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 988, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spruce_sign", 5166, 32, 5167, 244, 2, 27, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 989, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "birch_sign", 5198, 32, 5199, 246, 2, 27, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 990, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "acacia_sign", 5230, 32, 5231, 248, 2, 27, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 992, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cherry_sign", 5262, 32, 5263, 250, 2, 27, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 993, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jungle_sign", 5294, 32, 5295, 252, 2, 27, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 991, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_oak_sign", 5326, 32, 5327, 254, 2, 27, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 994, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_oak_sign", 5358, 32, 5359, 256, 2, 27, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 995, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mangrove_sign", 5390, 32, 5391, 258, 2, 27, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 996, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_sign", 5422, 32, 5423, 260, 2, 27, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 997, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oak_door", 5454, 64, 5465, 262, 5, 27, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 780, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "ladder", 5518, 8, 5519, 267, 2, 30, 0, VCLASS_LADDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 335, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "rail", 5526, 20, 5527, 269, 2, 30, 1, VCLASS_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 835, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cobblestone_stairs", 5546, 80, 5557, 271, 4, 31, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 336, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oak_wall_sign", 5626, 8, 5627, 275, 2, 32, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 988, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spruce_wall_sign", 5634, 8, 5635, 277, 2, 32, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 989, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "birch_wall_sign", 5642, 8, 5643, 279, 2, 32, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 990, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "acacia_wall_sign", 5650, 8, 5651, 281, 2, 32, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 992, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cherry_wall_sign", 5658, 8, 5659, 283, 2, 32, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 993, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jungle_wall_sign", 5666, 8, 5667, 285, 2, 32, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 991, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_oak_wall_sign", 5674, 8, 5675, 287, 2, 32, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 994, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_oak_wall_sign", 5682, 8, 5683, 289, 2, 32, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 995, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mangrove_wall_sign", 5690, 8, 5691, 291, 2, 32, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 996, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_wall_sign", 5698, 8, 5699, 293, 2, 32, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 997, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oak_hanging_sign", 5706, 64, 5739, 295, 3, 32, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1000, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spruce_hanging_sign", 5770, 64, 5803, 298, 3, 32, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1001, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "birch_hanging_sign", 5834, 64, 5867, 301, 3, 32, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1002, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "acacia_hanging_sign", 5898, 64, 5931, 304, 3, 32, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1004, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cherry_hanging_sign", 5962, 64, 5995, 307, 3, 32, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1005, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jungle_hanging_sign", 6026, 64, 6059, 310, 3, 32, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1003, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_oak_hanging_sign", 6090, 64, 6123, 313, 3, 32, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1006, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_oak_hanging_sign", 6154, 64, 6187, 316, 3, 32, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1007, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_hanging_sign", 6218, 64, 6251, 319, 3, 32, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1010, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_hanging_sign", 6282, 64, 6315, 322, 3, 32, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1011, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mangrove_hanging_sign", 6346, 64, 6379, 325, 3, 32, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1008, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_hanging_sign", 6410, 64, 6443, 328, 3, 32, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1009, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oak_wall_hanging_sign", 6474, 8, 6475, 331, 2, 32, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1000, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spruce_wall_hanging_sign", 6482, 8, 6483, 333, 2, 32, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1001, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "birch_wall_hanging_sign", 6490, 8, 6491, 335, 2, 32, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1002, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "acacia_wall_hanging_sign", 6498, 8, 6499, 337, 2, 32, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1004, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cherry_wall_hanging_sign", 6506, 8, 6507, 339, 2, 32, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1005, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jungle_wall_hanging_sign", 6514, 8, 6515, 341, 2, 32, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1003, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_oak_wall_hanging_sign", 6522, 8, 6523, 343, 2, 32, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1006, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_oak_wall_hanging_sign", 6530, 8, 6531, 345, 2, 32, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1007, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mangrove_wall_hanging_sign", 6538, 8, 6539, 347, 2, 32, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1008, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_wall_hanging_sign", 6546, 8, 6547, 349, 2, 32, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1010, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_wall_hanging_sign", 6554, 8, 6555, 351, 2, 32, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1011, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_wall_hanging_sign", 6562, 8, 6563, 353, 2, 32, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 1009, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lever", 6570, 24, 6579, 355, 3, 32, 0, VCLASS_LEVER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 732, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "stone_pressure_plate", 6594, 2, 6595, 358, 1, 32, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 763, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "iron_door", 6596, 64, 6607, 359, 5, 35, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 779, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oak_pressure_plate", 6660, 2, 6661, 364, 1, 38, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 767, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spruce_pressure_plate", 6662, 2, 6663, 365, 1, 41, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 768, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "birch_pressure_plate", 6664, 2, 6665, 366, 1, 44, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 769, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jungle_pressure_plate", 6666, 2, 6667, 367, 1, 47, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 770, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "acacia_pressure_plate", 6668, 2, 6669, 368, 1, 50, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 771, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cherry_pressure_plate", 6670, 2, 6671, 369, 1, 53, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 772, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_oak_pressure_plate", 6672, 2, 6673, 370, 1, 56, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 773, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_oak_pressure_plate", 6674, 2, 6675, 371, 1, 59, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 774, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mangrove_pressure_plate", 6676, 2, 6677, 372, 1, 62, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 775, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_pressure_plate", 6678, 2, 6679, 373, 1, 65, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 776, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "redstone_ore", 6680, 2, 6681, 374, 1, 68, 0, VCLASS_RED_STONE_ORE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 72, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "deepslate_redstone_ore", 6682, 2, 6683, 375, 1, 68, 0, VCLASS_RED_STONE_ORE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 73, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "redstone_torch", 6684, 2, 6684, 376, 1, 68, 0, VCLASS_REDSTONE_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 718, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "redstone_wall_torch", 6686, 8, 6686, 377, 2, 68, 0, VCLASS_REDSTONE_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 718, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "stone_button", 6694, 24, 6703, 379, 3, 68, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 749, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "snow", 6718, 8, 6718, 382, 1, 72, 0, VCLASS_SNOW_LAYER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 337, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "ice", 6726, 1, 6726, 383, 0, 72, 0, VCLASS_ICE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 338, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "snow_block", 6727, 1, 6727, 383, 0, 72, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 339, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cactus", 6728, 16, 6728, 383, 1, 72, 0, VCLASS_CACTUS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 340, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cactus_flower", 6744, 1, 6744, 384, 0, 72, 0, VCLASS_CACTUS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 341, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "clay", 6745, 1, 6745, 384, 0, 72, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_FLUTE, 342, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sugar_cane", 6746, 16, 6746, 384, 1, 72, 0, VCLASS_SUGAR_CANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 256, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jukebox", 6762, 2, 6763, 385, 1, 72, 0, VCLASS_JUKEBOX_BLOCK, BLOCK_ENTITY_TYPE_JUKEBOX, BLOCK_ENTITY_TYPE_JUKEBOX, NOTE_BLOCK_INSTRUMENT_BASS, 343, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oak_fence", 6764, 32, 6795, 386, 5, 72, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 344, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "netherrack", 6796, 1, 6796, 391, 0, 72, 0, VCLASS_NETHERRACK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 359, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "soul_sand", 6797, 1, 6797, 391, 0, 72, 0, VCLASS_SOUL_SAND_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_COW_BELL, 360, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "soul_soil", 6798, 1, 6798, 391, 0, 72, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 361, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "basalt", 6799, 3, 6800, 391, 1, 72, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 362, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_basalt", 6802, 3, 6803, 392, 1, 72, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 363, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "soul_torch", 6805, 1, 6805, 393, 0, 72, 0, VCLASS_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 365, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "soul_wall_torch", 6806, 4, 6806, 393, 1, 72, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 365, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "copper_torch", 6810, 1, 6810, 394, 0, 72, 0, VCLASS_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 366, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "copper_wall_torch", 6811, 4, 6811, 394, 1, 72, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 366, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "glowstone", 6815, 1, 6815, 395, 0, 72, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_PLING, 367, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "nether_portal", 6816, 2, 6816, 395, 1, 72, 0, VCLASS_NETHER_PORTAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "carved_pumpkin", 6818, 4, 6818, 396, 1, 72, 0, VCLASS_CARVED_PUMPKIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 357, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jack_o_lantern", 6822, 4, 6822, 397, 1, 72, 0, VCLASS_CARVED_PUMPKIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 358, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cake", 6826, 7, 6826, 398, 1, 72, 0, VCLASS_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1085, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "repeater", 6833, 64, 6836, 399, 4, 72, 0, VCLASS_REPEATER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 720, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_stained_glass", 6897, 1, 6897, 403, 0, 72, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 530, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_stained_glass", 6898, 1, 6898, 403, 0, 73, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 531, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_stained_glass", 6899, 1, 6899, 403, 0, 74, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 532, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_stained_glass", 6900, 1, 6900, 403, 0, 75, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 533, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_stained_glass", 6901, 1, 6901, 403, 0, 76, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 534, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_stained_glass", 6902, 1, 6902, 403, 0, 77, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 535, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_stained_glass", 6903, 1, 6903, 403, 0, 78, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 536, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_stained_glass", 6904, 1, 6904, 403, 0, 79, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 537, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_stained_glass", 6905, 1, 6905, 403, 0, 80, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 538, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_stained_glass", 6906, 1, 6906, 403, 0, 81, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 539, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_stained_glass", 6907, 1, 6907, 403, 0, 82, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 540, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_stained_glass", 6908, 1, 6908, 403, 0, 83, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 541, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_stained_glass", 6909, 1, 6909, 403, 0, 84, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 542, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_stained_glass", 6910, 1, 6910, 403, 0, 85, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 543, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_stained_glass", 6911, 1, 6911, 403, 0, 86, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 544, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_stained_glass", 6912, 1, 6912, 403, 0, 87, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 545, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oak_trapdoor", 6913, 64, 6928, 403, 5, 88, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 801, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spruce_trapdoor", 6977, 64, 6992, 408, 5, 91, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 802, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "birch_trapdoor", 7041, 64, 7056, 413, 5, 94, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 803, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jungle_trapdoor", 7105, 64, 7120, 418, 5, 97, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 804, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "acacia_trapdoor", 7169, 64, 7184, 423, 5, 100, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 805, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cherry_trapdoor", 7233, 64, 7248, 428, 5, 103, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 806, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_oak_trapdoor", 7297, 64, 7312, 433, 5, 106, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 807, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_oak_trapdoor", 7361, 64, 7376, 438, 5, 109, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 808, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mangrove_trapdoor", 7425, 64, 7440, 443, 5, 112, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 809, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_trapdoor", 7489, 64, 7504, 448, 5, 115, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 810, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "stone_bricks", 7553, 1, 7553, 453, 0, 118, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 375, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mossy_stone_bricks", 7554, 1, 7554, 453, 0, 118, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 376, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cracked_stone_bricks", 7555, 1, 7555, 453, 0, 118, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 377, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chiseled_stone_bricks", 7556, 1, 7556, 453, 0, 118, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 378, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "packed_mud", 7557, 1, 7557, 453, 0, 118, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 379, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mud_bricks", 7558, 1, 7558, 453, 0, 118, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 380, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "infested_stone", 7559, 1, 7559, 453, 0, 118, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 368, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "infested_cobblestone", 7560, 1, 7560, 453, 0, 119, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 369, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "infested_stone_bricks", 7561, 1, 7561, 453, 0, 120, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 370, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "infested_mossy_stone_bricks", 7562, 1, 7562, 453, 0, 121, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 371, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "infested_cracked_stone_bricks", 7563, 1, 7563, 453, 0, 122, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 372, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "infested_chiseled_stone_bricks", 7564, 1, 7564, 453, 0, 123, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 373, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_mushroom_block", 7565, 64, 7565, 453, 6, 124, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 387, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_mushroom_block", 7629, 64, 7629, 459, 6, 124, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 388, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mushroom_stem", 7693, 64, 7693, 465, 6, 124, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 389, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "iron_bars", 7757, 32, 7788, 471, 5, 124, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 390, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "copper_bars", 7789, 32, 7820, 476, 5, 124, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 391, 345, -1, -1, -1, -1, -1, -1, -1 },
+    { "exposed_copper_bars", 7821, 32, 7852, 481, 5, 124, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 392, 346, -1, 341, -1, -1, -1, -1, -1 },
+    { "weathered_copper_bars", 7853, 32, 7884, 486, 5, 124, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 393, 347, -1, 342, -1, -1, -1, -1, -1 },
+    { "oxidized_copper_bars", 7885, 32, 7916, 491, 5, 124, 0, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 394, 348, -1, 343, -1, -1, -1, -1, -1 },
+    { "waxed_copper_bars", 7917, 32, 7948, 496, 5, 124, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 395, -1, 341, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_copper_bars", 7949, 32, 7980, 501, 5, 124, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 396, -1, 342, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_copper_bars", 7981, 32, 8012, 506, 5, 124, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 397, -1, 343, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_copper_bars", 8013, 32, 8044, 511, 5, 124, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 398, -1, 344, -1, -1, -1, -1, -1, -1 },
+    { "iron_chain", 8045, 6, 8048, 516, 2, 124, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 399, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "copper_chain", 8051, 6, 8054, 518, 2, 124, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 400, 354, -1, -1, -1, -1, -1, -1, -1 },
+    { "exposed_copper_chain", 8057, 6, 8060, 520, 2, 124, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 401, 355, -1, 350, -1, -1, -1, -1, -1 },
+    { "weathered_copper_chain", 8063, 6, 8066, 522, 2, 124, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 402, 356, -1, 351, -1, -1, -1, -1, -1 },
+    { "oxidized_copper_chain", 8069, 6, 8072, 524, 2, 124, 0, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 403, 357, -1, 352, -1, -1, -1, -1, -1 },
+    { "waxed_copper_chain", 8075, 6, 8078, 526, 2, 124, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 404, -1, 350, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_copper_chain", 8081, 6, 8084, 528, 2, 124, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 405, -1, 351, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_copper_chain", 8087, 6, 8090, 530, 2, 124, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 406, -1, 352, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_copper_chain", 8093, 6, 8096, 532, 2, 124, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 407, -1, 353, -1, -1, -1, -1, -1, -1 },
+    { "glass_pane", 8099, 32, 8130, 534, 5, 124, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 408, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pumpkin", 8131, 1, 8131, 539, 0, 124, 0, VCLASS_PUMPKIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_DIDGERIDOO, 356, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "melon", 8132, 1, 8132, 539, 0, 124, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 409, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "attached_pumpkin_stem", 8133, 4, 8133, 539, 1, 124, 0, VCLASS_ATTACHED_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "attached_melon_stem", 8137, 4, 8137, 540, 1, 124, 0, VCLASS_ATTACHED_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pumpkin_stem", 8141, 8, 8141, 541, 1, 124, 0, VCLASS_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1108, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "melon_stem", 8149, 8, 8149, 542, 1, 124, 0, VCLASS_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1109, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "vine", 8157, 32, 8188, 543, 5, 124, 0, VCLASS_VINE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 410, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "glow_lichen", 8189, 128, 8316, 548, 7, 124, 3, VCLASS_GLOW_LICHEN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 411, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "resin_clump", 8317, 128, 8444, 555, 7, 127, 3, VCLASS_MULTIFACE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 412, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oak_fence_gate", 8445, 32, 8452, 562, 4, 130, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 821, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brick_stairs", 8477, 80, 8488, 566, 4, 130, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 419, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "stone_brick_stairs", 8557, 80, 8568, 570, 4, 131, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 420, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mud_brick_stairs", 8637, 80, 8648, 574, 4, 132, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 421, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mycelium", 8717, 2, 8718, 578, 1, 133, 0, VCLASS_MYCELIUM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 422, -1, -1, -1, -1, 664, -1, -1, -1 },
+    { "lily_pad", 8719, 1, 8719, 579, 0, 133, 0, VCLASS_WATERLILY_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 423, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "resin_block", 8720, 1, 8720, 579, 0, 133, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 413, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "resin_bricks", 8721, 1, 8721, 579, 0, 133, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 414, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "resin_brick_stairs", 8722, 80, 8733, 579, 4, 133, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 415, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "resin_brick_slab", 8802, 6, 8805, 583, 2, 134, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 416, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "resin_brick_wall", 8808, 324, 8811, 585, 6, 134, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 417, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chiseled_resin_bricks", 9132, 1, 9132, 591, 0, 134, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 418, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "nether_bricks", 9133, 1, 9133, 591, 0, 134, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 424, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "nether_brick_fence", 9134, 32, 9165, 591, 5, 134, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 427, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "nether_brick_stairs", 9166, 80, 9177, 596, 4, 134, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 428, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "nether_wart", 9246, 4, 9246, 600, 1, 135, 0, VCLASS_NETHER_WART_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1119, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "enchanting_table", 9250, 1, 9250, 601, 0, 135, 0, VCLASS_ENCHANTING_TABLE_BLOCK, BLOCK_ENTITY_TYPE_ENCHANTING_TABLE, BLOCK_ENTITY_TYPE_ENCHANTING_TABLE, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 433, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brewing_stand", 9251, 8, 9258, 601, 3, 135, 0, VCLASS_BREWING_STAND_BLOCK, BLOCK_ENTITY_TYPE_BREWING_STAND, BLOCK_ENTITY_TYPE_BREWING_STAND, NOTE_BLOCK_INSTRUMENT_HARP, 1126, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cauldron", 9259, 1, 9259, 604, 0, 135, 0, VCLASS_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1127, -1, -1, -1, -1, -1, -1, -1, CAULDRON_MAP_EMPTY },
+    { "water_cauldron", 9260, 3, 9260, 604, 1, 135, 0, VCLASS_LAYERED_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1127, -1, -1, -1, -1, -1, -1, -1, CAULDRON_MAP_WATER },
+    { "lava_cauldron", 9263, 1, 9263, 605, 0, 135, 0, VCLASS_LAVA_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1127, -1, -1, -1, -1, -1, -1, -1, CAULDRON_MAP_LAVA },
+    { "powder_snow_cauldron", 9264, 3, 9264, 605, 1, 135, 0, VCLASS_LAYERED_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1127, -1, -1, -1, -1, -1, -1, -1, CAULDRON_MAP_POWDER_SNOW },
+    { "end_portal", 9267, 1, 9267, 606, 0, 135, 0, VCLASS_END_PORTAL_BLOCK, BLOCK_ENTITY_TYPE_END_PORTAL, BLOCK_ENTITY_TYPE_END_PORTAL, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "end_portal_frame", 9268, 8, 9272, 606, 2, 135, 0, VCLASS_END_PORTAL_FRAME_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 434, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "end_stone", 9276, 1, 9276, 608, 0, 135, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 435, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dragon_egg", 9277, 1, 9277, 608, 0, 135, 0, VCLASS_DRAGON_EGG_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 437, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "redstone_lamp", 9278, 2, 9279, 608, 1, 135, 0, VCLASS_REDSTONE_LAMP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 747, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cocoa", 9280, 12, 9280, 609, 2, 135, 0, VCLASS_COCOA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1065, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sandstone_stairs", 9292, 80, 9303, 611, 4, 135, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 438, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "emerald_ore", 9372, 1, 9372, 615, 0, 136, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 74, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "deepslate_emerald_ore", 9373, 1, 9373, 615, 0, 136, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 75, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "ender_chest", 9374, 8, 9375, 615, 2, 136, 0, VCLASS_ENDER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_ENDER_CHEST, BLOCK_ENTITY_TYPE_ENDER_CHEST, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 439, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tripwire_hook", 9382, 16, 9391, 617, 3, 136, 0, VCLASS_TRIP_WIRE_HOOK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 744, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tripwire", 9398, 128, 9525, 620, 7, 136, 1, VCLASS_TRIP_WIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 948, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "emerald_block", 9526, 1, 9526, 627, 0, 137, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BIT, 440, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spruce_stairs", 9527, 80, 9538, 627, 4, 137, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 442, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "birch_stairs", 9607, 80, 9618, 631, 4, 138, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 443, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jungle_stairs", 9687, 80, 9698, 635, 4, 139, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 444, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "command_block", 9767, 12, 9773, 639, 2, 140, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, 454, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "beacon", 9779, 1, 9779, 641, 0, 141, 0, VCLASS_BEACON_BLOCK, BLOCK_ENTITY_TYPE_BEACON, BLOCK_ENTITY_TYPE_BEACON, NOTE_BLOCK_INSTRUMENT_HAT, 455, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cobblestone_wall", 9780, 324, 9783, 641, 6, 141, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 456, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mossy_cobblestone_wall", 10104, 324, 10107, 647, 6, 141, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 457, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "flower_pot", 10428, 1, 10428, 653, 0, 141, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1226, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_torchflower", 10429, 1, 10429, 653, 0, 142, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_oak_sapling", 10430, 1, 10430, 653, 0, 143, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_spruce_sapling", 10431, 1, 10431, 653, 0, 144, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_birch_sapling", 10432, 1, 10432, 653, 0, 145, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_jungle_sapling", 10433, 1, 10433, 653, 0, 146, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_acacia_sapling", 10434, 1, 10434, 653, 0, 147, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_cherry_sapling", 10435, 1, 10435, 653, 0, 148, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_dark_oak_sapling", 10436, 1, 10436, 653, 0, 149, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_pale_oak_sapling", 10437, 1, 10437, 653, 0, 150, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_mangrove_propagule", 10438, 1, 10438, 653, 0, 151, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_fern", 10439, 1, 10439, 653, 0, 152, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_dandelion", 10440, 1, 10440, 653, 0, 153, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_poppy", 10441, 1, 10441, 653, 0, 154, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_blue_orchid", 10442, 1, 10442, 653, 0, 155, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_allium", 10443, 1, 10443, 653, 0, 156, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_azure_bluet", 10444, 1, 10444, 653, 0, 157, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_red_tulip", 10445, 1, 10445, 653, 0, 158, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_orange_tulip", 10446, 1, 10446, 653, 0, 159, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_white_tulip", 10447, 1, 10447, 653, 0, 160, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_pink_tulip", 10448, 1, 10448, 653, 0, 161, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_oxeye_daisy", 10449, 1, 10449, 653, 0, 162, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_cornflower", 10450, 1, 10450, 653, 0, 163, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_lily_of_the_valley", 10451, 1, 10451, 653, 0, 164, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_wither_rose", 10452, 1, 10452, 653, 0, 165, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_red_mushroom", 10453, 1, 10453, 653, 0, 166, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_brown_mushroom", 10454, 1, 10454, 653, 0, 167, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_dead_bush", 10455, 1, 10455, 653, 0, 168, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_cactus", 10456, 1, 10456, 653, 0, 169, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "carrots", 10457, 8, 10457, 653, 1, 170, 0, VCLASS_CARROT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1227, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potatoes", 10465, 8, 10465, 654, 1, 170, 0, VCLASS_POTATO_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1228, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oak_button", 10473, 24, 10482, 655, 3, 170, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 751, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spruce_button", 10497, 24, 10506, 658, 3, 174, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 752, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "birch_button", 10521, 24, 10530, 661, 3, 178, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 753, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jungle_button", 10545, 24, 10554, 664, 3, 182, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 754, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "acacia_button", 10569, 24, 10578, 667, 3, 186, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 755, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cherry_button", 10593, 24, 10602, 670, 3, 190, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 756, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_oak_button", 10617, 24, 10626, 673, 3, 194, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 757, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_oak_button", 10641, 24, 10650, 676, 3, 198, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 758, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mangrove_button", 10665, 24, 10674, 679, 3, 202, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 759, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_button", 10689, 24, 10698, 682, 3, 206, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 760, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "skeleton_skull", 10713, 32, 10729, 685, 2, 210, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_SKELETON, 1233, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "skeleton_wall_skull", 10745, 8, 10746, 687, 2, 210, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1233, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "wither_skeleton_skull", 10753, 32, 10769, 689, 2, 210, 0, VCLASS_WITHER_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_WITHER_SKELETON, 1234, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "wither_skeleton_wall_skull", 10785, 8, 10786, 691, 2, 210, 0, VCLASS_WITHER_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1234, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "zombie_head", 10793, 32, 10809, 693, 2, 210, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_ZOMBIE, 1236, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "zombie_wall_head", 10825, 8, 10826, 695, 2, 210, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1236, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "player_head", 10833, 32, 10849, 697, 2, 210, 0, VCLASS_PLAYER_HEAD_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_CUSTOM_HEAD, 1235, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "player_wall_head", 10865, 8, 10866, 699, 2, 210, 0, VCLASS_PLAYER_WALL_HEAD_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1235, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "creeper_head", 10873, 32, 10889, 701, 2, 210, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_CREEPER, 1237, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "creeper_wall_head", 10905, 8, 10906, 703, 2, 210, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1237, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dragon_head", 10913, 32, 10929, 705, 2, 210, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_DRAGON, 1238, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dragon_wall_head", 10945, 8, 10946, 707, 2, 210, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1238, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "piglin_head", 10953, 32, 10969, 709, 2, 210, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_PIGLIN, 1239, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "piglin_wall_head", 10985, 8, 10986, 711, 2, 210, 0, VCLASS_PIGLIN_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, 1239, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "anvil", 10993, 4, 10993, 713, 1, 210, 0, VCLASS_ANVIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 478, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chipped_anvil", 10997, 4, 10997, 714, 1, 210, 0, VCLASS_ANVIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 479, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "damaged_anvil", 11001, 4, 11001, 715, 1, 210, 0, VCLASS_ANVIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 480, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "trapped_chest", 11005, 24, 11006, 716, 3, 210, 0, VCLASS_TRAPPED_CHEST_BLOCK, BLOCK_ENTITY_TYPE_TRAPPED_CHEST, BLOCK_ENTITY_TYPE_TRAPPED_CHEST, NOTE_BLOCK_INSTRUMENT_BASS, 745, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_weighted_pressure_plate", 11029, 16, 11029, 719, 1, 210, 4, VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 765, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "heavy_weighted_pressure_plate", 11045, 16, 11045, 720, 1, 214, 4, VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 766, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "comparator", 11061, 16, 11062, 721, 3, 218, 0, VCLASS_COMPARATOR_BLOCK, BLOCK_ENTITY_TYPE_COMPARATOR, BLOCK_ENTITY_TYPE_COMPARATOR, NOTE_BLOCK_INSTRUMENT_HARP, 721, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "daylight_detector", 11077, 32, 11093, 724, 2, 218, 0, VCLASS_DAYLIGHT_DETECTOR_BLOCK, BLOCK_ENTITY_TYPE_DAYLIGHT_DETECTOR, BLOCK_ENTITY_TYPE_DAYLIGHT_DETECTOR, NOTE_BLOCK_INSTRUMENT_BASS, 741, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "redstone_block", 11109, 1, 11109, 726, 0, 218, 0, VCLASS_POWERED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 719, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "nether_quartz_ore", 11110, 1, 11110, 726, 0, 218, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 81, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "hopper", 11111, 10, 11111, 726, 2, 218, 0, VCLASS_HOPPER_BLOCK, BLOCK_ENTITY_TYPE_HOPPER, BLOCK_ENTITY_TYPE_HOPPER, NOTE_BLOCK_INSTRUMENT_HARP, 727, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "quartz_block", 11121, 1, 11121, 728, 0, 218, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 482, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chiseled_quartz_block", 11122, 1, 11122, 728, 0, 218, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 481, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "quartz_pillar", 11123, 3, 11124, 728, 1, 218, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 484, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "quartz_stairs", 11126, 80, 11137, 729, 4, 218, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 485, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "activator_rail", 11206, 24, 11219, 733, 3, 219, 1, VCLASS_POWERED_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 836, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dropper", 11230, 12, 11231, 736, 2, 220, 0, VCLASS_DROPPER_BLOCK, BLOCK_ENTITY_TYPE_DROPPER, BLOCK_ENTITY_TYPE_DROPPER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 729, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_terracotta", 11242, 1, 11242, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 486, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_terracotta", 11243, 1, 11243, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 487, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_terracotta", 11244, 1, 11244, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 488, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_terracotta", 11245, 1, 11245, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 489, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_terracotta", 11246, 1, 11246, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 490, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_terracotta", 11247, 1, 11247, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 491, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_terracotta", 11248, 1, 11248, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 492, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_terracotta", 11249, 1, 11249, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 493, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_terracotta", 11250, 1, 11250, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 494, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_terracotta", 11251, 1, 11251, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 495, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_terracotta", 11252, 1, 11252, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 496, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_terracotta", 11253, 1, 11253, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 497, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_terracotta", 11254, 1, 11254, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 498, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_terracotta", 11255, 1, 11255, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 499, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_terracotta", 11256, 1, 11256, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 500, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_terracotta", 11257, 1, 11257, 738, 0, 220, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 501, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_stained_glass_pane", 11258, 32, 11289, 738, 5, 220, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 546, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_stained_glass_pane", 11290, 32, 11321, 743, 5, 221, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 547, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_stained_glass_pane", 11322, 32, 11353, 748, 5, 222, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 548, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_stained_glass_pane", 11354, 32, 11385, 753, 5, 223, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 549, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_stained_glass_pane", 11386, 32, 11417, 758, 5, 224, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 550, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_stained_glass_pane", 11418, 32, 11449, 763, 5, 225, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 551, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_stained_glass_pane", 11450, 32, 11481, 768, 5, 226, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 552, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_stained_glass_pane", 11482, 32, 11513, 773, 5, 227, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 553, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_stained_glass_pane", 11514, 32, 11545, 778, 5, 228, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 554, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_stained_glass_pane", 11546, 32, 11577, 783, 5, 229, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 555, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_stained_glass_pane", 11578, 32, 11609, 788, 5, 230, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 556, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_stained_glass_pane", 11610, 32, 11641, 793, 5, 231, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 557, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_stained_glass_pane", 11642, 32, 11673, 798, 5, 232, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 558, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_stained_glass_pane", 11674, 32, 11705, 803, 5, 233, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 559, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_stained_glass_pane", 11706, 32, 11737, 808, 5, 234, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 560, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_stained_glass_pane", 11738, 32, 11769, 813, 5, 235, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 561, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "acacia_stairs", 11770, 80, 11781, 818, 4, 236, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 445, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cherry_stairs", 11850, 80, 11861, 822, 4, 237, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 446, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_oak_stairs", 11930, 80, 11941, 826, 4, 238, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 447, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_oak_stairs", 12010, 80, 12021, 830, 4, 239, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 448, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mangrove_stairs", 12090, 80, 12101, 834, 4, 240, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 449, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_stairs", 12170, 80, 12181, 838, 4, 241, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 450, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_mosaic_stairs", 12250, 80, 12261, 842, 4, 242, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 451, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "slime_block", 12330, 1, 12330, 846, 0, 243, 0, VCLASS_SLIME_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 724, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "barrier", 12331, 2, 12332, 846, 1, 243, 0, VCLASS_BARRIER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 502, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light", 12333, 32, 12364, 847, 2, 243, 0, VCLASS_LIGHT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 503, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "iron_trapdoor", 12365, 64, 12380, 849, 5, 243, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 800, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "prismarine", 12429, 1, 12429, 854, 0, 246, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 562, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "prismarine_bricks", 12430, 1, 12430, 854, 0, 246, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 563, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_prismarine", 12431, 1, 12431, 854, 0, 246, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 564, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "prismarine_stairs", 12432, 80, 12443, 854, 4, 246, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 565, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "prismarine_brick_stairs", 12512, 80, 12523, 858, 4, 247, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 566, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_prismarine_stairs", 12592, 80, 12603, 862, 4, 248, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 567, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "prismarine_slab", 12672, 6, 12675, 866, 2, 249, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 297, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "prismarine_brick_slab", 12678, 6, 12681, 868, 2, 249, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 298, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_prismarine_slab", 12684, 6, 12687, 870, 2, 249, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 299, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sea_lantern", 12690, 1, 12690, 872, 0, 249, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 568, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "hay_block", 12691, 3, 12692, 872, 1, 249, 0, VCLASS_HAY_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BANJO, 504, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_carpet", 12694, 1, 12694, 873, 0, 249, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 505, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_carpet", 12695, 1, 12695, 873, 0, 250, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 506, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_carpet", 12696, 1, 12696, 873, 0, 251, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 507, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_carpet", 12697, 1, 12697, 873, 0, 252, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 508, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_carpet", 12698, 1, 12698, 873, 0, 253, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 509, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_carpet", 12699, 1, 12699, 873, 0, 254, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 510, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_carpet", 12700, 1, 12700, 873, 0, 255, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 511, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_carpet", 12701, 1, 12701, 873, 0, 256, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 512, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_carpet", 12702, 1, 12702, 873, 0, 257, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 513, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_carpet", 12703, 1, 12703, 873, 0, 258, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 514, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_carpet", 12704, 1, 12704, 873, 0, 259, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 515, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_carpet", 12705, 1, 12705, 873, 0, 260, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 516, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_carpet", 12706, 1, 12706, 873, 0, 261, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 517, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_carpet", 12707, 1, 12707, 873, 0, 262, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 518, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_carpet", 12708, 1, 12708, 873, 0, 263, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 519, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_carpet", 12709, 1, 12709, 873, 0, 264, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 520, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "terracotta", 12710, 1, 12710, 873, 0, 265, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 521, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "coal_block", 12711, 1, 12711, 873, 0, 265, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 83, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "packed_ice", 12712, 1, 12712, 873, 0, 265, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_CHIME, 522, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sunflower", 12713, 2, 12714, 873, 1, 265, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 524, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lilac", 12715, 2, 12716, 874, 1, 265, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 525, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "rose_bush", 12717, 2, 12718, 875, 1, 265, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 526, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "peony", 12719, 2, 12720, 876, 1, 265, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 527, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tall_grass", 12721, 2, 12722, 877, 1, 265, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 528, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "large_fern", 12723, 2, 12724, 878, 1, 265, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 529, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_banner", 12725, 16, 12725, 879, 1, 265, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1266, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_banner", 12741, 16, 12741, 880, 1, 266, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1267, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_banner", 12757, 16, 12757, 881, 1, 267, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1268, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_banner", 12773, 16, 12773, 882, 1, 268, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1269, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_banner", 12789, 16, 12789, 883, 1, 269, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1270, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_banner", 12805, 16, 12805, 884, 1, 270, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1271, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_banner", 12821, 16, 12821, 885, 1, 271, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1272, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_banner", 12837, 16, 12837, 886, 1, 272, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1273, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_banner", 12853, 16, 12853, 887, 1, 273, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1274, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_banner", 12869, 16, 12869, 888, 1, 274, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1275, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_banner", 12885, 16, 12885, 889, 1, 275, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1276, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_banner", 12901, 16, 12901, 890, 1, 276, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1277, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_banner", 12917, 16, 12917, 891, 1, 277, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1278, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_banner", 12933, 16, 12933, 892, 1, 278, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1279, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_banner", 12949, 16, 12949, 893, 1, 279, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1280, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_banner", 12965, 16, 12965, 894, 1, 280, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1281, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_wall_banner", 12981, 4, 12981, 895, 1, 281, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1266, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_wall_banner", 12985, 4, 12985, 896, 1, 282, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1267, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_wall_banner", 12989, 4, 12989, 897, 1, 283, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1268, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_wall_banner", 12993, 4, 12993, 898, 1, 284, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1269, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_wall_banner", 12997, 4, 12997, 899, 1, 285, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1270, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_wall_banner", 13001, 4, 13001, 900, 1, 286, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1271, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_wall_banner", 13005, 4, 13005, 901, 1, 287, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1272, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_wall_banner", 13009, 4, 13009, 902, 1, 288, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1273, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_wall_banner", 13013, 4, 13013, 903, 1, 289, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1274, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_wall_banner", 13017, 4, 13017, 904, 1, 290, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1275, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_wall_banner", 13021, 4, 13021, 905, 1, 291, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1276, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_wall_banner", 13025, 4, 13025, 906, 1, 292, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1277, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_wall_banner", 13029, 4, 13029, 907, 1, 293, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1278, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_wall_banner", 13033, 4, 13033, 908, 1, 294, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1279, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_wall_banner", 13037, 4, 13037, 909, 1, 295, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1280, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_wall_banner", 13041, 4, 13041, 910, 1, 296, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, 1281, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_sandstone", 13045, 1, 13045, 911, 0, 297, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 569, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chiseled_red_sandstone", 13046, 1, 13046, 911, 0, 297, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 570, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cut_red_sandstone", 13047, 1, 13047, 911, 0, 297, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 571, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_sandstone_stairs", 13048, 80, 13059, 911, 4, 297, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 572, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oak_slab", 13128, 6, 13131, 915, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 270, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spruce_slab", 13134, 6, 13137, 917, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 271, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "birch_slab", 13140, 6, 13143, 919, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 272, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jungle_slab", 13146, 6, 13149, 921, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 273, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "acacia_slab", 13152, 6, 13155, 923, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 274, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cherry_slab", 13158, 6, 13161, 925, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 275, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_oak_slab", 13164, 6, 13167, 927, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 276, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_oak_slab", 13170, 6, 13173, 929, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 277, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mangrove_slab", 13176, 6, 13179, 931, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 278, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_slab", 13182, 6, 13185, 933, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 279, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_mosaic_slab", 13188, 6, 13191, 935, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 280, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "stone_slab", 13194, 6, 13197, 937, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 283, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smooth_stone_slab", 13200, 6, 13203, 939, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 284, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sandstone_slab", 13206, 6, 13209, 941, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 285, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cut_sandstone_slab", 13212, 6, 13215, 943, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 286, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "petrified_oak_slab", 13218, 6, 13221, 945, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 287, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cobblestone_slab", 13224, 6, 13227, 947, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 288, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brick_slab", 13230, 6, 13233, 949, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 289, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "stone_brick_slab", 13236, 6, 13239, 951, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 290, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mud_brick_slab", 13242, 6, 13245, 953, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 291, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "nether_brick_slab", 13248, 6, 13251, 955, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 292, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "quartz_slab", 13254, 6, 13257, 957, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 293, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_sandstone_slab", 13260, 6, 13263, 959, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 294, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cut_red_sandstone_slab", 13266, 6, 13269, 961, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 295, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purpur_slab", 13272, 6, 13275, 963, 2, 298, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 296, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smooth_stone", 13278, 1, 13278, 965, 0, 298, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 303, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smooth_sandstone", 13279, 1, 13279, 965, 0, 298, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 302, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smooth_quartz", 13280, 1, 13280, 965, 0, 298, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 300, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smooth_red_sandstone", 13281, 1, 13281, 965, 0, 298, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 301, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spruce_fence_gate", 13282, 32, 13289, 965, 4, 298, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 822, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "birch_fence_gate", 13314, 32, 13321, 969, 4, 298, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 823, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jungle_fence_gate", 13346, 32, 13353, 973, 4, 298, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 824, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "acacia_fence_gate", 13378, 32, 13385, 977, 4, 298, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 825, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cherry_fence_gate", 13410, 32, 13417, 981, 4, 298, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 826, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_oak_fence_gate", 13442, 32, 13449, 985, 4, 298, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 827, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_oak_fence_gate", 13474, 32, 13481, 989, 4, 298, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 828, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mangrove_fence_gate", 13506, 32, 13513, 993, 4, 298, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 829, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_fence_gate", 13538, 32, 13545, 997, 4, 298, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 830, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spruce_fence", 13570, 32, 13601, 1001, 5, 298, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 345, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "birch_fence", 13602, 32, 13633, 1006, 5, 298, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 346, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jungle_fence", 13634, 32, 13665, 1011, 5, 298, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 347, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "acacia_fence", 13666, 32, 13697, 1016, 5, 298, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 348, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cherry_fence", 13698, 32, 13729, 1021, 5, 298, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 349, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_oak_fence", 13730, 32, 13761, 1026, 5, 298, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 350, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_oak_fence", 13762, 32, 13793, 1031, 5, 298, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 351, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mangrove_fence", 13794, 32, 13825, 1036, 5, 298, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 352, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_fence", 13826, 32, 13857, 1041, 5, 298, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 353, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "spruce_door", 13858, 64, 13869, 1046, 5, 298, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 781, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "birch_door", 13922, 64, 13933, 1051, 5, 301, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 782, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jungle_door", 13986, 64, 13997, 1056, 5, 304, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 783, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "acacia_door", 14050, 64, 14061, 1061, 5, 307, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 784, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cherry_door", 14114, 64, 14125, 1066, 5, 310, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 785, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dark_oak_door", 14178, 64, 14189, 1071, 5, 313, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 786, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_oak_door", 14242, 64, 14253, 1076, 5, 316, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 787, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mangrove_door", 14306, 64, 14317, 1081, 5, 319, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 788, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_door", 14370, 64, 14381, 1086, 5, 322, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 789, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "end_rod", 14434, 6, 14438, 1091, 1, 325, 0, VCLASS_END_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 323, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chorus_plant", 14440, 64, 14503, 1092, 6, 325, 0, VCLASS_CHORUS_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 324, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chorus_flower", 14504, 6, 14504, 1098, 1, 325, 1, VCLASS_CHORUS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 325, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purpur_block", 14510, 1, 14510, 1099, 0, 326, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 326, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purpur_pillar", 14511, 3, 14512, 1099, 1, 326, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 327, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purpur_stairs", 14514, 80, 14525, 1100, 4, 326, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 328, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "end_stone_bricks", 14594, 1, 14594, 1104, 0, 327, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 436, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "torchflower_crop", 14595, 2, 14595, 1104, 1, 327, 0, VCLASS_TORCHFLOWER_CROP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1285, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pitcher_crop", 14597, 10, 14598, 1105, 2, 327, 0, VCLASS_PITCHER_CROP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1286, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pitcher_plant", 14607, 2, 14608, 1107, 1, 327, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 245, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "beetroots", 14609, 4, 14609, 1108, 1, 327, 0, VCLASS_BEETROOT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1288, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dirt_path", 14613, 1, 14613, 1109, 0, 327, 0, VCLASS_DIRT_PATH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 523, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "end_gateway", 14614, 1, 14614, 1109, 0, 327, 0, VCLASS_END_GATEWAY_BLOCK, BLOCK_ENTITY_TYPE_END_GATEWAY, BLOCK_ENTITY_TYPE_END_GATEWAY, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "repeating_command_block", 14615, 12, 14621, 1109, 2, 327, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, 573, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chain_command_block", 14627, 12, 14633, 1111, 2, 328, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, 574, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "frosted_ice", 14639, 4, 14639, 1113, 1, 329, 0, VCLASS_FROSTED_ICE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magma_block", 14643, 1, 14643, 1114, 0, 329, 0, VCLASS_MAGMA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 575, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "nether_wart_block", 14644, 1, 14644, 1114, 0, 329, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 576, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_nether_bricks", 14645, 1, 14645, 1114, 0, 329, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 578, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bone_block", 14646, 3, 14647, 1114, 1, 329, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_XYLOPHONE, 579, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "structure_void", 14649, 1, 14649, 1115, 0, 329, 0, VCLASS_STRUCTURE_VOID_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 580, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "observer", 14650, 12, 14655, 1115, 2, 329, 0, VCLASS_OBSERVER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 726, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "shulker_box", 14662, 6, 14666, 1117, 1, 329, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 581, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_shulker_box", 14668, 6, 14672, 1118, 1, 330, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 582, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_shulker_box", 14674, 6, 14678, 1119, 1, 331, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 583, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_shulker_box", 14680, 6, 14684, 1120, 1, 332, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 584, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_shulker_box", 14686, 6, 14690, 1121, 1, 333, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 585, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_shulker_box", 14692, 6, 14696, 1122, 1, 334, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 586, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_shulker_box", 14698, 6, 14702, 1123, 1, 335, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 587, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_shulker_box", 14704, 6, 14708, 1124, 1, 336, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 588, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_shulker_box", 14710, 6, 14714, 1125, 1, 337, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 589, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_shulker_box", 14716, 6, 14720, 1126, 1, 338, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 590, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_shulker_box", 14722, 6, 14726, 1127, 1, 339, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 591, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_shulker_box", 14728, 6, 14732, 1128, 1, 340, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 592, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_shulker_box", 14734, 6, 14738, 1129, 1, 341, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 593, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_shulker_box", 14740, 6, 14744, 1130, 1, 342, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 594, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_shulker_box", 14746, 6, 14750, 1131, 1, 343, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 595, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_shulker_box", 14752, 6, 14756, 1132, 1, 344, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 596, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_shulker_box", 14758, 6, 14762, 1133, 1, 345, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, 597, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_glazed_terracotta", 14764, 4, 14764, 1134, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 598, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_glazed_terracotta", 14768, 4, 14768, 1135, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 599, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_glazed_terracotta", 14772, 4, 14772, 1136, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 600, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_glazed_terracotta", 14776, 4, 14776, 1137, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 601, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_glazed_terracotta", 14780, 4, 14780, 1138, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 602, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_glazed_terracotta", 14784, 4, 14784, 1139, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 603, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_glazed_terracotta", 14788, 4, 14788, 1140, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 604, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_glazed_terracotta", 14792, 4, 14792, 1141, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 605, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_glazed_terracotta", 14796, 4, 14796, 1142, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 606, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_glazed_terracotta", 14800, 4, 14800, 1143, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 607, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_glazed_terracotta", 14804, 4, 14804, 1144, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 608, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_glazed_terracotta", 14808, 4, 14808, 1145, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 609, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_glazed_terracotta", 14812, 4, 14812, 1146, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 610, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_glazed_terracotta", 14816, 4, 14816, 1147, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 611, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_glazed_terracotta", 14820, 4, 14820, 1148, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 612, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_glazed_terracotta", 14824, 4, 14824, 1149, 1, 346, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 613, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_concrete", 14828, 1, 14828, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 614, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_concrete", 14829, 1, 14829, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 615, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_concrete", 14830, 1, 14830, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 616, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_concrete", 14831, 1, 14831, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 617, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_concrete", 14832, 1, 14832, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 618, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_concrete", 14833, 1, 14833, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 619, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_concrete", 14834, 1, 14834, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 620, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_concrete", 14835, 1, 14835, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 621, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_concrete", 14836, 1, 14836, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 622, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_concrete", 14837, 1, 14837, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 623, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_concrete", 14838, 1, 14838, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 624, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_concrete", 14839, 1, 14839, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 625, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_concrete", 14840, 1, 14840, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 626, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_concrete", 14841, 1, 14841, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 627, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_concrete", 14842, 1, 14842, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 628, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_concrete", 14843, 1, 14843, 1150, 0, 346, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 629, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_concrete_powder", 14844, 1, 14844, 1150, 0, 346, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 630, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_concrete_powder", 14845, 1, 14845, 1150, 0, 347, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 631, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_concrete_powder", 14846, 1, 14846, 1150, 0, 348, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 632, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_concrete_powder", 14847, 1, 14847, 1150, 0, 349, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 633, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_concrete_powder", 14848, 1, 14848, 1150, 0, 350, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 634, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_concrete_powder", 14849, 1, 14849, 1150, 0, 351, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 635, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_concrete_powder", 14850, 1, 14850, 1150, 0, 352, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 636, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_concrete_powder", 14851, 1, 14851, 1150, 0, 353, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 637, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_concrete_powder", 14852, 1, 14852, 1150, 0, 354, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 638, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_concrete_powder", 14853, 1, 14853, 1150, 0, 355, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 639, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_concrete_powder", 14854, 1, 14854, 1150, 0, 356, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 640, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_concrete_powder", 14855, 1, 14855, 1150, 0, 357, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 641, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_concrete_powder", 14856, 1, 14856, 1150, 0, 358, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 642, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_concrete_powder", 14857, 1, 14857, 1150, 0, 359, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 643, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_concrete_powder", 14858, 1, 14858, 1150, 0, 360, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 644, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_concrete_powder", 14859, 1, 14859, 1150, 0, 361, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 645, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "kelp", 14860, 26, 14860, 1150, 1, 362, 2, VCLASS_KELP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 257, -1, -1, -1, -1, -1, 740, 741, -1 },
+    { "kelp_plant", 14886, 1, 14886, 1151, 0, 364, 2, VCLASS_KELP_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, 740, 741, -1 },
+    { "dried_kelp_block", 14887, 1, 14887, 1151, 0, 366, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1027, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "turtle_egg", 14888, 12, 14888, 1151, 2, 366, 0, VCLASS_TURTLE_EGG_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 646, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sniffer_egg", 14900, 3, 14900, 1153, 1, 366, 0, VCLASS_SNIFFER_EGG_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 647, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dried_ghast", 14903, 32, 14904, 1154, 3, 366, 0, VCLASS_DRIED_GHAST_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 648, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_tube_coral_block", 14935, 1, 14935, 1157, 0, 366, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 649, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_brain_coral_block", 14936, 1, 14936, 1157, 0, 366, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 650, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_bubble_coral_block", 14937, 1, 14937, 1157, 0, 366, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 651, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_fire_coral_block", 14938, 1, 14938, 1157, 0, 366, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 652, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_horn_coral_block", 14939, 1, 14939, 1157, 0, 366, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 653, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tube_coral_block", 14940, 1, 14940, 1157, 0, 366, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 654, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brain_coral_block", 14941, 1, 14941, 1157, 0, 367, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 655, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bubble_coral_block", 14942, 1, 14942, 1157, 0, 368, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 656, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "fire_coral_block", 14943, 1, 14943, 1157, 0, 369, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 657, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "horn_coral_block", 14944, 1, 14944, 1157, 0, 370, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 658, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_tube_coral", 14945, 2, 14945, 1157, 1, 371, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 668, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_brain_coral", 14947, 2, 14947, 1158, 1, 371, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 664, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_bubble_coral", 14949, 2, 14949, 1159, 1, 371, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 665, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_fire_coral", 14951, 2, 14951, 1160, 1, 371, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 666, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_horn_coral", 14953, 2, 14953, 1161, 1, 371, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 667, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tube_coral", 14955, 2, 14955, 1162, 1, 371, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 659, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brain_coral", 14957, 2, 14957, 1163, 1, 372, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 660, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bubble_coral", 14959, 2, 14959, 1164, 1, 373, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 661, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "fire_coral", 14961, 2, 14961, 1165, 1, 374, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 662, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "horn_coral", 14963, 2, 14963, 1166, 1, 375, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 663, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_tube_coral_fan", 14965, 2, 14965, 1167, 1, 376, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 674, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_brain_coral_fan", 14967, 2, 14967, 1168, 1, 376, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 675, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_bubble_coral_fan", 14969, 2, 14969, 1169, 1, 376, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 676, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_fire_coral_fan", 14971, 2, 14971, 1170, 1, 376, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 677, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_horn_coral_fan", 14973, 2, 14973, 1171, 1, 376, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 678, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tube_coral_fan", 14975, 2, 14975, 1172, 1, 376, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 669, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brain_coral_fan", 14977, 2, 14977, 1173, 1, 377, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 670, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bubble_coral_fan", 14979, 2, 14979, 1174, 1, 378, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 671, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "fire_coral_fan", 14981, 2, 14981, 1175, 1, 379, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 672, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "horn_coral_fan", 14983, 2, 14983, 1176, 1, 380, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 673, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_tube_coral_wall_fan", 14985, 8, 14985, 1177, 2, 381, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 674, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_brain_coral_wall_fan", 14993, 8, 14993, 1179, 2, 381, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 675, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_bubble_coral_wall_fan", 15001, 8, 15001, 1181, 2, 381, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 676, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_fire_coral_wall_fan", 15009, 8, 15009, 1183, 2, 381, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 677, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dead_horn_coral_wall_fan", 15017, 8, 15017, 1185, 2, 381, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 678, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tube_coral_wall_fan", 15025, 8, 15025, 1187, 2, 381, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 669, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brain_coral_wall_fan", 15033, 8, 15033, 1189, 2, 382, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 670, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bubble_coral_wall_fan", 15041, 8, 15041, 1191, 2, 383, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 671, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "fire_coral_wall_fan", 15049, 8, 15049, 1193, 2, 384, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 672, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "horn_coral_wall_fan", 15057, 8, 15057, 1195, 2, 385, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 673, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sea_pickle", 15065, 8, 15065, 1197, 2, 386, 0, VCLASS_SEA_PICKLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 212, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_ice", 15073, 1, 15073, 1199, 0, 386, 0, VCLASS_HALF_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 679, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "conduit", 15074, 2, 15074, 1199, 1, 386, 0, VCLASS_CONDUIT_BLOCK, BLOCK_ENTITY_TYPE_CONDUIT, BLOCK_ENTITY_TYPE_CONDUIT, NOTE_BLOCK_INSTRUMENT_HAT, 680, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo_sapling", 15076, 1, 15076, 1200, 0, 386, 0, VCLASS_BAMBOO_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bamboo", 15077, 12, 15077, 1200, 3, 386, 0, VCLASS_BAMBOO_STALK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 269, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_bamboo", 15089, 1, 15089, 1203, 0, 386, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "void_air", 15090, 1, 15090, 1203, 0, 387, 0, VCLASS_AIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cave_air", 15091, 1, 15091, 1203, 0, 387, 0, VCLASS_AIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bubble_column", 15092, 2, 15092, 1203, 1, 387, 0, VCLASS_BUBBLE_COLUMN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_granite_stairs", 15094, 80, 15105, 1204, 4, 387, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 681, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smooth_red_sandstone_stairs", 15174, 80, 15185, 1208, 4, 388, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 682, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mossy_stone_brick_stairs", 15254, 80, 15265, 1212, 4, 389, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 683, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_diorite_stairs", 15334, 80, 15345, 1216, 4, 390, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 684, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mossy_cobblestone_stairs", 15414, 80, 15425, 1220, 4, 391, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 685, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "end_stone_brick_stairs", 15494, 80, 15505, 1224, 4, 392, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 686, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "stone_stairs", 15574, 80, 15585, 1228, 4, 393, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 687, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smooth_sandstone_stairs", 15654, 80, 15665, 1232, 4, 394, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 688, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smooth_quartz_stairs", 15734, 80, 15745, 1236, 4, 395, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 689, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "granite_stairs", 15814, 80, 15825, 1240, 4, 396, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 690, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "andesite_stairs", 15894, 80, 15905, 1244, 4, 397, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 691, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_nether_brick_stairs", 15974, 80, 15985, 1248, 4, 398, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 692, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_andesite_stairs", 16054, 80, 16065, 1252, 4, 399, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 693, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "diorite_stairs", 16134, 80, 16145, 1256, 4, 400, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 694, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_granite_slab", 16214, 6, 16217, 1260, 2, 401, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 699, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smooth_red_sandstone_slab", 16220, 6, 16223, 1262, 2, 401, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 700, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mossy_stone_brick_slab", 16226, 6, 16229, 1264, 2, 401, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 701, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_diorite_slab", 16232, 6, 16235, 1266, 2, 401, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 702, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mossy_cobblestone_slab", 16238, 6, 16241, 1268, 2, 401, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 703, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "end_stone_brick_slab", 16244, 6, 16247, 1270, 2, 401, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 704, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smooth_sandstone_slab", 16250, 6, 16253, 1272, 2, 401, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 705, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smooth_quartz_slab", 16256, 6, 16259, 1274, 2, 401, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 706, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "granite_slab", 16262, 6, 16265, 1276, 2, 401, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 707, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "andesite_slab", 16268, 6, 16271, 1278, 2, 401, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 708, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_nether_brick_slab", 16274, 6, 16277, 1280, 2, 401, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 709, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_andesite_slab", 16280, 6, 16283, 1282, 2, 401, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 710, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "diorite_slab", 16286, 6, 16289, 1284, 2, 401, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 711, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brick_wall", 16292, 324, 16295, 1286, 6, 401, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 458, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "prismarine_wall", 16616, 324, 16619, 1292, 6, 401, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 459, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_sandstone_wall", 16940, 324, 16943, 1298, 6, 401, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 460, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mossy_stone_brick_wall", 17264, 324, 17267, 1304, 6, 401, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 461, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "granite_wall", 17588, 324, 17591, 1310, 6, 401, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 462, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "stone_brick_wall", 17912, 324, 17915, 1316, 6, 401, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 463, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "mud_brick_wall", 18236, 324, 18239, 1322, 6, 401, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 464, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "nether_brick_wall", 18560, 324, 18563, 1328, 6, 401, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 465, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "andesite_wall", 18884, 324, 18887, 1334, 6, 401, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 466, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_nether_brick_wall", 19208, 324, 19211, 1340, 6, 401, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 467, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sandstone_wall", 19532, 324, 19535, 1346, 6, 401, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 468, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "end_stone_brick_wall", 19856, 324, 19859, 1352, 6, 401, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 469, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "diorite_wall", 20180, 324, 20183, 1358, 6, 401, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 470, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "scaffolding", 20504, 32, 20535, 1364, 3, 401, 0, VCLASS_SCAFFOLDING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 716, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "loom", 20536, 4, 20536, 1367, 1, 401, 0, VCLASS_LOOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 1341, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "barrel", 20540, 12, 20541, 1368, 2, 401, 0, VCLASS_BARREL_BLOCK, BLOCK_ENTITY_TYPE_BARREL, BLOCK_ENTITY_TYPE_BARREL, NOTE_BLOCK_INSTRUMENT_BASS, 1354, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smoker", 20552, 8, 20553, 1370, 2, 401, 0, VCLASS_SMOKER_BLOCK, BLOCK_ENTITY_TYPE_SMOKER, BLOCK_ENTITY_TYPE_SMOKER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1355, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blast_furnace", 20560, 8, 20561, 1372, 2, 401, 0, VCLASS_BLAST_FURNACE_BLOCK, BLOCK_ENTITY_TYPE_BLAST_FURNACE, BLOCK_ENTITY_TYPE_BLAST_FURNACE, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1356, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cartography_table", 20568, 1, 20568, 1374, 0, 401, 0, VCLASS_CARTOGRAPHY_TABLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 1357, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "fletching_table", 20569, 1, 20569, 1374, 0, 401, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 1358, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "grindstone", 20570, 12, 20574, 1374, 2, 401, 0, VCLASS_GRINDSTONE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1359, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lectern", 20582, 16, 20585, 1376, 3, 401, 0, VCLASS_LECTERN_BLOCK, BLOCK_ENTITY_TYPE_LECTERN, BLOCK_ENTITY_TYPE_LECTERN, NOTE_BLOCK_INSTRUMENT_BASS, 730, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smithing_table", 20598, 1, 20598, 1379, 0, 401, 0, VCLASS_SMITHING_TABLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 1360, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "stonecutter", 20599, 4, 20599, 1379, 1, 401, 0, VCLASS_STONECUTTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1361, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bell", 20603, 32, 20604, 1380, 3, 401, 0, VCLASS_BELL_BLOCK, BLOCK_ENTITY_TYPE_BELL, BLOCK_ENTITY_TYPE_BELL, NOTE_BLOCK_INSTRUMENT_HARP, 1362, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lantern", 20635, 4, 20638, 1383, 2, 401, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1363, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "soul_lantern", 20639, 4, 20642, 1385, 2, 401, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1364, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "copper_lantern", 20643, 4, 20646, 1387, 2, 401, 0, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1365, 853, -1, -1, -1, -1, -1, -1, -1 },
+    { "exposed_copper_lantern", 20647, 4, 20650, 1389, 2, 401, 0, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1366, 854, -1, 849, -1, -1, -1, -1, -1 },
+    { "weathered_copper_lantern", 20651, 4, 20654, 1391, 2, 401, 0, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1367, 855, -1, 850, -1, -1, -1, -1, -1 },
+    { "oxidized_copper_lantern", 20655, 4, 20658, 1393, 2, 401, 0, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1368, 856, -1, 851, -1, -1, -1, -1, -1 },
+    { "waxed_copper_lantern", 20659, 4, 20662, 1395, 2, 401, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1369, -1, 849, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_copper_lantern", 20663, 4, 20666, 1397, 2, 401, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1370, -1, 850, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_copper_lantern", 20667, 4, 20670, 1399, 2, 401, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1371, -1, 851, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_copper_lantern", 20671, 4, 20674, 1401, 2, 401, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1372, -1, 852, -1, -1, -1, -1, -1, -1 },
+    { "campfire", 20675, 32, 20678, 1403, 4, 401, 2, VCLASS_CAMPFIRE_BLOCK, BLOCK_ENTITY_TYPE_CAMPFIRE, BLOCK_ENTITY_TYPE_CAMPFIRE, NOTE_BLOCK_INSTRUMENT_BASS, 1375, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "soul_campfire", 20707, 32, 20710, 1407, 4, 403, 2, VCLASS_CAMPFIRE_BLOCK, BLOCK_ENTITY_TYPE_CAMPFIRE, BLOCK_ENTITY_TYPE_CAMPFIRE, NOTE_BLOCK_INSTRUMENT_BASS, 1376, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sweet_berry_bush", 20739, 4, 20739, 1411, 1, 405, 0, VCLASS_SWEET_BERRY_BUSH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1373, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_stem", 20743, 3, 20744, 1412, 1, 405, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 146, -1, -1, -1, 861, -1, -1, -1, -1 },
+    { "stripped_warped_stem", 20746, 3, 20747, 1413, 1, 405, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 158, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_hyphae", 20749, 3, 20750, 1414, 1, 405, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 181, -1, -1, -1, 863, -1, -1, -1, -1 },
+    { "stripped_warped_hyphae", 20752, 3, 20753, 1415, 1, 405, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 169, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_nylium", 20755, 1, 20755, 1416, 0, 405, 0, VCLASS_NYLIUM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 34, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_fungus", 20756, 1, 20756, 1416, 0, 405, 1, VCLASS_FUNGUS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 250, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_wart_block", 20757, 1, 20757, 1416, 0, 406, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 577, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_roots", 20758, 1, 20758, 1416, 0, 406, 0, VCLASS_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 252, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "nether_sprouts", 20759, 1, 20759, 1416, 0, 406, 0, VCLASS_NETHER_SPROUTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 253, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_stem", 20760, 3, 20761, 1416, 1, 406, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 145, -1, -1, -1, 870, -1, -1, -1, -1 },
+    { "stripped_crimson_stem", 20763, 3, 20764, 1417, 1, 406, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 157, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_hyphae", 20766, 3, 20767, 1418, 1, 406, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 180, -1, -1, -1, 872, -1, -1, -1, -1 },
+    { "stripped_crimson_hyphae", 20769, 3, 20770, 1419, 1, 406, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 168, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_nylium", 20772, 1, 20772, 1420, 0, 406, 0, VCLASS_NYLIUM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 33, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_fungus", 20773, 1, 20773, 1420, 0, 406, 1, VCLASS_FUNGUS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 249, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "shroomlight", 20774, 1, 20774, 1420, 0, 407, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1377, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "weeping_vines", 20775, 26, 20775, 1420, 1, 407, 2, VCLASS_WEEPING_VINES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 254, -1, -1, -1, -1, -1, 876, 877, -1 },
+    { "weeping_vines_plant", 20801, 1, 20801, 1421, 0, 409, 2, VCLASS_WEEPING_VINES_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, 876, 877, -1 },
+    { "twisting_vines", 20802, 26, 20802, 1421, 1, 411, 2, VCLASS_TWISTING_VINES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 255, -1, -1, -1, -1, -1, 878, 879, -1 },
+    { "twisting_vines_plant", 20828, 1, 20828, 1422, 0, 413, 2, VCLASS_TWISTING_VINES_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, 878, 879, -1 },
+    { "crimson_roots", 20829, 1, 20829, 1422, 0, 415, 0, VCLASS_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 251, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_planks", 20830, 1, 20830, 1422, 0, 415, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 46, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_planks", 20831, 1, 20831, 1422, 0, 415, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 47, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_slab", 20832, 6, 20835, 1422, 2, 415, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 281, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_slab", 20838, 6, 20841, 1424, 2, 415, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 282, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_pressure_plate", 20844, 2, 20845, 1426, 1, 415, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 777, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_pressure_plate", 20846, 2, 20847, 1427, 1, 418, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 778, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_fence", 20848, 32, 20879, 1428, 5, 421, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 354, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_fence", 20880, 32, 20911, 1433, 5, 421, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 355, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_trapdoor", 20912, 64, 20927, 1438, 5, 421, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 811, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_trapdoor", 20976, 64, 20991, 1443, 5, 424, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 812, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_fence_gate", 21040, 32, 21047, 1448, 4, 427, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 831, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_fence_gate", 21072, 32, 21079, 1452, 4, 427, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 832, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_stairs", 21104, 80, 21115, 1456, 4, 427, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 452, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_stairs", 21184, 80, 21195, 1460, 4, 428, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 453, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_button", 21264, 24, 21273, 1464, 3, 429, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 761, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_button", 21288, 24, 21297, 1467, 3, 433, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 762, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_door", 21312, 64, 21323, 1470, 5, 437, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 790, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_door", 21376, 64, 21387, 1475, 5, 440, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 791, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_sign", 21440, 32, 21441, 1480, 2, 443, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 998, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_sign", 21472, 32, 21473, 1482, 2, 443, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 999, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crimson_wall_sign", 21504, 8, 21505, 1484, 2, 443, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 998, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "warped_wall_sign", 21512, 8, 21513, 1486, 2, 443, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, 999, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "structure_block", 21520, 4, 21521, 1488, 1, 443, 0, VCLASS_STRUCTURE_BLOCK, BLOCK_ENTITY_TYPE_STRUCTURE_BLOCK, BLOCK_ENTITY_TYPE_STRUCTURE_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, 883, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "jigsaw", 21524, 12, 21534, 1489, 1, 443, 0, VCLASS_JIGSAW_BLOCK, BLOCK_ENTITY_TYPE_JIGSAW, BLOCK_ENTITY_TYPE_JIGSAW, NOTE_BLOCK_INSTRUMENT_HARP, 884, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "test_block", 21536, 4, 21536, 1490, 1, 443, 0, VCLASS_TEST_BLOCK, BLOCK_ENTITY_TYPE_TEST_BLOCK, BLOCK_ENTITY_TYPE_TEST_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, 885, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "test_instance_block", 21540, 1, 21540, 1491, 0, 443, 0, VCLASS_TEST_INSTANCE_BLOCK, BLOCK_ENTITY_TYPE_TEST_INSTANCE_BLOCK, BLOCK_ENTITY_TYPE_TEST_INSTANCE_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, 886, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "composter", 21541, 9, 21541, 1491, 1, 443, 0, VCLASS_COMPOSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, 1353, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "target", 21550, 16, 21550, 1492, 1, 443, 0, VCLASS_TARGET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 731, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "bee_nest", 21566, 24, 21566, 1493, 2, 443, 0, VCLASS_BEEHIVE_BLOCK, BLOCK_ENTITY_TYPE_BEEHIVE, BLOCK_ENTITY_TYPE_BEEHIVE, NOTE_BLOCK_INSTRUMENT_BASS, 1379, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "beehive", 21590, 24, 21590, 1495, 2, 443, 0, VCLASS_BEEHIVE_BLOCK, BLOCK_ENTITY_TYPE_BEEHIVE, BLOCK_ENTITY_TYPE_BEEHIVE, NOTE_BLOCK_INSTRUMENT_BASS, 1380, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "honey_block", 21614, 1, 21614, 1497, 0, 443, 0, VCLASS_HONEY_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 725, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "honeycomb_block", 21615, 1, 21615, 1497, 0, 443, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1382, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "netherite_block", 21616, 1, 21616, 1497, 0, 443, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 94, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "ancient_debris", 21617, 1, 21617, 1497, 0, 443, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 82, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crying_obsidian", 21618, 1, 21618, 1497, 0, 443, 0, VCLASS_CRYING_OBSIDIAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1384, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "respawn_anchor", 21619, 5, 21619, 1497, 1, 443, 0, VCLASS_RESPAWN_ANCHOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1397, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_crimson_fungus", 21624, 1, 21624, 1498, 0, 443, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_warped_fungus", 21625, 1, 21625, 1498, 0, 444, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_crimson_roots", 21626, 1, 21626, 1498, 0, 445, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_warped_roots", 21627, 1, 21627, 1498, 0, 446, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lodestone", 21628, 1, 21628, 1498, 0, 447, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1383, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blackstone", 21629, 1, 21629, 1498, 0, 447, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1385, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blackstone_stairs", 21630, 80, 21641, 1498, 4, 447, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1387, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blackstone_wall", 21710, 324, 21713, 1502, 6, 448, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 471, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blackstone_slab", 22034, 6, 22037, 1508, 2, 448, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1386, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_blackstone", 22040, 1, 22040, 1510, 0, 448, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1389, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_blackstone_bricks", 22041, 1, 22041, 1510, 0, 448, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1393, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cracked_polished_blackstone_bricks", 22042, 1, 22042, 1510, 0, 448, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1396, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chiseled_polished_blackstone", 22043, 1, 22043, 1510, 0, 448, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1392, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_blackstone_brick_slab", 22044, 6, 22047, 1510, 2, 448, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1394, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_blackstone_brick_stairs", 22050, 80, 22061, 1512, 4, 448, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1395, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_blackstone_brick_wall", 22130, 324, 22133, 1516, 6, 449, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 473, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gilded_blackstone", 22454, 1, 22454, 1522, 0, 449, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1388, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_blackstone_stairs", 22455, 80, 22466, 1522, 4, 449, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1391, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_blackstone_slab", 22535, 6, 22538, 1526, 2, 450, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1390, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_blackstone_pressure_plate", 22541, 2, 22542, 1528, 1, 450, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 764, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_blackstone_button", 22543, 24, 22552, 1529, 3, 453, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 750, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_blackstone_wall", 22567, 324, 22570, 1532, 6, 457, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 472, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chiseled_nether_bricks", 22891, 1, 22891, 1538, 0, 457, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 426, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cracked_nether_bricks", 22892, 1, 22892, 1538, 0, 457, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 425, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "quartz_bricks", 22893, 1, 22893, 1538, 0, 457, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 483, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "candle", 22894, 16, 22897, 1538, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1398, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_candle", 22910, 16, 22913, 1541, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1399, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_candle", 22926, 16, 22929, 1544, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1400, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_candle", 22942, 16, 22945, 1547, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1401, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_candle", 22958, 16, 22961, 1550, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1402, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_candle", 22974, 16, 22977, 1553, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1403, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_candle", 22990, 16, 22993, 1556, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1404, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_candle", 23006, 16, 23009, 1559, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1405, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_candle", 23022, 16, 23025, 1562, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1406, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_candle", 23038, 16, 23041, 1565, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1407, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_candle", 23054, 16, 23057, 1568, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1408, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_candle", 23070, 16, 23073, 1571, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1409, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_candle", 23086, 16, 23089, 1574, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1410, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_candle", 23102, 16, 23105, 1577, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1411, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_candle", 23118, 16, 23121, 1580, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1412, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_candle", 23134, 16, 23137, 1583, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1413, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_candle", 23150, 16, 23153, 1586, 3, 457, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1414, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "candle_cake", 23166, 2, 23167, 1589, 1, 457, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "white_candle_cake", 23168, 2, 23169, 1590, 1, 458, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "orange_candle_cake", 23170, 2, 23171, 1591, 1, 459, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "magenta_candle_cake", 23172, 2, 23173, 1592, 1, 460, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_blue_candle_cake", 23174, 2, 23175, 1593, 1, 461, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "yellow_candle_cake", 23176, 2, 23177, 1594, 1, 462, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "lime_candle_cake", 23178, 2, 23179, 1595, 1, 463, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_candle_cake", 23180, 2, 23181, 1596, 1, 464, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "gray_candle_cake", 23182, 2, 23183, 1597, 1, 465, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "light_gray_candle_cake", 23184, 2, 23185, 1598, 1, 466, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cyan_candle_cake", 23186, 2, 23187, 1599, 1, 467, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "purple_candle_cake", 23188, 2, 23189, 1600, 1, 468, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "blue_candle_cake", 23190, 2, 23191, 1601, 1, 469, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "brown_candle_cake", 23192, 2, 23193, 1602, 1, 470, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "green_candle_cake", 23194, 2, 23195, 1603, 1, 471, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "red_candle_cake", 23196, 2, 23197, 1604, 1, 472, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "black_candle_cake", 23198, 2, 23199, 1605, 1, 473, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "amethyst_block", 23200, 1, 23200, 1606, 0, 474, 0, VCLASS_AMETHYST_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 88, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "budding_amethyst", 23201, 1, 23201, 1606, 0, 474, 0, VCLASS_BUDDING_AMETHYST_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 89, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "amethyst_cluster", 23202, 12, 23211, 1606, 2, 474, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1418, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "large_amethyst_bud", 23214, 12, 23223, 1608, 2, 474, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1417, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "medium_amethyst_bud", 23226, 12, 23235, 1610, 2, 474, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1416, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "small_amethyst_bud", 23238, 12, 23247, 1612, 2, 474, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1415, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tuff", 23250, 1, 23250, 1614, 0, 474, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 12, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tuff_slab", 23251, 6, 23254, 1614, 2, 474, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 13, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tuff_stairs", 23257, 80, 23268, 1616, 4, 474, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 14, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tuff_wall", 23337, 324, 23340, 1620, 6, 475, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 15, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_tuff", 23661, 1, 23661, 1626, 0, 475, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 17, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_tuff_slab", 23662, 6, 23665, 1626, 2, 475, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 18, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_tuff_stairs", 23668, 80, 23679, 1628, 4, 475, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 19, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_tuff_wall", 23748, 324, 23751, 1632, 6, 476, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 20, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chiseled_tuff", 24072, 1, 24072, 1638, 0, 476, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 16, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tuff_bricks", 24073, 1, 24073, 1638, 0, 476, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 21, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tuff_brick_slab", 24074, 6, 24077, 1638, 2, 476, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 22, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tuff_brick_stairs", 24080, 80, 24091, 1640, 4, 476, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 23, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tuff_brick_wall", 24160, 324, 24163, 1644, 6, 477, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 24, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chiseled_tuff_bricks", 24484, 1, 24484, 1650, 0, 477, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 25, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "calcite", 24485, 1, 24485, 1650, 0, 477, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 11, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "tinted_glass", 24486, 1, 24486, 1650, 0, 477, 0, VCLASS_TINTED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, 196, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "powder_snow", 24487, 1, 24487, 1650, 0, 477, 0, VCLASS_POWDER_SNOW_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1015, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sculk_sensor", 24488, 96, 24489, 1650, 3, 477, 0, VCLASS_SCULK_SENSOR_BLOCK, BLOCK_ENTITY_TYPE_SCULK_SENSOR, BLOCK_ENTITY_TYPE_SCULK_SENSOR, NOTE_BLOCK_INSTRUMENT_HARP, 742, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "calibrated_sculk_sensor", 24584, 384, 24585, 1653, 4, 477, 0, VCLASS_CALIBRATED_SCULK_SENSOR_BLOCK, BLOCK_ENTITY_TYPE_CALIBRATED_SCULK_SENSOR, BLOCK_ENTITY_TYPE_CALIBRATED_SCULK_SENSOR, NOTE_BLOCK_INSTRUMENT_HARP, 743, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sculk", 24968, 1, 24968, 1657, 0, 477, 0, VCLASS_SCULK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 429, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sculk_vein", 24969, 128, 25096, 1657, 7, 477, 3, VCLASS_SCULK_VEIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 430, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sculk_catalyst", 25097, 2, 25098, 1664, 1, 480, 0, VCLASS_SCULK_CATALYST_BLOCK, BLOCK_ENTITY_TYPE_SCULK_CATALYST, BLOCK_ENTITY_TYPE_SCULK_CATALYST, NOTE_BLOCK_INSTRUMENT_HARP, 431, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "sculk_shrieker", 25099, 8, 25106, 1665, 3, 480, 0, VCLASS_SCULK_SHRIEKER_BLOCK, BLOCK_ENTITY_TYPE_SCULK_SHRIEKER, BLOCK_ENTITY_TYPE_SCULK_SHRIEKER, NOTE_BLOCK_INSTRUMENT_HARP, 432, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "copper_block", 25107, 1, 25107, 1668, 0, 480, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 91, 1031, -1, -1, -1, -1, -1, -1, -1 },
+    { "exposed_copper", 25108, 1, 25108, 1668, 0, 480, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 95, 1033, -1, 1005, -1, -1, -1, -1, -1 },
+    { "weathered_copper", 25109, 1, 25109, 1668, 0, 480, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 96, 1032, -1, 1006, -1, -1, -1, -1, -1 },
+    { "oxidized_copper", 25110, 1, 25110, 1668, 0, 480, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 97, 1034, -1, 1007, -1, -1, -1, -1, -1 },
+    { "copper_ore", 25111, 1, 25111, 1668, 0, 480, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 68, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "deepslate_copper_ore", 25112, 1, 25112, 1668, 0, 480, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 69, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "oxidized_cut_copper", 25113, 1, 25113, 1668, 0, 480, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 105, 1035, -1, 1012, -1, -1, -1, -1, -1 },
+    { "weathered_cut_copper", 25114, 1, 25114, 1668, 0, 480, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 104, 1036, -1, 1013, -1, -1, -1, -1, -1 },
+    { "exposed_cut_copper", 25115, 1, 25115, 1668, 0, 480, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 103, 1037, -1, 1014, -1, -1, -1, -1, -1 },
+    { "cut_copper", 25116, 1, 25116, 1668, 0, 480, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 102, 1038, -1, -1, -1, -1, -1, -1, -1 },
+    { "oxidized_chiseled_copper", 25117, 1, 25117, 1668, 0, 480, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 101, 1019, -1, 1016, -1, -1, -1, -1, -1 },
+    { "weathered_chiseled_copper", 25118, 1, 25118, 1668, 0, 480, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 100, 1020, -1, 1017, -1, -1, -1, -1, -1 },
+    { "exposed_chiseled_copper", 25119, 1, 25119, 1668, 0, 480, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 99, 1021, -1, 1018, -1, -1, -1, -1, -1 },
+    { "chiseled_copper", 25120, 1, 25120, 1668, 0, 480, 0, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 98, 1022, -1, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_chiseled_copper", 25121, 1, 25121, 1668, 0, 480, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 121, -1, 1015, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_chiseled_copper", 25122, 1, 25122, 1668, 0, 480, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 120, -1, 1016, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_chiseled_copper", 25123, 1, 25123, 1668, 0, 480, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 119, -1, 1017, -1, -1, -1, -1, -1, -1 },
+    { "waxed_chiseled_copper", 25124, 1, 25124, 1668, 0, 480, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 118, -1, 1018, -1, -1, -1, -1, -1, -1 },
+    { "oxidized_cut_copper_stairs", 25125, 80, 25136, 1668, 4, 480, 1, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 109, 1039, -1, 1024, -1, -1, -1, -1, -1 },
+    { "weathered_cut_copper_stairs", 25205, 80, 25216, 1672, 4, 481, 1, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 108, 1040, -1, 1025, -1, -1, -1, -1, -1 },
+    { "exposed_cut_copper_stairs", 25285, 80, 25296, 1676, 4, 482, 1, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 107, 1041, -1, 1026, -1, -1, -1, -1, -1 },
+    { "cut_copper_stairs", 25365, 80, 25376, 1680, 4, 483, 1, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 106, 1042, -1, -1, -1, -1, -1, -1, -1 },
+    { "oxidized_cut_copper_slab", 25445, 6, 25448, 1684, 2, 484, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 113, 1043, -1, 1028, -1, -1, -1, -1, -1 },
+    { "weathered_cut_copper_slab", 25451, 6, 25454, 1686, 2, 484, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 112, 1044, -1, 1029, -1, -1, -1, -1, -1 },
+    { "exposed_cut_copper_slab", 25457, 6, 25460, 1688, 2, 484, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 111, 1045, -1, 1030, -1, -1, -1, -1, -1 },
+    { "cut_copper_slab", 25463, 6, 25466, 1690, 2, 484, 0, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 110, 1046, -1, -1, -1, -1, -1, -1, -1 },
+    { "waxed_copper_block", 25469, 1, 25469, 1692, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 114, -1, 1005, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_copper", 25470, 1, 25470, 1692, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 116, -1, 1007, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_copper", 25471, 1, 25471, 1692, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 115, -1, 1006, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_copper", 25472, 1, 25472, 1692, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 117, -1, 1008, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_cut_copper", 25473, 1, 25473, 1692, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 125, -1, 1011, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_cut_copper", 25474, 1, 25474, 1692, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 124, -1, 1012, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_cut_copper", 25475, 1, 25475, 1692, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 123, -1, 1013, -1, -1, -1, -1, -1, -1 },
+    { "waxed_cut_copper", 25476, 1, 25476, 1692, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 122, -1, 1014, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_cut_copper_stairs", 25477, 80, 25488, 1692, 4, 484, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 129, -1, 1023, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_cut_copper_stairs", 25557, 80, 25568, 1696, 4, 485, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 128, -1, 1024, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_cut_copper_stairs", 25637, 80, 25648, 1700, 4, 486, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 127, -1, 1025, -1, -1, -1, -1, -1, -1 },
+    { "waxed_cut_copper_stairs", 25717, 80, 25728, 1704, 4, 487, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 126, -1, 1026, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_cut_copper_slab", 25797, 6, 25800, 1708, 2, 488, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 133, -1, 1027, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_cut_copper_slab", 25803, 6, 25806, 1710, 2, 488, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 132, -1, 1028, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_cut_copper_slab", 25809, 6, 25812, 1712, 2, 488, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 131, -1, 1029, -1, -1, -1, -1, -1, -1 },
+    { "waxed_cut_copper_slab", 25815, 6, 25818, 1714, 2, 488, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 130, -1, 1030, -1, -1, -1, -1, -1, -1 },
+    { "copper_door", 25821, 64, 25832, 1716, 5, 488, 3, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 792, 1051, -1, -1, -1, -1, -1, -1, -1 },
+    { "exposed_copper_door", 25885, 64, 25896, 1721, 5, 491, 3, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 793, 1052, -1, 1047, -1, -1, -1, -1, -1 },
+    { "oxidized_copper_door", 25949, 64, 25960, 1726, 5, 494, 3, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 795, 1053, -1, 1050, -1, -1, -1, -1, -1 },
+    { "weathered_copper_door", 26013, 64, 26024, 1731, 5, 497, 3, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 794, 1054, -1, 1048, -1, -1, -1, -1, -1 },
+    { "waxed_copper_door", 26077, 64, 26088, 1736, 5, 500, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 796, -1, 1047, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_copper_door", 26141, 64, 26152, 1741, 5, 503, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 797, -1, 1048, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_copper_door", 26205, 64, 26216, 1746, 5, 506, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 799, -1, 1049, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_copper_door", 26269, 64, 26280, 1751, 5, 509, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 798, -1, 1050, -1, -1, -1, -1, -1, -1 },
+    { "copper_trapdoor", 26333, 64, 26348, 1756, 5, 512, 3, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 813, 1059, -1, -1, -1, -1, -1, -1, -1 },
+    { "exposed_copper_trapdoor", 26397, 64, 26412, 1761, 5, 515, 3, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 814, 1060, -1, 1055, -1, -1, -1, -1, -1 },
+    { "oxidized_copper_trapdoor", 26461, 64, 26476, 1766, 5, 518, 3, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 816, 1061, -1, 1058, -1, -1, -1, -1, -1 },
+    { "weathered_copper_trapdoor", 26525, 64, 26540, 1771, 5, 521, 3, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 815, 1062, -1, 1056, -1, -1, -1, -1, -1 },
+    { "waxed_copper_trapdoor", 26589, 64, 26604, 1776, 5, 524, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 817, -1, 1055, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_copper_trapdoor", 26653, 64, 26668, 1781, 5, 527, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 818, -1, 1056, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_copper_trapdoor", 26717, 64, 26732, 1786, 5, 530, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 820, -1, 1057, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_copper_trapdoor", 26781, 64, 26796, 1791, 5, 533, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 819, -1, 1058, -1, -1, -1, -1, -1, -1 },
+    { "copper_grate", 26845, 2, 26846, 1796, 1, 536, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1468, 1067, -1, -1, -1, -1, -1, -1, -1 },
+    { "exposed_copper_grate", 26847, 2, 26848, 1797, 1, 536, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1469, 1068, -1, 1063, -1, -1, -1, -1, -1 },
+    { "weathered_copper_grate", 26849, 2, 26850, 1798, 1, 536, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1470, 1069, -1, 1064, -1, -1, -1, -1, -1 },
+    { "oxidized_copper_grate", 26851, 2, 26852, 1799, 1, 536, 0, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1471, 1070, -1, 1065, -1, -1, -1, -1, -1 },
+    { "waxed_copper_grate", 26853, 2, 26854, 1800, 1, 536, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1472, -1, 1063, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_copper_grate", 26855, 2, 26856, 1801, 1, 536, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1473, -1, 1064, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_copper_grate", 26857, 2, 26858, 1802, 1, 536, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1474, -1, 1065, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_copper_grate", 26859, 2, 26860, 1803, 1, 536, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1475, -1, 1066, -1, -1, -1, -1, -1, -1 },
+    { "copper_bulb", 26861, 4, 26864, 1804, 2, 536, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1476, 1075, -1, -1, -1, -1, -1, -1, -1 },
+    { "exposed_copper_bulb", 26865, 4, 26868, 1806, 2, 536, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1477, 1076, -1, 1071, -1, -1, -1, -1, -1 },
+    { "weathered_copper_bulb", 26869, 4, 26872, 1808, 2, 536, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1478, 1077, -1, 1072, -1, -1, -1, -1, -1 },
+    { "oxidized_copper_bulb", 26873, 4, 26876, 1810, 2, 536, 0, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1479, 1078, -1, 1073, -1, -1, -1, -1, -1 },
+    { "waxed_copper_bulb", 26877, 4, 26880, 1812, 2, 536, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1480, -1, 1071, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_copper_bulb", 26881, 4, 26884, 1814, 2, 536, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1481, -1, 1072, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_copper_bulb", 26885, 4, 26888, 1816, 2, 536, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1482, -1, 1073, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_copper_bulb", 26889, 4, 26892, 1818, 2, 536, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1483, -1, 1074, -1, -1, -1, -1, -1, -1 },
+    { "copper_chest", 26893, 24, 26894, 1820, 3, 536, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1484, 1083, -1, -1, -1, -1, -1, -1, -1 },
+    { "exposed_copper_chest", 26917, 24, 26918, 1823, 3, 536, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1485, 1084, -1, 1079, -1, -1, -1, -1, -1 },
+    { "weathered_copper_chest", 26941, 24, 26942, 1826, 3, 536, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1486, 1085, -1, 1080, -1, -1, -1, -1, -1 },
+    { "oxidized_copper_chest", 26965, 24, 26966, 1829, 3, 536, 0, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1487, 1086, -1, 1081, -1, -1, -1, -1, -1 },
+    { "waxed_copper_chest", 26989, 24, 26990, 1832, 3, 536, 0, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1488, -1, 1079, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_copper_chest", 27013, 24, 27014, 1835, 3, 536, 0, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1489, -1, 1080, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_copper_chest", 27037, 24, 27038, 1838, 3, 536, 0, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1490, -1, 1081, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_copper_chest", 27061, 24, 27062, 1841, 3, 536, 0, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1491, -1, 1082, -1, -1, -1, -1, -1, -1 },
+    { "copper_golem_statue", 27085, 32, 27086, 1844, 3, 536, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1492, 1091, -1, -1, -1, -1, -1, -1, -1 },
+    { "exposed_copper_golem_statue", 27117, 32, 27118, 1847, 3, 536, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1493, 1092, -1, 1087, -1, -1, -1, -1, -1 },
+    { "weathered_copper_golem_statue", 27149, 32, 27150, 1850, 3, 536, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1494, 1093, -1, 1088, -1, -1, -1, -1, -1 },
+    { "oxidized_copper_golem_statue", 27181, 32, 27182, 1853, 3, 536, 0, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1495, 1094, -1, 1089, -1, -1, -1, -1, -1 },
+    { "waxed_copper_golem_statue", 27213, 32, 27214, 1856, 3, 536, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1496, -1, 1087, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_copper_golem_statue", 27245, 32, 27246, 1859, 3, 536, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1497, -1, 1088, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_copper_golem_statue", 27277, 32, 27278, 1862, 3, 536, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1498, -1, 1089, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_copper_golem_statue", 27309, 32, 27310, 1865, 3, 536, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1499, -1, 1090, -1, -1, -1, -1, -1, -1 },
+    { "lightning_rod", 27341, 24, 27360, 1868, 3, 536, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 733, 1099, -1, -1, -1, -1, -1, -1, -1 },
+    { "exposed_lightning_rod", 27365, 24, 27384, 1871, 3, 536, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 734, 1100, -1, 1095, -1, -1, -1, -1, -1 },
+    { "weathered_lightning_rod", 27389, 24, 27408, 1874, 3, 536, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 735, 1101, -1, 1096, -1, -1, -1, -1, -1 },
+    { "oxidized_lightning_rod", 27413, 24, 27432, 1877, 3, 536, 0, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 736, 1102, -1, 1097, -1, -1, -1, -1, -1 },
+    { "waxed_lightning_rod", 27437, 24, 27456, 1880, 3, 536, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 737, -1, 1095, -1, -1, -1, -1, -1, -1 },
+    { "waxed_exposed_lightning_rod", 27461, 24, 27480, 1883, 3, 536, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 738, -1, 1096, -1, -1, -1, -1, -1, -1 },
+    { "waxed_weathered_lightning_rod", 27485, 24, 27504, 1886, 3, 536, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 739, -1, 1097, -1, -1, -1, -1, -1, -1 },
+    { "waxed_oxidized_lightning_rod", 27509, 24, 27528, 1889, 3, 536, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 740, -1, 1098, -1, -1, -1, -1, -1, -1 },
+    { "pointed_dripstone", 27533, 20, 27538, 1892, 3, 536, 0, VCLASS_POINTED_DRIPSTONE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1419, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "dripstone_block", 27553, 1, 27553, 1895, 0, 536, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 26, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cave_vines", 27554, 52, 27555, 1895, 2, 536, 2, VCLASS_CAVE_VINES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1374, -1, -1, -1, -1, -1, 1105, 1106, -1 },
+    { "cave_vines_plant", 27606, 2, 27607, 1897, 1, 538, 2, VCLASS_CAVE_VINES_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, 1105, 1106, -1 },
+    { "spore_blossom", 27608, 1, 27608, 1898, 0, 540, 0, VCLASS_SPORE_BLOSSOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 246, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "azalea", 27609, 1, 27609, 1898, 0, 540, 0, VCLASS_AZALEA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 205, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "flowering_azalea", 27610, 1, 27610, 1898, 0, 540, 0, VCLASS_AZALEA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 206, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "moss_carpet", 27611, 1, 27611, 1898, 0, 540, 0, VCLASS_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 261, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pink_petals", 27612, 16, 27612, 1898, 2, 540, 0, VCLASS_FLOWER_BED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 258, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "wildflowers", 27628, 16, 27628, 1900, 2, 540, 0, VCLASS_FLOWER_BED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 259, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "leaf_litter", 27644, 16, 27644, 1902, 2, 540, 0, VCLASS_LEAF_LITTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 260, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "moss_block", 27660, 1, 27660, 1904, 0, 540, 0, VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 262, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "big_dripleaf", 27661, 32, 27662, 1904, 3, 540, 0, VCLASS_BIG_DRIPLEAF_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 267, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "big_dripleaf_stem", 27693, 8, 27694, 1907, 2, 540, 0, VCLASS_BIG_DRIPLEAF_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 267, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "small_dripleaf", 27701, 16, 27704, 1909, 3, 540, 0, VCLASS_SMALL_DRIPLEAF_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 268, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "hanging_roots", 27717, 2, 27718, 1912, 1, 540, 0, VCLASS_HANGING_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 266, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "rooted_dirt", 27719, 1, 27719, 1913, 0, 540, 0, VCLASS_ROOTED_DIRT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 31, -1, -1, -1, -1, 664, -1, -1, -1 },
+    { "mud", 27720, 1, 27720, 1913, 0, 540, 0, VCLASS_MUD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 32, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "deepslate", 27721, 3, 27722, 1913, 1, 540, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 8, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cobbled_deepslate", 27724, 1, 27724, 1914, 0, 540, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 9, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cobbled_deepslate_stairs", 27725, 80, 27736, 1914, 4, 540, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 695, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cobbled_deepslate_slab", 27805, 6, 27808, 1918, 2, 541, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 712, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cobbled_deepslate_wall", 27811, 324, 27814, 1920, 6, 541, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 474, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_deepslate", 28135, 1, 28135, 1926, 0, 541, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 10, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_deepslate_stairs", 28136, 80, 28147, 1926, 4, 541, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 696, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_deepslate_slab", 28216, 6, 28219, 1930, 2, 542, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 713, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "polished_deepslate_wall", 28222, 324, 28225, 1932, 6, 542, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 475, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "deepslate_tiles", 28546, 1, 28546, 1938, 0, 542, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 383, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "deepslate_tile_stairs", 28547, 80, 28558, 1938, 4, 542, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 698, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "deepslate_tile_slab", 28627, 6, 28630, 1942, 2, 543, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 715, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "deepslate_tile_wall", 28633, 324, 28636, 1944, 6, 543, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 477, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "deepslate_bricks", 28957, 1, 28957, 1950, 0, 543, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 381, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "deepslate_brick_stairs", 28958, 80, 28969, 1950, 4, 543, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 697, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "deepslate_brick_slab", 29038, 6, 29041, 1954, 2, 544, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 714, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "deepslate_brick_wall", 29044, 324, 29047, 1956, 6, 544, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 476, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "chiseled_deepslate", 29368, 1, 29368, 1962, 0, 544, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 385, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cracked_deepslate_bricks", 29369, 1, 29369, 1962, 0, 544, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 382, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "cracked_deepslate_tiles", 29370, 1, 29370, 1962, 0, 544, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 384, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "infested_deepslate", 29371, 3, 29372, 1962, 1, 544, 1, VCLASS_INFESTED_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 374, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "smooth_basalt", 29374, 1, 29374, 1963, 0, 545, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 364, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "raw_iron_block", 29375, 1, 29375, 1963, 0, 545, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 84, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "raw_copper_block", 29376, 1, 29376, 1963, 0, 545, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 85, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "raw_gold_block", 29377, 1, 29377, 1963, 0, 545, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 86, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_azalea_bush", 29378, 1, 29378, 1963, 0, 545, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_flowering_azalea_bush", 29379, 1, 29379, 1963, 0, 546, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "ochre_froglight", 29380, 3, 29381, 1963, 1, 547, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1420, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "verdant_froglight", 29383, 3, 29384, 1964, 1, 547, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1421, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pearlescent_froglight", 29386, 3, 29387, 1965, 1, 547, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1422, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "frogspawn", 29389, 1, 29389, 1966, 0, 547, 0, VCLASS_FROGSPAWN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1423, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "reinforced_deepslate", 29390, 1, 29390, 1966, 0, 547, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 386, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "decorated_pot", 29391, 16, 29400, 1966, 3, 547, 0, VCLASS_DECORATED_POT_BLOCK, BLOCK_ENTITY_TYPE_DECORATED_POT, BLOCK_ENTITY_TYPE_DECORATED_POT, NOTE_BLOCK_INSTRUMENT_HARP, 319, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "crafter", 29407, 48, 29452, 1969, 3, 547, 0, VCLASS_CRAFTER_BLOCK, BLOCK_ENTITY_TYPE_CRAFTER, BLOCK_ENTITY_TYPE_CRAFTER, NOTE_BLOCK_INSTRUMENT_HARP, 1103, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "trial_spawner", 29455, 12, 29461, 1972, 2, 547, 0, VCLASS_TRIAL_SPAWNER_BLOCK, BLOCK_ENTITY_TYPE_TRIAL_SPAWNER, BLOCK_ENTITY_TYPE_TRIAL_SPAWNER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1500, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "vault", 29467, 32, 29471, 1974, 3, 547, 0, VCLASS_VAULT_BLOCK, BLOCK_ENTITY_TYPE_VAULT, BLOCK_ENTITY_TYPE_VAULT, NOTE_BLOCK_INSTRUMENT_BASEDRUM, 1503, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "heavy_core", 29499, 2, 29500, 1977, 1, 547, 0, VCLASS_HEAVY_CORE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, 87, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_moss_block", 29501, 1, 29501, 1978, 0, 547, 0, VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 265, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_moss_carpet", 29502, 162, 29502, 1978, 5, 547, 0, VCLASS_MOSSY_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 263, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "pale_hanging_moss", 29664, 2, 29664, 1983, 1, 547, 0, VCLASS_HANGING_MOSS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 264, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "open_eyeblossom", 29666, 1, 29666, 1984, 0, 547, 0, VCLASS_EYEBLOSSOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 230, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "closed_eyeblossom", 29667, 1, 29667, 1984, 0, 547, 0, VCLASS_EYEBLOSSOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 231, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_open_eyeblossom", 29668, 1, 29668, 1984, 0, 547, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "potted_closed_eyeblossom", 29669, 1, 29669, 1984, 0, 548, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 0, -1, -1, -1, -1, -1, -1, -1, -1 },
+    { "firefly_bush", 29670, 1, 29670, 1984, 0, 549, 0, VCLASS_FIREFLY_BUSH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 208, -1, -1, -1, -1, -1, -1, -1, -1 },
 };
 
 // state_flag bits per state
@@ -9464,5 +9593,3172 @@ const uint16_t state_support_shapes[] = {
     0,  // firefly_bush
 };
 
+const ingredient_def ingredient_defs[] = {
+    { 0, 1 },
+    { 1, 1 },
+    { 2, 1 },
+    { 3, 1 },
+    { 4, 1 },
+    { 5, 1 },
+    { 6, 4 },
+    { 10, 1 },
+    { 11, 1 },
+    { 12, 1 },
+    { 13, 1 },
+    { 14, 1 },
+    { 15, 1 },
+    { 16, 1 },
+    { 17, 1 },
+    { 18, 1 },
+    { 19, 1 },
+    { 20, 1 },
+    { 21, 1 },
+    { 22, 1 },
+    { 23, 1 },
+    { 24, 1 },
+    { 25, 1 },
+    { 26, 1 },
+    { 27, 2 },
+    { 29, 12 },
+    { 41, 12 },
+    { 53, 1 },
+    { 54, 1 },
+    { 55, 1 },
+    { 56, 1 },
+    { 57, 1 },
+    { 58, 1 },
+    { 59, 1 },
+    { 60, 1 },
+    { 61, 1 },
+    { 62, 4 },
+    { 66, 1 },
+    { 67, 1 },
+    { 68, 17 },
+    { 85, 1 },
+    { 86, 1 },
+    { 87, 1 },
+    { 88, 1 },
+    { 89, 1 },
+    { 90, 1 },
+    { 91, 1 },
+    { 92, 17 },
+    { 109, 1 },
+    { 110, 1 },
+    { 111, 1 },
+    { 112, 1 },
+    { 113, 1 },
+    { 114, 1 },
+    { 115, 1 },
+    { 116, 1 },
+    { 117, 1 },
+    { 118, 1 },
+    { 119, 1 },
+    { 120, 1 },
+    { 121, 1 },
+    { 122, 1 },
+    { 123, 1 },
+    { 124, 2 },
+    { 126, 1 },
+    { 127, 1 },
+    { 128, 1 },
+    { 129, 1 },
+    { 130, 1 },
+    { 131, 1 },
+    { 132, 1 },
+    { 133, 1 },
+    { 134, 3 },
+    { 137, 1 },
+    { 138, 1 },
+    { 139, 1 },
+    { 140, 1 },
+    { 141, 1 },
+    { 142, 1 },
+    { 143, 1 },
+    { 144, 1 },
+    { 145, 1 },
+    { 146, 3 },
+    { 149, 1 },
+    { 150, 2 },
+    { 152, 44 },
+    { 196, 1 },
+    { 197, 1 },
+    { 198, 1 },
+    { 199, 1 },
+    { 200, 1 },
+    { 201, 4 },
+    { 205, 1 },
+    { 206, 1 },
+    { 207, 1 },
+    { 208, 1 },
+    { 209, 1 },
+    { 210, 1 },
+    { 211, 1 },
+    { 212, 1 },
+    { 213, 1 },
+    { 214, 1 },
+    { 215, 1 },
+    { 216, 1 },
+    { 217, 1 },
+    { 218, 1 },
+    { 219, 1 },
+    { 220, 1 },
+    { 221, 1 },
+    { 222, 1 },
+    { 223, 1 },
+    { 224, 1 },
+    { 225, 1 },
+    { 226, 1 },
+    { 227, 1 },
+    { 228, 1 },
+    { 229, 1 },
+    { 230, 1 },
+    { 231, 1 },
+    { 232, 1 },
+    { 233, 1 },
+    { 234, 1 },
+    { 235, 1 },
+    { 236, 1 },
+    { 237, 1 },
+    { 238, 1 },
+    { 239, 1 },
+    { 240, 1 },
+    { 241, 1 },
+    { 242, 4 },
+    { 246, 1 },
+    { 247, 1 },
+    { 248, 1 },
+    { 249, 1 },
+    { 250, 1 },
+    { 251, 1 },
+    { 252, 1 },
+    { 253, 1 },
+    { 254, 1 },
+    { 255, 1 },
+    { 256, 1 },
+    { 257, 1 },
+    { 258, 1 },
+    { 259, 1 },
+    { 260, 4 },
+    { 264, 1 },
+    { 265, 1 },
+    { 266, 1 },
+    { 267, 1 },
+    { 268, 1 },
+    { 269, 1 },
+    { 270, 1 },
+    { 271, 1 },
+    { 272, 1 },
+    { 273, 1 },
+    { 274, 1 },
+    { 275, 1 },
+    { 276, 1 },
+    { 277, 1 },
+    { 278, 1 },
+    { 279, 15 },
+    { 294, 15 },
+    { 309, 15 },
+    { 324, 15 },
+    { 339, 15 },
+    { 354, 15 },
+    { 369, 15 },
+    { 384, 15 },
+    { 399, 15 },
+    { 414, 15 },
+    { 429, 15 },
+    { 444, 15 },
+    { 459, 15 },
+    { 474, 15 },
+    { 489, 15 },
+    { 504, 15 },
+    { 519, 1 },
+    { 520, 15 },
+    { 535, 15 },
+    { 550, 15 },
+    { 565, 15 },
+    { 580, 15 },
+    { 595, 15 },
+    { 610, 15 },
+    { 625, 15 },
+    { 640, 1 },
+    { 641, 15 },
+    { 656, 15 },
+    { 671, 15 },
+    { 686, 15 },
+    { 701, 1 },
+    { 702, 15 },
+    { 717, 15 },
+    { 732, 15 },
+    { 747, 15 },
+    { 762, 1 },
+    { 763, 15 },
+    { 778, 15 },
+    { 793, 15 },
+    { 808, 15 },
+    { 823, 1 },
+    { 824, 15 },
+    { 839, 15 },
+    { 854, 15 },
+    { 869, 15 },
+    { 884, 1 },
+    { 885, 15 },
+    { 900, 15 },
+    { 915, 15 },
+    { 930, 15 },
+    { 945, 1 },
+    { 946, 15 },
+    { 961, 15 },
+    { 976, 15 },
+    { 991, 15 },
+    { 1006, 1 },
+    { 1007, 15 },
+    { 1022, 15 },
+    { 1037, 15 },
+    { 1052, 15 },
+    { 1067, 1 },
+    { 1068, 15 },
+    { 1083, 15 },
+    { 1098, 15 },
+    { 1113, 15 },
+    { 1128, 1 },
+    { 1129, 15 },
+    { 1144, 15 },
+    { 1159, 15 },
+    { 1174, 15 },
+    { 1189, 1 },
+    { 1190, 15 },
+    { 1205, 15 },
+    { 1220, 15 },
+    { 1235, 15 },
+    { 1250, 1 },
+    { 1251, 1 },
+    { 1252, 1 },
+    { 1253, 1 },
+    { 1254, 1 },
+    { 1255, 1 },
+    { 1256, 1 },
+    { 1257, 1 },
+    { 1258, 1 },
+    { 1259, 1 },
+    { 1260, 1 },
+    { 1261, 1 },
+    { 1262, 1 },
+    { 1263, 1 },
+    { 1264, 1 },
+    { 1265, 1 },
+    { 1266, 1 },
+    { 1267, 1 },
+    { 1268, 1 },
+    { 1269, 1 },
+    { 1270, 1 },
+    { 1271, 1 },
+    { 1272, 1 },
+    { 1273, 1 },
+    { 1274, 1 },
+    { 1275, 1 },
+    { 1276, 1 },
+    { 1277, 1 },
+    { 1278, 1 },
+    { 1279, 1 },
+    { 1280, 1 },
+    { 1281, 1 },
+    { 1282, 1 },
+    { 1283, 1 },
+    { 1284, 1 },
+    { 1285, 1 },
+    { 1286, 1 },
+    { 1287, 1 },
+    { 1288, 1 },
+    { 1289, 1 },
+    { 1290, 1 },
+    { 1291, 1 },
+    { 1292, 1 },
+    { 1293, 4 },
+    { 1297, 1 },
+    { 1298, 1 },
+    { 1299, 1 },
+    { 1300, 1 },
+    { 1301, 1 },
+    { 1302, 1 },
+    { 1303, 1 },
+    { 1304, 1 },
+    { 1305, 1 },
+    { 1306, 1 },
+    { 1307, 1 },
+    { 1308, 1 },
+    { 1309, 1 },
+    { 1310, 1 },
+    { 1311, 1 },
+    { 1312, 1 },
+    { 1313, 1 },
+    { 1314, 1 },
+    { 1315, 1 },
+    { 1316, 1 },
+    { 1317, 1 },
+    { 1318, 1 },
+    { 1319, 1 },
+    { 1320, 1 },
+    { 1321, 4 },
+    { 1325, 1 },
+    { 1326, 1 },
+    { 1327, 1 },
+    { 1328, 1 },
+    { 1329, 1 },
+    { 1330, 1 },
+    { 1331, 1 },
+    { 1332, 1 },
+    { 1333, 1 },
+    { 1334, 1 },
+    { 1335, 1 },
+    { 1336, 1 },
+    { 1337, 1 },
+    { 1338, 1 },
+    { 1339, 1 },
+    { 1340, 1 },
+    { 1341, 1 },
+    { 1342, 1 },
+    { 1343, 1 },
+    { 1344, 1 },
+    { 1345, 1 },
+    { 1346, 1 },
+    { 1347, 1 },
+    { 1348, 1 },
+    { 1349, 1 },
+    { 1350, 4 },
+    { 1354, 1 },
+    { 1355, 1 },
+    { 1356, 1 },
+    { 1357, 1 },
+    { 1358, 1 },
+    { 1359, 1 },
+    { 1360, 1 },
+    { 1361, 1 },
+    { 1362, 1 },
+    { 1363, 1 },
+    { 1364, 16 },
+    { 1380, 1 },
+    { 1381, 1 },
+    { 1382, 1 },
+    { 1383, 1 },
+    { 1384, 4 },
+    { 1388, 1 },
+    { 1389, 1 },
+    { 1390, 1 },
+    { 1391, 1 },
+    { 1392, 1 },
+    { 1393, 1 },
+    { 1394, 1 },
+    { 1395, 1 },
+    { 1396, 1 },
+    { 1397, 1 },
+    { 1398, 1 },
+    { 1399, 1 },
+    { 1400, 1 },
+    { 1401, 1 },
+    { 1402, 1 },
+    { 1403, 1 },
+    { 1404, 1 },
+    { 1405, 1 },
+    { 1406, 1 },
+    { 1407, 1 },
+    { 1408, 1 },
+    { 1409, 2 },
+    { 1411, 1 },
+    { 1412, 3 },
+    { 1415, 1 },
+    { 1416, 1 },
+    { 1417, 1 },
+    { 1418, 1 },
+    { 1419, 1 },
+    { 1420, 1 },
+    { 1421, 1 },
+    { 1422, 1 },
+    { 1423, 1 },
+    { 1424, 1 },
+    { 1425, 1 },
+    { 1426, 1 },
+    { 1427, 1 },
+    { 1428, 1 },
+    { 1429, 1 },
+    { 1430, 1 },
+    { 1431, 2 },
+    { 1433, 3 },
+    { 1436, 1 },
+    { 1437, 1 },
+    { 1438, 1 },
+    { 1439, 1 },
+    { 1440, 1 },
+    { 1441, 1 },
+    { 1442, 1 },
+    { 1443, 1 },
+    { 1444, 2 },
+    { 1446, 3 },
+    { 1449, 1 },
+    { 1450, 1 },
+    { 1451, 1 },
+    { 1452, 1 },
+    { 1453, 1 },
+    { 1454, 1 },
+    { 1455, 1 },
+    { 1456, 1 },
+    { 1457, 1 },
+    { 1458, 1 },
+    { 1459, 1 },
+    { 1460, 1 },
+    { 1461, 1 },
+    { 1462, 2 },
+    { 1464, 1 },
+    { 1465, 1 },
+    { 1466, 1 },
+    { 1467, 1 },
+    { 1468, 1 },
+    { 1469, 1 },
+    { 1470, 1 },
+    { 1471, 4 },
+    { 1475, 1 },
+    { 1476, 1 },
+    { 1477, 1 },
+    { 1478, 1 },
+    { 1479, 1 },
+    { 1480, 1 },
+    { 1481, 1 },
+    { 1482, 2 },
+    { 1484, 1 },
+    { 1485, 1 },
+    { 1486, 1 },
+    { 1487, 1 },
+    { 1488, 1 },
+    { 1489, 1 },
+    { 1490, 1 },
+    { 1491, 1 },
+    { 1492, 4 },
+    { 1496, 1 },
+    { 1497, 1 },
+    { 1498, 1 },
+    { 1499, 1 },
+    { 1500, 1 },
+    { 1501, 1 },
+    { 1502, 1 },
+    { 1503, 1 },
+    { 1504, 1 },
+    { 1505, 1 },
+    { 1506, 1 },
+    { 1507, 1 },
+    { 1508, 1 },
+    { 1509, 1 },
+    { 1510, 1 },
+    { 1511, 1 },
+    { 1512, 1 },
+    { 1513, 1 },
+    { 1514, 1 },
+    { 1515, 1 },
+    { 1516, 1 },
+    { 1517, 1 },
+    { 1518, 1 },
+    { 1519, 1 },
+    { 1520, 1 },
+    { 1521, 1 },
+    { 1522, 1 },
+    { 1523, 1 },
+    { 1524, 1 },
+    { 1525, 1 },
+    { 1526, 1 },
+    { 1527, 1 },
+    { 1528, 1 },
+    { 1529, 1 },
+    { 1530, 1 },
+    { 1531, 1 },
+    { 1532, 1 },
+    { 1533, 1 },
+    { 1534, 1 },
+    { 1535, 1 },
+    { 1536, 1 },
+    { 1537, 1 },
+    { 1538, 1 },
+    { 1539, 1 },
+    { 1540, 1 },
+    { 1541, 1 },
+    { 1542, 1 },
+    { 1543, 1 },
+    { 1544, 1 },
+    { 1545, 1 },
+    { 1546, 1 },
+    { 1547, 1 },
+    { 1548, 1 },
+    { 1549, 1 },
+    { 1550, 1 },
+    { 1551, 1 },
+    { 1552, 1 },
+    { 1553, 1 },
+    { 1554, 1 },
+    { 1555, 1 },
+    { 1556, 1 },
+    { 1557, 1 },
+    { 1558, 1 },
+    { 1559, 1 },
+    { 1560, 1 },
+    { 1561, 1 },
+    { 1562, 1 },
+    { 1563, 1 },
+    { 1564, 1 },
+    { 1565, 1 },
+    { 1566, 1 },
+    { 1567, 1 },
+    { 1568, 10 },
+};
+
+const int16_t ingredient_items[] = {
+    40,  // 0
+    331,  // 1
+    871,  // 2
+    946,  // 3
+    399,  // 4
+    152,  // 5
+    138, 175, 152, 163,  // 6
+    138,  // 7
+    904,  // 8
+    718,  // 9
+    902,  // 10
+    4,  // 11
+    35,  // 12
+    6,  // 13
+    90,  // 14
+    284,  // 15
+    982,  // 16
+    949,  // 17
+    269,  // 18
+    45,  // 19
+    881,  // 20
+    170,  // 21
+    279,  // 22
+    48,  // 23
+    147, 170,  // 24
+    40, 45, 38, 41, 46, 42, 39, 44, 36, 43, 37, 47,  // 25
+    274, 279, 272, 275, 281, 276, 273, 278, 270, 277, 271, 282,  // 26
+    195,  // 27
+    1240,  // 28
+    321,  // 29
+    1378,  // 30
+    892,  // 31
+    1287,  // 32
+    38,  // 33
+    867,  // 34
+    150,  // 35
+    136, 173, 150, 161,  // 36
+    136,  // 37
+    228,  // 38
+    1052, 1048, 1049, 1036, 1046, 1044, 1050, 1040, 1045, 1042, 1039, 1038, 1043, 1047, 1051, 1037, 1041,  // 39
+    1081,  // 40
+    1398,  // 41
+    59,  // 42
+    63,  // 43
+    1063,  // 44
+    243,  // 45
+    1017,  // 46
+    597, 593, 594, 591, 589, 595, 585, 590, 587, 584, 583, 588, 592, 596, 581, 582, 586,  // 47
+    545,  // 48
+    408,  // 49
+    521,  // 50
+    1385,  // 51
+    334,  // 52
+    303,  // 53
+    1116,  // 54
+    224,  // 55
+    1077,  // 56
+    900,  // 57
+    241,  // 58
+    522,  // 59
+    541,  // 60
+    898,  // 61
+    1444,  // 62
+    91, 114,  // 63
+    1082,  // 64
+    1083,  // 65
+    579,  // 66
+    1028,  // 67
+    1029,  // 68
+    410,  // 69
+    948,  // 70
+    952,  // 71
+    1385, 9, 35,  // 72
+    304,  // 73
+    1025,  // 74
+    225,  // 75
+    1078,  // 76
+    1065,  // 77
+    542,  // 78
+    906,  // 79
+    1018,  // 80
+    1084,  // 81
+    1032, 1033, 1031,  // 82
+    742,  // 83
+    897, 896,  // 84
+    138, 175, 136, 173, 139, 176, 180, 145, 141, 178, 137, 174, 142, 179, 134, 171, 140, 177, 135, 172, 152, 163, 150, 161, 153, 164, 168, 157, 154, 165, 151, 162, 156, 167, 148, 159, 155, 166, 149, 160, 169, 158, 181, 146,  // 85
+    1053,  // 86
+    1227,  // 87
+    41,  // 88
+    873,  // 89
+    153,  // 90
+    139, 176, 153, 164,  // 91
+    139,  // 92
+    854,  // 93
+    110,  // 94
+    712,  // 95
+    292,  // 96
+    1390,  // 97
+    293,  // 98
+    294,  // 99
+    416,  // 100
+    285,  // 101
+    290,  // 102
+    13,  // 103
+    22,  // 104
+    1026,  // 105
+    908,  // 106
+    717,  // 107
+    83,  // 108
+    896,  // 109
+    28,  // 110
+    1429,  // 111
+    9,  // 112
+    901,  // 113
+    1,  // 114
+    1332,  // 115
+    1338,  // 116
+    91,  // 117
+    1306,  // 118
+    114,  // 119
+    366,  // 120
+    332,  // 121
+    729,  // 122
+    140,  // 123
+    413,  // 124
+    1237,  // 125
+    46,  // 126
+    157,  // 127
+    145,  // 128
+    180, 145, 168, 157,  // 129
+    744,  // 130
+    102,  // 131
+    569,  // 132
+    571,  // 133
+    198,  // 134
+    200,  // 135
+    222,  // 136
+    1075,  // 137
+    1079,  // 138
+    245,  // 139
+    539,  // 140
+    42,  // 141
+    875,  // 142
+    154,  // 143
+    141, 178, 154, 165,  // 144
+    141,  // 145
+    1247,  // 146
+    564,  // 147
+    381,  // 148
+    10,  // 149
+    383,  // 150
+    763,  // 151
+    93,  // 152
+    894,  // 153
+    1117,  // 154
+    360,  // 155
+    1027,  // 156
+    1107,  // 157
+    1419,  // 158
+    1428,  // 159
+    1097, 1098, 1095, 1093, 1099, 1089, 1094, 1091, 1088, 1087, 1092, 1096, 1100, 1086, 1090,  // 160
+    516, 517, 514, 512, 518, 508, 513, 510, 507, 506, 511, 515, 519, 505, 509,  // 161
+    849, 850, 847, 845, 851, 841, 846, 843, 840, 839, 844, 848, 852, 838, 842,  // 162
+    224, 225, 222, 220, 226, 216, 221, 218, 215, 214, 219, 223, 227, 213, 217,  // 163
+    1101, 1098, 1095, 1093, 1099, 1089, 1094, 1091, 1088, 1087, 1092, 1096, 1100, 1086, 1090,  // 164
+    520, 517, 514, 512, 518, 508, 513, 510, 507, 506, 511, 515, 519, 505, 509,  // 165
+    853, 850, 847, 845, 851, 841, 846, 843, 840, 839, 844, 848, 852, 838, 842,  // 166
+    228, 225, 222, 220, 226, 216, 221, 218, 215, 214, 219, 223, 227, 213, 217,  // 167
+    1101, 1097, 1095, 1093, 1099, 1089, 1094, 1091, 1088, 1087, 1092, 1096, 1100, 1086, 1090,  // 168
+    520, 516, 514, 512, 518, 508, 513, 510, 507, 506, 511, 515, 519, 505, 509,  // 169
+    853, 849, 847, 845, 851, 841, 846, 843, 840, 839, 844, 848, 852, 838, 842,  // 170
+    228, 224, 222, 220, 226, 216, 221, 218, 215, 214, 219, 223, 227, 213, 217,  // 171
+    1101, 1097, 1098, 1093, 1099, 1089, 1094, 1091, 1088, 1087, 1092, 1096, 1100, 1086, 1090,  // 172
+    520, 516, 517, 512, 518, 508, 513, 510, 507, 506, 511, 515, 519, 505, 509,  // 173
+    853, 849, 850, 845, 851, 841, 846, 843, 840, 839, 844, 848, 852, 838, 842,  // 174
+    228, 224, 225, 220, 226, 216, 221, 218, 215, 214, 219, 223, 227, 213, 217,  // 175
+    1073,  // 176
+    1101, 1097, 1098, 1095, 1099, 1089, 1094, 1091, 1088, 1087, 1092, 1096, 1100, 1086, 1090,  // 177
+    520, 516, 517, 514, 518, 508, 513, 510, 507, 506, 511, 515, 519, 505, 509,  // 178
+    853, 849, 850, 847, 851, 841, 846, 843, 840, 839, 844, 848, 852, 838, 842,  // 179
+    228, 224, 225, 222, 226, 216, 221, 218, 215, 214, 219, 223, 227, 213, 217,  // 180
+    1101, 1097, 1098, 1095, 1093, 1089, 1094, 1091, 1088, 1087, 1092, 1096, 1100, 1086, 1090,  // 181
+    520, 516, 517, 514, 512, 508, 513, 510, 507, 506, 511, 515, 519, 505, 509,  // 182
+    853, 849, 850, 847, 845, 841, 846, 843, 840, 839, 844, 848, 852, 838, 842,  // 183
+    228, 224, 225, 222, 220, 216, 221, 218, 215, 214, 219, 223, 227, 213, 217,  // 184
+    1069,  // 185
+    1101, 1097, 1098, 1095, 1093, 1099, 1094, 1091, 1088, 1087, 1092, 1096, 1100, 1086, 1090,  // 186
+    520, 516, 517, 514, 512, 518, 513, 510, 507, 506, 511, 515, 519, 505, 509,  // 187
+    853, 849, 850, 847, 845, 851, 846, 843, 840, 839, 844, 848, 852, 838, 842,  // 188
+    228, 224, 225, 222, 220, 226, 221, 218, 215, 214, 219, 223, 227, 213, 217,  // 189
+    1074,  // 190
+    1101, 1097, 1098, 1095, 1093, 1099, 1089, 1091, 1088, 1087, 1092, 1096, 1100, 1086, 1090,  // 191
+    520, 516, 517, 514, 512, 518, 508, 510, 507, 506, 511, 515, 519, 505, 509,  // 192
+    853, 849, 850, 847, 845, 851, 841, 843, 840, 839, 844, 848, 852, 838, 842,  // 193
+    228, 224, 225, 222, 220, 226, 216, 218, 215, 214, 219, 223, 227, 213, 217,  // 194
+    1071,  // 195
+    1101, 1097, 1098, 1095, 1093, 1099, 1089, 1094, 1088, 1087, 1092, 1096, 1100, 1086, 1090,  // 196
+    520, 516, 517, 514, 512, 518, 508, 513, 507, 506, 511, 515, 519, 505, 509,  // 197
+    853, 849, 850, 847, 845, 851, 841, 846, 840, 839, 844, 848, 852, 838, 842,  // 198
+    228, 224, 225, 222, 220, 226, 216, 221, 215, 214, 219, 223, 227, 213, 217,  // 199
+    1068,  // 200
+    1101, 1097, 1098, 1095, 1093, 1099, 1089, 1094, 1091, 1087, 1092, 1096, 1100, 1086, 1090,  // 201
+    520, 516, 517, 514, 512, 518, 508, 513, 510, 506, 511, 515, 519, 505, 509,  // 202
+    853, 849, 850, 847, 845, 851, 841, 846, 843, 839, 844, 848, 852, 838, 842,  // 203
+    228, 224, 225, 222, 220, 226, 216, 221, 218, 214, 219, 223, 227, 213, 217,  // 204
+    1067,  // 205
+    1101, 1097, 1098, 1095, 1093, 1099, 1089, 1094, 1091, 1088, 1092, 1096, 1100, 1086, 1090,  // 206
+    520, 516, 517, 514, 512, 518, 508, 513, 510, 507, 511, 515, 519, 505, 509,  // 207
+    853, 849, 850, 847, 845, 851, 841, 846, 843, 840, 844, 848, 852, 838, 842,  // 208
+    228, 224, 225, 222, 220, 226, 216, 221, 218, 215, 219, 223, 227, 213, 217,  // 209
+    1072,  // 210
+    1101, 1097, 1098, 1095, 1093, 1099, 1089, 1094, 1091, 1088, 1087, 1096, 1100, 1086, 1090,  // 211
+    520, 516, 517, 514, 512, 518, 508, 513, 510, 507, 506, 515, 519, 505, 509,  // 212
+    853, 849, 850, 847, 845, 851, 841, 846, 843, 840, 839, 848, 852, 838, 842,  // 213
+    228, 224, 225, 222, 220, 226, 216, 221, 218, 215, 214, 223, 227, 213, 217,  // 214
+    1076,  // 215
+    1101, 1097, 1098, 1095, 1093, 1099, 1089, 1094, 1091, 1088, 1087, 1092, 1100, 1086, 1090,  // 216
+    520, 516, 517, 514, 512, 518, 508, 513, 510, 507, 506, 511, 519, 505, 509,  // 217
+    853, 849, 850, 847, 845, 851, 841, 846, 843, 840, 839, 844, 852, 838, 842,  // 218
+    228, 224, 225, 222, 220, 226, 216, 221, 218, 215, 214, 219, 227, 213, 217,  // 219
+    1080,  // 220
+    1101, 1097, 1098, 1095, 1093, 1099, 1089, 1094, 1091, 1088, 1087, 1092, 1096, 1086, 1090,  // 221
+    520, 516, 517, 514, 512, 518, 508, 513, 510, 507, 506, 511, 515, 505, 509,  // 222
+    853, 849, 850, 847, 845, 851, 841, 846, 843, 840, 839, 844, 848, 838, 842,  // 223
+    228, 224, 225, 222, 220, 226, 216, 221, 218, 215, 214, 219, 223, 213, 217,  // 224
+    1066,  // 225
+    1101, 1097, 1098, 1095, 1093, 1099, 1089, 1094, 1091, 1088, 1087, 1092, 1096, 1100, 1090,  // 226
+    520, 516, 517, 514, 512, 518, 508, 513, 510, 507, 506, 511, 515, 519, 509,  // 227
+    853, 849, 850, 847, 845, 851, 841, 846, 843, 840, 839, 844, 848, 852, 842,  // 228
+    228, 224, 225, 222, 220, 226, 216, 221, 218, 215, 214, 219, 223, 227, 217,  // 229
+    1070,  // 230
+    1101, 1097, 1098, 1095, 1093, 1099, 1089, 1094, 1091, 1088, 1087, 1092, 1096, 1100, 1086,  // 231
+    520, 516, 517, 514, 512, 518, 508, 513, 510, 507, 506, 511, 515, 519, 505,  // 232
+    853, 849, 850, 847, 845, 851, 841, 846, 843, 840, 839, 844, 848, 852, 838,  // 233
+    228, 224, 225, 222, 220, 226, 216, 221, 218, 215, 214, 219, 223, 227, 213,  // 234
+    440,  // 235
+    899,  // 236
+    1128,  // 237
+    1284,  // 238
+    436,  // 239
+    435,  // 240
+    1115,  // 241
+    1124,  // 242
+    111,  // 243
+    95,  // 244
+    103,  // 245
+    1432,  // 246
+    1122,  // 247
+    247,  // 248
+    950,  // 249
+    1443,  // 250
+    1222,  // 251
+    240,  // 252
+    1118,  // 253
+    1106,  // 254
+    1224,  // 255
+    1064,  // 256
+    1056,  // 257
+    92,  // 258
+    893,  // 259
+    2,  // 260
+    220,  // 261
+    231,  // 262
+    537,  // 263
+    226,  // 264
+    543,  // 265
+    283,  // 266
+    1381,  // 267
+    725,  // 268
+    1120,  // 269
+    727,  // 270
+    1442,  // 271
+    1305,  // 272
+    357,  // 273
+    322,  // 274
+    39,  // 275
+    869,  // 276
+    151,  // 277
+    137, 174, 151, 162,  // 278
+    137,  // 279
+    197,  // 280
+    1253,  // 281
+    317,  // 282
+    216,  // 283
+    233,  // 284
+    533,  // 285
+    221,  // 286
+    235,  // 287
+    238,  // 288
+    538,  // 289
+    218,  // 290
+    535,  // 291
+    378,  // 292
+    87,  // 293
+    215,  // 294
+    234,  // 295
+    525,  // 296
+    532,  // 297
+    1125,  // 298
+    1030,  // 299
+    44,  // 300
+    879,  // 301
+    156,  // 302
+    142, 179, 156, 167,  // 303
+    142,  // 304
+    1034,  // 305
+    1104,  // 306
+    987,  // 307
+    262,  // 308
+    320,  // 309
+    376,  // 310
+    375,  // 311
+    380,  // 312
+    379,  // 313
+    32,  // 314
+    143,  // 315
+    248,  // 316
+    1330,  // 317
+    424,  // 318
+    1245,  // 319
+    1119,  // 320
+    909,  // 321
+    910,  // 322
+    94,  // 323
+    1426,  // 324
+    359,  // 325
+    36,  // 326
+    863,  // 327
+    148,  // 328
+    134, 171, 148, 159,  // 329
+    134,  // 330
+    214,  // 331
+    230,  // 332
+    237,  // 333
+    244,  // 334
+    531,  // 335
+    113,  // 336
+    97,  // 337
+    105,  // 338
+    338,  // 339
+    228, 224, 225, 222, 220, 226, 216, 221, 218, 215, 214, 219, 223, 227, 213, 217,  // 340
+    265,  // 341
+    43,  // 342
+    877,  // 343
+    155,  // 344
+    140, 177, 155, 166,  // 345
+    256,  // 346
+    219,  // 347
+    341,  // 348
+    527,  // 349
+    258,  // 350
+    239,  // 351
+    536,  // 352
+    7,  // 353
+    362,  // 354
+    1393,  // 355
+    1389,  // 356
+    5,  // 357
+    3,  // 358
+    12,  // 359
+    17,  // 360
+    563,  // 361
+    562,  // 362
+    356,  // 363
+    223,  // 364
+    540,  // 365
+    296,  // 366
+    326, 327,  // 367
+    482,  // 368
+    481, 482, 484,  // 369
+    1229,  // 370
+    1250,  // 371
+    1441,  // 372
+    85,  // 373
+    905,  // 374
+    86,  // 375
+    907,  // 376
+    84,  // 377
+    903,  // 378
+    1424,  // 379
+    227,  // 380
+    232,  // 381
+    526,  // 382
+    236,  // 383
+    578,  // 384
+    62,  // 385
+    570, 569,  // 386
+    570, 571, 569,  // 387
+    544,  // 388
+    719,  // 389
+    367,  // 390
+    412,  // 391
+    414,  // 392
+    1246,  // 393
+    1384,  // 394
+    1436,  // 395
+    199, 198,  // 396
+    199, 200, 198,  // 397
+    1248,  // 398
+    1427,  // 399
+    1439,  // 400
+    1304,  // 401
+    1440,  // 402
+    1234,  // 403
+    724,  // 404
+    300,  // 405
+    301,  // 406
+    302,  // 407
+    1435,  // 408
+    339,  // 409
+    1016,  // 410
+    360, 361,  // 411
+    365,  // 412
+    895,  // 413
+    1437,  // 414
+    326,  // 415
+    37,  // 416
+    865,  // 417
+    149,  // 418
+    135, 172, 149, 160,  // 419
+    135,  // 420
+    722,  // 421
+    158,  // 422
+    229,  // 423
+    242,  // 424
+    504,  // 425
+    1434,  // 426
+    62, 59,  // 427
+    746,  // 428
+    21,  // 429
+    888,  // 430
+    1433,  // 431
+    1431,  // 432
+    47,  // 433
+    250,  // 434
+    146,  // 435
+    169, 158, 181, 146,  // 436
+    130,  // 437
+    98,  // 438
+    391,  // 439
+    1476,  // 440
+    400,  // 441
+    1484,  // 442
+    792,  // 443
+    1492,  // 444
+    1468,  // 445
+    1365,  // 446
+    813,  // 447
+    122,  // 448
+    106,  // 449
+    131,  // 450
+    99,  // 451
+    392,  // 452
+    115,  // 453
+    1477,  // 454
+    401,  // 455
+    1485,  // 456
+    793,  // 457
+    1493,  // 458
+    1469,  // 459
+    1366,  // 460
+    814,  // 461
+    123,  // 462
+    107,  // 463
+    734,  // 464
+    733,  // 465
+    133,  // 466
+    101,  // 467
+    394,  // 468
+    117,  // 469
+    1479,  // 470
+    403,  // 471
+    1487,  // 472
+    795,  // 473
+    1495,  // 474
+    1471,  // 475
+    1368,  // 476
+    816,  // 477
+    125,  // 478
+    109,  // 479
+    736,  // 480
+    132,  // 481
+    100,  // 482
+    393,  // 483
+    116,  // 484
+    1478,  // 485
+    402,  // 486
+    1486,  // 487
+    794,  // 488
+    96,  // 489
+    1494,  // 490
+    1470,  // 491
+    1367,  // 492
+    815,  // 493
+    104,  // 494
+    124,  // 495
+    112,  // 496
+    108,  // 497
+    735,  // 498
+    1438,  // 499
+    213,  // 500
+    530,  // 501
+    1430,  // 502
+    889,  // 503
+    217,  // 504
+    524,  // 505
+    259,  // 506
+    534,  // 507
+    1243,  // 508
+    1237, 1238, 949, 1218, 1118, 1239, 1235, 1233, 1234, 1236,  // 509
+};
+
+const char * const recipe_class_names[] = { "ArmorDyeRecipe", "BannerDuplicateRecipe", "BookCloningRecipe", "DecoratedPotRecipe", "FireworkRocketRecipe", "FireworkStarFadeRecipe", "FireworkStarRecipe", "MapCloningRecipe", "MapExtendingRecipe", "RepairItemRecipe", "ShapedRecipe", "ShapelessRecipe", "ShieldDecorationRecipe", "TippedArrowRecipe", "TransmuteRecipe" };
+
+const recipe_def recipe_defs[] = {
+    { "acacia_boat", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 871, 1, false, 3, 2, 0, 6 },
+    { "acacia_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 755, 1, false, 0, 0, 6, 1 },
+    { "acacia_chest_boat", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 872, 1, false, 0, 0, 7, 2 },
+    { "acacia_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 784, 3, false, 2, 3, 9, 6 },
+    { "acacia_fence", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 348, 3, false, 3, 2, 15, 6 },
+    { "acacia_fence_gate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 825, 1, false, 3, 2, 21, 6 },
+    { "acacia_hanging_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1004, 6, false, 3, 3, 27, 9 },
+    { "acacia_planks", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 40, 4, false, 0, 0, 36, 1 },
+    { "acacia_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 771, 1, false, 2, 1, 37, 2 },
+    { "acacia_shelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 305, 6, false, 3, 3, 39, 9 },
+    { "acacia_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 992, 3, false, 3, 3, 48, 9 },
+    { "acacia_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 274, 6, false, 3, 1, 57, 3 },
+    { "acacia_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 445, 4, false, 3, 3, 60, 9 },
+    { "acacia_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 805, 2, false, 3, 2, 69, 6 },
+    { "acacia_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 175, 3, false, 2, 2, 75, 4 },
+    { "activator_rail", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 836, 6, false, 3, 3, 79, 9 },
+    { "amethyst_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 88, 1, false, 2, 2, 88, 4 },
+    { "andesite", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 6, 2, false, 0, 0, 92, 2 },
+    { "andesite_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 708, 6, false, 3, 1, 94, 3 },
+    { "andesite_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 691, 4, false, 3, 3, 97, 9 },
+    { "andesite_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 466, 6, false, 3, 2, 106, 6 },
+    { "anvil", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 478, 1, false, 3, 3, 112, 9 },
+    { "armor_dye", RCLASS_ARMOR_DYE_RECIPE, RECIPE_KIND_SPECIAL, -1, 0, false, 0, 0, 121, 0 },
+    { "armor_stand", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1254, 1, false, 3, 3, 121, 9 },
+    { "arrow", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 895, 4, false, 1, 3, 130, 3 },
+    { "bamboo_block", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 147, 1, false, 0, 0, 133, 9 },
+    { "bamboo_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 760, 1, false, 0, 0, 142, 1 },
+    { "bamboo_chest_raft", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 882, 1, false, 0, 0, 143, 2 },
+    { "bamboo_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 789, 3, false, 2, 3, 145, 6 },
+    { "bamboo_fence", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 353, 3, false, 3, 2, 151, 6 },
+    { "bamboo_fence_gate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 830, 1, false, 3, 2, 157, 6 },
+    { "bamboo_hanging_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1009, 6, false, 3, 3, 163, 9 },
+    { "bamboo_mosaic", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 48, 1, false, 1, 2, 172, 2 },
+    { "bamboo_mosaic_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 280, 6, false, 3, 1, 174, 3 },
+    { "bamboo_mosaic_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 451, 4, false, 3, 3, 177, 9 },
+    { "bamboo_planks", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 45, 2, false, 0, 0, 186, 1 },
+    { "bamboo_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 776, 1, false, 2, 1, 187, 2 },
+    { "bamboo_raft", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 881, 1, false, 3, 2, 189, 6 },
+    { "bamboo_shelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 306, 6, false, 3, 3, 195, 9 },
+    { "bamboo_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 997, 3, false, 3, 3, 204, 9 },
+    { "bamboo_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 279, 6, false, 3, 1, 213, 3 },
+    { "bamboo_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 450, 4, false, 3, 3, 216, 9 },
+    { "bamboo_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 810, 2, false, 3, 2, 225, 6 },
+    { "banner_duplicate", RCLASS_BANNER_DUPLICATE_RECIPE, RECIPE_KIND_SPECIAL, -1, 0, false, 0, 0, 231, 0 },
+    { "barrel", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1354, 1, false, 3, 3, 231, 9 },
+    { "beacon", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 455, 1, false, 3, 3, 240, 9 },
+    { "beehive", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1380, 1, false, 3, 3, 249, 9 },
+    { "beetroot_soup", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1289, 1, false, 0, 0, 258, 7 },
+    { "birch_boat", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 867, 1, false, 3, 2, 265, 6 },
+    { "birch_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 753, 1, false, 0, 0, 271, 1 },
+    { "birch_chest_boat", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 868, 1, false, 0, 0, 272, 2 },
+    { "birch_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 782, 3, false, 2, 3, 274, 6 },
+    { "birch_fence", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 346, 3, false, 3, 2, 280, 6 },
+    { "birch_fence_gate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 823, 1, false, 3, 2, 286, 6 },
+    { "birch_hanging_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1002, 6, false, 3, 3, 292, 9 },
+    { "birch_planks", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 38, 4, false, 0, 0, 301, 1 },
+    { "birch_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 769, 1, false, 2, 1, 302, 2 },
+    { "birch_shelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 307, 6, false, 3, 3, 304, 9 },
+    { "birch_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 990, 3, false, 3, 3, 313, 9 },
+    { "birch_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 272, 6, false, 3, 1, 322, 3 },
+    { "birch_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 443, 4, false, 3, 3, 325, 9 },
+    { "birch_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 803, 2, false, 3, 2, 334, 6 },
+    { "birch_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 173, 3, false, 2, 2, 340, 4 },
+    { "black_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1281, 1, false, 3, 3, 344, 9 },
+    { "black_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1101, 1, false, 3, 2, 353, 6 },
+    { "black_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1052, 1, false, 0, 0, 359, 2 },
+    { "black_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1414, 1, false, 0, 0, 361, 2 },
+    { "black_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 520, 3, false, 2, 1, 363, 2 },
+    { "black_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 645, 8, false, 0, 0, 365, 9 },
+    { "black_dye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1081, 1, false, 0, 0, 374, 1 },
+    { "black_dye_from_wither_rose", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1081, 1, false, 0, 0, 375, 1 },
+    { "black_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 853, 1, false, 3, 2, 376, 6 },
+    { "black_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 597, 1, false, 0, 0, 382, 2 },
+    { "black_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 545, 8, false, 3, 3, 384, 9 },
+    { "black_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 561, 16, false, 3, 2, 393, 6 },
+    { "black_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 561, 8, false, 3, 3, 399, 9 },
+    { "black_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 501, 8, false, 3, 3, 408, 9 },
+    { "blackstone_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1386, 6, false, 3, 1, 417, 3 },
+    { "blackstone_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1387, 4, false, 3, 3, 420, 9 },
+    { "blackstone_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 471, 6, false, 3, 2, 429, 6 },
+    { "blast_furnace", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1356, 1, false, 3, 3, 435, 9 },
+    { "blaze_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1124, 2, false, 0, 0, 444, 1 },
+    { "blue_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1277, 1, false, 3, 3, 445, 9 },
+    { "blue_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1097, 1, false, 3, 2, 454, 6 },
+    { "blue_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1048, 1, false, 0, 0, 460, 2 },
+    { "blue_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1410, 1, false, 0, 0, 462, 2 },
+    { "blue_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 516, 3, false, 2, 1, 464, 2 },
+    { "blue_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 641, 8, false, 0, 0, 466, 9 },
+    { "blue_dye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1077, 1, false, 0, 0, 475, 1 },
+    { "blue_dye_from_cornflower", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1077, 1, false, 0, 0, 476, 1 },
+    { "blue_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 849, 1, false, 3, 2, 477, 6 },
+    { "blue_ice", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 679, 1, false, 0, 0, 483, 9 },
+    { "blue_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 593, 1, false, 0, 0, 492, 2 },
+    { "blue_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 541, 8, false, 3, 3, 494, 9 },
+    { "blue_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 557, 16, false, 3, 2, 503, 6 },
+    { "blue_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 557, 8, false, 3, 3, 509, 9 },
+    { "blue_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 497, 8, false, 3, 3, 518, 9 },
+    { "bolt_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1444, 2, false, 3, 3, 527, 9 },
+    { "bone_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 579, 1, false, 3, 3, 536, 9 },
+    { "bone_meal", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1082, 3, false, 0, 0, 545, 1 },
+    { "bone_meal_from_bone_block", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1082, 9, false, 0, 0, 546, 1 },
+    { "book", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1029, 1, false, 0, 0, 547, 4 },
+    { "book_cloning", RCLASS_BOOK_CLONING_RECIPE, RECIPE_KIND_SPECIAL, -1, 0, false, 0, 0, 551, 0 },
+    { "bookshelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 317, 1, false, 3, 3, 551, 9 },
+    { "bordure_indented_banner_pattern", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1351, 1, false, 0, 0, 560, 2 },
+    { "bow", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 894, 1, false, 3, 3, 562, 9 },
+    { "bowl", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 892, 4, false, 3, 2, 571, 6 },
+    { "bread", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 953, 1, false, 3, 1, 577, 3 },
+    { "brewing_stand", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1126, 1, false, 3, 2, 580, 6 },
+    { "brick_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 289, 6, false, 3, 1, 586, 3 },
+    { "brick_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 419, 4, false, 3, 3, 589, 9 },
+    { "brick_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 458, 6, false, 3, 2, 598, 6 },
+    { "bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 304, 1, false, 2, 2, 604, 4 },
+    { "brown_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1278, 1, false, 3, 3, 608, 9 },
+    { "brown_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1098, 1, false, 3, 2, 617, 6 },
+    { "brown_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1049, 1, false, 0, 0, 623, 2 },
+    { "brown_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1411, 1, false, 0, 0, 625, 2 },
+    { "brown_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 517, 3, false, 2, 1, 627, 2 },
+    { "brown_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 642, 8, false, 0, 0, 629, 9 },
+    { "brown_dye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1078, 1, false, 0, 0, 638, 1 },
+    { "brown_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 850, 1, false, 3, 2, 639, 6 },
+    { "brown_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 594, 1, false, 0, 0, 645, 2 },
+    { "brown_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 542, 8, false, 3, 3, 647, 9 },
+    { "brown_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 558, 16, false, 3, 2, 656, 6 },
+    { "brown_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 558, 8, false, 3, 3, 662, 9 },
+    { "brown_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 498, 8, false, 3, 3, 671, 9 },
+    { "brush", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1425, 1, false, 1, 3, 680, 3 },
+    { "bucket", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1012, 1, false, 3, 2, 683, 6 },
+    { "bundle", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1036, 1, false, 1, 2, 689, 2 },
+    { "cake", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1085, 1, false, 3, 3, 691, 9 },
+    { "calibrated_sculk_sensor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 743, 1, false, 3, 2, 700, 6 },
+    { "campfire", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1375, 1, false, 3, 3, 706, 9 },
+    { "candle", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1398, 1, false, 1, 2, 715, 2 },
+    { "carrot_on_a_stick", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 859, 1, false, 2, 2, 717, 4 },
+    { "cartography_table", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1357, 1, false, 2, 3, 721, 6 },
+    { "cauldron", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1127, 1, false, 3, 3, 727, 9 },
+    { "cherry_boat", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 873, 1, false, 3, 2, 736, 6 },
+    { "cherry_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 756, 1, false, 0, 0, 742, 1 },
+    { "cherry_chest_boat", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 874, 1, false, 0, 0, 743, 2 },
+    { "cherry_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 785, 3, false, 2, 3, 745, 6 },
+    { "cherry_fence", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 349, 3, false, 3, 2, 751, 6 },
+    { "cherry_fence_gate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 826, 1, false, 3, 2, 757, 6 },
+    { "cherry_hanging_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1005, 6, false, 3, 3, 763, 9 },
+    { "cherry_planks", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 41, 4, false, 0, 0, 772, 1 },
+    { "cherry_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 772, 1, false, 2, 1, 773, 2 },
+    { "cherry_shelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 308, 6, false, 3, 3, 775, 9 },
+    { "cherry_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 993, 3, false, 3, 3, 784, 9 },
+    { "cherry_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 275, 6, false, 3, 1, 793, 3 },
+    { "cherry_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 446, 4, false, 3, 3, 796, 9 },
+    { "cherry_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 806, 2, false, 3, 2, 805, 6 },
+    { "cherry_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 176, 3, false, 2, 2, 811, 4 },
+    { "chest", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 331, 1, false, 3, 3, 815, 9 },
+    { "chest_minecart", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 855, 1, false, 0, 0, 824, 2 },
+    { "chiseled_bookshelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 318, 1, false, 3, 3, 826, 9 },
+    { "chiseled_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 98, 1, false, 1, 2, 835, 2 },
+    { "chiseled_deepslate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 385, 1, false, 1, 2, 837, 2 },
+    { "chiseled_nether_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 426, 1, false, 1, 2, 839, 2 },
+    { "chiseled_polished_blackstone", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1392, 1, false, 1, 2, 841, 2 },
+    { "chiseled_quartz_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 481, 1, false, 1, 2, 843, 2 },
+    { "chiseled_red_sandstone", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 570, 1, false, 1, 2, 845, 2 },
+    { "chiseled_resin_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 418, 1, false, 1, 2, 847, 2 },
+    { "chiseled_sandstone", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 199, 1, false, 1, 2, 849, 2 },
+    { "chiseled_stone_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 378, 1, false, 1, 2, 851, 2 },
+    { "chiseled_tuff", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 16, 1, false, 1, 2, 853, 2 },
+    { "chiseled_tuff_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 25, 1, false, 1, 2, 855, 2 },
+    { "clay", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 342, 1, false, 2, 2, 857, 4 },
+    { "clock", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1054, 1, false, 3, 3, 861, 9 },
+    { "coal", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 896, 9, false, 0, 0, 870, 1 },
+    { "coal_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 83, 1, false, 3, 3, 871, 9 },
+    { "coarse_dirt", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 29, 4, false, 2, 2, 880, 4 },
+    { "coast_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1429, 2, false, 3, 3, 884, 9 },
+    { "cobbled_deepslate_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 712, 6, false, 3, 1, 893, 3 },
+    { "cobbled_deepslate_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 695, 4, false, 3, 3, 896, 9 },
+    { "cobbled_deepslate_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 474, 6, false, 3, 2, 905, 6 },
+    { "cobblestone_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 288, 6, false, 3, 1, 911, 3 },
+    { "cobblestone_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 336, 4, false, 3, 3, 914, 9 },
+    { "cobblestone_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 456, 6, false, 3, 2, 923, 6 },
+    { "comparator", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 721, 1, false, 3, 3, 929, 9 },
+    { "compass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1034, 1, false, 3, 3, 938, 9 },
+    { "composter", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1353, 1, false, 3, 3, 947, 9 },
+    { "conduit", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 680, 1, false, 3, 3, 956, 9 },
+    { "cookie", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1102, 8, false, 3, 1, 965, 3 },
+    { "copper_axe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 919, 1, false, 2, 3, 968, 6 },
+    { "copper_bars", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 391, 16, false, 3, 2, 974, 6 },
+    { "copper_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 91, 1, false, 3, 3, 980, 9 },
+    { "copper_boots", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 961, 1, false, 3, 2, 989, 6 },
+    { "copper_bulb", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1476, 4, false, 3, 3, 995, 9 },
+    { "copper_chain", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 400, 1, false, 1, 3, 1004, 3 },
+    { "copper_chest", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1484, 1, false, 3, 3, 1007, 9 },
+    { "copper_chestplate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 959, 1, false, 3, 3, 1016, 9 },
+    { "copper_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 792, 3, false, 2, 3, 1025, 6 },
+    { "copper_grate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1468, 4, false, 3, 3, 1031, 9 },
+    { "copper_helmet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 958, 1, false, 3, 2, 1040, 6 },
+    { "copper_hoe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 920, 1, false, 2, 3, 1046, 6 },
+    { "copper_ingot", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 906, 9, false, 0, 0, 1052, 1 },
+    { "copper_ingot_from_nuggets", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 906, 1, false, 3, 3, 1053, 9 },
+    { "copper_ingot_from_waxed_copper_block", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 906, 9, false, 0, 0, 1062, 1 },
+    { "copper_lantern", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1365, 1, false, 3, 3, 1063, 9 },
+    { "copper_leggings", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 960, 1, false, 3, 3, 1072, 9 },
+    { "copper_nugget", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1306, 9, false, 0, 0, 1081, 1 },
+    { "copper_pickaxe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 918, 1, false, 3, 3, 1082, 9 },
+    { "copper_shovel", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 917, 1, false, 1, 3, 1091, 3 },
+    { "copper_spear", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1298, 1, false, 3, 3, 1094, 9 },
+    { "copper_sword", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 916, 1, false, 1, 3, 1103, 3 },
+    { "copper_torch", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 366, 4, false, 1, 3, 1106, 3 },
+    { "copper_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 813, 1, false, 2, 2, 1109, 4 },
+    { "crafter", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1103, 1, false, 3, 3, 1113, 9 },
+    { "crafting_table", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 332, 1, false, 2, 2, 1122, 4 },
+    { "creaking_heart", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 330, 1, false, 1, 3, 1126, 3 },
+    { "creeper_banner_pattern", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1343, 1, false, 0, 0, 1129, 2 },
+    { "crimson_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 761, 1, false, 0, 0, 1131, 1 },
+    { "crimson_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 790, 3, false, 2, 3, 1132, 6 },
+    { "crimson_fence", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 354, 3, false, 3, 2, 1138, 6 },
+    { "crimson_fence_gate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 831, 1, false, 3, 2, 1144, 6 },
+    { "crimson_hanging_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1010, 6, false, 3, 3, 1150, 9 },
+    { "crimson_hyphae", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 180, 3, false, 2, 2, 1159, 4 },
+    { "crimson_planks", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 46, 4, false, 0, 0, 1163, 1 },
+    { "crimson_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 777, 1, false, 2, 1, 1164, 2 },
+    { "crimson_shelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 309, 6, false, 3, 3, 1166, 9 },
+    { "crimson_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 998, 3, false, 3, 3, 1175, 9 },
+    { "crimson_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 281, 6, false, 3, 1, 1184, 3 },
+    { "crimson_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 452, 4, false, 3, 3, 1187, 9 },
+    { "crimson_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 811, 2, false, 3, 2, 1196, 6 },
+    { "crossbow", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1339, 1, false, 3, 3, 1202, 9 },
+    { "cut_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 102, 4, false, 2, 2, 1211, 4 },
+    { "cut_copper_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 110, 6, false, 3, 1, 1215, 3 },
+    { "cut_copper_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 106, 4, false, 3, 3, 1218, 9 },
+    { "cut_red_sandstone", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 571, 4, false, 2, 2, 1227, 4 },
+    { "cut_red_sandstone_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 295, 6, false, 3, 1, 1231, 3 },
+    { "cut_sandstone", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 200, 4, false, 2, 2, 1234, 4 },
+    { "cut_sandstone_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 286, 6, false, 3, 1, 1238, 3 },
+    { "cyan_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1275, 1, false, 3, 3, 1241, 9 },
+    { "cyan_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1095, 1, false, 3, 2, 1250, 6 },
+    { "cyan_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1046, 1, false, 0, 0, 1256, 2 },
+    { "cyan_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1408, 1, false, 0, 0, 1258, 2 },
+    { "cyan_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 514, 3, false, 2, 1, 1260, 2 },
+    { "cyan_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 639, 8, false, 0, 0, 1262, 9 },
+    { "cyan_dye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1075, 2, false, 0, 0, 1271, 2 },
+    { "cyan_dye_from_pitcher_plant", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1075, 2, false, 0, 0, 1273, 1 },
+    { "cyan_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 847, 1, false, 3, 2, 1274, 6 },
+    { "cyan_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 591, 1, false, 0, 0, 1280, 2 },
+    { "cyan_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 539, 8, false, 3, 3, 1282, 9 },
+    { "cyan_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 555, 16, false, 3, 2, 1291, 6 },
+    { "cyan_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 555, 8, false, 3, 3, 1297, 9 },
+    { "cyan_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 495, 8, false, 3, 3, 1306, 9 },
+    { "dark_oak_boat", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 875, 1, false, 3, 2, 1315, 6 },
+    { "dark_oak_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 757, 1, false, 0, 0, 1321, 1 },
+    { "dark_oak_chest_boat", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 876, 1, false, 0, 0, 1322, 2 },
+    { "dark_oak_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 786, 3, false, 2, 3, 1324, 6 },
+    { "dark_oak_fence", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 350, 3, false, 3, 2, 1330, 6 },
+    { "dark_oak_fence_gate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 827, 1, false, 3, 2, 1336, 6 },
+    { "dark_oak_hanging_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1006, 6, false, 3, 3, 1342, 9 },
+    { "dark_oak_planks", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 42, 4, false, 0, 0, 1351, 1 },
+    { "dark_oak_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 773, 1, false, 2, 1, 1352, 2 },
+    { "dark_oak_shelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 310, 6, false, 3, 3, 1354, 9 },
+    { "dark_oak_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 994, 3, false, 3, 3, 1363, 9 },
+    { "dark_oak_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 276, 6, false, 3, 1, 1372, 3 },
+    { "dark_oak_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 447, 4, false, 3, 3, 1375, 9 },
+    { "dark_oak_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 807, 2, false, 3, 2, 1384, 6 },
+    { "dark_oak_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 178, 3, false, 2, 2, 1390, 4 },
+    { "dark_prismarine", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 564, 1, false, 3, 3, 1394, 9 },
+    { "dark_prismarine_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 299, 6, false, 3, 1, 1403, 3 },
+    { "dark_prismarine_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 567, 4, false, 3, 3, 1406, 9 },
+    { "daylight_detector", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 741, 1, false, 3, 3, 1415, 9 },
+    { "decorated_pot", RCLASS_DECORATED_POT_RECIPE, RECIPE_KIND_SPECIAL, -1, 0, false, 0, 0, 1424, 0 },
+    { "decorated_pot_simple", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 319, 1, false, 3, 3, 1424, 9 },
+    { "deepslate_brick_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 714, 6, false, 3, 1, 1433, 3 },
+    { "deepslate_brick_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 697, 4, false, 3, 3, 1436, 9 },
+    { "deepslate_brick_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 476, 6, false, 3, 2, 1445, 6 },
+    { "deepslate_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 381, 4, false, 2, 2, 1451, 4 },
+    { "deepslate_tile_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 715, 6, false, 3, 1, 1455, 3 },
+    { "deepslate_tile_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 698, 4, false, 3, 3, 1458, 9 },
+    { "deepslate_tile_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 477, 6, false, 3, 2, 1467, 6 },
+    { "deepslate_tiles", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 383, 4, false, 2, 2, 1473, 4 },
+    { "detector_rail", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 834, 6, false, 3, 3, 1477, 9 },
+    { "diamond", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 898, 9, false, 0, 0, 1486, 1 },
+    { "diamond_axe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 939, 1, false, 2, 3, 1487, 6 },
+    { "diamond_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 93, 1, false, 3, 3, 1493, 9 },
+    { "diamond_boots", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 973, 1, false, 3, 2, 1502, 6 },
+    { "diamond_chestplate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 971, 1, false, 3, 3, 1508, 9 },
+    { "diamond_helmet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 970, 1, false, 3, 2, 1517, 6 },
+    { "diamond_hoe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 940, 1, false, 2, 3, 1523, 6 },
+    { "diamond_leggings", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 972, 1, false, 3, 3, 1529, 9 },
+    { "diamond_pickaxe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 938, 1, false, 3, 3, 1538, 9 },
+    { "diamond_shovel", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 937, 1, false, 1, 3, 1547, 3 },
+    { "diamond_spear", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1301, 1, false, 3, 3, 1550, 9 },
+    { "diamond_sword", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 936, 1, false, 1, 3, 1559, 3 },
+    { "diorite", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 4, 2, false, 2, 2, 1562, 4 },
+    { "diorite_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 711, 6, false, 3, 1, 1566, 3 },
+    { "diorite_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 694, 4, false, 3, 3, 1569, 9 },
+    { "diorite_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 470, 6, false, 3, 2, 1578, 6 },
+    { "dispenser", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 728, 1, false, 3, 3, 1584, 9 },
+    { "dried_ghast", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 648, 1, false, 3, 3, 1593, 9 },
+    { "dried_kelp", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1107, 9, false, 0, 0, 1602, 1 },
+    { "dried_kelp_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1027, 1, false, 3, 3, 1603, 9 },
+    { "dripstone_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 26, 1, false, 2, 2, 1612, 4 },
+    { "dropper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 729, 1, false, 3, 3, 1616, 9 },
+    { "dune_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1428, 2, false, 3, 3, 1625, 9 },
+    { "dye_black_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1101, 1, false, 0, 0, 1634, 2 },
+    { "dye_black_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 520, 1, false, 0, 0, 1636, 2 },
+    { "dye_black_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 853, 1, false, 0, 0, 1638, 2 },
+    { "dye_black_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 228, 1, false, 0, 0, 1640, 2 },
+    { "dye_blue_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1097, 1, false, 0, 0, 1642, 2 },
+    { "dye_blue_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 516, 1, false, 0, 0, 1644, 2 },
+    { "dye_blue_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 849, 1, false, 0, 0, 1646, 2 },
+    { "dye_blue_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 224, 1, false, 0, 0, 1648, 2 },
+    { "dye_brown_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1098, 1, false, 0, 0, 1650, 2 },
+    { "dye_brown_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 517, 1, false, 0, 0, 1652, 2 },
+    { "dye_brown_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 850, 1, false, 0, 0, 1654, 2 },
+    { "dye_brown_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 225, 1, false, 0, 0, 1656, 2 },
+    { "dye_cyan_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1095, 1, false, 0, 0, 1658, 2 },
+    { "dye_cyan_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 514, 1, false, 0, 0, 1660, 2 },
+    { "dye_cyan_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 847, 1, false, 0, 0, 1662, 2 },
+    { "dye_cyan_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 222, 1, false, 0, 0, 1664, 2 },
+    { "dye_gray_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1093, 1, false, 0, 0, 1666, 2 },
+    { "dye_gray_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 512, 1, false, 0, 0, 1668, 2 },
+    { "dye_gray_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 845, 1, false, 0, 0, 1670, 2 },
+    { "dye_gray_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 220, 1, false, 0, 0, 1672, 2 },
+    { "dye_green_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1099, 1, false, 0, 0, 1674, 2 },
+    { "dye_green_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 518, 1, false, 0, 0, 1676, 2 },
+    { "dye_green_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 851, 1, false, 0, 0, 1678, 2 },
+    { "dye_green_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 226, 1, false, 0, 0, 1680, 2 },
+    { "dye_light_blue_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1089, 1, false, 0, 0, 1682, 2 },
+    { "dye_light_blue_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 508, 1, false, 0, 0, 1684, 2 },
+    { "dye_light_blue_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 841, 1, false, 0, 0, 1686, 2 },
+    { "dye_light_blue_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 216, 1, false, 0, 0, 1688, 2 },
+    { "dye_light_gray_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1094, 1, false, 0, 0, 1690, 2 },
+    { "dye_light_gray_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 513, 1, false, 0, 0, 1692, 2 },
+    { "dye_light_gray_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 846, 1, false, 0, 0, 1694, 2 },
+    { "dye_light_gray_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 221, 1, false, 0, 0, 1696, 2 },
+    { "dye_lime_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1091, 1, false, 0, 0, 1698, 2 },
+    { "dye_lime_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 510, 1, false, 0, 0, 1700, 2 },
+    { "dye_lime_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 843, 1, false, 0, 0, 1702, 2 },
+    { "dye_lime_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 218, 1, false, 0, 0, 1704, 2 },
+    { "dye_magenta_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1088, 1, false, 0, 0, 1706, 2 },
+    { "dye_magenta_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 507, 1, false, 0, 0, 1708, 2 },
+    { "dye_magenta_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 840, 1, false, 0, 0, 1710, 2 },
+    { "dye_magenta_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 215, 1, false, 0, 0, 1712, 2 },
+    { "dye_orange_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1087, 1, false, 0, 0, 1714, 2 },
+    { "dye_orange_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 506, 1, false, 0, 0, 1716, 2 },
+    { "dye_orange_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 839, 1, false, 0, 0, 1718, 2 },
+    { "dye_orange_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 214, 1, false, 0, 0, 1720, 2 },
+    { "dye_pink_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1092, 1, false, 0, 0, 1722, 2 },
+    { "dye_pink_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 511, 1, false, 0, 0, 1724, 2 },
+    { "dye_pink_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 844, 1, false, 0, 0, 1726, 2 },
+    { "dye_pink_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 219, 1, false, 0, 0, 1728, 2 },
+    { "dye_purple_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1096, 1, false, 0, 0, 1730, 2 },
+    { "dye_purple_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 515, 1, false, 0, 0, 1732, 2 },
+    { "dye_purple_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 848, 1, false, 0, 0, 1734, 2 },
+    { "dye_purple_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 223, 1, false, 0, 0, 1736, 2 },
+    { "dye_red_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1100, 1, false, 0, 0, 1738, 2 },
+    { "dye_red_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 519, 1, false, 0, 0, 1740, 2 },
+    { "dye_red_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 852, 1, false, 0, 0, 1742, 2 },
+    { "dye_red_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 227, 1, false, 0, 0, 1744, 2 },
+    { "dye_white_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1086, 1, false, 0, 0, 1746, 2 },
+    { "dye_white_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 505, 1, false, 0, 0, 1748, 2 },
+    { "dye_white_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 838, 1, false, 0, 0, 1750, 2 },
+    { "dye_white_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 213, 1, false, 0, 0, 1752, 2 },
+    { "dye_yellow_bed", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1090, 1, false, 0, 0, 1754, 2 },
+    { "dye_yellow_carpet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 509, 1, false, 0, 0, 1756, 2 },
+    { "dye_yellow_harness", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 842, 1, false, 0, 0, 1758, 2 },
+    { "dye_yellow_wool", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 217, 1, false, 0, 0, 1760, 2 },
+    { "emerald", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 899, 9, false, 0, 0, 1762, 1 },
+    { "emerald_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 440, 1, false, 3, 3, 1763, 9 },
+    { "enchanting_table", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 433, 1, false, 3, 3, 1772, 9 },
+    { "end_crystal", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1282, 1, false, 3, 3, 1781, 9 },
+    { "end_rod", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 323, 4, false, 1, 2, 1790, 2 },
+    { "end_stone_brick_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 704, 6, false, 3, 1, 1792, 3 },
+    { "end_stone_brick_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 686, 4, false, 3, 3, 1795, 9 },
+    { "end_stone_brick_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 469, 6, false, 3, 2, 1804, 6 },
+    { "end_stone_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 436, 4, false, 2, 2, 1810, 4 },
+    { "ender_chest", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 439, 1, false, 3, 3, 1814, 9 },
+    { "ender_eye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1128, 1, false, 0, 0, 1823, 2 },
+    { "exposed_chiseled_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 99, 1, false, 1, 2, 1825, 2 },
+    { "exposed_copper_bulb", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1477, 4, false, 3, 3, 1827, 9 },
+    { "exposed_copper_grate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1469, 4, false, 3, 3, 1836, 9 },
+    { "exposed_cut_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 103, 4, false, 2, 2, 1845, 4 },
+    { "exposed_cut_copper_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 111, 6, false, 3, 1, 1849, 3 },
+    { "exposed_cut_copper_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 107, 4, false, 3, 3, 1852, 9 },
+    { "eye_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1432, 2, false, 3, 3, 1861, 9 },
+    { "fermented_spider_eye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1123, 1, false, 0, 0, 1870, 3 },
+    { "field_masoned_banner_pattern", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1350, 1, false, 0, 0, 1873, 2 },
+    { "fire_charge", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1218, 3, false, 0, 0, 1875, 3 },
+    { "firework_rocket", RCLASS_FIREWORK_ROCKET_RECIPE, RECIPE_KIND_SPECIAL, -1, 0, false, 0, 0, 1878, 0 },
+    { "firework_rocket_simple", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1242, 3, false, 0, 0, 1878, 2 },
+    { "firework_star", RCLASS_FIREWORK_STAR_RECIPE, RECIPE_KIND_SPECIAL, -1, 0, false, 0, 0, 1880, 0 },
+    { "firework_star_fade", RCLASS_FIREWORK_STAR_FADE_RECIPE, RECIPE_KIND_SPECIAL, -1, 0, false, 0, 0, 1880, 0 },
+    { "fishing_rod", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1053, 1, false, 3, 3, 1880, 9 },
+    { "fletching_table", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1358, 1, false, 2, 3, 1889, 6 },
+    { "flint_and_steel", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 891, 1, false, 0, 0, 1895, 2 },
+    { "flow_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1443, 2, false, 3, 3, 1897, 9 },
+    { "flower_banner_pattern", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1342, 1, false, 0, 0, 1906, 2 },
+    { "flower_pot", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1226, 1, false, 3, 2, 1908, 6 },
+    { "furnace", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 334, 1, false, 3, 3, 1914, 9 },
+    { "furnace_minecart", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 856, 1, false, 0, 0, 1923, 2 },
+    { "glass_bottle", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1120, 3, false, 3, 2, 1925, 6 },
+    { "glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 408, 16, false, 3, 2, 1931, 6 },
+    { "glistering_melon_slice", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1129, 1, false, 3, 3, 1937, 9 },
+    { "glow_item_frame", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1225, 1, false, 0, 0, 1946, 2 },
+    { "glowstone", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 367, 1, false, 2, 2, 1948, 4 },
+    { "gold_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 92, 1, false, 3, 3, 1952, 9 },
+    { "gold_ingot_from_gold_block", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 908, 9, false, 0, 0, 1961, 1 },
+    { "gold_ingot_from_nuggets", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 908, 1, false, 3, 3, 1962, 9 },
+    { "gold_nugget", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1118, 9, false, 0, 0, 1971, 1 },
+    { "golden_apple", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 986, 1, false, 3, 3, 1972, 9 },
+    { "golden_axe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 929, 1, false, 2, 3, 1981, 6 },
+    { "golden_boots", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 977, 1, false, 3, 2, 1987, 6 },
+    { "golden_carrot", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1232, 1, false, 3, 3, 1993, 9 },
+    { "golden_chestplate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 975, 1, false, 3, 3, 2002, 9 },
+    { "golden_helmet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 974, 1, false, 3, 2, 2011, 6 },
+    { "golden_hoe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 930, 1, false, 2, 3, 2017, 6 },
+    { "golden_leggings", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 976, 1, false, 3, 3, 2023, 9 },
+    { "golden_pickaxe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 928, 1, false, 3, 3, 2032, 9 },
+    { "golden_shovel", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 927, 1, false, 1, 3, 2041, 3 },
+    { "golden_spear", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1300, 1, false, 3, 3, 2044, 9 },
+    { "golden_sword", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 926, 1, false, 1, 3, 2053, 3 },
+    { "granite", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 2, 1, false, 0, 0, 2056, 2 },
+    { "granite_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 707, 6, false, 3, 1, 2058, 3 },
+    { "granite_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 690, 4, false, 3, 3, 2061, 9 },
+    { "granite_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 462, 6, false, 3, 2, 2070, 6 },
+    { "gray_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1273, 1, false, 3, 3, 2076, 9 },
+    { "gray_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1093, 1, false, 3, 2, 2085, 6 },
+    { "gray_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1044, 1, false, 0, 0, 2091, 2 },
+    { "gray_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1406, 1, false, 0, 0, 2093, 2 },
+    { "gray_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 512, 3, false, 2, 1, 2095, 2 },
+    { "gray_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 637, 8, false, 0, 0, 2097, 9 },
+    { "gray_dye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1073, 2, false, 0, 0, 2106, 2 },
+    { "gray_dye_from_closed_eyeblossom", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1073, 1, false, 0, 0, 2108, 1 },
+    { "gray_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 845, 1, false, 3, 2, 2109, 6 },
+    { "gray_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 589, 1, false, 0, 0, 2115, 2 },
+    { "gray_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 537, 8, false, 3, 3, 2117, 9 },
+    { "gray_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 553, 16, false, 3, 2, 2126, 6 },
+    { "gray_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 553, 8, false, 3, 3, 2132, 9 },
+    { "gray_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 493, 8, false, 3, 3, 2141, 9 },
+    { "green_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1279, 1, false, 3, 3, 2150, 9 },
+    { "green_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1099, 1, false, 3, 2, 2159, 6 },
+    { "green_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1050, 1, false, 0, 0, 2165, 2 },
+    { "green_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1412, 1, false, 0, 0, 2167, 2 },
+    { "green_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 518, 3, false, 2, 1, 2169, 2 },
+    { "green_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 643, 8, false, 0, 0, 2171, 9 },
+    { "green_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 851, 1, false, 3, 2, 2180, 6 },
+    { "green_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 595, 1, false, 0, 0, 2186, 2 },
+    { "green_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 543, 8, false, 3, 3, 2188, 9 },
+    { "green_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 559, 16, false, 3, 2, 2197, 6 },
+    { "green_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 559, 8, false, 3, 3, 2203, 9 },
+    { "green_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 499, 8, false, 3, 3, 2212, 9 },
+    { "grindstone", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1359, 1, false, 3, 2, 2221, 6 },
+    { "hay_block", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 504, 1, false, 0, 0, 2227, 9 },
+    { "heavy_weighted_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 766, 1, false, 2, 1, 2236, 2 },
+    { "honey_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 725, 1, false, 2, 2, 2238, 4 },
+    { "honey_bottle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1381, 4, false, 0, 0, 2242, 5 },
+    { "honeycomb_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1382, 1, false, 2, 2, 2247, 4 },
+    { "hopper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 727, 1, false, 3, 3, 2251, 9 },
+    { "hopper_minecart", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 858, 1, false, 0, 0, 2260, 2 },
+    { "host_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1442, 2, false, 3, 3, 2262, 9 },
+    { "iron_axe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 934, 1, false, 2, 3, 2271, 6 },
+    { "iron_bars", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 390, 16, false, 3, 2, 2277, 6 },
+    { "iron_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 90, 1, false, 3, 3, 2283, 9 },
+    { "iron_boots", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 969, 1, false, 3, 2, 2292, 6 },
+    { "iron_chain", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 399, 1, false, 1, 3, 2298, 3 },
+    { "iron_chestplate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 967, 1, false, 3, 3, 2301, 9 },
+    { "iron_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 779, 3, false, 2, 3, 2310, 6 },
+    { "iron_helmet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 966, 1, false, 3, 2, 2316, 6 },
+    { "iron_hoe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 935, 1, false, 2, 3, 2322, 6 },
+    { "iron_ingot_from_iron_block", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 904, 9, false, 0, 0, 2328, 1 },
+    { "iron_ingot_from_nuggets", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 904, 1, false, 3, 3, 2329, 9 },
+    { "iron_leggings", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 968, 1, false, 3, 3, 2338, 9 },
+    { "iron_nugget", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1305, 9, false, 0, 0, 2347, 1 },
+    { "iron_pickaxe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 933, 1, false, 3, 3, 2348, 9 },
+    { "iron_shovel", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 932, 1, false, 1, 3, 2357, 3 },
+    { "iron_spear", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1299, 1, false, 3, 3, 2360, 9 },
+    { "iron_sword", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 931, 1, false, 1, 3, 2369, 3 },
+    { "iron_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 800, 1, false, 2, 2, 2372, 4 },
+    { "item_frame", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1224, 1, false, 3, 3, 2376, 9 },
+    { "jack_o_lantern", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 358, 1, false, 1, 2, 2385, 2 },
+    { "jukebox", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 343, 1, false, 3, 3, 2387, 9 },
+    { "jungle_boat", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 869, 1, false, 3, 2, 2396, 6 },
+    { "jungle_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 754, 1, false, 0, 0, 2402, 1 },
+    { "jungle_chest_boat", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 870, 1, false, 0, 0, 2403, 2 },
+    { "jungle_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 783, 3, false, 2, 3, 2405, 6 },
+    { "jungle_fence", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 347, 3, false, 3, 2, 2411, 6 },
+    { "jungle_fence_gate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 824, 1, false, 3, 2, 2417, 6 },
+    { "jungle_hanging_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1003, 6, false, 3, 3, 2423, 9 },
+    { "jungle_planks", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 39, 4, false, 0, 0, 2432, 1 },
+    { "jungle_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 770, 1, false, 2, 1, 2433, 2 },
+    { "jungle_shelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 311, 6, false, 3, 3, 2435, 9 },
+    { "jungle_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 991, 3, false, 3, 3, 2444, 9 },
+    { "jungle_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 273, 6, false, 3, 1, 2453, 3 },
+    { "jungle_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 444, 4, false, 3, 3, 2456, 9 },
+    { "jungle_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 804, 2, false, 3, 2, 2465, 6 },
+    { "jungle_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 174, 3, false, 2, 2, 2471, 4 },
+    { "ladder", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 335, 3, false, 3, 3, 2475, 9 },
+    { "lantern", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1363, 1, false, 3, 3, 2484, 9 },
+    { "lapis_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 197, 1, false, 3, 3, 2493, 9 },
+    { "lapis_lazuli", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 900, 9, false, 0, 0, 2502, 1 },
+    { "lead", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1261, 2, false, 3, 3, 2503, 9 },
+    { "leather", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1017, 1, false, 2, 2, 2512, 4 },
+    { "leather_boots", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 957, 1, false, 3, 2, 2516, 6 },
+    { "leather_chestplate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 955, 1, false, 3, 3, 2522, 9 },
+    { "leather_helmet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 954, 1, false, 3, 2, 2531, 6 },
+    { "leather_horse_armor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1260, 1, false, 3, 3, 2537, 9 },
+    { "leather_leggings", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 956, 1, false, 3, 3, 2546, 9 },
+    { "lectern", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 730, 1, false, 3, 3, 2555, 9 },
+    { "lever", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 732, 1, false, 1, 2, 2564, 2 },
+    { "light_blue_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1269, 1, false, 3, 3, 2566, 9 },
+    { "light_blue_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1089, 1, false, 3, 2, 2575, 6 },
+    { "light_blue_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1040, 1, false, 0, 0, 2581, 2 },
+    { "light_blue_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1402, 1, false, 0, 0, 2583, 2 },
+    { "light_blue_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 508, 3, false, 2, 1, 2585, 2 },
+    { "light_blue_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 633, 8, false, 0, 0, 2587, 9 },
+    { "light_blue_dye_from_blue_orchid", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1069, 1, false, 0, 0, 2596, 1 },
+    { "light_blue_dye_from_blue_white_dye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1069, 2, false, 0, 0, 2597, 2 },
+    { "light_blue_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 841, 1, false, 3, 2, 2599, 6 },
+    { "light_blue_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 585, 1, false, 0, 0, 2605, 2 },
+    { "light_blue_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 533, 8, false, 3, 3, 2607, 9 },
+    { "light_blue_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 549, 16, false, 3, 2, 2616, 6 },
+    { "light_blue_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 549, 8, false, 3, 3, 2622, 9 },
+    { "light_blue_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 489, 8, false, 3, 3, 2631, 9 },
+    { "light_gray_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1274, 1, false, 3, 3, 2640, 9 },
+    { "light_gray_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1094, 1, false, 3, 2, 2649, 6 },
+    { "light_gray_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1045, 1, false, 0, 0, 2655, 2 },
+    { "light_gray_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1407, 1, false, 0, 0, 2657, 2 },
+    { "light_gray_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 513, 3, false, 2, 1, 2659, 2 },
+    { "light_gray_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 638, 8, false, 0, 0, 2661, 9 },
+    { "light_gray_dye_from_azure_bluet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1074, 1, false, 0, 0, 2670, 1 },
+    { "light_gray_dye_from_black_white_dye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1074, 3, false, 0, 0, 2671, 3 },
+    { "light_gray_dye_from_gray_white_dye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1074, 2, false, 0, 0, 2674, 2 },
+    { "light_gray_dye_from_oxeye_daisy", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1074, 1, false, 0, 0, 2676, 1 },
+    { "light_gray_dye_from_white_tulip", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1074, 1, false, 0, 0, 2677, 1 },
+    { "light_gray_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 846, 1, false, 3, 2, 2678, 6 },
+    { "light_gray_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 590, 1, false, 0, 0, 2684, 2 },
+    { "light_gray_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 538, 8, false, 3, 3, 2686, 9 },
+    { "light_gray_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 554, 16, false, 3, 2, 2695, 6 },
+    { "light_gray_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 554, 8, false, 3, 3, 2701, 9 },
+    { "light_gray_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 494, 8, false, 3, 3, 2710, 9 },
+    { "light_weighted_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 765, 1, false, 2, 1, 2719, 2 },
+    { "lightning_rod", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 733, 1, false, 1, 3, 2721, 3 },
+    { "lime_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1271, 1, false, 3, 3, 2724, 9 },
+    { "lime_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1091, 1, false, 3, 2, 2733, 6 },
+    { "lime_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1042, 1, false, 0, 0, 2739, 2 },
+    { "lime_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1404, 1, false, 0, 0, 2741, 2 },
+    { "lime_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 510, 3, false, 2, 1, 2743, 2 },
+    { "lime_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 635, 8, false, 0, 0, 2745, 9 },
+    { "lime_dye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1071, 2, false, 0, 0, 2754, 2 },
+    { "lime_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 843, 1, false, 3, 2, 2756, 6 },
+    { "lime_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 587, 1, false, 0, 0, 2762, 2 },
+    { "lime_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 535, 8, false, 3, 3, 2764, 9 },
+    { "lime_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 551, 16, false, 3, 2, 2773, 6 },
+    { "lime_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 551, 8, false, 3, 3, 2779, 9 },
+    { "lime_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 491, 8, false, 3, 3, 2788, 9 },
+    { "lodestone", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1383, 1, false, 3, 3, 2797, 9 },
+    { "loom", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1341, 1, false, 2, 2, 2806, 4 },
+    { "mace", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1223, 1, false, 1, 2, 2810, 2 },
+    { "magenta_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1268, 1, false, 3, 3, 2812, 9 },
+    { "magenta_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1088, 1, false, 3, 2, 2821, 6 },
+    { "magenta_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1039, 1, false, 0, 0, 2827, 2 },
+    { "magenta_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1401, 1, false, 0, 0, 2829, 2 },
+    { "magenta_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 507, 3, false, 2, 1, 2831, 2 },
+    { "magenta_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 632, 8, false, 0, 0, 2833, 9 },
+    { "magenta_dye_from_allium", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1068, 1, false, 0, 0, 2842, 1 },
+    { "magenta_dye_from_blue_red_pink", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1068, 3, false, 0, 0, 2843, 3 },
+    { "magenta_dye_from_blue_red_white_dye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1068, 4, false, 0, 0, 2846, 4 },
+    { "magenta_dye_from_lilac", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1068, 2, false, 0, 0, 2850, 1 },
+    { "magenta_dye_from_purple_and_pink", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1068, 2, false, 0, 0, 2851, 2 },
+    { "magenta_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 840, 1, false, 3, 2, 2853, 6 },
+    { "magenta_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 584, 1, false, 0, 0, 2859, 2 },
+    { "magenta_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 532, 8, false, 3, 3, 2861, 9 },
+    { "magenta_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 548, 16, false, 3, 2, 2870, 6 },
+    { "magenta_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 548, 8, false, 3, 3, 2876, 9 },
+    { "magenta_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 488, 8, false, 3, 3, 2885, 9 },
+    { "magma_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 575, 1, false, 2, 2, 2894, 4 },
+    { "magma_cream", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1125, 1, false, 0, 0, 2898, 2 },
+    { "mangrove_boat", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 879, 1, false, 3, 2, 2900, 6 },
+    { "mangrove_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 759, 1, false, 0, 0, 2906, 1 },
+    { "mangrove_chest_boat", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 880, 1, false, 0, 0, 2907, 2 },
+    { "mangrove_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 788, 3, false, 2, 3, 2909, 6 },
+    { "mangrove_fence", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 352, 3, false, 3, 2, 2915, 6 },
+    { "mangrove_fence_gate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 829, 1, false, 3, 2, 2921, 6 },
+    { "mangrove_hanging_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1008, 6, false, 3, 3, 2927, 9 },
+    { "mangrove_planks", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 44, 4, false, 0, 0, 2936, 1 },
+    { "mangrove_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 775, 1, false, 2, 1, 2937, 2 },
+    { "mangrove_shelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 312, 6, false, 3, 3, 2939, 9 },
+    { "mangrove_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 996, 3, false, 3, 3, 2948, 9 },
+    { "mangrove_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 278, 6, false, 3, 1, 2957, 3 },
+    { "mangrove_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 449, 4, false, 3, 3, 2960, 9 },
+    { "mangrove_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 809, 2, false, 3, 2, 2969, 6 },
+    { "mangrove_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 179, 3, false, 2, 2, 2975, 4 },
+    { "map", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1231, 1, false, 3, 3, 2979, 9 },
+    { "map_cloning", RCLASS_MAP_CLONING_RECIPE, RECIPE_KIND_SPECIAL, -1, 0, false, 0, 0, 2988, 0 },
+    { "map_extending", RCLASS_MAP_EXTENDING_RECIPE, RECIPE_KIND_SHAPED, 1231, 1, false, 3, 3, 2988, 9 },
+    { "melon", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 409, 1, false, 0, 0, 2997, 9 },
+    { "melon_seeds", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1109, 1, false, 0, 0, 3006, 1 },
+    { "minecart", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 854, 1, false, 3, 2, 3007, 6 },
+    { "mojang_banner_pattern", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1345, 1, false, 0, 0, 3013, 2 },
+    { "moss_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 261, 3, false, 2, 1, 3015, 2 },
+    { "mossy_cobblestone_from_moss_block", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 320, 1, false, 0, 0, 3017, 2 },
+    { "mossy_cobblestone_from_vine", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 320, 1, false, 0, 0, 3019, 2 },
+    { "mossy_cobblestone_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 703, 6, false, 3, 1, 3021, 3 },
+    { "mossy_cobblestone_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 685, 4, false, 3, 3, 3024, 9 },
+    { "mossy_cobblestone_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 457, 6, false, 3, 2, 3033, 6 },
+    { "mossy_stone_brick_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 701, 6, false, 3, 1, 3039, 3 },
+    { "mossy_stone_brick_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 683, 4, false, 3, 3, 3042, 9 },
+    { "mossy_stone_brick_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 461, 6, false, 3, 2, 3051, 6 },
+    { "mossy_stone_bricks_from_moss_block", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 376, 1, false, 0, 0, 3057, 2 },
+    { "mossy_stone_bricks_from_vine", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 376, 1, false, 0, 0, 3059, 2 },
+    { "mud_brick_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 291, 6, false, 3, 1, 3061, 3 },
+    { "mud_brick_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 421, 4, false, 3, 3, 3064, 9 },
+    { "mud_brick_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 464, 6, false, 3, 2, 3073, 6 },
+    { "mud_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 380, 4, false, 2, 2, 3079, 4 },
+    { "muddy_mangrove_roots", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 144, 1, false, 0, 0, 3083, 2 },
+    { "mushroom_stew", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 947, 1, false, 0, 0, 3085, 3 },
+    { "music_disc_5", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1326, 1, false, 0, 0, 3088, 9 },
+    { "nether_brick_fence", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 427, 6, false, 3, 2, 3097, 6 },
+    { "nether_brick_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 292, 6, false, 3, 1, 3103, 3 },
+    { "nether_brick_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 428, 4, false, 3, 3, 3106, 9 },
+    { "nether_brick_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 465, 6, false, 3, 2, 3115, 6 },
+    { "nether_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 424, 1, false, 2, 2, 3121, 4 },
+    { "nether_wart_block", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 576, 1, false, 0, 0, 3125, 9 },
+    { "netherite_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 94, 1, false, 3, 3, 3134, 9 },
+    { "netherite_ingot", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 909, 1, false, 0, 0, 3143, 8 },
+    { "netherite_ingot_from_netherite_block", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 909, 9, false, 0, 0, 3151, 1 },
+    { "netherite_upgrade_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1426, 2, false, 3, 3, 3152, 9 },
+    { "note_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 748, 1, false, 3, 3, 3161, 9 },
+    { "oak_boat", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 863, 1, false, 3, 2, 3170, 6 },
+    { "oak_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 751, 1, false, 0, 0, 3176, 1 },
+    { "oak_chest_boat", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 864, 1, false, 0, 0, 3177, 2 },
+    { "oak_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 780, 3, false, 2, 3, 3179, 6 },
+    { "oak_fence", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 344, 3, false, 3, 2, 3185, 6 },
+    { "oak_fence_gate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 821, 1, false, 3, 2, 3191, 6 },
+    { "oak_hanging_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1000, 6, false, 3, 3, 3197, 9 },
+    { "oak_planks", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 36, 4, false, 0, 0, 3206, 1 },
+    { "oak_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 767, 1, false, 2, 1, 3207, 2 },
+    { "oak_shelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 313, 6, false, 3, 3, 3209, 9 },
+    { "oak_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 988, 3, false, 3, 3, 3218, 9 },
+    { "oak_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 270, 6, false, 3, 1, 3227, 3 },
+    { "oak_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 441, 4, false, 3, 3, 3230, 9 },
+    { "oak_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 801, 2, false, 3, 2, 3239, 6 },
+    { "oak_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 171, 3, false, 2, 2, 3245, 4 },
+    { "observer", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 726, 1, false, 3, 3, 3249, 9 },
+    { "orange_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1267, 1, false, 3, 3, 3258, 9 },
+    { "orange_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1087, 1, false, 3, 2, 3267, 6 },
+    { "orange_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1038, 1, false, 0, 0, 3273, 2 },
+    { "orange_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1400, 1, false, 0, 0, 3275, 2 },
+    { "orange_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 506, 3, false, 2, 1, 3277, 2 },
+    { "orange_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 631, 8, false, 0, 0, 3279, 9 },
+    { "orange_dye_from_open_eyeblossom", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1067, 1, false, 0, 0, 3288, 1 },
+    { "orange_dye_from_orange_tulip", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1067, 1, false, 0, 0, 3289, 1 },
+    { "orange_dye_from_red_yellow", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1067, 2, false, 0, 0, 3290, 2 },
+    { "orange_dye_from_torchflower", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1067, 1, false, 0, 0, 3292, 1 },
+    { "orange_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 839, 1, false, 3, 2, 3293, 6 },
+    { "orange_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 583, 1, false, 0, 0, 3299, 2 },
+    { "orange_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 531, 8, false, 3, 3, 3301, 9 },
+    { "orange_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 547, 16, false, 3, 2, 3310, 6 },
+    { "orange_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 547, 8, false, 3, 3, 3316, 9 },
+    { "orange_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 487, 8, false, 3, 3, 3325, 9 },
+    { "oxidized_chiseled_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 101, 1, false, 1, 2, 3334, 2 },
+    { "oxidized_copper_bulb", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1479, 4, false, 3, 3, 3336, 9 },
+    { "oxidized_copper_grate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1471, 4, false, 3, 3, 3345, 9 },
+    { "oxidized_cut_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 105, 4, false, 2, 2, 3354, 4 },
+    { "oxidized_cut_copper_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 113, 6, false, 3, 1, 3358, 3 },
+    { "oxidized_cut_copper_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 109, 4, false, 3, 3, 3361, 9 },
+    { "packed_ice", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 522, 1, false, 0, 0, 3370, 9 },
+    { "packed_mud", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 379, 1, false, 0, 0, 3379, 2 },
+    { "painting", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 985, 1, false, 3, 3, 3381, 9 },
+    { "pale_moss_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 263, 3, false, 2, 1, 3390, 2 },
+    { "pale_oak_boat", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 877, 1, false, 3, 2, 3392, 6 },
+    { "pale_oak_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 758, 1, false, 0, 0, 3398, 1 },
+    { "pale_oak_chest_boat", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 878, 1, false, 0, 0, 3399, 2 },
+    { "pale_oak_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 787, 3, false, 2, 3, 3401, 6 },
+    { "pale_oak_fence", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 351, 3, false, 3, 2, 3407, 6 },
+    { "pale_oak_fence_gate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 828, 1, false, 3, 2, 3413, 6 },
+    { "pale_oak_hanging_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1007, 6, false, 3, 3, 3419, 9 },
+    { "pale_oak_planks", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 43, 4, false, 0, 0, 3428, 1 },
+    { "pale_oak_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 774, 1, false, 2, 1, 3429, 2 },
+    { "pale_oak_shelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 314, 6, false, 3, 3, 3431, 9 },
+    { "pale_oak_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 995, 3, false, 3, 3, 3440, 9 },
+    { "pale_oak_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 277, 6, false, 3, 1, 3449, 3 },
+    { "pale_oak_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 448, 4, false, 3, 3, 3452, 9 },
+    { "pale_oak_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 808, 2, false, 3, 2, 3461, 6 },
+    { "pale_oak_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 177, 3, false, 2, 2, 3467, 4 },
+    { "paper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1028, 3, false, 3, 1, 3471, 3 },
+    { "pink_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1272, 1, false, 3, 3, 3474, 9 },
+    { "pink_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1092, 1, false, 3, 2, 3483, 6 },
+    { "pink_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1043, 1, false, 0, 0, 3489, 2 },
+    { "pink_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1405, 1, false, 0, 0, 3491, 2 },
+    { "pink_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 511, 3, false, 2, 1, 3493, 2 },
+    { "pink_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 636, 8, false, 0, 0, 3495, 9 },
+    { "pink_dye_from_cactus_flower", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1072, 1, false, 0, 0, 3504, 1 },
+    { "pink_dye_from_peony", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1072, 2, false, 0, 0, 3505, 1 },
+    { "pink_dye_from_pink_petals", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1072, 1, false, 0, 0, 3506, 1 },
+    { "pink_dye_from_pink_tulip", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1072, 1, false, 0, 0, 3507, 1 },
+    { "pink_dye_from_red_white_dye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1072, 2, false, 0, 0, 3508, 2 },
+    { "pink_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 844, 1, false, 3, 2, 3510, 6 },
+    { "pink_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 588, 1, false, 0, 0, 3516, 2 },
+    { "pink_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 536, 8, false, 3, 3, 3518, 9 },
+    { "pink_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 552, 16, false, 3, 2, 3527, 6 },
+    { "pink_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 552, 8, false, 3, 3, 3533, 9 },
+    { "pink_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 492, 8, false, 3, 3, 3542, 9 },
+    { "piston", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 722, 1, false, 3, 3, 3551, 9 },
+    { "polished_andesite", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 7, 4, false, 2, 2, 3560, 4 },
+    { "polished_andesite_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 710, 6, false, 3, 1, 3564, 3 },
+    { "polished_andesite_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 693, 4, false, 3, 3, 3567, 9 },
+    { "polished_basalt", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 363, 4, false, 2, 2, 3576, 4 },
+    { "polished_blackstone", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1389, 4, false, 2, 2, 3580, 4 },
+    { "polished_blackstone_brick_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1394, 6, false, 3, 1, 3584, 3 },
+    { "polished_blackstone_brick_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1395, 4, false, 3, 3, 3587, 9 },
+    { "polished_blackstone_brick_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 473, 6, false, 3, 2, 3596, 6 },
+    { "polished_blackstone_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1393, 4, false, 2, 2, 3602, 4 },
+    { "polished_blackstone_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 750, 1, false, 0, 0, 3606, 1 },
+    { "polished_blackstone_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 764, 1, false, 2, 1, 3607, 2 },
+    { "polished_blackstone_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1390, 6, false, 3, 1, 3609, 3 },
+    { "polished_blackstone_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1391, 4, false, 3, 3, 3612, 9 },
+    { "polished_blackstone_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 472, 6, false, 3, 2, 3621, 6 },
+    { "polished_deepslate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 10, 4, false, 2, 2, 3627, 4 },
+    { "polished_deepslate_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 713, 6, false, 3, 1, 3631, 3 },
+    { "polished_deepslate_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 696, 4, false, 3, 3, 3634, 9 },
+    { "polished_deepslate_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 475, 6, false, 3, 2, 3643, 6 },
+    { "polished_diorite", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 5, 4, false, 2, 2, 3649, 4 },
+    { "polished_diorite_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 702, 6, false, 3, 1, 3653, 3 },
+    { "polished_diorite_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 684, 4, false, 3, 3, 3656, 9 },
+    { "polished_granite", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 3, 4, false, 2, 2, 3665, 4 },
+    { "polished_granite_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 699, 6, false, 3, 1, 3669, 3 },
+    { "polished_granite_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 681, 4, false, 3, 3, 3672, 9 },
+    { "polished_tuff", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 17, 4, false, 2, 2, 3681, 4 },
+    { "polished_tuff_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 18, 6, false, 3, 1, 3685, 3 },
+    { "polished_tuff_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 19, 4, false, 3, 3, 3688, 9 },
+    { "polished_tuff_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 20, 6, false, 3, 2, 3697, 6 },
+    { "powered_rail", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 833, 6, false, 3, 3, 3703, 9 },
+    { "prismarine", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 562, 1, false, 2, 2, 3712, 4 },
+    { "prismarine_brick_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 298, 6, false, 3, 1, 3716, 3 },
+    { "prismarine_brick_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 566, 4, false, 3, 3, 3719, 9 },
+    { "prismarine_bricks", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 563, 1, false, 0, 0, 3728, 9 },
+    { "prismarine_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 297, 6, false, 3, 1, 3737, 3 },
+    { "prismarine_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 565, 4, false, 3, 3, 3740, 9 },
+    { "prismarine_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 459, 6, false, 3, 2, 3749, 6 },
+    { "pumpkin_pie", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1241, 1, false, 0, 0, 3755, 3 },
+    { "pumpkin_seeds", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1108, 4, false, 0, 0, 3758, 1 },
+    { "purple_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1276, 1, false, 3, 3, 3759, 9 },
+    { "purple_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1096, 1, false, 3, 2, 3768, 6 },
+    { "purple_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1047, 1, false, 0, 0, 3774, 2 },
+    { "purple_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1409, 1, false, 0, 0, 3776, 2 },
+    { "purple_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 515, 3, false, 2, 1, 3778, 2 },
+    { "purple_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 640, 8, false, 0, 0, 3780, 9 },
+    { "purple_dye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1076, 2, false, 0, 0, 3789, 2 },
+    { "purple_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 848, 1, false, 3, 2, 3791, 6 },
+    { "purple_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 592, 1, false, 0, 0, 3797, 2 },
+    { "purple_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 540, 8, false, 3, 3, 3799, 9 },
+    { "purple_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 556, 16, false, 3, 2, 3808, 6 },
+    { "purple_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 556, 8, false, 3, 3, 3814, 9 },
+    { "purple_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 496, 8, false, 3, 3, 3823, 9 },
+    { "purpur_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 326, 4, false, 2, 2, 3832, 4 },
+    { "purpur_pillar", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 327, 1, false, 1, 2, 3836, 2 },
+    { "purpur_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 296, 6, false, 3, 1, 3838, 3 },
+    { "purpur_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 328, 4, false, 3, 3, 3841, 9 },
+    { "quartz_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 482, 1, false, 2, 2, 3850, 4 },
+    { "quartz_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 483, 4, false, 2, 2, 3854, 4 },
+    { "quartz_pillar", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 484, 2, false, 1, 2, 3858, 2 },
+    { "quartz_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 293, 6, false, 3, 1, 3860, 3 },
+    { "quartz_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 485, 4, false, 3, 3, 3863, 9 },
+    { "rabbit_stew_from_brown_mushroom", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1251, 1, false, 0, 0, 3872, 5 },
+    { "rabbit_stew_from_red_mushroom", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1251, 1, false, 0, 0, 3877, 5 },
+    { "rail", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 835, 16, false, 3, 3, 3882, 9 },
+    { "raiser_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1441, 2, false, 3, 3, 3891, 9 },
+    { "raw_copper", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 905, 9, false, 0, 0, 3900, 1 },
+    { "raw_copper_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 85, 1, false, 3, 3, 3901, 9 },
+    { "raw_gold", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 907, 9, false, 0, 0, 3910, 1 },
+    { "raw_gold_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 86, 1, false, 3, 3, 3911, 9 },
+    { "raw_iron", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 903, 9, false, 0, 0, 3920, 1 },
+    { "raw_iron_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 84, 1, false, 3, 3, 3921, 9 },
+    { "recovery_compass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1035, 1, false, 3, 3, 3930, 9 },
+    { "red_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1280, 1, false, 3, 3, 3939, 9 },
+    { "red_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1100, 1, false, 3, 2, 3948, 6 },
+    { "red_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1051, 1, false, 0, 0, 3954, 2 },
+    { "red_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1413, 1, false, 0, 0, 3956, 2 },
+    { "red_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 519, 3, false, 2, 1, 3958, 2 },
+    { "red_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 644, 8, false, 0, 0, 3960, 9 },
+    { "red_dye_from_beetroot", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1080, 1, false, 0, 0, 3969, 1 },
+    { "red_dye_from_poppy", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1080, 1, false, 0, 0, 3970, 1 },
+    { "red_dye_from_rose_bush", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1080, 2, false, 0, 0, 3971, 1 },
+    { "red_dye_from_tulip", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1080, 1, false, 0, 0, 3972, 1 },
+    { "red_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 852, 1, false, 3, 2, 3973, 6 },
+    { "red_nether_brick_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 709, 6, false, 3, 1, 3979, 3 },
+    { "red_nether_brick_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 692, 4, false, 3, 3, 3982, 9 },
+    { "red_nether_brick_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 467, 6, false, 3, 2, 3991, 6 },
+    { "red_nether_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 578, 1, false, 2, 2, 3997, 4 },
+    { "red_sandstone", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 569, 1, false, 2, 2, 4001, 4 },
+    { "red_sandstone_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 294, 6, false, 3, 1, 4005, 3 },
+    { "red_sandstone_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 572, 4, false, 3, 3, 4008, 9 },
+    { "red_sandstone_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 460, 6, false, 3, 2, 4017, 6 },
+    { "red_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 596, 1, false, 0, 0, 4023, 2 },
+    { "red_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 544, 8, false, 3, 3, 4025, 9 },
+    { "red_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 560, 16, false, 3, 2, 4034, 6 },
+    { "red_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 560, 8, false, 3, 3, 4040, 9 },
+    { "red_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 500, 8, false, 3, 3, 4049, 9 },
+    { "redstone", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 717, 9, false, 0, 0, 4058, 1 },
+    { "redstone_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 719, 1, false, 3, 3, 4059, 9 },
+    { "redstone_lamp", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 747, 1, false, 3, 3, 4068, 9 },
+    { "redstone_torch", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 718, 1, false, 1, 2, 4077, 2 },
+    { "repair_item", RCLASS_REPAIR_ITEM_RECIPE, RECIPE_KIND_SPECIAL, -1, 0, false, 0, 0, 4079, 0 },
+    { "repeater", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 720, 1, false, 3, 2, 4079, 6 },
+    { "resin_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 413, 1, false, 3, 3, 4085, 9 },
+    { "resin_brick_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 416, 6, false, 3, 1, 4094, 3 },
+    { "resin_brick_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 415, 4, false, 3, 3, 4097, 9 },
+    { "resin_brick_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 417, 6, false, 3, 2, 4106, 6 },
+    { "resin_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 414, 1, false, 2, 2, 4112, 4 },
+    { "resin_clump", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 412, 9, false, 0, 0, 4116, 1 },
+    { "respawn_anchor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1397, 1, false, 3, 3, 4117, 9 },
+    { "rib_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1436, 2, false, 3, 3, 4126, 9 },
+    { "saddle", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 837, 1, false, 3, 2, 4135, 6 },
+    { "sandstone", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 198, 1, false, 2, 2, 4141, 4 },
+    { "sandstone_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 285, 6, false, 3, 1, 4145, 3 },
+    { "sandstone_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 438, 4, false, 3, 3, 4148, 9 },
+    { "sandstone_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 468, 6, false, 3, 2, 4157, 6 },
+    { "scaffolding", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 716, 6, false, 3, 3, 4163, 9 },
+    { "sea_lantern", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 568, 1, false, 3, 3, 4172, 9 },
+    { "sentry_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1427, 2, false, 3, 3, 4181, 9 },
+    { "shaper_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1439, 2, false, 3, 3, 4190, 9 },
+    { "shears", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1105, 1, false, 2, 2, 4199, 4 },
+    { "shield", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1295, 1, false, 3, 3, 4203, 9 },
+    { "shield_decoration", RCLASS_SHIELD_DECORATION_RECIPE, RECIPE_KIND_SPECIAL, -1, 0, false, 0, 0, 4212, 0 },
+    { "shulker_box", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 581, 1, false, 1, 3, 4212, 3 },
+    { "silence_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1440, 2, false, 3, 3, 4215, 9 },
+    { "skull_banner_pattern", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1344, 1, false, 0, 0, 4224, 2 },
+    { "slime_ball", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1030, 9, false, 0, 0, 4226, 1 },
+    { "slime_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 724, 1, false, 3, 3, 4227, 9 },
+    { "smithing_table", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1360, 1, false, 2, 3, 4236, 6 },
+    { "smoker", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1355, 1, false, 3, 3, 4242, 9 },
+    { "smooth_quartz_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 706, 6, false, 3, 1, 4251, 3 },
+    { "smooth_quartz_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 689, 4, false, 3, 3, 4254, 9 },
+    { "smooth_red_sandstone_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 700, 6, false, 3, 1, 4263, 3 },
+    { "smooth_red_sandstone_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 682, 4, false, 3, 3, 4266, 9 },
+    { "smooth_sandstone_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 705, 6, false, 3, 1, 4275, 3 },
+    { "smooth_sandstone_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 688, 4, false, 3, 3, 4278, 9 },
+    { "smooth_stone_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 284, 6, false, 3, 1, 4287, 3 },
+    { "snout_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1435, 2, false, 3, 3, 4290, 9 },
+    { "snow", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 337, 6, false, 3, 1, 4299, 3 },
+    { "snow_block", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 339, 1, false, 2, 2, 4302, 4 },
+    { "soul_campfire", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1376, 1, false, 3, 3, 4306, 9 },
+    { "soul_lantern", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1364, 1, false, 3, 3, 4315, 9 },
+    { "soul_torch", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 365, 4, false, 1, 3, 4324, 3 },
+    { "spectral_arrow", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1292, 2, false, 3, 3, 4327, 9 },
+    { "spire_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1437, 2, false, 3, 3, 4336, 9 },
+    { "spruce_boat", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 865, 1, false, 3, 2, 4345, 6 },
+    { "spruce_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 752, 1, false, 0, 0, 4351, 1 },
+    { "spruce_chest_boat", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 866, 1, false, 0, 0, 4352, 2 },
+    { "spruce_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 781, 3, false, 2, 3, 4354, 6 },
+    { "spruce_fence", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 345, 3, false, 3, 2, 4360, 6 },
+    { "spruce_fence_gate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 822, 1, false, 3, 2, 4366, 6 },
+    { "spruce_hanging_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1001, 6, false, 3, 3, 4372, 9 },
+    { "spruce_planks", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 37, 4, false, 0, 0, 4381, 1 },
+    { "spruce_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 768, 1, false, 2, 1, 4382, 2 },
+    { "spruce_shelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 315, 6, false, 3, 3, 4384, 9 },
+    { "spruce_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 989, 3, false, 3, 3, 4393, 9 },
+    { "spruce_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 271, 6, false, 3, 1, 4402, 3 },
+    { "spruce_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 442, 4, false, 3, 3, 4405, 9 },
+    { "spruce_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 802, 2, false, 3, 2, 4414, 6 },
+    { "spruce_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 172, 3, false, 2, 2, 4420, 4 },
+    { "spyglass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1055, 1, false, 1, 3, 4424, 3 },
+    { "stick", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 946, 4, false, 1, 2, 4427, 2 },
+    { "stick_from_bamboo_item", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 946, 1, false, 1, 2, 4429, 2 },
+    { "sticky_piston", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 723, 1, false, 1, 2, 4431, 2 },
+    { "stone_axe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 924, 1, false, 2, 3, 4433, 6 },
+    { "stone_brick_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 290, 6, false, 3, 1, 4439, 3 },
+    { "stone_brick_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 420, 4, false, 3, 3, 4442, 9 },
+    { "stone_brick_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 463, 6, false, 3, 2, 4451, 6 },
+    { "stone_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 375, 4, false, 2, 2, 4457, 4 },
+    { "stone_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 749, 1, false, 0, 0, 4461, 1 },
+    { "stone_hoe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 925, 1, false, 2, 3, 4462, 6 },
+    { "stone_pickaxe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 923, 1, false, 3, 3, 4468, 9 },
+    { "stone_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 763, 1, false, 2, 1, 4477, 2 },
+    { "stone_shovel", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 922, 1, false, 1, 3, 4479, 3 },
+    { "stone_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 283, 6, false, 3, 1, 4482, 3 },
+    { "stone_spear", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1297, 1, false, 3, 3, 4485, 9 },
+    { "stone_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 687, 4, false, 3, 3, 4494, 9 },
+    { "stone_sword", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 921, 1, false, 1, 3, 4503, 3 },
+    { "stonecutter", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1361, 1, false, 3, 2, 4506, 6 },
+    { "stripped_acacia_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 163, 3, false, 2, 2, 4512, 4 },
+    { "stripped_birch_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 161, 3, false, 2, 2, 4516, 4 },
+    { "stripped_cherry_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 164, 3, false, 2, 2, 4520, 4 },
+    { "stripped_crimson_hyphae", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 168, 3, false, 2, 2, 4524, 4 },
+    { "stripped_dark_oak_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 165, 3, false, 2, 2, 4528, 4 },
+    { "stripped_jungle_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 162, 3, false, 2, 2, 4532, 4 },
+    { "stripped_mangrove_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 167, 3, false, 2, 2, 4536, 4 },
+    { "stripped_oak_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 159, 3, false, 2, 2, 4540, 4 },
+    { "stripped_pale_oak_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 166, 3, false, 2, 2, 4544, 4 },
+    { "stripped_spruce_wood", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 160, 3, false, 2, 2, 4548, 4 },
+    { "stripped_warped_hyphae", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 169, 3, false, 2, 2, 4552, 4 },
+    { "sugar_from_honey_bottle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1084, 3, false, 0, 0, 4556, 1 },
+    { "sugar_from_sugar_cane", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1084, 1, false, 0, 0, 4557, 1 },
+    { "suspicious_stew_from_allium", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4558, 4 },
+    { "suspicious_stew_from_azure_bluet", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4562, 4 },
+    { "suspicious_stew_from_blue_orchid", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4566, 4 },
+    { "suspicious_stew_from_closed_eyeblossom", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4570, 4 },
+    { "suspicious_stew_from_cornflower", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4574, 4 },
+    { "suspicious_stew_from_dandelion", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4578, 4 },
+    { "suspicious_stew_from_lily_of_the_valley", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4582, 4 },
+    { "suspicious_stew_from_open_eyeblossom", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4586, 4 },
+    { "suspicious_stew_from_orange_tulip", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4590, 4 },
+    { "suspicious_stew_from_oxeye_daisy", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4594, 4 },
+    { "suspicious_stew_from_pink_tulip", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4598, 4 },
+    { "suspicious_stew_from_poppy", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4602, 4 },
+    { "suspicious_stew_from_red_tulip", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4606, 4 },
+    { "suspicious_stew_from_torchflower", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4610, 4 },
+    { "suspicious_stew_from_white_tulip", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4614, 4 },
+    { "suspicious_stew_from_wither_rose", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1340, 1, true, 0, 0, 4618, 4 },
+    { "target", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 731, 1, false, 3, 3, 4622, 9 },
+    { "tide_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1434, 2, false, 3, 3, 4631, 9 },
+    { "tinted_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 196, 2, false, 3, 3, 4640, 9 },
+    { "tipped_arrow", RCLASS_TIPPED_ARROW_RECIPE, RECIPE_KIND_SPECIAL, -1, 0, false, 0, 0, 4649, 0 },
+    { "tnt", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 746, 1, false, 3, 3, 4649, 9 },
+    { "tnt_minecart", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 857, 1, false, 0, 0, 4658, 2 },
+    { "torch", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 322, 4, false, 1, 2, 4660, 2 },
+    { "trapped_chest", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 745, 1, false, 0, 0, 4662, 2 },
+    { "tripwire_hook", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 744, 2, false, 1, 3, 4664, 3 },
+    { "tuff_brick_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 22, 6, false, 3, 1, 4667, 3 },
+    { "tuff_brick_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 23, 4, false, 3, 3, 4670, 9 },
+    { "tuff_brick_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 24, 6, false, 3, 2, 4679, 6 },
+    { "tuff_bricks", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 21, 4, false, 2, 2, 4685, 4 },
+    { "tuff_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 13, 6, false, 3, 1, 4689, 3 },
+    { "tuff_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 14, 4, false, 3, 3, 4692, 9 },
+    { "tuff_wall", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 15, 6, false, 3, 2, 4701, 6 },
+    { "turtle_helmet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 887, 1, false, 3, 2, 4707, 6 },
+    { "vex_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1433, 2, false, 3, 3, 4713, 9 },
+    { "ward_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1431, 2, false, 3, 3, 4722, 9 },
+    { "warped_button", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 762, 1, false, 0, 0, 4731, 1 },
+    { "warped_door", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 791, 3, false, 2, 3, 4732, 6 },
+    { "warped_fence", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 355, 3, false, 3, 2, 4738, 6 },
+    { "warped_fence_gate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 832, 1, false, 3, 2, 4744, 6 },
+    { "warped_fungus_on_a_stick", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 860, 1, false, 2, 2, 4750, 4 },
+    { "warped_hanging_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1011, 6, false, 3, 3, 4754, 9 },
+    { "warped_hyphae", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 181, 3, false, 2, 2, 4763, 4 },
+    { "warped_planks", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 47, 4, false, 0, 0, 4767, 1 },
+    { "warped_pressure_plate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 778, 1, false, 2, 1, 4768, 2 },
+    { "warped_shelf", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 316, 6, false, 3, 3, 4770, 9 },
+    { "warped_sign", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 999, 3, false, 3, 3, 4779, 9 },
+    { "warped_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 282, 6, false, 3, 1, 4788, 3 },
+    { "warped_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 453, 4, false, 3, 3, 4791, 9 },
+    { "warped_trapdoor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 812, 2, false, 3, 2, 4800, 6 },
+    { "waxed_chiseled_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 118, 1, false, 1, 2, 4806, 2 },
+    { "waxed_chiseled_copper_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 118, 1, false, 0, 0, 4808, 2 },
+    { "waxed_copper_bars_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 395, 1, false, 0, 0, 4810, 2 },
+    { "waxed_copper_block_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 114, 1, false, 0, 0, 4812, 2 },
+    { "waxed_copper_bulb", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1480, 4, false, 3, 3, 4814, 9 },
+    { "waxed_copper_bulb_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1480, 1, false, 0, 0, 4823, 2 },
+    { "waxed_copper_chain_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 404, 1, false, 0, 0, 4825, 2 },
+    { "waxed_copper_chest_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1488, 1, false, 0, 0, 4827, 2 },
+    { "waxed_copper_door_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 796, 1, false, 0, 0, 4829, 2 },
+    { "waxed_copper_golem_statue_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1496, 1, false, 0, 0, 4831, 2 },
+    { "waxed_copper_grate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1472, 4, false, 3, 3, 4833, 9 },
+    { "waxed_copper_grate_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1472, 1, false, 0, 0, 4842, 2 },
+    { "waxed_copper_lantern_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1369, 1, false, 0, 0, 4844, 2 },
+    { "waxed_copper_trapdoor_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 817, 1, false, 0, 0, 4846, 2 },
+    { "waxed_cut_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 122, 4, false, 2, 2, 4848, 4 },
+    { "waxed_cut_copper_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 122, 1, false, 0, 0, 4852, 2 },
+    { "waxed_cut_copper_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 130, 6, false, 3, 1, 4854, 3 },
+    { "waxed_cut_copper_slab_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 130, 1, false, 0, 0, 4857, 2 },
+    { "waxed_cut_copper_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 126, 4, false, 3, 3, 4859, 9 },
+    { "waxed_cut_copper_stairs_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 126, 1, false, 0, 0, 4868, 2 },
+    { "waxed_exposed_chiseled_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 119, 1, false, 1, 2, 4870, 2 },
+    { "waxed_exposed_chiseled_copper_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 119, 1, false, 0, 0, 4872, 2 },
+    { "waxed_exposed_copper_bars_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 396, 1, false, 0, 0, 4874, 2 },
+    { "waxed_exposed_copper_bulb", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1481, 4, false, 3, 3, 4876, 9 },
+    { "waxed_exposed_copper_bulb_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1481, 1, false, 0, 0, 4885, 2 },
+    { "waxed_exposed_copper_chain_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 405, 1, false, 0, 0, 4887, 2 },
+    { "waxed_exposed_copper_chest_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1489, 1, false, 0, 0, 4889, 2 },
+    { "waxed_exposed_copper_door_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 797, 1, false, 0, 0, 4891, 2 },
+    { "waxed_exposed_copper_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 115, 1, false, 0, 0, 4893, 2 },
+    { "waxed_exposed_copper_golem_statue_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1497, 1, false, 0, 0, 4895, 2 },
+    { "waxed_exposed_copper_grate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1473, 4, false, 3, 3, 4897, 9 },
+    { "waxed_exposed_copper_grate_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1473, 1, false, 0, 0, 4906, 2 },
+    { "waxed_exposed_copper_lantern_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1370, 1, false, 0, 0, 4908, 2 },
+    { "waxed_exposed_copper_trapdoor_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 818, 1, false, 0, 0, 4910, 2 },
+    { "waxed_exposed_cut_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 123, 4, false, 2, 2, 4912, 4 },
+    { "waxed_exposed_cut_copper_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 123, 1, false, 0, 0, 4916, 2 },
+    { "waxed_exposed_cut_copper_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 131, 6, false, 3, 1, 4918, 3 },
+    { "waxed_exposed_cut_copper_slab_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 131, 1, false, 0, 0, 4921, 2 },
+    { "waxed_exposed_cut_copper_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 127, 4, false, 3, 3, 4923, 9 },
+    { "waxed_exposed_cut_copper_stairs_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 127, 1, false, 0, 0, 4932, 2 },
+    { "waxed_exposed_lightning_rod_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 738, 1, false, 0, 0, 4934, 2 },
+    { "waxed_lightning_rod_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 737, 1, false, 0, 0, 4936, 2 },
+    { "waxed_oxidized_chiseled_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 121, 1, false, 1, 2, 4938, 2 },
+    { "waxed_oxidized_chiseled_copper_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 121, 1, false, 0, 0, 4940, 2 },
+    { "waxed_oxidized_copper_bars_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 398, 1, false, 0, 0, 4942, 2 },
+    { "waxed_oxidized_copper_bulb", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1483, 4, false, 3, 3, 4944, 9 },
+    { "waxed_oxidized_copper_bulb_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1483, 1, false, 0, 0, 4953, 2 },
+    { "waxed_oxidized_copper_chain_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 407, 1, false, 0, 0, 4955, 2 },
+    { "waxed_oxidized_copper_chest_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1491, 1, false, 0, 0, 4957, 2 },
+    { "waxed_oxidized_copper_door_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 799, 1, false, 0, 0, 4959, 2 },
+    { "waxed_oxidized_copper_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 117, 1, false, 0, 0, 4961, 2 },
+    { "waxed_oxidized_copper_golem_statue_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1499, 1, false, 0, 0, 4963, 2 },
+    { "waxed_oxidized_copper_grate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1475, 4, false, 3, 3, 4965, 9 },
+    { "waxed_oxidized_copper_grate_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1475, 1, false, 0, 0, 4974, 2 },
+    { "waxed_oxidized_copper_lantern_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1372, 1, false, 0, 0, 4976, 2 },
+    { "waxed_oxidized_copper_trapdoor_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 820, 1, false, 0, 0, 4978, 2 },
+    { "waxed_oxidized_cut_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 125, 4, false, 2, 2, 4980, 4 },
+    { "waxed_oxidized_cut_copper_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 125, 1, false, 0, 0, 4984, 2 },
+    { "waxed_oxidized_cut_copper_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 133, 6, false, 3, 1, 4986, 3 },
+    { "waxed_oxidized_cut_copper_slab_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 133, 1, false, 0, 0, 4989, 2 },
+    { "waxed_oxidized_cut_copper_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 129, 4, false, 3, 3, 4991, 9 },
+    { "waxed_oxidized_cut_copper_stairs_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 129, 1, false, 0, 0, 5000, 2 },
+    { "waxed_oxidized_lightning_rod_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 740, 1, false, 0, 0, 5002, 2 },
+    { "waxed_weathered_chiseled_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 120, 1, false, 1, 2, 5004, 2 },
+    { "waxed_weathered_chiseled_copper_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 120, 1, false, 0, 0, 5006, 2 },
+    { "waxed_weathered_copper_bars_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 397, 1, false, 0, 0, 5008, 2 },
+    { "waxed_weathered_copper_bulb", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1482, 4, false, 3, 3, 5010, 9 },
+    { "waxed_weathered_copper_bulb_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1482, 1, false, 0, 0, 5019, 2 },
+    { "waxed_weathered_copper_chain_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 406, 1, false, 0, 0, 5021, 2 },
+    { "waxed_weathered_copper_chest_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1490, 1, false, 0, 0, 5023, 2 },
+    { "waxed_weathered_copper_door_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 798, 1, false, 0, 0, 5025, 2 },
+    { "waxed_weathered_copper_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 116, 1, false, 0, 0, 5027, 2 },
+    { "waxed_weathered_copper_golem_statue_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1498, 1, false, 0, 0, 5029, 2 },
+    { "waxed_weathered_copper_grate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1474, 4, false, 3, 3, 5031, 9 },
+    { "waxed_weathered_copper_grate_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1474, 1, false, 0, 0, 5040, 2 },
+    { "waxed_weathered_copper_lantern_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1371, 1, false, 0, 0, 5042, 2 },
+    { "waxed_weathered_copper_trapdoor_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 819, 1, false, 0, 0, 5044, 2 },
+    { "waxed_weathered_cut_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 124, 4, false, 2, 2, 5046, 4 },
+    { "waxed_weathered_cut_copper_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 124, 1, false, 0, 0, 5050, 2 },
+    { "waxed_weathered_cut_copper_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 132, 6, false, 3, 1, 5052, 3 },
+    { "waxed_weathered_cut_copper_slab_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 132, 1, false, 0, 0, 5055, 2 },
+    { "waxed_weathered_cut_copper_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 128, 4, false, 3, 3, 5057, 9 },
+    { "waxed_weathered_cut_copper_stairs_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 128, 1, false, 0, 0, 5066, 2 },
+    { "waxed_weathered_lightning_rod_from_honeycomb", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 739, 1, false, 0, 0, 5068, 2 },
+    { "wayfinder_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1438, 2, false, 3, 3, 5070, 9 },
+    { "weathered_chiseled_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 100, 1, false, 1, 2, 5079, 2 },
+    { "weathered_copper_bulb", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1478, 4, false, 3, 3, 5081, 9 },
+    { "weathered_copper_grate", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1470, 4, false, 3, 3, 5090, 9 },
+    { "weathered_cut_copper", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 104, 4, false, 2, 2, 5099, 4 },
+    { "weathered_cut_copper_slab", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 112, 6, false, 3, 1, 5103, 3 },
+    { "weathered_cut_copper_stairs", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 108, 4, false, 3, 3, 5106, 9 },
+    { "wheat", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 952, 9, false, 0, 0, 5115, 1 },
+    { "white_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1266, 1, false, 3, 3, 5116, 9 },
+    { "white_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1086, 1, false, 3, 2, 5125, 6 },
+    { "white_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1037, 1, false, 0, 0, 5131, 2 },
+    { "white_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1399, 1, false, 0, 0, 5133, 2 },
+    { "white_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 505, 3, false, 2, 1, 5135, 2 },
+    { "white_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 630, 8, false, 0, 0, 5137, 9 },
+    { "white_dye", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1066, 1, false, 0, 0, 5146, 1 },
+    { "white_dye_from_lily_of_the_valley", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1066, 1, false, 0, 0, 5147, 1 },
+    { "white_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 838, 1, false, 3, 2, 5148, 6 },
+    { "white_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 582, 1, false, 0, 0, 5154, 2 },
+    { "white_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 530, 8, false, 3, 3, 5156, 9 },
+    { "white_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 546, 16, false, 3, 2, 5165, 6 },
+    { "white_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 546, 8, false, 3, 3, 5171, 9 },
+    { "white_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 486, 8, false, 3, 3, 5180, 9 },
+    { "white_wool_from_string", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 213, 1, false, 2, 2, 5189, 4 },
+    { "wild_armor_trim_smithing_template", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1430, 2, false, 3, 3, 5193, 9 },
+    { "wind_charge", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1219, 4, false, 0, 0, 5202, 1 },
+    { "wolf_armor", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 890, 1, false, 3, 3, 5203, 9 },
+    { "wooden_axe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 914, 1, false, 2, 3, 5212, 6 },
+    { "wooden_hoe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 915, 1, false, 2, 3, 5218, 6 },
+    { "wooden_pickaxe", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 913, 1, false, 3, 3, 5224, 9 },
+    { "wooden_shovel", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 912, 1, false, 1, 3, 5233, 3 },
+    { "wooden_spear", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1296, 1, false, 3, 3, 5236, 9 },
+    { "wooden_sword", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 911, 1, false, 1, 3, 5245, 3 },
+    { "writable_book", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1220, 1, false, 0, 0, 5248, 3 },
+    { "yellow_banner", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1270, 1, false, 3, 3, 5251, 9 },
+    { "yellow_bed", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 1090, 1, false, 3, 2, 5260, 6 },
+    { "yellow_bundle", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 1041, 1, false, 0, 0, 5266, 2 },
+    { "yellow_candle", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1403, 1, false, 0, 0, 5268, 2 },
+    { "yellow_carpet", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 509, 3, false, 2, 1, 5270, 2 },
+    { "yellow_concrete_powder", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 634, 8, false, 0, 0, 5272, 9 },
+    { "yellow_dye_from_dandelion", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1070, 1, false, 0, 0, 5281, 1 },
+    { "yellow_dye_from_sunflower", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1070, 2, false, 0, 0, 5282, 1 },
+    { "yellow_dye_from_wildflowers", RCLASS_SHAPELESS_RECIPE, RECIPE_KIND_SHAPELESS, 1070, 1, false, 0, 0, 5283, 1 },
+    { "yellow_harness", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 842, 1, false, 3, 2, 5284, 6 },
+    { "yellow_shulker_box", RCLASS_TRANSMUTE_RECIPE, RECIPE_KIND_TRANSMUTE, 586, 1, false, 0, 0, 5290, 2 },
+    { "yellow_stained_glass", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 534, 8, false, 3, 3, 5292, 9 },
+    { "yellow_stained_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 550, 16, false, 3, 2, 5301, 6 },
+    { "yellow_stained_glass_pane_from_glass_pane", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 550, 8, false, 3, 3, 5307, 9 },
+    { "yellow_terracotta", RCLASS_SHAPED_RECIPE, RECIPE_KIND_SHAPED, 490, 8, false, 3, 3, 5316, 9 },
+};
+
+// ingredient ids, -1 for an empty slot of a shaped recipe
+const int16_t recipe_ingredients[] = {
+    0, -1, 0, 0, 0, 0,  // acacia_boat
+    0,  // acacia_button
+    1, 2,  // acacia_chest_boat
+    0, 0, 0, 0, 0, 0,  // acacia_door
+    0, 3, 0, 0, 3, 0,  // acacia_fence
+    3, 0, 3, 3, 0, 3,  // acacia_fence_gate
+    4, -1, 4, 5, 5, 5, 5, 5, 5,  // acacia_hanging_sign
+    6,  // acacia_planks
+    0, 0,  // acacia_pressure_plate
+    5, 5, 5, -1, -1, -1, 5, 5, 5,  // acacia_shelf
+    0, 0, 0, 0, 0, 0, -1, 3, -1,  // acacia_sign
+    0, 0, 0,  // acacia_slab
+    0, -1, -1, 0, 0, -1, 0, 0, 0,  // acacia_stairs
+    0, 0, 0, 0, 0, 0,  // acacia_trapdoor
+    7, 7, 7, 7,  // acacia_wood
+    8, 3, 8, 8, 9, 8, 8, 3, 8,  // activator_rail
+    10, 10, 10, 10,  // amethyst_block
+    11, 12,  // andesite
+    13, 13, 13,  // andesite_slab
+    13, -1, -1, 13, 13, -1, 13, 13, 13,  // andesite_stairs
+    13, 13, 13, 13, 13, 13,  // andesite_wall
+    14, 14, 14, -1, 8, -1, 8, 8, 8,  // anvil
+    3, 3, 3, -1, 3, -1, 3, 15, 3,  // armor_stand
+    16, 3, 17,  // arrow
+    18, 18, 18, 18, 18, 18, 18, 18, 18,  // bamboo_block
+    19,  // bamboo_button
+    1, 20,  // bamboo_chest_raft
+    19, 19, 19, 19, 19, 19,  // bamboo_door
+    19, 3, 19, 19, 3, 19,  // bamboo_fence
+    3, 19, 3, 3, 19, 3,  // bamboo_fence_gate
+    4, -1, 4, 21, 21, 21, 21, 21, 21,  // bamboo_hanging_sign
+    22, 22,  // bamboo_mosaic
+    23, 23, 23,  // bamboo_mosaic_slab
+    23, -1, -1, 23, 23, -1, 23, 23, 23,  // bamboo_mosaic_stairs
+    24,  // bamboo_planks
+    19, 19,  // bamboo_pressure_plate
+    19, -1, 19, 19, 19, 19,  // bamboo_raft
+    21, 21, 21, -1, -1, -1, 21, 21, 21,  // bamboo_shelf
+    19, 19, 19, 19, 19, 19, -1, 3, -1,  // bamboo_sign
+    19, 19, 19,  // bamboo_slab
+    19, -1, -1, 19, 19, -1, 19, 19, 19,  // bamboo_stairs
+    19, 19, 19, 19, 19, 19,  // bamboo_trapdoor
+    25, 26, 25, 25, -1, 25, 25, 26, 25,  // barrel
+    27, 27, 27, 27, 28, 27, 29, 29, 29,  // beacon
+    25, 25, 25, 30, 30, 30, 25, 25, 25,  // beehive
+    31, 32, 32, 32, 32, 32, 32,  // beetroot_soup
+    33, -1, 33, 33, 33, 33,  // birch_boat
+    33,  // birch_button
+    1, 34,  // birch_chest_boat
+    33, 33, 33, 33, 33, 33,  // birch_door
+    33, 3, 33, 33, 3, 33,  // birch_fence
+    3, 33, 3, 3, 33, 3,  // birch_fence_gate
+    4, -1, 4, 35, 35, 35, 35, 35, 35,  // birch_hanging_sign
+    36,  // birch_planks
+    33, 33,  // birch_pressure_plate
+    35, 35, 35, -1, -1, -1, 35, 35, 35,  // birch_shelf
+    33, 33, 33, 33, 33, 33, -1, 3, -1,  // birch_sign
+    33, 33, 33,  // birch_slab
+    33, -1, -1, 33, 33, -1, 33, 33, 33,  // birch_stairs
+    33, 33, 33, 33, 33, 33,  // birch_trapdoor
+    37, 37, 37, 37,  // birch_wood
+    38, 38, 38, 38, 38, 38, -1, 3, -1,  // black_banner
+    38, 38, 38, 25, 25, 25,  // black_bed
+    39, 40,  // black_bundle
+    41, 40,  // black_candle
+    38, 38,  // black_carpet
+    40, 42, 42, 42, 42, 43, 43, 43, 43,  // black_concrete_powder
+    44,  // black_dye
+    45,  // black_dye_from_wither_rose
+    46, 46, 46, 27, 38, 27,  // black_harness
+    47, 40,  // black_shulker_box
+    27, 27, 27, 27, 40, 27, 27, 27, 27,  // black_stained_glass
+    48, 48, 48, 48, 48, 48,  // black_stained_glass_pane
+    49, 49, 49, 49, 40, 49, 49, 49, 49,  // black_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 40, 50, 50, 50, 50,  // black_terracotta
+    51, 51, 51,  // blackstone_slab
+    51, -1, -1, 51, 51, -1, 51, 51, 51,  // blackstone_stairs
+    51, 51, 51, 51, 51, 51,  // blackstone_wall
+    8, 8, 8, 8, 52, 8, 53, 53, 53,  // blast_furnace
+    54,  // blaze_powder
+    55, 55, 55, 55, 55, 55, -1, 3, -1,  // blue_banner
+    55, 55, 55, 25, 25, 25,  // blue_bed
+    39, 56,  // blue_bundle
+    41, 56,  // blue_candle
+    55, 55,  // blue_carpet
+    56, 42, 42, 42, 42, 43, 43, 43, 43,  // blue_concrete_powder
+    57,  // blue_dye
+    58,  // blue_dye_from_cornflower
+    46, 46, 46, 27, 55, 27,  // blue_harness
+    59, 59, 59, 59, 59, 59, 59, 59, 59,  // blue_ice
+    47, 56,  // blue_shulker_box
+    27, 27, 27, 27, 56, 27, 27, 27, 27,  // blue_stained_glass
+    60, 60, 60, 60, 60, 60,  // blue_stained_glass_pane
+    49, 49, 49, 49, 56, 49, 49, 49, 49,  // blue_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 56, 50, 50, 50, 50,  // blue_terracotta
+    61, 62, 61, 61, 63, 61, 61, 61, 61,  // bolt_armor_trim_smithing_template
+    64, 64, 64, 64, 64, 64, 64, 64, 64,  // bone_block
+    65,  // bone_meal
+    66,  // bone_meal_from_bone_block
+    67, 67, 67, 46,  // book
+    25, 25, 25, 68, 68, 68, 25, 25, 25,  // bookshelf
+    67, 69,  // bordure_indented_banner_pattern
+    -1, 3, 70, 3, -1, 70, -1, 3, 70,  // bow
+    25, -1, 25, -1, 25, -1,  // bowl
+    71, 71, 71,  // bread
+    -1, 54, -1, 72, 72, 72,  // brewing_stand
+    73, 73, 73,  // brick_slab
+    73, -1, -1, 73, 73, -1, 73, 73, 73,  // brick_stairs
+    73, 73, 73, 73, 73, 73,  // brick_wall
+    74, 74, 74, 74,  // bricks
+    75, 75, 75, 75, 75, 75, -1, 3, -1,  // brown_banner
+    75, 75, 75, 25, 25, 25,  // brown_bed
+    39, 76,  // brown_bundle
+    41, 76,  // brown_candle
+    75, 75,  // brown_carpet
+    76, 42, 42, 42, 42, 43, 43, 43, 43,  // brown_concrete_powder
+    77,  // brown_dye
+    46, 46, 46, 27, 75, 27,  // brown_harness
+    47, 76,  // brown_shulker_box
+    27, 27, 27, 27, 76, 27, 27, 27, 27,  // brown_stained_glass
+    78, 78, 78, 78, 78, 78,  // brown_stained_glass_pane
+    49, 49, 49, 49, 76, 49, 49, 49, 49,  // brown_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 76, 50, 50, 50, 50,  // brown_terracotta
+    17, 79, 3,  // brush
+    8, -1, 8, -1, 8, -1,  // bucket
+    70, 46,  // bundle
+    80, 80, 80, 81, 82, 81, 71, 71, 71,  // cake
+    -1, 10, -1, 10, 83, 10,  // calibrated_sculk_sensor
+    -1, 3, -1, 3, 84, 3, 85, 85, 85,  // campfire
+    70, 30,  // candle
+    86, -1, -1, 87,  // carrot_on_a_stick
+    67, 67, 25, 25, 25, 25,  // cartography_table
+    8, -1, 8, 8, -1, 8, 8, 8, 8,  // cauldron
+    88, -1, 88, 88, 88, 88,  // cherry_boat
+    88,  // cherry_button
+    1, 89,  // cherry_chest_boat
+    88, 88, 88, 88, 88, 88,  // cherry_door
+    88, 3, 88, 88, 3, 88,  // cherry_fence
+    3, 88, 3, 3, 88, 3,  // cherry_fence_gate
+    4, -1, 4, 90, 90, 90, 90, 90, 90,  // cherry_hanging_sign
+    91,  // cherry_planks
+    88, 88,  // cherry_pressure_plate
+    90, 90, 90, -1, -1, -1, 90, 90, 90,  // cherry_shelf
+    88, 88, 88, 88, 88, 88, -1, 3, -1,  // cherry_sign
+    88, 88, 88,  // cherry_slab
+    88, -1, -1, 88, 88, -1, 88, 88, 88,  // cherry_stairs
+    88, 88, 88, 88, 88, 88,  // cherry_trapdoor
+    92, 92, 92, 92,  // cherry_wood
+    25, 25, 25, 25, -1, 25, 25, 25, 25,  // chest
+    1, 93,  // chest_minecart
+    25, 25, 25, 26, 26, 26, 25, 25, 25,  // chiseled_bookshelf
+    94, 94,  // chiseled_copper
+    95, 95,  // chiseled_deepslate
+    96, 96,  // chiseled_nether_bricks
+    97, 97,  // chiseled_polished_blackstone
+    98, 98,  // chiseled_quartz_block
+    99, 99,  // chiseled_red_sandstone
+    100, 100,  // chiseled_resin_bricks
+    101, 101,  // chiseled_sandstone
+    102, 102,  // chiseled_stone_bricks
+    103, 103,  // chiseled_tuff
+    104, 104,  // chiseled_tuff_bricks
+    105, 105, 105, 105,  // clay
+    -1, 106, -1, 106, 107, 106, -1, 106, -1,  // clock
+    108,  // coal
+    109, 109, 109, 109, 109, 109, 109, 109, 109,  // coal_block
+    110, 43, 43, 110,  // coarse_dirt
+    61, 111, 61, 61, 12, 61, 61, 61, 61,  // coast_armor_trim_smithing_template
+    112, 112, 112,  // cobbled_deepslate_slab
+    112, -1, -1, 112, 112, -1, 112, 112, 112,  // cobbled_deepslate_stairs
+    112, 112, 112, 112, 112, 112,  // cobbled_deepslate_wall
+    12, 12, 12,  // cobblestone_slab
+    12, -1, -1, 12, 12, -1, 12, 12, 12,  // cobblestone_stairs
+    12, 12, 12, 12, 12, 12,  // cobblestone_wall
+    -1, 9, -1, 9, 113, 9, 114, 114, 114,  // comparator
+    -1, 8, -1, 8, 107, 8, -1, 8, -1,  // compass
+    26, -1, 26, 26, -1, 26, 26, 26, 26,  // composter
+    115, 115, 115, 115, 116, 115, 115, 115, 115,  // conduit
+    71, 77, 71,  // cookie
+    79, 79, 79, 3, -1, 3,  // copper_axe
+    79, 79, 79, 79, 79, 79,  // copper_bars
+    79, 79, 79, 79, 79, 79, 79, 79, 79,  // copper_block
+    79, -1, 79, 79, -1, 79,  // copper_boots
+    -1, 117, -1, 117, 54, 117, -1, 107, -1,  // copper_bulb
+    118, 79, 118,  // copper_chain
+    79, 79, 79, 79, 1, 79, 79, 79, 79,  // copper_chest
+    79, -1, 79, 79, 79, 79, 79, 79, 79,  // copper_chestplate
+    79, 79, 79, 79, 79, 79,  // copper_door
+    -1, 117, -1, 117, -1, 117, -1, 117, -1,  // copper_grate
+    79, 79, 79, 79, -1, 79,  // copper_helmet
+    79, 79, -1, 3, -1, 3,  // copper_hoe
+    117,  // copper_ingot
+    118, 118, 118, 118, 118, 118, 118, 118, 118,  // copper_ingot_from_nuggets
+    119,  // copper_ingot_from_waxed_copper_block
+    118, 118, 118, 118, 120, 118, 118, 118, 118,  // copper_lantern
+    79, 79, 79, 79, -1, 79, 79, -1, 79,  // copper_leggings
+    79,  // copper_nugget
+    79, 79, 79, -1, 3, -1, -1, 3, -1,  // copper_pickaxe
+    79, 3, 3,  // copper_shovel
+    -1, -1, 79, -1, 3, -1, 3, -1, -1,  // copper_spear
+    79, 79, 3,  // copper_sword
+    118, 84, 3,  // copper_torch
+    79, 79, 79, 79,  // copper_trapdoor
+    8, 8, 8, 8, 121, 8, 107, 122, 107,  // crafter
+    25, 25, 25, 25,  // crafting_table
+    123, 124, 123,  // creaking_heart
+    67, 125,  // creeper_banner_pattern
+    126,  // crimson_button
+    126, 126, 126, 126, 126, 126,  // crimson_door
+    126, 3, 126, 126, 3, 126,  // crimson_fence
+    3, 126, 3, 3, 126, 3,  // crimson_fence_gate
+    4, -1, 4, 127, 127, 127, 127, 127, 127,  // crimson_hanging_sign
+    128, 128, 128, 128,  // crimson_hyphae
+    129,  // crimson_planks
+    126, 126,  // crimson_pressure_plate
+    127, 127, 127, -1, -1, -1, 127, 127, 127,  // crimson_shelf
+    126, 126, 126, 126, 126, 126, -1, 3, -1,  // crimson_sign
+    126, 126, 126,  // crimson_slab
+    126, -1, -1, 126, 126, -1, 126, 126, 126,  // crimson_stairs
+    126, 126, 126, 126, 126, 126,  // crimson_trapdoor
+    3, 8, 3, 70, 130, 70, -1, 3, -1,  // crossbow
+    117, 117, 117, 117,  // cut_copper
+    131, 131, 131,  // cut_copper_slab
+    131, -1, -1, 131, 131, -1, 131, 131, 131,  // cut_copper_stairs
+    132, 132, 132, 132,  // cut_red_sandstone
+    133, 133, 133,  // cut_red_sandstone_slab
+    134, 134, 134, 134,  // cut_sandstone
+    135, 135, 135,  // cut_sandstone_slab
+    136, 136, 136, 136, 136, 136, -1, 3, -1,  // cyan_banner
+    136, 136, 136, 25, 25, 25,  // cyan_bed
+    39, 137,  // cyan_bundle
+    41, 137,  // cyan_candle
+    136, 136,  // cyan_carpet
+    137, 42, 42, 42, 42, 43, 43, 43, 43,  // cyan_concrete_powder
+    56, 138,  // cyan_dye
+    139,  // cyan_dye_from_pitcher_plant
+    46, 46, 46, 27, 136, 27,  // cyan_harness
+    47, 137,  // cyan_shulker_box
+    27, 27, 27, 27, 137, 27, 27, 27, 27,  // cyan_stained_glass
+    140, 140, 140, 140, 140, 140,  // cyan_stained_glass_pane
+    49, 49, 49, 49, 137, 49, 49, 49, 49,  // cyan_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 137, 50, 50, 50, 50,  // cyan_terracotta
+    141, -1, 141, 141, 141, 141,  // dark_oak_boat
+    141,  // dark_oak_button
+    1, 142,  // dark_oak_chest_boat
+    141, 141, 141, 141, 141, 141,  // dark_oak_door
+    141, 3, 141, 141, 3, 141,  // dark_oak_fence
+    3, 141, 3, 3, 141, 3,  // dark_oak_fence_gate
+    4, -1, 4, 143, 143, 143, 143, 143, 143,  // dark_oak_hanging_sign
+    144,  // dark_oak_planks
+    141, 141,  // dark_oak_pressure_plate
+    143, 143, 143, -1, -1, -1, 143, 143, 143,  // dark_oak_shelf
+    141, 141, 141, 141, 141, 141, -1, 3, -1,  // dark_oak_sign
+    141, 141, 141,  // dark_oak_slab
+    141, -1, -1, 141, 141, -1, 141, 141, 141,  // dark_oak_stairs
+    141, 141, 141, 141, 141, 141,  // dark_oak_trapdoor
+    145, 145, 145, 145,  // dark_oak_wood
+    146, 146, 146, 146, 40, 146, 146, 146, 146,  // dark_prismarine
+    147, 147, 147,  // dark_prismarine_slab
+    147, -1, -1, 147, 147, -1, 147, 147, 147,  // dark_prismarine_stairs
+    27, 27, 27, 113, 113, 113, 26, 26, 26,  // daylight_detector
+    -1, 74, -1, 74, -1, 74, -1, 74, -1,  // decorated_pot_simple
+    148, 148, 148,  // deepslate_brick_slab
+    148, -1, -1, 148, 148, -1, 148, 148, 148,  // deepslate_brick_stairs
+    148, 148, 148, 148, 148, 148,  // deepslate_brick_wall
+    149, 149, 149, 149,  // deepslate_bricks
+    150, 150, 150,  // deepslate_tile_slab
+    150, -1, -1, 150, 150, -1, 150, 150, 150,  // deepslate_tile_stairs
+    150, 150, 150, 150, 150, 150,  // deepslate_tile_wall
+    148, 148, 148, 148,  // deepslate_tiles
+    8, -1, 8, 8, 151, 8, 8, 107, 8,  // detector_rail
+    152,  // diamond
+    61, 61, 61, 3, -1, 3,  // diamond_axe
+    61, 61, 61, 61, 61, 61, 61, 61, 61,  // diamond_block
+    61, -1, 61, 61, -1, 61,  // diamond_boots
+    61, -1, 61, 61, 61, 61, 61, 61, 61,  // diamond_chestplate
+    61, 61, 61, 61, -1, 61,  // diamond_helmet
+    61, 61, -1, 3, -1, 3,  // diamond_hoe
+    61, 61, 61, 61, -1, 61, 61, -1, 61,  // diamond_leggings
+    61, 61, 61, -1, 3, -1, -1, 3, -1,  // diamond_pickaxe
+    61, 3, 3,  // diamond_shovel
+    -1, -1, 61, -1, 3, -1, 3, -1, -1,  // diamond_spear
+    61, 61, 3,  // diamond_sword
+    12, 113, 113, 12,  // diorite
+    11, 11, 11,  // diorite_slab
+    11, -1, -1, 11, 11, -1, 11, 11, 11,  // diorite_stairs
+    11, 11, 11, 11, 11, 11,  // diorite_wall
+    12, 12, 12, 12, 153, 12, 12, 107, 12,  // dispenser
+    154, 154, 154, 154, 155, 154, 154, 154, 154,  // dried_ghast
+    156,  // dried_kelp
+    157, 157, 157, 157, 157, 157, 157, 157, 157,  // dried_kelp_block
+    158, 158, 158, 158,  // dripstone_block
+    12, 12, 12, 12, -1, 12, 12, 107, 12,  // dropper
+    61, 159, 61, 61, 134, 61, 61, 61, 61,  // dune_armor_trim_smithing_template
+    40, 160,  // dye_black_bed
+    40, 161,  // dye_black_carpet
+    40, 162,  // dye_black_harness
+    40, 163,  // dye_black_wool
+    56, 164,  // dye_blue_bed
+    56, 165,  // dye_blue_carpet
+    56, 166,  // dye_blue_harness
+    56, 167,  // dye_blue_wool
+    76, 168,  // dye_brown_bed
+    76, 169,  // dye_brown_carpet
+    76, 170,  // dye_brown_harness
+    76, 171,  // dye_brown_wool
+    137, 172,  // dye_cyan_bed
+    137, 173,  // dye_cyan_carpet
+    137, 174,  // dye_cyan_harness
+    137, 175,  // dye_cyan_wool
+    176, 177,  // dye_gray_bed
+    176, 178,  // dye_gray_carpet
+    176, 179,  // dye_gray_harness
+    176, 180,  // dye_gray_wool
+    138, 181,  // dye_green_bed
+    138, 182,  // dye_green_carpet
+    138, 183,  // dye_green_harness
+    138, 184,  // dye_green_wool
+    185, 186,  // dye_light_blue_bed
+    185, 187,  // dye_light_blue_carpet
+    185, 188,  // dye_light_blue_harness
+    185, 189,  // dye_light_blue_wool
+    190, 191,  // dye_light_gray_bed
+    190, 192,  // dye_light_gray_carpet
+    190, 193,  // dye_light_gray_harness
+    190, 194,  // dye_light_gray_wool
+    195, 196,  // dye_lime_bed
+    195, 197,  // dye_lime_carpet
+    195, 198,  // dye_lime_harness
+    195, 199,  // dye_lime_wool
+    200, 201,  // dye_magenta_bed
+    200, 202,  // dye_magenta_carpet
+    200, 203,  // dye_magenta_harness
+    200, 204,  // dye_magenta_wool
+    205, 206,  // dye_orange_bed
+    205, 207,  // dye_orange_carpet
+    205, 208,  // dye_orange_harness
+    205, 209,  // dye_orange_wool
+    210, 211,  // dye_pink_bed
+    210, 212,  // dye_pink_carpet
+    210, 213,  // dye_pink_harness
+    210, 214,  // dye_pink_wool
+    215, 216,  // dye_purple_bed
+    215, 217,  // dye_purple_carpet
+    215, 218,  // dye_purple_harness
+    215, 219,  // dye_purple_wool
+    220, 221,  // dye_red_bed
+    220, 222,  // dye_red_carpet
+    220, 223,  // dye_red_harness
+    220, 224,  // dye_red_wool
+    225, 226,  // dye_white_bed
+    225, 227,  // dye_white_carpet
+    225, 228,  // dye_white_harness
+    225, 229,  // dye_white_wool
+    230, 231,  // dye_yellow_bed
+    230, 232,  // dye_yellow_carpet
+    230, 233,  // dye_yellow_harness
+    230, 234,  // dye_yellow_wool
+    235,  // emerald
+    236, 236, 236, 236, 236, 236, 236, 236, 236,  // emerald_block
+    -1, 68, -1, 61, 29, 61, 29, 29, 29,  // enchanting_table
+    27, 27, 27, 27, 237, 27, 27, 154, 27,  // end_crystal
+    54, 238,  // end_rod
+    239, 239, 239,  // end_stone_brick_slab
+    239, -1, -1, 239, 239, -1, 239, 239, 239,  // end_stone_brick_stairs
+    239, 239, 239, 239, 239, 239,  // end_stone_brick_wall
+    240, 240, 240, 240,  // end_stone_bricks
+    29, 29, 29, 29, 237, 29, 29, 29, 29,  // ender_chest
+    241, 242,  // ender_eye
+    243, 243,  // exposed_chiseled_copper
+    -1, 244, -1, 244, 54, 244, -1, 107, -1,  // exposed_copper_bulb
+    -1, 244, -1, 244, -1, 244, -1, 244, -1,  // exposed_copper_grate
+    244, 244, 244, 244,  // exposed_cut_copper
+    245, 245, 245,  // exposed_cut_copper_slab
+    245, -1, -1, 245, 245, -1, 245, 245, 245,  // exposed_cut_copper_stairs
+    61, 246, 61, 61, 240, 61, 61, 61, 61,  // eye_armor_trim_smithing_template
+    247, 248, 81,  // fermented_spider_eye
+    67, 73,  // field_masoned_banner_pattern
+    249, 242, 84,  // fire_charge
+    249, 67,  // firework_rocket_simple
+    -1, -1, 3, -1, 3, 70, 3, -1, 70,  // fishing_rod
+    16, 16, 25, 25, 25, 25,  // fletching_table
+    8, 16,  // flint_and_steel
+    61, 250, 61, 61, 251, 61, 61, 61, 61,  // flow_armor_trim_smithing_template
+    67, 252,  // flower_banner_pattern
+    74, -1, 74, -1, 74, -1,  // flower_pot
+    72, 72, 72, 72, -1, 72, 72, 72, 72,  // furnace
+    52, 93,  // furnace_minecart
+    27, -1, 27, -1, 27, -1,  // glass_bottle
+    27, 27, 27, 27, 27, 27,  // glass_pane
+    253, 253, 253, 253, 254, 253, 253, 253, 253,  // glistering_melon_slice
+    255, 256,  // glow_item_frame
+    257, 257, 257, 257,  // glowstone
+    106, 106, 106, 106, 106, 106, 106, 106, 106,  // gold_block
+    258,  // gold_ingot_from_gold_block
+    253, 253, 253, 253, 253, 253, 253, 253, 253,  // gold_ingot_from_nuggets
+    106,  // gold_nugget
+    106, 106, 106, 106, 259, 106, 106, 106, 106,  // golden_apple
+    106, 106, 106, 3, -1, 3,  // golden_axe
+    106, -1, 106, 106, -1, 106,  // golden_boots
+    253, 253, 253, 253, 87, 253, 253, 253, 253,  // golden_carrot
+    106, -1, 106, 106, 106, 106, 106, 106, 106,  // golden_chestplate
+    106, 106, 106, 106, -1, 106,  // golden_helmet
+    106, 106, -1, 3, -1, 3,  // golden_hoe
+    106, 106, 106, 106, -1, 106, 106, -1, 106,  // golden_leggings
+    106, 106, 106, -1, 3, -1, -1, 3, -1,  // golden_pickaxe
+    106, 3, 3,  // golden_shovel
+    -1, -1, 106, -1, 3, -1, 3, -1, -1,  // golden_spear
+    106, 106, 3,  // golden_sword
+    11, 113,  // granite
+    260, 260, 260,  // granite_slab
+    260, -1, -1, 260, 260, -1, 260, 260, 260,  // granite_stairs
+    260, 260, 260, 260, 260, 260,  // granite_wall
+    261, 261, 261, 261, 261, 261, -1, 3, -1,  // gray_banner
+    261, 261, 261, 25, 25, 25,  // gray_bed
+    39, 176,  // gray_bundle
+    41, 176,  // gray_candle
+    261, 261,  // gray_carpet
+    176, 42, 42, 42, 42, 43, 43, 43, 43,  // gray_concrete_powder
+    40, 225,  // gray_dye
+    262,  // gray_dye_from_closed_eyeblossom
+    46, 46, 46, 27, 261, 27,  // gray_harness
+    47, 176,  // gray_shulker_box
+    27, 27, 27, 27, 176, 27, 27, 27, 27,  // gray_stained_glass
+    263, 263, 263, 263, 263, 263,  // gray_stained_glass_pane
+    49, 49, 49, 49, 176, 49, 49, 49, 49,  // gray_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 176, 50, 50, 50, 50,  // gray_terracotta
+    264, 264, 264, 264, 264, 264, -1, 3, -1,  // green_banner
+    264, 264, 264, 25, 25, 25,  // green_bed
+    39, 138,  // green_bundle
+    41, 138,  // green_candle
+    264, 264,  // green_carpet
+    138, 42, 42, 42, 42, 43, 43, 43, 43,  // green_concrete_powder
+    46, 46, 46, 27, 264, 27,  // green_harness
+    47, 138,  // green_shulker_box
+    27, 27, 27, 27, 138, 27, 27, 27, 27,  // green_stained_glass
+    265, 265, 265, 265, 265, 265,  // green_stained_glass_pane
+    49, 49, 49, 49, 138, 49, 49, 49, 49,  // green_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 138, 50, 50, 50, 50,  // green_terracotta
+    3, 266, 3, 25, -1, 25,  // grindstone
+    71, 71, 71, 71, 71, 71, 71, 71, 71,  // hay_block
+    8, 8,  // heavy_weighted_pressure_plate
+    267, 267, 267, 267,  // honey_block
+    268, 269, 269, 269, 269,  // honey_bottle
+    30, 30, 30, 30,  // honeycomb_block
+    8, -1, 8, 8, 1, 8, -1, 8, -1,  // hopper
+    270, 93,  // hopper_minecart
+    61, 271, 61, 61, 50, 61, 61, 61, 61,  // host_armor_trim_smithing_template
+    8, 8, 8, 3, -1, 3,  // iron_axe
+    8, 8, 8, 8, 8, 8,  // iron_bars
+    8, 8, 8, 8, 8, 8, 8, 8, 8,  // iron_block
+    8, -1, 8, 8, -1, 8,  // iron_boots
+    272, 8, 272,  // iron_chain
+    8, -1, 8, 8, 8, 8, 8, 8, 8,  // iron_chestplate
+    8, 8, 8, 8, 8, 8,  // iron_door
+    8, 8, 8, 8, -1, 8,  // iron_helmet
+    8, 8, -1, 3, -1, 3,  // iron_hoe
+    14,  // iron_ingot_from_iron_block
+    272, 272, 272, 272, 272, 272, 272, 272, 272,  // iron_ingot_from_nuggets
+    8, 8, 8, 8, -1, 8, 8, -1, 8,  // iron_leggings
+    8,  // iron_nugget
+    8, 8, 8, -1, 3, -1, -1, 3, -1,  // iron_pickaxe
+    8, 3, 3,  // iron_shovel
+    -1, -1, 8, -1, 3, -1, 3, -1, -1,  // iron_spear
+    8, 8, 3,  // iron_sword
+    8, 8, 8, 8,  // iron_trapdoor
+    3, 3, 3, 3, 46, 3, 3, 3, 3,  // item_frame
+    273, 274,  // jack_o_lantern
+    25, 25, 25, 25, 61, 25, 25, 25, 25,  // jukebox
+    275, -1, 275, 275, 275, 275,  // jungle_boat
+    275,  // jungle_button
+    1, 276,  // jungle_chest_boat
+    275, 275, 275, 275, 275, 275,  // jungle_door
+    275, 3, 275, 275, 3, 275,  // jungle_fence
+    3, 275, 3, 3, 275, 3,  // jungle_fence_gate
+    4, -1, 4, 277, 277, 277, 277, 277, 277,  // jungle_hanging_sign
+    278,  // jungle_planks
+    275, 275,  // jungle_pressure_plate
+    277, 277, 277, -1, -1, -1, 277, 277, 277,  // jungle_shelf
+    275, 275, 275, 275, 275, 275, -1, 3, -1,  // jungle_sign
+    275, 275, 275,  // jungle_slab
+    275, -1, -1, 275, 275, -1, 275, 275, 275,  // jungle_stairs
+    275, 275, 275, 275, 275, 275,  // jungle_trapdoor
+    279, 279, 279, 279,  // jungle_wood
+    3, -1, 3, 3, 3, 3, 3, -1, 3,  // ladder
+    272, 272, 272, 272, 274, 272, 272, 272, 272,  // lantern
+    57, 57, 57, 57, 57, 57, 57, 57, 57,  // lapis_block
+    280,  // lapis_lazuli
+    70, 70, -1, 70, 70, -1, -1, -1, 70,  // lead
+    281, 281, 281, 281,  // leather
+    46, -1, 46, 46, -1, 46,  // leather_boots
+    46, -1, 46, 46, 46, 46, 46, 46, 46,  // leather_chestplate
+    46, 46, 46, 46, -1, 46,  // leather_helmet
+    46, -1, 46, 46, 46, 46, 46, -1, 46,  // leather_horse_armor
+    46, 46, 46, 46, -1, 46, 46, -1, 46,  // leather_leggings
+    26, 26, 26, -1, 282, -1, -1, 26, -1,  // lectern
+    3, 12,  // lever
+    283, 283, 283, 283, 283, 283, -1, 3, -1,  // light_blue_banner
+    283, 283, 283, 25, 25, 25,  // light_blue_bed
+    39, 185,  // light_blue_bundle
+    41, 185,  // light_blue_candle
+    283, 283,  // light_blue_carpet
+    185, 42, 42, 42, 42, 43, 43, 43, 43,  // light_blue_concrete_powder
+    284,  // light_blue_dye_from_blue_orchid
+    56, 225,  // light_blue_dye_from_blue_white_dye
+    46, 46, 46, 27, 283, 27,  // light_blue_harness
+    47, 185,  // light_blue_shulker_box
+    27, 27, 27, 27, 185, 27, 27, 27, 27,  // light_blue_stained_glass
+    285, 285, 285, 285, 285, 285,  // light_blue_stained_glass_pane
+    49, 49, 49, 49, 185, 49, 49, 49, 49,  // light_blue_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 185, 50, 50, 50, 50,  // light_blue_terracotta
+    286, 286, 286, 286, 286, 286, -1, 3, -1,  // light_gray_banner
+    286, 286, 286, 25, 25, 25,  // light_gray_bed
+    39, 190,  // light_gray_bundle
+    41, 190,  // light_gray_candle
+    286, 286,  // light_gray_carpet
+    190, 42, 42, 42, 42, 43, 43, 43, 43,  // light_gray_concrete_powder
+    287,  // light_gray_dye_from_azure_bluet
+    40, 225, 225,  // light_gray_dye_from_black_white_dye
+    176, 225,  // light_gray_dye_from_gray_white_dye
+    252,  // light_gray_dye_from_oxeye_daisy
+    288,  // light_gray_dye_from_white_tulip
+    46, 46, 46, 27, 286, 27,  // light_gray_harness
+    47, 190,  // light_gray_shulker_box
+    27, 27, 27, 27, 190, 27, 27, 27, 27,  // light_gray_stained_glass
+    289, 289, 289, 289, 289, 289,  // light_gray_stained_glass_pane
+    49, 49, 49, 49, 190, 49, 49, 49, 49,  // light_gray_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 190, 50, 50, 50, 50,  // light_gray_terracotta
+    106, 106,  // light_weighted_pressure_plate
+    79, 79, 79,  // lightning_rod
+    290, 290, 290, 290, 290, 290, -1, 3, -1,  // lime_banner
+    290, 290, 290, 25, 25, 25,  // lime_bed
+    39, 195,  // lime_bundle
+    41, 195,  // lime_candle
+    290, 290,  // lime_carpet
+    195, 42, 42, 42, 42, 43, 43, 43, 43,  // lime_concrete_powder
+    138, 225,  // lime_dye
+    46, 46, 46, 27, 290, 27,  // lime_harness
+    47, 195,  // lime_shulker_box
+    27, 27, 27, 27, 195, 27, 27, 27, 27,  // lime_stained_glass
+    291, 291, 291, 291, 291, 291,  // lime_stained_glass_pane
+    49, 49, 49, 49, 195, 49, 49, 49, 49,  // lime_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 195, 50, 50, 50, 50,  // lime_terracotta
+    292, 292, 292, 292, 8, 292, 292, 292, 292,  // lodestone
+    70, 70, 25, 25,  // loom
+    293, 251,  // mace
+    294, 294, 294, 294, 294, 294, -1, 3, -1,  // magenta_banner
+    294, 294, 294, 25, 25, 25,  // magenta_bed
+    39, 200,  // magenta_bundle
+    41, 200,  // magenta_candle
+    294, 294,  // magenta_carpet
+    200, 42, 42, 42, 42, 43, 43, 43, 43,  // magenta_concrete_powder
+    295,  // magenta_dye_from_allium
+    56, 220, 210,  // magenta_dye_from_blue_red_pink
+    56, 220, 220, 225,  // magenta_dye_from_blue_red_white_dye
+    296,  // magenta_dye_from_lilac
+    215, 210,  // magenta_dye_from_purple_and_pink
+    46, 46, 46, 27, 294, 27,  // magenta_harness
+    47, 200,  // magenta_shulker_box
+    27, 27, 27, 27, 200, 27, 27, 27, 27,  // magenta_stained_glass
+    297, 297, 297, 297, 297, 297,  // magenta_stained_glass_pane
+    49, 49, 49, 49, 200, 49, 49, 49, 49,  // magenta_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 200, 50, 50, 50, 50,  // magenta_terracotta
+    298, 298, 298, 298,  // magma_block
+    242, 299,  // magma_cream
+    300, -1, 300, 300, 300, 300,  // mangrove_boat
+    300,  // mangrove_button
+    1, 301,  // mangrove_chest_boat
+    300, 300, 300, 300, 300, 300,  // mangrove_door
+    300, 3, 300, 300, 3, 300,  // mangrove_fence
+    3, 300, 3, 3, 300, 3,  // mangrove_fence_gate
+    4, -1, 4, 302, 302, 302, 302, 302, 302,  // mangrove_hanging_sign
+    303,  // mangrove_planks
+    300, 300,  // mangrove_pressure_plate
+    302, 302, 302, -1, -1, -1, 302, 302, 302,  // mangrove_shelf
+    300, 300, 300, 300, 300, 300, -1, 3, -1,  // mangrove_sign
+    300, 300, 300,  // mangrove_slab
+    300, -1, -1, 300, 300, -1, 300, 300, 300,  // mangrove_stairs
+    300, 300, 300, 300, 300, 300,  // mangrove_trapdoor
+    304, 304, 304, 304,  // mangrove_wood
+    67, 67, 67, 67, 305, 67, 67, 67, 67,  // map
+    67, 67, 67, 67, 306, 67, 67, 67, 67,  // map_extending
+    254, 254, 254, 254, 254, 254, 254, 254, 254,  // melon
+    254,  // melon_seeds
+    8, -1, 8, 8, 8, 8,  // minecart
+    67, 307,  // mojang_banner_pattern
+    308, 308,  // moss_carpet
+    12, 308,  // mossy_cobblestone_from_moss_block
+    12, 69,  // mossy_cobblestone_from_vine
+    309, 309, 309,  // mossy_cobblestone_slab
+    309, -1, -1, 309, 309, -1, 309, 309, 309,  // mossy_cobblestone_stairs
+    309, 309, 309, 309, 309, 309,  // mossy_cobblestone_wall
+    310, 310, 310,  // mossy_stone_brick_slab
+    310, -1, -1, 310, 310, -1, 310, 310, 310,  // mossy_stone_brick_stairs
+    310, 310, 310, 310, 310, 310,  // mossy_stone_brick_wall
+    311, 308,  // mossy_stone_bricks_from_moss_block
+    311, 69,  // mossy_stone_bricks_from_vine
+    312, 312, 312,  // mud_brick_slab
+    312, -1, -1, 312, 312, -1, 312, 312, 312,  // mud_brick_stairs
+    312, 312, 312, 312, 312, 312,  // mud_brick_wall
+    313, 313, 313, 313,  // mud_bricks
+    314, 315,  // muddy_mangrove_roots
+    248, 316, 31,  // mushroom_stew
+    317, 317, 317, 317, 317, 317, 317, 317, 317,  // music_disc_5
+    318, 319, 318, 318, 319, 318,  // nether_brick_fence
+    318, 318, 318,  // nether_brick_slab
+    318, -1, -1, 318, 318, -1, 318, 318, 318,  // nether_brick_stairs
+    318, 318, 318, 318, 318, 318,  // nether_brick_wall
+    319, 319, 319, 319,  // nether_bricks
+    320, 320, 320, 320, 320, 320, 320, 320, 320,  // nether_wart_block
+    321, 321, 321, 321, 321, 321, 321, 321, 321,  // netherite_block
+    322, 322, 322, 322, 106, 106, 106, 106,  // netherite_ingot
+    323,  // netherite_ingot_from_netherite_block
+    61, 324, 61, 61, 325, 61, 61, 61, 61,  // netherite_upgrade_smithing_template
+    25, 25, 25, 25, 107, 25, 25, 25, 25,  // note_block
+    326, -1, 326, 326, 326, 326,  // oak_boat
+    326,  // oak_button
+    1, 327,  // oak_chest_boat
+    326, 326, 326, 326, 326, 326,  // oak_door
+    326, 3, 326, 326, 3, 326,  // oak_fence
+    3, 326, 3, 3, 326, 3,  // oak_fence_gate
+    4, -1, 4, 328, 328, 328, 328, 328, 328,  // oak_hanging_sign
+    329,  // oak_planks
+    326, 326,  // oak_pressure_plate
+    328, 328, 328, -1, -1, -1, 328, 328, 328,  // oak_shelf
+    326, 326, 326, 326, 326, 326, -1, 3, -1,  // oak_sign
+    326, 326, 326,  // oak_slab
+    326, -1, -1, 326, 326, -1, 326, 326, 326,  // oak_stairs
+    326, 326, 326, 326, 326, 326,  // oak_trapdoor
+    330, 330, 330, 330,  // oak_wood
+    12, 12, 12, 107, 107, 113, 12, 12, 12,  // observer
+    331, 331, 331, 331, 331, 331, -1, 3, -1,  // orange_banner
+    331, 331, 331, 25, 25, 25,  // orange_bed
+    39, 205,  // orange_bundle
+    41, 205,  // orange_candle
+    331, 331,  // orange_carpet
+    205, 42, 42, 42, 42, 43, 43, 43, 43,  // orange_concrete_powder
+    332,  // orange_dye_from_open_eyeblossom
+    333,  // orange_dye_from_orange_tulip
+    220, 230,  // orange_dye_from_red_yellow
+    334,  // orange_dye_from_torchflower
+    46, 46, 46, 27, 331, 27,  // orange_harness
+    47, 205,  // orange_shulker_box
+    27, 27, 27, 27, 205, 27, 27, 27, 27,  // orange_stained_glass
+    335, 335, 335, 335, 335, 335,  // orange_stained_glass_pane
+    49, 49, 49, 49, 205, 49, 49, 49, 49,  // orange_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 205, 50, 50, 50, 50,  // orange_terracotta
+    336, 336,  // oxidized_chiseled_copper
+    -1, 337, -1, 337, 54, 337, -1, 107, -1,  // oxidized_copper_bulb
+    -1, 337, -1, 337, -1, 337, -1, 337, -1,  // oxidized_copper_grate
+    337, 337, 337, 337,  // oxidized_cut_copper
+    338, 338, 338,  // oxidized_cut_copper_slab
+    338, -1, -1, 338, 338, -1, 338, 338, 338,  // oxidized_cut_copper_stairs
+    339, 339, 339, 339, 339, 339, 339, 339, 339,  // packed_ice
+    314, 71,  // packed_mud
+    3, 3, 3, 3, 340, 3, 3, 3, 3,  // painting
+    341, 341,  // pale_moss_carpet
+    342, -1, 342, 342, 342, 342,  // pale_oak_boat
+    342,  // pale_oak_button
+    1, 343,  // pale_oak_chest_boat
+    342, 342, 342, 342, 342, 342,  // pale_oak_door
+    342, 3, 342, 342, 3, 342,  // pale_oak_fence
+    3, 342, 3, 3, 342, 3,  // pale_oak_fence_gate
+    4, -1, 4, 344, 344, 344, 344, 344, 344,  // pale_oak_hanging_sign
+    345,  // pale_oak_planks
+    342, 342,  // pale_oak_pressure_plate
+    344, 344, 344, -1, -1, -1, 344, 344, 344,  // pale_oak_shelf
+    342, 342, 342, 342, 342, 342, -1, 3, -1,  // pale_oak_sign
+    342, 342, 342,  // pale_oak_slab
+    342, -1, -1, 342, 342, -1, 342, 342, 342,  // pale_oak_stairs
+    342, 342, 342, 342, 342, 342,  // pale_oak_trapdoor
+    123, 123, 123, 123,  // pale_oak_wood
+    346, 346, 346,  // paper
+    347, 347, 347, 347, 347, 347, -1, 3, -1,  // pink_banner
+    347, 347, 347, 25, 25, 25,  // pink_bed
+    39, 210,  // pink_bundle
+    41, 210,  // pink_candle
+    347, 347,  // pink_carpet
+    210, 42, 42, 42, 42, 43, 43, 43, 43,  // pink_concrete_powder
+    348,  // pink_dye_from_cactus_flower
+    349,  // pink_dye_from_peony
+    350,  // pink_dye_from_pink_petals
+    351,  // pink_dye_from_pink_tulip
+    220, 225,  // pink_dye_from_red_white_dye
+    46, 46, 46, 27, 347, 27,  // pink_harness
+    47, 210,  // pink_shulker_box
+    27, 27, 27, 27, 210, 27, 27, 27, 27,  // pink_stained_glass
+    352, 352, 352, 352, 352, 352,  // pink_stained_glass_pane
+    49, 49, 49, 49, 210, 49, 49, 49, 49,  // pink_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 210, 50, 50, 50, 50,  // pink_terracotta
+    25, 25, 25, 12, 8, 12, 12, 107, 12,  // piston
+    13, 13, 13, 13,  // polished_andesite
+    353, 353, 353,  // polished_andesite_slab
+    353, -1, -1, 353, 353, -1, 353, 353, 353,  // polished_andesite_stairs
+    354, 354, 354, 354,  // polished_basalt
+    51, 51, 51, 51,  // polished_blackstone
+    355, 355, 355,  // polished_blackstone_brick_slab
+    355, -1, -1, 355, 355, -1, 355, 355, 355,  // polished_blackstone_brick_stairs
+    355, 355, 355, 355, 355, 355,  // polished_blackstone_brick_wall
+    356, 356, 356, 356,  // polished_blackstone_bricks
+    356,  // polished_blackstone_button
+    356, 356,  // polished_blackstone_pressure_plate
+    356, 356, 356,  // polished_blackstone_slab
+    356, -1, -1, 356, 356, -1, 356, 356, 356,  // polished_blackstone_stairs
+    356, 356, 356, 356, 356, 356,  // polished_blackstone_wall
+    112, 112, 112, 112,  // polished_deepslate
+    149, 149, 149,  // polished_deepslate_slab
+    149, -1, -1, 149, 149, -1, 149, 149, 149,  // polished_deepslate_stairs
+    149, 149, 149, 149, 149, 149,  // polished_deepslate_wall
+    11, 11, 11, 11,  // polished_diorite
+    357, 357, 357,  // polished_diorite_slab
+    357, -1, -1, 357, 357, -1, 357, 357, 357,  // polished_diorite_stairs
+    260, 260, 260, 260,  // polished_granite
+    358, 358, 358,  // polished_granite_slab
+    358, -1, -1, 358, 358, -1, 358, 358, 358,  // polished_granite_stairs
+    359, 359, 359, 359,  // polished_tuff
+    360, 360, 360,  // polished_tuff_slab
+    360, -1, -1, 360, 360, -1, 360, 360, 360,  // polished_tuff_stairs
+    360, 360, 360, 360, 360, 360,  // polished_tuff_wall
+    106, -1, 106, 106, 3, 106, 106, 107, 106,  // powered_rail
+    146, 146, 146, 146,  // prismarine
+    361, 361, 361,  // prismarine_brick_slab
+    361, -1, -1, 361, 361, -1, 361, 361, 361,  // prismarine_brick_stairs
+    146, 146, 146, 146, 146, 146, 146, 146, 146,  // prismarine_bricks
+    362, 362, 362,  // prismarine_slab
+    362, -1, -1, 362, 362, -1, 362, 362, 362,  // prismarine_stairs
+    362, 362, 362, 362, 362, 362,  // prismarine_wall
+    363, 81, 82,  // pumpkin_pie
+    363,  // pumpkin_seeds
+    364, 364, 364, 364, 364, 364, -1, 3, -1,  // purple_banner
+    364, 364, 364, 25, 25, 25,  // purple_bed
+    39, 215,  // purple_bundle
+    41, 215,  // purple_candle
+    364, 364,  // purple_carpet
+    215, 42, 42, 42, 42, 43, 43, 43, 43,  // purple_concrete_powder
+    56, 220,  // purple_dye
+    46, 46, 46, 27, 364, 27,  // purple_harness
+    47, 215,  // purple_shulker_box
+    27, 27, 27, 27, 215, 27, 27, 27, 27,  // purple_stained_glass
+    365, 365, 365, 365, 365, 365,  // purple_stained_glass_pane
+    49, 49, 49, 49, 215, 49, 49, 49, 49,  // purple_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 215, 50, 50, 50, 50,  // purple_terracotta
+    238, 238, 238, 238,  // purpur_block
+    366, 366,  // purpur_pillar
+    367, 367, 367,  // purpur_slab
+    367, -1, -1, 367, 367, -1, 367, 367, 367,  // purpur_stairs
+    113, 113, 113, 113,  // quartz_block
+    368, 368, 368, 368,  // quartz_bricks
+    368, 368,  // quartz_pillar
+    369, 369, 369,  // quartz_slab
+    369, -1, -1, 369, 369, -1, 369, 369, 369,  // quartz_stairs
+    370, 371, 31, 87, 248,  // rabbit_stew_from_brown_mushroom
+    370, 371, 31, 87, 316,  // rabbit_stew_from_red_mushroom
+    8, -1, 8, 8, 3, 8, 8, -1, 8,  // rail
+    61, 372, 61, 61, 50, 61, 61, 61, 61,  // raiser_armor_trim_smithing_template
+    373,  // raw_copper
+    374, 374, 374, 374, 374, 374, 374, 374, 374,  // raw_copper_block
+    375,  // raw_gold
+    376, 376, 376, 376, 376, 376, 376, 376, 376,  // raw_gold_block
+    377,  // raw_iron
+    378, 378, 378, 378, 378, 378, 378, 378, 378,  // raw_iron_block
+    379, 379, 379, 379, 305, 379, 379, 379, 379,  // recovery_compass
+    380, 380, 380, 380, 380, 380, -1, 3, -1,  // red_banner
+    380, 380, 380, 25, 25, 25,  // red_bed
+    39, 220,  // red_bundle
+    41, 220,  // red_candle
+    380, 380,  // red_carpet
+    220, 42, 42, 42, 42, 43, 43, 43, 43,  // red_concrete_powder
+    32,  // red_dye_from_beetroot
+    381,  // red_dye_from_poppy
+    382,  // red_dye_from_rose_bush
+    383,  // red_dye_from_tulip
+    46, 46, 46, 27, 380, 27,  // red_harness
+    384, 384, 384,  // red_nether_brick_slab
+    384, -1, -1, 384, 384, -1, 384, 384, 384,  // red_nether_brick_stairs
+    384, 384, 384, 384, 384, 384,  // red_nether_brick_wall
+    319, 320, 320, 319,  // red_nether_bricks
+    385, 385, 385, 385,  // red_sandstone
+    386, 386, 386,  // red_sandstone_slab
+    387, -1, -1, 387, 387, -1, 387, 387, 387,  // red_sandstone_stairs
+    132, 132, 132, 132, 132, 132,  // red_sandstone_wall
+    47, 220,  // red_shulker_box
+    27, 27, 27, 27, 220, 27, 27, 27, 27,  // red_stained_glass
+    388, 388, 388, 388, 388, 388,  // red_stained_glass_pane
+    49, 49, 49, 49, 220, 49, 49, 49, 49,  // red_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 220, 50, 50, 50, 50,  // red_terracotta
+    389,  // redstone
+    107, 107, 107, 107, 107, 107, 107, 107, 107,  // redstone_block
+    -1, 107, -1, 107, 390, 107, -1, 107, -1,  // redstone_lamp
+    107, 3,  // redstone_torch
+    9, 107, 9, 114, 114, 114,  // repeater
+    391, 391, 391, 391, 391, 391, 391, 391, 391,  // resin_block
+    392, 392, 392,  // resin_brick_slab
+    392, -1, -1, 392, 392, -1, 392, 392, 392,  // resin_brick_stairs
+    392, 392, 392, 392, 392, 392,  // resin_brick_wall
+    393, 393, 393, 393,  // resin_bricks
+    124,  // resin_clump
+    394, 394, 394, 390, 390, 390, 394, 394, 394,  // respawn_anchor
+    61, 395, 61, 61, 325, 61, 61, 61, 61,  // rib_armor_trim_smithing_template
+    -1, 46, -1, 46, 8, 46,  // saddle
+    42, 42, 42, 42,  // sandstone
+    396, 396, 396,  // sandstone_slab
+    397, -1, -1, 397, 397, -1, 397, 397, 397,  // sandstone_stairs
+    134, 134, 134, 134, 134, 134,  // sandstone_wall
+    18, 70, 18, 18, -1, 18, 18, -1, 18,  // scaffolding
+    146, 398, 146, 398, 398, 398, 146, 398, 146,  // sea_lantern
+    61, 399, 61, 61, 12, 61, 61, 61, 61,  // sentry_armor_trim_smithing_template
+    61, 400, 61, 61, 50, 61, 61, 61, 61,  // shaper_armor_trim_smithing_template
+    -1, 8, 8, -1,  // shears
+    25, 8, 25, 25, 25, 25, -1, 25, -1,  // shield
+    401, 1, 401,  // shulker_box
+    61, 402, 61, 61, 112, 61, 61, 61, 61,  // silence_armor_trim_smithing_template
+    67, 403,  // skull_banner_pattern
+    404,  // slime_ball
+    299, 299, 299, 299, 299, 299, 299, 299, 299,  // slime_block
+    8, 8, 25, 25, 25, 25,  // smithing_table
+    -1, 85, -1, 85, 52, 85, -1, 85, -1,  // smoker
+    405, 405, 405,  // smooth_quartz_slab
+    405, -1, -1, 405, 405, -1, 405, 405, 405,  // smooth_quartz_stairs
+    406, 406, 406,  // smooth_red_sandstone_slab
+    406, -1, -1, 406, 406, -1, 406, 406, 406,  // smooth_red_sandstone_stairs
+    407, 407, 407,  // smooth_sandstone_slab
+    407, -1, -1, 407, 407, -1, 407, 407, 407,  // smooth_sandstone_stairs
+    53, 53, 53,  // smooth_stone_slab
+    61, 408, 61, 61, 51, 61, 61, 61, 61,  // snout_armor_trim_smithing_template
+    409, 409, 409,  // snow
+    410, 410, 410, 410,  // snow_block
+    -1, 3, -1, 3, 411, 3, 85, 85, 85,  // soul_campfire
+    272, 272, 272, 272, 412, 272, 272, 272, 272,  // soul_lantern
+    84, 3, 411,  // soul_torch
+    -1, 257, -1, 257, 413, 257, -1, 257, -1,  // spectral_arrow
+    61, 414, 61, 61, 415, 61, 61, 61, 61,  // spire_armor_trim_smithing_template
+    416, -1, 416, 416, 416, 416,  // spruce_boat
+    416,  // spruce_button
+    1, 417,  // spruce_chest_boat
+    416, 416, 416, 416, 416, 416,  // spruce_door
+    416, 3, 416, 416, 3, 416,  // spruce_fence
+    3, 416, 3, 3, 416, 3,  // spruce_fence_gate
+    4, -1, 4, 418, 418, 418, 418, 418, 418,  // spruce_hanging_sign
+    419,  // spruce_planks
+    416, 416,  // spruce_pressure_plate
+    418, 418, 418, -1, -1, -1, 418, 418, 418,  // spruce_shelf
+    416, 416, 416, 416, 416, 416, -1, 3, -1,  // spruce_sign
+    416, 416, 416,  // spruce_slab
+    416, -1, -1, 416, 416, -1, 416, 416, 416,  // spruce_stairs
+    416, 416, 416, 416, 416, 416,  // spruce_trapdoor
+    420, 420, 420, 420,  // spruce_wood
+    10, 79, 79,  // spyglass
+    25, 25,  // stick
+    18, 18,  // stick_from_bamboo_item
+    299, 421,  // sticky_piston
+    72, 72, 72, 3, -1, 3,  // stone_axe
+    311, 311, 311,  // stone_brick_slab
+    311, -1, -1, 311, 311, -1, 311, 311, 311,  // stone_brick_stairs
+    311, 311, 311, 311, 311, 311,  // stone_brick_wall
+    114, 114, 114, 114,  // stone_bricks
+    114,  // stone_button
+    72, 72, -1, 3, -1, 3,  // stone_hoe
+    72, 72, 72, -1, 3, -1, -1, 3, -1,  // stone_pickaxe
+    114, 114,  // stone_pressure_plate
+    72, 3, 3,  // stone_shovel
+    114, 114, 114,  // stone_slab
+    -1, -1, 72, -1, 3, -1, 3, -1, -1,  // stone_spear
+    114, -1, -1, 114, 114, -1, 114, 114, 114,  // stone_stairs
+    72, 72, 3,  // stone_sword
+    -1, 8, -1, 114, 114, 114,  // stonecutter
+    5, 5, 5, 5,  // stripped_acacia_wood
+    35, 35, 35, 35,  // stripped_birch_wood
+    90, 90, 90, 90,  // stripped_cherry_wood
+    127, 127, 127, 127,  // stripped_crimson_hyphae
+    143, 143, 143, 143,  // stripped_dark_oak_wood
+    277, 277, 277, 277,  // stripped_jungle_wood
+    302, 302, 302, 302,  // stripped_mangrove_wood
+    328, 328, 328, 328,  // stripped_oak_wood
+    344, 344, 344, 344,  // stripped_pale_oak_wood
+    418, 418, 418, 418,  // stripped_spruce_wood
+    422, 422, 422, 422,  // stripped_warped_hyphae
+    267,  // sugar_from_honey_bottle
+    346,  // sugar_from_sugar_cane
+    31, 248, 316, 295,  // suspicious_stew_from_allium
+    31, 248, 316, 287,  // suspicious_stew_from_azure_bluet
+    31, 248, 316, 284,  // suspicious_stew_from_blue_orchid
+    31, 248, 316, 262,  // suspicious_stew_from_closed_eyeblossom
+    31, 248, 316, 58,  // suspicious_stew_from_cornflower
+    31, 248, 316, 423,  // suspicious_stew_from_dandelion
+    31, 248, 316, 424,  // suspicious_stew_from_lily_of_the_valley
+    31, 248, 316, 332,  // suspicious_stew_from_open_eyeblossom
+    31, 248, 316, 333,  // suspicious_stew_from_orange_tulip
+    31, 248, 316, 252,  // suspicious_stew_from_oxeye_daisy
+    31, 248, 316, 351,  // suspicious_stew_from_pink_tulip
+    31, 248, 316, 381,  // suspicious_stew_from_poppy
+    31, 248, 316, 383,  // suspicious_stew_from_red_tulip
+    31, 248, 316, 334,  // suspicious_stew_from_torchflower
+    31, 248, 316, 288,  // suspicious_stew_from_white_tulip
+    31, 248, 316, 45,  // suspicious_stew_from_wither_rose
+    -1, 107, -1, 107, 425, 107, -1, 107, -1,  // target
+    61, 426, 61, 61, 362, 61, 61, 61, 61,  // tide_armor_trim_smithing_template
+    -1, 10, -1, 10, 27, 10, -1, 10, -1,  // tinted_glass
+    249, 427, 249, 427, 249, 427, 249, 427, 249,  // tnt
+    428, 93,  // tnt_minecart
+    84, 3,  // torch
+    1, 130,  // trapped_chest
+    8, 3, 25,  // tripwire_hook
+    429, 429, 429,  // tuff_brick_slab
+    429, -1, -1, 429, 429, -1, 429, 429, 429,  // tuff_brick_stairs
+    429, 429, 429, 429, 429, 429,  // tuff_brick_wall
+    360, 360, 360, 360,  // tuff_bricks
+    359, 359, 359,  // tuff_slab
+    359, -1, -1, 359, 359, -1, 359, 359, 359,  // tuff_stairs
+    359, 359, 359, 359, 359, 359,  // tuff_wall
+    430, 430, 430, 430, -1, 430,  // turtle_helmet
+    61, 431, 61, 61, 12, 61, 61, 61, 61,  // vex_armor_trim_smithing_template
+    61, 432, 61, 61, 112, 61, 61, 61, 61,  // ward_armor_trim_smithing_template
+    433,  // warped_button
+    433, 433, 433, 433, 433, 433,  // warped_door
+    433, 3, 433, 433, 3, 433,  // warped_fence
+    3, 433, 3, 3, 433, 3,  // warped_fence_gate
+    86, -1, -1, 434,  // warped_fungus_on_a_stick
+    4, -1, 4, 422, 422, 422, 422, 422, 422,  // warped_hanging_sign
+    435, 435, 435, 435,  // warped_hyphae
+    436,  // warped_planks
+    433, 433,  // warped_pressure_plate
+    422, 422, 422, -1, -1, -1, 422, 422, 422,  // warped_shelf
+    433, 433, 433, 433, 433, 433, -1, 3, -1,  // warped_sign
+    433, 433, 433,  // warped_slab
+    433, -1, -1, 433, 433, -1, 433, 433, 433,  // warped_stairs
+    433, 433, 433, 433, 433, 433,  // warped_trapdoor
+    437, 437,  // waxed_chiseled_copper
+    438, 30,  // waxed_chiseled_copper_from_honeycomb
+    439, 30,  // waxed_copper_bars_from_honeycomb
+    117, 30,  // waxed_copper_block_from_honeycomb
+    -1, 119, -1, 119, 54, 119, -1, 107, -1,  // waxed_copper_bulb
+    440, 30,  // waxed_copper_bulb_from_honeycomb
+    441, 30,  // waxed_copper_chain_from_honeycomb
+    442, 30,  // waxed_copper_chest_from_honeycomb
+    443, 30,  // waxed_copper_door_from_honeycomb
+    444, 30,  // waxed_copper_golem_statue_from_honeycomb
+    -1, 119, -1, 119, -1, 119, -1, 119, -1,  // waxed_copper_grate
+    445, 30,  // waxed_copper_grate_from_honeycomb
+    446, 30,  // waxed_copper_lantern_from_honeycomb
+    447, 30,  // waxed_copper_trapdoor_from_honeycomb
+    119, 119, 119, 119,  // waxed_cut_copper
+    131, 30,  // waxed_cut_copper_from_honeycomb
+    448, 448, 448,  // waxed_cut_copper_slab
+    94, 30,  // waxed_cut_copper_slab_from_honeycomb
+    448, -1, -1, 448, 448, -1, 448, 448, 448,  // waxed_cut_copper_stairs
+    449, 30,  // waxed_cut_copper_stairs_from_honeycomb
+    450, 450,  // waxed_exposed_chiseled_copper
+    451, 30,  // waxed_exposed_chiseled_copper_from_honeycomb
+    452, 30,  // waxed_exposed_copper_bars_from_honeycomb
+    -1, 453, -1, 453, 54, 453, -1, 107, -1,  // waxed_exposed_copper_bulb
+    454, 30,  // waxed_exposed_copper_bulb_from_honeycomb
+    455, 30,  // waxed_exposed_copper_chain_from_honeycomb
+    456, 30,  // waxed_exposed_copper_chest_from_honeycomb
+    457, 30,  // waxed_exposed_copper_door_from_honeycomb
+    244, 30,  // waxed_exposed_copper_from_honeycomb
+    458, 30,  // waxed_exposed_copper_golem_statue_from_honeycomb
+    -1, 453, -1, 453, -1, 453, -1, 453, -1,  // waxed_exposed_copper_grate
+    459, 30,  // waxed_exposed_copper_grate_from_honeycomb
+    460, 30,  // waxed_exposed_copper_lantern_from_honeycomb
+    461, 30,  // waxed_exposed_copper_trapdoor_from_honeycomb
+    453, 453, 453, 453,  // waxed_exposed_cut_copper
+    245, 30,  // waxed_exposed_cut_copper_from_honeycomb
+    462, 462, 462,  // waxed_exposed_cut_copper_slab
+    243, 30,  // waxed_exposed_cut_copper_slab_from_honeycomb
+    462, -1, -1, 462, 462, -1, 462, 462, 462,  // waxed_exposed_cut_copper_stairs
+    463, 30,  // waxed_exposed_cut_copper_stairs_from_honeycomb
+    464, 30,  // waxed_exposed_lightning_rod_from_honeycomb
+    465, 30,  // waxed_lightning_rod_from_honeycomb
+    466, 466,  // waxed_oxidized_chiseled_copper
+    467, 30,  // waxed_oxidized_chiseled_copper_from_honeycomb
+    468, 30,  // waxed_oxidized_copper_bars_from_honeycomb
+    -1, 469, -1, 469, 54, 469, -1, 107, -1,  // waxed_oxidized_copper_bulb
+    470, 30,  // waxed_oxidized_copper_bulb_from_honeycomb
+    471, 30,  // waxed_oxidized_copper_chain_from_honeycomb
+    472, 30,  // waxed_oxidized_copper_chest_from_honeycomb
+    473, 30,  // waxed_oxidized_copper_door_from_honeycomb
+    337, 30,  // waxed_oxidized_copper_from_honeycomb
+    474, 30,  // waxed_oxidized_copper_golem_statue_from_honeycomb
+    -1, 469, -1, 469, -1, 469, -1, 469, -1,  // waxed_oxidized_copper_grate
+    475, 30,  // waxed_oxidized_copper_grate_from_honeycomb
+    476, 30,  // waxed_oxidized_copper_lantern_from_honeycomb
+    477, 30,  // waxed_oxidized_copper_trapdoor_from_honeycomb
+    469, 469, 469, 469,  // waxed_oxidized_cut_copper
+    338, 30,  // waxed_oxidized_cut_copper_from_honeycomb
+    478, 478, 478,  // waxed_oxidized_cut_copper_slab
+    336, 30,  // waxed_oxidized_cut_copper_slab_from_honeycomb
+    478, -1, -1, 478, 478, -1, 478, 478, 478,  // waxed_oxidized_cut_copper_stairs
+    479, 30,  // waxed_oxidized_cut_copper_stairs_from_honeycomb
+    480, 30,  // waxed_oxidized_lightning_rod_from_honeycomb
+    481, 481,  // waxed_weathered_chiseled_copper
+    482, 30,  // waxed_weathered_chiseled_copper_from_honeycomb
+    483, 30,  // waxed_weathered_copper_bars_from_honeycomb
+    -1, 484, -1, 484, 54, 484, -1, 107, -1,  // waxed_weathered_copper_bulb
+    485, 30,  // waxed_weathered_copper_bulb_from_honeycomb
+    486, 30,  // waxed_weathered_copper_chain_from_honeycomb
+    487, 30,  // waxed_weathered_copper_chest_from_honeycomb
+    488, 30,  // waxed_weathered_copper_door_from_honeycomb
+    489, 30,  // waxed_weathered_copper_from_honeycomb
+    490, 30,  // waxed_weathered_copper_golem_statue_from_honeycomb
+    -1, 484, -1, 484, -1, 484, -1, 484, -1,  // waxed_weathered_copper_grate
+    491, 30,  // waxed_weathered_copper_grate_from_honeycomb
+    492, 30,  // waxed_weathered_copper_lantern_from_honeycomb
+    493, 30,  // waxed_weathered_copper_trapdoor_from_honeycomb
+    484, 484, 484, 484,  // waxed_weathered_cut_copper
+    494, 30,  // waxed_weathered_cut_copper_from_honeycomb
+    495, 495, 495,  // waxed_weathered_cut_copper_slab
+    496, 30,  // waxed_weathered_cut_copper_slab_from_honeycomb
+    495, -1, -1, 495, 495, -1, 495, 495, 495,  // waxed_weathered_cut_copper_stairs
+    497, 30,  // waxed_weathered_cut_copper_stairs_from_honeycomb
+    498, 30,  // waxed_weathered_lightning_rod_from_honeycomb
+    61, 499, 61, 61, 50, 61, 61, 61, 61,  // wayfinder_armor_trim_smithing_template
+    496, 496,  // weathered_chiseled_copper
+    -1, 489, -1, 489, 54, 489, -1, 107, -1,  // weathered_copper_bulb
+    -1, 489, -1, 489, -1, 489, -1, 489, -1,  // weathered_copper_grate
+    489, 489, 489, 489,  // weathered_cut_copper
+    494, 494, 494,  // weathered_cut_copper_slab
+    494, -1, -1, 494, 494, -1, 494, 494, 494,  // weathered_cut_copper_stairs
+    425,  // wheat
+    500, 500, 500, 500, 500, 500, -1, 3, -1,  // white_banner
+    500, 500, 500, 25, 25, 25,  // white_bed
+    39, 225,  // white_bundle
+    41, 225,  // white_candle
+    500, 500,  // white_carpet
+    225, 42, 42, 42, 42, 43, 43, 43, 43,  // white_concrete_powder
+    64,  // white_dye
+    424,  // white_dye_from_lily_of_the_valley
+    46, 46, 46, 27, 500, 27,  // white_harness
+    47, 225,  // white_shulker_box
+    27, 27, 27, 27, 225, 27, 27, 27, 27,  // white_stained_glass
+    501, 501, 501, 501, 501, 501,  // white_stained_glass_pane
+    49, 49, 49, 49, 225, 49, 49, 49, 49,  // white_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 225, 50, 50, 50, 50,  // white_terracotta
+    70, 70, 70, 70,  // white_wool_from_string
+    61, 502, 61, 61, 309, 61, 61, 61, 61,  // wild_armor_trim_smithing_template
+    251,  // wind_charge
+    503, -1, -1, 503, 503, 503, 503, -1, 503,  // wolf_armor
+    25, 25, 25, 3, -1, 3,  // wooden_axe
+    25, 25, -1, 3, -1, 3,  // wooden_hoe
+    25, 25, 25, -1, 3, -1, -1, 3, -1,  // wooden_pickaxe
+    25, 3, 3,  // wooden_shovel
+    -1, -1, 25, -1, 3, -1, 3, -1, -1,  // wooden_spear
+    25, 25, 3,  // wooden_sword
+    68, 44, 17,  // writable_book
+    504, 504, 504, 504, 504, 504, -1, 3, -1,  // yellow_banner
+    504, 504, 504, 25, 25, 25,  // yellow_bed
+    39, 230,  // yellow_bundle
+    41, 230,  // yellow_candle
+    504, 504,  // yellow_carpet
+    230, 42, 42, 42, 42, 43, 43, 43, 43,  // yellow_concrete_powder
+    423,  // yellow_dye_from_dandelion
+    505,  // yellow_dye_from_sunflower
+    506,  // yellow_dye_from_wildflowers
+    46, 46, 46, 27, 504, 27,  // yellow_harness
+    47, 230,  // yellow_shulker_box
+    27, 27, 27, 27, 230, 27, 27, 27, 27,  // yellow_stained_glass
+    507, 507, 507, 507, 507, 507,  // yellow_stained_glass_pane
+    49, 49, 49, 49, 230, 49, 49, 49, 49,  // yellow_stained_glass_pane_from_glass_pane
+    50, 50, 50, 50, 230, 50, 50, 50, 50,  // yellow_terracotta
+};
+
+const int16_t recipe_field_ingredients[] = { 67, 249, 508, 509, 61, 257, 249, 508 };
+
+const int32_t n_recipe_defs = 1070;
 const int32_t n_block_defs = 1166;
 const int32_t n_states     = 29671;

@@ -63,8 +63,29 @@ struct item_def {
     float        compost_chance;   // ComposterBlock.COMPOSTABLES, -1 for items that do not compost
     int32_t      fields_first;
     int32_t      n_fields;
-    uint32_t     components;     // item_component bits of the default data components
-    uint32_t     cauldron_maps;  // bit per cauldron_map with an interaction for the item
+    uint32_t     components;          // item_component bits of the default data components
+    uint32_t     cauldron_maps;       // bit per cauldron_map with an interaction for the item
+    int32_t      crafting_remainder;  // Item.getCraftingRemainder (count 1), -1 for none
+};
+
+// Ingredient: a set of items, as a range of ingredient_items
+struct ingredient_def {
+    int32_t first;
+    int32_t count;
+};
+
+// crafting recipe; a transmute recipe's ingredients are its input and material
+struct recipe_def {
+    const char * name;
+    recipe_class cls;
+    recipe_kind  kind;
+    int32_t      result;             // -1 for special recipes
+    int32_t      count;
+    bool         result_components;  // the result has data components beyond its item's defaults
+    int32_t      width;              // shaped recipes only
+    int32_t      height;
+    int32_t      first;              // into recipe_ingredients
+    int32_t      n_ingredients;
 };
 
 // Box of a collision shape, in block units, per axis x y z.
@@ -107,9 +128,16 @@ extern const shape_def    shape_defs[];
 extern const uint16_t
     state_collision_shapes[];  // with the empty context, SHAPE_NONE for dynamic shapes that need the world
 extern const uint16_t
-                     state_support_shapes[];  // getBlockSupportShape, SHAPE_NONE for dynamic shapes that need the world
-extern const int32_t n_block_defs;
-extern const int32_t n_states;
+    state_support_shapes[];    // getBlockSupportShape, SHAPE_NONE for dynamic shapes that need the world
+extern const ingredient_def ingredient_defs[];
+extern const int16_t        ingredient_items[];
+extern const recipe_def     recipe_defs[];  // in RecipeManager.getRecipeFor order
+extern const char * const   recipe_class_names[];
+extern const int16_t        recipe_ingredients[];
+extern const int16_t        recipe_field_ingredients[];
+extern const int32_t        n_recipe_defs;
+extern const int32_t        n_block_defs;
+extern const int32_t        n_states;
 
 constexpr state_id STATE_AIR  = 0;
 constexpr state_id STATE_NONE = 0xFFFF;     // a null BlockState
