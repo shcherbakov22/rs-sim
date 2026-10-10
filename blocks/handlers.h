@@ -103,10 +103,21 @@ void         container_set_changed(level & lv, const container & c);
 int32_t      container_get_redstone_signal(const container * c);
 void         containers_drop_contents(level & lv, block_pos pos, const container & c);
 
+// EnderChestBlock
+state_id           ender_chest_update_shape(level & lv, state_id st);
+void               ender_chest_tick(level & lv, block_pos pos);
+interaction_result ender_chest_use_without_item(level & lv, block_pos pos);
+
+// AbstractSkullBlock
+void abstract_skull_neighbor_changed(level & lv, state_id st, block_pos pos);
+
+// BarrelBlock
+void barrel_tick(level & lv, block_pos pos);
+
 // HopperBlock
 void    hopper_on_place(level & lv, state_id st, block_pos pos, state_id old);
 void    hopper_neighbor_changed(level & lv, state_id st, block_pos pos);
-int32_t hopper_get_analog_output_signal(level & lv, block_pos pos);
+int32_t container_get_redstone_signal_from_block_entity(level & lv, block_pos pos);
 
 // HopperBlockEntity
 void hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st, block_entity * be);

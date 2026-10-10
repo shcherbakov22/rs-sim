@@ -17,7 +17,7 @@ void block_entity_set_changed(level & lv, block_pos pos, state_id st) {
 // the Container block entity types the sim has
 bool block_entity_is_container(const block_entity * be) {
     return be->type == BLOCK_ENTITY_TYPE_HOPPER || be->type == BLOCK_ENTITY_TYPE_CHEST ||
-           be->type == BLOCK_ENTITY_TYPE_TRAPPED_CHEST;
+           be->type == BLOCK_ENTITY_TYPE_TRAPPED_CHEST || be->type == BLOCK_ENTITY_TYPE_BARREL;
 }
 
 int32_t container_get_container_size(const container & c) {
@@ -95,6 +95,16 @@ int32_t container_get_redstone_signal(const container * c) {
     total_percent /= (float) container_get_container_size(*c);
     // Mth.lerpDiscrete from 0 to 15
     return (int32_t) std::floor(total_percent * 14.0f) + (total_percent > 0.0f ? 1 : 0);
+}
+
+// AbstractContainerMenu.getRedstoneSignalFromBlockEntity
+int32_t container_get_redstone_signal_from_block_entity(level & lv, block_pos pos) {
+    block_entity * be = level_get_block_entity(lv, pos);
+    if (be == nullptr || !block_entity_is_container(be)) {
+        return 0;
+    }
+    container c = { be, nullptr };
+    return container_get_redstone_signal(&c);
 }
 
 // Containers.dropContents: every slot draws its position, even an empty one; the first stack spawns an entity

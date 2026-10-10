@@ -97,17 +97,33 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
     // copper chests share the chest type but override parts of ChestBlock
     int32_t cls       = block_defs[state_block(st)].cls;
     bool    chest     = cls == VCLASS_CHEST_BLOCK || cls == VCLASS_TRAPPED_CHEST_BLOCK;
-    bool    supported = type == BLOCK_ENTITY_TYPE_COMPARATOR || type == BLOCK_ENTITY_TYPE_HOPPER || chest;
+    int32_t n_items   = 0;
+    bool    supported = true;
+    switch (type) {
+        case BLOCK_ENTITY_TYPE_HOPPER:
+            n_items = 5;
+            break;
+        case BLOCK_ENTITY_TYPE_CHEST:
+        case BLOCK_ENTITY_TYPE_TRAPPED_CHEST:
+            supported = chest;
+            n_items   = 27;
+            break;
+        case BLOCK_ENTITY_TYPE_BARREL:
+            n_items = 27;
+            break;
+        case BLOCK_ENTITY_TYPE_COMPARATOR:
+        case BLOCK_ENTITY_TYPE_ENDER_CHEST:
+        case BLOCK_ENTITY_TYPE_SKULL:
+            break;
+        default:
+            supported = false;
+    }
     if (!supported) {
         level_unsupported(lv, "block entity of %s", block_defs[state_block(st)].name);
         return nullptr;
     }
     block_entity * be = level_new_block_entity(lv, (block_entity_type) type, pos, st);
-    if (type == BLOCK_ENTITY_TYPE_HOPPER) {
-        be->items.resize(5);
-    } else if (chest) {
-        be->items.resize(27);
-    }
+    be->items.resize(n_items);
     return be;
 }
 

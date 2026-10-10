@@ -83,6 +83,9 @@ state_id block_update_shape(level &   lv,
         case VCLASS_CHEST_BLOCK:
             result = chest_update_shape(lv, st, dir, neighbor);
             break;
+        case VCLASS_ENDER_CHEST_BLOCK:
+            result = ender_chest_update_shape(lv, st);
+            break;
         case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
             result = face_attached_horizontal_directional_update_shape(lv, st, pos, dir);
             break;
@@ -131,6 +134,9 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
             break;
         case VCLASS_HOPPER_BLOCK:
             hopper_neighbor_changed(lv, st, pos);
+            break;
+        case VCLASS_ABSTRACT_SKULL_BLOCK:
+            abstract_skull_neighbor_changed(lv, st, pos);
             break;
         default:
             hook_unsupported(lv, st, HOOK_NEIGHBOR_CHANGED);
@@ -193,6 +199,7 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
             break;
         case VCLASS_CHEST_BLOCK:
         case VCLASS_HOPPER_BLOCK:
+        case VCLASS_BARREL_BLOCK:
             // Containers.updateNeighboursAfterDestroy
             level_update_neighbour_for_output_signal(lv, pos, state_block(st));
             break;
@@ -219,6 +226,12 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             break;
         case VCLASS_CHEST_BLOCK:
             chest_tick(lv, pos);
+            break;
+        case VCLASS_ENDER_CHEST_BLOCK:
+            ender_chest_tick(lv, pos);
+            break;
+        case VCLASS_BARREL_BLOCK:
+            barrel_tick(lv, pos);
             break;
         case VCLASS_REDSTONE_LAMP_BLOCK:
             redstone_lamp_tick(lv, st, pos);
@@ -293,8 +306,11 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
             return repeater_use_without_item(lv, st, pos);
         case VCLASS_COMPARATOR_BLOCK:
             return comparator_use_without_item(lv, st, pos);
+        case VCLASS_ENDER_CHEST_BLOCK:
+            return ender_chest_use_without_item(lv, pos);
         case VCLASS_CHEST_BLOCK:
         case VCLASS_HOPPER_BLOCK:
+        case VCLASS_BARREL_BLOCK:
             // player.openMenu: virtual players holding containers open are not ported
             level_unsupported(lv, "container menus");
             return INTERACTION_RESULT_SUCCESS;
@@ -443,7 +459,8 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos) {
         case VCLASS_CHEST_BLOCK:
             return chest_get_analog_output_signal(lv, st, pos);
         case VCLASS_HOPPER_BLOCK:
-            return hopper_get_analog_output_signal(lv, pos);
+        case VCLASS_BARREL_BLOCK:
+            return container_get_redstone_signal_from_block_entity(lv, pos);
         default:
             hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
             return 0;

@@ -4,7 +4,6 @@ active/trapped-chest
 block-entities
 corpus/0002
 corpus/0003
-corpus/0004
 corpus/0005
 corpus/0006
 corpus/0007
@@ -150,7 +149,6 @@ corpus/0152
 corpus/0153
 corpus/0154
 corpus/0155
-corpus/0157
 corpus/0158
 corpus/0159
 corpus/0160
@@ -274,14 +272,12 @@ corpus/0290
 corpus/0291
 corpus/0292
 corpus/0293
-corpus/0294
 corpus/0295
 corpus/0296
 corpus/0297
 corpus/0298
 corpus/0299
 corpus/0300
-corpus/0301
 corpus/0302
 corpus/0303
 corpus/0304
@@ -299,7 +295,6 @@ corpus/0315
 corpus/0316
 corpus/0317
 corpus/0318
-corpus/0320
 corpus/0321
 corpus/0322
 corpus/0323

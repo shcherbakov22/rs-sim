@@ -12,7 +12,9 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_library(tmc STATIC
+    blocks/abstract-skull.cpp
     blocks/amethyst-cluster.cpp
+    blocks/barrel.cpp
     blocks/base-entity-block.cpp
     blocks/base-torch.cpp
     blocks/block-behaviour.cpp
@@ -22,6 +24,7 @@ add_library(tmc STATIC
     blocks/comparator.cpp
     blocks/container.cpp
     blocks/diode.cpp
+    blocks/ender-chest.cpp
     blocks/face-attached-horizontal-directional.cpp
     blocks/hopper-block-entity.cpp
     blocks/hopper.cpp

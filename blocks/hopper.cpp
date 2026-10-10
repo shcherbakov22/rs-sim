@@ -19,13 +19,3 @@ void hopper_on_place(level & lv, state_id st, block_pos pos, state_id old) {
 void hopper_neighbor_changed(level & lv, state_id st, block_pos pos) {
     hopper_check_powered_state(lv, st, pos);
 }
-
-// AbstractContainerMenu.getRedstoneSignalFromBlockEntity
-int32_t hopper_get_analog_output_signal(level & lv, block_pos pos) {
-    block_entity * be = level_get_block_entity(lv, pos);
-    if (be == nullptr || !block_entity_is_container(be)) {
-        return 0;
-    }
-    container c = { be, nullptr };
-    return container_get_redstone_signal(&c);
-}
