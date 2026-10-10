@@ -100,8 +100,8 @@ extern const direction    player_nearest_directions[6];  // Direction.orderedByN
 extern const uint64_t     state_flags[];
 extern const shape_box    shape_boxes[];
 extern const shape_def    shape_defs[];
-extern const uint16_t state_collision_shapes[];  // BlockBehaviour.Cache.collisionShape, SHAPE_NONE for dynamic shapes
-extern const uint16_t state_support_shapes[];    // getBlockSupportShape without a level, SHAPE_NONE for dynamic shapes
+extern const uint16_t state_collision_shapes[];  // with the empty context, SHAPE_NONE for dynamic shapes that need the world
+extern const uint16_t state_support_shapes[];    // getBlockSupportShape, SHAPE_NONE for dynamic shapes that need the world
 extern const int32_t  n_block_defs;
 extern const int32_t  n_states;
 

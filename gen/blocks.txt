@@ -19785,8 +19785,8 @@ block scaffolding 20504 32 20535 ScaffoldingBlock
   flag sturdy_full_up
   flag sturdy_center_up
   flag sturdy_rigid_up
-  collision -
-  support -
+  collision 268
+  support 268
 block loom 20536 4 20536 LoomBlock
   prop HORIZONTAL_FACING
   as_item loom
@@ -19970,8 +19970,8 @@ block grindstone 20570 12 20574 GrindstoneBlock
   flag push_block
   flag sturdy_center_down 000000001111
   flag sturdy_center_up 111100000000
-  collision 268 268 269 269 270 271 272 273 274 274 275 275
-  support 268 268 269 269 270 271 272 273 274 274 275 275
+  collision 269 269 270 270 271 272 273 274 275 275 276 276
+  support 269 269 270 270 271 272 273 274 275 275 276 276
 block lectern 20582 16 20585 LecternBlock
   prop HORIZONTAL_FACING
   prop HAS_BOOK
@@ -19986,8 +19986,8 @@ block lectern 20582 16 20585 LecternBlock
   flag sturdy_full_down
   flag sturdy_center_down
   flag sturdy_rigid_down
-  collision 276
-  support 276
+  collision 277
+  support 277
 block smithing_table 20598 1 20598 SmithingTableBlock
   as_item smithing_table
   instrument BASS
@@ -20023,8 +20023,8 @@ block stonecutter 20599 4 20599 StonecutterBlock
   flag sturdy_full_down
   flag sturdy_center_down
   flag sturdy_rigid_down
-  collision 277
-  support 277
+  collision 278
+  support 278
 block bell 20603 32 20604 BellBlock
   prop BELL_ATTACHMENT
   prop HORIZONTAL_FACING
@@ -20042,8 +20042,8 @@ block bell 20603 32 20604 BellBlock
   flag sturdy_center_south 00001111000000000000000000000000
   flag sturdy_center_west 11110000000000000000000000000000
   flag sturdy_center_east 11110000000000000000000000000000
-  collision 278 278 278 278 279 279 279 279 280 280 280 280 280 280 280 280 281 281 282 282 283 283 284 284 285 285 285 285 286 286 286 286
-  support 278 278 278 278 279 279 279 279 280 280 280 280 280 280 280 280 281 281 282 282 283 283 284 284 285 285 285 285 286 286 286 286
+  collision 279 279 279 279 280 280 280 280 281 281 281 281 281 281 281 281 282 282 283 283 284 284 285 285 286 286 286 286 287 287 287 287
+  support 279 279 279 279 280 280 280 280 281 281 281 281 281 281 281 281 282 282 283 283 284 284 285 285 286 286 286 286 287 287 287 287
 block lantern 20635 4 20638 LanternBlock
   prop HANGING
   prop WATERLOGGED
@@ -20053,8 +20053,8 @@ block lantern 20635 4 20638 LanternBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down 0011
-  collision 287 287 288 288
-  support 287 287 288 288
+  collision 288 288 289 289
+  support 288 288 289 289
 block soul_lantern 20639 4 20642 LanternBlock
   prop HANGING
   prop WATERLOGGED
@@ -20064,8 +20064,8 @@ block soul_lantern 20639 4 20642 LanternBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down 0011
-  collision 287 287 288 288
-  support 287 287 288 288
+  collision 288 288 289 289
+  support 288 288 289 289
 block copper_lantern 20643 4 20646 WeatheringLanternBlock
   prop HANGING
   prop WATERLOGGED
@@ -20076,8 +20076,8 @@ block copper_lantern 20643 4 20646 WeatheringLanternBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down 0011
-  collision 287 287 288 288
-  support 287 287 288 288
+  collision 288 288 289 289
+  support 288 288 289 289
 block exposed_copper_lantern 20647 4 20650 WeatheringLanternBlock
   prop HANGING
   prop WATERLOGGED
@@ -20089,8 +20089,8 @@ block exposed_copper_lantern 20647 4 20650 WeatheringLanternBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down 0011
-  collision 287 287 288 288
-  support 287 287 288 288
+  collision 288 288 289 289
+  support 288 288 289 289
 block weathered_copper_lantern 20651 4 20654 WeatheringLanternBlock
   prop HANGING
   prop WATERLOGGED
@@ -20102,8 +20102,8 @@ block weathered_copper_lantern 20651 4 20654 WeatheringLanternBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down 0011
-  collision 287 287 288 288
-  support 287 287 288 288
+  collision 288 288 289 289
+  support 288 288 289 289
 block oxidized_copper_lantern 20655 4 20658 WeatheringLanternBlock
   prop HANGING
   prop WATERLOGGED
@@ -20115,8 +20115,8 @@ block oxidized_copper_lantern 20655 4 20658 WeatheringLanternBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down 0011
-  collision 287 287 288 288
-  support 287 287 288 288
+  collision 288 288 289 289
+  support 288 288 289 289
 block waxed_copper_lantern 20659 4 20662 LanternBlock
   prop HANGING
   prop WATERLOGGED
@@ -20127,8 +20127,8 @@ block waxed_copper_lantern 20659 4 20662 LanternBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down 0011
-  collision 287 287 288 288
-  support 287 287 288 288
+  collision 288 288 289 289
+  support 288 288 289 289
 block waxed_exposed_copper_lantern 20663 4 20666 LanternBlock
   prop HANGING
   prop WATERLOGGED
@@ -20139,8 +20139,8 @@ block waxed_exposed_copper_lantern 20663 4 20666 LanternBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down 0011
-  collision 287 287 288 288
-  support 287 287 288 288
+  collision 288 288 289 289
+  support 288 288 289 289
 block waxed_weathered_copper_lantern 20667 4 20670 LanternBlock
   prop HANGING
   prop WATERLOGGED
@@ -20151,8 +20151,8 @@ block waxed_weathered_copper_lantern 20667 4 20670 LanternBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down 0011
-  collision 287 287 288 288
-  support 287 287 288 288
+  collision 288 288 289 289
+  support 288 288 289 289
 block waxed_oxidized_copper_lantern 20671 4 20674 LanternBlock
   prop HANGING
   prop WATERLOGGED
@@ -20163,8 +20163,8 @@ block waxed_oxidized_copper_lantern 20671 4 20674 LanternBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down 0011
-  collision 287 287 288 288
-  support 287 287 288 288
+  collision 288 288 289 289
+  support 288 288 289 289
 block campfire 20675 32 20678 CampfireBlock
   prop HORIZONTAL_FACING
   prop LIT
@@ -20184,8 +20184,8 @@ block campfire 20675 32 20678 CampfireBlock
   flag sturdy_full_down
   flag sturdy_center_down
   flag sturdy_rigid_down
-  collision 289
-  support 289
+  collision 290
+  support 290
 block soul_campfire 20707 32 20710 CampfireBlock
   prop HORIZONTAL_FACING
   prop LIT
@@ -20205,8 +20205,8 @@ block soul_campfire 20707 32 20710 CampfireBlock
   flag sturdy_full_down
   flag sturdy_center_down
   flag sturdy_rigid_down
-  collision 289
-  support 289
+  collision 290
+  support 290
 block sweet_berry_bush 20739 4 20739 SweetBerryBushBlock
   prop AGE_3
   as_item sweet_berries
@@ -21216,8 +21216,8 @@ block composter 21541 9 21541 ComposterBlock
   flag sturdy_rigid_south
   flag sturdy_rigid_west
   flag sturdy_rigid_east
-  collision 290
-  support 290
+  collision 291
+  support 291
 block target 21550 16 21550 TargetBlock
   prop POWER
   as_item target
@@ -22010,8 +22010,8 @@ block candle 22894 16 22897 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block white_candle 22910 16 22913 CandleBlock
   prop CANDLES
   prop LIT
@@ -22022,8 +22022,8 @@ block white_candle 22910 16 22913 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block orange_candle 22926 16 22929 CandleBlock
   prop CANDLES
   prop LIT
@@ -22034,8 +22034,8 @@ block orange_candle 22926 16 22929 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block magenta_candle 22942 16 22945 CandleBlock
   prop CANDLES
   prop LIT
@@ -22046,8 +22046,8 @@ block magenta_candle 22942 16 22945 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block light_blue_candle 22958 16 22961 CandleBlock
   prop CANDLES
   prop LIT
@@ -22058,8 +22058,8 @@ block light_blue_candle 22958 16 22961 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block yellow_candle 22974 16 22977 CandleBlock
   prop CANDLES
   prop LIT
@@ -22070,8 +22070,8 @@ block yellow_candle 22974 16 22977 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block lime_candle 22990 16 22993 CandleBlock
   prop CANDLES
   prop LIT
@@ -22082,8 +22082,8 @@ block lime_candle 22990 16 22993 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block pink_candle 23006 16 23009 CandleBlock
   prop CANDLES
   prop LIT
@@ -22094,8 +22094,8 @@ block pink_candle 23006 16 23009 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block gray_candle 23022 16 23025 CandleBlock
   prop CANDLES
   prop LIT
@@ -22106,8 +22106,8 @@ block gray_candle 23022 16 23025 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block light_gray_candle 23038 16 23041 CandleBlock
   prop CANDLES
   prop LIT
@@ -22118,8 +22118,8 @@ block light_gray_candle 23038 16 23041 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block cyan_candle 23054 16 23057 CandleBlock
   prop CANDLES
   prop LIT
@@ -22130,8 +22130,8 @@ block cyan_candle 23054 16 23057 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block purple_candle 23070 16 23073 CandleBlock
   prop CANDLES
   prop LIT
@@ -22142,8 +22142,8 @@ block purple_candle 23070 16 23073 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block blue_candle 23086 16 23089 CandleBlock
   prop CANDLES
   prop LIT
@@ -22154,8 +22154,8 @@ block blue_candle 23086 16 23089 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block brown_candle 23102 16 23105 CandleBlock
   prop CANDLES
   prop LIT
@@ -22166,8 +22166,8 @@ block brown_candle 23102 16 23105 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block green_candle 23118 16 23121 CandleBlock
   prop CANDLES
   prop LIT
@@ -22178,8 +22178,8 @@ block green_candle 23118 16 23121 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block red_candle 23134 16 23137 CandleBlock
   prop CANDLES
   prop LIT
@@ -22190,8 +22190,8 @@ block red_candle 23134 16 23137 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block black_candle 23150 16 23153 CandleBlock
   prop CANDLES
   prop LIT
@@ -22202,8 +22202,8 @@ block black_candle 23150 16 23153 CandleBlock
   flag tag_candles
   flag push_destroy
   flag sturdy_center_down
-  collision 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
-  support 291 291 291 291 292 292 292 292 293 293 293 293 294 294 294 294
+  collision 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
+  support 292 292 292 292 293 293 293 293 294 294 294 294 295 295 295 295
 block candle_cake 23166 2 23167 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 942
@@ -22213,8 +22213,8 @@ block candle_cake 23166 2 23167 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block white_candle_cake 23168 2 23169 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 943
@@ -22224,8 +22224,8 @@ block white_candle_cake 23168 2 23169 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block orange_candle_cake 23170 2 23171 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 944
@@ -22235,8 +22235,8 @@ block orange_candle_cake 23170 2 23171 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block magenta_candle_cake 23172 2 23173 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 945
@@ -22246,8 +22246,8 @@ block magenta_candle_cake 23172 2 23173 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block light_blue_candle_cake 23174 2 23175 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 946
@@ -22257,8 +22257,8 @@ block light_blue_candle_cake 23174 2 23175 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block yellow_candle_cake 23176 2 23177 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 947
@@ -22268,8 +22268,8 @@ block yellow_candle_cake 23176 2 23177 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block lime_candle_cake 23178 2 23179 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 948
@@ -22279,8 +22279,8 @@ block lime_candle_cake 23178 2 23179 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block pink_candle_cake 23180 2 23181 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 949
@@ -22290,8 +22290,8 @@ block pink_candle_cake 23180 2 23181 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block gray_candle_cake 23182 2 23183 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 950
@@ -22301,8 +22301,8 @@ block gray_candle_cake 23182 2 23183 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block light_gray_candle_cake 23184 2 23185 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 951
@@ -22312,8 +22312,8 @@ block light_gray_candle_cake 23184 2 23185 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block cyan_candle_cake 23186 2 23187 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 952
@@ -22323,8 +22323,8 @@ block cyan_candle_cake 23186 2 23187 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block purple_candle_cake 23188 2 23189 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 953
@@ -22334,8 +22334,8 @@ block purple_candle_cake 23188 2 23189 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block blue_candle_cake 23190 2 23191 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 954
@@ -22345,8 +22345,8 @@ block blue_candle_cake 23190 2 23191 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block brown_candle_cake 23192 2 23193 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 955
@@ -22356,8 +22356,8 @@ block brown_candle_cake 23192 2 23193 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block green_candle_cake 23194 2 23195 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 956
@@ -22367,8 +22367,8 @@ block green_candle_cake 23194 2 23195 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block red_candle_cake 23196 2 23197 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 957
@@ -22378,8 +22378,8 @@ block red_candle_cake 23196 2 23197 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block black_candle_cake 23198 2 23199 CandleCakeBlock
   prop LIT
   field CandleCakeBlock.candleBlock 958
@@ -22389,8 +22389,8 @@ block black_candle_cake 23198 2 23199 CandleCakeBlock
   flag solid
   flag push_destroy
   flag sturdy_center_down
-  collision 295
-  support 295
+  collision 296
+  support 296
 block amethyst_block 23200 1 23200 AmethystBlock
   as_item amethyst_block
   flag conductor
@@ -22451,8 +22451,8 @@ block amethyst_cluster 23202 12 23211 AmethystClusterBlock
   flag push_destroy
   flag sturdy_center_down 000000001100
   flag sturdy_center_up 000000000011
-  collision 296 296 297 297 298 298 299 299 300 300 301 301
-  support 296 296 297 297 298 298 299 299 300 300 301 301
+  collision 297 297 298 298 299 299 300 300 301 301 302 302
+  support 297 297 298 298 299 299 300 300 301 301 302 302
 block large_amethyst_bud 23214 12 23223 AmethystClusterBlock
   prop FACING
   prop WATERLOGGED
@@ -22462,8 +22462,8 @@ block large_amethyst_bud 23214 12 23223 AmethystClusterBlock
   flag push_destroy
   flag sturdy_center_down 000000001100
   flag sturdy_center_up 000000000011
-  collision 302 302 303 303 304 304 305 305 306 306 307 307
-  support 302 302 303 303 304 304 305 305 306 306 307 307
+  collision 303 303 304 304 305 305 306 306 307 307 308 308
+  support 303 303 304 304 305 305 306 306 307 307 308 308
 block medium_amethyst_bud 23226 12 23235 AmethystClusterBlock
   prop FACING
   prop WATERLOGGED
@@ -22473,8 +22473,8 @@ block medium_amethyst_bud 23226 12 23235 AmethystClusterBlock
   flag push_destroy
   flag sturdy_center_down 000000001100
   flag sturdy_center_up 000000000011
-  collision 308 308 309 309 310 310 311 311 312 312 313 313
-  support 308 308 309 309 310 310 311 311 312 312 313 313
+  collision 309 309 310 310 311 311 312 312 313 313 314 314
+  support 309 309 310 310 311 311 312 312 313 313 314 314
 block small_amethyst_bud 23238 12 23247 AmethystClusterBlock
   prop FACING
   prop WATERLOGGED
@@ -22484,8 +22484,8 @@ block small_amethyst_bud 23238 12 23247 AmethystClusterBlock
   flag push_destroy
   flag sturdy_center_down 000000001100
   flag sturdy_center_up 000000000011
-  collision 314 314 315 315 316 316 317 317 318 318 319 319
-  support 314 314 315 315 316 316 317 317 318 318 319 319
+  collision 315 315 316 316 317 317 318 318 319 319 320 320
+  support 315 315 316 316 317 317 318 318 319 319 320 320
 block tuff 23250 1 23250 -
   as_item tuff
   instrument BASEDRUM
@@ -22913,8 +22913,8 @@ block tinted_glass 24486 1 24486 TintedGlassBlock
 block powder_snow 24487 1 24487 PowderSnowBlock
   as_item powder_snow_bucket
   flag dynamic_shape
-  collision -
-  support -
+  collision 0
+  support 0
 block sculk_sensor 24488 96 24489 SculkSensorBlock
   prop POWER
   prop SCULK_SENSOR_PHASE
@@ -25328,8 +25328,8 @@ block copper_golem_statue 27085 32 27086 WeatheringCopperGolemStatueBlock
   flag tag_copper_golem_statues
   flag push_destroy
   flag sturdy_center_down
-  collision 320
-  support 320
+  collision 321
+  support 321
 block exposed_copper_golem_statue 27117 32 27118 WeatheringCopperGolemStatueBlock
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
@@ -25345,8 +25345,8 @@ block exposed_copper_golem_statue 27117 32 27118 WeatheringCopperGolemStatueBloc
   flag tag_copper_golem_statues
   flag push_destroy
   flag sturdy_center_down
-  collision 320
-  support 320
+  collision 321
+  support 321
 block weathered_copper_golem_statue 27149 32 27150 WeatheringCopperGolemStatueBlock
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
@@ -25362,8 +25362,8 @@ block weathered_copper_golem_statue 27149 32 27150 WeatheringCopperGolemStatueBl
   flag tag_copper_golem_statues
   flag push_destroy
   flag sturdy_center_down
-  collision 320
-  support 320
+  collision 321
+  support 321
 block oxidized_copper_golem_statue 27181 32 27182 WeatheringCopperGolemStatueBlock
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
@@ -25379,8 +25379,8 @@ block oxidized_copper_golem_statue 27181 32 27182 WeatheringCopperGolemStatueBlo
   flag tag_copper_golem_statues
   flag push_destroy
   flag sturdy_center_down
-  collision 320
-  support 320
+  collision 321
+  support 321
 block waxed_copper_golem_statue 27213 32 27214 CopperGolemStatueBlock
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
@@ -25395,8 +25395,8 @@ block waxed_copper_golem_statue 27213 32 27214 CopperGolemStatueBlock
   flag tag_copper_golem_statues
   flag push_destroy
   flag sturdy_center_down
-  collision 320
-  support 320
+  collision 321
+  support 321
 block waxed_exposed_copper_golem_statue 27245 32 27246 CopperGolemStatueBlock
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
@@ -25411,8 +25411,8 @@ block waxed_exposed_copper_golem_statue 27245 32 27246 CopperGolemStatueBlock
   flag tag_copper_golem_statues
   flag push_destroy
   flag sturdy_center_down
-  collision 320
-  support 320
+  collision 321
+  support 321
 block waxed_weathered_copper_golem_statue 27277 32 27278 CopperGolemStatueBlock
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
@@ -25427,8 +25427,8 @@ block waxed_weathered_copper_golem_statue 27277 32 27278 CopperGolemStatueBlock
   flag tag_copper_golem_statues
   flag push_destroy
   flag sturdy_center_down
-  collision 320
-  support 320
+  collision 321
+  support 321
 block waxed_oxidized_copper_golem_statue 27309 32 27310 CopperGolemStatueBlock
   prop COPPER_GOLEM_POSE
   prop HORIZONTAL_FACING
@@ -25443,8 +25443,8 @@ block waxed_oxidized_copper_golem_statue 27309 32 27310 CopperGolemStatueBlock
   flag tag_copper_golem_statues
   flag push_destroy
   flag sturdy_center_down
-  collision 320
-  support 320
+  collision 321
+  support 321
 block lightning_rod 27341 24 27360 WeatheringLightningRodBlock
   prop FACING
   prop POWERED
@@ -25627,8 +25627,8 @@ block azalea 27609 1 27609 AzaleaBlock
   flag sturdy_center_down
   flag sturdy_center_up
   flag sturdy_rigid_up
-  collision 321
-  support 321
+  collision 322
+  support 322
 block flowering_azalea 27610 1 27610 AzaleaBlock
   as_item flowering_azalea
   flag drops
@@ -25637,8 +25637,8 @@ block flowering_azalea 27610 1 27610 AzaleaBlock
   flag sturdy_center_down
   flag sturdy_center_up
   flag sturdy_rigid_up
-  collision 321
-  support 321
+  collision 322
+  support 322
 block moss_carpet 27611 1 27611 CarpetBlock
   as_item moss_carpet
   flag drops
@@ -25707,8 +25707,8 @@ block big_dripleaf 27661 32 27662 BigDripleafBlock
   flag fluid 10101010101010101010101010101010
   flag drops
   flag push_destroy
-  collision 322 322 322 322 323 323 0 0 322 322 322 322 323 323 0 0 322 322 322 322 323 323 0 0 322 322 322 322 323 323 0 0
-  support 322 322 322 322 323 323 0 0 322 322 322 322 323 323 0 0 322 322 322 322 323 323 0 0 322 322 322 322 323 323 0 0
+  collision 323 323 323 323 324 324 0 0 323 323 323 323 324 324 0 0 323 323 323 323 324 324 0 0 323 323 323 323 324 324 0 0
+  support 323 323 323 323 324 324 0 0 323 323 323 323 324 324 0 0 323 323 323 323 324 324 0 0 323 323 323 323 324 324 0 0
 block big_dripleaf_stem 27693 8 27694 BigDripleafStemBlock
   prop HORIZONTAL_FACING
   prop WATERLOGGED
@@ -27034,59 +27034,60 @@ shape 264 0.1875 0.0 0.1875 0.8125 0.375 0.8125
 shape 265 0.125 0.0 0.125 0.875 0.375 0.875
 shape 266 0.125 0.0 0.125 0.875 0.4375 0.875
 shape 267 0.3125 0.3125 0.3125 0.6875 0.6875 0.6875
-shape 268 0.125 0.0 0.375 0.25 0.8125 0.625 0.75 0.0 0.375 0.875 0.8125 0.625 0.25 0.25 0.125 0.75 1.0 0.875 0.125 0.4375 0.3125 0.25 0.8125 0.375 0.125 0.4375 0.625 0.25 0.8125 0.6875 0.75 0.4375 0.3125 0.875 0.8125 0.375 0.75 0.4375 0.625 0.875 0.8125 0.6875
-shape 269 0.375 0.0 0.125 0.625 0.8125 0.25 0.375 0.0 0.75 0.625 0.8125 0.875 0.125 0.25 0.25 0.875 1.0 0.75 0.3125 0.4375 0.125 0.375 0.8125 0.25 0.3125 0.4375 0.75 0.375 0.8125 0.875 0.625 0.4375 0.125 0.6875 0.8125 0.25 0.625 0.4375 0.75 0.6875 0.8125 0.875
-shape 270 0.25 0.125 0.0 0.75 0.875 0.75 0.125 0.3125 0.1875 0.25 0.6875 0.5625 0.75 0.3125 0.1875 0.875 0.6875 0.5625 0.125 0.375 0.5625 0.25 0.625 1.0 0.75 0.375 0.5625 0.875 0.625 1.0
-shape 271 0.25 0.125 0.25 0.75 0.875 1.0 0.125 0.3125 0.4375 0.25 0.6875 0.8125 0.75 0.3125 0.4375 0.875 0.6875 0.8125 0.125 0.375 0.0 0.25 0.625 0.4375 0.75 0.375 0.0 0.875 0.625 0.4375
-shape 272 0.0 0.125 0.25 0.75 0.875 0.75 0.1875 0.3125 0.125 0.5625 0.6875 0.25 0.1875 0.3125 0.75 0.5625 0.6875 0.875 0.5625 0.375 0.125 1.0 0.625 0.25 0.5625 0.375 0.75 1.0 0.625 0.875
-shape 273 0.25 0.125 0.25 1.0 0.875 0.75 0.4375 0.3125 0.125 0.8125 0.6875 0.25 0.4375 0.3125 0.75 0.8125 0.6875 0.875 0.0 0.375 0.125 0.4375 0.625 0.25 0.0 0.375 0.75 0.4375 0.625 0.875
-shape 274 0.25 0.0 0.125 0.75 0.75 0.875 0.125 0.1875 0.3125 0.25 0.5625 0.6875 0.75 0.1875 0.3125 0.875 0.5625 0.6875 0.125 0.5625 0.375 0.25 1.0 0.625 0.75 0.5625 0.375 0.875 1.0 0.625
-shape 275 0.125 0.0 0.25 0.875 0.75 0.75 0.3125 0.1875 0.125 0.6875 0.5625 0.25 0.3125 0.1875 0.75 0.6875 0.5625 0.875 0.375 0.5625 0.125 0.625 1.0 0.25 0.375 0.5625 0.75 0.625 1.0 0.875
-shape 276 0.0 0.0 0.0 1.0 0.125 1.0 0.25 0.125 0.25 0.75 0.875 0.75
-shape 277 0.0 0.0 0.0 1.0 0.5625 1.0
-shape 278 0.0 0.0 0.25 1.0 1.0 0.75
-shape 279 0.25 0.0 0.0 0.75 1.0 1.0
-shape 280 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.4375 0.8125 0.4375 0.5625 1.0 0.5625
-shape 281 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.4375 0.8125 0.0 0.5625 0.9375 0.8125
-shape 282 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.4375 0.8125 0.1875 0.5625 0.9375 1.0
-shape 283 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.0 0.8125 0.4375 0.8125 0.9375 0.5625
-shape 284 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.1875 0.8125 0.4375 1.0 0.9375 0.5625
-shape 285 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.4375 0.8125 0.0 0.5625 0.9375 1.0
-shape 286 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.0 0.8125 0.4375 1.0 0.9375 0.5625
-shape 287 0.3125 0.0625 0.3125 0.6875 0.5 0.6875 0.375 0.5 0.375 0.625 0.625 0.625
-shape 288 0.3125 0.0 0.3125 0.6875 0.4375 0.6875 0.375 0.4375 0.375 0.625 0.5625 0.625
-shape 289 0.0 0.0 0.0 1.0 0.4375 1.0
-shape 290 0.0 0.0 0.0 1.0 0.125 1.0 0.0 0.125 0.0 0.125 1.0 1.0 0.125 0.125 0.0 1.0 1.0 0.125 0.125 0.125 0.875 1.0 1.0 1.0 0.875 0.125 0.125 1.0 1.0 0.875
-shape 291 0.4375 0.0 0.4375 0.5625 0.375 0.5625
-shape 292 0.3125 0.0 0.375 0.6875 0.375 0.5625
-shape 293 0.3125 0.0 0.375 0.625 0.375 0.6875
-shape 294 0.3125 0.0 0.3125 0.6875 0.375 0.625
-shape 295 0.0625 0.0 0.0625 0.9375 0.5 0.9375 0.4375 0.5 0.4375 0.5625 0.875 0.5625
-shape 296 0.1875 0.1875 0.5625 0.8125 0.8125 1.0
-shape 297 0.0 0.1875 0.1875 0.4375 0.8125 0.8125
-shape 298 0.1875 0.1875 0.0 0.8125 0.8125 0.4375
-shape 299 0.5625 0.1875 0.1875 1.0 0.8125 0.8125
-shape 300 0.1875 0.0 0.1875 0.8125 0.4375 0.8125
-shape 301 0.1875 0.5625 0.1875 0.8125 1.0 0.8125
-shape 302 0.1875 0.1875 0.6875 0.8125 0.8125 1.0
-shape 303 0.0 0.1875 0.1875 0.3125 0.8125 0.8125
-shape 304 0.1875 0.1875 0.0 0.8125 0.8125 0.3125
-shape 305 0.6875 0.1875 0.1875 1.0 0.8125 0.8125
-shape 306 0.1875 0.0 0.1875 0.8125 0.3125 0.8125
-shape 307 0.1875 0.6875 0.1875 0.8125 1.0 0.8125
-shape 308 0.1875 0.1875 0.75 0.8125 0.8125 1.0
-shape 309 0.0 0.1875 0.1875 0.25 0.8125 0.8125
-shape 310 0.1875 0.1875 0.0 0.8125 0.8125 0.25
-shape 311 0.75 0.1875 0.1875 1.0 0.8125 0.8125
-shape 312 0.1875 0.0 0.1875 0.8125 0.25 0.8125
-shape 313 0.1875 0.75 0.1875 0.8125 1.0 0.8125
-shape 314 0.25 0.25 0.8125 0.75 0.75 1.0
-shape 315 0.0 0.25 0.25 0.1875 0.75 0.75
-shape 316 0.25 0.25 0.0 0.75 0.75 0.1875
-shape 317 0.8125 0.25 0.25 1.0 0.75 0.75
-shape 318 0.25 0.0 0.25 0.75 0.1875 0.75
-shape 319 0.25 0.8125 0.25 0.75 1.0 0.75
-shape 320 0.1875 0.0 0.1875 0.8125 0.875 0.8125
-shape 321 0.375 0.0 0.375 0.625 1.0 0.625 0.0 0.5 0.0 0.375 1.0 1.0 0.375 0.5 0.0 1.0 1.0 0.375 0.375 0.5 0.625 1.0 1.0 1.0 0.625 0.5 0.375 1.0 1.0 0.625
-shape 322 0.0 0.6875 0.0 1.0 0.9375 1.0
-shape 323 0.0 0.6875 0.0 1.0 0.8125 1.0
+shape 268 0.0 0.0 0.0 0.125 1.0 0.125 0.0 0.0 0.875 0.125 1.0 1.0 0.875 0.0 0.0 1.0 1.0 0.125 0.875 0.0 0.875 1.0 1.0 1.0 0.0 0.875 0.125 1.0 1.0 0.875 0.125 0.875 0.0 0.875 1.0 0.125 0.125 0.875 0.875 0.875 1.0 1.0
+shape 269 0.125 0.0 0.375 0.25 0.8125 0.625 0.75 0.0 0.375 0.875 0.8125 0.625 0.25 0.25 0.125 0.75 1.0 0.875 0.125 0.4375 0.3125 0.25 0.8125 0.375 0.125 0.4375 0.625 0.25 0.8125 0.6875 0.75 0.4375 0.3125 0.875 0.8125 0.375 0.75 0.4375 0.625 0.875 0.8125 0.6875
+shape 270 0.375 0.0 0.125 0.625 0.8125 0.25 0.375 0.0 0.75 0.625 0.8125 0.875 0.125 0.25 0.25 0.875 1.0 0.75 0.3125 0.4375 0.125 0.375 0.8125 0.25 0.3125 0.4375 0.75 0.375 0.8125 0.875 0.625 0.4375 0.125 0.6875 0.8125 0.25 0.625 0.4375 0.75 0.6875 0.8125 0.875
+shape 271 0.25 0.125 0.0 0.75 0.875 0.75 0.125 0.3125 0.1875 0.25 0.6875 0.5625 0.75 0.3125 0.1875 0.875 0.6875 0.5625 0.125 0.375 0.5625 0.25 0.625 1.0 0.75 0.375 0.5625 0.875 0.625 1.0
+shape 272 0.25 0.125 0.25 0.75 0.875 1.0 0.125 0.3125 0.4375 0.25 0.6875 0.8125 0.75 0.3125 0.4375 0.875 0.6875 0.8125 0.125 0.375 0.0 0.25 0.625 0.4375 0.75 0.375 0.0 0.875 0.625 0.4375
+shape 273 0.0 0.125 0.25 0.75 0.875 0.75 0.1875 0.3125 0.125 0.5625 0.6875 0.25 0.1875 0.3125 0.75 0.5625 0.6875 0.875 0.5625 0.375 0.125 1.0 0.625 0.25 0.5625 0.375 0.75 1.0 0.625 0.875
+shape 274 0.25 0.125 0.25 1.0 0.875 0.75 0.4375 0.3125 0.125 0.8125 0.6875 0.25 0.4375 0.3125 0.75 0.8125 0.6875 0.875 0.0 0.375 0.125 0.4375 0.625 0.25 0.0 0.375 0.75 0.4375 0.625 0.875
+shape 275 0.25 0.0 0.125 0.75 0.75 0.875 0.125 0.1875 0.3125 0.25 0.5625 0.6875 0.75 0.1875 0.3125 0.875 0.5625 0.6875 0.125 0.5625 0.375 0.25 1.0 0.625 0.75 0.5625 0.375 0.875 1.0 0.625
+shape 276 0.125 0.0 0.25 0.875 0.75 0.75 0.3125 0.1875 0.125 0.6875 0.5625 0.25 0.3125 0.1875 0.75 0.6875 0.5625 0.875 0.375 0.5625 0.125 0.625 1.0 0.25 0.375 0.5625 0.75 0.625 1.0 0.875
+shape 277 0.0 0.0 0.0 1.0 0.125 1.0 0.25 0.125 0.25 0.75 0.875 0.75
+shape 278 0.0 0.0 0.0 1.0 0.5625 1.0
+shape 279 0.0 0.0 0.25 1.0 1.0 0.75
+shape 280 0.25 0.0 0.0 0.75 1.0 1.0
+shape 281 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.4375 0.8125 0.4375 0.5625 1.0 0.5625
+shape 282 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.4375 0.8125 0.0 0.5625 0.9375 0.8125
+shape 283 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.4375 0.8125 0.1875 0.5625 0.9375 1.0
+shape 284 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.0 0.8125 0.4375 0.8125 0.9375 0.5625
+shape 285 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.1875 0.8125 0.4375 1.0 0.9375 0.5625
+shape 286 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.4375 0.8125 0.0 0.5625 0.9375 1.0
+shape 287 0.25 0.25 0.25 0.75 0.375 0.75 0.3125 0.375 0.3125 0.6875 0.8125 0.6875 0.0 0.8125 0.4375 1.0 0.9375 0.5625
+shape 288 0.3125 0.0625 0.3125 0.6875 0.5 0.6875 0.375 0.5 0.375 0.625 0.625 0.625
+shape 289 0.3125 0.0 0.3125 0.6875 0.4375 0.6875 0.375 0.4375 0.375 0.625 0.5625 0.625
+shape 290 0.0 0.0 0.0 1.0 0.4375 1.0
+shape 291 0.0 0.0 0.0 1.0 0.125 1.0 0.0 0.125 0.0 0.125 1.0 1.0 0.125 0.125 0.0 1.0 1.0 0.125 0.125 0.125 0.875 1.0 1.0 1.0 0.875 0.125 0.125 1.0 1.0 0.875
+shape 292 0.4375 0.0 0.4375 0.5625 0.375 0.5625
+shape 293 0.3125 0.0 0.375 0.6875 0.375 0.5625
+shape 294 0.3125 0.0 0.375 0.625 0.375 0.6875
+shape 295 0.3125 0.0 0.3125 0.6875 0.375 0.625
+shape 296 0.0625 0.0 0.0625 0.9375 0.5 0.9375 0.4375 0.5 0.4375 0.5625 0.875 0.5625
+shape 297 0.1875 0.1875 0.5625 0.8125 0.8125 1.0
+shape 298 0.0 0.1875 0.1875 0.4375 0.8125 0.8125
+shape 299 0.1875 0.1875 0.0 0.8125 0.8125 0.4375
+shape 300 0.5625 0.1875 0.1875 1.0 0.8125 0.8125
+shape 301 0.1875 0.0 0.1875 0.8125 0.4375 0.8125
+shape 302 0.1875 0.5625 0.1875 0.8125 1.0 0.8125
+shape 303 0.1875 0.1875 0.6875 0.8125 0.8125 1.0
+shape 304 0.0 0.1875 0.1875 0.3125 0.8125 0.8125
+shape 305 0.1875 0.1875 0.0 0.8125 0.8125 0.3125
+shape 306 0.6875 0.1875 0.1875 1.0 0.8125 0.8125
+shape 307 0.1875 0.0 0.1875 0.8125 0.3125 0.8125
+shape 308 0.1875 0.6875 0.1875 0.8125 1.0 0.8125
+shape 309 0.1875 0.1875 0.75 0.8125 0.8125 1.0
+shape 310 0.0 0.1875 0.1875 0.25 0.8125 0.8125
+shape 311 0.1875 0.1875 0.0 0.8125 0.8125 0.25
+shape 312 0.75 0.1875 0.1875 1.0 0.8125 0.8125
+shape 313 0.1875 0.0 0.1875 0.8125 0.25 0.8125
+shape 314 0.1875 0.75 0.1875 0.8125 1.0 0.8125
+shape 315 0.25 0.25 0.8125 0.75 0.75 1.0
+shape 316 0.0 0.25 0.25 0.1875 0.75 0.75
+shape 317 0.25 0.25 0.0 0.75 0.75 0.1875
+shape 318 0.8125 0.25 0.25 1.0 0.75 0.75
+shape 319 0.25 0.0 0.25 0.75 0.1875 0.75
+shape 320 0.25 0.8125 0.25 0.75 1.0 0.75
+shape 321 0.1875 0.0 0.1875 0.8125 0.875 0.8125
+shape 322 0.375 0.0 0.375 0.625 1.0 0.625 0.0 0.5 0.0 0.375 1.0 1.0 0.375 0.5 0.0 1.0 1.0 0.375 0.375 0.5 0.625 1.0 1.0 1.0 0.625 0.5 0.375 1.0 1.0 0.625
+shape 323 0.0 0.6875 0.0 1.0 0.9375 1.0
+shape 324 0.0 0.6875 0.0 1.0 0.8125 1.0
