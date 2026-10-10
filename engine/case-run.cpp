@@ -102,9 +102,26 @@ static void case_load_block_entity(level & lv, block_entity * be, const snbt_val
             }
         } else if (be->type == BLOCK_ENTITY_TYPE_LECTERN && entry.key == "Page") {
             continue;
+        } else if (be->type == BLOCK_ENTITY_TYPE_CRAFTER && entry.key == "crafting_ticks_remaining") {
+            be->crafting_ticks_remaining = (int32_t) value.i;
+        } else if (be->type == BLOCK_ENTITY_TYPE_CRAFTER && entry.key == "disabled_slots") {
+            for (const snbt_value & slot : value.list) {
+                if (slot.i >= 0 && slot.i < 9) {
+                    be->disabled_slots |= 1u << slot.i;
+                }
+            }
+        } else if (be->type == BLOCK_ENTITY_TYPE_CRAFTER && entry.key == "triggered") {
+            // only the menu shows it
+            continue;
         } else {
             level_unsupported(lv, "block entity data %s %s", block_entity_type_names[be->type], entry.key.c_str());
             return;
+        }
+    }
+    // CrafterBlockEntity.loadAdditional reads the items first and disables only empty slots
+    for (int32_t slot = 0; slot < (int32_t) be->items.size(); slot++) {
+        if (be->type == BLOCK_ENTITY_TYPE_CRAFTER && !item_stack_is_empty(be->items[slot])) {
+            be->disabled_slots &= ~(1u << slot);
         }
     }
 }

@@ -102,6 +102,7 @@ static block_entity * entity_block_new_block_entity(level & lv, block_pos pos, s
             break;
         case BLOCK_ENTITY_TYPE_DISPENSER:
         case BLOCK_ENTITY_TYPE_DROPPER:
+        case BLOCK_ENTITY_TYPE_CRAFTER:
             n_items = 9;
             break;
         case BLOCK_ENTITY_TYPE_LECTERN:
@@ -579,6 +580,8 @@ static void level_tick_block_entities(level & lv) {
                 hopper_block_entity_push_items_tick(lv, pos, st, be);
             } else if (be->type == BLOCK_ENTITY_TYPE_PISTON) {
                 piston_moving_block_entity_tick(lv, be);
+            } else if (be->type == BLOCK_ENTITY_TYPE_CRAFTER) {
+                crafter_block_entity_server_tick(lv, pos, st, be);
             }
             // shulker boxes without openers and bells without entities tick without effect
         }

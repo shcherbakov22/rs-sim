@@ -151,6 +151,13 @@ interaction_result lectern_use_item_on(level & lv, state_id st, block_pos pos, c
 interaction_result lectern_use_without_item(level & lv, state_id st);
 void               lectern_block_entity_pre_remove_side_effects(level & lv, block_pos pos, state_id st);
 
+// CrafterBlock, CrafterBlockEntity
+bool    crafter_block_entity_can_place_item(const block_entity * be, int32_t slot);
+void    crafter_block_entity_server_tick(level & lv, block_pos pos, state_id st, block_entity * be);
+int32_t crafter_get_analog_output_signal(level & lv, block_pos pos);
+void    crafter_neighbor_changed(level & lv, state_id st, block_pos pos);
+void    crafter_tick(level & lv, block_pos pos);
+
 // DropperBlock
 void dropper_dispense_from(level & lv, state_id st, block_pos pos);
 

@@ -163,6 +163,9 @@ void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32
         case VCLASS_BELL_BLOCK:
             bell_neighbor_changed(lv, st, pos);
             break;
+        case VCLASS_CRAFTER_BLOCK:
+            crafter_neighbor_changed(lv, st, pos);
+            break;
         default:
             hook_unsupported(lv, st, HOOK_NEIGHBOR_CHANGED);
     }
@@ -230,6 +233,7 @@ void block_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos
         case VCLASS_BARREL_BLOCK:
         case VCLASS_SHULKER_BOX_BLOCK:
         case VCLASS_DISPENSER_BLOCK:
+        case VCLASS_CRAFTER_BLOCK:
             // Containers.updateNeighboursAfterDestroy
             level_update_neighbour_for_output_signal(lv, pos, state_block(st));
             break;
@@ -268,6 +272,9 @@ void block_tick(level & lv, state_id st, block_pos pos) {
             break;
         case VCLASS_LECTERN_BLOCK:
             lectern_tick(lv, st, pos);
+            break;
+        case VCLASS_CRAFTER_BLOCK:
+            crafter_tick(lv, pos);
             break;
         case VCLASS_REDSTONE_LAMP_BLOCK:
             redstone_lamp_tick(lv, st, pos);
@@ -355,6 +362,7 @@ interaction_result block_use_without_item(level & lv, state_id st, block_pos pos
         case VCLASS_BARREL_BLOCK:
         case VCLASS_SHULKER_BOX_BLOCK:
         case VCLASS_DISPENSER_BLOCK:
+        case VCLASS_CRAFTER_BLOCK:
             // player.openMenu: virtual players holding containers open are not ported
             level_unsupported(lv, "container menus");
             return INTERACTION_RESULT_SUCCESS;
@@ -516,6 +524,8 @@ int32_t block_get_analog_output_signal(level & lv, state_id st, block_pos pos) {
             return container_get_redstone_signal_from_block_entity(lv, pos);
         case VCLASS_LECTERN_BLOCK:
             return lectern_get_analog_output_signal(lv, st, pos);
+        case VCLASS_CRAFTER_BLOCK:
+            return crafter_get_analog_output_signal(lv, pos);
         default:
             hook_unsupported(lv, st, HOOK_GET_ANALOG_OUTPUT_SIGNAL);
             return 0;

@@ -24,6 +24,7 @@ bool block_entity_is_container(const block_entity * be) {
         case BLOCK_ENTITY_TYPE_SHULKER_BOX:
         case BLOCK_ENTITY_TYPE_DISPENSER:
         case BLOCK_ENTITY_TYPE_DROPPER:
+        case BLOCK_ENTITY_TYPE_CRAFTER:
             return true;
         default:
             return false;

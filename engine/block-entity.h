@@ -31,6 +31,10 @@ struct block_entity {
     // HopperBlockEntity
     int32_t cooldown_time    = -1;
     int64_t ticked_game_time = 0;
+
+    // CrafterBlockEntity
+    uint32_t disabled_slots           = 0;  // bit per slot
+    int32_t  crafting_ticks_remaining = 0;
 };
 
 // Container: one block entity, or two chest halves as a CompoundContainer
