@@ -7,6 +7,7 @@
 #include <vector>
 
 // hook tables, one per family file
+extern const std::vector<block_hooks> hopper_hooks;
 extern const std::vector<block_hooks> container_hooks;
 extern const std::vector<block_hooks> piston_hooks;
 extern const std::vector<block_hooks> diode_hooks;
@@ -37,10 +38,6 @@ void         containers_drop_contents(level & lv, block_pos pos, const container
 // the getAnalogOutputSignal and affectNeighborsAfterRemoval of most containers
 int32_t      container_get_redstone_signal_from_block_entity(level & lv, state_id st, block_pos pos, direction dir);
 void         containers_update_neighbours_after_destroy(level & lv, state_id st, block_pos pos, bool moved_by_piston);
-
-// HopperBlock
-void hopper_on_place(level & lv, state_id st, block_pos pos, state_id old);
-void hopper_neighbor_changed(level & lv, state_id st, block_pos pos);
 
 // HopperBlockEntity
 void hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st, block_entity * be);

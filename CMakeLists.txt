@@ -23,7 +23,6 @@ add_library(tmc STATIC
     blocks/dispenser.cpp
     blocks/dropper.cpp
     blocks/fire.cpp
-    blocks/hopper-block-entity.cpp
     blocks/hopper.cpp
     blocks/minecart-dispense-item-behavior.cpp
     blocks/piston.cpp
