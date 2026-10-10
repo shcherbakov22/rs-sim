@@ -45,6 +45,9 @@ struct block_def {
     int32_t      wax_off;              // HoneycombItem.WAX_OFF_BY_BLOCK, -1 for none
     int32_t      weathering_previous;  // WeatheringCopper.getPrevious, -1 for none
     int32_t      stripped;             // AxeItem.STRIPPABLES, -1 for none
+    int32_t      flattened;            // ShovelItem.FLATTENABLES (the block's default state), -1 for none
+    int32_t      plant_head;           // GrowingPlantBlock.getHeadBlock, -1 for other blocks
+    int32_t      plant_body;           // GrowingPlantBlock.getBodyBlock, -1 for other blocks
     int32_t      cauldron_map;         // cauldron_map of an AbstractCauldronBlock, -1 for other blocks
 };
 
@@ -97,13 +100,16 @@ extern const char * const item_hook_names[];
 extern const char * const cauldron_map_names[];
 extern const direction    player_direction;              // the virtual player's horizontal direction
 extern const direction    player_nearest_directions[6];  // Direction.orderedByNearest of the virtual player
+extern const int32_t      player_rotation_segment;       // RotationSegment.convertToSegment of the virtual player's yaw
 extern const uint64_t     state_flags[];
 extern const shape_box    shape_boxes[];
 extern const shape_def    shape_defs[];
-extern const uint16_t state_collision_shapes[];  // with the empty context, SHAPE_NONE for dynamic shapes that need the world
-extern const uint16_t state_support_shapes[];    // getBlockSupportShape, SHAPE_NONE for dynamic shapes that need the world
-extern const int32_t  n_block_defs;
-extern const int32_t  n_states;
+extern const uint16_t
+    state_collision_shapes[];  // with the empty context, SHAPE_NONE for dynamic shapes that need the world
+extern const uint16_t
+                     state_support_shapes[];  // getBlockSupportShape, SHAPE_NONE for dynamic shapes that need the world
+extern const int32_t n_block_defs;
+extern const int32_t n_states;
 
 constexpr state_id STATE_AIR  = 0;
 constexpr state_id STATE_NONE = 0xFFFF;     // a null BlockState
