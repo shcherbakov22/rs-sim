@@ -5,7 +5,7 @@
 #include "engine/level.h"
 #include "items/block-place-context.h"
 
-static int32_t scaffolding_get_distance(level & lv, block_pos pos) {
+int32_t scaffolding_get_distance(level & lv, block_pos pos) {
     block_pos below       = pos_relative(pos, DIRECTION_DOWN);
     state_id  below_state = level_get_state(lv, below);
     int32_t   distance    = 7;
@@ -68,4 +68,13 @@ bool scaffolding_can_survive(level & lv, block_pos pos) {
 
 bool scaffolding_can_be_replaced(state_id st, const block_place_context & ctx) {
     return item_stack_get_item(ctx.hit.stack) == block_defs[state_block(st)].as_item;
+}
+
+state_id scaffolding_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
+    block_pos pos      = block_place_context_get_clicked_pos(ctx);
+    bool      water    = block_place_context_is_water_source(lv, ctx);
+    int32_t   distance = scaffolding_get_distance(lv, pos);
+    state_id  st =
+        state_set(state_set(block_default(block), PROP_WATERLOGGED, water), PROP_STABILITY_DISTANCE, distance);
+    return state_set(st, PROP_BOTTOM, scaffolding_is_bottom(lv, st, pos, distance));
 }

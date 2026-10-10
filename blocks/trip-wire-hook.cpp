@@ -2,6 +2,7 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
+#include "items/block-place-context.h"
 
 #include <array>
 
@@ -130,4 +131,23 @@ int32_t trip_wire_hook_get_signal(state_id st) {
 
 int32_t trip_wire_hook_get_direct_signal(state_id st, direction dir) {
     return state_get(st, PROP_POWERED) && (direction) state_get(st, PROP_HORIZONTAL_FACING) == dir ? 15 : 0;
+}
+
+// the hook goes on the first horizontal looking direction it survives on
+state_id trip_wire_hook_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
+    state_id  st  = state_set(state_set(block_default(block), PROP_POWERED, 0), PROP_ATTACHED, 0);
+    block_pos pos = block_place_context_get_clicked_pos(ctx);
+    for (direction dir : block_place_context_get_nearest_looking_directions(ctx)) {
+        if (direction_is_horizontal(dir)) {
+            st = state_set(st, PROP_HORIZONTAL_FACING, direction_opposite(dir));
+            if (block_can_survive(lv, st, pos)) {
+                return st;
+            }
+        }
+    }
+    return STATE_NONE;
+}
+
+void trip_wire_hook_set_placed_by(level & lv, state_id st, block_pos pos) {
+    trip_wire_hook_calculate_state(lv, pos, st, false, false, -1, -1);
 }

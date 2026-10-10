@@ -2,6 +2,7 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
+#include "items/block-place-context.h"
 
 static bool fence_connects_to(state_id st, state_id neighbor, bool face_solid, direction dir) {
     bool same_fence = state_has(neighbor, STATE_FLAG_TAG_FENCES) &&
@@ -23,4 +24,19 @@ state_id fence_update_shape(level & lv, state_id st, direction dir, block_pos ne
     bool      face_solid = block_is_face_sturdy(lv, neighbor, neighbor_pos, opposite, SUPPORT_TYPE_FULL);
     return state_set(st, cross_collision_property_by_direction(dir),
                      fence_connects_to(st, neighbor, face_solid, opposite));
+}
+
+state_id fence_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
+    block_pos pos   = block_place_context_get_clicked_pos(ctx);
+    bool      water = block_place_context_is_water_source(lv, ctx);
+    state_id  st    = block_default(block);
+    for (direction dir : DIRECTION_HORIZONTAL) {
+        block_pos neighbor_pos = pos_relative(pos, dir);
+        state_id  neighbor     = level_get_state(lv, neighbor_pos);
+        direction opposite     = direction_opposite(dir);
+        bool      face_solid   = block_is_face_sturdy(lv, neighbor, neighbor_pos, opposite, SUPPORT_TYPE_FULL);
+        st                     = state_set(st, cross_collision_property_by_direction(dir),
+                                           fence_connects_to(st, neighbor, face_solid, opposite));
+    }
+    return state_set(st, PROP_WATERLOGGED, water);
 }

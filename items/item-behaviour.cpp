@@ -37,11 +37,12 @@ interaction_result item_use_on(level & lv, const use_on_context & hit) {
     }
 }
 
-// false for a null context
-bool item_update_placement_context(level & lv, const block_place_context & ctx) {
+bool item_update_placement_context(level & lv, block_place_context & ctx) {
     switch (item_hook_owner(ctx.hit.stack.item, ITEM_HOOK_UPDATE_PLACEMENT_CONTEXT)) {
         case ICLASS_NONE:
             return true;
+        case ICLASS_SCAFFOLDING_BLOCK_ITEM:
+            return scaffolding_block_item_update_placement_context(lv, ctx);
         default:
             item_hook_unsupported(lv, ctx.hit.stack.item, ITEM_HOOK_UPDATE_PLACEMENT_CONTEXT);
             return false;
@@ -79,6 +80,8 @@ bool item_must_survive(level & lv, const block_place_context & ctx) {
     switch (item_hook_owner(ctx.hit.stack.item, ITEM_HOOK_MUST_SURVIVE)) {
         case ICLASS_NONE:
             return true;
+        case ICLASS_SCAFFOLDING_BLOCK_ITEM:
+            return false;
         default:
             item_hook_unsupported(lv, ctx.hit.stack.item, ITEM_HOOK_MUST_SURVIVE);
             return true;

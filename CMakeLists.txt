@@ -25,6 +25,7 @@ add_library(tmc STATIC
     blocks/beehive.cpp
     blocks/bell.cpp
     blocks/block-behaviour.cpp
+    blocks/block-pattern.cpp
     blocks/button.cpp
     blocks/cake.cpp
     blocks/candle-cake.cpp
@@ -51,6 +52,7 @@ add_library(tmc STATIC
     blocks/door.cpp
     blocks/dropper.cpp
     blocks/end-portal-frame.cpp
+    blocks/end-rod.cpp
     blocks/ender-chest.cpp
     blocks/face-attached-horizontal-directional.cpp
     blocks/fence-gate.cpp
@@ -109,6 +111,7 @@ add_library(tmc STATIC
     blocks/wall-skull.cpp
     blocks/wall-torch.cpp
     blocks/wall.cpp
+    blocks/wither-skull.cpp
     blocks/weighted-pressure-plate.cpp
     core/rng.cpp
     core/state.cpp
@@ -141,6 +144,7 @@ add_library(tmc STATIC
     items/map-cloning-recipe.cpp
     items/map-extending-recipe.cpp
     items/recipe-manager.cpp
+    items/scaffolding-block-item.cpp
     items/repair-item-recipe.cpp
     items/shaped-recipe.cpp
     items/shapeless-recipe.cpp

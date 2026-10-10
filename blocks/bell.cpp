@@ -2,6 +2,7 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
+#include "items/block-place-context.h"
 
 static direction bell_facing(state_id st) {
     return (direction) state_get(st, PROP_HORIZONTAL_FACING);
@@ -94,4 +95,34 @@ interaction_result bell_use_without_item(level & lv, state_id st, block_pos pos,
     }
     bell_attempt_to_ring(lv, pos, face);
     return INTERACTION_RESULT_SUCCESS;
+}
+
+// on a side face a bell hangs between two sturdy faces across it, else on the one behind, else stands or hangs
+state_id bell_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx) {
+    direction face = ctx.hit.face;
+    block_pos pos  = block_place_context_get_clicked_pos(ctx);
+    if (direction_get_axis(face) == DIRECTION_AXIS_Y) {
+        state_id st = state_set(block_default(block), PROP_BELL_ATTACHMENT,
+                                face == DIRECTION_DOWN ? BELL_ATTACH_TYPE_CEILING : BELL_ATTACH_TYPE_FLOOR);
+        st          = state_set(st, PROP_HORIZONTAL_FACING, player_direction);
+        return block_can_survive(lv, st, pos) ? st : STATE_NONE;
+    }
+    direction left      = direction_get_axis(face) == DIRECTION_AXIS_X ? DIRECTION_WEST : DIRECTION_NORTH;
+    direction right     = direction_opposite(left);
+    block_pos left_pos  = pos_relative(pos, left);
+    block_pos right_pos = pos_relative(pos, right);
+    bool      double_attached =
+        block_is_face_sturdy(lv, level_get_state(lv, left_pos), left_pos, right, SUPPORT_TYPE_FULL) &&
+        block_is_face_sturdy(lv, level_get_state(lv, right_pos), right_pos, left, SUPPORT_TYPE_FULL);
+    state_id st = state_set(block_default(block), PROP_HORIZONTAL_FACING, direction_opposite(face));
+    st          = state_set(st, PROP_BELL_ATTACHMENT,
+                            double_attached ? BELL_ATTACH_TYPE_DOUBLE_WALL : BELL_ATTACH_TYPE_SINGLE_WALL);
+    if (block_can_survive(lv, st, pos)) {
+        return st;
+    }
+    block_pos below = pos_relative(pos, DIRECTION_DOWN);
+    bool      can_attach_below =
+        block_is_face_sturdy(lv, level_get_state(lv, below), below, DIRECTION_UP, SUPPORT_TYPE_FULL);
+    st = state_set(st, PROP_BELL_ATTACHMENT, can_attach_below ? BELL_ATTACH_TYPE_FLOOR : BELL_ATTACH_TYPE_CEILING);
+    return block_can_survive(lv, st, pos) ? st : STATE_NONE;
 }

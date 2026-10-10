@@ -975,6 +975,62 @@ state_id block_get_state_for_placement(level & lv, int32_t block, const block_pl
             return end_portal_frame_get_state_for_placement(block);
         case VCLASS_PISTON_BASE_BLOCK:
             return piston_base_get_state_for_placement(block);
+        case VCLASS_STAIR_BLOCK:
+            return stair_get_state_for_placement(lv, block, ctx);
+        case VCLASS_WALL_BLOCK:
+            return wall_get_state_for_placement(lv, block, ctx);
+        case VCLASS_FENCE_BLOCK:
+            return fence_get_state_for_placement(lv, block, ctx);
+        case VCLASS_IRON_BARS_BLOCK:
+            return iron_bars_get_state_for_placement(lv, block, ctx);
+        case VCLASS_FENCE_GATE_BLOCK:
+            return fence_gate_get_state_for_placement(lv, block, ctx);
+        case VCLASS_LADDER_BLOCK:
+            return ladder_get_state_for_placement(lv, block, ctx);
+        case VCLASS_LEAVES_BLOCK:
+            return leaves_get_state_for_placement(lv, block, ctx);
+        case VCLASS_CRAFTER_BLOCK:
+            return crafter_get_state_for_placement(lv, block, ctx);
+        case VCLASS_BELL_BLOCK:
+            return bell_get_state_for_placement(lv, block, ctx);
+        case VCLASS_COPPER_CHEST_BLOCK:
+            return copper_chest_get_state_for_placement(lv, block, ctx);
+        case VCLASS_END_ROD_BLOCK:
+            return end_rod_get_state_for_placement(lv, block, ctx);
+        case VCLASS_SCAFFOLDING_BLOCK:
+            return scaffolding_get_state_for_placement(lv, block, ctx);
+        case VCLASS_SHELF_BLOCK:
+            return shelf_get_state_for_placement(lv, block, ctx);
+        case VCLASS_DECORATED_POT_BLOCK:
+            return decorated_pot_get_state_for_placement(lv, block, ctx);
+        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
+            return trip_wire_hook_get_state_for_placement(lv, block, ctx);
+        case VCLASS_INFESTED_ROTATED_PILLAR_BLOCK:
+            return rotated_pillar_get_state_for_placement(block, ctx);
+        // the one-line placements: facing the nearest looking direction, the clicked face or away from the player, a signal, or water
+        case VCLASS_DISPENSER_BLOCK:
+        case VCLASS_BARREL_BLOCK:
+            return state_set(st, PROP_FACING, direction_opposite(player_nearest_directions[0]));
+        case VCLASS_SHULKER_BOX_BLOCK:
+            return state_set(st, PROP_FACING, ctx.hit.face);
+        case VCLASS_LIGHTNING_ROD_BLOCK:
+            return state_set(state_set(st, PROP_FACING, ctx.hit.face), PROP_WATERLOGGED,
+                             block_place_context_is_water_source(lv, ctx));
+        case VCLASS_GLAZED_TERRACOTTA_BLOCK:
+        case VCLASS_BEEHIVE_BLOCK:
+        case VCLASS_CHISELED_BOOK_SHELF_BLOCK:
+        case VCLASS_LECTERN_BLOCK:
+            return state_set(st, PROP_HORIZONTAL_FACING, direction_opposite(player_direction));
+        case VCLASS_ENDER_CHEST_BLOCK:
+        case VCLASS_COPPER_GOLEM_STATUE_BLOCK:
+            return state_set(state_set(st, PROP_HORIZONTAL_FACING, direction_opposite(player_direction)),
+                             PROP_WATERLOGGED, block_place_context_is_water_source(lv, ctx));
+        case VCLASS_REDSTONE_LAMP_BLOCK:
+            return state_set(st, PROP_LIT, level_has_neighbor_signal(lv, block_place_context_get_clicked_pos(ctx)));
+        case VCLASS_WATERLOGGED_TRANSPARENT_BLOCK:
+        case VCLASS_BARRIER_BLOCK:
+        case VCLASS_HEAVY_CORE_BLOCK:
+            return state_set(st, PROP_WATERLOGGED, block_place_context_is_water_source(lv, ctx));
         default:
             hook_unsupported(lv, st, HOOK_GET_STATE_FOR_PLACEMENT);
             return STATE_NONE;
@@ -1016,6 +1072,19 @@ void block_set_placed_by(level & lv, state_id st, block_pos pos) {
             return;
         case VCLASS_PISTON_BASE_BLOCK:
             piston_base_set_placed_by(lv, st, pos);
+            return;
+        case VCLASS_CRAFTER_BLOCK:
+            crafter_set_placed_by(lv, st, pos);
+            return;
+        case VCLASS_TRIP_WIRE_HOOK_BLOCK:
+            trip_wire_hook_set_placed_by(lv, st, pos);
+            return;
+        case VCLASS_WITHER_SKULL_BLOCK:
+        case VCLASS_WITHER_WALL_SKULL_BLOCK:
+            wither_skull_check_spawn(lv, pos);
+            return;
+        // the record only comes from block entity data on the stack, which sim stacks never carry
+        case VCLASS_JUKEBOX_BLOCK:
             return;
         default:
             hook_unsupported(lv, st, HOOK_SET_PLACED_BY);

@@ -192,6 +192,7 @@ state_id           bell_update_shape(level &   lv,
                                      state_id  neighbor);
 void               bell_neighbor_changed(level & lv, state_id st, block_pos pos);
 interaction_result bell_use_without_item(level & lv, state_id st, block_pos pos, direction face);
+state_id           bell_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // LecternBlock, LecternBlockEntity
 void               lectern_tick(level & lv, state_id st, block_pos pos);
@@ -204,15 +205,18 @@ interaction_result lectern_use_without_item(level & lv, state_id st);
 void               lectern_block_entity_pre_remove_side_effects(level & lv, block_pos pos, state_id st);
 
 // CrafterBlock, CrafterBlockEntity
-bool    crafter_block_entity_can_place_item(const block_entity * be, int32_t slot);
-void    crafter_block_entity_server_tick(level & lv, block_pos pos, state_id st, block_entity * be);
-int32_t crafter_get_analog_output_signal(level & lv, block_pos pos);
-void    crafter_neighbor_changed(level & lv, state_id st, block_pos pos);
-void    crafter_tick(level & lv, state_id st, block_pos pos);
+bool     crafter_block_entity_can_place_item(const block_entity * be, int32_t slot);
+void     crafter_block_entity_server_tick(level & lv, block_pos pos, state_id st, block_entity * be);
+int32_t  crafter_get_analog_output_signal(level & lv, block_pos pos);
+void     crafter_neighbor_changed(level & lv, state_id st, block_pos pos);
+void     crafter_tick(level & lv, state_id st, block_pos pos);
+state_id crafter_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+void     crafter_set_placed_by(level & lv, state_id st, block_pos pos);
 
 // DecoratedPotBlock
 interaction_result decorated_pot_use_item_on(level & lv, block_pos pos, const item_stack & stack);
 interaction_result decorated_pot_use_without_item(level & lv, block_pos pos);
+state_id           decorated_pot_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // JukeboxBlock, JukeboxBlockEntity, JukeboxSongPlayer
 bool               jukebox_song_has_finished(int32_t record, int64_t ticks);
@@ -243,6 +247,7 @@ void               shelf_neighbor_changed(level & lv, state_id st, block_pos pos
 void               shelf_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos);
 int32_t            shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir);
 interaction_result shelf_use_item_on(level & lv, state_id st, block_pos pos, direction face, const item_stack & stack);
+state_id           shelf_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // BeehiveBlock
 int32_t            beehive_get_analog_output_signal(state_id st);
@@ -264,16 +269,20 @@ interaction_result respawn_anchor_use_without_item(level & lv, state_id st, bloc
 // CrossCollisionBlock, FenceBlock
 prop_id  cross_collision_property_by_direction(direction dir);
 state_id fence_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor);
+state_id fence_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // IronBarsBlock
 state_id iron_bars_update_shape(level & lv, state_id st, direction dir, block_pos neighbor_pos, state_id neighbor);
+state_id iron_bars_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // LeavesBlock
 void     leaves_tick(level & lv, state_id st, block_pos pos);
 state_id leaves_update_shape(level & lv, state_id st, block_pos pos, state_id neighbor);
+state_id leaves_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // StairBlock
 state_id stair_update_shape(level & lv, state_id st, block_pos pos, direction dir);
+state_id stair_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // TrapDoorBlock
 interaction_result trap_door_use_without_item(level & lv, state_id st, block_pos pos);
@@ -287,11 +296,13 @@ state_id wall_update_shape(level &   lv,
                            direction dir,
                            block_pos neighbor_pos,
                            state_id  neighbor);
+state_id wall_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // FenceGateBlock
 state_id           fence_gate_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
 interaction_result fence_gate_use_without_item(level & lv, state_id st, block_pos pos);
 void               fence_gate_neighbor_changed(level & lv, state_id st, block_pos pos);
+state_id           fence_gate_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // BaseRailBlock and RailState
 struct rail_state {
@@ -358,6 +369,7 @@ int32_t            candle_cake_get_analog_output_signal();
 // LadderBlock
 bool     ladder_can_survive(level & lv, state_id st, block_pos pos);
 state_id ladder_update_shape(level & lv, state_id st, block_pos pos, direction dir);
+state_id ladder_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // LanternBlock
 bool     lantern_can_survive(level & lv, state_id st, block_pos pos);
@@ -428,6 +440,8 @@ void     trip_wire_hook_tick(level & lv, state_id st, block_pos pos);
 void     trip_wire_hook_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston);
 int32_t  trip_wire_hook_get_signal(state_id st);
 int32_t  trip_wire_hook_get_direct_signal(state_id st, direction dir);
+state_id trip_wire_hook_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+void     trip_wire_hook_set_placed_by(level & lv, state_id st, block_pos pos);
 
 // TripWireBlock
 state_id trip_wire_update_shape(state_id st, direction dir, state_id neighbor);
@@ -437,11 +451,13 @@ void     trip_wire_tick(level & lv, block_pos pos);
 state_id trip_wire_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // ScaffoldingBlock
-void scaffolding_on_place(level & lv, state_id st, block_pos pos);
-void scaffolding_update_shape(level & lv, state_id st, block_pos pos);
-void scaffolding_tick(level & lv, state_id st, block_pos pos);
-bool scaffolding_can_survive(level & lv, block_pos pos);
-bool scaffolding_can_be_replaced(state_id st, const block_place_context & ctx);
+int32_t  scaffolding_get_distance(level & lv, block_pos pos);
+void     scaffolding_on_place(level & lv, state_id st, block_pos pos);
+void     scaffolding_update_shape(level & lv, state_id st, block_pos pos);
+void     scaffolding_tick(level & lv, state_id st, block_pos pos);
+bool     scaffolding_can_survive(level & lv, block_pos pos);
+bool     scaffolding_can_be_replaced(state_id st, const block_place_context & ctx);
+state_id scaffolding_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // AbstractCauldronBlock
 interaction_result abstract_cauldron_use_item_on(level & lv, state_id st, block_pos pos, const item_stack & stack);
@@ -502,6 +518,7 @@ state_id copper_chest_update_shape(level & lv, state_id st, direction dir, state
 int32_t  chest_get_analog_output_signal(level & lv, state_id st, block_pos pos);
 void     chest_tick(level & lv, block_pos pos);
 state_id chest_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+state_id copper_chest_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
 
 // ChestBlockEntity
 void    chest_block_entity_recheck_open(level & lv, block_entity * be);
@@ -601,6 +618,29 @@ void     fire_tick(level & lv, block_pos pos);
 state_id soul_fire_update_shape(level & lv, state_id st, block_pos pos);
 bool     soul_fire_can_survive(level & lv, block_pos pos);
 bool     soul_fire_can_survive_on_block(state_id st);
+
+// BlockPattern of one aisle: rows top first, each char tested against the state there
+struct block_pattern {
+    int32_t              width;
+    int32_t              height;
+    const char * const * rows;
+    bool (*test)(state_id st, char c);
+};
+
+struct block_pattern_match {
+    block_pos front_top_left;
+    direction forwards;
+    direction up;
+};
+
+bool      block_pattern_find(level & lv, const block_pattern & p, block_pos pos, block_pattern_match & out);
+block_pos block_pattern_match_get_block(const block_pattern_match & m, int32_t right, int32_t down);
+
+// EndRodBlock
+state_id end_rod_get_state_for_placement(level & lv, int32_t block, const block_place_context & ctx);
+
+// WitherSkullBlock
+void wither_skull_check_spawn(level & lv, block_pos pos);
 
 // PortalShape
 struct portal_shape {

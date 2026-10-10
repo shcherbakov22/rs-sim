@@ -18,8 +18,39 @@ bool block_item_place_block(level & lv, const block_place_context & ctx, state_i
     return level_set_block(lv, block_place_context_get_clicked_pos(ctx), st, UPDATE_FLAG_ALL_IMMEDIATE);
 }
 
+// BlockItemStateProperties.apply skips names the block has no property for and values the property cannot take
+static state_id block_item_state_properties_apply(std::string_view props, state_id st) {
+    while (!props.empty()) {
+        size_t           comma = props.find(',');
+        std::string_view pair  = props.substr(0, comma);
+        props                  = comma == std::string_view::npos ? std::string_view() : props.substr(comma + 1);
+        size_t            eq   = pair.find('=');
+        const block_def & b    = block_defs[state_block(st)];
+        for (int32_t i = 0; i < b.n_props; i++) {
+            const prop_def & p = prop_defs[block_props[b.props_first + i].prop];
+            if (pair.substr(0, eq) != p.name) {
+                continue;
+            }
+            for (int32_t v = 0; v < p.n_values; v++) {
+                if (pair.substr(eq + 1) == p.values[v]) {
+                    st = state_set(st, (prop_id) block_props[b.props_first + i].prop, p.codes[v]);
+                }
+            }
+        }
+    }
+    return st;
+}
+
+static state_id block_item_update_block_state_from_tag(level & lv, block_pos pos, const char * props, state_id placed) {
+    state_id modified = block_item_state_properties_apply(props, placed);
+    if (modified != placed) {
+        level_set_block(lv, pos, modified, UPDATE_FLAG_CLIENTS);
+    }
+    return modified;
+}
+
 // sounds, game events and the used up item are not in the trace
-static interaction_result block_item_place(level & lv, const block_place_context & ctx) {
+static interaction_result block_item_place(level & lv, block_place_context ctx) {
     if (!block_place_context_can_place(lv, ctx) || !item_update_placement_context(lv, ctx)) {
         return INTERACTION_RESULT_FAIL;
     }
@@ -30,9 +61,9 @@ static interaction_result block_item_place(level & lv, const block_place_context
     block_pos pos    = block_place_context_get_clicked_pos(ctx);
     state_id  placed = level_get_state(lv, pos);
     if (state_is(placed, state_block(st))) {
-        if (item_defs[ctx.hit.stack.item].components & ITEM_COMPONENT_BLOCK_STATE) {
-            level_unsupported(lv, "BLOCK_STATE component of %s", item_defs[ctx.hit.stack.item].name);
-            return INTERACTION_RESULT_FAIL;
+        const char * block_state = item_defs[ctx.hit.stack.item].block_state;
+        if (block_state != nullptr) {
+            placed = block_item_update_block_state_from_tag(lv, pos, block_state, placed);
         }
         item_update_custom_block_entity_tag(lv, ctx);
         // applyComponentsFromItemStack changes nothing: a fresh stack has the defaults of a new block entity

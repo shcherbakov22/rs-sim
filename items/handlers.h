@@ -35,3 +35,6 @@ interaction_result flint_and_steel_item_use_on(level & lv, const use_on_context 
 
 // StandingAndWallBlockItem
 state_id standing_and_wall_block_item_get_placement_state(level & lv, const block_place_context & ctx);
+
+// ScaffoldingBlockItem
+bool scaffolding_block_item_update_placement_context(level & lv, block_place_context & ctx);
