@@ -1,6 +1,5 @@
 #pragma once
 
-// Ported vanilla block classes, one section per sim/blocks/<class>.cpp. block-behaviour.cpp dispatches the
 // hooks to them; the other functions are vanilla's non-hook methods that other classes call.
 
 #include "blocks/block-behaviour.h"
@@ -11,18 +10,7 @@
 
 // hook tables, one per family file
 extern const std::vector<block_hooks> connecting_hooks;
-
-// AmethystClusterBlock
-state_id amethyst_cluster_update_shape(level & lv, state_id st, block_pos pos, direction dir);
-bool     amethyst_cluster_can_survive(level & lv, state_id st, block_pos pos);
-
-// BaseTorchBlock
-state_id base_torch_update_shape(level & lv, state_id st, block_pos pos, direction dir);
-bool     base_torch_can_survive(level & lv, block_pos pos);
-
-// WallTorchBlock
-state_id wall_torch_update_shape(level & lv, state_id st, block_pos pos, direction dir);
-bool     wall_torch_can_survive(level & lv, block_pos pos, direction facing);
+extern const std::vector<block_hooks> attached_hooks;
 
 // RedStoneWireBlock
 state_id red_stone_wire_update_shape(level &   lv,
@@ -52,10 +40,8 @@ void    redstone_torch_neighbor_changed(level & lv, state_id st, block_pos pos);
 int32_t redstone_torch_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir);
 
 // RedstoneWallTorchBlock
-bool     redstone_wall_torch_can_survive(level & lv, state_id st, block_pos pos);
-state_id redstone_wall_torch_update_shape(level & lv, state_id st, block_pos pos, direction dir);
-bool     redstone_wall_torch_has_neighbor_signal(level & lv, state_id st, block_pos pos);
-int32_t  redstone_wall_torch_get_signal(state_id st, direction dir);
+bool    redstone_wall_torch_has_neighbor_signal(level & lv, state_id st, block_pos pos);
+int32_t redstone_wall_torch_get_signal(state_id st, direction dir);
 
 // DiodeBlock
 bool    diode_can_survive(level & lv, block_pos pos);
@@ -148,16 +134,6 @@ item_stack projectile_dispense_behavior_execute(level & lv, state_id st, block_p
 item_stack boat_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed);
 item_stack minecart_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed);
 
-// BellBlock
-bool     bell_can_survive(level & lv, state_id st, block_pos pos);
-state_id bell_update_shape(level &   lv,
-                           state_id  st,
-                           block_pos pos,
-                           direction dir,
-                           block_pos neighbor_pos,
-                           state_id  neighbor);
-void     bell_neighbor_changed(level & lv, state_id st, block_pos pos);
-
 // CrafterBlock, CrafterBlockEntity
 bool    crafter_block_entity_can_place_item(const block_entity * be, int32_t slot);
 void    crafter_block_entity_server_tick(level & lv, block_pos pos, state_id st, block_entity * be);
@@ -216,18 +192,6 @@ void       rail_state_place(level & lv, rail_state & rs, bool first, int32_t def
 
 // PoweredRailBlock
 void powered_rail_update_state(level & lv, state_id st, block_pos pos);
-
-// CarpetBlock
-state_id carpet_update_shape(level & lv, state_id st, block_pos pos);
-bool     carpet_can_survive(level & lv, block_pos pos);
-
-// LadderBlock
-bool     ladder_can_survive(level & lv, state_id st, block_pos pos);
-state_id ladder_update_shape(level & lv, state_id st, block_pos pos, direction dir);
-
-// LanternBlock
-bool     lantern_can_survive(level & lv, state_id st, block_pos pos);
-state_id lantern_update_shape(level & lv, state_id st, block_pos pos, direction dir);
 
 // LightningRodBlock
 void    lightning_rod_on_place(level & lv, state_id st, block_pos pos, state_id old);
@@ -298,10 +262,11 @@ int32_t chest_block_entity_get_open_count(level & lv, state_id st, block_pos pos
 int32_t trapped_chest_get_signal(level & lv, state_id st, block_pos pos);
 int32_t trapped_chest_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir);
 
-// FaceAttachedHorizontalDirectionalBlock
-bool      face_attached_horizontal_directional_can_survive(level & lv, state_id st, block_pos pos);
-state_id  face_attached_horizontal_directional_update_shape(level & lv, state_id st, block_pos pos, direction dir);
+// attached.cpp
 direction face_attached_horizontal_directional_get_connected_direction(state_id st);
+// the updateShape and canSurvive of a block on a sturdy face, which redstone wall torches share
+state_id  attached_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id);
+bool      attached_can_survive(level & lv, state_id st, block_pos pos);
 
 // LeverBlock
 void    lever_pull(level & lv, state_id st, block_pos pos);

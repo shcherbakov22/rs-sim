@@ -3,15 +3,6 @@
 #include "blocks/handlers.h"
 #include "engine/level.h"
 
-bool redstone_wall_torch_can_survive(level & lv, state_id st, block_pos pos) {
-    return wall_torch_can_survive(lv, pos, (direction) state_get(st, PROP_HORIZONTAL_FACING));
-}
-
-state_id redstone_wall_torch_update_shape(level & lv, state_id st, block_pos pos, direction dir) {
-    direction facing = (direction) state_get(st, PROP_HORIZONTAL_FACING);
-    return direction_opposite(dir) == facing && !block_can_survive(lv, st, pos) ? STATE_AIR : st;
-}
-
 bool redstone_wall_torch_has_neighbor_signal(level & lv, state_id st, block_pos pos) {
     direction opposite = direction_opposite((direction) state_get(st, PROP_HORIZONTAL_FACING));
     return level_has_signal(lv, pos_relative(pos, opposite), opposite);

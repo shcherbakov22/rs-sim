@@ -191,9 +191,11 @@ static state_id stair_update_shape(level & lv, state_id st, block_pos pos, direc
     return state_set(st, PROP_STAIRS_SHAPE, stair_get_stairs_shape(lv, st, pos));
 }
 
+// clang-format off
 const std::vector<block_hooks> connecting_hooks = {
-    { .vclass = VCLASS_FENCE_BLOCK,     .update_shape = fence_update_shape     },
+    { .vclass = VCLASS_FENCE_BLOCK, .update_shape = fence_update_shape },
     { .vclass = VCLASS_IRON_BARS_BLOCK, .update_shape = iron_bars_update_shape },
-    { .vclass = VCLASS_WALL_BLOCK,      .update_shape = wall_update_shape      },
-    { .vclass = VCLASS_STAIR_BLOCK,     .update_shape = stair_update_shape     },
+    { .vclass = VCLASS_WALL_BLOCK, .update_shape = wall_update_shape },
+    { .vclass = VCLASS_STAIR_BLOCK, .update_shape = stair_update_shape },
 };
+// clang-format on

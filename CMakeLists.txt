@@ -13,15 +13,12 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_library(tmc STATIC
     blocks/abstract-skull.cpp
-    blocks/amethyst-cluster.cpp
+    blocks/attached.cpp
     blocks/base-entity-block.cpp
     blocks/base-fire.cpp
     blocks/base-rail.cpp
-    blocks/base-torch.cpp
-    blocks/bell.cpp
     blocks/block-behaviour.cpp
     blocks/boat-dispense-item-behavior.cpp
-    blocks/carpet.cpp
     blocks/chest-block-entity.cpp
     blocks/chest.cpp
     blocks/chiseled-book-shelf.cpp
@@ -38,15 +35,12 @@ add_library(tmc STATIC
     blocks/dispenser.cpp
     blocks/door.cpp
     blocks/dropper.cpp
-    blocks/face-attached-horizontal-directional.cpp
     blocks/falling-block.cpp
     blocks/fence-gate.cpp
     blocks/fire.cpp
     blocks/hopper-block-entity.cpp
     blocks/hopper.cpp
     blocks/jukebox.cpp
-    blocks/ladder.cpp
-    blocks/lantern.cpp
     blocks/leaves.cpp
     blocks/lever.cpp
     blocks/lightning-rod.cpp
@@ -77,7 +71,6 @@ add_library(tmc STATIC
     blocks/tnt.cpp
     blocks/trap-door.cpp
     blocks/trapped-chest.cpp
-    blocks/wall-torch.cpp
     core/rng.cpp
     core/state.cpp
     core/trace.cpp
