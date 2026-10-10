@@ -11,3 +11,10 @@ interaction_result moving_piston_use_without_item(level & lv, block_pos pos) {
     }
     return INTERACTION_RESULT_PASS;
 }
+
+voxel_shape moving_piston_get_collision_shape(level & lv, block_pos pos) {
+    block_entity * be = level_get_block_entity(lv, pos);
+    return be != nullptr && be->type == BLOCK_ENTITY_TYPE_PISTON ?
+               piston_moving_block_entity_get_collision_shape(lv, be) :
+               voxel_shape();
+}

@@ -18,7 +18,7 @@ direction face_attached_horizontal_directional_get_connected_direction(state_id 
 bool face_attached_horizontal_directional_can_survive(level & lv, state_id st, block_pos pos) {
     direction dir = direction_opposite(face_attached_horizontal_directional_get_connected_direction(st));
     block_pos rel = pos_relative(pos, dir);
-    return block_is_face_sturdy(lv, level_get_state(lv, rel), direction_opposite(dir), SUPPORT_TYPE_FULL);
+    return block_is_face_sturdy(lv, level_get_state(lv, rel), rel, direction_opposite(dir), SUPPORT_TYPE_FULL);
 }
 
 state_id face_attached_horizontal_directional_update_shape(level & lv, state_id st, block_pos pos, direction dir) {

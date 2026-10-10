@@ -12,6 +12,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_library(tmc STATIC
+    blocks/amethyst-cluster.cpp
     blocks/base-torch.cpp
     blocks/block-behaviour.cpp
     blocks/button.cpp
@@ -33,6 +34,7 @@ add_library(tmc STATIC
     core/rng.cpp
     core/state.cpp
     core/trace.cpp
+    core/voxel-shape.cpp
     engine/case-run.cpp
     engine/java-hash-map.cpp
     engine/level-ticks.cpp

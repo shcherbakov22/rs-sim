@@ -4,9 +4,14 @@
 // hooks to them; the other functions are vanilla's non-hook methods that other classes call.
 
 #include "blocks/block-behaviour.h"
+#include "core/voxel-shape.h"
 #include "engine/block-entity.h"
 
 #include <vector>
+
+// AmethystClusterBlock
+state_id amethyst_cluster_update_shape(level & lv, state_id st, block_pos pos, direction dir);
+bool     amethyst_cluster_can_survive(level & lv, state_id st, block_pos pos);
 
 // BaseTorchBlock
 state_id base_torch_update_shape(level & lv, state_id st, block_pos pos, direction dir);
@@ -17,7 +22,12 @@ state_id wall_torch_update_shape(level & lv, state_id st, block_pos pos, directi
 bool     wall_torch_can_survive(level & lv, block_pos pos, direction facing);
 
 // RedStoneWireBlock
-state_id red_stone_wire_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
+state_id red_stone_wire_update_shape(level &   lv,
+                                     state_id  st,
+                                     block_pos pos,
+                                     direction dir,
+                                     block_pos neighbor_pos,
+                                     state_id  neighbor);
 void     red_stone_wire_update_indirect_neighbour_shapes(level &   lv,
                                                          state_id  st,
                                                          block_pos pos,
@@ -47,7 +57,7 @@ int32_t  redstone_wall_torch_get_signal(state_id st, direction dir);
 
 // DiodeBlock
 bool    diode_can_survive(level & lv, block_pos pos);
-bool    diode_can_survive_on(level & lv, state_id neighbor);
+bool    diode_can_survive_on(level & lv, block_pos neighbor_pos, state_id neighbor);
 void    diode_tick(level & lv, state_id st, block_pos pos);
 int32_t diode_get_signal(state_id st, direction dir);
 void    diode_neighbor_changed(level & lv, state_id st, block_pos pos);
@@ -58,7 +68,12 @@ void    diode_affect_neighbors_after_removal(level & lv, state_id st, block_pos 
 // RepeaterBlock
 interaction_result repeater_use_without_item(level & lv, state_id st, block_pos pos);
 int32_t            repeater_get_delay(state_id st);
-state_id           repeater_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor);
+state_id           repeater_update_shape(level &   lv,
+                                         state_id  st,
+                                         block_pos pos,
+                                         direction dir,
+                                         block_pos neighbor_pos,
+                                         state_id  neighbor);
 bool               repeater_is_locked(level & lv, state_id st, block_pos pos);
 
 // FaceAttachedHorizontalDirectionalBlock
@@ -92,6 +107,7 @@ void     observer_affect_neighbors_after_removal(level & lv, state_id st, block_
 
 // MovingPistonBlock
 interaction_result moving_piston_use_without_item(level & lv, block_pos pos);
+voxel_shape        moving_piston_get_collision_shape(level & lv, block_pos pos);
 
 // PistonBaseBlock
 void piston_base_neighbor_changed(level & lv, state_id st, block_pos pos);
@@ -110,8 +126,9 @@ bool     piston_head_can_survive(level & lv, state_id st, block_pos pos);
 void     piston_head_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block);
 
 // PistonMovingBlockEntity
-void piston_moving_block_entity_final_tick(level & lv, block_entity * be);
-void piston_moving_block_entity_tick(level & lv, block_entity * be);
+void        piston_moving_block_entity_final_tick(level & lv, block_entity * be);
+void        piston_moving_block_entity_tick(level & lv, block_entity * be);
+voxel_shape piston_moving_block_entity_get_collision_shape(level & lv, const block_entity * be);
 
 // PistonStructureResolver
 struct piston_structure_resolver {

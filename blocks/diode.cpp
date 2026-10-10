@@ -9,12 +9,13 @@ static direction diode_facing(state_id st) {
     return (direction) state_get(st, PROP_HORIZONTAL_FACING);
 }
 
-bool diode_can_survive_on(level & lv, state_id neighbor) {
-    return block_is_face_sturdy(lv, neighbor, DIRECTION_UP, SUPPORT_TYPE_RIGID);
+bool diode_can_survive_on(level & lv, block_pos neighbor_pos, state_id neighbor) {
+    return block_is_face_sturdy(lv, neighbor, neighbor_pos, DIRECTION_UP, SUPPORT_TYPE_RIGID);
 }
 
 bool diode_can_survive(level & lv, block_pos pos) {
-    return diode_can_survive_on(lv, level_get_state(lv, pos_relative(pos, DIRECTION_DOWN)));
+    block_pos below = pos_relative(pos, DIRECTION_DOWN);
+    return diode_can_survive_on(lv, below, level_get_state(lv, below));
 }
 
 // virtual: RepeaterBlock overrides it

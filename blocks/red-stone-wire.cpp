@@ -64,19 +64,19 @@ static bool red_stone_wire_should_connect_to(level & lv, state_id st, int32_t di
     return block_is_signal_source(lv, st) && dir >= 0;
 }
 
-static bool red_stone_wire_can_survive_on(level & lv, state_id st) {
-    return block_is_face_sturdy(lv, st, DIRECTION_UP, SUPPORT_TYPE_FULL) || state_is(st, BLOCK_HOPPER);
+static bool red_stone_wire_can_survive_on(level & lv, block_pos pos, state_id st) {
+    return block_is_face_sturdy(lv, st, pos, DIRECTION_UP, SUPPORT_TYPE_FULL) || state_is(st, BLOCK_HOPPER);
 }
 
 static redstone_side red_stone_wire_get_connecting_side(level & lv, block_pos pos, direction dir, bool can_connect_up) {
     block_pos rel    = pos_relative(pos, dir);
     state_id  rel_st = level_get_state(lv, rel);
     if (can_connect_up) {
-        bool placeable_above =
-            block_instanceof(state_block(rel_st), VCLASS_TRAP_DOOR_BLOCK) || red_stone_wire_can_survive_on(lv, rel_st);
+        bool placeable_above = block_instanceof(state_block(rel_st), VCLASS_TRAP_DOOR_BLOCK) ||
+                               red_stone_wire_can_survive_on(lv, rel, rel_st);
         if (placeable_above &&
             red_stone_wire_should_connect_to(lv, level_get_state(lv, pos_relative(rel, DIRECTION_UP)), -1)) {
-            if (block_is_face_sturdy(lv, rel_st, direction_opposite(dir), SUPPORT_TYPE_FULL)) {
+            if (block_is_face_sturdy(lv, rel_st, rel, direction_opposite(dir), SUPPORT_TYPE_FULL)) {
                 return REDSTONE_SIDE_UP;
             }
             return REDSTONE_SIDE_SIDE;
@@ -129,9 +129,14 @@ static state_id red_stone_wire_get_connection_state(level & lv, state_id st, blo
     return st;
 }
 
-state_id red_stone_wire_update_shape(level & lv, state_id st, block_pos pos, direction dir, state_id neighbor) {
+state_id red_stone_wire_update_shape(level &   lv,
+                                     state_id  st,
+                                     block_pos pos,
+                                     direction dir,
+                                     block_pos neighbor_pos,
+                                     state_id  neighbor) {
     if (dir == DIRECTION_DOWN) {
-        return red_stone_wire_can_survive_on(lv, neighbor) ? st : STATE_AIR;
+        return red_stone_wire_can_survive_on(lv, neighbor_pos, neighbor) ? st : STATE_AIR;
     }
     if (dir == DIRECTION_UP) {
         return red_stone_wire_get_connection_state(lv, st, pos);
@@ -168,7 +173,8 @@ void red_stone_wire_update_indirect_neighbour_shapes(level &   lv,
 }
 
 bool red_stone_wire_can_survive(level & lv, block_pos pos) {
-    return red_stone_wire_can_survive_on(lv, level_get_state(lv, pos_relative(pos, DIRECTION_DOWN)));
+    block_pos below = pos_relative(pos, DIRECTION_DOWN);
+    return red_stone_wire_can_survive_on(lv, below, level_get_state(lv, below));
 }
 
 // RedStoneWireBlock.getBlockSignal: wires do not power each other through getSignal

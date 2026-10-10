@@ -2,6 +2,7 @@
 
 #include "core/direction.h"
 #include "core/state.h"
+#include "core/voxel-shape.h"
 
 struct level;
 
@@ -30,8 +31,10 @@ inline bool interaction_result_consumes_action(interaction_result r) {
     return r == INTERACTION_RESULT_SUCCESS || r == INTERACTION_RESULT_CONSUME;
 }
 
+// SupportType.isSupporting
+bool support_type_is_supporting(const voxel_shape & support_shape, direction dir, support_type type);
 // BlockStateBase.isFaceSturdy
-bool block_is_face_sturdy(level & lv, state_id st, direction dir, support_type type);
+bool block_is_face_sturdy(level & lv, state_id st, block_pos pos, direction dir, support_type type);
 
 // BlockStateBase dispatch to the block's vanilla class. A hook the class overrides but the sim
 // does not port yet stops the run as unsupported.

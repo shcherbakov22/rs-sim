@@ -12,13 +12,42 @@ static void hook_unsupported(level & lv, state_id st, hook h) {
     level_unsupported(lv, "%s.%s", vclass_names[hook_owner(st, h)], hook_names[h]);
 }
 
-bool block_is_face_sturdy(level & lv, state_id st, direction dir, support_type type) {
-    static_assert(STATE_FLAG_STURDY_RIGID_EAST == STATE_FLAG_STURDY_FULL_DOWN << 17);
-    // without a shape cache the answer depends on the world (block entity or position offset)
-    if (state_has(st, STATE_FLAG_DYNAMIC_SHAPE)) {
-        level_unsupported(lv, "dynamic shape of %s", state_to_string(st).c_str());
+bool support_type_is_supporting(const voxel_shape & support_shape, direction dir, support_type type) {
+    voxel_shape face = voxel_shape_get_face_shape(support_shape, dir);
+    switch (type) {
+        case SUPPORT_TYPE_FULL:
+            // Block.isFaceFull
+            return !shapes_join_is_not_empty(shapes_block(), face, BOOLEAN_OP_NOT_SAME);
+        case SUPPORT_TYPE_CENTER:
+            {
+                // Block.column(2.0, 0.0, 10.0)
+                static const voxel_shape center = shapes_box(7.0 / 16, 0.0, 7.0 / 16, 9.0 / 16, 10.0 / 16, 9.0 / 16);
+                return !shapes_join_is_not_empty(face, center, BOOLEAN_OP_ONLY_SECOND);
+            }
+        case SUPPORT_TYPE_RIGID:
+            {
+                // Block.column(12.0, 0.0, 16.0) cut out of a full block
+                static const voxel_shape rigid =
+                    shapes_join(shapes_block(), shapes_box(2.0 / 16, 0.0, 2.0 / 16, 14.0 / 16, 1.0, 14.0 / 16),
+                                BOOLEAN_OP_ONLY_FIRST);
+                return !shapes_join_is_not_empty(face, rigid, BOOLEAN_OP_ONLY_SECOND);
+            }
     }
-    return (state_flags[st] & STATE_FLAG_STURDY_FULL_DOWN << (type * 6 + dir)) != 0;
+    TMC_ASSERT(false);
+    return false;
+}
+
+bool block_is_face_sturdy(level & lv, state_id st, block_pos pos, direction dir, support_type type) {
+    static_assert(STATE_FLAG_STURDY_RIGID_EAST == STATE_FLAG_STURDY_FULL_DOWN << 17);
+    if (!state_has(st, STATE_FLAG_DYNAMIC_SHAPE)) {
+        return (state_flags[st] & STATE_FLAG_STURDY_FULL_DOWN << (type * 6 + dir)) != 0;
+    }
+    // without a shape cache the support shape comes from the world; BlockBehaviour.getBlockSupportShape is the collision shape
+    if (!state_is(st, BLOCK_MOVING_PISTON)) {
+        level_unsupported(lv, "dynamic shape of %s", state_to_string(st).c_str());
+        return false;
+    }
+    return support_type_is_supporting(moving_piston_get_collision_shape(lv, pos), dir, type);
 }
 
 state_id block_update_shape(level &   lv,
@@ -29,7 +58,6 @@ state_id block_update_shape(level &   lv,
                             state_id  neighbor) {
     trace_enter(lv.tr, &pos, "shape %d %d %d %s %s %s", pos.x, pos.y, pos.z, state_to_string(st).c_str(),
                 direction_defs[dir].name, state_to_string(neighbor).c_str());
-    (void) neighbor_pos;
     state_id result = st;
     switch (hook_owner(st, HOOK_UPDATE_SHAPE)) {
         case VCLASS_NONE:
@@ -41,19 +69,22 @@ state_id block_update_shape(level &   lv,
             result = wall_torch_update_shape(lv, st, pos, dir);
             break;
         case VCLASS_RED_STONE_WIRE_BLOCK:
-            result = red_stone_wire_update_shape(lv, st, pos, dir, neighbor);
+            result = red_stone_wire_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
         case VCLASS_REDSTONE_WALL_TORCH_BLOCK:
             result = redstone_wall_torch_update_shape(lv, st, pos, dir);
             break;
         case VCLASS_REPEATER_BLOCK:
-            result = repeater_update_shape(lv, st, pos, dir, neighbor);
+            result = repeater_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
             break;
         case VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK:
             result = face_attached_horizontal_directional_update_shape(lv, st, pos, dir);
             break;
         case VCLASS_PISTON_HEAD_BLOCK:
             result = piston_head_update_shape(lv, st, pos, dir);
+            break;
+        case VCLASS_AMETHYST_CLUSTER_BLOCK:
+            result = amethyst_cluster_update_shape(lv, st, pos, dir);
             break;
         case VCLASS_OBSERVER_BLOCK:
             result = observer_update_shape(lv, st, pos, dir);
@@ -334,6 +365,8 @@ bool block_can_survive(level & lv, state_id st, block_pos pos) {
             return diode_can_survive(lv, pos);
         case VCLASS_PISTON_HEAD_BLOCK:
             return piston_head_can_survive(lv, st, pos);
+        case VCLASS_AMETHYST_CLUSTER_BLOCK:
+            return amethyst_cluster_can_survive(lv, st, pos);
         default:
             hook_unsupported(lv, st, HOOK_CAN_SURVIVE);
             return true;
