@@ -53,6 +53,11 @@ static bool ingredient_test(int32_t ingredient, const item_stack & s) {
     return false;
 }
 
+// an Ingredient that a recipe class keeps in a field
+static bool recipe_field_test(recipe_field field, const item_stack & s) {
+    return ingredient_test(recipe_field_ingredients[field], s);
+}
+
 // ShapedRecipe: items in a fixed pattern, which may also be mirrored left to right (ShapedRecipePattern)
 
 // ShapedRecipePattern.matches(CraftingInput, boolean)
@@ -117,15 +122,8 @@ static bool shapeless_recipe_matches(int32_t recipe, const crafting_input & in) 
     return shapeless_recipe_can_craft(def, in);
 }
 
-// TransmuteRecipe: an input item and one material give the result item, keeping the input's data components
-
-static int32_t transmute_recipe_input(const recipe_def & def) {
-    return recipe_ingredients[def.first];
-}
-
-static int32_t transmute_recipe_material(const recipe_def & def) {
-    return recipe_ingredients[def.first + 1];
-}
+// TransmuteRecipe: an input item and one material give the result item, keeping the input's data components; its
+// ingredients are the input, then the material
 
 // TransmuteResult.isResultUnchanged: the input's data components carry over, so with no added components only the item and count differ
 static bool transmute_recipe_is_result_unchanged(level & lv, const recipe_def & def, const item_stack & input) {
@@ -140,11 +138,11 @@ static bool transmute_recipe_matches(level & lv, int32_t recipe, const crafting_
     bool found_material = false;
     for (const item_stack & s : in.items) {
         if (item_stack_is_empty(s)) continue;
-        if (!found_input && ingredient_test(transmute_recipe_input(def), s)) {
+        if (!found_input && ingredient_test(recipe_ingredients[def.first], s)) {
             if (transmute_recipe_is_result_unchanged(lv, def, s)) return false;
             found_input = true;
         } else {
-            if (found_material || !ingredient_test(transmute_recipe_material(def), s)) return false;
+            if (found_material || !ingredient_test(recipe_ingredients[def.first + 1], s)) return false;
             found_material = true;
         }
     }
@@ -155,7 +153,7 @@ static bool transmute_recipe_matches(level & lv, int32_t recipe, const crafting_
 static item_stack transmute_recipe_assemble(int32_t recipe, const crafting_input & in) {
     const recipe_def & def = recipe_defs[recipe];
     for (const item_stack & s : in.items) {
-        if (!item_stack_is_empty(s) && ingredient_test(transmute_recipe_input(def), s)) {
+        if (!item_stack_is_empty(s) && ingredient_test(recipe_ingredients[def.first], s)) {
             return { def.result, def.count, s.damage };
         }
     }
@@ -230,7 +228,7 @@ static bool firework_star_fade_recipe_matches(const crafting_input & in) {
     return custom_recipe_matches_one_and_some(
         in,
         [](const item_stack & s) {
-            return ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_STAR_FADE_RECIPE_STAR_INGREDIENT], s);
+            return recipe_field_test(RECIPE_FIELD_FIREWORK_STAR_FADE_RECIPE_STAR_INGREDIENT, s);
         },
         custom_recipe_is_dye);
 }
@@ -280,21 +278,23 @@ static bool decorated_pot_recipe_is_ingredient(const item_stack & s) {
     return (item_defs[item_stack_get_item(s)].tags & ITEM_TAG_DECORATED_POT_INGREDIENTS) != 0;
 }
 
-// back, left, right and front
+// the x, y of the back, left, right and front sides
+// clang-format off
+static constexpr int32_t DECORATED_POT_RECIPE_SIDES[4][2] = { { 1, 0 }, { 0, 1 }, { 2, 1 }, { 1, 2 } };
+// clang-format on
+
 static bool decorated_pot_recipe_matches(const crafting_input & in) {
     if (in.width != 3 || in.height != 3 || in.ingredient_count != 4) return false;
-    return decorated_pot_recipe_is_ingredient(crafting_input_get_item(in, 1, 0)) &&
-           decorated_pot_recipe_is_ingredient(crafting_input_get_item(in, 0, 1)) &&
-           decorated_pot_recipe_is_ingredient(crafting_input_get_item(in, 2, 1)) &&
-           decorated_pot_recipe_is_ingredient(crafting_input_get_item(in, 1, 2));
+    for (const auto & xy : DECORATED_POT_RECIPE_SIDES) {
+        if (!decorated_pot_recipe_is_ingredient(crafting_input_get_item(in, xy[0], xy[1]))) return false;
+    }
+    return true;
 }
 
 // PotDecorations stores a brick side as empty, so a pot of four bricks keeps the default PotDecorations.EMPTY
 static item_stack decorated_pot_recipe_assemble(level & lv, const crafting_input & in) {
-    item_stack sides[4] = { crafting_input_get_item(in, 1, 0), crafting_input_get_item(in, 0, 1),
-                            crafting_input_get_item(in, 2, 1), crafting_input_get_item(in, 1, 2) };
-    for (const item_stack & s : sides) {
-        if (s.item != ITEM_BRICK) {
+    for (const auto & xy : DECORATED_POT_RECIPE_SIDES) {
+        if (crafting_input_get_item(in, xy[0], xy[1]).item != ITEM_BRICK) {
             level_unsupported(lv, "DecoratedPotRecipe.assemble with sherds");
             return {};
         }
@@ -310,13 +310,12 @@ static bool firework_rocket_recipe_matches(const crafting_input & in) {
     int32_t gun_powder = 0;
     for (const item_stack & s : in.items) {
         if (item_stack_is_empty(s)) continue;
-        if (ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_ROCKET_RECIPE_PAPER_INGREDIENT], s)) {
+        if (recipe_field_test(RECIPE_FIELD_FIREWORK_ROCKET_RECIPE_PAPER_INGREDIENT, s)) {
             if (paper) return false;
             paper = true;
-        } else if (ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_ROCKET_RECIPE_GUNPOWDER_INGREDIENT],
-                                   s)) {
+        } else if (recipe_field_test(RECIPE_FIELD_FIREWORK_ROCKET_RECIPE_GUNPOWDER_INGREDIENT, s)) {
             if (++gun_powder > 3) return false;
-        } else if (!ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_ROCKET_RECIPE_STAR_INGREDIENT], s)) {
+        } else if (!recipe_field_test(RECIPE_FIELD_FIREWORK_ROCKET_RECIPE_STAR_INGREDIENT, s)) {
             return false;
         }
     }
@@ -334,17 +333,16 @@ static bool firework_star_recipe_matches(const crafting_input & in) {
     bool twinkle    = false;
     for (const item_stack & s : in.items) {
         if (item_stack_is_empty(s)) continue;
-        if (ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_STAR_RECIPE_SHAPE_BY_ITEM], s)) {
+        if (recipe_field_test(RECIPE_FIELD_FIREWORK_STAR_RECIPE_SHAPE_BY_ITEM, s)) {
             if (shape) return false;
             shape = true;
-        } else if (ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_STAR_RECIPE_TWINKLE_INGREDIENT], s)) {
+        } else if (recipe_field_test(RECIPE_FIELD_FIREWORK_STAR_RECIPE_TWINKLE_INGREDIENT, s)) {
             if (twinkle) return false;
             twinkle = true;
-        } else if (ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_STAR_RECIPE_TRAIL_INGREDIENT], s)) {
+        } else if (recipe_field_test(RECIPE_FIELD_FIREWORK_STAR_RECIPE_TRAIL_INGREDIENT, s)) {
             if (trail) return false;
             trail = true;
-        } else if (ingredient_test(recipe_field_ingredients[RECIPE_FIELD_FIREWORK_STAR_RECIPE_GUNPOWDER_INGREDIENT],
-                                   s)) {
+        } else if (recipe_field_test(RECIPE_FIELD_FIREWORK_STAR_RECIPE_GUNPOWDER_INGREDIENT, s)) {
             if (gun_powder) return false;
             gun_powder = true;
         } else {

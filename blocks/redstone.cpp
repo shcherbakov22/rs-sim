@@ -451,7 +451,6 @@ static int32_t copper_bulb_get_analog_output_signal(level & lv, state_id, block_
     return state_get(level_get_state(lv, pos), PROP_LIT) ? 15 : 0;
 }
 
-// clang-format off
 // PoweredBlock: the redstone block
 static int32_t powered_block_get_signal(level &, state_id, block_pos, direction) {
     return 15;

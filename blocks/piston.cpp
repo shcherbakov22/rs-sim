@@ -370,7 +370,6 @@ static bool piston_base_move_blocks(level & lv, state_id piston, block_pos pisto
         java_hash_map_put(delete_after_move, pos, st);
     }
     std::vector<state_id> to_update;  // removed states, by update order
-    direction             push_direction = extending ? dir : direction_opposite(dir);
     for (size_t i = r.to_destroy.size(); i-- > 0;) {
         block_pos pos = r.to_destroy[i];
         state_id  st  = level_get_state(lv, pos);
@@ -382,7 +381,7 @@ static bool piston_base_move_blocks(level & lv, state_id piston, block_pos pisto
     for (size_t i = r.to_push.size(); i-- > 0;) {
         block_pos pos = r.to_push[i];
         state_id  st  = level_get_state(lv, pos);
-        pos           = pos_relative(pos, push_direction);
+        pos           = pos_relative(pos, r.push_direction);
         java_hash_map_remove(delete_after_move, pos);
         state_id moving = moving_piston_state(dir, false);
         level_set_block(lv, pos, moving,
@@ -455,24 +454,16 @@ static bool piston_base_trigger_event(level & lv, state_id st, block_pos pos, in
     level_set_block_entity(lv, piston_base_new_moving_block_entity(lv, pos, moving, base, dir, false, true));
     level_update_neighbors_at(lv, pos, BLOCK_MOVING_PISTON);
     block_update_neighbour_shapes(lv, moving, pos, UPDATE_FLAG_CLIENTS, UPDATE_LIMIT);
-    if (sticky) {
-        block_pos      two_pos      = pos_relative_steps(pos, dir, 2);
-        state_id       moving_st    = level_get_state(lv, two_pos);
-        bool           piston_piece = false;
-        block_entity * be           = moving_piston_get_block_entity(lv, moving_st, two_pos);
-        if (be != nullptr && be->dir == dir && be->extending) {
-            piston_moving_block_entity_final_tick(lv, be);
-            piston_piece = true;
-        }
-        if (!piston_piece) {
-            if (b0 != PISTON_TRIGGER_CONTRACT || state_has(moving_st, STATE_FLAG_AIR) ||
-                !piston_base_is_pushable(moving_st, two_pos, direction_opposite(dir), false, dir) ||
-                (!piston_base_push_reaction_is_normal(moving_st) && !piston_base_is_piston(moving_st))) {
-                level_remove_block(lv, pos_relative(pos, dir), false);
-            } else {
-                piston_base_move_blocks(lv, st, pos, dir, false);
-            }
-        }
+    // a sticky piston finishes an extending piece two ahead, else pulls the block there if it can
+    block_pos      two_pos = pos_relative_steps(pos, dir, 2);
+    state_id       two     = level_get_state(lv, two_pos);
+    block_entity * be      = sticky ? moving_piston_get_block_entity(lv, two, two_pos) : nullptr;
+    if (be != nullptr && be->dir == dir && be->extending) {
+        piston_moving_block_entity_final_tick(lv, be);
+    } else if (sticky && b0 == PISTON_TRIGGER_CONTRACT && !state_has(two, STATE_FLAG_AIR) &&
+               piston_base_is_pushable(two, two_pos, direction_opposite(dir), false, dir) &&
+               (piston_base_push_reaction_is_normal(two) || piston_base_is_piston(two))) {
+        piston_base_move_blocks(lv, st, pos, dir, false);
     } else {
         level_remove_block(lv, pos_relative(pos, dir), false);
     }

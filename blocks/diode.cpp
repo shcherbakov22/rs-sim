@@ -75,17 +75,13 @@ static int32_t comparator_get_input_signal(level & lv, state_id st, block_pos po
     direction dir       = state_facing(st);
     block_pos target    = pos_relative(pos, dir);
     state_id  target_st = level_get_state(lv, target);
-    if (state_has(target_st, STATE_FLAG_ANALOG_OUTPUT)) {
-        return block_get_analog_output_signal(lv, target_st, target, direction_opposite(dir));
-    }
-    if (result < 15 && state_has(target_st, STATE_FLAG_CONDUCTOR)) {
+    // through a conductor in front, unless the input is already full
+    if (!state_has(target_st, STATE_FLAG_ANALOG_OUTPUT) && result < 15 && state_has(target_st, STATE_FLAG_CONDUCTOR)) {
         target    = pos_relative(target, dir);
         target_st = level_get_state(lv, target);
-        if (state_has(target_st, STATE_FLAG_ANALOG_OUTPUT)) {
-            return block_get_analog_output_signal(lv, target_st, target, direction_opposite(dir));
-        }
     }
-    return result;
+    if (!state_has(target_st, STATE_FLAG_ANALOG_OUTPUT)) return result;
+    return block_get_analog_output_signal(lv, target_st, target, direction_opposite(dir));
 }
 
 static int32_t comparator_calculate_output_signal(level & lv, state_id st, block_pos pos) {

@@ -66,10 +66,8 @@ static int32_t portal_shape_get_distance_until_top(level &   lv,
                                                    int32_t   width,
                                                    int32_t & portal_block_count) {
     for (int32_t height = 0; height < PORTAL_SHAPE_MAX_SIZE; height++) {
-        if (!portal_shape_is_frame(level_get_state(lv, portal_shape_at(bottom_left, right_dir, height, -1)))) {
-            return height;
-        }
-        if (!portal_shape_is_frame(level_get_state(lv, portal_shape_at(bottom_left, right_dir, height, width)))) {
+        if (!portal_shape_is_frame(level_get_state(lv, portal_shape_at(bottom_left, right_dir, height, -1))) ||
+            !portal_shape_is_frame(level_get_state(lv, portal_shape_at(bottom_left, right_dir, height, width)))) {
             return height;
         }
         for (int32_t i = 0; i < width; i++) {
@@ -187,20 +185,9 @@ static bool fire_can_burn(state_id st) {
 }
 
 // FireBlock.PROPERTY_BY_DIRECTION: every direction but down
-static prop_id fire_property_by_direction(direction dir) {
-    switch (dir) {
-        case DIRECTION_NORTH:
-            return PROP_NORTH;
-        case DIRECTION_EAST:
-            return PROP_EAST;
-        case DIRECTION_SOUTH:
-            return PROP_SOUTH;
-        case DIRECTION_WEST:
-            return PROP_WEST;
-        default:
-            return PROP_UP;
-    }
-}
+// FireBlock.PROPERTY_BY_DIRECTION, indexed by direction; down has none
+static constexpr prop_id FIRE_PROPERTY_BY_DIRECTION[6] = { PROP_COUNT, PROP_UP,   PROP_NORTH,
+                                                           PROP_SOUTH, PROP_WEST, PROP_EAST };
 
 // FireBlock.getStateForPlacement(BlockGetter, BlockPos)
 static state_id fire_get_state_for_placement(level & lv, block_pos pos) {
@@ -210,11 +197,9 @@ static state_id fire_get_state_for_placement(level & lv, block_pos pos) {
     if (fire_can_burn(below) || block_is_face_sturdy(lv, below, below_pos, DIRECTION_UP, SUPPORT_TYPE_FULL)) {
         return result;
     }
-    for (int32_t d = 0; d < 6; d++) {
-        if (d != DIRECTION_DOWN) {
-            bool burn = fire_can_burn(level_get_state(lv, pos_relative(pos, (direction) d)));
-            result    = state_set(result, fire_property_by_direction((direction) d), burn);
-        }
+    for (int32_t d = DIRECTION_UP; d < 6; d++) {
+        bool burn = fire_can_burn(level_get_state(lv, pos_relative(pos, (direction) d)));
+        result    = state_set(result, FIRE_PROPERTY_BY_DIRECTION[d], burn);
     }
     return result;
 }
