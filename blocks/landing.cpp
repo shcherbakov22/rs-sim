@@ -76,7 +76,7 @@ static void honey_entity_inside(level & lv, state_id, block_pos pos, entity & e,
     if (!honey_is_sliding_down(pos, e)) return;
     honey_do_slide_movement(e);
     // maybeDoSlideEffects: the sound and the particle event draw for living entities, minecarts, primed tnt and boats
-    if (entity_is_minecart(e)) {
+    if (entity_is_minecart(e) || entity_is_boat(e)) {
         rng_next_int(lv.random, 5);
         rng_next_int(lv.random, 5);
     } else if (e.type != ENTITY_TYPE_ITEM && e.type != ENTITY_TYPE_FALLING_BLOCK) {

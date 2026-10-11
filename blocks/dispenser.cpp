@@ -91,13 +91,19 @@ static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, 
     return dispensed;
 }
 
-// BoatDispenseItemBehavior: a boat needs water in front, or air in front over water; else the item drops
-
-// any boat is narrower than 1.875, so its spawn x and z floor to the block in front; EntityType.create draws nothing
+// BoatDispenseItemBehavior: a boat needs water in front, or air in front over water; else the item drops. Its yaw does
+// nothing without a rider.
 static item_stack boat_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    direction facing = state_facing(st);
-    block_pos front  = pos_relative(pos, facing);
-    double    y_offset;
+    direction         facing  = state_facing(st);
+    const block_pos & step    = DIRECTION_STEPS[facing];
+    int32_t           type    = item_defs[item_stack_get_item(dispensed)].dispense_entity;
+    vec3              w       = entity_block_to_world(pos);
+    double            outside = 0.5625 + entity_type_defs[type].width / 2.0;
+    double            spawn_x = w.x + 0.5 + step.x * outside;
+    double            spawn_y = w.y + 0.5 + step.y * 1.125F;
+    double            spawn_z = w.z + 0.5 + step.z * outside;
+    block_pos         front   = pos_relative(pos, facing);
+    double            y_offset;
     if (state_has(level_get_state(lv, front), STATE_FLAG_WATER)) {
         y_offset = 1.0;
     } else {
@@ -107,8 +113,8 @@ static item_stack boat_dispense_item_behavior_execute(level & lv, state_id st, b
         }
         y_offset = 0.0;
     }
-    double spawn_y = pos.y + 0.5 + DIRECTION_STEPS[facing].y * 1.125 + y_offset;
-    dispenser_boundary_spawn(lv, dispensed, front.x, (int32_t) std::floor(spawn_y), front.z);
+    level_add_fresh_entity(lv, entity_new(lv, (entity_type) type, { spawn_x, spawn_y + y_offset, spawn_z }));
+    item_stack_grow(dispensed, -1);
     return dispensed;
 }
 
@@ -147,7 +153,7 @@ static item_stack minecart_dispense_item_behavior_execute(level & lv, state_id s
         dispenser_boundary_spawn(lv, dispensed, p.x, p.y, p.z);
         return dispensed;
     }
-    level_add_fresh_entity(lv, abstract_minecart_create_minecart(lv, (entity_type) type, spawn_pos));
+    level_add_fresh_entity(lv, entity_new(lv, (entity_type) type, spawn_pos));
     item_stack_grow(dispensed, -1);
     return dispensed;
 }

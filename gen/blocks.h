@@ -2234,6 +2234,12 @@ enum entity_type {
     ENTITY_TYPE_COUNT = 157,
 };
 
+// the vanilla class of an entity type
+enum entity_flag {
+    ENTITY_FLAG_BOAT = 1u << 0,
+    ENTITY_FLAG_MINECART = 1u << 1,
+};
+
 enum block_id {
     BLOCK_AIR = 0,
     BLOCK_STONE = 1,

@@ -172,7 +172,8 @@ static uint64_t level_fingerprint(const level & lv) {
     fingerprint_add(h, lv.entity_counter);
     for (const entity * e : lv.entity_tick_list) {
         for (double v : { e->pos.x, e->pos.y, e->pos.z, e->delta.x, e->delta.y, e->delta.z, e->fall_distance,
-                          e->stuck_speed_multiplier.x, e->stuck_speed_multiplier.y, e->stuck_speed_multiplier.z }) {
+                          e->stuck_speed_multiplier.x, e->stuck_speed_multiplier.y, e->stuck_speed_multiplier.z,
+                          e->water_level, e->last_yd }) {
             fingerprint_add(h, std::bit_cast<int64_t>(v));
         }
         for (int64_t v : { (int64_t) e->id,
@@ -196,7 +197,13 @@ static uint64_t level_fingerprint(const level & lv) {
                            (int64_t) e->hurt_time,
                            (int64_t) std::bit_cast<int32_t>(e->damage),
                            (int64_t) e->enabled,
-                           (int64_t) e->fuse }) {
+                           (int64_t) e->fuse,
+                           (int64_t) e->status,
+                           (int64_t) e->old_status,
+                           (int64_t) std::bit_cast<int32_t>(e->land_friction),
+                           (int64_t) e->is_above_bubble_column,
+                           (int64_t) e->bubble_column_direction_is_down,
+                           (int64_t) e->bubble_time }) {
             fingerprint_add(h, v);
         }
         for (const item_stack & s : e->items) {

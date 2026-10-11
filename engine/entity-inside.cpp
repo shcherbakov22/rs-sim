@@ -33,8 +33,8 @@ static bool entity_hurt_server(level & lv, entity & e, damage_type type, float d
         case ENTITY_TYPE_FALLING_BLOCK: return false;
         default: break;
     }
-    TMC_ASSERT(entity_is_minecart(e));
-    return abstract_minecart_hurt_server(lv, e, type, damage);
+    TMC_ASSERT(entity_is_pushable(e));
+    return vehicle_entity_hurt_server(lv, e, type, damage);
 }
 
 // the default only passes the fall on to passengers

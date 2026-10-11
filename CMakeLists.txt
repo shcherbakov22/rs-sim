@@ -48,9 +48,11 @@ add_library(tmc STATIC
     engine/level-ticks.cpp
     engine/level.cpp
     engine/neighbor-updater.cpp
+    entities/boat.cpp
     entities/falling-block.cpp
     entities/item.cpp
     entities/minecart.cpp
+    entities/vehicle.cpp
     gen/blocks.cpp
     items/item.cpp
     items/recipes.cpp

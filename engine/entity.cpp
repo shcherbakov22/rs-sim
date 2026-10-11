@@ -70,6 +70,7 @@ entity * entity_new(level & lv, entity_type type, vec3 pos) {
     rng_set_seed(e->random, e->id);
     e->pos = pos;
     e->bb  = entity_make_bounding_box(*e, pos);
+    e->items.resize(entity_type_defs[type].container_size);
     return e;
 }
 
@@ -103,10 +104,10 @@ static void level_remove_from_section(level & lv, entity * e) {
     if (list.empty()) lv.entity_sections.erase(it);
 }
 
-// Entity.remove; a removed container minecart drops its contents first
+// Entity.remove; a removed container entity drops its contents first
 static void entity_remove(level & lv, entity & e, const char * reason) {
     if (e.removed) return;
-    if (entity_is_container(e)) abstract_minecart_container_drop_contents(lv, e);
+    if (entity_is_container(e)) container_entity_drop_contents(lv, e);
     block_pos pos = entity_block_position(e);
     if (trace_wants(lv.tr, &pos)) trace_add(lv.tr, "remove %d %s", e.id, reason);
     e.removed = true;
@@ -165,6 +166,10 @@ static void entity_tick(level & lv, entity & e) {
         case ENTITY_TYPE_FALLING_BLOCK: falling_block_entity_tick(lv, e); return;
         default: break;
     }
+    if (entity_is_boat(e)) {
+        abstract_boat_tick(lv, e);
+        return;
+    }
     TMC_ASSERT(entity_is_minecart(e));
     abstract_minecart_tick(lv, e);
 }
@@ -176,6 +181,26 @@ void entity_apply_gravity(entity & e) {
 }
 
 void entity_push(entity & e, double x, double y, double z) { e.delta = vec3_add(e.delta, { x, y, z }); }
+
+// Entity.push(Entity): the two push apart, each by a twentieth; only vehicles push, and nothing in scope carries a
+// passenger
+void entity_push_entity(entity & e, entity & other) {
+    if (other.no_physics || e.no_physics) return;
+    double xa = other.pos.x - e.pos.x;
+    double za = other.pos.z - e.pos.z;
+    double dd = std::max(std::fabs(xa), std::fabs(za));
+    if (!(dd >= 0.01F)) return;
+    dd = std::sqrt(dd);
+    xa /= dd;
+    za /= dd;
+    double pow = std::min(1.0 / dd, 1.0);
+    xa *= pow;
+    za *= pow;
+    xa *= 0.05F;
+    za *= 0.05F;
+    entity_push(e, -xa, 0.0, -za);
+    entity_push(other, xa, 0.0, za);
+}
 
 void level_tick_entities(level & lv) {
     // EntityTickList hands the pass the list as it was when the pass began
@@ -301,28 +326,35 @@ static void level_get_block_collisions(level & lv, const entity & e, const aabb 
     }
 }
 
-bool level_no_collision(level & lv, const entity & e, const aabb & box) {
-    std::vector<block_collision> collisions;
-    level_get_block_collisions(lv, e, box, collisions);
-    return collisions.empty();
-}
-
 bool block_is_collision_shape_full_block(level & lv, state_id st, block_pos pos) {
     if (state_collision_shapes[st] != SHAPE_NONE) return voxel_defs[state_collision_shapes[st]].full;
     return shape_is_block(block_get_collision_shape(lv, st, pos));
 }
 
-// EntityGetter.getEntityCollisions: AbstractMinecart.canCollideWith takes pushable entities, which in scope are the
-// other minecarts; nothing else in scope collides with entities
+// Entity.canCollideWith: anything collides with a boat (AbstractBoat.canBeCollidedWith), and a vehicle also with the
+// pushable entities (AbstractBoat.canVehicleCollide)
+static bool entity_can_collide_with(const entity & e, const entity & other) {
+    return entity_is_boat(other) || (entity_is_pushable(e) && entity_is_pushable(other));
+}
+
+// EntityGetter.getEntityCollisions
 static void level_get_entity_collisions(level & lv, const entity & e, const aabb & box, std::vector<aabb> & out) {
-    if (!entity_is_minecart(e)) return;
     // AABB.getSize
     if ((box.max[0] - box.min[0] + box.max[1] - box.min[1] + box.max[2] - box.min[2]) / 3.0 < 1.0E-7) return;
     std::vector<entity *> found;
     level_get_entities(lv, aabb_inflate(box, 1.0E-7, 1.0E-7, 1.0E-7), found);
     for (entity * other : found) {
-        if (other != &e && entity_is_minecart(*other)) out.push_back(other->bb);
+        if (other != &e && entity_can_collide_with(e, *other)) out.push_back(other->bb);
     }
+}
+
+bool level_no_collision(level & lv, const entity & e, const aabb & box) {
+    std::vector<block_collision> collisions;
+    level_get_block_collisions(lv, e, box, collisions);
+    if (!collisions.empty()) return false;
+    std::vector<aabb> entity_collisions;
+    level_get_entity_collisions(lv, e, box, entity_collisions);
+    return entity_collisions.empty();
 }
 
 // Entity.collideWithShapes over Entity.collectColliders: the entity shapes come first
@@ -490,8 +522,12 @@ static void entity_add_movement_this_tick(entity & e, const entity_movement & m)
     e.movement_this_tick.push_back(m);
 }
 
-// Entity.checkFallDamage
+// Entity.checkFallDamage; a boat has its own
 static void entity_check_fall_damage(level & lv, entity & e, double ya, bool on_ground, state_id st, block_pos pos) {
+    if (entity_is_boat(e)) {
+        abstract_boat_check_fall_damage(lv, e, ya, on_ground);
+        return;
+    }
     if (!e.was_touching_water && ya < 0.0) e.fall_distance -= (float) ya;
     if (!on_ground) return;
     if (e.fall_distance > 0.0) block_fall_on(lv, st, pos, e);

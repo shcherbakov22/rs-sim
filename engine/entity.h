@@ -17,6 +17,16 @@ struct entity_movement {
     vec3 original;
 };
 
+// AbstractBoat.Status, NONE for the null of a boat that never ticked
+enum boat_status {
+    BOAT_STATUS_NONE,
+    BOAT_STATUS_IN_WATER,
+    BOAT_STATUS_UNDER_WATER,
+    BOAT_STATUS_UNDER_FLOWING_WATER,
+    BOAT_STATUS_ON_LAND,
+    BOAT_STATUS_IN_AIR,
+};
+
 // Entity as a tagged struct: the fields after the common ones belong to one type. Positions are world coordinates,
 // so doubles round like vanilla's.
 struct entity {
@@ -66,15 +76,27 @@ struct entity {
     int32_t  fall_damage_max          = 40;
     float    fall_damage_per_distance = 0.0F;
 
-    // AbstractMinecart with VehicleEntity's damage, and the fields of its types
-    float                   y_rot     = 0.0F;
-    float                   y_rot_o   = 0.0F;  // yRotO, set before each tick
-    bool                    flipped   = false;
+    // VehicleEntity and ContainerEntity
     int32_t                 hurt_time = 0;
     float                   damage    = 0.0F;
-    std::vector<item_stack> items;           // AbstractMinecartContainer, sized by the type
-    bool                    enabled = true;  // MinecartHopper
-    int32_t                 fuse    = -1;    // MinecartTNT
+    std::vector<item_stack> items;  // sized by the type's container size
+
+    // AbstractMinecart and the fields of its types
+    float   y_rot   = 0.0F;
+    float   y_rot_o = 0.0F;  // yRotO, set before each tick
+    bool    flipped = false;
+    bool    enabled = true;  // MinecartHopper
+    int32_t fuse    = -1;    // MinecartTNT
+
+    // AbstractBoat
+    boat_status status                          = BOAT_STATUS_NONE;
+    boat_status old_status                      = BOAT_STATUS_NONE;
+    double      water_level                     = 0.0;
+    float       land_friction                   = 0.0F;
+    double      last_yd                         = 0.0;
+    bool        is_above_bubble_column          = false;
+    bool        bubble_column_direction_is_down = false;
+    int32_t     bubble_time                     = 0;
 };
 
 // InsideBlockEffectType, in StepBasedCollector.APPLY_ORDER
@@ -157,6 +179,8 @@ void      entity_base_tick(level & lv, entity & e);
 void      entity_apply_gravity(entity & e);
 // Entity.push of an impulse
 void      entity_push(entity & e, double x, double y, double z);
+// Entity.push(Entity): e pushes other
+void      entity_push_entity(entity & e, entity & other);
 // Entity.checkBelowWorld
 void      entity_check_below_world(level & lv, entity & e);
 void      entity_lava_ignite(entity & e);
@@ -171,7 +195,7 @@ bool      entity_update_in_water_state_and_do_fluid_pushing(level & lv, entity &
 void      entity_move_towards_closest_space(level & lv, entity & e, vec3 at);
 bool      entity_is_in_lava(const entity & e);
 block_pos entity_get_block_pos_below_that_affects_my_movement(level & lv, const entity & e);
-// Level.noCollision for an entity
+// CollisionGetter.noCollision for an entity: no block or entity collides with box
 bool      level_no_collision(level & lv, const entity & e, const aabb & box);
 // BlockStateBase.isCollisionShapeFullBlock
 bool      block_is_collision_shape_full_block(level & lv, state_id st, block_pos pos);

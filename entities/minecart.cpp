@@ -1,5 +1,5 @@
-// Minecarts: AbstractMinecart with OldMinecartBehavior (the movement without the minecart experiment), its types, the
-// damage of VehicleEntity and the ContainerEntity of the chest and hopper minecarts. Nothing in scope rides one.
+// Minecarts: AbstractMinecart with OldMinecartBehavior (the movement without the minecart experiment) and its types.
+// Nothing in scope rides one.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -7,39 +7,6 @@
 
 #include <algorithm>
 #include <cmath>
-
-bool entity_is_minecart(const entity & e) {
-    switch (e.type) {
-        case ENTITY_TYPE_MINECART:
-        case ENTITY_TYPE_CHEST_MINECART:
-        case ENTITY_TYPE_FURNACE_MINECART:
-        case ENTITY_TYPE_HOPPER_MINECART:
-        case ENTITY_TYPE_TNT_MINECART: return true;
-        default: return false;
-    }
-}
-
-bool entity_is_container(const entity & e) {
-    return e.type == ENTITY_TYPE_CHEST_MINECART || e.type == ENTITY_TYPE_HOPPER_MINECART;
-}
-
-static container abstract_minecart_container(entity & e) {
-    container c;
-    c.vehicle = &e;
-    return c;
-}
-
-// AbstractMinecart.createMinecart; a container gets the slots of getContainerSize
-entity * abstract_minecart_create_minecart(level & lv, entity_type type, vec3 pos) {
-    entity * e = entity_new(lv, type, pos);
-    if (type == ENTITY_TYPE_CHEST_MINECART) e->items.resize(27);
-    if (type == ENTITY_TYPE_HOPPER_MINECART) e->items.resize(5);
-    return e;
-}
-
-void abstract_minecart_container_drop_contents(level & lv, entity & e) {
-    containers_drop_contents(lv, e.pos, abstract_minecart_container(e));
-}
 
 // AbstractMinecart.EXITS, by RailShape: the two ends of the rail, a slope's lower end one block down
 static const block_pos abstract_minecart_exits[10][2] = {
@@ -73,7 +40,7 @@ static double abstract_minecart_get_max_speed(const entity & e) {
 // The old behaviour's getSlowdownFactor is 0.96 without a passenger, and no container has a loot table.
 static vec3 abstract_minecart_apply_natural_slowdown(entity & e, vec3 movement) {
     if (entity_is_container(e)) {
-        container self      = abstract_minecart_container(e);
+        container self      = entity_container(e);
         float     keep      = 0.98F;
         int32_t   emptiness = 15 - container_get_redstone_signal(&self);
         keep += emptiness * 0.001F;
@@ -322,12 +289,19 @@ static void abstract_minecart_push(entity & e, entity & other) {
     abstract_minecart_push_other_minecart(e, other, xa, za);
 }
 
-// OldMinecartBehavior.pushAndPickupEntities: the pushable entities in scope are minecarts, which nothing picks up
+// OldMinecartBehavior.pushAndPickupEntities: the pushable entities in scope are minecarts and boats; a moving plain
+// minecart picks up a boat, which is out of scope, and pushes other minecarts like any minecart does
 static void old_minecart_behavior_push_and_pickup_entities(level & lv, entity & e) {
+    bool                  pick_up = e.type == ENTITY_TYPE_MINECART && vec3_horizontal_distance_sqr(e.delta) >= 0.01;
     std::vector<entity *> found;
     level_get_entities(lv, aabb_inflate(e.bb, 0.2F, 0.0, 0.2F), found);
     for (entity * other : found) {
-        if (other != &e && entity_is_minecart(*other)) abstract_minecart_push(*other, e);
+        if (other == &e) continue;
+        if (pick_up && entity_is_boat(*other)) {
+            level_unsupported(lv, "a boat riding a minecart");
+            return;
+        }
+        if (entity_is_minecart(*other)) abstract_minecart_push(*other, e);
     }
 }
 
@@ -360,7 +334,7 @@ static void old_minecart_behavior_tick(level & lv, entity & e) {
 
 // MinecartHopper.suckInItems: through the hopper above it, then the item entities around it
 static void minecart_hopper_suck_in_items(level & lv, entity & e) {
-    container self = abstract_minecart_container(e);
+    container self = entity_container(e);
     if (hopper_block_entity_suck_in_items(lv, self, { e.pos.x, e.pos.y + 0.5, e.pos.z }, false)) return;
     std::vector<entity *> found;
     level_get_entities(lv, aabb_inflate(e.bb, 0.25, 0.0, 0.25), found);
@@ -396,43 +370,13 @@ void abstract_minecart_tick(level & lv, entity & e) {
     if (e.horizontal_collision && vec3_horizontal_distance_sqr(e.delta) >= 0.01F) minecart_tnt_explode(lv, e);
 }
 
-// VehicleEntity.getDropItem of the type
-static int32_t abstract_minecart_get_drop_item(const entity & e) {
-    switch (e.type) {
-        case ENTITY_TYPE_CHEST_MINECART: return ITEM_CHEST_MINECART;
-        case ENTITY_TYPE_FURNACE_MINECART: return ITEM_FURNACE_MINECART;
-        case ENTITY_TYPE_HOPPER_MINECART: return ITEM_HOPPER_MINECART;
-        case ENTITY_TYPE_TNT_MINECART: return ITEM_TNT_MINECART;
-        default: return ITEM_MINECART;
-    }
-}
-
-// destroy of the type: a tnt minecart lit by the source or moving primes instead; a container drops its contents
-// when killed, and ContainerEntity.chestVehicleDestroyed drops them again from the now empty slots
-static void abstract_minecart_destroy(level & lv, entity & e, bool ignites_tnt) {
-    if (e.type == ENTITY_TYPE_TNT_MINECART && (ignites_tnt || vec3_horizontal_distance_sqr(e.delta) >= 0.01F)) {
-        if (e.fuse < 0) {
-            minecart_tnt_prime_fuse(e);
-            int32_t fuse = rng_next_int(e.random, 20);
-            e.fuse       = fuse + rng_next_int(e.random, 20);
-        }
-        return;
-    }
-    // VehicleEntity.destroy: killed, then the minecart drops as an item
-    entity_kill(lv, e);
-    item_entity_spawn(lv, e.pos, { abstract_minecart_get_drop_item(e), 1, 0 });
-    if (entity_is_container(e)) abstract_minecart_container_drop_contents(lv, e);
-}
-
-// VehicleEntity.hurtServer: damage over 40 destroys the minecart, and fire or an explosion destroys a tnt minecart.
-// No minecart is fire immune.
-bool abstract_minecart_hurt_server(level & lv, entity & e, damage_type type, float damage) {
-    if (e.removed) return true;
-    e.hurt_time = 10;
-    e.damage += damage * 10.0F;
-    bool ignites_tnt = (damage_type_tags[type] & (DAMAGE_TYPE_TAG_IS_FIRE | DAMAGE_TYPE_TAG_IS_EXPLOSION)) != 0;
-    if (e.damage > 40.0F || (e.type == ENTITY_TYPE_TNT_MINECART && ignites_tnt)) {
-        abstract_minecart_destroy(lv, e, ignites_tnt);
+// MinecartTNT.destroy: lit by the source or moving, it primes instead of breaking
+bool minecart_tnt_destroy(entity & e, bool ignites_tnt) {
+    if (!(ignites_tnt || vec3_horizontal_distance_sqr(e.delta) >= 0.01F)) return false;
+    if (e.fuse < 0) {
+        minecart_tnt_prime_fuse(e);
+        int32_t fuse = rng_next_int(e.random, 20);
+        e.fuse       = fuse + rng_next_int(e.random, 20);
     }
     return true;
 }

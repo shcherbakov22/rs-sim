@@ -4,6 +4,7 @@
 #include "blocks/handlers.h"
 #include "core/rng.h"
 #include "engine/level.h"
+#include "entities/handlers.h"
 
 #include <algorithm>
 
@@ -444,7 +445,8 @@ static void bubble_column_tick(level & lv, state_id st, block_pos pos) {
     bubble_column_update_column(lv, pos, st, level_get_state(lv, pos_relative(pos, DIRECTION_DOWN)));
 }
 
-// Entity.onAboveBubbleColumn and onInsideBubbleColumn; above, the splash and bubble particles draw from the level random
+// Entity.onAboveBubbleColumn and onInsideBubbleColumn; above, the splash and bubble particles draw from the level random,
+// and a boat has its own
 static void bubble_column_entity_inside(level & lv, state_id st, block_pos pos, entity & e, entity_effect_collector &,
                                         bool is_precise) {
     if (!is_precise) return;
@@ -452,6 +454,10 @@ static void bubble_column_entity_inside(level & lv, state_id st, block_pos pos, 
     bool     drag  = state_get(st, PROP_DRAG);
     // vanilla asks for the shape of the state above at the column's own position
     if (block_get_collision_shape(lv, above, pos).boxes.empty() && fluid_state_is_empty(state_fluid_state(above))) {
+        if (entity_is_boat(e)) {
+            abstract_boat_on_above_bubble_column(e, drag);
+            return;
+        }
         e.delta.y = drag ? std::max(-0.9, e.delta.y - 0.03) : std::min(1.8, e.delta.y + 0.1);
         for (int32_t i = 0; i < 8; i++) rng_next_double(lv.random);
     } else {

@@ -125,7 +125,10 @@ struct entity_type_def {
     float        height;
     float        eye_height;
     bool         fire_immune;
-    double       gravity;  // 0 for types the level cannot create
+    double       gravity;         // 0 for types the level cannot create
+    uint32_t     flags;           // entity_flag bits
+    int32_t      container_size;  // ContainerEntity.getContainerSize, 0 for other entities
+    int32_t      vehicle_drop;    // VehicleEntity.getDropItem, -1 for other entities
 };
 
 // Block.getDrops of a state, n_stacks stacks from drop_stacks

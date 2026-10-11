@@ -1,5 +1,6 @@
 #pragma once
 
+#include "engine/block-entity.h"
 #include "engine/entity.h"
 
 // ItemEntity; the constructor that draws a random motion from the level's random
@@ -16,14 +17,25 @@ entity * falling_block_entity_fall(level & lv, block_pos pos, state_id st);
 void     falling_block_entity_tick(level & lv, entity & e);
 void     falling_block_entity_cause_fall_damage(entity & e, double fall_distance);
 
+// VehicleEntity and ContainerEntity
+bool      entity_is_minecart(const entity & e);
+bool      entity_is_boat(const entity & e);
+bool      entity_is_pushable(const entity & e);
+// the Container entities: chest and hopper minecarts and chest boats
+bool      entity_is_container(const entity & e);
+container entity_container(entity & e);
+// the remove of a container entity drops the contents
+void      container_entity_drop_contents(level & lv, entity & e);
+bool      vehicle_entity_hurt_server(level & lv, entity & e, damage_type type, float damage);
+
 // AbstractMinecart and its types
-bool     entity_is_minecart(const entity & e);
-// the Container entities: chest and hopper minecarts
-bool     entity_is_container(const entity & e);
-entity * abstract_minecart_create_minecart(level & lv, entity_type type, vec3 pos);
-void     abstract_minecart_tick(level & lv, entity & e);
-void     abstract_minecart_apply_effects_from_blocks(level & lv, entity & e);
-// AbstractMinecartContainer.remove drops the contents
-void     abstract_minecart_container_drop_contents(level & lv, entity & e);
-bool     abstract_minecart_hurt_server(level & lv, entity & e, damage_type type, float damage);
-void     minecart_tnt_cause_fall_damage(level & lv, entity & e, double fall_distance);
+void abstract_minecart_tick(level & lv, entity & e);
+void abstract_minecart_apply_effects_from_blocks(level & lv, entity & e);
+void minecart_tnt_cause_fall_damage(level & lv, entity & e, double fall_distance);
+// MinecartTNT.destroy: true when the tnt minecart primes instead of breaking
+bool minecart_tnt_destroy(entity & e, bool ignites_tnt);
+
+// AbstractBoat and its types
+void abstract_boat_tick(level & lv, entity & e);
+void abstract_boat_check_fall_damage(level & lv, entity & e, double ya, bool on_ground);
+void abstract_boat_on_above_bubble_column(entity & e, bool drag_down);
