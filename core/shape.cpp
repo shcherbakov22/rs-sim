@@ -24,11 +24,16 @@ shape shape_move(shape s, double dx, double dy, double dz) {
     return s;
 }
 
-// the 1/32 cells from lo to hi as bits, clamped to the block
+// the 1/32 cell edge at x, clamped to the block; shape edges lie on the 1/32 grid, so the cast is exact
+static int32_t shape_face_cell(double x) {
+    TMC_ASSERT(x * 32 == std::round(x * 32));
+    return std::clamp((int32_t) (x * 32), 0, 32);
+}
+
+// the 1/32 cells from lo to hi as bits
 static uint32_t shape_face_mask(double lo, double hi) {
-    TMC_ASSERT(lo * 32 == std::round(lo * 32) && hi * 32 == std::round(hi * 32));
-    int32_t a = std::clamp((int32_t) std::lround(lo * 32), 0, 32);
-    int32_t b = std::clamp((int32_t) std::lround(hi * 32), 0, 32);
+    int32_t a = shape_face_cell(lo);
+    int32_t b = shape_face_cell(hi);
     return a >= b ? 0 : (uint32_t) ((((uint64_t) 1 << (b - a)) - 1) << a);
 }
 
@@ -48,11 +53,9 @@ shape_face shape_get_face(const shape & s, direction dir) {
     for (const shape_box & b : s.boxes) {
         if (b.min[f.axis] > p || b.max[f.axis] <= p) continue;
         f.outside |= b.min[u] < 0.0 || b.max[u] > 1.0 || b.min[v] < 0.0 || b.max[v] > 1.0;
-        uint32_t mask  = shape_face_mask(b.min[v], b.max[v]);
-        uint32_t cells = shape_face_mask(b.min[u], b.max[u]);
-        for (int32_t i = 0; i < 32; i++) {
-            if (cells >> i & 1) f.rows[i] |= mask;
-        }
+        uint32_t mask = shape_face_mask(b.min[v], b.max[v]);
+        int32_t  end  = shape_face_cell(b.max[u]);
+        for (int32_t i = shape_face_cell(b.min[u]); i < end; i++) f.rows[i] |= mask;
     }
     return f;
 }
@@ -69,10 +72,10 @@ bool shape_face_covers(const shape_face & f, uint16_t shape_id) {
     int32_t v;
     shape_face_axes(f.axis, u, v);
     for (const shape_box & b : shape_from_table(shape_id).boxes) {
-        uint32_t mask  = shape_face_mask(b.min[v], b.max[v]);
-        uint32_t cells = shape_face_mask(b.min[u], b.max[u]);
-        for (int32_t i = 0; i < 32; i++) {
-            if ((cells >> i & 1) && (f.rows[i] & mask) != mask) return false;
+        uint32_t mask = shape_face_mask(b.min[v], b.max[v]);
+        int32_t  end  = shape_face_cell(b.max[u]);
+        for (int32_t i = shape_face_cell(b.min[u]); i < end; i++) {
+            if ((f.rows[i] & mask) != mask) return false;
         }
     }
     return true;
