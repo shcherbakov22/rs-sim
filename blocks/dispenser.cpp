@@ -88,9 +88,10 @@ static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, 
     const dispense_config & config = dispense_configs[item_defs[item].dispense_config];
     vec3                    center = vec3_add(entity_block_to_world(pos), { 0.5, 0.5, 0.5 });
     vec3 at     = vec3_add(center, { config.offset[facing][0], config.offset[facing][1], config.offset[facing][2] });
-    bool thrown = type == ENTITY_TYPE_SNOWBALL || type == ENTITY_TYPE_EGG || type == ENTITY_TYPE_EXPERIENCE_BOTTLE ||
-                  type == ENTITY_TYPE_SPLASH_POTION || type == ENTITY_TYPE_LINGERING_POTION;
-    if (!thrown) {
+    bool in_scope = type == ENTITY_TYPE_SNOWBALL || type == ENTITY_TYPE_EGG || type == ENTITY_TYPE_EXPERIENCE_BOTTLE ||
+                    type == ENTITY_TYPE_SPLASH_POTION || type == ENTITY_TYPE_LINGERING_POTION ||
+                    type == ENTITY_TYPE_ARROW || type == ENTITY_TYPE_SPECTRAL_ARROW;
+    if (!in_scope) {
         // asProjectile of a fire or wind charge draws three triangle distributed direction components
         if (item_defs[item].cls == ICLASS_FIRE_CHARGE_ITEM || item_defs[item].cls == ICLASS_WIND_CHARGE_ITEM) {
             for (int32_t i = 0; i < 6; i++) rng_next_double(lv.random);
@@ -100,6 +101,8 @@ static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, 
         return dispensed;
     }
     entity *          e    = entity_new(lv, (entity_type) type, at);
+    // an arrow keeps one of the item to drop
+    if (entity_is_abstract_arrow(*e)) e->item = item_stack_copy_with_count(dispensed, 1);
     const block_pos & step = DIRECTION_STEPS[facing];
     projectile_shoot(*e, { (double) step.x, (double) step.y, (double) step.z }, config.power, config.uncertainty);
     level_add_fresh_entity(lv, e);

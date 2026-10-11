@@ -69,6 +69,10 @@ struct entity {
     // ExperienceOrb
     int32_t    value        = 0;
     int32_t    count        = 1;
+    // AbstractArrow; item is the stack it drops
+    bool       in_ground    = false;
+    int32_t    life         = 0;
+    int32_t    last_state   = -1;  // the state it last hit, -1 for none
 
     // FallingBlockEntity
     state_id block_state              = STATE_AIR;
@@ -196,6 +200,9 @@ void level_get_entities(level & lv, const aabb & box, std::vector<entity *> & ou
 // Entity base behaviour that entity types build on
 void      entity_base_tick(level & lv, entity & e);
 void      entity_apply_gravity(entity & e);
+// EntityCollisionContext.getCollisionShape of a block; null is CollisionContext.empty()
+uint16_t   entity_collision_shape(level & lv, const entity * e, state_id st, block_pos pos);
+void       entity_ignite_for_ticks(entity & e, int32_t ticks);
 // Entity.isOnFire on the server
 bool       entity_is_on_fire(const entity & e);
 // Entity.hurtServer of the entity's type

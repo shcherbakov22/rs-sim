@@ -32,12 +32,18 @@ bool      vehicle_entity_hurt_server(level & lv, entity & e, damage_type type, f
 void abstract_minecart_tick(level & lv, entity & e);
 void abstract_minecart_apply_effects_from_blocks(level & lv, entity & e);
 void minecart_tnt_cause_fall_damage(level & lv, entity & e, double fall_distance);
+void minecart_tnt_explode(level & lv, entity & e, double speed_sqr);
 // MinecartTNT.destroy: true when the tnt minecart primes instead of breaking
 bool minecart_tnt_destroy(entity & e, bool ignites_tnt);
 
 // Projectile and the thrown items
 void     projectile_shoot(entity & e, vec3 dir, float power, float uncertainty);
 void     throwable_projectile_tick(level & lv, entity & e);
+// AbstractArrow
+bool     entity_is_abstract_arrow(const entity & e);
+void     abstract_arrow_tick(level & lv, entity & e);
+// AbstractArrow.move after Entity.move: a push from outside can free a stuck arrow
+void     abstract_arrow_move(level & lv, entity & e, mover_type type);
 // ExperienceOrb
 void     experience_orb_award_with_direction(level & lv, vec3 pos, vec3 rough_direction, int32_t amount);
 void     experience_orb_tick(level & lv, entity & e);

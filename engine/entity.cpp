@@ -172,6 +172,8 @@ static void entity_tick(level & lv, entity & e) {
         case ENTITY_TYPE_EXPERIENCE_BOTTLE:
         case ENTITY_TYPE_SPLASH_POTION:
         case ENTITY_TYPE_LINGERING_POTION: throwable_projectile_tick(lv, e); return;
+        case ENTITY_TYPE_ARROW:
+        case ENTITY_TYPE_SPECTRAL_ARROW: abstract_arrow_tick(lv, e); return;
         default: break;
     }
     if (entity_is_boat(e)) {
@@ -188,7 +190,10 @@ void entity_apply_gravity(entity & e) {
     if (gravity != 0.0) e.delta.y += -gravity;
 }
 
-void entity_push(entity & e, double x, double y, double z) { e.delta = vec3_add(e.delta, { x, y, z }); }
+// AbstractArrow ignores a push while it is stuck
+void entity_push(entity & e, double x, double y, double z) {
+    if (!e.in_ground) e.delta = vec3_add(e.delta, { x, y, z });
+}
 
 // Entity.push(Entity): the two push apart, each by a twentieth; only vehicles push, and nothing in scope carries a
 // passenger
@@ -268,7 +273,7 @@ static uint16_t scaffolding_get_collision_shape(const entity * e, state_id st, b
 }
 
 // EntityCollisionContext.getCollisionShape for the entity types in scope; powder snow looks at the entity
-static uint16_t entity_collision_shape(level & lv, const entity * e, state_id st, block_pos pos) {
+uint16_t entity_collision_shape(level & lv, const entity * e, state_id st, block_pos pos) {
     if (state_is(st, BLOCK_SCAFFOLDING)) return scaffolding_get_collision_shape(e, st, pos);
     if (state_is(st, BLOCK_POWDER_SNOW)) {
         level_unsupported(lv, "entity collision with %s", state_to_string(st).c_str());
@@ -730,13 +735,14 @@ static void entity_base_move(level & lv, entity & e, mover_type type, vec3 delta
 void entity_move(level & lv, entity & e, mover_type type, vec3 delta) {
     entity_base_move(lv, e, type, delta);
     if (entity_is_minecart(e)) abstract_minecart_apply_effects_from_blocks(lv, e);
+    if (entity_is_abstract_arrow(e)) abstract_arrow_move(lv, e, type);
 }
 
 // fluids
 
 bool entity_is_in_lava(const entity & e) { return !e.first_tick && e.fluid_height_lava > 0.0; }
 
-// Entity.updateFluidHeightAndDoFluidPushing; every entity in scope is pushed by fluids
+// Entity.updateFluidHeightAndDoFluidPushing; only an arrow stuck in a block is not pushed
 static bool entity_update_fluid_height_and_do_fluid_pushing(level & lv, entity & e, uint32_t tag, double flow_scale,
                                                             double & height) {
     aabb    box          = aabb_inflate(e.bb, -0.001, -0.001, -0.001);
@@ -760,7 +766,8 @@ static bool entity_update_fluid_height_and_do_fluid_pushing(level & lv, entity &
                 if (block_fluid_height < box.min[1]) continue;
                 in_fluid     = true;
                 fluid_height = std::max(block_fluid_height - box.min[1], fluid_height);
-                vec3 flow    = flowing_fluid_get_flow(lv, pos, fs);
+                if (e.in_ground) continue;
+                vec3 flow = flowing_fluid_get_flow(lv, pos, fs);
                 if (fluid_height < 0.4) flow = vec3_scale(flow, fluid_height);
                 current = vec3_add(current, flow);
                 n_currents++;

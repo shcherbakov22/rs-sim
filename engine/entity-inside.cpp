@@ -49,7 +49,7 @@ void entity_cause_fall_damage(level & lv, entity & e, double fall_distance) {
 }
 
 // Entity.igniteForTicks; nothing in scope freezes
-static void entity_ignite_for_ticks(entity & e, int32_t ticks) {
+void entity_ignite_for_ticks(entity & e, int32_t ticks) {
     if (e.remaining_fire_ticks < ticks) e.remaining_fire_ticks = ticks;
 }
 

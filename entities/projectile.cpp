@@ -1,5 +1,6 @@
-// Projectile and ThrowableProjectile, with the thrown items a dispenser fires: snowballs, eggs, experience bottles
-// and potions. Nothing in scope owns or deflects a projectile, and a dispensed potion has no contents.
+// Projectile, ThrowableProjectile and AbstractArrow, with what a dispenser fires: snowballs, eggs, experience bottles,
+// potions and arrows. Nothing in scope owns a projectile, a dispensed potion or tipped arrow has no contents, and a
+// dispensed arrow is never critical and never pierces.
 
 #include "blocks/block-behaviour.h"
 #include "engine/level.h"
@@ -21,14 +22,19 @@ static bool projectile_can_hit_entity(const entity & other) {
     return !other.removed && (entity_type_defs[other.type].flags & ENTITY_FLAG_PICKABLE);
 }
 
-// ProjectileUtil.getHitResultOnMoveVector: the first block on the move, unless an entity is hit closer; the box of the
-// entity grows with the projectile's age. The world border is never near.
+// ProjectileUtil.computeMargin: the boxes of the entities a projectile hits grow with its age
+static float projectile_util_compute_margin(const entity & e) {
+    return std::max(0.0F, std::min(0.3F, (e.tick_count - 2) / 20.0F));
+}
+
+// ProjectileUtil.getHitResultOnMoveVector: the first block on the move, unless an entity is hit closer. The world
+// border is never near.
 static hit_result projectile_get_hit_result_on_move_vector(level & lv, const entity & e) {
     vec3       from = e.pos;
     vec3       to   = vec3_add(from, e.delta);
     hit_result hit  = level_clip_collider(lv, e, from, to);
     if (hit.type != HIT_RESULT_TYPE_MISS) to = hit.location;
-    float                 margin  = std::max(0.0F, std::min(0.3F, (e.tick_count - 2) / 20.0F));
+    float                 margin  = projectile_util_compute_margin(e);
     double                nearest = DBL_MAX;
     std::vector<entity *> found;
     level_get_entities(lv, aabb_inflate(aabb_expand_towards(e.bb, e.delta), 1.0, 1.0, 1.0), found);
@@ -73,16 +79,68 @@ static void thrown_egg_hatch(level & lv, entity & e) {
     level_boundary(lv, "spawn chicken %d %d %d", pos.x, pos.y, pos.z);
 }
 
-// Projectile.onHit and the thrown item's own onHit; the projectile goes after its hit
+bool entity_is_abstract_arrow(const entity & e) {
+    return e.type == ENTITY_TYPE_ARROW || e.type == ENTITY_TYPE_SPECTRAL_ARROW;
+}
+
+// AbstractArrow.onHitEntity: the damage grows with the speed. What takes no damage turns the arrow back, and an arrow
+// that comes to rest drops its item.
+static void abstract_arrow_on_hit_entity(level & lv, entity & e, entity & target) {
+    float   pow    = (float) std::sqrt(vec3_length_sqr(e.delta));
+    int32_t damage = (int32_t) std::ceil(std::clamp(pow * 2.0, 0.0, 2.147483647E9));
+    int32_t fire   = target.remaining_fire_ticks;
+    if (entity_is_on_fire(e)) entity_ignite_for_ticks(target, floor_int(5.0F * 20.0F));
+    // MinecartTNT.hurtServer: a burning arrow sets the cart off before it takes the damage
+    if (target.type == ENTITY_TYPE_TNT_MINECART && entity_is_on_fire(e)) {
+        minecart_tnt_explode(lv, target, vec3_length_sqr(e.delta));
+    }
+    if (entity_hurt_server(lv, target, DAMAGE_TYPE_ARROW, (float) damage)) {
+        rng_next_float(e.random);  // the hit sound
+        entity_discard(lv, e);
+        return;
+    }
+    target.remaining_fire_ticks = fire;
+    // Projectile.deflect with ProjectileDeflection.REVERSE; the draw only turns the arrow round
+    rng_next_float(e.random);
+    e.delta = vec3_scale(vec3_scale(e.delta, -0.5), 0.2);
+    if (vec3_length_sqr(e.delta) < 1.0E-7) {
+        // Entity.spawnAtLocation
+        item_entity_spawn(lv, { e.pos.x, e.pos.y + 0.1F, e.pos.z }, e.item);
+        entity_discard(lv, e);
+    }
+}
+
+// Math.signum
+static double signum(double v) { return v > 0.0 ? 1.0 : v < 0.0 ? -1.0 : v; }
+
+// AbstractArrow.onHitBlock: the arrow backs off the hit a little and sticks
+static void abstract_arrow_on_hit_block(level & lv, entity & e) {
+    vec3 back = vec3_scale({ signum(e.delta.x), signum(e.delta.y), signum(e.delta.z) }, 0.05F);
+    entity_set_pos(lv, e, vec3_subtract(e.pos, back));
+    e.delta = {};
+    rng_next_float(e.random);  // the hit sound
+    e.in_ground = true;
+}
+
+// Projectile.onHit with the onHitEntity and onHitBlock of each type
 static void projectile_on_hit(level & lv, entity & e, const hit_result & hit) {
     if (hit.type == HIT_RESULT_TYPE_ENTITY) {
         // Snowball and ThrownEgg.onHitEntity: no damage, only a snowball hurts a blaze
         if (e.type == ENTITY_TYPE_SNOWBALL || e.type == ENTITY_TYPE_EGG) {
             entity_hurt_server(lv, *hit.target, DAMAGE_TYPE_THROWN, 0.0F);
         }
-    } else {
-        block_on_projectile_hit(lv, level_get_state(lv, hit.pos), hit, e);
+        if (entity_is_abstract_arrow(e)) abstract_arrow_on_hit_entity(lv, e, *hit.target);
+        return;
     }
+    state_id st = level_get_state(lv, hit.pos);
+    if (entity_is_abstract_arrow(e)) e.last_state = st;
+    block_on_projectile_hit(lv, st, hit, e);
+    if (entity_is_abstract_arrow(e)) abstract_arrow_on_hit_block(lv, e);
+}
+
+// the thrown item's own onHit after Projectile.onHit; the projectile goes after its hit
+static void throwable_item_projectile_on_hit(level & lv, entity & e, const hit_result & hit) {
+    projectile_on_hit(lv, e, hit);
     if (e.type == ENTITY_TYPE_EGG) thrown_egg_hatch(lv, e);
     // ThrownExperienceBottle.onHit: the orbs leave a block along its face, else back the way the bottle came
     if (e.type == ENTITY_TYPE_EXPERIENCE_BOTTLE) {
@@ -118,5 +176,110 @@ void throwable_projectile_tick(level & lv, entity & e) {
     entity_set_pos(lv, e, hit.type != HIT_RESULT_TYPE_MISS ? hit.location : vec3_add(e.pos, e.delta));
     entity_apply_effects_from_blocks(lv, e);
     entity_base_tick(lv, e);
-    if (hit.type != HIT_RESULT_TYPE_MISS && !e.removed) projectile_on_hit(lv, e, hit);
+    if (hit.type != HIT_RESULT_TYPE_MISS && !e.removed) throwable_item_projectile_on_hit(lv, e, hit);
+}
+
+// ProjectileUtil.getManyEntityHitResult: every entity the move enters; past the second tick a near miss counts when
+// the way from the miss to the entity's middle is free of blocks
+static std::vector<hit_result> projectile_util_get_many_entity_hit_result(level & lv, const entity & e, vec3 from,
+                                                                          vec3 to) {
+    float                   margin = projectile_util_compute_margin(e);
+    std::vector<hit_result> hits;
+    std::vector<entity *>   found;
+    level_get_entities(lv, aabb_inflate(aabb_expand_towards(e.bb, e.delta), 1.0, 1.0, 1.0), found);
+    for (entity * other : found) {
+        if (other == &e || !projectile_can_hit_entity(*other)) continue;
+        hit_result hit;
+        hit.type   = HIT_RESULT_TYPE_ENTITY;
+        hit.target = other;
+        if (aabb_clip(other->bb, from, to, &hit.location)) {
+            hits.push_back(hit);
+            continue;
+        }
+        vec3 outside;
+        if (margin <= 0.0F || !aabb_clip(aabb_inflate(other->bb, margin, margin, margin), from, to, &outside)) continue;
+        vec3 towards = level_clip_collider(lv, e, outside, aabb_get_center(other->bb)).location;
+        if (aabb_clip(other->bb, outside, towards, &hit.location)) hits.push_back(hit);
+    }
+    return hits;
+}
+
+// AbstractArrow.shouldFall: the block it sticks in is gone
+static bool abstract_arrow_should_fall(level & lv, const entity & e) {
+    return e.in_ground &&
+           level_no_collision_box(
+               lv, aabb_inflate(aabb_of(e.pos.x, e.pos.y, e.pos.z, e.pos.x, e.pos.y, e.pos.z), 0.06, 0.06, 0.06));
+}
+
+// AbstractArrow.startFalling
+static void abstract_arrow_start_falling(entity & e) {
+    e.in_ground = false;
+    float x     = rng_next_float(e.random) * 0.2F;
+    float y     = rng_next_float(e.random) * 0.2F;
+    float z     = rng_next_float(e.random) * 0.2F;
+    e.delta     = { e.delta.x * x, e.delta.y * y, e.delta.z * z };
+    e.life      = 0;
+}
+
+void abstract_arrow_move(level & lv, entity & e, mover_type type) {
+    if (type != MOVER_TYPE_SELF && abstract_arrow_should_fall(lv, e)) abstract_arrow_start_falling(e);
+}
+
+// AbstractArrow.stepMoveAndHit: to the closest entity hit, else to the block hit; a pierce level would repeat it. An
+// entity that takes no damage turns the arrow, which can then hit the next one.
+static void abstract_arrow_step_move_and_hit(level & lv, entity & e, const hit_result & block_hit) {
+    vec3                    from = e.pos;
+    std::vector<hit_result> hits = projectile_util_get_many_entity_hit_result(lv, e, from, block_hit.location);
+    std::stable_sort(hits.begin(), hits.end(), [&](const hit_result & a, const hit_result & b) {
+        return vec3_length_sqr(vec3_subtract(a.target->pos, from)) <
+               vec3_length_sqr(vec3_subtract(b.target->pos, from));
+    });
+    vec3 next = hits.empty() ? block_hit.location : hits[0].location;
+    entity_set_pos(lv, e, next);
+    entity_apply_effects_from_blocks_between(lv, e, from, next);
+    if (hits.empty()) {
+        if (!e.removed && block_hit.type != HIT_RESULT_TYPE_MISS) projectile_on_hit(lv, e, block_hit);
+        return;
+    }
+    for (const hit_result & hit : hits) {
+        if (e.removed) return;
+        projectile_on_hit(lv, e, hit);
+    }
+}
+
+// AbstractArrow.tick: an arrow inside a collision box sticks. A stuck arrow skips Entity.tick and falls when its block
+// goes; a flying one drags, steps to its hit and falls.
+void abstract_arrow_tick(level & lv, entity & e) {
+    block_pos pos      = entity_block_position(e);
+    state_id  st       = level_get_state(lv, pos);
+    vec3      movement = e.delta;
+    if (!state_has(st, STATE_FLAG_AIR)) {
+        vec3 w = entity_block_to_world(pos);
+        for (const aabb & b : shape_from_table(entity_collision_shape(lv, nullptr, st, pos)).boxes) {
+            if (aabb_contains(aabb_move(b, w), e.pos)) {
+                e.delta     = {};
+                e.in_ground = true;
+                break;
+            }
+        }
+    }
+    // Entity.clearFire; no rain in scope
+    if (e.was_touching_water) e.remaining_fire_ticks = std::min(0, e.remaining_fire_ticks);
+    if (e.in_ground) {
+        if (e.last_state != st && abstract_arrow_should_fall(lv, e)) {
+            abstract_arrow_start_falling(e);
+        } else {
+            // tickDespawn
+            e.life++;
+            if (e.life >= 1200) entity_discard(lv, e);
+        }
+        if (!e.removed) entity_apply_effects_from_blocks(lv, e);
+        return;
+    }
+    // the water drag comes before the move, the air drag after it; the clip still takes the motion from before
+    if (e.was_touching_water) e.delta = vec3_scale(e.delta, 0.6F);
+    abstract_arrow_step_move_and_hit(lv, e, level_clip_collider(lv, e, e.pos, vec3_add(e.pos, movement)));
+    if (!e.was_touching_water) e.delta = vec3_scale(e.delta, 0.99F);
+    if (!e.in_ground) entity_apply_gravity(e);
+    entity_base_tick(lv, e);
 }

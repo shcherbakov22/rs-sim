@@ -446,10 +446,10 @@ static void bubble_column_tick(level & lv, state_id st, block_pos pos) {
 }
 
 // Entity.onAboveBubbleColumn and onInsideBubbleColumn; above, the splash and bubble particles draw from the level random.
-// A boat has its own, and a projectile's push has no limit.
+// A boat has its own, a projectile's push has no limit, and an arrow stuck in a block ignores the column.
 static void bubble_column_entity_inside(level & lv, state_id st, block_pos pos, entity & e, entity_effect_collector &,
                                         bool is_precise) {
-    if (!is_precise) return;
+    if (!is_precise || e.in_ground) return;
     state_id above = level_get_state(lv, pos_relative(pos, DIRECTION_UP));
     bool     drag       = state_get(st, PROP_DRAG);
     bool     projectile = entity_type_defs[e.type].flags & ENTITY_FLAG_PROJECTILE;

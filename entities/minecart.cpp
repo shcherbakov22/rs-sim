@@ -211,7 +211,7 @@ void abstract_minecart_apply_effects_from_blocks(level & lv, entity & e) {
 }
 
 // MinecartTNT.explode: faster carts explode stronger, and the cart goes only after its explosion
-static void minecart_tnt_explode(level & lv, entity & e, double speed_sqr) {
+void minecart_tnt_explode(level & lv, entity & e, double speed_sqr) {
     double speed = std::min(std::sqrt(speed_sqr), 5.0);
     level_explode(lv, &e, e.pos, (float) (4.0F + 1.0F * rng_next_double(e.random) * 1.5 * speed));
     entity_discard(lv, e);
