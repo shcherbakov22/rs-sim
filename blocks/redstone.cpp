@@ -275,18 +275,6 @@ static void redstone_torch_affect_neighbors_after_removal(level &   lv,
     if (!moved_by_piston) level_update_neighbors_around(lv, pos, state_block(st));
 }
 
-static int32_t redstone_torch_get_signal(level &, state_id st, block_pos, direction dir) {
-    return state_get(st, PROP_LIT) && dir != DIRECTION_UP ? 15 : 0;
-}
-
-static int32_t redstone_wall_torch_get_signal(level &, state_id st, block_pos, direction dir) {
-    return state_get(st, PROP_LIT) && state_get(st, PROP_HORIZONTAL_FACING) != dir ? 15 : 0;
-}
-
-static int32_t redstone_torch_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir) {
-    return dir == DIRECTION_DOWN ? block_get_signal(lv, st, pos, dir) : 0;
-}
-
 // hasNeighborSignal: the block the torch stands or hangs on
 static bool redstone_torch_has_neighbor_signal(level & lv, state_id st, block_pos pos) {
     direction side = DIRECTION_DOWN;
@@ -352,15 +340,6 @@ static void lever_affect_neighbors_after_removal(level & lv, state_id st, block_
     if (!moved_by_piston && state_get(st, PROP_POWERED)) lever_update_neighbours(lv, st, pos);
 }
 
-static int32_t lever_get_signal(level &, state_id st, block_pos, direction) {
-    return state_get(st, PROP_POWERED) ? 15 : 0;
-}
-
-static int32_t lever_get_direct_signal(level &, state_id st, block_pos, direction dir) {
-    bool front = face_attached_horizontal_directional_get_connected_direction(st) == dir;
-    return state_get(st, PROP_POWERED) && front ? 15 : 0;
-}
-
 // RedstoneLampBlock: a lamp turns on at once but off after a delay
 
 static void redstone_lamp_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
@@ -383,10 +362,6 @@ static void redstone_lamp_tick(level & lv, state_id st, block_pos pos) {
 
 static void target_tick(level & lv, state_id st, block_pos pos) {
     if (state_get(st, PROP_POWER) != 0) level_set_block(lv, pos, state_set(st, PROP_POWER, 0), UPDATE_FLAG_ALL);
-}
-
-static int32_t target_get_signal(level &, state_id st, block_pos, direction) {
-    return state_get(st, PROP_POWER);
 }
 
 // a powered target without a pending tick turns off without telling its neighbors
@@ -421,14 +396,6 @@ static void lightning_rod_affect_neighbors_after_removal(level & lv, state_id st
     if (state_get(st, PROP_POWERED)) lightning_rod_update_neighbours(lv, st, pos);
 }
 
-static int32_t lightning_rod_get_signal(level &, state_id st, block_pos, direction) {
-    return state_get(st, PROP_POWERED) ? 15 : 0;
-}
-
-static int32_t lightning_rod_get_direct_signal(level &, state_id st, block_pos, direction dir) {
-    return state_get(st, PROP_POWERED) && state_facing(st) == dir ? 15 : 0;
-}
-
 // CopperBulbBlock: each rising edge of the neighbor signal toggles the light
 
 // checkAndFlip
@@ -451,14 +418,8 @@ static int32_t copper_bulb_get_analog_output_signal(level & lv, state_id, block_
     return state_get(level_get_state(lv, pos), PROP_LIT) ? 15 : 0;
 }
 
-// PoweredBlock: the redstone block
-static int32_t powered_block_get_signal(level &, state_id, block_pos, direction) {
-    return 15;
-}
-
 // clang-format off
 const std::vector<block_hooks> redstone_hooks = {
-    { .vclass = VCLASS_POWERED_BLOCK, .get_signal = powered_block_get_signal },
     { .vclass = VCLASS_RED_STONE_WIRE_BLOCK,
       .update_shape = red_stone_wire_update_shape,
       .neighbor_changed = red_stone_wire_neighbor_changed,
@@ -472,31 +433,22 @@ const std::vector<block_hooks> redstone_hooks = {
       .neighbor_changed = redstone_torch_neighbor_changed,
       .on_place = redstone_torch_on_place,
       .affect_neighbors_after_removal = redstone_torch_affect_neighbors_after_removal,
-      .tick = redstone_torch_tick,
-      .get_signal = redstone_torch_get_signal,
-      .get_direct_signal = redstone_torch_get_direct_signal },
+      .tick = redstone_torch_tick },
     { .vclass = VCLASS_REDSTONE_WALL_TORCH_BLOCK,
       .update_shape = attached_update_shape,
-      .get_signal = redstone_wall_torch_get_signal,
       .can_survive = attached_can_survive },
-    { .vclass = VCLASS_LEVER_BLOCK,
-      .affect_neighbors_after_removal = lever_affect_neighbors_after_removal,
-      .get_signal = lever_get_signal,
-      .get_direct_signal = lever_get_direct_signal },
+    { .vclass = VCLASS_LEVER_BLOCK, .affect_neighbors_after_removal = lever_affect_neighbors_after_removal },
     { .vclass = VCLASS_REDSTONE_LAMP_BLOCK,
       .neighbor_changed = redstone_lamp_neighbor_changed,
       .tick = redstone_lamp_tick },
     { .vclass = VCLASS_TARGET_BLOCK,
       .on_place = target_on_place,
-      .tick = target_tick,
-      .get_signal = target_get_signal },
+      .tick = target_tick },
     { .vclass = VCLASS_LIGHTNING_ROD_BLOCK,
       .update_shape = block_behaviour_update_shape,
       .on_place = lightning_rod_on_place,
       .affect_neighbors_after_removal = lightning_rod_affect_neighbors_after_removal,
-      .tick = lightning_rod_tick,
-      .get_signal = lightning_rod_get_signal,
-      .get_direct_signal = lightning_rod_get_direct_signal },
+      .tick = lightning_rod_tick },
     { .vclass = VCLASS_COPPER_BULB_BLOCK,
       .neighbor_changed = copper_bulb_neighbor_changed,
       .on_place = copper_bulb_on_place,

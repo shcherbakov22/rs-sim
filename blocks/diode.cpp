@@ -158,10 +158,9 @@ static void diode_tick(level & lv, state_id st, block_pos pos) {
     }
 }
 
-// getOutputSignal is 15 for repeaters; getDirectSignal is the same
+// getDirectSignal is the same; repeaters answer from state_signals, so getOutputSignal is the comparator's
 static int32_t diode_get_signal(level & lv, state_id st, block_pos pos, direction dir) {
-    if (!state_get(st, PROP_POWERED) || state_facing(st) != dir) return 0;
-    return state_is(st, BLOCK_COMPARATOR) ? comparator_get_output_signal(lv, pos) : 15;
+    return state_get(st, PROP_POWERED) && state_facing(st) == dir ? comparator_get_output_signal(lv, pos) : 0;
 }
 
 static void diode_check_tick_on_neighbor(level & lv, state_id st, block_pos pos) {
@@ -238,11 +237,6 @@ static state_id observer_update_shape(level & lv, state_id st, block_pos pos, di
     return st;
 }
 
-// getDirectSignal is the same
-static int32_t observer_get_signal(level &, state_id st, block_pos, direction dir) {
-    return state_get(st, PROP_POWERED) && state_facing(st) == dir ? 15 : 0;
-}
-
 // a powered observer placed without its pending tick turns off
 static void observer_on_place(level & lv, state_id st, block_pos pos, state_id old, bool) {
     int32_t block = state_block(st);
@@ -278,8 +272,6 @@ const std::vector<block_hooks> diode_hooks = {
       .update_shape = observer_update_shape,
       .on_place = observer_on_place,
       .affect_neighbors_after_removal = observer_affect_neighbors_after_removal,
-      .tick = observer_tick,
-      .get_signal = observer_get_signal,
-      .get_direct_signal = observer_get_signal },
+      .tick = observer_tick },
 };
 // clang-format on

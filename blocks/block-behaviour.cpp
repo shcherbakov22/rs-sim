@@ -212,12 +212,20 @@ bool block_is_signal_source(level & lv, state_id st) {
            (lv.red_stone_wire_should_signal || !state_is(st, BLOCK_REDSTONE_WIRE));
 }
 
+// the dumped signals of a block whose signals read only the state, null for the others
+static const uint8_t * block_state_signals(state_id st) {
+    const block_def & b = block_defs[state_block(st)];
+    return b.signals_first < 0 ? nullptr : state_signals[b.signals_first + st - b.state_first];
+}
+
 int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) {
+    if (const uint8_t * s = block_state_signals(st)) return s[dir];
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_GET_SIGNAL)) return b->get_signal(lv, st, pos, dir);
     return 0;
 }
 
 int32_t block_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir) {
+    if (const uint8_t * s = block_state_signals(st)) return s[6 + dir];
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_GET_DIRECT_SIGNAL)) {
         return b->get_direct_signal(lv, st, pos, dir);
     }

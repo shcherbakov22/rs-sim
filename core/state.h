@@ -36,11 +36,12 @@ struct block_def {
     int32_t      n_props;
     int32_t      fields_first;
     int32_t      n_fields;
-    int32_t      cls;           // vanilla class, VCLASS_NONE for plain Block
-    int32_t      entity_new;    // block_entity_type of EntityBlock.newBlockEntity, -1 for none
-    int32_t      entity_valid;  // block_entity_type valid for the block (BlockEntityType.isValid), -1 for none
-    int32_t      instrument;    // note_block_instrument of BlockState.instrument
-    int32_t      waxed;         // HoneycombItem.WAXABLES, -1 for none
+    int32_t      cls;            // vanilla class, VCLASS_NONE for plain Block
+    int32_t      entity_new;     // block_entity_type of EntityBlock.newBlockEntity, -1 for none
+    int32_t      entity_valid;   // block_entity_type valid for the block (BlockEntityType.isValid), -1 for none
+    int32_t      instrument;     // note_block_instrument of BlockState.instrument
+    int32_t      waxed;          // HoneycombItem.WAXABLES, -1 for none
+    int32_t      signals_first;  // first row in state_signals, -1 when the signals need the world
 };
 
 struct item_def {
@@ -110,6 +111,7 @@ extern const int16_t iclass_hooks[]
 extern const char * const iclass_names[];
 extern const char * const item_hook_names[];
 extern const uint64_t     state_flags[];
+extern const uint8_t      state_signals[][12];
 extern const shape_box    shape_boxes[];
 extern const shape_def    shape_defs[];
 extern const uint16_t
