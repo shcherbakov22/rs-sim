@@ -3,6 +3,8 @@
 #include "core/common.h"
 #include "core/state.h"
 
+#include <cmath>
+
 // Vec3, in world coordinates for entities: doubles round like vanilla's only at the same magnitudes
 struct vec3 {
     double x;
@@ -41,6 +43,12 @@ inline int32_t floor_int(double v) {
     int32_t i = (int32_t) v;
     return v < i ? i - 1 : i;
 }
+
+// Mth.sign
+inline int32_t sign_int(double v) { return v == 0.0 ? 0 : v > 0.0 ? 1 : -1; }
+
+// Mth.frac
+inline double frac(double v) { return v - (double) (int64_t) std::floor(v); }
 
 // AABB: the constructor sorts each axis
 aabb aabb_of(double x0, double y0, double z0, double x1, double y1, double z1);

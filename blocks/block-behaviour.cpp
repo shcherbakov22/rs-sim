@@ -10,6 +10,8 @@ state_id block_behaviour_update_shape(level &, state_id st, block_pos, direction
 
 void block_living_only(level &, state_id, block_pos, entity &) {}
 
+void block_cause_fall_damage(level &, state_id, block_pos, entity & e) { entity_cause_fall_damage(e, e.fall_distance); }
+
 // SimpleWaterloggedBlock.placeLiquid: only a water source fills the block
 static bool simple_waterlogged_place_liquid(level & lv, block_pos pos, state_id st, fluid_state_id fs) {
     if (state_get(st, PROP_WATERLOGGED) || fluid_state_get_type(fs) != FLUID_WATER) return false;
@@ -101,6 +103,9 @@ static bool block_hooks_has(const block_hooks & b, hook h) {
         case HOOK_STEP_ON: return b.step_on != nullptr;
         case HOOK_FALL_ON: return b.fall_on != nullptr;
         case HOOK_UPDATE_ENTITY_MOVEMENT_AFTER_FALL_ON: return b.update_entity_movement_after_fall_on != nullptr;
+        case HOOK_FALLING: return b.falling != nullptr;
+        case HOOK_ON_LAND: return b.on_land != nullptr;
+        case HOOK_ON_BROKEN_AFTER_FALL: return b.on_broken_after_fall != nullptr;
         case HOOK_COUNT: break;
     }
     TMC_ASSERT(false);
@@ -147,9 +152,8 @@ shape block_get_collision_shape(level & lv, state_id st, block_pos pos) {
 }
 
 bool block_is_face_sturdy(level & lv, state_id st, block_pos pos, direction dir, support_type type) {
-    static_assert(STATE_FLAG_STURDY_RIGID_EAST == STATE_FLAG_STURDY_FULL_DOWN << 17);
     if (!state_has(st, STATE_FLAG_DYNAMIC_SHAPE)) {
-        return (state_flags[st] & STATE_FLAG_STURDY_FULL_DOWN << (type * 6 + dir)) != 0;
+        return (state_sturdy[st] >> (type * 6 + dir) & 1) != 0;
     }
     // without a shape cache the support shape comes from the world; BlockBehaviour.getBlockSupportShape is the collision shape
     return support_type_is_supporting(block_get_collision_shape(lv, st, pos), dir, type);
@@ -329,9 +333,13 @@ void block_step_on(level & lv, state_id st, block_pos pos, entity & e) {
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_STEP_ON)) b->step_on(lv, st, pos, e);
 }
 
-// the default Block.fallOn calls Entity.causeFallDamage, which only passes the fall on to passengers
 void block_fall_on(level & lv, state_id st, block_pos pos, entity & e) {
-    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_FALL_ON)) b->fall_on(lv, st, pos, e);
+    const block_hooks * b = block_hooks_for(lv, st, HOOK_FALL_ON);
+    if (b != nullptr) {
+        b->fall_on(lv, st, pos, e);
+    } else {
+        block_cause_fall_damage(lv, st, pos, e);
+    }
 }
 
 // Block.updateEntityMovementAfterFallOn stops the fall; a negative speed leaves -0.0
@@ -342,4 +350,17 @@ void block_update_entity_movement_after_fall_on(level & lv, state_id st, entity 
     } else {
         e.delta.y *= 0.0;
     }
+}
+
+void block_falling(level & lv, state_id st, entity & e) {
+    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_FALLING)) b->falling(e);
+}
+
+void block_on_land(level & lv, state_id st, block_pos pos, state_id replaced) {
+    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_ON_LAND)) b->on_land(lv, st, pos, replaced);
+}
+
+void block_on_broken_after_fall(level & lv, state_id st, block_pos pos) {
+    const block_hooks * b = block_hooks_for(lv, st, HOOK_ON_BROKEN_AFTER_FALL);
+    if (b != nullptr) b->on_broken_after_fall(lv, st, pos);
 }

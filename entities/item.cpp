@@ -22,6 +22,12 @@ entity * item_entity_new_random_motion(level & lv, vec3 pos, item_stack s) {
     return item_entity_new(lv, pos, s, { dx, 0.2, dz });
 }
 
+void item_entity_spawn(level & lv, vec3 pos, item_stack s) {
+    entity * e      = item_entity_new_random_motion(lv, pos, s);
+    e->pickup_delay = 10;
+    level_add_fresh_entity(lv, e);
+}
+
 void item_entity_set_item(level & lv, entity & e, item_stack s) {
     e.item = s;
     entity_trace_stack_changed(lv, e);
@@ -118,8 +124,7 @@ void item_entity_tick(level & lv, entity & e) {
     } else if (entity_is_in_lava(e) && e.fluid_height_lava > 0.1F) {
         item_entity_set_fluid_movement(e, 0.95F);
     } else {
-        // Entity.applyGravity
-        e.delta.y -= 0.04;
+        entity_apply_gravity(e);
     }
     e.no_physics = !level_no_collision(lv, e, aabb_inflate(e.bb, -1.0E-7, -1.0E-7, -1.0E-7));
     if (e.no_physics) entity_move_towards_closest_space(lv, e, { e.pos.x, (e.bb.min[1] + e.bb.max[1]) / 2.0, e.pos.z });

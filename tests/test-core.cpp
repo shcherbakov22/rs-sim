@@ -113,7 +113,7 @@ static void test_shape_support() {
         shape support = shape_from_table(state_support_shapes[st]);
         for (int32_t type = 0; type < 3; type++) {
             for (int32_t dir = 0; dir < 6; dir++) {
-                bool expected = (state_flags[st] & STATE_FLAG_STURDY_FULL_DOWN << (type * 6 + dir)) != 0;
+                bool expected = (state_sturdy[st] >> (type * 6 + dir) & 1) != 0;
                 if (support_type_is_supporting(support, (direction) dir, (support_type) type) != expected &&
                     wrong++ < 5) {
                     printf("support %s type %d dir %d: expected %d\n", state_to_string((state_id) st).c_str(), type,

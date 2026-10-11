@@ -1,5 +1,5 @@
-// Landing: slime, beds, honey and farmland act on an entity that lands, walks or slides on them, and cobwebs slow one
-// inside. The other landing hooks only act on living entities.
+// Landing: slime, beds, honey, farmland and dripstone act on an entity that lands, walks or slides on them, and cobwebs
+// slow one inside. A fall on most of them damages a falling anvil like any other block.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -23,8 +23,26 @@ static void slime_step_on(level &, state_id, block_pos, entity & e) {
     }
 }
 
+// BedBlock.fallOn: half the fall
+static void bed_fall_on(level &, state_id, block_pos, entity & e) {
+    entity_cause_fall_damage(e, e.fall_distance * 0.5);
+}
+
 // FarmBlock.fallOn draws before it checks for a living entity
-static void farm_fall_on(level & lv, state_id, block_pos, entity &) { rng_next_float(lv.random); }
+static void farm_fall_on(level & lv, state_id st, block_pos pos, entity & e) {
+    rng_next_float(lv.random);
+    block_cause_fall_damage(lv, st, pos, e);
+}
+
+// PointedDripstoneBlock.fallOn: a stalagmite tip adds to the fall
+static void pointed_dripstone_fall_on(level & lv, state_id st, block_pos pos, entity & e) {
+    if (state_get(st, PROP_VERTICAL_DIRECTION) == DIRECTION_UP &&
+        state_get(st, PROP_DRIPSTONE_THICKNESS) == DRIPSTONE_THICKNESS_TIP) {
+        entity_cause_fall_damage(e, e.fall_distance + 2.5);
+    } else {
+        block_cause_fall_damage(lv, st, pos, e);
+    }
+}
 
 // HoneyBlock
 
@@ -57,7 +75,9 @@ static void honey_entity_inside(level & lv, state_id, block_pos pos, entity & e,
     if (!honey_is_sliding_down(pos, e)) return;
     honey_do_slide_movement(e);
     // maybeDoSlideEffects draws only for living entities, minecarts, primed tnt and boats
-    if (e.type != ENTITY_TYPE_ITEM) level_unsupported(lv, "honey slide of %s", entity_type_defs[e.type].name);
+    if (e.type != ENTITY_TYPE_ITEM && e.type != ENTITY_TYPE_FALLING_BLOCK) {
+        level_unsupported(lv, "honey slide of %s", entity_type_defs[e.type].name);
+    }
 }
 
 // WebBlock: Entity.makeStuckInBlock; only a living entity with the weaving effect gets a weaker multiplier
@@ -70,15 +90,15 @@ static void web_entity_inside(level &, state_id, block_pos, entity & e, entity_e
 const std::vector<block_hooks> landing_hooks = {
     { .vclass = VCLASS_SLIME_BLOCK,
       .step_on = slime_step_on,
-      .fall_on = block_living_only,
+      .fall_on = block_cause_fall_damage,
       .update_entity_movement_after_fall_on = slime_update_entity_movement_after_fall_on },
     { .vclass = VCLASS_BED_BLOCK,
-      .fall_on = block_living_only,
+      .fall_on = bed_fall_on,
       .update_entity_movement_after_fall_on = bed_update_entity_movement_after_fall_on },
-    { .vclass = VCLASS_HONEY_BLOCK, .entity_inside = honey_entity_inside, .fall_on = block_living_only },
-    { .vclass = VCLASS_HAY_BLOCK, .fall_on = block_living_only },
-    { .vclass = VCLASS_POINTED_DRIPSTONE_BLOCK, .fall_on = block_living_only },
-    { .vclass = VCLASS_TURTLE_EGG_BLOCK, .step_on = block_living_only, .fall_on = block_living_only },
+    { .vclass = VCLASS_HONEY_BLOCK, .entity_inside = honey_entity_inside, .fall_on = block_cause_fall_damage },
+    { .vclass = VCLASS_HAY_BLOCK, .fall_on = block_cause_fall_damage },
+    { .vclass = VCLASS_POINTED_DRIPSTONE_BLOCK, .fall_on = pointed_dripstone_fall_on },
+    { .vclass = VCLASS_TURTLE_EGG_BLOCK, .step_on = block_living_only, .fall_on = block_cause_fall_damage },
     { .vclass = VCLASS_FARM_BLOCK, .fall_on = farm_fall_on },
     { .vclass = VCLASS_WEB_BLOCK, .entity_inside = web_entity_inside },
 };

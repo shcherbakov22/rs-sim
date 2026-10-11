@@ -178,7 +178,8 @@ static uint64_t level_fingerprint(const level & lv) {
         for (int64_t v :
              { (int64_t) e->id, (int64_t) e->type, (int64_t) e->removed, e->random.seed, (int64_t) e->on_ground,
                (int64_t) e->remaining_fire_ticks, (int64_t) e->item.item, (int64_t) e->item.count, (int64_t) e->age,
-               (int64_t) e->pickup_delay, (int64_t) e->health }) {
+               (int64_t) e->pickup_delay, (int64_t) e->health, (int64_t) e->block_state, (int64_t) e->time,
+               (int64_t) e->drop_item, (int64_t) e->cancel_drop, (int64_t) e->hurt_entities }) {
             fingerprint_add(h, v);
         }
     }

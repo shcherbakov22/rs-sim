@@ -312,10 +312,7 @@ static void level_pop_resource(level & lv, block_pos pos, item_stack s) {
     double x           = w.x + 0.5 + rng_next_double_between(lv.random, -0.25, 0.25);
     double y           = w.y + 0.5 + rng_next_double_between(lv.random, -0.25, 0.25) - half_height;
     double z           = w.z + 0.5 + rng_next_double_between(lv.random, -0.25, 0.25);
-    if (item_stack_is_empty(s)) return;
-    entity * e      = item_entity_new_random_motion(lv, { x, y, z }, s);
-    e->pickup_delay = 10;
-    level_add_fresh_entity(lv, e);
+    if (!item_stack_is_empty(s)) item_entity_spawn(lv, { x, y, z }, s);
 }
 
 void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be) {

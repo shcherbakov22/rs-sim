@@ -53,6 +53,9 @@ struct block_hooks {
     void (*step_on)(level & lv, state_id st, block_pos pos, entity & e)                                   = nullptr;
     void (*fall_on)(level & lv, state_id st, block_pos pos, entity & e)                                   = nullptr;
     void (*update_entity_movement_after_fall_on)(entity & e)                                              = nullptr;
+    void (*falling)(entity & e)                                                                           = nullptr;
+    void (*on_land)(level & lv, state_id st, block_pos pos, state_id replaced)                            = nullptr;
+    void (*on_broken_after_fall)(level & lv, state_id st, block_pos pos)                                  = nullptr;
 };
 
 // BlockBehaviour.updateShape, the default: for classes whose override only schedules the water tick, which
@@ -60,6 +63,9 @@ struct block_hooks {
 state_id block_behaviour_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id);
 // a stepOn or fallOn override that only acts on living entities or plays sounds: nothing for the entities in scope
 void     block_living_only(level & lv, state_id st, block_pos pos, entity & e);
+// Block.fallOn, the default: Entity.causeFallDamage with the whole fall. Overrides that only change the damage
+// multiplier use it too, as only living entities read the multiplier.
+void     block_cause_fall_damage(level & lv, state_id st, block_pos pos, entity & e);
 
 // BlockStateBase dispatch to the block's vanilla class. A hook the class overrides but the sim
 // does not port yet stops the run as unsupported.
@@ -89,6 +95,10 @@ uint16_t block_get_entity_inside_collision_shape(level & lv, state_id st);
 void     block_step_on(level & lv, state_id st, block_pos pos, entity & e);
 void     block_fall_on(level & lv, state_id st, block_pos pos, entity & e);
 void     block_update_entity_movement_after_fall_on(level & lv, state_id st, entity & e);
+// FallingBlock.falling, Fallable.onLand and Fallable.onBrokenAfterFall; the defaults do nothing
+void     block_falling(level & lv, state_id st, entity & e);
+void     block_on_land(level & lv, state_id st, block_pos pos, state_id replaced);
+void     block_on_broken_after_fall(level & lv, state_id st, block_pos pos);
 
 // BlockStateBase.updateNeighbourShapes
 void block_update_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit);

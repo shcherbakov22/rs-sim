@@ -56,6 +56,15 @@ struct entity {
     int32_t    age          = 0;
     int32_t    pickup_delay = 0;
     int32_t    health       = 5;
+
+    // FallingBlockEntity
+    state_id block_state              = STATE_AIR;
+    int32_t  time                     = 0;
+    bool     drop_item                = true;
+    bool     cancel_drop              = false;
+    bool     hurt_entities            = false;
+    int32_t  fall_damage_max          = 40;
+    float    fall_damage_per_distance = 0.0F;
 };
 
 // InsideBlockEffectType, in StepBasedCollector.APPLY_ORDER
@@ -110,7 +119,13 @@ void     level_add_fresh_entity(level & lv, entity * e);
 void     entity_discard(level & lv, entity & e);
 
 // a block's world corner; entity positions are world coordinates
-vec3 entity_block_to_world(block_pos pos);
+vec3      entity_block_to_world(block_pos pos);
+// Entity.blockPosition, relative to the case origin
+block_pos entity_block_position(const entity & e);
+// EntityDimensions.makeBoundingBox at pos
+aabb      entity_make_bounding_box(const entity & e, const vec3 & pos);
+// Entity.getOnPos with the offset below the feet
+block_pos entity_get_on_pos(level & lv, const entity & e, float offset);
 
 // the "stack" trace line of an item entity
 void entity_trace_stack_changed(level & lv, const entity & e);
@@ -123,6 +138,9 @@ void level_get_entities(level & lv, const aabb & box, std::vector<entity *> & ou
 
 // Entity base behaviour that entity types build on
 void      entity_base_tick(level & lv, entity & e);
+void      entity_apply_gravity(entity & e);
+// Entity.causeFallDamage of the entity's type; the damage multiplier only matters for living entities
+void      entity_cause_fall_damage(entity & e, double fall_distance);
 void      entity_move(level & lv, entity & e, mover_type type, vec3 delta);
 void      entity_apply_effects_from_blocks(level & lv, entity & e);
 // Entity.applyEffectsFromBlocks for one move that is not the entity's own

@@ -4,15 +4,9 @@
 #include "core/rng.h"
 #include "core/trace.h"
 #include "engine/level.h"
+#include "entities/handlers.h"
 
 #include <algorithm>
-
-// FallingBlockEntity.fall constructs the entity, taking an id, then clears the block to its fluid before the spawn
-static void falling_block_entity_fall(level & lv, state_id st, block_pos pos) {
-    lv.entity_counter++;
-    level_set_block(lv, pos, fluid_state_create_legacy_block(state_fluid_state(st)), UPDATE_FLAG_ALL);
-    level_boundary(lv, "spawn falling_block %d %d %d", pos.x, pos.y, pos.z);
-}
 
 // FallingBlock: sand, gravel, concrete powder and the like fall when the block below is free
 
@@ -31,11 +25,11 @@ static state_id falling_block_update_shape(level & lv, state_id st, block_pos po
 static void falling_block_tick(level & lv, state_id st, block_pos pos) {
     if (state_has(level_get_state(lv, pos_relative(pos, DIRECTION_DOWN)), STATE_FLAG_FALLING_FREE) &&
         pos.y >= LEVEL_Y_MIN) {
-        falling_block_entity_fall(lv, st, pos);
+        block_falling(lv, st, *falling_block_entity_fall(lv, pos, st));
     }
 }
 
-// ConcretePowderBlock: becomes concrete where it touches water. The landing of a falling powder is an entity matter.
+// ConcretePowderBlock: becomes concrete where it touches water, or lands in it
 
 // the face test runs on the neighbor's state but with the powder's position, as vanilla passes it
 static bool concrete_powder_touches_liquid(level & lv, block_pos pos) {
@@ -49,6 +43,25 @@ static bool concrete_powder_touches_liquid(level & lv, block_pos pos) {
     }
     return false;
 }
+
+// onLand: shouldSolidify with the block the powder replaced
+static void concrete_powder_on_land(level & lv, state_id st, block_pos pos, state_id replaced) {
+    if (state_has(replaced, STATE_FLAG_WATER) || concrete_powder_touches_liquid(lv, pos)) {
+        level_set_block(lv, pos, block_default(block_field_get(state_block(st), FIELD_CONCRETE_POWDER_BLOCK_CONCRETE)),
+                        UPDATE_FLAG_ALL);
+    }
+}
+
+// AnvilBlock: a falling anvil hurts entities; landing and breaking only play level events
+static void anvil_falling(entity & e) {
+    e.hurt_entities            = true;
+    e.fall_damage_per_distance = 2.0F;
+    e.fall_damage_max          = 40;
+}
+
+static void anvil_on_land(level &, state_id, block_pos, state_id) {}
+
+static void anvil_on_broken_after_fall(level &, state_id, block_pos) {}
 
 static state_id concrete_powder_update_shape(level & lv, state_id st, block_pos pos, direction dir,
                                              block_pos neighbor_pos, state_id neighbor) {
@@ -92,13 +105,17 @@ static state_id scaffolding_update_shape(level & lv, state_id st, block_pos pos,
     return st;
 }
 
+static bool scaffolding_can_survive(level & lv, state_id, block_pos pos) {
+    return scaffolding_get_distance(lv, pos) < 7;
+}
+
 static void scaffolding_tick(level & lv, state_id st, block_pos pos) {
     int32_t  distance = scaffolding_get_distance(lv, pos);
     state_id next     = state_set(state_set(st, PROP_STABILITY_DISTANCE, distance), PROP_BOTTOM,
                                   scaffolding_is_bottom(lv, st, pos, distance));
     if (distance == 7) {
         if (state_get(st, PROP_STABILITY_DISTANCE) == 7) {
-            falling_block_entity_fall(lv, st, pos);
+            falling_block_entity_fall(lv, pos, next);
         } else {
             level_destroy_block(lv, pos, true);
         }
@@ -202,11 +219,18 @@ const std::vector<block_hooks> terrain_hooks = {
       .update_shape = falling_block_update_shape,
       .on_place = falling_block_on_place,
       .tick = falling_block_tick },
-    { .vclass = VCLASS_CONCRETE_POWDER_BLOCK, .update_shape = concrete_powder_update_shape },
+    { .vclass = VCLASS_CONCRETE_POWDER_BLOCK,
+      .update_shape = concrete_powder_update_shape,
+      .on_land = concrete_powder_on_land },
+    { .vclass = VCLASS_ANVIL_BLOCK,
+      .falling = anvil_falling,
+      .on_land = anvil_on_land,
+      .on_broken_after_fall = anvil_on_broken_after_fall },
     { .vclass = VCLASS_SCAFFOLDING_BLOCK,
       .update_shape = scaffolding_update_shape,
       .on_place = scaffolding_on_place,
-      .tick = scaffolding_tick },
+      .tick = scaffolding_tick,
+      .can_survive = scaffolding_can_survive },
     { .vclass = VCLASS_LEAVES_BLOCK, .update_shape = leaves_update_shape, .tick = leaves_tick },
     { .vclass = VCLASS_TNT_BLOCK, .neighbor_changed = tnt_neighbor_changed, .on_place = tnt_on_place },
     { .vclass = VCLASS_SOUL_SAND_BLOCK,

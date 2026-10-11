@@ -45,6 +45,7 @@ struct block_def {
     float        friction;       // Block.getFriction
     float        speed_factor;   // Block.getSpeedFactor
     float        jump_factor;    // Block.getJumpFactor
+    int32_t      as_item;        // Block.asItem, air for blocks without an item
 };
 
 struct item_def {
@@ -117,13 +118,14 @@ struct voxel_def {
     bool    full;   // Block.isShapeFullBlock
 };
 
-// EntityType: EntityDimensions and fireImmune
+// EntityType: EntityDimensions and fireImmune, and the getDefaultGravity of its entities
 struct entity_type_def {
     const char * name;
     float        width;
     float        height;
     float        eye_height;
     bool         fire_immune;
+    double       gravity;  // 0 for types the level cannot create
 };
 
 // Block.getDrops of a state, n_stacks stacks from drop_stacks
@@ -159,6 +161,7 @@ extern const uint16_t        state_blocks[];
 extern const int16_t         state_classes[];
 extern const int8_t          state_facings[];
 extern const uint64_t        state_flags[];
+extern const uint32_t        state_sturdy[];  // isFaceSturdy bits at support_type * 6 + direction
 extern const uint8_t         state_signals[][12];
 extern const aabb            shape_boxes[];
 extern const shape_def       shape_defs[];

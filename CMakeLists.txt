@@ -42,11 +42,13 @@ add_library(tmc STATIC
     core/state.cpp
     core/trace.cpp
     engine/case-run.cpp
+    engine/entity-inside.cpp
     engine/entity.cpp
     engine/java-hash-map.cpp
     engine/level-ticks.cpp
     engine/level.cpp
     engine/neighbor-updater.cpp
+    entities/falling-block.cpp
     entities/item.cpp
     gen/blocks.cpp
     items/item.cpp
