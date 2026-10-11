@@ -181,13 +181,6 @@ static item_stack dispense_item_behavior_bucket(level & lv, state_id st, block_p
                                                                  { ITEM_POWDER_SNOW_BUCKET, 1 });
 }
 
-// CampfireBlock.canLight and CandleBlock.canLight
-static bool dispense_item_behavior_can_light(state_id st) {
-    return (state_has(st, STATE_FLAG_TAG_CAMPFIRES) || state_has(st, STATE_FLAG_TAG_CANDLES)) &&
-           state_has_prop(st, PROP_WATERLOGGED) && state_has_prop(st, PROP_LIT) && !state_get(st, PROP_LIT) &&
-           !state_get(st, PROP_WATERLOGGED);
-}
-
 static item_stack dispense_item_behavior_flint_and_steel(level & lv, state_id st, block_pos pos, item_stack dispensed) {
     direction facing = state_facing(st);
     block_pos target = pos_relative(pos, facing);
@@ -197,7 +190,7 @@ static item_stack dispense_item_behavior_flint_and_steel(level & lv, state_id st
     } else if (state_has(at, STATE_FLAG_TAG_CANDLE_CAKES)) {
         level_unsupported(lv, "candle cake");
         return dispensed;
-    } else if (dispense_item_behavior_can_light(at)) {
+    } else if (state_has(at, STATE_FLAG_CAN_LIGHT)) {
         level_set_block(lv, target, state_set(at, PROP_LIT, 1), UPDATE_FLAG_ALL);
     } else if (block_instanceof(state_block(at), VCLASS_TNT_BLOCK)) {
         tnt_prime(lv, target);
