@@ -70,10 +70,11 @@ static level_section * level_find_section(const level & lv, block_pos pos) {
     return it == lv.sections.end() ? nullptr : it->second.get();
 }
 
+// LevelChunk.getBlockState: a section of only air reads as air, though it may still hold cave or void air
 state_id level_get_state(const level & lv, block_pos pos) {
     if (level_outside_height(pos)) return block_default(BLOCK_VOID_AIR);
     level_section * s = level_find_section(lv, pos);
-    return s == nullptr ? STATE_AIR : s->states[section_index(pos)];
+    return s == nullptr || s->n_non_air == 0 ? STATE_AIR : s->states[section_index(pos)];
 }
 
 // LevelChunkSection.setBlockState: returns the old state
