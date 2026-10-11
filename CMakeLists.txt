@@ -11,10 +11,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE RelWithDebInfo)
 endif()
-# -O3 and link-time optimization (ThinLTO with clang): bench 1.34M -> 1.60M ticks/s over gcc -O2
-set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O3 -g -DNDEBUG")
-set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
-# -O3 and link-time optimization (hot lookups like level_get_state inline across files): bench +17%
+# -O3 and link-time optimization (ThinLTO with clang; hot lookups like level_get_state inline across files): bench 1.34M -> 1.60M ticks/s over gcc -O2
 set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O3 -g -DNDEBUG")
 set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
 
