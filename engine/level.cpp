@@ -226,10 +226,13 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
 }
 
 bool level_set_block(level & lv, block_pos pos, state_id st, int32_t flags, int32_t limit) {
-    char limit_text[32] = "";
-    if (limit != UPDATE_LIMIT) snprintf(limit_text, sizeof(limit_text), " limit %d", limit);
-    trace_enter(lv.tr, &pos, "set %d %d %d %s flags %d%s was %s", pos.x, pos.y, pos.z, state_to_string(st).c_str(),
-                flags, limit_text, state_to_string(level_get_state(lv, pos)).c_str());
+    if (trace_wants(lv.tr, &pos)) {
+        char limit_text[32] = "";
+        if (limit != UPDATE_LIMIT) snprintf(limit_text, sizeof(limit_text), " limit %d", limit);
+        trace_add(lv.tr, "set %d %d %d %s flags %d%s was %s", pos.x, pos.y, pos.z, state_to_string(st).c_str(), flags,
+                  limit_text, state_to_string(level_get_state(lv, pos)).c_str());
+    }
+    trace_enter(lv.tr);
     bool done = false;
     if (level_in_valid_bounds(pos)) {
         state_id old;
@@ -430,8 +433,11 @@ int32_t level_get_best_neighbor_signal(level & lv, block_pos pos) {
 // ServerLevel.tickBlock
 static void level_tick_block(level & lv, block_pos pos, int32_t block) {
     state_id st = level_get_state(lv, pos);
-    trace_enter(lv.tr, &pos, "tick %d %d %d %s%s", pos.x, pos.y, pos.z, block_defs[block].name,
-                state_is(st, block) ? "" : " stale");
+    if (trace_wants(lv.tr, &pos)) {
+        trace_add(lv.tr, "tick %d %d %d %s%s", pos.x, pos.y, pos.z, block_defs[block].name,
+                  state_is(st, block) ? "" : " stale");
+    }
+    trace_enter(lv.tr);
     if (state_is(st, block)) block_tick(lv, st, pos);
     trace_exit(lv.tr);
 }
@@ -443,8 +449,11 @@ static void level_run_block_events(level & lv) {
         lv.block_events.erase(lv.block_events.begin());
         state_id st    = level_get_state(lv, e.pos);
         bool     stale = !state_is(st, e.block);
-        trace_enter(lv.tr, &e.pos, "event %d %d %d %s %d %d%s", e.pos.x, e.pos.y, e.pos.z, block_defs[e.block].name,
-                    e.param_a, e.param_b, stale ? " stale" : "");
+        if (trace_wants(lv.tr, &e.pos)) {
+            trace_add(lv.tr, "event %d %d %d %s %d %d%s", e.pos.x, e.pos.y, e.pos.z, block_defs[e.block].name,
+                      e.param_a, e.param_b, stale ? " stale" : "");
+        }
+        trace_enter(lv.tr);
         if (!stale) block_trigger_event(lv, st, e.pos, e.param_a, e.param_b);
         trace_exit(lv.tr);
     }
@@ -464,7 +473,10 @@ static void level_tick_block_entities(level & lv) {
         tickers[kept++]    = ticker;
         block_entity * be  = ticker->be;
         block_pos      pos = be->pos;
-        trace_enter(lv.tr, &pos, "be %d %d %d %s", pos.x, pos.y, pos.z, block_entity_type_names[be->type]);
+        if (trace_wants(lv.tr, &pos)) {
+            trace_add(lv.tr, "be %d %d %d %s", pos.x, pos.y, pos.z, block_entity_type_names[be->type]);
+        }
+        trace_enter(lv.tr);
         // LevelChunk.BoundTickingBlockEntity.tick
         state_id st = level_get_state(lv, pos);
         if (block_entity_type_is_valid(be->type, st)) {

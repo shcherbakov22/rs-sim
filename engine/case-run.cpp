@@ -196,9 +196,11 @@ static const char * const case_verb_names[] = { "place", "break", "pull" };
 
 // Inputs.apply: a pull flips a lever like LeverBlock.useWithoutItem and does nothing to other blocks
 static void case_apply_input(level & lv, const case_input & in) {
-    std::string placed = in.verb == CASE_VERB_PLACE ? " " + state_to_string(in.state) : "";
-    trace_enter(lv.tr, nullptr, "input %s %d %d %d%s", case_verb_names[in.verb], in.pos.x, in.pos.y, in.pos.z,
-                placed.c_str());
+    if (trace_wants(lv.tr, nullptr)) {
+        std::string placed = in.verb == CASE_VERB_PLACE ? " " + state_to_string(in.state) : "";
+        trace_add(lv.tr, "input %s %d %d %d%s", case_verb_names[in.verb], in.pos.x, in.pos.y, in.pos.z, placed.c_str());
+    }
+    trace_enter(lv.tr);
     state_id st = level_get_state(lv, in.pos);
     if (in.verb == CASE_VERB_PLACE) {
         level_set_block(lv, in.pos, in.state, UPDATE_FLAG_ALL_IMMEDIATE);

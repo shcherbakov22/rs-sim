@@ -29,8 +29,8 @@ void trace_add(trace * tr, const char * fmt, ...) __attribute__((format(printf, 
 void trace_begin_tick(trace * tr);
 void trace_phase(trace * tr, const char * name);
 
-// enter logs like trace_add when wanted; depth changes either way
-void trace_enter(trace * tr, const block_pos * pos, const char * fmt, ...) __attribute__((format(printf, 3, 4)));
+// lines added between enter and exit are one call deeper
+void trace_enter(trace * tr);
 void trace_exit(trace * tr);
 
 void trace_boundary(trace * tr, const char * fmt, ...) __attribute__((format(printf, 2, 3)));

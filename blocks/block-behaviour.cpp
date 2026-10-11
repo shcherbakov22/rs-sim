@@ -118,8 +118,11 @@ bool block_can_support_center(level & lv, block_pos pos, direction dir) {
 
 state_id block_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos neighbor_pos,
                             state_id neighbor) {
-    trace_enter(lv.tr, &pos, "shape %d %d %d %s %s %s", pos.x, pos.y, pos.z, state_to_string(st).c_str(),
-                direction_names[dir], state_to_string(neighbor).c_str());
+    if (trace_wants(lv.tr, &pos)) {
+        trace_add(lv.tr, "shape %d %d %d %s %s %s", pos.x, pos.y, pos.z, state_to_string(st).c_str(),
+                  direction_names[dir], state_to_string(neighbor).c_str());
+    }
+    trace_enter(lv.tr);
     state_id result = st;
     // SimpleWaterloggedBlock: every updateShape schedules the water tick before anything else, except a ladder's
     if (state_has_prop(st, PROP_WATERLOGGED) && state_get(st, PROP_WATERLOGGED) &&
@@ -134,8 +137,11 @@ state_id block_update_shape(level & lv, state_id st, block_pos pos, direction di
 }
 
 void block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block, bool moved_by_piston) {
-    trace_enter(lv.tr, &pos, "nc %d %d %d %s by %s%s", pos.x, pos.y, pos.z, state_to_string(st).c_str(),
-                block_defs[block].name, moved_by_piston ? " piston" : "");
+    if (trace_wants(lv.tr, &pos)) {
+        trace_add(lv.tr, "nc %d %d %d %s by %s%s", pos.x, pos.y, pos.z, state_to_string(st).c_str(),
+                  block_defs[block].name, moved_by_piston ? " piston" : "");
+    }
+    trace_enter(lv.tr);
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_NEIGHBOR_CHANGED)) {
         b->neighbor_changed(lv, st, pos, block, moved_by_piston);
     }

@@ -46,20 +46,12 @@ void trace_phase(trace * tr, const char * name) {
     tr->phase_shown = false;
 }
 
-void trace_enter(trace * tr, const block_pos * pos, const char * fmt, ...) {
-    if (tr == nullptr) return;
-    if (trace_wants(tr, pos)) {
-        va_list args;
-        va_start(args, fmt);
-        trace_vadd(tr, fmt, args);
-        va_end(args);
-    }
-    tr->depth++;
+void trace_enter(trace * tr) {
+    if (tr != nullptr) tr->depth++;
 }
 
 void trace_exit(trace * tr) {
-    if (tr == nullptr) return;
-    tr->depth--;
+    if (tr != nullptr) tr->depth--;
 }
 
 void trace_boundary(trace * tr, const char * fmt, ...) {
