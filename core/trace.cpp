@@ -3,13 +3,13 @@
 #include <cstdarg>
 
 bool trace_wants(const trace * tr, const block_pos * pos) {
-    if (tr == nullptr || tr->boundary || !tr->record) return false;
+    if (tr == nullptr) return false;
     if (pos == nullptr) return true;
     return pos->x >= tr->box_min.x && pos->x <= tr->box_max.x && pos->y >= tr->box_min.y && pos->y <= tr->box_max.y &&
            pos->z >= tr->box_min.z && pos->z <= tr->box_max.z;
 }
 
-static void trace_vadd(trace * tr, const char * fmt, va_list args) {
+void trace_vadd(trace * tr, const char * fmt, va_list args) {
     if (!tr->tick_shown) {
         tr->lines.push_back("tick " + std::to_string(tr->tick));
         tr->tick_shown = true;
@@ -52,17 +52,6 @@ void trace_enter(trace * tr) {
 
 void trace_exit(trace * tr) {
     if (tr != nullptr) tr->depth--;
-}
-
-void trace_boundary(trace * tr, const char * fmt, ...) {
-    if (tr == nullptr || tr->boundary) return;
-    if (trace_wants(tr, nullptr)) {
-        va_list args;
-        va_start(args, fmt);
-        trace_vadd(tr, fmt, args);
-        va_end(args);
-    }
-    tr->boundary = true;
 }
 
 std::string trace_strip(const std::string & line) {

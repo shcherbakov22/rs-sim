@@ -14,7 +14,7 @@ static void falling_block_entity_fall(level & lv, state_id st, block_pos pos) {
         return;
     }
     level_set_block(lv, pos, STATE_AIR, UPDATE_FLAG_ALL);
-    trace_boundary(lv.tr, "spawn falling_block %d %d %d", pos.x, pos.y, pos.z);
+    level_boundary(lv, "spawn falling_block %d %d %d", pos.x, pos.y, pos.z);
 }
 
 // FallingBlock: sand, gravel, concrete powder and the like fall when the block below is free
@@ -142,7 +142,7 @@ static state_id leaves_update_shape(level & lv, state_id st, block_pos pos, dire
 // the PrimedTnt constructor draws its push angle from the level random before the spawn
 void tnt_prime(level & lv, block_pos pos) {
     rng_next_double(lv.random);
-    trace_boundary(lv.tr, "spawn tnt %d %d %d", pos.x, pos.y, pos.z);
+    level_boundary(lv, "spawn tnt %d %d %d", pos.x, pos.y, pos.z);
 }
 
 // the spawn ends the run, so the removal of the block after priming is left out

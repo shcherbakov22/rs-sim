@@ -146,7 +146,7 @@ void containers_drop_contents(level & lv, block_pos pos, const container & c) {
             // the split size, the ItemEntity constructor's motion, then three triangle draws of two doubles each
             rng_next_int(lv.random, 21);
             for (int32_t i = 0; i < 8; i++) rng_next_double(lv.random);
-            trace_boundary(lv.tr, "spawn item %d %d %d", pos.x, pos.y, pos.z);
+            level_boundary(lv, "spawn item %d %d %d", pos.x, pos.y, pos.z);
             return;
         }
     }
@@ -323,7 +323,7 @@ void jukebox_block_entity_pop_out_the_item(level & lv, block_entity * be) {
     rng_next_double(lv.random);
     rng_next_double(lv.random);
     block_pos at = pos_relative(be->pos, DIRECTION_UP);
-    trace_boundary(lv.tr, "spawn item %d %d %d", at.x, at.y, at.z);
+    level_boundary(lv, "spawn item %d %d %d", at.x, at.y, at.z);
     jukebox_block_entity_on_song_changed(lv, be);
 }
 

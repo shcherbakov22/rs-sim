@@ -2,6 +2,7 @@
 
 #include "core/common.h"
 
+#include <cstdarg>
 #include <string>
 #include <vector>
 
@@ -16,15 +17,15 @@ struct trace {
     const char *             phase       = "between";
     bool                     tick_shown  = false;
     bool                     phase_shown = false;
-    bool                     boundary    = false;  // past an entity spawn, explosion or fluid tick nothing is contract
-    bool                     record      = true;   // false: tracing off, but a boundary still ends the run
+    bool                     record      = true;  // false: tracing off, and the level runs without a trace
 };
 
-// false if tracing is off, past a boundary, or pos (when given) is outside the box
+// false without a trace (tracing off or past a boundary), or if pos (when given) is outside the box
 bool trace_wants(const trace * tr, const block_pos * pos);
 
 // appends a line at the current depth; call only after trace_wants
 void trace_add(trace * tr, const char * fmt, ...) __attribute__((format(printf, 2, 3)));
+void trace_vadd(trace * tr, const char * fmt, va_list args);
 
 void trace_begin_tick(trace * tr);
 void trace_phase(trace * tr, const char * name);
@@ -32,8 +33,6 @@ void trace_phase(trace * tr, const char * name);
 // lines added between enter and exit are one call deeper
 void trace_enter(trace * tr);
 void trace_exit(trace * tr);
-
-void trace_boundary(trace * tr, const char * fmt, ...) __attribute__((format(printf, 2, 3)));
 
 // annotations ("  # ...") are not part of the contract
 std::string trace_strip(const std::string & line);

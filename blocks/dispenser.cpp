@@ -26,7 +26,7 @@ static void default_dispense_item_behavior_spawn_item(level & lv, block_pos pos,
     // the ItemEntity constructor's motion, the throw power, then three triangle draws of two doubles each
     for (int32_t i = 0; i < 9; i++) rng_next_double(lv.random);
     block_pos at = pos_relative(pos, dir);
-    trace_boundary(lv.tr, "spawn item %d %d %d", at.x, at.y, at.z);
+    level_boundary(lv, "spawn item %d %d %d", at.x, at.y, at.z);
 }
 
 // DefaultDispenseItemBehavior.dispense
@@ -75,7 +75,7 @@ static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, 
     if (item_defs[item].cls == ICLASS_FIRE_CHARGE_ITEM || item_defs[item].cls == ICLASS_WIND_CHARGE_ITEM) {
         for (int32_t i = 0; i < 6; i++) rng_next_double(lv.random);
     }
-    trace_boundary(lv.tr, "spawn %s %d %d %d", item_defs[item].dispense_entity, at.x, at.y, at.z);
+    level_boundary(lv, "spawn %s %d %d %d", item_defs[item].dispense_entity, at.x, at.y, at.z);
     return dispensed;
 }
 
@@ -120,7 +120,7 @@ static item_stack minecart_dispense_item_behavior_execute(level & lv, state_id s
         }
         y_offset = facing != DIRECTION_DOWN && minecart_dispense_item_behavior_is_slope(lv, below) ? -0.4 : -0.9;
     }
-    trace_boundary(lv.tr, "spawn %s %d %d %d", item_defs[item_stack_get_item(dispensed)].dispense_entity,
+    level_boundary(lv, "spawn %s %d %d %d", item_defs[item_stack_get_item(dispensed)].dispense_entity,
                    (int32_t) std::floor(spawn_x), (int32_t) std::floor(spawn_y + y_offset),
                    (int32_t) std::floor(spawn_z));
     return dispensed;
@@ -133,7 +133,7 @@ static item_stack minecart_dispense_item_behavior_execute(level & lv, state_id s
 static item_stack dispense_item_behavior_armor_stand(level & lv, state_id st, block_pos pos, item_stack dispensed) {
     block_pos target = pos_relative(pos, state_facing(st));
     rng_next_float(lv.random);
-    trace_boundary(lv.tr, "spawn armor_stand %d %d %d", target.x, target.y, target.z);
+    level_boundary(lv, "spawn armor_stand %d %d %d", target.x, target.y, target.z);
     return dispensed;
 }
 

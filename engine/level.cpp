@@ -9,7 +9,7 @@
 
 void level_unsupported(level & lv, const char * fmt, ...) {
     // past a boundary nothing is traced, so nothing the sim does there can be wrong
-    if (!lv.unsupported.empty() || (lv.tr != nullptr && lv.tr->boundary)) return;
+    if (!lv.unsupported.empty() || lv.boundary) return;
     char    buf[256];
     va_list args;
     va_start(args, fmt);
@@ -17,6 +17,19 @@ void level_unsupported(level & lv, const char * fmt, ...) {
     va_end(args);
     lv.unsupported      = buf;
     lv.unsupported_line = lv.tr != nullptr ? lv.tr->lines.size() : 0;
+}
+
+void level_boundary(level & lv, const char * fmt, ...) {
+    if (lv.boundary) return;
+    if (trace_wants(lv.tr, nullptr)) {
+        va_list args;
+        va_start(args, fmt);
+        trace_vadd(lv.tr, fmt, args);
+        va_end(args);
+    }
+    lv.boundary  = true;
+    lv.tr        = nullptr;
+    lv.random.tr = nullptr;
 }
 
 // SectionPos.asLong
@@ -308,7 +321,7 @@ static void level_pop_resource(level & lv, block_pos pos) {
     for (int32_t i = 0; i < 3; i++) rng_next_double_between(lv.random, -0.25, 0.25);
     rng_next_double(lv.random);
     rng_next_double(lv.random);
-    trace_boundary(lv.tr, "spawn item %d %d %d", pos.x, pos.y, pos.z);
+    level_boundary(lv, "spawn item %d %d %d", pos.x, pos.y, pos.z);
 }
 
 void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be) {

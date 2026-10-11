@@ -91,9 +91,12 @@ struct level {
     trace *                            tr = nullptr;
     std::string                        unsupported;  // first unsupported mechanic hit; the run stops at the next check
     size_t                             unsupported_line = 0;  // trace lines before it, all still exact
+    bool boundary = false;  // past an entity spawn, explosion or fluid tick nothing is contract, and the run ends
 };
 
 void level_unsupported(level & lv, const char * fmt, ...) __attribute__((format(printf, 2, 3)));
+// traces the line and drops the level's trace: from here on nothing is traced
+void level_boundary(level & lv, const char * fmt, ...) __attribute__((format(printf, 2, 3)));
 
 state_id level_get_state(const level & lv, block_pos pos);
 

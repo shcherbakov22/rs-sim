@@ -223,15 +223,15 @@ bool case_run(const case_file & f, level & lv, trace & tr, std::string & err) {
 
     tr.box_min   = { -CASE_SURROUND, -CASE_SURROUND, -CASE_SURROUND };
     tr.box_max   = { f.size.x + CASE_SURROUND - 1, f.size.y + CASE_SURROUND - 1, f.size.z + CASE_SURROUND - 1 };
-    lv.tr        = &tr;
-    lv.random.tr = &tr;
+    lv.tr        = tr.record ? &tr : nullptr;
+    lv.random.tr = lv.tr;
 
     case_apply_inputs(lv, f, 0);
     // a boundary ends the run at the end of the gap where it happened
     int32_t gap = 0;
-    while (lv.unsupported.empty() && !tr.boundary) {
+    while (lv.unsupported.empty() && !lv.boundary) {
         level_tick(lv);
-        if (tr.boundary || ++gap >= f.run) break;
+        if (lv.boundary || ++gap >= f.run) break;
         case_apply_inputs(lv, f, gap);
     }
     if (!lv.unsupported.empty()) {
