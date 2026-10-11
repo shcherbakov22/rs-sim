@@ -1,6 +1,7 @@
-// Projectile, ThrowableProjectile, AbstractArrow and AbstractHurtingProjectile, with what a dispenser fires: snowballs,
-// eggs, experience bottles, potions, arrows, fire charges and wind charges. Nothing in scope owns a projectile, a
-// dispensed potion or tipped arrow has no contents, and a dispensed arrow is never critical and never pierces.
+// Projectile, ThrowableProjectile, AbstractArrow, AbstractHurtingProjectile and FireworkRocketEntity, with what a
+// dispenser fires: snowballs, eggs, experience bottles, potions, arrows, fire charges, wind charges and firework
+// rockets. Nothing in scope owns a projectile, a dispensed potion or tipped arrow has no contents, a dispensed arrow is
+// never critical and never pierces, and a dispensed rocket has no explosions.
 
 #include "blocks/block-behaviour.h"
 #include "blocks/handlers.h"
@@ -168,7 +169,15 @@ static void projectile_on_hit(level & lv, entity & e, const hit_result & hit) {
             entity_hurt_server(lv, target, DAMAGE_TYPE_WIND_CHARGE, 1.0F);
             wind_charge_explode(lv, e, e.pos);
         }
+        // FireworkRocketEntity.onHitEntity: the rocket explodes
+        if (e.type == ENTITY_TYPE_FIREWORK_ROCKET) entity_discard(lv, e);
         return;
+    }
+    // FireworkRocketEntity.onHitBlock: the block's entityInside without its effects; a rocket without explosions
+    // flies on
+    if (e.type == ENTITY_TYPE_FIREWORK_ROCKET) {
+        entity_effect_collector noop;
+        block_entity_inside(lv, level_get_state(lv, hit.pos), hit.pos, e, noop, true);
     }
     state_id st = level_get_state(lv, hit.pos);
     if (entity_is_abstract_arrow(e)) e.last_state = st;
@@ -355,4 +364,27 @@ void abstract_hurting_projectile_tick(level & lv, entity & e) {
     }
     // WindCharge.tick
     if (wind && e.no_deflect_ticks > 0) e.no_deflect_ticks--;
+}
+
+// the FireworkRocketEntity constructor: a slight drift and a slow climb, which the shot replaces, and a lifetime from the
+// flight duration
+void firework_rocket_init(entity & e, int32_t flight) {
+    double x   = rng_triangle(e.random, 0.0, 0.002297);
+    double z   = rng_triangle(e.random, 0.0, 0.002297);
+    e.delta    = { x, 0.05, z };
+    e.lifetime = 10 * (1 + flight) + rng_next_int(e.random, 6) + rng_next_int(e.random, 7);
+}
+
+// FireworkRocketEntity.tick of a rocket shot at an angle, as a dispensed one is: no boost, and the move and the block
+// effects leave its motion as it was. It explodes when its lifetime runs out; without explosions that only removes it.
+void firework_rocket_tick(level & lv, entity & e) {
+    entity_base_tick(lv, e);
+    vec3       movement = e.delta;
+    hit_result hit      = projectile_get_hit_result_on_move_vector(lv, e);
+    entity_move(lv, e, MOVER_TYPE_SELF, movement);
+    entity_apply_effects_from_blocks(lv, e);
+    e.delta = movement;
+    if (!e.no_physics && !e.removed && hit.type != HIT_RESULT_TYPE_MISS) projectile_on_hit(lv, e, hit);
+    e.life++;
+    if (e.life > e.lifetime) entity_discard(lv, e);
 }

@@ -64,6 +64,7 @@ struct item_def {
     int32_t      dispense_entity;     // entity_type a projectile, boat or minecart behaviour spawns, -1 for others
     int32_t      max_damage;          // MAX_DAMAGE component of a fresh stack, 0 for none
     int32_t      dispense_config;     // dispense_configs index of a ProjectileItem, -1 for other items
+    int32_t      firework_flight;     // flight duration of the FIREWORKS component of a fresh stack, 0 for none
 };
 
 // ProjectileItem.DispenseConfig; offset is what the position function adds to the dispenser's center, by facing

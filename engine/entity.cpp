@@ -180,6 +180,7 @@ static void entity_tick(level & lv, entity & e) {
         case ENTITY_TYPE_SPECTRAL_ARROW: abstract_arrow_tick(lv, e); return;
         case ENTITY_TYPE_SMALL_FIREBALL:
         case ENTITY_TYPE_WIND_CHARGE: abstract_hurting_projectile_tick(lv, e); return;
+        case ENTITY_TYPE_FIREWORK_ROCKET: firework_rocket_tick(lv, e); return;
         default: break;
     }
     if (entity_is_boat(e)) {

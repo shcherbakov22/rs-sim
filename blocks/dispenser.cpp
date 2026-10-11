@@ -96,7 +96,8 @@ static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, 
     bool in_scope = type == ENTITY_TYPE_SNOWBALL || type == ENTITY_TYPE_EGG || type == ENTITY_TYPE_EXPERIENCE_BOTTLE ||
                     type == ENTITY_TYPE_SPLASH_POTION || type == ENTITY_TYPE_LINGERING_POTION ||
                     type == ENTITY_TYPE_ARROW || type == ENTITY_TYPE_SPECTRAL_ARROW ||
-                    type == ENTITY_TYPE_SMALL_FIREBALL || type == ENTITY_TYPE_WIND_CHARGE;
+                    type == ENTITY_TYPE_SMALL_FIREBALL || type == ENTITY_TYPE_WIND_CHARGE ||
+                    type == ENTITY_TYPE_FIREWORK_ROCKET;
     if (!in_scope) {
         block_pos b = entity_world_to_block(at);
         dispenser_boundary_spawn(lv, dispensed, b.x, b.y, b.z);
@@ -105,6 +106,7 @@ static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, 
     entity *          e    = entity_new(lv, (entity_type) type, at);
     // AbstractWindCharge does not accelerate
     if (type == ENTITY_TYPE_WIND_CHARGE) e->acceleration_power = 0.0;
+    if (type == ENTITY_TYPE_FIREWORK_ROCKET) firework_rocket_init(*e, item_defs[item].firework_flight);
     // an arrow keeps one of the item to drop
     if (entity_is_abstract_arrow(*e)) e->item = item_stack_copy_with_count(dispensed, 1);
     const block_pos & step = DIRECTION_STEPS[facing];

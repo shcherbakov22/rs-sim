@@ -69,13 +69,15 @@ struct entity {
     // ExperienceOrb
     int32_t    value        = 0;
     int32_t    count        = 1;
-    // AbstractArrow; item is the stack it drops
+    // AbstractArrow; item is the stack it drops. FireworkRocketEntity counts its life too.
     bool       in_ground    = false;
     int32_t    life         = 0;
     int32_t    last_state   = -1;  // the state it last hit, -1 for none
     // AbstractHurtingProjectile and WindCharge
     double     acceleration_power = 0.1;
     int32_t    no_deflect_ticks   = 5;
+    // FireworkRocketEntity: the life it explodes after
+    int32_t    lifetime           = 0;
 
     // FallingBlockEntity
     state_id block_state              = STATE_AIR;

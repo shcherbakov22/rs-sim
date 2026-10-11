@@ -1681,6 +1681,7 @@ item pumpkin_pie 64 Item - default - - 1.0
 item firework_rocket 64 FireworkRocketItem - projectile - - -
   dispense_entity firework_rocket
   dispense_projectile 0.5 1.0 0.0 -0.5000099999997474 0.0 0.0 0.5000099999997474 0.0 0.0 0.0 -0.5000099999997474 0.0 0.0 0.5000099999997474 -0.5000099999997474 0.0 0.0 0.5000099999997474 0.0 0.0
+  firework_flight 1
 item firework_star 64 Item - default - - -
 item enchanted_book 1 Item - default bookshelf_books - -
 item nether_brick 64 Item - default - - -
