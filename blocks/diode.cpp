@@ -128,12 +128,8 @@ static void comparator_check_tick_on_neighbor(level & lv, state_id st, block_pos
     }
 }
 
-static state_id comparator_update_shape(level &  lv,
-                                        state_id st,
-                                        block_pos,
-                                        direction dir,
-                                        block_pos neighbor_pos,
-                                        state_id  neighbor) {
+static state_id comparator_update_shape(level & lv, state_id st, block_pos, direction dir, block_pos neighbor_pos,
+                                        state_id neighbor) {
     return dir == DIRECTION_DOWN && !diode_can_survive_on(lv, neighbor_pos, neighbor) ? STATE_AIR : st;
 }
 
@@ -202,12 +198,8 @@ static void diode_affect_neighbors_after_removal(level & lv, state_id st, block_
 }
 
 // RepeaterBlock: a powered diode beside it locks it
-static state_id repeater_update_shape(level &   lv,
-                                      state_id  st,
-                                      block_pos pos,
-                                      direction dir,
-                                      block_pos neighbor_pos,
-                                      state_id  neighbor) {
+static state_id repeater_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos neighbor_pos,
+                                      state_id neighbor) {
     if (dir == DIRECTION_DOWN && !diode_can_survive_on(lv, neighbor_pos, neighbor)) return STATE_AIR;
     if (direction_get_axis(dir) != direction_get_axis(state_facing(st))) {
         return state_set(st, PROP_LOCKED, diode_is_locked(lv, st, pos));

@@ -53,12 +53,8 @@ static bool concrete_powder_touches_liquid(level & lv, block_pos pos) {
     return false;
 }
 
-static state_id concrete_powder_update_shape(level &   lv,
-                                             state_id  st,
-                                             block_pos pos,
-                                             direction dir,
-                                             block_pos neighbor_pos,
-                                             state_id  neighbor) {
+static state_id concrete_powder_update_shape(level & lv, state_id st, block_pos pos, direction dir,
+                                             block_pos neighbor_pos, state_id neighbor) {
     if (concrete_powder_touches_liquid(lv, pos)) {
         return block_default(block_field_get(state_block(st), FIELD_CONCRETE_POWDER_BLOCK_CONCRETE));
     }
@@ -164,11 +160,7 @@ static void soul_sand_on_place(level & lv, state_id st, block_pos pos, state_id,
     level_schedule_tick(lv, pos, state_block(st), 20);
 }
 
-static state_id soul_sand_update_shape(level &   lv,
-                                       state_id  st,
-                                       block_pos pos,
-                                       direction dir,
-                                       block_pos,
+static state_id soul_sand_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos,
                                        state_id neighbor) {
     if (dir == DIRECTION_UP && state_is(neighbor, BLOCK_WATER)) level_schedule_tick(lv, pos, state_block(st), 20);
     return st;

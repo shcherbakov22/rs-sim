@@ -22,12 +22,8 @@ static bool connecting_face_solid(level & lv, block_pos neighbor_pos, state_id n
 }
 
 // FenceBlock: a side connects to a solid face, a fence of the same kind (wooden or not) or a gate across it
-static state_id fence_update_shape(level &  lv,
-                                   state_id st,
-                                   block_pos,
-                                   direction dir,
-                                   block_pos neighbor_pos,
-                                   state_id  neighbor) {
+static state_id fence_update_shape(level & lv, state_id st, block_pos, direction dir, block_pos neighbor_pos,
+                                   state_id neighbor) {
     if (!direction_is_horizontal(dir)) return st;
     bool same_fence = state_has(neighbor, STATE_FLAG_TAG_FENCES) &&
                       state_has(neighbor, STATE_FLAG_TAG_WOODEN_FENCES) == state_has(st, STATE_FLAG_TAG_WOODEN_FENCES);
@@ -37,12 +33,8 @@ static state_id fence_update_shape(level &  lv,
 }
 
 // IronBarsBlock (bars and panes): a side connects to a solid face, other bars or a wall
-static state_id iron_bars_update_shape(level &  lv,
-                                       state_id st,
-                                       block_pos,
-                                       direction dir,
-                                       block_pos neighbor_pos,
-                                       state_id  neighbor) {
+static state_id iron_bars_update_shape(level & lv, state_id st, block_pos, direction dir, block_pos neighbor_pos,
+                                       state_id neighbor) {
     if (!direction_is_horizontal(dir)) return st;
     bool attaches = connecting_face_solid(lv, neighbor_pos, neighbor, dir) ||
                     block_instanceof(state_block(neighbor), VCLASS_IRON_BARS_BLOCK) ||
@@ -73,10 +65,7 @@ static bool wall_should_raise_post(state_id st, state_id top, const shape_face &
 }
 
 // the private WallBlock.updateShape: connected[] is indexed by direction
-static state_id wall_update_shape_from(level &    lv,
-                                       state_id   st,
-                                       block_pos  top_pos,
-                                       state_id   top,
+static state_id wall_update_shape_from(level & lv, state_id st, block_pos top_pos, state_id top,
                                        const bool connected[6]) {
     shape_face above_shape = shape_get_face(block_get_collision_shape(lv, top, top_pos), DIRECTION_DOWN);
     for (direction dir : DIRECTION_HORIZONTAL) {
@@ -90,12 +79,8 @@ static state_id wall_update_shape_from(level &    lv,
     return state_set(st, PROP_UP, wall_should_raise_post(st, top, above_shape));
 }
 
-static state_id wall_update_shape(level &   lv,
-                                  state_id  st,
-                                  block_pos pos,
-                                  direction dir,
-                                  block_pos neighbor_pos,
-                                  state_id  neighbor) {
+static state_id wall_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos neighbor_pos,
+                                  state_id neighbor) {
     if (dir == DIRECTION_DOWN) return st;
     bool connected[6] = {};
     for (direction side : DIRECTION_HORIZONTAL) {
@@ -113,9 +98,7 @@ static state_id wall_update_shape(level &   lv,
 
 // StairBlock: the shape turns into a corner when stairs of the same half sit behind or in front across the axis
 
-static bool stair_is_stairs(state_id st) {
-    return block_instanceof(state_block(st), VCLASS_STAIR_BLOCK);
-}
+static bool stair_is_stairs(state_id st) { return block_instanceof(state_block(st), VCLASS_STAIR_BLOCK); }
 
 // no stairs of the same facing and half on that side
 static bool stair_can_take_shape(level & lv, state_id st, block_pos pos, direction neighbor) {

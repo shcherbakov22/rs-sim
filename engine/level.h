@@ -117,20 +117,12 @@ void level_update_neighbors_around(level & lv, block_pos pos, int32_t block);
 void level_update_neighbors_at_except_from_facing(level & lv, block_pos pos, int32_t block, direction skip);
 void level_neighbor_changed(level & lv, block_pos pos, int32_t block);
 void level_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block, bool moved_by_piston);
-void level_neighbor_shape_changed(level &   lv,
-                                  direction dir,
-                                  block_pos pos,
-                                  block_pos neighbor_pos,
-                                  state_id  neighbor,
-                                  int32_t   flags,
-                                  int32_t   limit);
+void level_neighbor_shape_changed(level & lv, direction dir, block_pos pos, block_pos neighbor_pos, state_id neighbor,
+                                  int32_t flags, int32_t limit);
 void level_update_neighbour_for_output_signal(level & lv, block_pos pos, int32_t block);
 
-void level_schedule_tick(level &   lv,
-                         block_pos pos,
-                         int32_t   block,
-                         int32_t   delay,
-                         int32_t   priority = TICK_PRIORITY_NORMAL);
+void level_schedule_tick(level & lv, block_pos pos, int32_t block, int32_t delay,
+                         int32_t priority = TICK_PRIORITY_NORMAL);
 void level_block_event(level & lv, block_pos pos, int32_t block, int32_t param_a, int32_t param_b);
 
 // SignalGetter

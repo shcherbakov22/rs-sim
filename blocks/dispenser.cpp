@@ -30,9 +30,7 @@ static void default_dispense_item_behavior_spawn_item(level & lv, block_pos pos,
 }
 
 // DefaultDispenseItemBehavior.dispense
-static item_stack default_dispense_item_behavior_dispense(level &    lv,
-                                                          state_id   st,
-                                                          block_pos  pos,
+static item_stack default_dispense_item_behavior_dispense(level & lv, state_id st, block_pos pos,
                                                           item_stack dispensed) {
     item_stack_split(dispensed, 1);
     default_dispense_item_behavior_spawn_item(lv, pos, state_facing(st));
@@ -59,11 +57,8 @@ static item_stack dispenser_block_entity_insert_item(level & lv, block_pos pos, 
 }
 
 // DefaultDispenseItemBehavior.consumeWithRemainder; addToInventoryOrDispense drops what does not fit
-static item_stack default_dispense_item_behavior_consume_with_remainder(level &    lv,
-                                                                        state_id   st,
-                                                                        block_pos  pos,
-                                                                        item_stack dispensed,
-                                                                        item_stack remainder) {
+static item_stack default_dispense_item_behavior_consume_with_remainder(level & lv, state_id st, block_pos pos,
+                                                                        item_stack dispensed, item_stack remainder) {
     item_stack_grow(dispensed, -1);
     if (item_stack_is_empty(dispensed)) return remainder;
     if (!item_stack_is_empty(dispenser_block_entity_insert_item(lv, pos, remainder))) {
@@ -106,9 +101,7 @@ static bool minecart_dispense_item_behavior_is_slope(level & lv, state_id st) {
 }
 
 // AbstractMinecart.createMinecart draws nothing from the level random
-static item_stack minecart_dispense_item_behavior_execute(level &    lv,
-                                                          state_id   st,
-                                                          block_pos  pos,
+static item_stack minecart_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos,
                                                           item_stack dispensed) {
     direction         facing  = state_facing(st);
     const block_pos & step    = DIRECTION_STEPS[facing];
@@ -229,41 +222,27 @@ static item_stack dispense_item_behavior_dispense(level & lv, state_id st, block
         case DISPENSE_BEHAVIOR_DEFAULT:
         case DISPENSE_BEHAVIOR_EQUIPMENT:
         case DISPENSE_BEHAVIOR_CHEST:
-        case DISPENSE_BEHAVIOR_POTION:
-            return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
+        case DISPENSE_BEHAVIOR_POTION: return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
         // a beehive never loads, so shears find nothing to shear
         case DISPENSE_BEHAVIOR_BRUSH:
-        case DISPENSE_BEHAVIOR_SHEARS:
-            return dispensed;
-        case DISPENSE_BEHAVIOR_PROJECTILE:
-            return projectile_dispense_behavior_execute(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_BOAT:
-            return boat_dispense_item_behavior_execute(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_MINECART:
-            return minecart_dispense_item_behavior_execute(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_ARMOR_STAND:
-            return dispense_item_behavior_armor_stand(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_BUCKET:
-            return dispense_item_behavior_bucket(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_FLINT_AND_STEEL:
-            return dispense_item_behavior_flint_and_steel(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_BONE_MEAL:
-            return dispense_item_behavior_bone_meal(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_TNT:
-            return dispense_item_behavior_tnt(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_GLASS_BOTTLE:
-            return dispense_item_behavior_glass_bottle(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_GLOWSTONE:
-            return dispense_item_behavior_glowstone(lv, st, pos, dispensed);
-        case DISPENSE_BEHAVIOR_HONEYCOMB:
-            return dispense_item_behavior_honeycomb(lv, st, pos, dispensed);
+        case DISPENSE_BEHAVIOR_SHEARS: return dispensed;
+        case DISPENSE_BEHAVIOR_PROJECTILE: return projectile_dispense_behavior_execute(lv, st, pos, dispensed);
+        case DISPENSE_BEHAVIOR_BOAT: return boat_dispense_item_behavior_execute(lv, st, pos, dispensed);
+        case DISPENSE_BEHAVIOR_MINECART: return minecart_dispense_item_behavior_execute(lv, st, pos, dispensed);
+        case DISPENSE_BEHAVIOR_ARMOR_STAND: return dispense_item_behavior_armor_stand(lv, st, pos, dispensed);
+        case DISPENSE_BEHAVIOR_BUCKET: return dispense_item_behavior_bucket(lv, st, pos, dispensed);
+        case DISPENSE_BEHAVIOR_FLINT_AND_STEEL: return dispense_item_behavior_flint_and_steel(lv, st, pos, dispensed);
+        case DISPENSE_BEHAVIOR_BONE_MEAL: return dispense_item_behavior_bone_meal(lv, st, pos, dispensed);
+        case DISPENSE_BEHAVIOR_TNT: return dispense_item_behavior_tnt(lv, st, pos, dispensed);
+        case DISPENSE_BEHAVIOR_GLASS_BOTTLE: return dispense_item_behavior_glass_bottle(lv, st, pos, dispensed);
+        case DISPENSE_BEHAVIOR_GLOWSTONE: return dispense_item_behavior_glowstone(lv, st, pos, dispensed);
+        case DISPENSE_BEHAVIOR_HONEYCOMB: return dispense_item_behavior_honeycomb(lv, st, pos, dispensed);
         // spawn eggs (named after the first one) need mob spawning; filled buckets (named after the water bucket) place fluids; the others place blocks or summon
         case DISPENSE_BEHAVIOR_CHICKEN_SPAWN_EGG:
         case DISPENSE_BEHAVIOR_SHULKER_BOX:
         case DISPENSE_BEHAVIOR_WITHER_SKELETON_SKULL:
         case DISPENSE_BEHAVIOR_CARVED_PUMPKIN:
-        case DISPENSE_BEHAVIOR_WATER_BUCKET:
-            break;
+        case DISPENSE_BEHAVIOR_WATER_BUCKET: break;
     }
     level_unsupported(lv, "dispense behaviour of %s", item_defs[item_stack_get_item(dispensed)].name);
     return dispensed;
@@ -370,10 +349,7 @@ static void crafter_neighbor_changed(level & lv, state_id st, block_pos pos, int
 }
 
 // CrafterBlock.dispenseItem: into the container in front one by one or in bulk, the rest out as an item entity
-static void crafter_dispense_item(level &            lv,
-                                  state_id           st,
-                                  block_pos          pos,
-                                  block_entity *     be,
+static void crafter_dispense_item(level & lv, state_id st, block_pos pos, block_entity * be,
                                   const item_stack & results) {
     direction           dir  = front_and_top_fronts[state_get(st, PROP_ORIENTATION)];
     direction           face = direction_opposite(dir);

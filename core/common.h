@@ -25,6 +25,4 @@ struct block_pos {
     int32_t z;
 };
 
-inline bool operator==(const block_pos & a, const block_pos & b) {
-    return a.x == b.x && a.y == b.y && a.z == b.z;
-}
+inline bool operator==(const block_pos & a, const block_pos & b) { return a.x == b.x && a.y == b.y && a.z == b.z; }

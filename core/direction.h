@@ -21,9 +21,7 @@ inline constexpr block_pos DIRECTION_STEPS[6] = {
     { 1,  0,  0  }
 };
 
-inline direction direction_opposite(direction dir) {
-    return (direction) (dir ^ 1);
-}
+inline direction direction_opposite(direction dir) { return (direction) (dir ^ 1); }
 
 inline block_pos pos_relative(block_pos pos, direction dir) {
     const block_pos & s = DIRECTION_STEPS[dir];
@@ -36,9 +34,7 @@ inline block_pos pos_relative_steps(block_pos pos, direction dir, int32_t steps)
     return { pos.x + s.x * steps, pos.y + s.y * steps, pos.z + s.z * steps };
 }
 
-inline bool direction_is_horizontal(direction dir) {
-    return dir >= DIRECTION_NORTH;
-}
+inline bool direction_is_horizontal(direction dir) { return dir >= DIRECTION_NORTH; }
 
 inline direction_axis direction_get_axis(direction dir) {
     static constexpr direction_axis axes[6] = { DIRECTION_AXIS_Y, DIRECTION_AXIS_Y, DIRECTION_AXIS_Z,
@@ -54,6 +50,4 @@ inline direction direction_clockwise(direction dir) {
     return next[dir];
 }
 
-inline direction direction_counter_clockwise(direction dir) {
-    return direction_opposite(direction_clockwise(dir));
-}
+inline direction direction_counter_clockwise(direction dir) { return direction_opposite(direction_clockwise(dir)); }

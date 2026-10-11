@@ -16,14 +16,14 @@ AllowAllArgumentsOnNextLine: true
 AllowAllParametersOfDeclarationOnNextLine: false
 # AllowBreakBeforeNoexceptSpecifier: OnlyWithParen
 AllowShortBlocksOnASingleLine: Never
-AllowShortCaseLabelsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: Inline
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: All
 AllowShortIfStatementsOnASingleLine: WithoutElse
 AllowShortLambdasOnASingleLine: Inline
 AllowShortLoopsOnASingleLine: true
 AlwaysBreakBeforeMultilineStrings: true
 BinPackArguments: true
-BinPackParameters: false # OnePerLine
+BinPackParameters: true
 BitFieldColonSpacing: Both
 BreakBeforeBraces: Custom # Attach
 BraceWrapping:

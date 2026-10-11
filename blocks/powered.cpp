@@ -54,11 +54,7 @@ static void trap_door_neighbor_changed(level & lv, state_id st, block_pos pos, i
 }
 
 // FenceGateBlock: in_wall follows walls on the sides; only the neighbors along the gate's width decide it
-static state_id fence_gate_update_shape(level &   lv,
-                                        state_id  st,
-                                        block_pos pos,
-                                        direction dir,
-                                        block_pos,
+static state_id fence_gate_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos,
                                         state_id neighbor) {
     direction facing = state_facing(st);
     if (direction_get_axis(direction_clockwise(facing)) != direction_get_axis(dir)) return st;

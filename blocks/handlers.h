@@ -42,10 +42,7 @@ void         containers_update_neighbours_after_destroy(level & lv, state_id st,
 // HopperBlockEntity
 void hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st, block_entity * be);
 bool hopper_block_entity_get_container_at(level & lv, block_pos pos, container & out, composter_container & composter);
-item_stack hopper_block_entity_add_item(level &           lv,
-                                        const container * from,
-                                        const container & to,
-                                        item_stack        s,
+item_stack hopper_block_entity_add_item(level & lv, const container * from, const container & to, item_stack s,
                                         const direction * face);
 
 // CrafterBlock, CrafterBlockEntity
@@ -72,12 +69,10 @@ bool base_rail_is_slope(int32_t shape);
 void    composter_get_container(state_id st, block_pos pos, composter_container & out);
 int32_t composter_container_get_container_size(const composter_container & c);
 int32_t composter_container_get_slots_for_face(const composter_container & c, direction face);
-bool    composter_container_can_place_item_through_face(const composter_container & c,
-                                                        const item_stack &          s,
-                                                        const direction *           face);
-bool    composter_container_can_take_item_through_face(const composter_container & c,
-                                                       const item_stack &          s,
-                                                       direction                   face);
+bool    composter_container_can_place_item_through_face(const composter_container & c, const item_stack & s,
+                                                        const direction * face);
+bool    composter_container_can_take_item_through_face(const composter_container & c, const item_stack & s,
+                                                       direction face);
 void    composter_container_set_changed(level & lv, composter_container & c);
 
 // ChestBlock

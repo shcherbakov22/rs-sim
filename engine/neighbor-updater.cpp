@@ -18,9 +18,7 @@ static void execute_shape_update(level & lv, const neighbor_update & u) {
 // NeighborUpdates.runNext: true while the update has more to do
 static bool run_next(level & lv, neighbor_update & u) {
     switch (u.type) {
-        case NEIGHBOR_UPDATE_SHAPE:
-            execute_shape_update(lv, u);
-            return false;
+        case NEIGHBOR_UPDATE_SHAPE: execute_shape_update(lv, u); return false;
         case NEIGHBOR_UPDATE_SIMPLE:
             block_handle_neighbor_changed(lv, level_get_state(lv, u.pos), u.pos, u.block, false);
             return false;

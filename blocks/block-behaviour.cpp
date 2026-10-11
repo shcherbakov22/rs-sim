@@ -4,13 +4,9 @@
 #include "core/trace.h"
 #include "engine/level.h"
 
-static int16_t hook_owner(state_id st, hook h) {
-    return vclass_hooks[block_defs[state_block(st)].cls][h];
-}
+static int16_t hook_owner(state_id st, hook h) { return vclass_hooks[block_defs[state_block(st)].cls][h]; }
 
-state_id block_behaviour_update_shape(level &, state_id st, block_pos, direction, block_pos, state_id) {
-    return st;
-}
+state_id block_behaviour_update_shape(level &, state_id st, block_pos, direction, block_pos, state_id) { return st; }
 
 // classes whose updateShape override only schedules the water tick, which block_update_shape does first
 // clang-format off
@@ -48,34 +44,20 @@ static const block_hooks * block_hooks_of(int32_t vclass) {
 
 static bool block_hooks_has(const block_hooks & b, hook h) {
     switch (h) {
-        case HOOK_UPDATE_SHAPE:
-            return b.update_shape != nullptr;
-        case HOOK_NEIGHBOR_CHANGED:
-            return b.neighbor_changed != nullptr;
-        case HOOK_ON_PLACE:
-            return b.on_place != nullptr;
-        case HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL:
-            return b.affect_neighbors_after_removal != nullptr;
-        case HOOK_TICK:
-            return b.tick != nullptr;
-        case HOOK_TRIGGER_EVENT:
-            return b.trigger_event != nullptr;
-        case HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES:
-            return b.update_indirect_neighbour_shapes != nullptr;
-        case HOOK_SPAWN_AFTER_BREAK:
-            return false;
-        case HOOK_GET_SIGNAL:
-            return b.get_signal != nullptr;
-        case HOOK_GET_DIRECT_SIGNAL:
-            return b.get_direct_signal != nullptr;
-        case HOOK_CAN_SURVIVE:
-            return b.can_survive != nullptr;
-        case HOOK_GET_ANALOG_OUTPUT_SIGNAL:
-            return b.get_analog_output_signal != nullptr;
-        case HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY:
-            return b.should_changed_state_keep_block_entity != nullptr;
-        case HOOK_COUNT:
-            break;
+        case HOOK_UPDATE_SHAPE: return b.update_shape != nullptr;
+        case HOOK_NEIGHBOR_CHANGED: return b.neighbor_changed != nullptr;
+        case HOOK_ON_PLACE: return b.on_place != nullptr;
+        case HOOK_AFFECT_NEIGHBORS_AFTER_REMOVAL: return b.affect_neighbors_after_removal != nullptr;
+        case HOOK_TICK: return b.tick != nullptr;
+        case HOOK_TRIGGER_EVENT: return b.trigger_event != nullptr;
+        case HOOK_UPDATE_INDIRECT_NEIGHBOUR_SHAPES: return b.update_indirect_neighbour_shapes != nullptr;
+        case HOOK_SPAWN_AFTER_BREAK: return false;
+        case HOOK_GET_SIGNAL: return b.get_signal != nullptr;
+        case HOOK_GET_DIRECT_SIGNAL: return b.get_direct_signal != nullptr;
+        case HOOK_CAN_SURVIVE: return b.can_survive != nullptr;
+        case HOOK_GET_ANALOG_OUTPUT_SIGNAL: return b.get_analog_output_signal != nullptr;
+        case HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY: return b.should_changed_state_keep_block_entity != nullptr;
+        case HOOK_COUNT: break;
     }
     TMC_ASSERT(false);
     return false;
@@ -98,12 +80,9 @@ static const block_hooks * block_hooks_for(level & lv, state_id st, hook h) {
 bool support_type_is_supporting(const shape & support_shape, direction dir, support_type type) {
     shape_face face = shape_get_face(support_shape, dir);
     switch (type) {
-        case SUPPORT_TYPE_FULL:
-            return shape_face_is_full(face);
-        case SUPPORT_TYPE_CENTER:
-            return shape_face_covers(face, SHAPE_SUPPORT_TYPE_CENTER_SUPPORT_SHAPE);
-        case SUPPORT_TYPE_RIGID:
-            return shape_face_covers(face, SHAPE_SUPPORT_TYPE_RIGID_SUPPORT_SHAPE);
+        case SUPPORT_TYPE_FULL: return shape_face_is_full(face);
+        case SUPPORT_TYPE_CENTER: return shape_face_covers(face, SHAPE_SUPPORT_TYPE_CENTER_SUPPORT_SHAPE);
+        case SUPPORT_TYPE_RIGID: return shape_face_covers(face, SHAPE_SUPPORT_TYPE_RIGID_SUPPORT_SHAPE);
     }
     TMC_ASSERT(false);
     return false;
@@ -137,12 +116,8 @@ bool block_can_support_center(level & lv, block_pos pos, direction dir) {
     return block_is_face_sturdy(lv, st, pos, dir, SUPPORT_TYPE_CENTER);
 }
 
-state_id block_update_shape(level &   lv,
-                            state_id  st,
-                            block_pos pos,
-                            direction dir,
-                            block_pos neighbor_pos,
-                            state_id  neighbor) {
+state_id block_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos neighbor_pos,
+                            state_id neighbor) {
     trace_enter(lv.tr, &pos, "shape %d %d %d %s %s %s", pos.x, pos.y, pos.z, state_to_string(st).c_str(),
                 direction_names[dir], state_to_string(neighbor).c_str());
     state_id result = st;
@@ -195,9 +170,7 @@ void block_update_indirect_neighbour_shapes(level & lv, state_id st, block_pos p
 }
 
 // no ported class overrides spawnAfterBreak, so any override stops the run
-void block_spawn_after_break(level & lv, state_id st, block_pos) {
-    block_hooks_for(lv, st, HOOK_SPAWN_AFTER_BREAK);
-}
+void block_spawn_after_break(level & lv, state_id st, block_pos) { block_hooks_for(lv, st, HOOK_SPAWN_AFTER_BREAK); }
 
 // BlockState.isSignalSource; redstone wire turns it off while it computes its own power
 bool block_is_signal_source(level & lv, state_id st) {

@@ -6,12 +6,9 @@
 
 direction face_attached_horizontal_directional_get_connected_direction(state_id st) {
     switch (state_get(st, PROP_ATTACH_FACE)) {
-        case ATTACH_FACE_CEILING:
-            return DIRECTION_DOWN;
-        case ATTACH_FACE_FLOOR:
-            return DIRECTION_UP;
-        default:
-            return state_facing(st);
+        case ATTACH_FACE_CEILING: return DIRECTION_DOWN;
+        case ATTACH_FACE_FLOOR: return DIRECTION_UP;
+        default: return state_facing(st);
     }
 }
 
@@ -54,12 +51,8 @@ state_id attached_update_shape(level & lv, state_id st, block_pos pos, direction
 }
 
 // a ladder that breaks skips the water tick
-static state_id ladder_update_shape(level &   lv,
-                                    state_id  st,
-                                    block_pos pos,
-                                    direction dir,
-                                    block_pos neighbor_pos,
-                                    state_id  neighbor) {
+static state_id ladder_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos neighbor_pos,
+                                    state_id neighbor) {
     state_id result = attached_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
     if (result == st && state_get(st, PROP_WATERLOGGED)) level_unsupported(lv, "fluids");
     return result;
@@ -79,12 +72,9 @@ static state_id carpet_update_shape(level & lv, state_id st, block_pos pos, dire
 
 static direction bell_get_connected_direction(state_id st) {
     switch (state_get(st, PROP_BELL_ATTACHMENT)) {
-        case BELL_ATTACH_TYPE_FLOOR:
-            return DIRECTION_UP;
-        case BELL_ATTACH_TYPE_CEILING:
-            return DIRECTION_DOWN;
-        default:
-            return direction_opposite(state_facing(st));
+        case BELL_ATTACH_TYPE_FLOOR: return DIRECTION_UP;
+        case BELL_ATTACH_TYPE_CEILING: return DIRECTION_DOWN;
+        default: return direction_opposite(state_facing(st));
     }
 }
 
@@ -95,12 +85,8 @@ static bool bell_can_survive(level & lv, state_id st, block_pos pos) {
 }
 
 // a double wall bell never breaks: it turns into a single wall bell facing away from the lost side
-static state_id bell_update_shape(level &   lv,
-                                  state_id  st,
-                                  block_pos pos,
-                                  direction dir,
-                                  block_pos neighbor_pos,
-                                  state_id  neighbor) {
+static state_id bell_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos neighbor_pos,
+                                  state_id neighbor) {
     int32_t   attachment = state_get(st, PROP_BELL_ATTACHMENT);
     direction connected  = direction_opposite(bell_get_connected_direction(st));
     if (connected == dir && !block_can_survive(lv, st, pos) && attachment != BELL_ATTACH_TYPE_DOUBLE_WALL) {

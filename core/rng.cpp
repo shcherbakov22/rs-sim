@@ -5,9 +5,7 @@
 static constexpr int64_t RNG_MULTIPLIER = 25214903917LL;
 static constexpr int64_t RNG_MASK       = (1LL << 48) - 1;
 
-void rng_set_seed(rng & r, int64_t seed) {
-    r.seed = (seed ^ RNG_MULTIPLIER) & RNG_MASK;
-}
+void rng_set_seed(rng & r, int64_t seed) { r.seed = (seed ^ RNG_MULTIPLIER) & RNG_MASK; }
 
 int32_t rng_next(rng & r, int32_t bits) {
     r.seed        = (int64_t) ((uint64_t) r.seed * RNG_MULTIPLIER + 11) & RNG_MASK;
@@ -35,9 +33,7 @@ int64_t rng_next_long(rng & r) {
     return (int64_t) ((uint64_t) (int64_t) upper << 32) + lower;
 }
 
-float rng_next_float(rng & r) {
-    return (float) rng_next(r, 24) * 5.9604645E-8F;
-}
+float rng_next_float(rng & r) { return (float) rng_next(r, 24) * 5.9604645E-8F; }
 
 double rng_next_double(rng & r) {
     int32_t upper    = rng_next(r, 26);

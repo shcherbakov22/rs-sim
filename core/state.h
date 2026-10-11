@@ -133,17 +133,11 @@ int32_t block_find(std::string_view name);  // -1 if unknown
 int32_t item_find(std::string_view name);   // -1 if unknown
 int32_t state_block(state_id st);
 
-inline state_id block_default(int32_t block) {
-    return (state_id) block_defs[block].state_default;
-}
+inline state_id block_default(int32_t block) { return (state_id) block_defs[block].state_default; }
 
-inline bool state_is(state_id st, int32_t block) {
-    return state_block(st) == block;
-}
+inline bool state_is(state_id st, int32_t block) { return state_block(st) == block; }
 
-inline bool state_has(state_id st, state_flag flag) {
-    return (state_flags[st] & flag) != 0;
-}
+inline bool state_has(state_id st, state_flag flag) { return (state_flags[st] & flag) != 0; }
 
 // Java instanceof on the block's class
 bool block_instanceof(int32_t block, vclass cls);

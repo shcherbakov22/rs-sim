@@ -37,10 +37,7 @@ static bool piston_base_get_neighbor_signal(level & lv, block_pos pos, direction
 }
 
 // the world border is far outside any case
-static bool piston_base_is_pushable(state_id  st,
-                                    block_pos pos,
-                                    direction dir,
-                                    bool      allow_destroyable,
+static bool piston_base_is_pushable(state_id st, block_pos pos, direction dir, bool allow_destroyable,
                                     direction connection_direction) {
     if (pos.y < LEVEL_Y_MIN || pos.y > LEVEL_Y_MAX) return false;
     if (state_has(st, STATE_FLAG_AIR)) return true;
@@ -84,10 +81,8 @@ static int32_t piston_structure_resolver_index_of(const std::vector<block_pos> &
     return -1;
 }
 
-static bool piston_structure_resolver_add_block_line(level &                     lv,
-                                                     piston_structure_resolver & r,
-                                                     block_pos                   start,
-                                                     direction                   dir);
+static bool piston_structure_resolver_add_block_line(level & lv, piston_structure_resolver & r, block_pos start,
+                                                     direction dir);
 
 static bool piston_structure_resolver_add_branching_blocks(level & lv, piston_structure_resolver & r, block_pos from) {
     state_id from_st = level_get_state(lv, from);
@@ -105,17 +100,14 @@ static bool piston_structure_resolver_add_branching_blocks(level & lv, piston_st
 }
 
 // moves the line just added in front of the blocks it collided with
-static void piston_structure_resolver_reorder_list_at_collision(piston_structure_resolver & r,
-                                                                size_t                      blocks_added,
-                                                                size_t                      collision) {
+static void piston_structure_resolver_reorder_list_at_collision(piston_structure_resolver & r, size_t blocks_added,
+                                                                size_t collision) {
     std::vector<block_pos> & to_push = r.to_push;
     std::rotate(to_push.begin() + collision, to_push.end() - blocks_added, to_push.end());
 }
 
-static bool piston_structure_resolver_add_block_line(level &                     lv,
-                                                     piston_structure_resolver & r,
-                                                     block_pos                   start,
-                                                     direction                   dir) {
+static bool piston_structure_resolver_add_block_line(level & lv, piston_structure_resolver & r, block_pos start,
+                                                     direction dir) {
     state_id next = level_get_state(lv, start);
     if (state_has(next, STATE_FLAG_AIR)) return true;
     if (!piston_base_is_pushable(next, start, r.push_direction, false, dir)) return true;
@@ -324,13 +316,8 @@ static void piston_base_on_place(level & lv, state_id st, block_pos pos, state_i
     }
 }
 
-static block_entity * piston_base_new_moving_block_entity(level &   lv,
-                                                          block_pos pos,
-                                                          state_id  st,
-                                                          state_id  moved,
-                                                          direction dir,
-                                                          bool      extending,
-                                                          bool      is_source_piston) {
+static block_entity * piston_base_new_moving_block_entity(level & lv, block_pos pos, state_id st, state_id moved,
+                                                          direction dir, bool extending, bool is_source_piston) {
     block_entity * be    = level_new_block_entity(lv, BLOCK_ENTITY_TYPE_PISTON, pos, st);
     be->moved_state      = moved;
     be->dir              = dir;

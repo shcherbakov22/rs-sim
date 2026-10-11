@@ -17,9 +17,7 @@ struct portal_shape {
     int32_t        width;
 };
 
-static bool portal_shape_is_frame(state_id st) {
-    return state_is(st, BLOCK_OBSIDIAN);
-}
+static bool portal_shape_is_frame(state_id st) { return state_is(st, BLOCK_OBSIDIAN); }
 
 static bool portal_shape_is_empty(state_id st) {
     return state_has(st, STATE_FLAG_AIR) || state_has(st, STATE_FLAG_TAG_FIRE) || state_is(st, BLOCK_NETHER_PORTAL);
@@ -60,11 +58,8 @@ static int32_t portal_shape_calculate_width(level & lv, block_pos bottom_left, d
     return width >= 2 && width <= PORTAL_SHAPE_MAX_SIZE ? width : 0;
 }
 
-static int32_t portal_shape_get_distance_until_top(level &   lv,
-                                                   block_pos bottom_left,
-                                                   direction right_dir,
-                                                   int32_t   width,
-                                                   int32_t & portal_block_count) {
+static int32_t portal_shape_get_distance_until_top(level & lv, block_pos bottom_left, direction right_dir,
+                                                   int32_t width, int32_t & portal_block_count) {
     for (int32_t height = 0; height < PORTAL_SHAPE_MAX_SIZE; height++) {
         if (!portal_shape_is_frame(level_get_state(lv, portal_shape_at(bottom_left, right_dir, height, -1))) ||
             !portal_shape_is_frame(level_get_state(lv, portal_shape_at(bottom_left, right_dir, height, width)))) {
@@ -79,11 +74,8 @@ static int32_t portal_shape_get_distance_until_top(level &   lv,
     return PORTAL_SHAPE_MAX_SIZE;
 }
 
-static bool portal_shape_has_top_frame(level &   lv,
-                                       block_pos bottom_left,
-                                       direction right_dir,
-                                       int32_t   width,
-                                       int32_t   height) {
+static bool portal_shape_has_top_frame(level & lv, block_pos bottom_left, direction right_dir, int32_t width,
+                                       int32_t height) {
     for (int32_t i = 0; i < width; i++) {
         if (!portal_shape_is_frame(level_get_state(lv, portal_shape_at(bottom_left, right_dir, height, i)))) {
             return false;
@@ -92,10 +84,7 @@ static bool portal_shape_has_top_frame(level &   lv,
     return true;
 }
 
-static int32_t portal_shape_calculate_height(level &   lv,
-                                             block_pos bottom_left,
-                                             direction right_dir,
-                                             int32_t   width,
+static int32_t portal_shape_calculate_height(level & lv, block_pos bottom_left, direction right_dir, int32_t width,
                                              int32_t & portal_block_count) {
     int32_t height = portal_shape_get_distance_until_top(lv, bottom_left, right_dir, width, portal_block_count);
     bool    valid  = height >= 3 && height <= PORTAL_SHAPE_MAX_SIZE &&
@@ -119,9 +108,7 @@ static bool portal_shape_is_valid(const portal_shape & s) {
 }
 
 // PortalShape.findPortalShape with the predicate of findEmptyPortalShape; false for an empty Optional
-static bool portal_shape_find_empty_portal_shape(level &        lv,
-                                                 block_pos      pos,
-                                                 direction_axis preferred_axis,
+static bool portal_shape_find_empty_portal_shape(level & lv, block_pos pos, direction_axis preferred_axis,
                                                  portal_shape & out) {
     direction_axis axes[2] = { preferred_axis,
                                preferred_axis == DIRECTION_AXIS_X ? DIRECTION_AXIS_Z : DIRECTION_AXIS_X };
@@ -165,9 +152,7 @@ static void base_fire_on_place(level & lv, state_id st, block_pos pos, state_id 
 
 // SoulFireBlock: fire that lives only on soul fire base blocks
 
-static bool soul_fire_can_survive_on_block(state_id st) {
-    return state_has(st, STATE_FLAG_TAG_SOUL_FIRE_BASE_BLOCKS);
-}
+static bool soul_fire_can_survive_on_block(state_id st) { return state_has(st, STATE_FLAG_TAG_SOUL_FIRE_BASE_BLOCKS); }
 
 static bool soul_fire_can_survive(level & lv, state_id, block_pos pos) {
     return soul_fire_can_survive_on_block(level_get_state(lv, pos_relative(pos, DIRECTION_DOWN)));
@@ -180,9 +165,7 @@ static state_id soul_fire_update_shape(level & lv, state_id st, block_pos pos, d
 // FireBlock: fire burns on a sturdy top face or next to a flammable block; its sides show where it climbs
 
 // FireBlock.canBurn
-static bool fire_can_burn(state_id st) {
-    return state_has(st, STATE_FLAG_FIRE_CAN_BURN);
-}
+static bool fire_can_burn(state_id st) { return state_has(st, STATE_FLAG_FIRE_CAN_BURN); }
 
 // FireBlock.PROPERTY_BY_DIRECTION: every direction but down
 // FireBlock.PROPERTY_BY_DIRECTION, indexed by direction; down has none
@@ -226,9 +209,7 @@ static state_id fire_update_shape(level & lv, state_id st, block_pos pos, direct
     return fire_can_survive(lv, st, pos) ? fire_get_state_with_age(lv, pos, state_get(st, PROP_AGE_15)) : STATE_AIR;
 }
 
-static int32_t fire_get_fire_tick_delay(rng & random) {
-    return 30 + rng_next_int(random, 10);
-}
+static int32_t fire_get_fire_tick_delay(rng & random) { return 30 + rng_next_int(random, 10); }
 
 // the tick is scheduled even when BaseFireBlock.onPlace removed the fire
 static void fire_on_place(level & lv, state_id st, block_pos pos, state_id old, bool moved_by_piston) {
@@ -273,11 +254,7 @@ bool base_fire_can_be_placed_at(level & lv, block_pos pos, direction forward) {
 // NetherPortalBlock: a portal block breaks when an update along its plane finds the frame no longer complete
 
 // updates across the portal plane leave it alone
-static state_id nether_portal_update_shape(level &   lv,
-                                           state_id  st,
-                                           block_pos pos,
-                                           direction dir,
-                                           block_pos,
+static state_id nether_portal_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos,
                                            state_id neighbor) {
     direction_axis update_axis = direction_get_axis(dir);
     direction_axis axis        = (direction_axis) state_get(st, PROP_HORIZONTAL_AXIS);

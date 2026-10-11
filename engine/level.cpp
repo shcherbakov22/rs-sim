@@ -32,13 +32,9 @@ static int64_t pos_key(block_pos pos) {
     return ((int64_t) pos.x & 0x3FFFFFF) << 38 | ((int64_t) pos.z & 0x3FFFFFF) << 12 | ((int64_t) pos.y & 0xFFF);
 }
 
-static int32_t section_index(block_pos pos) {
-    return (pos.y & 15) << 8 | (pos.z & 15) << 4 | (pos.x & 15);
-}
+static int32_t section_index(block_pos pos) { return (pos.y & 15) << 8 | (pos.z & 15) << 4 | (pos.x & 15); }
 
-static bool level_outside_height(block_pos pos) {
-    return pos.y < LEVEL_Y_MIN || pos.y > LEVEL_Y_MAX;
-}
+static bool level_outside_height(block_pos pos) { return pos.y < LEVEL_Y_MIN || pos.y > LEVEL_Y_MAX; }
 
 // Level.isInValidBounds
 static bool level_in_valid_bounds(block_pos pos) {
@@ -331,13 +327,8 @@ void level_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t bloc
         { .type = NEIGHBOR_UPDATE_FULL, .pos = pos, .state = st, .block = block, .moved_by_piston = moved_by_piston });
 }
 
-void level_neighbor_shape_changed(level &   lv,
-                                  direction dir,
-                                  block_pos pos,
-                                  block_pos neighbor_pos,
-                                  state_id  neighbor,
-                                  int32_t   flags,
-                                  int32_t   limit) {
+void level_neighbor_shape_changed(level & lv, direction dir, block_pos pos, block_pos neighbor_pos, state_id neighbor,
+                                  int32_t flags, int32_t limit) {
     neighbor_updater_add(lv, { .type         = NEIGHBOR_UPDATE_SHAPE,
                                .pos          = pos,
                                .neighbor_pos = neighbor_pos,
@@ -411,9 +402,7 @@ int32_t level_get_control_input_signal(level & lv, block_pos pos, direction dir,
     return block_is_signal_source(lv, st) ? level_get_direct_signal(lv, pos, dir) : 0;
 }
 
-bool level_has_signal(level & lv, block_pos pos, direction dir) {
-    return level_get_signal(lv, pos, dir) > 0;
-}
+bool level_has_signal(level & lv, block_pos pos, direction dir) { return level_get_signal(lv, pos, dir) > 0; }
 
 int32_t level_get_signal(level & lv, block_pos pos, direction dir) {
     state_id st     = level_get_state(lv, pos);

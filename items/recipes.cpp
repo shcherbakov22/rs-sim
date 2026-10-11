@@ -87,11 +87,8 @@ static bool shaped_recipe_matches(int32_t recipe, const crafting_input & in) {
 // ShapelessRecipe: each ingredient takes a different stack of the grid, in any layout
 
 // one augmenting path of StackedContents.tryPick, which finds a full matching whenever one exists
-static bool shapeless_recipe_try_assign(const recipe_def &     def,
-                                        const crafting_input & in,
-                                        int32_t                ingredient,
-                                        std::vector<bool> &    visited,
-                                        std::vector<int32_t> & slot_owner) {
+static bool shapeless_recipe_try_assign(const recipe_def & def, const crafting_input & in, int32_t ingredient,
+                                        std::vector<bool> & visited, std::vector<int32_t> & slot_owner) {
     for (size_t slot = 0; slot < in.items.size(); slot++) {
         if (visited[slot] || !ingredient_test(recipe_ingredients[def.first + ingredient], in.items[slot])) continue;
         visited[slot] = true;
@@ -177,8 +174,7 @@ static bool map_extending_recipe_matches(level & lv, int32_t recipe, const craft
 // the special recipes (CustomRecipe)
 
 // the special recipes that take exactly one stack that is_one and at least one other, each of which is_some
-static bool custom_recipe_matches_one_and_some(const crafting_input & in,
-                                               bool (*is_one)(const item_stack & s),
+static bool custom_recipe_matches_one_and_some(const crafting_input & in, bool (*is_one)(const item_stack & s),
                                                bool (*is_some)(const item_stack & s)) {
     if (in.ingredient_count < 2) return false;
     bool has_one  = false;
@@ -197,9 +193,7 @@ static bool custom_recipe_matches_one_and_some(const crafting_input & in,
     return has_one && has_some;
 }
 
-static bool custom_recipe_is_dye(const item_stack & s) {
-    return item_instanceof(s.item, ICLASS_DYE_ITEM);
-}
+static bool custom_recipe_is_dye(const item_stack & s) { return item_instanceof(s.item, ICLASS_DYE_ITEM); }
 
 // ArmorDyeRecipe: one dyeable item and dyes
 static bool armor_dye_recipe_matches(const crafting_input & in) {
@@ -362,9 +356,8 @@ static bool repair_item_recipe_can_combine(const item_stack & first, const item_
 }
 
 // RepairItemRecipe.getItemsToCombine: false for null
-static bool repair_item_recipe_get_items_to_combine(const crafting_input & in,
-                                                    const item_stack *&    first,
-                                                    const item_stack *&    second) {
+static bool repair_item_recipe_get_items_to_combine(const crafting_input & in, const item_stack *& first,
+                                                    const item_stack *& second) {
     if (in.ingredient_count != 2) return false;
     first = nullptr;
     for (const item_stack & s : in.items) {
@@ -413,36 +406,21 @@ static bool tipped_arrow_recipe_matches(const crafting_input & in) {
 
 static bool recipe_matches(level & lv, int32_t recipe, const crafting_input & in) {
     switch (recipe_defs[recipe].cls) {
-        case RCLASS_SHAPED_RECIPE:
-            return shaped_recipe_matches(recipe, in);
-        case RCLASS_SHAPELESS_RECIPE:
-            return shapeless_recipe_matches(recipe, in);
-        case RCLASS_TRANSMUTE_RECIPE:
-            return transmute_recipe_matches(lv, recipe, in);
-        case RCLASS_MAP_EXTENDING_RECIPE:
-            return map_extending_recipe_matches(lv, recipe, in);
-        case RCLASS_ARMOR_DYE_RECIPE:
-            return armor_dye_recipe_matches(in);
-        case RCLASS_BANNER_DUPLICATE_RECIPE:
-            return banner_duplicate_recipe_matches(in);
-        case RCLASS_BOOK_CLONING_RECIPE:
-            return book_cloning_recipe_matches(in);
-        case RCLASS_DECORATED_POT_RECIPE:
-            return decorated_pot_recipe_matches(in);
-        case RCLASS_FIREWORK_ROCKET_RECIPE:
-            return firework_rocket_recipe_matches(in);
-        case RCLASS_FIREWORK_STAR_FADE_RECIPE:
-            return firework_star_fade_recipe_matches(in);
-        case RCLASS_FIREWORK_STAR_RECIPE:
-            return firework_star_recipe_matches(in);
-        case RCLASS_MAP_CLONING_RECIPE:
-            return map_cloning_recipe_matches(in);
-        case RCLASS_REPAIR_ITEM_RECIPE:
-            return repair_item_recipe_matches(in);
-        case RCLASS_SHIELD_DECORATION_RECIPE:
-            return shield_decoration_recipe_matches(in);
-        case RCLASS_TIPPED_ARROW_RECIPE:
-            return tipped_arrow_recipe_matches(in);
+        case RCLASS_SHAPED_RECIPE: return shaped_recipe_matches(recipe, in);
+        case RCLASS_SHAPELESS_RECIPE: return shapeless_recipe_matches(recipe, in);
+        case RCLASS_TRANSMUTE_RECIPE: return transmute_recipe_matches(lv, recipe, in);
+        case RCLASS_MAP_EXTENDING_RECIPE: return map_extending_recipe_matches(lv, recipe, in);
+        case RCLASS_ARMOR_DYE_RECIPE: return armor_dye_recipe_matches(in);
+        case RCLASS_BANNER_DUPLICATE_RECIPE: return banner_duplicate_recipe_matches(in);
+        case RCLASS_BOOK_CLONING_RECIPE: return book_cloning_recipe_matches(in);
+        case RCLASS_DECORATED_POT_RECIPE: return decorated_pot_recipe_matches(in);
+        case RCLASS_FIREWORK_ROCKET_RECIPE: return firework_rocket_recipe_matches(in);
+        case RCLASS_FIREWORK_STAR_FADE_RECIPE: return firework_star_fade_recipe_matches(in);
+        case RCLASS_FIREWORK_STAR_RECIPE: return firework_star_recipe_matches(in);
+        case RCLASS_MAP_CLONING_RECIPE: return map_cloning_recipe_matches(in);
+        case RCLASS_REPAIR_ITEM_RECIPE: return repair_item_recipe_matches(in);
+        case RCLASS_SHIELD_DECORATION_RECIPE: return shield_decoration_recipe_matches(in);
+        case RCLASS_TIPPED_ARROW_RECIPE: return tipped_arrow_recipe_matches(in);
     }
     TMC_ASSERT(false);
     return false;
@@ -469,19 +447,13 @@ item_stack recipe_assemble(level & lv, int32_t recipe, const crafting_input & in
                 return {};
             }
             return { def.result, def.count };
-        case RECIPE_KIND_TRANSMUTE:
-            return transmute_recipe_assemble(recipe, in);
-        case RECIPE_KIND_SPECIAL:
-            break;
+        case RECIPE_KIND_TRANSMUTE: return transmute_recipe_assemble(recipe, in);
+        case RECIPE_KIND_SPECIAL: break;
     }
     switch (def.cls) {
-        case RCLASS_REPAIR_ITEM_RECIPE:
-            return repair_item_recipe_assemble(in);
-        case RCLASS_DECORATED_POT_RECIPE:
-            return decorated_pot_recipe_assemble(lv, in);
-        default:
-            level_unsupported(lv, "%s.assemble", recipe_class_names[def.cls]);
-            return {};
+        case RCLASS_REPAIR_ITEM_RECIPE: return repair_item_recipe_assemble(in);
+        case RCLASS_DECORATED_POT_RECIPE: return decorated_pot_recipe_assemble(lv, in);
+        default: level_unsupported(lv, "%s.assemble", recipe_class_names[def.cls]); return {};
     }
 }
 

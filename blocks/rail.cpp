@@ -159,19 +159,12 @@ static void rail_state_place(level & lv, rail_state & rs, bool first, int32_t de
 
 // PoweredRailBlock (powered and activator rails): power passes along up to 8 rails of the same block
 
-static bool powered_rail_find_powered_rail_signal(level &   lv,
-                                                  block_pos pos,
-                                                  state_id  st,
-                                                  bool      forward,
-                                                  int32_t   search_depth);
+static bool powered_rail_find_powered_rail_signal(level & lv, block_pos pos, state_id st, bool forward,
+                                                  int32_t search_depth);
 
 // a rail across the search axis breaks the line
-static bool powered_rail_is_same_rail_with_power(level &   lv,
-                                                 block_pos pos,
-                                                 state_id  from,
-                                                 bool      forward,
-                                                 int32_t   search_depth,
-                                                 bool      north_south) {
+static bool powered_rail_is_same_rail_with_power(level & lv, block_pos pos, state_id from, bool forward,
+                                                 int32_t search_depth, bool north_south) {
     state_id st = level_get_state(lv, pos);
     if (!state_is(st, state_block(from)) ||
         rail_shape_is_north_south(state_get(st, PROP_RAIL_SHAPE_STRAIGHT)) != north_south ||
@@ -183,11 +176,8 @@ static bool powered_rail_is_same_rail_with_power(level &   lv,
 }
 
 // forward is south or west; a slope steps up toward its high end and then does not look below
-static bool powered_rail_find_powered_rail_signal(level &   lv,
-                                                  block_pos pos,
-                                                  state_id  st,
-                                                  bool      forward,
-                                                  int32_t   search_depth) {
+static bool powered_rail_find_powered_rail_signal(level & lv, block_pos pos, state_id st, bool forward,
+                                                  int32_t search_depth) {
     if (search_depth >= 8) return false;
     int32_t   shape = state_get(st, PROP_RAIL_SHAPE_STRAIGHT);
     bool      ns    = rail_shape_is_north_south(shape);

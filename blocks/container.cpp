@@ -16,9 +16,7 @@ void block_entity_set_changed(level & lv, block_pos pos, state_id st) {
     if (!state_has(st, STATE_FLAG_AIR)) level_update_neighbour_for_output_signal(lv, pos, state_block(st));
 }
 
-bool block_entity_is_container(const block_entity * be) {
-    return block_entity_type_container_sizes[be->type] >= 0;
-}
+bool block_entity_is_container(const block_entity * be) { return block_entity_type_container_sizes[be->type] >= 0; }
 
 int32_t container_get_container_size(const container & c) {
     if (c.composter != nullptr) return composter_container_get_container_size(*c.composter);
@@ -49,9 +47,7 @@ bool container_is_empty(const container & c) {
 }
 
 // hoppers and chests keep Container's default limit of 99
-int32_t container_get_max_stack_size(const item_stack & s) {
-    return std::min(99, item_stack_get_max_stack_size(s));
-}
+int32_t container_get_max_stack_size(const item_stack & s) { return std::min(99, item_stack_get_max_stack_size(s)); }
 
 // Container.getMaxStackSize(ItemStack): the composter's containers hold one item
 int32_t container_get_max_stack_size_in(const container & c, const item_stack & s) {
@@ -170,21 +166,17 @@ bool base_entity_block_trigger_event(level & lv, state_id, block_pos pos, int32_
         case BLOCK_ENTITY_TYPE_TRAPPED_CHEST:
         case BLOCK_ENTITY_TYPE_ENDER_CHEST:
         case BLOCK_ENTITY_TYPE_SHULKER_BOX:
-        case BLOCK_ENTITY_TYPE_BELL:
-            return true;
+        case BLOCK_ENTITY_TYPE_BELL: return true;
         case BLOCK_ENTITY_TYPE_DECORATED_POT:
             // only the two WobbleStyle ordinals
             return param_b >= 0 && param_b < 2;
-        default:
-            return false;
+        default: return false;
     }
 }
 
 // ChestBlock
 
-static chest_type chest_get_type(state_id st) {
-    return (chest_type) state_get(st, PROP_CHEST_TYPE);
-}
+static chest_type chest_get_type(state_id st) { return (chest_type) state_get(st, PROP_CHEST_TYPE); }
 
 static direction chest_get_connected_direction(state_id st) {
     direction facing = state_facing(st);
@@ -247,12 +239,8 @@ static state_id chest_update_shape(level &, state_id st, block_pos, direction di
 }
 
 // CopperChestBlock.updateShape: a double copper chest takes on the block of its other half
-static state_id copper_chest_update_shape(level &   lv,
-                                          state_id  st,
-                                          block_pos pos,
-                                          direction dir,
-                                          block_pos neighbor_pos,
-                                          state_id  neighbor) {
+static state_id copper_chest_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos neighbor_pos,
+                                          state_id neighbor) {
     state_id result = chest_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
     if (chest_can_connect_to(st, neighbor) && chest_get_type(result) != CHEST_TYPE_SINGLE &&
         chest_get_connected_direction(result) == dir) {
@@ -304,9 +292,7 @@ static void jukebox_song_player_stop(level & lv, block_entity * be) {
 }
 
 // JukeboxSong.hasFinished: the song runs 20 ticks past its length
-bool jukebox_song_has_finished(int32_t record, int64_t ticks) {
-    return ticks >= item_defs[record].song_ticks + 20;
-}
+bool jukebox_song_has_finished(int32_t record, int64_t ticks) { return ticks >= item_defs[record].song_ticks + 20; }
 
 // JukeboxBlockEntity.setTheItem; notifyItemChangedInJukebox only acts while the level holds the cached state
 void jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack s) {
@@ -362,9 +348,7 @@ static int32_t jukebox_get_analog_output_signal(level & lv, state_id, block_pos 
 
 // ChiseledBookShelfBlock and ChiseledBookShelfBlockEntity. The slot properties are kept apart from the items, so a slot can show a book it does not hold.
 
-static prop_id chiseled_book_shelf_slot_occupied(int32_t slot) {
-    return (prop_id) (PROP_SLOT_0_OCCUPIED + slot);
-}
+static prop_id chiseled_book_shelf_slot_occupied(int32_t slot) { return (prop_id) (PROP_SLOT_0_OCCUPIED + slot); }
 
 // ChiseledBookShelfBlockEntity.updateState starts from the block entity's cached state
 static void chiseled_book_shelf_block_entity_update_state(level & lv, block_entity * be, int32_t interacted_slot) {
@@ -583,16 +567,14 @@ int32_t composter_container_get_slots_for_face(const composter_container & c, di
 }
 
 // one item per container: the first one composts and sets changed
-bool composter_container_can_place_item_through_face(const composter_container & c,
-                                                     const item_stack &          s,
-                                                     const direction *           face) {
+bool composter_container_can_place_item_through_face(const composter_container & c, const item_stack & s,
+                                                     const direction * face) {
     return state_get(c.state, PROP_LEVEL_COMPOSTER) < 7 && !c.changed && face != nullptr && *face == DIRECTION_UP &&
            item_defs[s.item].compost_chance >= 0.0f;
 }
 
-bool composter_container_can_take_item_through_face(const composter_container & c,
-                                                    const item_stack &          s,
-                                                    direction                   face) {
+bool composter_container_can_take_item_through_face(const composter_container & c, const item_stack & s,
+                                                    direction face) {
     return state_get(c.state, PROP_LEVEL_COMPOSTER) == 8 && !c.changed && face == DIRECTION_DOWN &&
            s.item == ITEM_BONE_MEAL;
 }

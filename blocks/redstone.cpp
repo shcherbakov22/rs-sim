@@ -106,12 +106,8 @@ static state_id red_stone_wire_get_connection_state(level & lv, state_id st, blo
     return st;
 }
 
-static state_id red_stone_wire_update_shape(level &   lv,
-                                            state_id  st,
-                                            block_pos pos,
-                                            direction dir,
-                                            block_pos neighbor_pos,
-                                            state_id  neighbor) {
+static state_id red_stone_wire_update_shape(level & lv, state_id st, block_pos pos, direction dir,
+                                            block_pos neighbor_pos, state_id neighbor) {
     if (dir == DIRECTION_DOWN) return red_stone_wire_can_survive_on(lv, neighbor_pos, neighbor) ? st : STATE_AIR;
     if (dir == DIRECTION_UP) return red_stone_wire_get_connection_state(lv, st, pos);
     bool          can_connect_up = !red_stone_wire_is_conductor(lv, pos_relative(pos, DIRECTION_UP));
@@ -124,11 +120,8 @@ static state_id red_stone_wire_update_shape(level &   lv,
     return red_stone_wire_get_connection_state(lv, state_set(cross, prop, side), pos);
 }
 
-static void red_stone_wire_update_indirect_neighbour_shapes(level &   lv,
-                                                            state_id  st,
-                                                            block_pos pos,
-                                                            int32_t   flags,
-                                                            int32_t   limit) {
+static void red_stone_wire_update_indirect_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags,
+                                                            int32_t limit) {
     for (direction dir : DIRECTION_HORIZONTAL) {
         block_pos side = pos_relative(pos, dir);
         if (!red_stone_wire_connected(st, dir) || state_is(level_get_state(lv, side), BLOCK_REDSTONE_WIRE)) continue;
@@ -222,10 +215,8 @@ static void red_stone_wire_on_place(level & lv, state_id st, block_pos pos, stat
     red_stone_wire_update_neighbors_of_neighboring_wires(lv, pos);
 }
 
-static void red_stone_wire_affect_neighbors_after_removal(level &   lv,
-                                                          state_id  st,
-                                                          block_pos pos,
-                                                          bool      moved_by_piston) {
+static void red_stone_wire_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos,
+                                                          bool moved_by_piston) {
     if (moved_by_piston) return;
     level_update_neighbors_around(lv, pos, BLOCK_REDSTONE_WIRE);
     red_stone_wire_update_power_strength(lv, pos, st);
@@ -268,10 +259,8 @@ static void redstone_torch_on_place(level & lv, state_id st, block_pos pos, stat
     level_update_neighbors_around(lv, pos, state_block(st));
 }
 
-static void redstone_torch_affect_neighbors_after_removal(level &   lv,
-                                                          state_id  st,
-                                                          block_pos pos,
-                                                          bool      moved_by_piston) {
+static void redstone_torch_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos,
+                                                          bool moved_by_piston) {
     if (!moved_by_piston) level_update_neighbors_around(lv, pos, state_block(st));
 }
 

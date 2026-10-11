@@ -76,9 +76,7 @@ static state_id state_with_index(state_id st, const block_prop & bp, int32_t ind
     return (state_id) (st + (index - state_value_index(st, bp)) * bp.stride);
 }
 
-bool state_has_prop(state_id st, prop_id prop) {
-    return state_find_prop(st, prop) != nullptr;
-}
+bool state_has_prop(state_id st, prop_id prop) { return state_find_prop(st, prop) != nullptr; }
 
 int32_t state_get(state_id st, prop_id prop) {
     const block_prop & bp = state_need_prop(st, prop);

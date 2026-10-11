@@ -3,9 +3,7 @@
 #include <algorithm>
 #include <cmath>
 
-shape shape_block() {
-    return { { { { 0.0, 0.0, 0.0 }, { 1.0, 1.0, 1.0 } } } };
-}
+shape shape_block() { return { { { { 0.0, 0.0, 0.0 }, { 1.0, 1.0, 1.0 } } } }; }
 
 shape shape_from_table(uint16_t id) {
     TMC_ASSERT(id != SHAPE_NONE);
@@ -13,9 +11,7 @@ shape shape_from_table(uint16_t id) {
     return { std::vector<shape_box>(shape_boxes + def.boxes_first, shape_boxes + def.boxes_first + def.n_boxes) };
 }
 
-shape shape_collision(state_id st) {
-    return shape_from_table(state_collision_shapes[st]);
-}
+shape shape_collision(state_id st) { return shape_from_table(state_collision_shapes[st]); }
 
 shape shape_move(shape s, double dx, double dy, double dz) {
     const double d[3] = { dx, dy, dz };

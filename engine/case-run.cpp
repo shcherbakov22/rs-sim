@@ -43,13 +43,9 @@ static block_entity * case_get_block_entity(level & lv, block_pos pos) {
 }
 
 // values as Tag.toString writes them: strtoll and strtof stop at the type suffix (b, s, L, f, d)
-static int64_t case_data_int(const case_data & d) {
-    return strtoll(d.value.c_str(), nullptr, 10);
-}
+static int64_t case_data_int(const case_data & d) { return strtoll(d.value.c_str(), nullptr, 10); }
 
-static float case_data_float(const case_data & d) {
-    return strtof(d.value.c_str(), nullptr);
-}
+static float case_data_float(const case_data & d) { return strtof(d.value.c_str(), nullptr); }
 
 // ContainerHelper.loadAllItems, which skips slots outside the container; of the item components only DAMAGE is supported
 static void case_load_item(level & lv, const case_item & it) {

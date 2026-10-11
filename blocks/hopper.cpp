@@ -6,9 +6,7 @@
 #include "blocks/handlers.h"
 #include "engine/level.h"
 
-static bool hopper_block_entity_is_on_cooldown(const block_entity * be) {
-    return be->cooldown_time > 0;
-}
+static bool hopper_block_entity_is_on_cooldown(const block_entity * be) { return be->cooldown_time > 0; }
 
 // a container of a single hopper block entity
 static bool container_is_hopper(const container * c) {
@@ -52,10 +50,8 @@ static bool hopper_block_entity_can_merge_items(const item_stack & a, const item
 }
 
 // a null face is vanilla's null direction
-static bool hopper_block_entity_can_place_item_in_container(const container &  to,
-                                                            const item_stack & s,
-                                                            int32_t            slot,
-                                                            const direction *  face) {
+static bool hopper_block_entity_can_place_item_in_container(const container & to, const item_stack & s, int32_t slot,
+                                                            const direction * face) {
     if (to.composter != nullptr) return composter_container_can_place_item_through_face(*to.composter, s, face);
     // ShulkerBoxBlockEntity.canPlaceItemThroughFace
     int32_t block = item_defs[item_stack_get_item(s)].block;
@@ -74,12 +70,8 @@ static bool hopper_block_entity_can_place_item_in_container(const container &  t
            chiseled_book_shelf_block_entity_can_place_item(to.first, slot, s);
 }
 
-static item_stack hopper_block_entity_try_move_in_item(level &           lv,
-                                                       const container * from,
-                                                       const container & to,
-                                                       item_stack        s,
-                                                       int32_t           slot,
-                                                       const direction * face) {
+static item_stack hopper_block_entity_try_move_in_item(level & lv, const container * from, const container & to,
+                                                       item_stack s, int32_t slot, const direction * face) {
     if (!hopper_block_entity_can_place_item_in_container(to, s, slot, face)) return s;
     item_stack & current   = container_get_item(to, slot);
     bool         success   = false;
@@ -110,10 +102,7 @@ static item_stack hopper_block_entity_try_move_in_item(level &           lv,
 }
 
 // a null face is vanilla's null direction: every slot
-item_stack hopper_block_entity_add_item(level &           lv,
-                                        const container * from,
-                                        const container & to,
-                                        item_stack        s,
+item_stack hopper_block_entity_add_item(level & lv, const container * from, const container & to, item_stack s,
                                         const direction * face) {
     int32_t slots = face != nullptr ? hopper_block_entity_get_slots(to, *face) : container_get_container_size(to);
     for (int32_t slot = 0; slot < slots && !item_stack_is_empty(s); slot++) {
@@ -147,10 +136,8 @@ static bool hopper_block_entity_eject_items(level & lv, block_pos pos, block_ent
     return false;
 }
 
-static bool hopper_block_entity_can_take_item_from_container(const container &  hopper,
-                                                             const container &  source,
-                                                             const item_stack & s,
-                                                             direction          face) {
+static bool hopper_block_entity_can_take_item_from_container(const container & hopper, const container & source,
+                                                             const item_stack & s, direction face) {
     if (source.composter != nullptr) return composter_container_can_take_item_through_face(*source.composter, s, face);
     // JukeboxBlockEntity.canTakeItem: the hopper needs an empty slot
     if (source.first->type == BLOCK_ENTITY_TYPE_JUKEBOX) {
@@ -162,11 +149,8 @@ static bool hopper_block_entity_can_take_item_from_container(const container &  
            chiseled_book_shelf_block_entity_can_take_item(hopper, s);
 }
 
-static bool hopper_block_entity_try_take_in_item_from_slot(level &           lv,
-                                                           const container & hopper,
-                                                           const container & source,
-                                                           int32_t           slot,
-                                                           direction         face) {
+static bool hopper_block_entity_try_take_in_item_from_slot(level & lv, const container & hopper,
+                                                           const container & source, int32_t slot, direction face) {
     item_stack & s = container_get_item(source, slot);
     if (item_stack_is_empty(s) || !hopper_block_entity_can_take_item_from_container(hopper, source, s, face)) {
         return false;
