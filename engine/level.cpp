@@ -230,7 +230,7 @@ static bool chunk_set_block_state(level & lv, block_pos pos, state_id st, int32_
             } else if (be != nullptr && be->type == BLOCK_ENTITY_TYPE_JUKEBOX) {
                 jukebox_block_entity_pop_out_the_item(lv, be);
             } else if (be != nullptr && block_entity_is_container(be) && be->type != BLOCK_ENTITY_TYPE_SHULKER_BOX) {
-                containers_drop_contents(lv, pos, { be, nullptr });
+                containers_drop_contents(lv, entity_block_to_world(pos), { be, nullptr });
             }
         }
         level_remove_block_entity(lv, pos);

@@ -51,11 +51,15 @@ struct composter_container {
     item_stack item;
 };
 
-// Container: one block entity, two chest halves as a CompoundContainer, or a composter's container (no block entity)
+struct entity;
+
+// Container: one block entity, two chest halves as a CompoundContainer, a composter's container (no block entity), or
+// a ContainerEntity (a chest or hopper minecart)
 struct container {
     block_entity *        first     = nullptr;
     block_entity *        second    = nullptr;
     composter_container * composter = nullptr;
+    entity *              vehicle   = nullptr;
 };
 
 // LevelChunk.RebindableTickingBlockEntityWrapper; a null block entity is NULL_TICKER, which counts as removed

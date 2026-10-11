@@ -65,6 +65,16 @@ struct entity {
     bool     hurt_entities            = false;
     int32_t  fall_damage_max          = 40;
     float    fall_damage_per_distance = 0.0F;
+
+    // AbstractMinecart with VehicleEntity's damage, and the fields of its types
+    float                   y_rot     = 0.0F;
+    float                   y_rot_o   = 0.0F;  // yRotO, set before each tick
+    bool                    flipped   = false;
+    int32_t                 hurt_time = 0;
+    float                   damage    = 0.0F;
+    std::vector<item_stack> items;           // AbstractMinecartContainer, sized by the type
+    bool                    enabled = true;  // MinecartHopper
+    int32_t                 fuse    = -1;    // MinecartTNT
 };
 
 // InsideBlockEffectType, in StepBasedCollector.APPLY_ORDER
@@ -117,11 +127,17 @@ entity * entity_new(level & lv, entity_type type, vec3 pos);
 // Level.addFreshEntity
 void     level_add_fresh_entity(level & lv, entity * e);
 void     entity_discard(level & lv, entity & e);
+// Entity.kill: removed as killed
+void     entity_kill(level & lv, entity & e);
 
 // a block's world corner; entity positions are world coordinates
 vec3      entity_block_to_world(block_pos pos);
+// BlockPos.containing, relative to the case origin like other sim positions
+block_pos entity_world_to_block(const vec3 & v);
 // Entity.blockPosition, relative to the case origin
 block_pos entity_block_position(const entity & e);
+// Entity.setPos: also moves the entity to the section of its new block
+void      entity_set_pos(level & lv, entity & e, vec3 pos);
 // EntityDimensions.makeBoundingBox at pos
 aabb      entity_make_bounding_box(const entity & e, const vec3 & pos);
 // Entity.getOnPos with the offset below the feet
@@ -139,8 +155,14 @@ void level_get_entities(level & lv, const aabb & box, std::vector<entity *> & ou
 // Entity base behaviour that entity types build on
 void      entity_base_tick(level & lv, entity & e);
 void      entity_apply_gravity(entity & e);
+// Entity.push of an impulse
+void      entity_push(entity & e, double x, double y, double z);
+// Entity.checkBelowWorld
+void      entity_check_below_world(level & lv, entity & e);
+void      entity_lava_ignite(entity & e);
+void      entity_lava_hurt(level & lv, entity & e);
 // Entity.causeFallDamage of the entity's type; the damage multiplier only matters for living entities
-void      entity_cause_fall_damage(entity & e, double fall_distance);
+void      entity_cause_fall_damage(level & lv, entity & e, double fall_distance);
 void      entity_move(level & lv, entity & e, mover_type type, vec3 delta);
 void      entity_apply_effects_from_blocks(level & lv, entity & e);
 // Entity.applyEffectsFromBlocks for one move that is not the entity's own

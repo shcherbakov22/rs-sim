@@ -175,12 +175,32 @@ static uint64_t level_fingerprint(const level & lv) {
                           e->stuck_speed_multiplier.x, e->stuck_speed_multiplier.y, e->stuck_speed_multiplier.z }) {
             fingerprint_add(h, std::bit_cast<int64_t>(v));
         }
-        for (int64_t v :
-             { (int64_t) e->id, (int64_t) e->type, (int64_t) e->removed, e->random.seed, (int64_t) e->on_ground,
-               (int64_t) e->remaining_fire_ticks, (int64_t) e->item.item, (int64_t) e->item.count, (int64_t) e->age,
-               (int64_t) e->pickup_delay, (int64_t) e->health, (int64_t) e->block_state, (int64_t) e->time,
-               (int64_t) e->drop_item, (int64_t) e->cancel_drop, (int64_t) e->hurt_entities }) {
+        for (int64_t v : { (int64_t) e->id,
+                           (int64_t) e->type,
+                           (int64_t) e->removed,
+                           e->random.seed,
+                           (int64_t) e->on_ground,
+                           (int64_t) e->remaining_fire_ticks,
+                           (int64_t) e->item.item,
+                           (int64_t) e->item.count,
+                           (int64_t) e->age,
+                           (int64_t) e->pickup_delay,
+                           (int64_t) e->health,
+                           (int64_t) e->block_state,
+                           (int64_t) e->time,
+                           (int64_t) e->drop_item,
+                           (int64_t) e->cancel_drop,
+                           (int64_t) e->hurt_entities,
+                           (int64_t) std::bit_cast<int32_t>(e->y_rot),
+                           (int64_t) e->flipped,
+                           (int64_t) e->hurt_time,
+                           (int64_t) std::bit_cast<int32_t>(e->damage),
+                           (int64_t) e->enabled,
+                           (int64_t) e->fuse }) {
             fingerprint_add(h, v);
+        }
+        for (const item_stack & s : e->items) {
+            for (int64_t v : { s.item, s.count, s.damage }) fingerprint_add(h, v);
         }
     }
     return h;

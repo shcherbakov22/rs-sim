@@ -10,7 +10,9 @@ state_id block_behaviour_update_shape(level &, state_id st, block_pos, direction
 
 void block_living_only(level &, state_id, block_pos, entity &) {}
 
-void block_cause_fall_damage(level &, state_id, block_pos, entity & e) { entity_cause_fall_damage(e, e.fall_distance); }
+void block_cause_fall_damage(level & lv, state_id, block_pos, entity & e) {
+    entity_cause_fall_damage(lv, e, e.fall_distance);
+}
 
 // SimpleWaterloggedBlock.placeLiquid: only a water source fills the block
 static bool simple_waterlogged_place_liquid(level & lv, block_pos pos, state_id st, fluid_state_id fs) {

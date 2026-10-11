@@ -15,8 +15,7 @@
 #include <cmath>
 #include <string>
 
-// BlockPos.containing, relative to the case origin like other sim positions
-static block_pos entity_world_to_block(const vec3 & v) {
+block_pos entity_world_to_block(const vec3 & v) {
     return { floor_int(v.x) - LEVEL_ORIGIN.x, floor_int(v.y) - LEVEL_ORIGIN.y, floor_int(v.z) - LEVEL_ORIGIN.z };
 }
 
@@ -104,17 +103,22 @@ static void level_remove_from_section(level & lv, entity * e) {
     if (list.empty()) lv.entity_sections.erase(it);
 }
 
-void entity_discard(level & lv, entity & e) {
+// Entity.remove; a removed container minecart drops its contents first
+static void entity_remove(level & lv, entity & e, const char * reason) {
     if (e.removed) return;
+    if (entity_is_container(e)) abstract_minecart_container_drop_contents(lv, e);
     block_pos pos = entity_block_position(e);
-    if (trace_wants(lv.tr, &pos)) trace_add(lv.tr, "remove %d discarded", e.id);
+    if (trace_wants(lv.tr, &pos)) trace_add(lv.tr, "remove %d %s", e.id, reason);
     e.removed = true;
     level_remove_from_section(lv, &e);
     lv.entity_tick_list.erase(std::find(lv.entity_tick_list.begin(), lv.entity_tick_list.end(), &e));
 }
 
-// Entity.setPos: also moves the entity to the section of its new block
-static void entity_set_pos(level & lv, entity & e, vec3 pos) {
+void entity_discard(level & lv, entity & e) { entity_remove(lv, e, "discarded"); }
+
+void entity_kill(level & lv, entity & e) { entity_remove(lv, e, "killed"); }
+
+void entity_set_pos(level & lv, entity & e, vec3 pos) {
     // setPosRaw: only a change of position moves the entity between sections
     if (e.pos.x != pos.x || e.pos.y != pos.y || e.pos.z != pos.z) {
         e.pos       = pos;
@@ -130,6 +134,7 @@ static void entity_set_pos(level & lv, entity & e, vec3 pos) {
 }
 
 void level_get_entities(level & lv, const aabb & box, std::vector<entity *> & out) {
+    if (lv.entity_sections.empty()) return;
     // EntitySectionStorage.forEachAccessibleNonEmptySection
     int32_t x_min = floor_int(box.min[0] - 2.0) >> 4;
     int32_t y_min = floor_int(box.min[1] - 4.0) >> 4;
@@ -160,14 +165,17 @@ static void entity_tick(level & lv, entity & e) {
         case ENTITY_TYPE_FALLING_BLOCK: falling_block_entity_tick(lv, e); return;
         default: break;
     }
-    TMC_ASSERT(false);
+    TMC_ASSERT(entity_is_minecart(e));
+    abstract_minecart_tick(lv, e);
 }
 
-// Entity.applyGravity; no entity in scope has no gravity
+// Entity.applyGravity; no entity in scope has no gravity, and AbstractMinecart.getDefaultGravity is lower in water
 void entity_apply_gravity(entity & e) {
-    double gravity = entity_type_defs[e.type].gravity;
+    double gravity = entity_is_minecart(e) && e.was_touching_water ? 0.005 : entity_type_defs[e.type].gravity;
     if (gravity != 0.0) e.delta.y += -gravity;
 }
+
+void entity_push(entity & e, double x, double y, double z) { e.delta = vec3_add(e.delta, { x, y, z }); }
 
 void level_tick_entities(level & lv) {
     // EntityTickList hands the pass the list as it was when the pass began
@@ -181,6 +189,7 @@ void level_tick_entities(level & lv) {
         vec3 before_pos   = e->pos;
         vec3 before_delta = e->delta;
         e->old_pos        = e->pos;
+        e->y_rot_o        = e->y_rot;
         e->tick_count++;
         entity_tick(lv, *e);
         if (!vec3_equals(e->pos, before_pos) || !vec3_equals(e->delta, before_delta)) {
@@ -303,12 +312,28 @@ bool block_is_collision_shape_full_block(level & lv, state_id st, block_pos pos)
     return shape_is_block(block_get_collision_shape(lv, st, pos));
 }
 
-// Entity.collideWithShapes over Entity.collectColliders; no entity in scope collides with others
+// EntityGetter.getEntityCollisions: AbstractMinecart.canCollideWith takes pushable entities, which in scope are the
+// other minecarts; nothing else in scope collides with entities
+static void level_get_entity_collisions(level & lv, const entity & e, const aabb & box, std::vector<aabb> & out) {
+    if (!entity_is_minecart(e)) return;
+    // AABB.getSize
+    if ((box.max[0] - box.min[0] + box.max[1] - box.min[1] + box.max[2] - box.min[2]) / 3.0 < 1.0E-7) return;
+    std::vector<entity *> found;
+    level_get_entities(lv, aabb_inflate(box, 1.0E-7, 1.0E-7, 1.0E-7), found);
+    for (entity * other : found) {
+        if (other != &e && entity_is_minecart(*other)) out.push_back(other->bb);
+    }
+}
+
+// Entity.collideWithShapes over Entity.collectColliders: the entity shapes come first
 static vec3 entity_collide(level & lv, const entity & e, const vec3 & movement) {
     if (vec3_length_sqr(movement) == 0.0) return movement;
+    aabb                         box = aabb_expand_towards(e.bb, movement);
+    std::vector<aabb>            entity_collisions;
     std::vector<block_collision> collisions;
-    level_get_block_collisions(lv, e, aabb_expand_towards(e.bb, movement), collisions);
-    if (collisions.empty()) return movement;
+    level_get_entity_collisions(lv, e, box, entity_collisions);
+    level_get_block_collisions(lv, e, box, collisions);
+    if (entity_collisions.empty() && collisions.empty()) return movement;
     vec3    resolved = {};
     int32_t order[3];
     vec3_axis_step_order(movement, order);
@@ -317,6 +342,13 @@ static vec3 entity_collide(level & lv, const entity & e, const vec3 & movement) 
         if (distance == 0.0) continue;
         // Shapes.collide
         aabb moving = aabb_move(e.bb, resolved);
+        for (const aabb & b : entity_collisions) {
+            if (std::fabs(distance) < 1.0E-7) {
+                distance = 0.0;
+                break;
+            }
+            distance = aabb_collide(b, axis, moving, distance);
+        }
         for (const block_collision & c : collisions) {
             if (std::fabs(distance) < 1.0E-7) {
                 distance = 0.0;
@@ -383,10 +415,11 @@ block_pos entity_get_on_pos(level & lv, const entity & e, float offset) {
     return e.main_support;
 }
 
-// Entity.getBlockSpeedFactor
+// Entity.getBlockSpeedFactor; AbstractMinecart's keeps its speed on rails
 static float entity_get_block_speed_factor(level & lv, const entity & e) {
-    state_id st   = level_get_state(lv, entity_block_position(e));
-    float    here = block_defs[state_block(st)].speed_factor;
+    state_id st = level_get_state(lv, entity_block_position(e));
+    if (entity_is_minecart(e) && state_has(st, STATE_FLAG_TAG_RAILS)) return 1.0F;
+    float here = block_defs[state_block(st)].speed_factor;
     if (state_is(st, BLOCK_WATER) || state_is(st, BLOCK_BUBBLE_COLUMN) || here != 1.0) return here;
     return block_defs[state_block(level_get_state(lv, entity_get_block_pos_below_that_affects_my_movement(lv, e)))]
         .speed_factor;
@@ -485,7 +518,7 @@ static vec3 entity_limit_piston_movement(level & lv, entity & e, const vec3 & v)
 }
 
 // Entity.move; no entity in scope steps up
-void entity_move(level & lv, entity & e, mover_type type, vec3 delta) {
+static void entity_base_move(level & lv, entity & e, mover_type type, vec3 delta) {
     if (e.no_physics) {
         entity_set_pos(lv, e, vec3_add(e.pos, delta));
         e.horizontal_collision     = false;
@@ -530,6 +563,12 @@ void entity_move(level & lv, entity & e, mover_type type, vec3 delta) {
     if (delta.y != movement.y) block_update_entity_movement_after_fall_on(lv, effect_state, e);
     float f = entity_get_block_speed_factor(lv, e);
     e.delta = { e.delta.x * f, e.delta.y, e.delta.z * f };
+}
+
+// AbstractMinecart.move: with the old behaviour, the blocks at the new position act right after each move
+void entity_move(level & lv, entity & e, mover_type type, vec3 delta) {
+    entity_base_move(lv, e, type, delta);
+    if (entity_is_minecart(e)) abstract_minecart_apply_effects_from_blocks(lv, e);
 }
 
 // fluids

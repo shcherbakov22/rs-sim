@@ -119,14 +119,15 @@ static bool minecart_dispense_item_behavior_is_slope(state_id st) {
     return base_rail_is_rail(st) && base_rail_is_slope(base_rail_get_shape(st));
 }
 
-// AbstractMinecart.createMinecart draws nothing from the level random
+// a command block minecart is out of scope
 static item_stack minecart_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos,
                                                           item_stack dispensed) {
     direction         facing  = state_facing(st);
     const block_pos & step    = DIRECTION_STEPS[facing];
-    double            spawn_x = pos.x + 0.5 + step.x * 1.125;
-    double            spawn_y = std::floor(pos.y + 0.5) + step.y;
-    double            spawn_z = pos.z + 0.5 + step.z * 1.125;
+    vec3              w       = entity_block_to_world(pos);
+    double            spawn_x = w.x + 0.5 + step.x * 1.125;
+    double            spawn_y = std::floor(w.y + 0.5) + step.y;
+    double            spawn_z = w.z + 0.5 + step.z * 1.125;
     block_pos         front   = pos_relative(pos, facing);
     state_id          at      = level_get_state(lv, front);
     double            y_offset;
@@ -139,8 +140,15 @@ static item_stack minecart_dispense_item_behavior_execute(level & lv, state_id s
         }
         y_offset = facing != DIRECTION_DOWN && minecart_dispense_item_behavior_is_slope(below) ? -0.4 : -0.9;
     }
-    dispenser_boundary_spawn(lv, dispensed, (int32_t) std::floor(spawn_x), (int32_t) std::floor(spawn_y + y_offset),
-                             (int32_t) std::floor(spawn_z));
+    int32_t type      = item_defs[item_stack_get_item(dispensed)].dispense_entity;
+    vec3    spawn_pos = { spawn_x, spawn_y + y_offset, spawn_z };
+    if (type == ENTITY_TYPE_COMMAND_BLOCK_MINECART) {
+        block_pos p = entity_world_to_block(spawn_pos);
+        dispenser_boundary_spawn(lv, dispensed, p.x, p.y, p.z);
+        return dispensed;
+    }
+    level_add_fresh_entity(lv, abstract_minecart_create_minecart(lv, (entity_type) type, spawn_pos));
+    item_stack_grow(dispensed, -1);
     return dispensed;
 }
 

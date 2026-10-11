@@ -3,6 +3,7 @@
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
+#include "entities/handlers.h"
 
 #include <cmath>
 
@@ -24,8 +25,8 @@ static void slime_step_on(level &, state_id, block_pos, entity & e) {
 }
 
 // BedBlock.fallOn: half the fall
-static void bed_fall_on(level &, state_id, block_pos, entity & e) {
-    entity_cause_fall_damage(e, e.fall_distance * 0.5);
+static void bed_fall_on(level & lv, state_id, block_pos, entity & e) {
+    entity_cause_fall_damage(lv, e, e.fall_distance * 0.5);
 }
 
 // FarmBlock.fallOn draws before it checks for a living entity
@@ -38,7 +39,7 @@ static void farm_fall_on(level & lv, state_id st, block_pos pos, entity & e) {
 static void pointed_dripstone_fall_on(level & lv, state_id st, block_pos pos, entity & e) {
     if (state_get(st, PROP_VERTICAL_DIRECTION) == DIRECTION_UP &&
         state_get(st, PROP_DRIPSTONE_THICKNESS) == DRIPSTONE_THICKNESS_TIP) {
-        entity_cause_fall_damage(e, e.fall_distance + 2.5);
+        entity_cause_fall_damage(lv, e, e.fall_distance + 2.5);
     } else {
         block_cause_fall_damage(lv, st, pos, e);
     }
@@ -74,8 +75,11 @@ static void honey_do_slide_movement(entity & e) {
 static void honey_entity_inside(level & lv, state_id, block_pos pos, entity & e, entity_effect_collector &, bool) {
     if (!honey_is_sliding_down(pos, e)) return;
     honey_do_slide_movement(e);
-    // maybeDoSlideEffects draws only for living entities, minecarts, primed tnt and boats
-    if (e.type != ENTITY_TYPE_ITEM && e.type != ENTITY_TYPE_FALLING_BLOCK) {
+    // maybeDoSlideEffects: the sound and the particle event draw for living entities, minecarts, primed tnt and boats
+    if (entity_is_minecart(e)) {
+        rng_next_int(lv.random, 5);
+        rng_next_int(lv.random, 5);
+    } else if (e.type != ENTITY_TYPE_ITEM && e.type != ENTITY_TYPE_FALLING_BLOCK) {
         level_unsupported(lv, "honey slide of %s", entity_type_defs[e.type].name);
     }
 }

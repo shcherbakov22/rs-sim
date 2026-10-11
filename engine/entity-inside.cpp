@@ -33,13 +33,14 @@ static bool entity_hurt_server(level & lv, entity & e, damage_type type, float d
         case ENTITY_TYPE_FALLING_BLOCK: return false;
         default: break;
     }
-    TMC_ASSERT(false);
-    return false;
+    TMC_ASSERT(entity_is_minecart(e));
+    return abstract_minecart_hurt_server(lv, e, type, damage);
 }
 
 // the default only passes the fall on to passengers
-void entity_cause_fall_damage(entity & e, double fall_distance) {
+void entity_cause_fall_damage(level & lv, entity & e, double fall_distance) {
     if (e.type == ENTITY_TYPE_FALLING_BLOCK) falling_block_entity_cause_fall_damage(e, fall_distance);
+    if (e.type == ENTITY_TYPE_TNT_MINECART) minecart_tnt_cause_fall_damage(lv, e, fall_distance);
 }
 
 // Entity.igniteForTicks; nothing in scope freezes
@@ -47,8 +48,12 @@ static void entity_ignite_for_ticks(entity & e, int32_t ticks) {
     if (e.remaining_fire_ticks < ticks) e.remaining_fire_ticks = ticks;
 }
 
+void entity_lava_ignite(entity & e) {
+    if (!entity_fire_immune(e)) entity_ignite_for_ticks(e, floor_int(15.0F * 20.0F));
+}
+
 // Entity.lavaHurt; the burn sound draws once
-static void entity_lava_hurt(level & lv, entity & e) {
+void entity_lava_hurt(level & lv, entity & e) {
     if (entity_fire_immune(e)) return;
     if (entity_hurt_server(lv, e, DAMAGE_TYPE_LAVA, 4.0F) && entity_should_play_lava_hurt_sound(e)) {
         rng_next_float(e.random);
@@ -92,9 +97,7 @@ static void entity_effect_run(level & lv, entity & e, const entity_effect & effe
             if (e.remaining_fire_ticks < 0) e.remaining_fire_ticks++;
             if (e.remaining_fire_ticks >= 0) entity_ignite_for_ticks(e, floor_int(8.0F * 20.0F));
             return;
-        case ENTITY_EFFECT_LAVA_IGNITE:
-            if (!entity_fire_immune(e)) entity_ignite_for_ticks(e, floor_int(15.0F * 20.0F));
-            return;
+        case ENTITY_EFFECT_LAVA_IGNITE: entity_lava_ignite(e); return;
         case ENTITY_EFFECT_EXTINGUISH: e.remaining_fire_ticks = std::min(0, e.remaining_fire_ticks); return;
         case ENTITY_EFFECT_HURT: entity_hurt_server(lv, e, effect.damage, effect.amount); return;
         case ENTITY_EFFECT_LAVA_HURT: entity_lava_hurt(lv, e); return;
@@ -391,7 +394,10 @@ void entity_base_tick(level & lv, entity & e) {
         }
     }
     if (entity_is_in_lava(e)) e.fall_distance *= 0.5;
-    // Entity.checkBelowWorld
-    if (e.pos.y < LEVEL_Y_MIN + LEVEL_ORIGIN.y - 64) entity_discard(lv, e);
+    entity_check_below_world(lv, e);
     e.first_tick = false;
+}
+
+void entity_check_below_world(level & lv, entity & e) {
+    if (e.pos.y < LEVEL_Y_MIN + LEVEL_ORIGIN.y - 64) entity_discard(lv, e);
 }

@@ -1,8 +1,9 @@
 // Rails: rails need rigid support below (and beside, for slopes) and reshape through RailState. Only RailBlock
-// curves. No minecart ever exists, so a detector rail never finds one.
+// curves. A detector rail powers while a minecart is on it.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
+#include "entities/handlers.h"
 
 // RailShape: the axis of a straight shape, and the side a slope climbs toward
 
@@ -334,7 +335,18 @@ static void base_rail_affect_neighbors_after_removal(level & lv, state_id st, bl
     }
 }
 
-// DetectorRailBlock: without minecarts checkPressed only ever turns the rail off
+// DetectorRailBlock
+
+// getInteractingMinecartOfType over getSearchBB, the middle of the block
+static void detector_rail_get_interacting_minecarts(level & lv, block_pos pos, bool containers_only,
+                                                    std::vector<entity *> & out) {
+    vec3                  w = entity_block_to_world(pos);
+    std::vector<entity *> found;
+    level_get_entities(lv, aabb_of(w.x + 0.2, w.y, w.z + 0.2, w.x + 1 - 0.2, w.y + 1 - 0.2, w.z + 1 - 0.2), found);
+    for (entity * e : found) {
+        if (entity_is_minecart(*e) && (!containers_only || entity_is_container(*e))) out.push_back(e);
+    }
+}
 
 static void detector_rail_update_power_to_connected(level & lv, state_id st, block_pos pos) {
     rail_state rs = rail_state_init(st, pos);
@@ -344,15 +356,20 @@ static void detector_rail_update_power_to_connected(level & lv, state_id st, blo
     }
 }
 
+// a pressed rail checks again every 20 ticks
 static void detector_rail_check_pressed(level & lv, block_pos pos, state_id st) {
     if (!base_rail_can_survive(lv, st, pos)) return;
-    if (state_get(st, PROP_POWERED)) {
-        state_id unpressed = state_set(st, PROP_POWERED, false);
-        level_set_block(lv, pos, unpressed, UPDATE_FLAG_ALL);
-        detector_rail_update_power_to_connected(lv, unpressed, pos);
+    std::vector<entity *> minecarts;
+    detector_rail_get_interacting_minecarts(lv, pos, false, minecarts);
+    bool should_be_pressed = !minecarts.empty();
+    if (should_be_pressed != (state_get(st, PROP_POWERED) != 0)) {
+        state_id changed = state_set(st, PROP_POWERED, should_be_pressed);
+        level_set_block(lv, pos, changed, UPDATE_FLAG_ALL);
+        detector_rail_update_power_to_connected(lv, changed, pos);
         level_update_neighbors_at(lv, pos, state_block(st));
         level_update_neighbors_at(lv, pos_relative(pos, DIRECTION_DOWN), state_block(st));
     }
+    if (should_be_pressed) level_schedule_tick(lv, pos, state_block(st), 20);
     level_update_neighbour_for_output_signal(lv, pos, state_block(st));
 }
 
@@ -370,8 +387,16 @@ static void detector_rail_tick(level & lv, state_id st, block_pos pos) {
     if (state_get(st, PROP_POWERED)) detector_rail_check_pressed(lv, pos, st);
 }
 
-// the signal of a minecart on the rail, so always 0
-static int32_t detector_rail_get_analog_output_signal(level &, state_id, block_pos, direction) { return 0; }
+// the fill of the first container minecart on a pressed rail; no command block minecart is in scope
+static int32_t detector_rail_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction) {
+    if (!state_get(st, PROP_POWERED)) return 0;
+    std::vector<entity *> minecarts;
+    detector_rail_get_interacting_minecarts(lv, pos, true, minecarts);
+    if (minecarts.empty()) return 0;
+    container c;
+    c.vehicle = minecarts[0];
+    return container_get_redstone_signal(&c);
+}
 
 // clang-format off
 const std::vector<block_hooks> rail_hooks = {

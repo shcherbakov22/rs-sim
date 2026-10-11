@@ -10,7 +10,8 @@
 #include <cmath>
 
 // Container for the block entities that hold items: BaseContainerBlockEntity, the HopperBlockEntity overrides
-// and CompoundContainer for double chests; SimpleContainer for the composter's containers
+// and CompoundContainer for double chests; SimpleContainer for the composter's containers; ContainerEntity, which
+// keeps Container's defaults and whose setChanged does nothing
 
 // BlockEntity.setChanged
 void block_entity_set_changed(level & lv, block_pos pos, state_id st) {
@@ -21,6 +22,7 @@ bool block_entity_is_container(const block_entity * be) { return block_entity_ty
 
 int32_t container_get_container_size(const container & c) {
     if (c.composter != nullptr) return composter_container_get_container_size(*c.composter);
+    if (c.vehicle != nullptr) return (int32_t) c.vehicle->items.size();
     return (int32_t) c.first->items.size() + (c.second != nullptr ? (int32_t) c.second->items.size() : 0);
 }
 
@@ -36,6 +38,7 @@ static block_entity * container_half(const container & c, int32_t & slot) {
 
 item_stack & container_get_item(const container & c, int32_t slot) {
     if (c.composter != nullptr) return c.composter->item;
+    if (c.vehicle != nullptr) return c.vehicle->items[slot];
     block_entity * be = container_half(c, slot);
     return be->items[slot];
 }
@@ -52,7 +55,9 @@ int32_t container_get_max_stack_size(const item_stack & s) { return std::min(99,
 
 // Container.getMaxStackSize(ItemStack): the composter's containers hold one item
 int32_t container_get_max_stack_size_in(const container & c, const item_stack & s) {
-    int32_t limit = c.composter != nullptr ? 1 : block_entity_type_max_stack_sizes[c.first->type];
+    int32_t limit = c.composter != nullptr ? 1 :
+                    c.vehicle != nullptr   ? 99 :
+                                             block_entity_type_max_stack_sizes[c.first->type];
     return std::min(limit, item_stack_get_max_stack_size(s));
 }
 
@@ -63,6 +68,10 @@ item_stack container_remove_item(level & lv, const container & c, int32_t slot, 
         item_stack   result = !item_stack_is_empty(stack) && count > 0 ? item_stack_split(stack, count) : item_stack();
         if (!item_stack_is_empty(result)) composter_container_set_changed(lv, *c.composter);
         return result;
+    }
+    if (c.vehicle != nullptr) {
+        item_stack & stack = c.vehicle->items[slot];
+        return !item_stack_is_empty(stack) && count > 0 ? item_stack_split(stack, count) : item_stack();
     }
     block_entity * be = container_half(c, slot);
     // JukeboxBlockEntity.splitTheItem hands out the whole record
@@ -89,6 +98,11 @@ void container_set_item(level & lv, const container & c, int32_t slot, item_stac
         composter_container_set_changed(lv, *c.composter);
         return;
     }
+    if (c.vehicle != nullptr) {
+        c.vehicle->items[slot] = s;
+        item_stack_limit_size(c.vehicle->items[slot], container_get_max_stack_size(s));
+        return;
+    }
     block_entity * be = container_half(c, slot);
     if (be->type == BLOCK_ENTITY_TYPE_JUKEBOX) {
         jukebox_block_entity_set_the_item(lv, be, s);
@@ -106,6 +120,7 @@ void container_set_item(level & lv, const container & c, int32_t slot, item_stac
 }
 
 void container_set_changed(level & lv, const container & c) {
+    if (c.vehicle != nullptr) return;
     if (c.composter != nullptr) {
         composter_container_set_changed(lv, *c.composter);
         return;
@@ -117,14 +132,12 @@ void container_set_changed(level & lv, const container & c) {
 // AbstractContainerMenu.getRedstoneSignalFromContainer
 int32_t container_get_redstone_signal(const container * c) {
     if (c == nullptr) return 0;
-    // chests and block entity containers only; the slots in order are the first half's, then the second's
+    // no composter container is read
     TMC_ASSERT(c->composter == nullptr);
     float total_percent = 0.0f;
-    for (const block_entity * be : { c->first, c->second }) {
-        if (be == nullptr) continue;
-        for (const item_stack & s : be->items) {
-            if (!item_stack_is_empty(s)) total_percent += (float) s.count / (float) container_get_max_stack_size(s);
-        }
+    for (int32_t slot = 0; slot < container_get_container_size(*c); slot++) {
+        const item_stack & s = container_get_item(*c, slot);
+        if (!item_stack_is_empty(s)) total_percent += (float) s.count / (float) container_get_max_stack_size(s);
     }
     total_percent /= (float) container_get_container_size(*c);
     // Mth.lerpDiscrete from 0 to 15
@@ -155,10 +168,10 @@ static void containers_drop_item_stack(level & lv, const vec3 & at, item_stack &
     }
 }
 
-// Containers.dropContents: the slots empty as they drop
-void containers_drop_contents(level & lv, block_pos pos, const container & c) {
+// Containers.dropContents at a block corner or an entity's position: the slots empty as they drop
+void containers_drop_contents(level & lv, const vec3 & at, const container & c) {
     for (int32_t slot = 0; slot < container_get_container_size(c); slot++) {
-        containers_drop_item_stack(lv, entity_block_to_world(pos), container_get_item(c, slot));
+        containers_drop_item_stack(lv, at, container_get_item(c, slot));
     }
 }
 

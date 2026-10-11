@@ -50,6 +50,7 @@ add_library(tmc STATIC
     engine/neighbor-updater.cpp
     entities/falling-block.cpp
     entities/item.cpp
+    entities/minecart.cpp
     gen/blocks.cpp
     items/item.cpp
     items/recipes.cpp

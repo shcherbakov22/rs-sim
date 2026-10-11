@@ -36,7 +36,7 @@ item_stack   container_remove_item(level & lv, const container & c, int32_t slot
 void         container_set_item(level & lv, const container & c, int32_t slot, item_stack s);
 void         container_set_changed(level & lv, const container & c);
 int32_t      container_get_redstone_signal(const container * c);
-void         containers_drop_contents(level & lv, block_pos pos, const container & c);
+void         containers_drop_contents(level & lv, const vec3 & at, const container & c);
 // the getAnalogOutputSignal and affectNeighborsAfterRemoval of most containers
 int32_t      container_get_redstone_signal_from_block_entity(level & lv, state_id st, block_pos pos, direction dir);
 void         containers_update_neighbours_after_destroy(level & lv, state_id st, block_pos pos, bool moved_by_piston);
@@ -44,6 +44,9 @@ void         containers_update_neighbours_after_destroy(level & lv, state_id st,
 // HopperBlockEntity
 void hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st, block_entity * be);
 bool hopper_block_entity_get_container_at(level & lv, block_pos pos, container & out, composter_container & composter);
+// HopperBlockEntity.suckInItems for a Hopper at the point at (getLevelX, getLevelY, getLevelZ)
+bool       hopper_block_entity_suck_in_items(level & lv, const container & hopper, const vec3 & at, bool grid_aligned);
+bool       hopper_block_entity_add_item_entity(level & lv, const container & to, entity & e);
 item_stack hopper_block_entity_add_item(level & lv, const container * from, const container & to, item_stack s,
                                         const direction * face);
 

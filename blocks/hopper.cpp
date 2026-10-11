@@ -1,4 +1,4 @@
-// Hoppers: HopperBlock and HopperBlockEntity. No container entity is in scope, so that lookup finds nothing.
+// Hoppers: HopperBlock and HopperBlockEntity. A hopper minecart sucks in items through the same code.
 // The shulker box is a WorldlyContainer: every face sees every slot, and it refuses shulker boxes.
 // The composter's containers are WorldlyContainers too, one slot seen from a single face.
 // The crafter, the jukebox and the chiseled bookshelf override Container.canPlaceItem; the last two also override canTakeItem.
@@ -15,7 +15,8 @@ static bool container_is_hopper(const container * c) {
 }
 
 // HopperBlockEntity.getBlockContainer; the composter is a WorldlyContainerHolder, and its container lives in composter
-bool hopper_block_entity_get_container_at(level & lv, block_pos pos, container & out, composter_container & composter) {
+static bool hopper_block_entity_get_block_container(level & lv, block_pos pos, container & out,
+                                                    composter_container & composter) {
     state_id st = level_get_state(lv, pos);
     if (block_instanceof(state_block(st), VCLASS_COMPOSTER_BLOCK)) {
         composter_get_container(st, pos, composter);
@@ -30,6 +31,32 @@ bool hopper_block_entity_get_container_at(level & lv, block_pos pos, container &
     }
     out = { be, nullptr };
     return true;
+}
+
+// HopperBlockEntity.getEntityContainer: a random one of the container entities in the block sized box around at
+static bool hopper_block_entity_get_entity_container(level & lv, const vec3 & at, container & out) {
+    std::vector<entity *> found;
+    std::vector<entity *> containers;
+    level_get_entities(lv, aabb_of(at.x - 0.5, at.y - 0.5, at.z - 0.5, at.x + 0.5, at.y + 0.5, at.z + 0.5), found);
+    for (entity * e : found) {
+        if (entity_is_container(*e) && !e->removed) containers.push_back(e);
+    }
+    if (containers.empty()) return false;
+    out         = {};
+    out.vehicle = containers[rng_next_int(lv.random, (int32_t) containers.size())];
+    return true;
+}
+
+// HopperBlockEntity.getContainerAt with a point for the entity lookup
+static bool hopper_block_entity_get_container_at_point(level & lv, block_pos pos, const vec3 & at, container & out,
+                                                       composter_container & composter) {
+    return hopper_block_entity_get_block_container(lv, pos, out, composter) ||
+           hopper_block_entity_get_entity_container(lv, at, out);
+}
+
+bool hopper_block_entity_get_container_at(level & lv, block_pos pos, container & out, composter_container & composter) {
+    vec3 at = vec3_add(entity_block_to_world(pos), { 0.5, 0.5, 0.5 });
+    return hopper_block_entity_get_container_at_point(lv, pos, at, out, composter);
 }
 
 // HopperBlockEntity.getSlots; the slots a face sees are always the first ones
@@ -54,6 +81,7 @@ static bool hopper_block_entity_can_merge_items(const item_stack & a, const item
 static bool hopper_block_entity_can_place_item_in_container(const container & to, const item_stack & s, int32_t slot,
                                                             const direction * face) {
     if (to.composter != nullptr) return composter_container_can_place_item_through_face(*to.composter, s, face);
+    if (to.vehicle != nullptr) return true;
     // ShulkerBoxBlockEntity.canPlaceItemThroughFace
     int32_t block = item_defs[item_stack_get_item(s)].block;
     if (to.first->type == BLOCK_ENTITY_TYPE_SHULKER_BOX && block >= 0 &&
@@ -140,10 +168,13 @@ static bool hopper_block_entity_eject_items(level & lv, block_pos pos, block_ent
 static bool hopper_block_entity_can_take_item_from_container(const container & hopper, const container & source,
                                                              const item_stack & s, direction face) {
     if (source.composter != nullptr) return composter_container_can_take_item_through_face(*source.composter, s, face);
+    if (source.vehicle != nullptr) return true;
     // JukeboxBlockEntity.canTakeItem: the hopper needs an empty slot
     if (source.first->type == BLOCK_ENTITY_TYPE_JUKEBOX) {
         bool any_empty = false;
-        for (const item_stack & h : hopper.first->items) any_empty = any_empty || item_stack_is_empty(h);
+        for (int32_t slot = 0; slot < container_get_container_size(hopper); slot++) {
+            any_empty = any_empty || item_stack_is_empty(container_get_item(hopper, slot));
+        }
         if (!any_empty) return false;
     }
     return source.first->type != BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF ||
@@ -173,7 +204,7 @@ static bool hopper_block_entity_try_take_in_item_from_slot(level & lv, const con
 }
 
 // HopperBlockEntity.addItem of an item entity: the stack goes in as a copy
-static bool hopper_block_entity_add_item_entity(level & lv, const container & to, entity & e) {
+bool hopper_block_entity_add_item_entity(level & lv, const container & to, entity & e) {
     item_stack result = hopper_block_entity_add_item(lv, nullptr, to, e.item, nullptr);
     if (item_stack_is_empty(result)) {
         item_entity_set_item(lv, e, item_stack());
@@ -184,34 +215,34 @@ static bool hopper_block_entity_add_item_entity(level & lv, const container & to
     return false;
 }
 
-// HopperBlockEntity.getItemsAtAndAbove: SUCK_AABB from the top of the bowl to the top of the block above
-static void hopper_block_entity_get_items_at_and_above(level & lv, block_pos pos, std::vector<entity *> & out) {
-    vec3                  w = entity_block_to_world(pos);
+// HopperBlockEntity.getItemsAtAndAbove: SUCK_AABB, from the top of the bowl to the top of the block above, moved to at
+static void hopper_block_entity_get_items_at_and_above(level & lv, const vec3 & at, std::vector<entity *> & out) {
     std::vector<entity *> found;
-    level_get_entities(lv, aabb_of(w.x, w.y + 0.6875, w.z, w.x + 1.0, w.y + 2.0, w.z + 1.0), found);
+    aabb box = aabb_move(aabb_of(0.0, 0.6875, 0.0, 1.0, 2.0, 1.0), { at.x - 0.5, at.y - 0.5, at.z - 0.5 });
+    level_get_entities(lv, box, found);
     for (entity * e : found) {
         if (e->type == ENTITY_TYPE_ITEM && !e->removed) out.push_back(e);
     }
 }
 
-// without a container above, the hopper takes item entities unless a full block covers it
-static bool hopper_block_entity_suck_in_items(level & lv, block_entity * be) {
+// without a container above, the hopper takes item entities unless a full block covers a grid aligned one
+bool hopper_block_entity_suck_in_items(level & lv, const container & hopper, const vec3 & at, bool grid_aligned) {
     container           source;
     composter_container composter;
-    container           hopper = { be, nullptr };
-    block_pos           above  = pos_relative(be->pos, DIRECTION_UP);
-    if (hopper_block_entity_get_container_at(lv, above, source, composter)) {
+    block_pos           above = entity_world_to_block({ at.x, at.y + 1.0, at.z });
+    if (hopper_block_entity_get_container_at_point(lv, above, { at.x, at.y + 1.0, at.z }, source, composter)) {
         for (int32_t slot = 0; slot < hopper_block_entity_get_slots(source, DIRECTION_DOWN); slot++) {
             if (hopper_block_entity_try_take_in_item_from_slot(lv, hopper, source, slot, DIRECTION_DOWN)) return true;
         }
         return false;
     }
     state_id st = level_get_state(lv, above);
-    if (block_is_collision_shape_full_block(lv, st, above) && !state_has(st, STATE_FLAG_TAG_DOES_NOT_BLOCK_HOPPERS)) {
+    if (grid_aligned && block_is_collision_shape_full_block(lv, st, above) &&
+        !state_has(st, STATE_FLAG_TAG_DOES_NOT_BLOCK_HOPPERS)) {
         return false;
     }
     std::vector<entity *> items;
-    hopper_block_entity_get_items_at_and_above(lv, be->pos, items);
+    hopper_block_entity_get_items_at_and_above(lv, at, items);
     for (entity * e : items) {
         if (hopper_block_entity_add_item_entity(lv, hopper, *e)) return true;
     }
@@ -232,8 +263,9 @@ static void hopper_block_entity_try_move_items(level & lv, block_pos pos, state_
     bool changed = false;
     if (!container_is_empty({ be, nullptr })) changed = hopper_block_entity_eject_items(lv, pos, be);
     if (!hopper_block_entity_inventory_full(be)) {
+        vec3 at = vec3_add(entity_block_to_world(pos), { 0.5, 0.5, 0.5 });
         changed |= item != nullptr ? hopper_block_entity_add_item_entity(lv, { be, nullptr }, *item) :
-                                     hopper_block_entity_suck_in_items(lv, be);
+                                     hopper_block_entity_suck_in_items(lv, { be, nullptr }, at, true);
     }
     if (changed) {
         be->cooldown_time = 8;

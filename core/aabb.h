@@ -31,6 +31,8 @@ inline double vec3_length_sqr(const vec3 & v) { return v.x * v.x + v.y * v.y + v
 
 inline double vec3_horizontal_distance_sqr(const vec3 & v) { return v.x * v.x + v.z * v.z; }
 
+inline double vec3_horizontal_distance(const vec3 & v) { return std::sqrt(v.x * v.x + v.z * v.z); }
+
 // Vec3.equals: Double.compare per coordinate, so -0.0 differs from 0.0
 bool vec3_equals(const vec3 & a, const vec3 & b);
 vec3 vec3_normalize(const vec3 & v);
@@ -50,6 +52,14 @@ inline int32_t sign_int(double v) { return v == 0.0 ? 0 : v > 0.0 ? 1 : -1; }
 // Mth.frac
 inline double frac(double v) { return v - (double) (int64_t) std::floor(v); }
 
+// Mth.sin and Mth.cos: a lookup in the table of 65536 float sines
+float  mth_sin(double v);
+float  mth_cos(double v);
+// Mth.atan2: a table lookup refined by a series
+double mth_atan2(double y, double x);
+// Mth.wrapDegrees(float)
+float  wrap_degrees(float angle);
+
 // AABB: the constructor sorts each axis
 aabb aabb_of(double x0, double y0, double z0, double x1, double y1, double z1);
 aabb aabb_move(const aabb & b, const vec3 & d);
@@ -61,5 +71,7 @@ bool aabb_contains(const aabb & b, const vec3 & v);
 vec3 aabb_get_center(const aabb & b);
 // AABB.clip: whether the segment enters the box
 bool aabb_clip(const aabb & b, const vec3 & from, const vec3 & to, vec3 * hit);
+// VoxelShape.collide of Shapes.create(b): one cell at the box's own coordinates
+double aabb_collide(const aabb & b, int32_t axis, const aabb & moving, double distance);
 // AABB.collidedAlongVector against one box
 bool aabb_collided_along_vector(const aabb & b, const vec3 & vector, const aabb & part);

@@ -16,6 +16,50 @@ vec3 vec3_normalize(const vec3 & v) {
     return dist < 1.0E-5F ? vec3{} : vec3{ v.x / dist, v.y / dist, v.z / dist };
 }
 
+// Mth.SIN[i] is (float) Math.sin(i / 10430.378350470453)
+static float mth_sin_table(int64_t i) { return (float) std::sin((double) (i & 65535) / 10430.378350470453); }
+
+float mth_sin(double v) { return mth_sin_table((int64_t) (v * 10430.378350470453)); }
+
+float mth_cos(double v) { return mth_sin_table((int64_t) (v * 10430.378350470453 + 16384.0)); }
+
+double mth_atan2(double y, double x) {
+    double d2 = x * x + y * y;
+    if (std::isnan(d2)) return NAN;
+    bool neg_y = y < 0.0;
+    if (neg_y) y = -y;
+    bool neg_x = x < 0.0;
+    if (neg_x) x = -x;
+    bool steep = y > x;
+    if (steep) std::swap(x, y);
+    // Mth.fastInvSqrt
+    double rinv = std::bit_cast<double>(6910469410427058090LL - (std::bit_cast<int64_t>(d2) >> 1));
+    rinv        = rinv * (1.5 - 0.5 * d2 * rinv * rinv);
+    x *= rinv;
+    y *= rinv;
+    // FRAC_BIAS puts y in 1/256 steps into the low bits; ASIN_TAB and COS_TAB hold asin and its cosine per step
+    double  frac_bias = std::bit_cast<double>(4805340802404319232LL);
+    double  yp        = frac_bias + y;
+    int32_t index     = (int32_t) std::bit_cast<int64_t>(yp);
+    double  phi       = std::asin(index / 256.0);
+    double  c_phi     = std::cos(phi);
+    double  s_phi     = yp - frac_bias;
+    double  sd        = y * c_phi - x * s_phi;
+    double  d         = (6.0 + sd * sd) * sd * 0.16666666666666666;
+    double  theta     = phi + d;
+    if (steep) theta = 3.141592653589793 / 2 - theta;
+    if (neg_x) theta = 3.141592653589793 - theta;
+    if (neg_y) theta = -theta;
+    return theta;
+}
+
+float wrap_degrees(float angle) {
+    float normalized = std::fmod(angle, 360.0F);
+    if (normalized >= 180.0F) normalized -= 360.0F;
+    if (normalized < -180.0F) normalized += 360.0F;
+    return normalized;
+}
+
 void vec3_axis_step_order(const vec3 & movement, int32_t order[3]) {
     bool z_first = std::abs(movement.x) < std::abs(movement.z);
     order[0]     = 1;
@@ -63,6 +107,24 @@ bool aabb_intersects(const aabb & a, const aabb & b) {
 
 bool aabb_contains(const aabb & b, const vec3 & v) {
     return v.x >= b.min[0] && v.x < b.max[0] && v.y >= b.min[1] && v.y < b.max[1] && v.z >= b.min[2] && v.z < b.max[2];
+}
+
+// findIndex on one cell: the moving box must overlap it on the other two axes and lie before it along a
+double aabb_collide(const aabb & box, int32_t a, const aabb & moving, double distance) {
+    if (std::fabs(distance) < 1.0E-7) return 0.0;
+    for (int32_t other : { (a + 1) % 3, (a + 2) % 3 }) {
+        if (!(moving.min[other] + 1.0E-7 < box.max[other]) || !(moving.max[other] - 1.0E-7 >= box.min[other])) {
+            return distance;
+        }
+    }
+    if (distance > 0.0) {
+        double gap = box.min[a] - moving.max[a];
+        if (moving.max[a] - 1.0E-7 < box.min[a] && gap >= -1.0E-7) distance = std::min(distance, gap);
+    } else {
+        double gap = box.max[a] - moving.min[a];
+        if (moving.min[a] + 1.0E-7 >= box.max[a] && gap <= 1.0E-7) distance = std::max(distance, gap);
+    }
+    return distance;
 }
 
 // Mth.lerp(0.5, min, max) per axis
