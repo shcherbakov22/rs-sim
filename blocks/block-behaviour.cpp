@@ -4,7 +4,7 @@
 #include "core/trace.h"
 #include "engine/level.h"
 
-static int16_t hook_owner(state_id st, hook h) { return vclass_hooks[block_defs[state_block(st)].cls][h]; }
+static int16_t hook_owner(state_id st, hook h) { return vclass_hooks[state_classes[st]][h]; }
 
 state_id block_behaviour_update_shape(level &, state_id st, block_pos, direction, block_pos, state_id) { return st; }
 
