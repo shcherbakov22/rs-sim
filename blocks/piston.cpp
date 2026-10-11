@@ -257,9 +257,7 @@ void piston_moving_block_entity_tick(level & lv, block_entity * be) {
         block_update_or_destroy(lv, be->moved_state, st, pos, UPDATE_FLAG_ALL, UPDATE_LIMIT);
         return;
     }
-    if (state_has_prop(st, PROP_WATERLOGGED) && state_get(st, PROP_WATERLOGGED)) {
-        st = state_set(st, PROP_WATERLOGGED, 0);
-    }
+    if (state_is_waterlogged(st)) st = state_set(st, PROP_WATERLOGGED, 0);
     level_set_block(lv, pos, st, UPDATE_FLAG_ALL | UPDATE_FLAG_MOVE_BY_PISTON);
     level_neighbor_changed(lv, pos, state_block(st));
 }

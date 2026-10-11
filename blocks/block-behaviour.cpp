@@ -125,8 +125,7 @@ state_id block_update_shape(level & lv, state_id st, block_pos pos, direction di
     trace_enter(lv.tr);
     state_id result = st;
     // SimpleWaterloggedBlock: every updateShape schedules the water tick before anything else, except a ladder's
-    if (state_has_prop(st, PROP_WATERLOGGED) && state_get(st, PROP_WATERLOGGED) &&
-        hook_owner(st, HOOK_UPDATE_SHAPE) != VCLASS_LADDER_BLOCK) {
+    if (state_is_waterlogged(st) && hook_owner(st, HOOK_UPDATE_SHAPE) != VCLASS_LADDER_BLOCK) {
         level_unsupported(lv, "fluids");
     } else if (const block_hooks * b = block_hooks_for(lv, st, HOOK_UPDATE_SHAPE)) {
         result = b->update_shape(lv, st, pos, dir, neighbor_pos, neighbor);

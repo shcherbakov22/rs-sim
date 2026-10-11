@@ -9,7 +9,7 @@
 
 // FallingBlockEntity.fall clears the block to its fluid before the spawn, which ends the run
 static void falling_block_entity_fall(level & lv, state_id st, block_pos pos) {
-    if (state_has_prop(st, PROP_WATERLOGGED) && state_get(st, PROP_WATERLOGGED)) {
+    if (state_is_waterlogged(st)) {
         level_unsupported(lv, "fluids");
         return;
     }

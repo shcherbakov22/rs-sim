@@ -151,10 +151,16 @@ bool item_instanceof(int32_t item, item_class cls);
 int32_t block_field_get(int32_t block, object_field field);
 
 // StateHolder.getValue/setValue/cycle; values are prop_def codes. The block must have the property.
-bool      state_has_prop(state_id st, prop_id prop);
-int32_t   state_get(state_id st, prop_id prop);
-state_id  state_set(state_id st, prop_id prop, int32_t value);
-state_id  state_cycle(state_id st, prop_id prop);
+bool     state_has_prop(state_id st, prop_id prop);
+int32_t  state_get(state_id st, prop_id prop);
+state_id state_set(state_id st, prop_id prop, int32_t value);
+state_id state_cycle(state_id st, prop_id prop);
+
+// waterlogged=true; every such state holds water, so the flag rules out almost all states without a property search
+inline bool state_is_waterlogged(state_id st) {
+    return state_has(st, STATE_FLAG_WATER) && state_has_prop(st, PROP_WATERLOGGED) && state_get(st, PROP_WATERLOGGED);
+}
+
 // getValue of the block's "facing": FACING, HORIZONTAL_FACING or the hopper's; a block has one property per name
 direction state_facing(state_id st);
 // Block.withPropertiesOf: the default state of block with every property it shares with st copied over
