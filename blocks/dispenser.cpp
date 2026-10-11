@@ -280,16 +280,22 @@ static void dispenser_tick(level & lv, state_id st, block_pos pos) {
         dropper ? dropper_dispense(lv, st, pos, be, s) : dispense_item_behavior_dispense(lv, st, pos, s));
 }
 
-static void dispenser_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
-    bool should_trigger =
-        level_has_neighbor_signal(lv, pos) || level_has_neighbor_signal(lv, pos_relative(pos, DIRECTION_UP));
+// the neighborChanged of DispenserBlock and CrafterBlock: a new signal schedules the tick, a lost one sets untriggered
+static void dispenser_update_triggered(level & lv, state_id st, block_pos pos, bool should_trigger,
+                                       state_id untriggered) {
     bool is_triggered = state_get(st, PROP_TRIGGERED);
     if (should_trigger && !is_triggered) {
         level_schedule_tick(lv, pos, state_block(st), 4, TICK_PRIORITY_NORMAL);
         level_set_block(lv, pos, state_set(st, PROP_TRIGGERED, 1), UPDATE_FLAG_CLIENTS);
     } else if (!should_trigger && is_triggered) {
-        level_set_block(lv, pos, state_set(st, PROP_TRIGGERED, 0), UPDATE_FLAG_CLIENTS);
+        level_set_block(lv, pos, untriggered, UPDATE_FLAG_CLIENTS);
     }
+}
+
+static void dispenser_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
+    bool should_trigger =
+        level_has_neighbor_signal(lv, pos) || level_has_neighbor_signal(lv, pos_relative(pos, DIRECTION_UP));
+    dispenser_update_triggered(lv, st, pos, should_trigger, state_set(st, PROP_TRIGGERED, 0));
 }
 
 // CrafterBlock and CrafterBlockEntity: a powered crafter crafts its grid and puts the result out in front
@@ -338,14 +344,8 @@ static int32_t crafter_get_analog_output_signal(level & lv, state_id, block_pos 
 
 // the block entity's triggered flag only feeds the menu
 static void crafter_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
-    bool should_trigger = level_has_neighbor_signal(lv, pos);
-    bool is_triggered   = state_get(st, PROP_TRIGGERED);
-    if (should_trigger && !is_triggered) {
-        level_schedule_tick(lv, pos, state_block(st), 4, TICK_PRIORITY_NORMAL);
-        level_set_block(lv, pos, state_set(st, PROP_TRIGGERED, 1), UPDATE_FLAG_CLIENTS);
-    } else if (!should_trigger && is_triggered) {
-        level_set_block(lv, pos, state_set(state_set(st, PROP_TRIGGERED, 0), PROP_CRAFTING, 0), UPDATE_FLAG_CLIENTS);
-    }
+    state_id untriggered = state_set(state_set(st, PROP_TRIGGERED, 0), PROP_CRAFTING, 0);
+    dispenser_update_triggered(lv, st, pos, level_has_neighbor_signal(lv, pos), untriggered);
 }
 
 // CrafterBlock.dispenseItem: into the container in front one by one or in bulk, the rest out as an item entity
