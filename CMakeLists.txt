@@ -57,6 +57,18 @@ target_link_libraries(tmcsim tmc)
 add_executable(test-core tests/test-core.cpp)
 target_link_libraries(test-core tmc)
 
+# profile-guided optimization with clang (bench +55%); tools/pgo.py refreshes the profile, and a stale one only loses speed
+option(TMC_PGO "optimize with sim/pgo/tmcsim.profdata" ON)
+set(PGO_PROFILE ${CMAKE_CURRENT_SOURCE_DIR}/pgo/tmcsim.profdata)
+if (TMC_PGO AND CMAKE_CXX_COMPILER_ID STREQUAL "Clang" AND EXISTS ${PGO_PROFILE})
+    foreach (TARGET tmc tmcsim test-core)
+        target_compile_options(${TARGET} PRIVATE -fprofile-instr-use=${PGO_PROFILE} -Wno-profile-instr-out-of-date
+                               -Wno-profile-instr-unprofiled)
+        get_target_property(SOURCES ${TARGET} SOURCES)
+        set_source_files_properties(${SOURCES} PROPERTIES OBJECT_DEPENDS ${PGO_PROFILE})
+    endforeach()
+endif()
+
 enable_testing()
 add_test(NAME core COMMAND test-core)
 # long runs of busy cases: tracing off must end in the same state as tracing on
