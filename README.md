@@ -7,4 +7,4 @@ implemented:
 - non-living entities
 
 ## LLM usage disclosure
-This project was primarily written with the help of an LLM
+This project was primarily written with the help of an LLM with human oversight
