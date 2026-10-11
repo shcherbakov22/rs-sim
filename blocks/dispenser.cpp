@@ -81,16 +81,24 @@ static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, 
 
 // BoatDispenseItemBehavior: a boat needs water in front, or air in front over water; else the item drops
 
+// any boat is narrower than 1.875, so its spawn x and z floor to the block in front; EntityType.create draws nothing
 static item_stack boat_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    block_pos front = pos_relative(pos, state_facing(st));
-    state_id  at    = level_get_state(lv, front);
-    if (state_has(at, STATE_FLAG_FLUID) ||
-        (state_has(at, STATE_FLAG_AIR) &&
-         state_has(level_get_state(lv, pos_relative(front, DIRECTION_DOWN)), STATE_FLAG_FLUID))) {
-        level_unsupported(lv, "fluids");
-        return dispensed;
+    direction facing = state_facing(st);
+    block_pos front  = pos_relative(pos, facing);
+    double    y_offset;
+    if (state_has(level_get_state(lv, front), STATE_FLAG_WATER)) {
+        y_offset = 1.0;
+    } else {
+        if (!state_has(level_get_state(lv, front), STATE_FLAG_AIR) ||
+            !state_has(level_get_state(lv, pos_relative(front, DIRECTION_DOWN)), STATE_FLAG_WATER)) {
+            return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
+        }
+        y_offset = 0.0;
     }
-    return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
+    double spawn_y = pos.y + 0.5 + DIRECTION_STEPS[facing].y * 1.125 + y_offset;
+    level_boundary(lv, "spawn %s %d %d %d", item_defs[item_stack_get_item(dispensed)].dispense_entity, front.x,
+                   (int32_t) std::floor(spawn_y), front.z);
+    return dispensed;
 }
 
 // MinecartDispenseItemBehavior: a minecart goes on a rail in front, or on a rail below an empty front; else the item drops
@@ -226,8 +234,8 @@ static item_stack dispense_item_behavior_tnt(level & lv, state_id st, block_pos 
 // filling with water makes a water potion, a stack with data components; a beehive never loads, so none is full
 static item_stack dispense_item_behavior_glass_bottle(level & lv, state_id st, block_pos pos, item_stack dispensed) {
     block_pos target = pos_relative(pos, state_facing(st));
-    if (state_has(level_get_state(lv, target), STATE_FLAG_FLUID)) {
-        level_unsupported(lv, "fluids");
+    if (state_has(level_get_state(lv, target), STATE_FLAG_WATER)) {
+        level_unsupported(lv, "water potion");
         return dispensed;
     }
     return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
