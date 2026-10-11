@@ -1,5 +1,4 @@
-// Landing: slime, beds, honey, farmland and dripstone act on an entity that lands, walks or slides on them, and cobwebs
-// slow one inside. A fall on most of them damages a falling anvil like any other block.
+// Landing: slime, beds, honey, farmland and dripstone act on an entity that lands, walks or slides; cobwebs slow one inside.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -24,7 +23,7 @@ static void slime_step_on(level &, state_id, block_pos, entity & e) {
     }
 }
 
-// BedBlock.fallOn: half the fall
+// BedBlock.fallOn
 static void bed_fall_on(level & lv, state_id, block_pos, entity & e) {
     entity_cause_fall_damage(lv, e, e.fall_distance * 0.5);
 }
@@ -35,7 +34,7 @@ static void farm_fall_on(level & lv, state_id st, block_pos pos, entity & e) {
     block_cause_fall_damage(lv, st, pos, e);
 }
 
-// PointedDripstoneBlock.fallOn: a stalagmite tip adds to the fall
+// PointedDripstoneBlock.fallOn
 static void pointed_dripstone_fall_on(level & lv, state_id st, block_pos pos, entity & e) {
     if (state_get(st, PROP_VERTICAL_DIRECTION) == DIRECTION_UP &&
         state_get(st, PROP_DRIPSTONE_THICKNESS) == DRIPSTONE_THICKNESS_TIP) {

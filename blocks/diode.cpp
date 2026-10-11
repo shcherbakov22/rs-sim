@@ -5,7 +5,7 @@
 
 #include <algorithm>
 
-// DiodeBlock.updateNeighborsInFront and ObserverBlock's: the block behind the output side and its neighbors
+// DiodeBlock.updateNeighborsInFront and ObserverBlock's
 static void diode_update_neighbors_in_front(level & lv, int32_t block, block_pos pos, direction facing) {
     block_pos opposite_pos = pos_relative(pos, direction_opposite(facing));
     level_neighbor_changed(lv, opposite_pos, block);
@@ -197,7 +197,7 @@ static void diode_affect_neighbors_after_removal(level & lv, state_id st, block_
     if (!moved_by_piston) diode_update_neighbors_in_front(lv, state_block(st), pos, state_facing(st));
 }
 
-// RepeaterBlock: a powered diode beside it locks it
+// RepeaterBlock
 static state_id repeater_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos neighbor_pos,
                                       state_id neighbor) {
     if (dir == DIRECTION_DOWN && !diode_can_survive_on(lv, neighbor_pos, neighbor)) return STATE_AIR;
@@ -207,7 +207,7 @@ static state_id repeater_update_shape(level & lv, state_id st, block_pos pos, di
     return st;
 }
 
-// ObserverBlock: a shape change in front sends a 2 tick pulse out the back
+// ObserverBlock
 
 static void observer_tick(level & lv, state_id st, block_pos pos) {
     if (state_get(st, PROP_POWERED)) {

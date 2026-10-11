@@ -2,7 +2,7 @@
 
 #include "blocks/block-behaviour.h"
 
-// ItemStack.onCraftedBySystem, dispatched to the item's vanilla class
+// ItemStack.onCraftedBySystem
 void item_on_crafted_post_process(level & lv, const item_stack & s);
 
 // BoneMealItem

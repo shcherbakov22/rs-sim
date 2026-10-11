@@ -1,5 +1,5 @@
-// ExperienceOrb: falls, floats up in water, slides, and merges with orbs of the same value. No player is in scope to
-// follow or collect one, so its count only grows.
+// ExperienceOrb: falls, floats up in water, slides, and merges with orbs of the same value.
+// No player is in scope to follow or collect one, so its count only grows.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -7,7 +7,7 @@
 
 #include <algorithm>
 
-// ExperienceOrb.getExperienceValue: the largest orb value up to the amount
+// ExperienceOrb.getExperienceValue
 static int32_t experience_orb_get_experience_value(int32_t max_value) {
     static constexpr int32_t VALUES[] = { 2477, 1237, 617, 307, 149, 73, 37, 17, 7, 3 };
     for (int32_t value : VALUES) {
@@ -16,12 +16,12 @@ static int32_t experience_orb_get_experience_value(int32_t max_value) {
     return 1;
 }
 
-// ExperienceOrb.canMerge: one of 40 id groups and the same value
+// ExperienceOrb.canMerge
 static bool experience_orb_can_merge(const entity & orb, int32_t id, int32_t value) {
     return orb.type == ENTITY_TYPE_EXPERIENCE_ORB && !orb.removed && (orb.id - id) % 40 == 0 && orb.value == value;
 }
 
-// ExperienceOrb.tryMergeToExisting: the group is a level random draw, and the first orb of it nearby takes the value
+// ExperienceOrb.tryMergeToExisting: the group is a level random draw
 static bool experience_orb_try_merge_to_existing(level & lv, vec3 pos, int32_t value) {
     aabb                  box = aabb_of(pos.x - 0.5, pos.y - 0.5, pos.z - 0.5, pos.x + 0.5, pos.y + 0.5, pos.z + 0.5);
     int32_t               id  = rng_next_int(lv.random, 40);
@@ -36,8 +36,7 @@ static bool experience_orb_try_merge_to_existing(level & lv, vec3 pos, int32_t v
     return false;
 }
 
-// ExperienceOrb.unstuckIfPossible: the allowed centers are a cube around the middle of the orb, which has not joined the
-// level yet
+// ExperienceOrb.unstuckIfPossible; the orb has not joined the level yet
 static void experience_orb_unstuck_if_possible(level & lv, entity & e, double max_distance) {
     float height  = entity_type_defs[e.type].height;
     float width   = entity_type_defs[e.type].width;
@@ -50,8 +49,7 @@ static void experience_orb_unstuck_if_possible(level & lv, entity & e, double ma
     }
 }
 
-// the ExperienceOrb constructor of an award: a random motion turned toward the rough direction, from a start moved
-// half the orb's size that way
+// the ExperienceOrb constructor of an award
 static entity * experience_orb_new(level & lv, vec3 pos, vec3 roughly, int32_t value) {
     entity * e = entity_new(lv, ENTITY_TYPE_EXPERIENCE_ORB, pos);
     rng_next_float(e->random);  // the yaw
@@ -80,8 +78,7 @@ void experience_orb_award_with_direction(level & lv, vec3 pos, vec3 rough_direct
     }
 }
 
-// Entity.updateFluidOnEyes for water: the fluid at the eyes reaches above them; the block's y adds to the height in
-// float
+// Entity.updateFluidOnEyes for water; the block's y adds to the height in float
 static bool experience_orb_is_eye_in_water(level & lv, const entity & e) {
     double         eye_y = e.pos.y + entity_type_defs[e.type].eye_height;
     block_pos      pos   = entity_world_to_block({ e.pos.x, eye_y, e.pos.z });
@@ -90,7 +87,7 @@ static bool experience_orb_is_eye_in_water(level & lv, const entity & e) {
            (pos.y + LEVEL_ORIGIN.y) + fluid_state_get_height(lv, fs, pos) > eye_y;
 }
 
-// ExperienceOrb.scanForMerges: orbs of the same group and value nearby join this one
+// ExperienceOrb.scanForMerges
 static void experience_orb_scan_for_merges(level & lv, entity & e) {
     std::vector<entity *> found;
     level_get_entities(lv, aabb_inflate(e.bb, 0.5, 0.5, 0.5), found);

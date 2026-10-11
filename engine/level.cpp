@@ -67,7 +67,7 @@ state_id level_get_state(const level & lv, block_pos pos) {
     return s == nullptr || s->n_non_air == 0 ? STATE_AIR : s->states[section_index(pos)];
 }
 
-// LevelChunkSection.setBlockState: returns the old state
+// LevelChunkSection.setBlockState
 static state_id section_set(level & lv, block_pos pos, state_id st) {
     level_section * s = level_find_section(lv, pos);
     if (s == nullptr) {
@@ -111,7 +111,6 @@ block_entity * level_new_block_entity(level & lv, block_entity_type type, block_
     return be;
 }
 
-// the block entity types the sim ports
 // clang-format off
 static constexpr block_entity_type BLOCK_ENTITY_TYPES_SUPPORTED[] = {
     BLOCK_ENTITY_TYPE_HOPPER, BLOCK_ENTITY_TYPE_DISPENSER, BLOCK_ENTITY_TYPE_DROPPER, BLOCK_ENTITY_TYPE_CRAFTER,
@@ -182,7 +181,7 @@ block_entity * level_get_block_entity(level & lv, block_pos pos) {
     return level_chunk_get_block_entity(lv, pos, true);
 }
 
-// Level.getBlockEntity(BlockPos, BlockEntityType): null unless the block entity has that type
+// Level.getBlockEntity(BlockPos, BlockEntityType)
 block_entity * level_get_block_entity_of_type(level & lv, block_pos pos, int32_t type) {
     block_entity * be = level_get_block_entity(lv, pos);
     return be != nullptr && be->type == type ? be : nullptr;

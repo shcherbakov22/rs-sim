@@ -11,8 +11,6 @@
 #include <cmath>
 #include <unordered_set>
 
-// fire and damage
-
 static bool entity_should_play_lava_hurt_sound(const entity & e) {
     return e.type != ENTITY_TYPE_ITEM || e.health <= 0 || e.tick_count % 10 == 0;
 }
@@ -120,8 +118,6 @@ static void entity_effect_collector_apply_and_clear(level & lv, entity_effect_co
     c.last_step = -1;
 }
 
-// blocks the entity is inside
-
 // Entity.collidedWithShapeMovingFrom against one box
 static bool entity_collided_with_box_moving_from(const entity & e, const vec3 & from, const vec3 & to,
                                                  const aabb & box) {
@@ -185,8 +181,7 @@ struct block_step {
     int32_t   iteration;
 };
 
-// BlockGetter.addCollisionsAlongTravel: the corner of the box walks along the travel, and every block it enters adds
-// the layer of blocks behind it
+// BlockGetter.addCollisionsAlongTravel: each block the box corner enters along the travel adds the layer behind it
 static int32_t block_getter_add_collisions_along_travel(std::unordered_set<int64_t> & visited, const vec3 & travel,
                                                         const aabb & box, std::vector<block_step> & out) {
     double  size[3] = { box.max[0] - box.min[0], box.max[1] - box.min[1], box.max[2] - box.min[2] };

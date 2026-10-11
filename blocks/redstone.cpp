@@ -331,7 +331,7 @@ static void lever_affect_neighbors_after_removal(level & lv, state_id st, block_
     if (!moved_by_piston && state_get(st, PROP_POWERED)) lever_update_neighbours(lv, st, pos);
 }
 
-// RedstoneLampBlock: a lamp turns on at once but off after a delay
+// RedstoneLampBlock
 
 static void redstone_lamp_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
     bool lit = state_get(st, PROP_LIT);
@@ -348,8 +348,6 @@ static void redstone_lamp_tick(level & lv, state_id st, block_pos pos) {
         level_set_block(lv, pos, state_cycle(st, PROP_LIT), UPDATE_FLAG_CLIENTS);
     }
 }
-
-// TargetBlock: a projectile hit powers it for a while, the more the closer it lands to the middle of the face
 
 // TargetBlock.updateRedstoneOutput; an arrow holds the power longer
 static void target_on_projectile_hit(level & lv, state_id st, const hit_result & hit, entity & projectile) {
@@ -381,8 +379,6 @@ static void target_on_place(level & lv, state_id st, block_pos pos, state_id old
 }
 
 // LightningRodBlock: never struck here (no lightning entity), so a powered rod only turns off 8 ticks after placement
-
-// updateNeighbours: the block the rod points away from and its neighbors
 static void lightning_rod_update_neighbours(level & lv, state_id st, block_pos pos) {
     direction front = direction_opposite(state_facing(st));
     level_update_neighbors_at(lv, pos_relative(pos, front), state_block(st));
@@ -404,9 +400,7 @@ static void lightning_rod_affect_neighbors_after_removal(level & lv, state_id st
     if (state_get(st, PROP_POWERED)) lightning_rod_update_neighbours(lv, st, pos);
 }
 
-// CopperBulbBlock: each rising edge of the neighbor signal toggles the light
-
-// checkAndFlip
+// CopperBulbBlock.checkAndFlip
 static void copper_bulb_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
     bool signal = level_has_neighbor_signal(lv, pos);
     if (signal == (bool) state_get(st, PROP_POWERED)) return;

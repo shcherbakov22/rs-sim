@@ -215,7 +215,7 @@ bool hopper_block_entity_add_item_entity(level & lv, const container & to, entit
     return false;
 }
 
-// HopperBlockEntity.getItemsAtAndAbove: SUCK_AABB, from the top of the bowl to the top of the block above, moved to at
+// HopperBlockEntity.getItemsAtAndAbove
 static void hopper_block_entity_get_items_at_and_above(level & lv, const vec3 & at, std::vector<entity *> & out) {
     std::vector<entity *> found;
     aabb box = aabb_move(aabb_of(0.0, 0.6875, 0.0, 1.0, 2.0, 1.0), { at.x - 0.5, at.y - 0.5, at.z - 0.5 });
@@ -282,7 +282,7 @@ void hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st,
     }
 }
 
-// HopperBlock: a signal disables the hopper
+// HopperBlock
 
 static void hopper_check_powered_state(level & lv, state_id st, block_pos pos) {
     bool should_be_on = !level_has_neighbor_signal(lv, pos);

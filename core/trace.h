@@ -30,7 +30,6 @@ void trace_vadd(trace * tr, const char * fmt, va_list args);
 void trace_begin_tick(trace * tr);
 void trace_phase(trace * tr, const char * name);
 
-// lines added between enter and exit are one call deeper
 void trace_enter(trace * tr);
 void trace_exit(trace * tr);
 

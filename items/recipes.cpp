@@ -53,12 +53,11 @@ static bool ingredient_test(int32_t ingredient, const item_stack & s) {
     return false;
 }
 
-// an Ingredient that a recipe class keeps in a field
 static bool recipe_field_test(recipe_field field, const item_stack & s) {
     return ingredient_test(recipe_field_ingredients[field], s);
 }
 
-// ShapedRecipe: items in a fixed pattern, which may also be mirrored left to right (ShapedRecipePattern)
+// ShapedRecipe
 
 // ShapedRecipePattern.matches(CraftingInput, boolean)
 static bool shaped_recipe_matches_flip(const recipe_def & def, const crafting_input & in, bool x_flip) {
@@ -84,7 +83,7 @@ static bool shaped_recipe_matches(int32_t recipe, const crafting_input & in) {
     return shaped_recipe_matches_flip(def, in, true) || shaped_recipe_matches_flip(def, in, false);
 }
 
-// ShapelessRecipe: each ingredient takes a different stack of the grid, in any layout
+// ShapelessRecipe
 
 // one augmenting path of StackedContents.tryPick, which finds a full matching whenever one exists
 static bool shapeless_recipe_try_assign(const recipe_def & def, const crafting_input & in, int32_t ingredient,
@@ -119,8 +118,7 @@ static bool shapeless_recipe_matches(int32_t recipe, const crafting_input & in) 
     return shapeless_recipe_can_craft(def, in);
 }
 
-// TransmuteRecipe: an input item and one material give the result item, keeping the input's data components; its
-// ingredients are the input, then the material
+// TransmuteRecipe; its ingredients are the input, then the material
 
 // TransmuteResult.isResultUnchanged: the input's data components carry over, so with no added components only the item and count differ
 static bool transmute_recipe_is_result_unchanged(level & lv, const recipe_def & def, const item_stack & input) {
@@ -157,7 +155,7 @@ static item_stack transmute_recipe_assemble(int32_t recipe, const crafting_input
     return {};
 }
 
-// MapExtendingRecipe: a filled map in paper zooms out; it needs the map's saved data
+// MapExtendingRecipe
 
 // a fresh filled map has no MAP_ID, so MapItem.getSavedData finds no data
 static bool map_extending_recipe_matches(level & lv, int32_t recipe, const crafting_input & in) {
@@ -195,14 +193,14 @@ static bool custom_recipe_matches_one_and_some(const crafting_input & in, bool (
 
 static bool custom_recipe_is_dye(const item_stack & s) { return item_instanceof(s.item, ICLASS_DYE_ITEM); }
 
-// ArmorDyeRecipe: one dyeable item and dyes
+// ArmorDyeRecipe
 static bool armor_dye_recipe_matches(const crafting_input & in) {
     return custom_recipe_matches_one_and_some(
         in, [](const item_stack & s) { return (item_defs[s.item].tags & ITEM_TAG_DYEABLE) != 0; },
         custom_recipe_is_dye);
 }
 
-// BookCloningRecipe: a written book copies into book and quills
+// BookCloningRecipe
 static bool book_cloning_recipe_matches(const crafting_input & in) {
     return custom_recipe_matches_one_and_some(
         in,
@@ -210,14 +208,14 @@ static bool book_cloning_recipe_matches(const crafting_input & in) {
         [](const item_stack & s) { return (item_defs[s.item].tags & ITEM_TAG_BOOK_CLONING_TARGET) != 0; });
 }
 
-// MapCloningRecipe: a filled map copies into empty maps
+// MapCloningRecipe
 static bool map_cloning_recipe_matches(const crafting_input & in) {
     return custom_recipe_matches_one_and_some(
         in, [](const item_stack & s) { return (item_defs[s.item].components & ITEM_COMPONENT_MAP_ID) != 0; },
         [](const item_stack & s) { return s.item == ITEM_MAP; });
 }
 
-// FireworkStarFadeRecipe: one firework star and dyes
+// FireworkStarFadeRecipe
 static bool firework_star_fade_recipe_matches(const crafting_input & in) {
     return custom_recipe_matches_one_and_some(
         in,
@@ -227,7 +225,7 @@ static bool firework_star_fade_recipe_matches(const crafting_input & in) {
         custom_recipe_is_dye);
 }
 
-// ShieldDecorationRecipe: a banner's pattern onto a shield without one
+// ShieldDecorationRecipe
 static bool shield_decoration_recipe_matches(const crafting_input & in) {
     return in.ingredient_count == 2 &&
            custom_recipe_matches_one_and_some(
@@ -237,7 +235,7 @@ static bool shield_decoration_recipe_matches(const crafting_input & in) {
                });
 }
 
-// BannerDuplicateRecipe: a patterned banner copies onto a blank one of the same color
+// BannerDuplicateRecipe
 
 static bool banner_duplicate_recipe_matches(const crafting_input & in) {
     if (in.ingredient_count != 2) return false;
@@ -266,7 +264,7 @@ static bool banner_duplicate_recipe_matches(const crafting_input & in) {
     return has_source && has_target;
 }
 
-// DecoratedPotRecipe: four sherds or bricks in a plus shape
+// DecoratedPotRecipe
 
 static bool decorated_pot_recipe_is_ingredient(const item_stack & s) {
     return (item_defs[item_stack_get_item(s)].tags & ITEM_TAG_DECORATED_POT_INGREDIENTS) != 0;
@@ -296,7 +294,7 @@ static item_stack decorated_pot_recipe_assemble(level & lv, const crafting_input
     return { ITEM_DECORATED_POT, 1 };
 }
 
-// FireworkRocketRecipe: paper, 1..3 gunpowder and any firework stars
+// FireworkRocketRecipe
 
 static bool firework_rocket_recipe_matches(const crafting_input & in) {
     if (in.ingredient_count < 2) return false;
@@ -316,7 +314,7 @@ static bool firework_rocket_recipe_matches(const crafting_input & in) {
     return paper && gun_powder >= 1;
 }
 
-// FireworkStarRecipe: gunpowder and dyes, with at most one shape, twinkle and trail item each
+// FireworkStarRecipe
 
 static bool firework_star_recipe_matches(const crafting_input & in) {
     if (in.ingredient_count < 2) return false;
@@ -347,7 +345,7 @@ static bool firework_star_recipe_matches(const crafting_input & in) {
     return gun_powder && colors;
 }
 
-// RepairItemRecipe: two single damageable items of the same kind
+// RepairItemRecipe
 
 // RepairItemRecipe.canCombine
 static bool repair_item_recipe_can_combine(const item_stack & first, const item_stack & second) {
@@ -387,7 +385,7 @@ static item_stack repair_item_recipe_assemble(const crafting_input & in) {
     return item_stack{ first->item, 1, std::max(durability - remaining, 0) };
 }
 
-// TippedArrowRecipe: a lingering potion in a ring of 8 arrows
+// TippedArrowRecipe
 
 static bool tipped_arrow_recipe_matches(const crafting_input & in) {
     if (in.width != 3 || in.height != 3 || in.ingredient_count != 9) return false;

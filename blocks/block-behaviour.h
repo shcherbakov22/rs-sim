@@ -30,8 +30,8 @@ shape block_get_collision_shape(level & lv, state_id st, block_pos pos);
 bool  block_is_face_sturdy(level & lv, state_id st, block_pos pos, direction dir, support_type type);
 bool  block_can_support_center(level & lv, block_pos pos, direction dir);
 
-// The BlockBehaviour methods one vanilla class overrides, one signature per hook. A hook the class overrides in
-// vanilla but leaves null here stops the run as unsupported.
+// The BlockBehaviour methods one vanilla class overrides, one signature per hook.
+// A hook the class overrides in vanilla but leaves null here stops the run as unsupported.
 struct block_hooks {
     int32_t vclass                                                                                        = VCLASS_NONE;
     state_id (*update_shape)(level & lv, state_id st, block_pos pos, direction dir, block_pos neighbor_pos,
@@ -64,19 +64,17 @@ struct block_hooks {
     void (*on_projectile_hit)(level & lv, state_id st, const hit_result & hit, entity & projectile)       = nullptr;
 };
 
-// BlockBehaviour.updateShape, the default: for classes whose override only schedules the water tick, which
-// block_update_shape does before dispatch
+// BlockBehaviour.updateShape, the default, for classes whose override only schedules the water tick (done before dispatch)
 state_id block_behaviour_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id);
 // BlockBehaviour.onExplosionHit, the default: an explosion that only triggers blocks destroys none
 void     block_behaviour_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex);
 // a stepOn or fallOn override that only acts on living entities or plays sounds: nothing for the entities in scope
 void     block_living_only(level & lv, state_id st, block_pos pos, entity & e);
-// Block.fallOn, the default: Entity.causeFallDamage with the whole fall. Overrides that only change the damage
-// multiplier use it too, as only living entities read the multiplier.
+// Block.fallOn, the default: Entity.causeFallDamage with the whole fall.
+// Overrides that only change the damage multiplier use it too, as only living entities read the multiplier.
 void     block_cause_fall_damage(level & lv, state_id st, block_pos pos, entity & e);
 
-// BlockStateBase dispatch to the block's vanilla class. A hook the class overrides but the sim
-// does not port yet stops the run as unsupported.
+// BlockStateBase dispatch to the block's vanilla class
 state_id   block_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos neighbor_pos,
                               state_id neighbor);
 void       block_handle_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block, bool moved_by_piston);
@@ -96,7 +94,6 @@ bool       block_should_changed_state_keep_block_entity(level & lv, state_id st,
 bool       block_place_liquid(level & lv, block_pos pos, state_id st, fluid_state_id fs);
 item_stack block_pickup_block(level & lv, block_pos pos, state_id st);
 
-// the hooks an entity runs on blocks
 void     block_entity_inside(level & lv, state_id st, block_pos pos, entity & e, entity_effect_collector & effects,
                              bool is_precise);
 uint16_t block_get_entity_inside_collision_shape(level & lv, state_id st);

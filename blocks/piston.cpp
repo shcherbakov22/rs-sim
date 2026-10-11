@@ -50,7 +50,7 @@ static bool piston_base_is_pushable(state_id st, block_pos pos, direction dir, b
     return !state_has(st, STATE_FLAG_PUSH_PUSH_ONLY) || dir == connection_direction;
 }
 
-// PistonStructureResolver: the blocks a piston pushes and the blocks it breaks
+// PistonStructureResolver
 
 struct piston_structure_resolver {
     block_pos              piston_pos;
@@ -201,8 +201,7 @@ static float piston_moving_block_entity_get_extended_progress(const block_entity
     return be->extending ? progress - 1.0f : 1.0f - progress;
 }
 
-// the states PistonMovingBlockEntity.getCollisionShape joins, with their offsets: the moved block at its current
-// offset, and before it the base of a retracting piston; a moving head is the short arm
+// the states PistonMovingBlockEntity.getCollisionShape joins, with their offsets; a moving head is the short arm
 static int32_t piston_moving_block_entity_get_collision_parts(level & lv, const block_entity * be, state_id parts[2],
                                                               vec3 offsets[2]) {
     int32_t n = 0;
@@ -265,7 +264,7 @@ static aabb piston_moving_block_entity_move_by_position_and_progress(const block
     return aabb_move(box, { w.x + progress * step.x, w.y + progress * step.y, w.z + progress * step.z });
 }
 
-// PistonMath.getMovementArea: the slab the box sweeps through ahead of its leading face
+// PistonMath.getMovementArea
 static aabb piston_math_get_movement_area(const aabb & box, direction dir, double amount) {
     int32_t axis   = direction_get_axis(dir);
     double  delta  = amount * direction_get_axis_step(dir);
@@ -282,8 +281,8 @@ static double piston_moving_block_entity_get_movement(const aabb & bound, direct
     return direction_get_axis_step(dir) > 0 ? bound.max[axis] - box.min[axis] : box.max[axis] - bound.min[axis];
 }
 
-// moveEntityByPiston: NOCLIP lets the entity pass the moving blocks of this move; the move is not kept for the
-// entity's own tick
+// moveEntityByPiston: NOCLIP lets the entity pass the moving blocks of this move.
+// The move is not kept for the entity's own tick.
 static void piston_moving_block_entity_move_entity_by_piston(level & lv, direction piston_dir, entity & e, double delta,
                                                              direction movement) {
     lv.piston_noclip       = piston_dir;
@@ -295,7 +294,7 @@ static void piston_moving_block_entity_move_entity_by_piston(level & lv, directi
     lv.piston_noclip = -1;
 }
 
-// fixEntityWithinPistonBase: a retracting piston pulls an entity out of its base block
+// fixEntityWithinPistonBase
 static void piston_moving_block_entity_fix_entity_within_piston_base(level & lv, block_pos pos, entity & e,
                                                                      direction dir, double delta_progress) {
     vec3 w     = entity_block_to_world(pos);
@@ -412,8 +411,6 @@ void piston_moving_block_entity_tick(level & lv, block_entity * be) {
 }
 
 // MovingPistonBlock
-
-// its PistonMovingBlockEntity, or null
 static block_entity * moving_piston_get_block_entity(level & lv, state_id st, block_pos pos) {
     return state_is(st, BLOCK_MOVING_PISTON) ? level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_PISTON) :
                                                nullptr;
@@ -453,7 +450,7 @@ static state_id moving_piston_state(direction dir, bool sticky) {
     return state_set(st, PROP_PISTON_TYPE, sticky ? PISTON_TYPE_STICKY : PISTON_TYPE_NORMAL);
 }
 
-// PistonBaseBlock again: extending, retracting and moving the blocks
+// PistonBaseBlock again
 
 static void piston_base_check_if_extend(level & lv, state_id st, block_pos pos) {
     direction dir    = state_facing(st);

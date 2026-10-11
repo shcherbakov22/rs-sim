@@ -13,7 +13,6 @@ static constexpr int32_t CASE_SURROUND = 13;
 // Batch.CLEARED: the oracle force-loads the chunks this far around the region
 static constexpr int32_t CASE_CLEARED  = CASE_SURROUND + 1;
 
-// the case gives block entity data for pos
 static bool case_has_data(const case_file & f, block_pos pos) {
     for (const case_item & it : f.items) {
         if (it.pos == pos) return true;

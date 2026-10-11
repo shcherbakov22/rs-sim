@@ -1,5 +1,5 @@
-// PrimedTnt: falls, slides and floats until its fuse runs out, then explodes. Its tick skips Entity.baseTick, and
-// no portal is in scope.
+// PrimedTnt: falls, slides and floats until its fuse runs out, then explodes.
+// Its tick skips Entity.baseTick, and no portal is in scope.
 
 #include "engine/explosion.h"
 #include "engine/level.h"

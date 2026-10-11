@@ -23,7 +23,7 @@ static const block_pos abstract_minecart_exits[10][2] = {
     { { 0, 0, -1 },  { 1, 0, 0 }  },
 };
 
-// getCurrentBlockPosOrRailBelow at a point: the block, or the rail below it
+// AbstractMinecart.getCurrentBlockPosOrRailBelow at a point
 static block_pos abstract_minecart_get_current_block_pos_or_rail_below(level & lv, const vec3 & at) {
     block_pos pos = entity_world_to_block(at);
     if (state_has(level_get_state(lv, pos_relative(pos, DIRECTION_DOWN)), STATE_FLAG_TAG_RAILS)) pos.y--;
@@ -100,7 +100,7 @@ static vec3 old_minecart_behavior_kick_off(level & lv, block_pos pos, int32_t sh
     return delta;
 }
 
-// OldMinecartBehavior.moveAlongTrack: snap to the track, move along it, then slow down, climb and power
+// OldMinecartBehavior.moveAlongTrack
 static void old_minecart_behavior_move_along_track(level & lv, entity & e) {
     block_pos pos   = abstract_minecart_get_current_block_pos_or_rail_below(lv, e.pos);
     state_id  st    = level_get_state(lv, pos);
@@ -242,7 +242,7 @@ static void abstract_minecart_activate_minecart(entity & e, bool powered) {
     }
 }
 
-// AbstractMinecart.pushOtherMinecart, the old behaviour: only a push along the facing counts; a furnace pushes
+// AbstractMinecart.pushOtherMinecart, the old behaviour: only a push along the facing counts
 static void abstract_minecart_push_other_minecart(entity & e, entity & other, double xa, double za) {
     vec3  dir    = vec3_normalize({ other.pos.x - e.pos.x, 0.0, other.pos.z - e.pos.z });
     float rad    = e.y_rot * (float) (3.141592653589793 / 180.0);
@@ -290,8 +290,7 @@ static void abstract_minecart_push(entity & e, entity & other) {
     abstract_minecart_push_other_minecart(e, other, xa, za);
 }
 
-// OldMinecartBehavior.pushAndPickupEntities: the pushable entities in scope are minecarts and boats; a moving plain
-// minecart picks up a boat, which is out of scope, and pushes other minecarts like any minecart does
+// OldMinecartBehavior.pushAndPickupEntities; a moving plain minecart picking up a boat is out of scope
 static void old_minecart_behavior_push_and_pickup_entities(level & lv, entity & e) {
     bool                  pick_up = e.type == ENTITY_TYPE_MINECART && vec3_horizontal_distance_sqr(e.delta) >= 0.01;
     std::vector<entity *> found;
@@ -306,7 +305,7 @@ static void old_minecart_behavior_push_and_pickup_entities(level & lv, entity & 
     }
 }
 
-// OldMinecartBehavior.tick on the server: move on or off the rails, then turn to face the way it went
+// OldMinecartBehavior.tick on the server
 static void old_minecart_behavior_tick(level & lv, entity & e) {
     entity_apply_gravity(e);
     block_pos pos = abstract_minecart_get_current_block_pos_or_rail_below(lv, e.pos);
@@ -333,7 +332,7 @@ static void old_minecart_behavior_tick(level & lv, entity & e) {
     old_minecart_behavior_push_and_pickup_entities(lv, e);
 }
 
-// MinecartHopper.suckInItems: through the hopper above it, then the item entities around it
+// MinecartHopper.suckInItems
 static void minecart_hopper_suck_in_items(level & lv, entity & e) {
     container self = entity_container(e);
     if (hopper_block_entity_suck_in_items(lv, self, { e.pos.x, e.pos.y + 0.5, e.pos.z }, false)) return;

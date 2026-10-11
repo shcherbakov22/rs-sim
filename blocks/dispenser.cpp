@@ -10,8 +10,6 @@
 
 #include <cmath>
 
-// DispenserBlockEntity and DefaultDispenseItemBehavior
-
 // DispenserBlockEntity.getRandomSlot: reservoir sampling over the filled slots
 static int32_t dispenser_block_entity_get_random_slot(level & lv, const block_entity * be) {
     int32_t replace_slot = -1;
@@ -44,7 +42,7 @@ static item_stack default_dispense_item_behavior_dispense(level & lv, state_id s
     return dispensed;
 }
 
-// DispenserBlockEntity.insertItem: into empty slots and equal stacks, in slot order
+// DispenserBlockEntity.insertItem
 static item_stack dispenser_block_entity_insert_item(level & lv, block_pos pos, item_stack s) {
     block_entity * be             = level_get_block_entity(lv, pos);
     int32_t        max_stack_size = container_get_max_stack_size(s);
@@ -79,8 +77,7 @@ static void dispenser_boundary_spawn(level & lv, item_stack dispensed, int32_t x
     level_boundary(lv, "spawn %s %d %d %d", entity_type_defs[type].name, x, y, z);
 }
 
-// ProjectileDispenseBehavior: the projectile starts at the DispenseConfig position and Projectile.shoot aims it along
-// the facing
+// ProjectileDispenseBehavior.execute
 static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed) {
     int32_t                 item   = item_stack_get_item(dispensed);
     int32_t                 type   = item_defs[item].dispense_entity;
@@ -88,8 +85,7 @@ static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, 
     const dispense_config & config = dispense_configs[item_defs[item].dispense_config];
     vec3                    center = vec3_add(entity_block_to_world(pos), { 0.5, 0.5, 0.5 });
     vec3 at     = vec3_add(center, { config.offset[facing][0], config.offset[facing][1], config.offset[facing][2] });
-    // asProjectile of a fire or wind charge draws three triangle distributed direction components, which the shot
-    // replaces
+    // FireChargeItem and WindChargeItem.asProjectile draw three triangles that the shot replaces
     if (item_defs[item].cls == ICLASS_FIRE_CHARGE_ITEM || item_defs[item].cls == ICLASS_WIND_CHARGE_ITEM) {
         for (int32_t i = 0; i < 6; i++) rng_next_double(lv.random);
     }
@@ -116,8 +112,8 @@ static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, 
     return dispensed;
 }
 
-// BoatDispenseItemBehavior: a boat needs water in front, or air in front over water; else the item drops. Its yaw does
-// nothing without a rider.
+// BoatDispenseItemBehavior: a boat needs water in front, or air in front over water; else the item drops.
+// Its yaw does nothing without a rider.
 static item_stack boat_dispense_item_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed) {
     direction         facing  = state_facing(st);
     const block_pos & step    = DIRECTION_STEPS[facing];
@@ -143,7 +139,7 @@ static item_stack boat_dispense_item_behavior_execute(level & lv, state_id st, b
     return dispensed;
 }
 
-// MinecartDispenseItemBehavior: a minecart goes on a rail in front, or on a rail below an empty front; else the item drops
+// MinecartDispenseItemBehavior
 
 // getRailShape(...).isSlope; every block in the rails tag is a BaseRailBlock
 static bool minecart_dispense_item_behavior_is_slope(state_id st) {
@@ -204,7 +200,7 @@ static item_stack dispense_item_behavior_bucket(level & lv, state_id st, block_p
                                                                  { item_stack_get_item(pickup), 1 });
 }
 
-// BucketItem.emptyContents with no user and no hit: the fluid fills a water container, or replaces what it may
+// BucketItem.emptyContents with no user and no hit
 static bool bucket_item_empty_contents(level & lv, int32_t fluid, block_pos pos) {
     state_id st          = level_get_state(lv, pos);
     bool     may_replace = state_has(st, STATE_FLAG_FLUID_REPLACEABLE);
@@ -342,7 +338,7 @@ static item_stack dispense_item_behavior_dispense(level & lv, state_id st, block
     return dispensed;
 }
 
-// DropperBlock: one item goes into the container in front, or out as an item entity
+// DropperBlock
 
 static item_stack dropper_dispense(level & lv, state_id st, block_pos pos, block_entity * be, item_stack s) {
     container           self = { be, nullptr };
@@ -359,9 +355,7 @@ static item_stack dropper_dispense(level & lv, state_id st, block_pos pos, block
     return s;
 }
 
-// DispenserBlock
-
-// dispenseFrom, with DropperBlock's override: the item from a random filled slot goes through its behaviour
+// DispenserBlock.dispenseFrom, with DropperBlock's override: the item from a random filled slot goes through its behaviour
 static void dispenser_tick(level & lv, state_id st, block_pos pos) {
     bool           dropper = block_instanceof(state_block(st), VCLASS_DROPPER_BLOCK);
     block_entity * be =
@@ -392,7 +386,7 @@ static void dispenser_neighbor_changed(level & lv, state_id st, block_pos pos, i
     dispenser_update_triggered(lv, st, pos, should_trigger, state_set(st, PROP_TRIGGERED, 0));
 }
 
-// CrafterBlock and CrafterBlockEntity: a powered crafter crafts its grid and puts the result out in front
+// CrafterBlock and CrafterBlockEntity
 
 static bool crafter_block_entity_is_slot_disabled(const block_entity * be, int32_t slot) {
     return slot >= 0 && slot < 9 && (be->disabled_slots >> slot & 1) != 0;
@@ -442,7 +436,7 @@ static void crafter_neighbor_changed(level & lv, state_id st, block_pos pos, int
     dispenser_update_triggered(lv, st, pos, level_has_neighbor_signal(lv, pos), untriggered);
 }
 
-// CrafterBlock.dispenseItem: into the container in front one by one or in bulk, the rest out as an item entity
+// CrafterBlock.dispenseItem
 static void crafter_dispense_item(level & lv, state_id st, block_pos pos, block_entity * be,
                                   const item_stack & results) {
     direction           dir  = front_and_top_fronts[state_get(st, PROP_ORIENTATION)];

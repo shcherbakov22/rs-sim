@@ -8,9 +8,7 @@
 
 #include <algorithm>
 
-// FallingBlock: sand, gravel, concrete powder and the like fall when the block below is free
-
-// getDelayAfterPlace
+// FallingBlock.getDelayAfterPlace
 static const int32_t FALLING_BLOCK_DELAY_AFTER_PLACE = 2;
 
 static void falling_block_on_place(level & lv, state_id st, block_pos pos, state_id, bool) {
@@ -29,9 +27,7 @@ static void falling_block_tick(level & lv, state_id st, block_pos pos) {
     }
 }
 
-// ConcretePowderBlock: becomes concrete where it touches water, or lands in it
-
-// the face test runs on the neighbor's state but with the powder's position, as vanilla passes it
+// ConcretePowderBlock; the face test runs on the neighbor's state but with the powder's position, as vanilla passes it
 static bool concrete_powder_touches_liquid(level & lv, block_pos pos) {
     for (int32_t dir = DIRECTION_DOWN; dir <= DIRECTION_EAST; dir++) {
         if (dir == DIRECTION_DOWN && !state_has(level_get_state(lv, pos), STATE_FLAG_WATER)) continue;
@@ -71,7 +67,7 @@ static state_id concrete_powder_update_shape(level & lv, state_id st, block_pos 
     return falling_block_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
 }
 
-// ScaffoldingBlock: distance 0 on a sturdy block, else one more than the nearest scaffolding beside it; 7 falls
+// ScaffoldingBlock
 
 static int32_t scaffolding_get_distance(level & lv, block_pos pos) {
     block_pos below       = pos_relative(pos, DIRECTION_DOWN);
@@ -124,9 +120,7 @@ static void scaffolding_tick(level & lv, state_id st, block_pos pos) {
     }
 }
 
-// LeavesBlock: distance to the nearest log, refreshed one tick after a neighbor changes
-
-// getOptionalDistanceAt, 7 when the state has no distance
+// LeavesBlock.getOptionalDistanceAt, 7 when the state has no distance
 static int32_t leaves_get_distance_at(state_id st) {
     if (state_has(st, STATE_FLAG_TAG_LOGS)) return 0;
     return state_has_prop(st, PROP_DISTANCE) ? state_get(st, PROP_DISTANCE) : 7;
@@ -192,7 +186,7 @@ static void amethyst_on_projectile_hit(level & lv, state_id, const hit_result &,
     rng_next_float(lv.random);
 }
 
-// SoulSandBlock: keeps a bubble column above it, which only water can hold. MagmaBlock has the same three methods.
+// SoulSandBlock, and MagmaBlock with the same three methods
 
 static void soul_sand_on_place(level & lv, state_id st, block_pos pos, state_id, bool) {
     level_schedule_tick(lv, pos, state_block(st), 20);
@@ -215,12 +209,12 @@ static item_stack powder_snow_pickup_block(level & lv, block_pos pos, state_id) 
     return { ITEM_POWDER_SNOW_BUCKET, 1, 0 };
 }
 
-// SnowyDirtBlock: grass, podzol and mycelium show snow while a block tagged snow is on top
+// SnowyDirtBlock
 static state_id snowy_dirt_update_shape(level &, state_id st, block_pos, direction dir, block_pos, state_id neighbor) {
     return dir == DIRECTION_UP ? state_set(st, PROP_SNOWY, state_has(neighbor, STATE_FLAG_TAG_SNOW)) : st;
 }
 
-// DirtPathBlock: turns back into dirt a tick after a solid block (other than a fence gate) lands on top
+// DirtPathBlock
 
 static bool dirt_path_can_survive(level & lv, state_id, block_pos pos) {
     state_id above = level_get_state(lv, pos_relative(pos, DIRECTION_UP));

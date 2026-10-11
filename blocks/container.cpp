@@ -1,5 +1,4 @@
-// Containers: the Container interface of the blocks that hold items, and the chests, jukeboxes, bookshelves, shelves
-// and composters built on it
+// Containers: the Container interface, and the chests, jukeboxes, bookshelves, shelves and composters built on it
 
 #include "blocks/handlers.h"
 #include "core/trace.h"
@@ -9,9 +8,8 @@
 #include <algorithm>
 #include <cmath>
 
-// Container for the block entities that hold items: BaseContainerBlockEntity, the HopperBlockEntity overrides
-// and CompoundContainer for double chests; SimpleContainer for the composter's containers; ContainerEntity, which
-// keeps Container's defaults and whose setChanged does nothing
+// Container: block entities (HopperBlockEntity overrides, CompoundContainer) and SimpleContainer for the composter.
+// ContainerEntity keeps the defaults, and its setChanged does nothing.
 
 // BlockEntity.setChanged
 void block_entity_set_changed(level & lv, block_pos pos, state_id st) {
@@ -26,7 +24,7 @@ int32_t container_get_container_size(const container & c) {
     return (int32_t) c.first->items.size() + (c.second != nullptr ? (int32_t) c.second->items.size() : 0);
 }
 
-// CompoundContainer: slots past the first half belong to the second
+// CompoundContainer
 static block_entity * container_half(const container & c, int32_t & slot) {
     int32_t first_size = (int32_t) c.first->items.size();
     if (c.second != nullptr && slot >= first_size) {
@@ -91,7 +89,6 @@ item_stack container_remove_item(level & lv, const container & c, int32_t slot, 
 }
 
 void container_set_item(level & lv, const container & c, int32_t slot, item_stack s) {
-    // the composter's containers hold one item
     if (c.composter != nullptr) {
         c.composter->item = s;
         item_stack_limit_size(c.composter->item, 1);
@@ -132,7 +129,6 @@ void container_set_changed(level & lv, const container & c) {
 // AbstractContainerMenu.getRedstoneSignalFromContainer
 int32_t container_get_redstone_signal(const container * c) {
     if (c == nullptr) return 0;
-    // no composter container is read
     TMC_ASSERT(c->composter == nullptr);
     float total_percent = 0.0f;
     for (int32_t slot = 0; slot < container_get_container_size(*c); slot++) {
@@ -168,7 +164,7 @@ static void containers_drop_item_stack(level & lv, const vec3 & at, item_stack &
     }
 }
 
-// Containers.dropContents at a block corner or an entity's position: the slots empty as they drop
+// Containers.dropContents; the slots empty as they drop
 void containers_drop_contents(level & lv, const vec3 & at, const container & c) {
     for (int32_t slot = 0; slot < container_get_container_size(c); slot++) {
         containers_drop_item_stack(lv, at, container_get_item(c, slot));
@@ -179,8 +175,6 @@ void containers_drop_contents(level & lv, const vec3 & at, const container & c) 
 void containers_update_neighbours_after_destroy(level & lv, state_id st, block_pos pos, bool) {
     level_update_neighbour_for_output_signal(lv, pos, state_block(st));
 }
-
-// BaseEntityBlock
 
 // BlockEntity.triggerEvent: event 1 moves chest, ender chest and shulker box lids, swings bells and wobbles decorated pots
 bool base_entity_block_trigger_event(level & lv, state_id, block_pos pos, int32_t param_a, int32_t param_b) {
@@ -213,7 +207,7 @@ static bool chest_is_blocked_at(level & lv, block_pos pos) {
     return state_has(level_get_state(lv, pos_relative(pos, DIRECTION_UP)), STATE_FLAG_CONDUCTOR);
 }
 
-// BlockEntityType.getBlockEntity: the block entity at pos if it has the chest's type
+// BlockEntityType.getBlockEntity
 static block_entity * chest_get_typed_block_entity(level & lv, state_id st, block_pos pos) {
     return level_get_block_entity_of_type(lv, pos, block_defs[state_block(st)].entity_new);
 }
@@ -336,7 +330,7 @@ void jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack
     }
 }
 
-// JukeboxBlockEntity.popOutTheItem: the record pops out on top
+// JukeboxBlockEntity.popOutTheItem
 void jukebox_block_entity_pop_out_the_item(level & lv, block_entity * be) {
     item_stack s = be->items[0];
     if (item_stack_is_empty(s)) return;
@@ -409,7 +403,7 @@ bool chiseled_book_shelf_block_entity_can_place_item(const block_entity * be, in
     return (item_defs[item_stack_get_item(s)].tags & ITEM_TAG_BOOKSHELF_BOOKS) && item_stack_is_empty(be->items[slot]);
 }
 
-// ChiseledBookShelfBlockEntity.canTakeItem: the target needs an empty slot or a stack the item can join
+// ChiseledBookShelfBlockEntity.canTakeItem
 bool chiseled_book_shelf_block_entity_can_take_item(const container & into, const item_stack & s) {
     for (int32_t slot = 0; slot < container_get_container_size(into); slot++) {
         const item_stack & to = container_get_item(into, slot);
@@ -540,7 +534,7 @@ static void shelf_affect_neighbors_after_removal(level & lv, state_id st, block_
     shelf_update_neighbors_after_powering_down(lv, pos, st);
 }
 
-// one bit per filled slot, only toward the back
+// ShelfBlock.getAnalogOutputSignal
 static int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos pos, direction dir) {
     block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_SHELF);
     if (dir != direction_opposite(state_facing(st)) || be == nullptr) return 0;
@@ -549,7 +543,7 @@ static int32_t shelf_get_analog_output_signal(level & lv, state_id st, block_pos
     return bits;
 }
 
-// ComposterBlock: compostable items raise the level by chance; level 7 turns ready (8) after 20 ticks
+// ComposterBlock
 
 // the first item into an empty composter always counts; any other draws a double against its chance
 static void composter_add_item(level & lv, state_id st, block_pos pos, const item_stack & stack) {
@@ -586,7 +580,6 @@ int32_t composter_container_get_container_size(const composter_container & c) {
     return state_get(c.state, PROP_LEVEL_COMPOSTER) == 7 ? 0 : 1;
 }
 
-// the input takes from above, the output gives below
 int32_t composter_container_get_slots_for_face(const composter_container & c, direction face) {
     int32_t level_value = state_get(c.state, PROP_LEVEL_COMPOSTER);
     return (level_value < 7 && face == DIRECTION_UP) || (level_value == 8 && face == DIRECTION_DOWN) ? 1 : 0;
@@ -618,7 +611,7 @@ void composter_container_set_changed(level & lv, composter_container & c) {
     }
 }
 
-// DecoratedPotBlock.onProjectileHit: an impact projectile cracks the pot and breaks it
+// DecoratedPotBlock.onProjectileHit
 static void decorated_pot_on_projectile_hit(level & lv, state_id st, const hit_result & hit, entity & projectile) {
     if (!(entity_type_defs[projectile.type].tags & ENTITY_TYPE_TAG_IMPACT_PROJECTILES)) return;
     level_set_block(lv, hit.pos, state_set(st, PROP_CRACKED, 1),

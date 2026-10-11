@@ -94,7 +94,6 @@ void    composter_container_set_changed(level & lv, composter_container & c);
 // ChestBlock
 bool chest_get_container(level & lv, state_id st, block_pos pos, bool ignore_being_blocked, container & out);
 
-// attached.cpp
 direction face_attached_horizontal_directional_get_connected_direction(state_id st);
 // the updateShape and canSurvive of a block on a sturdy face, which redstone wall torches share
 state_id  attached_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id);
@@ -105,8 +104,7 @@ void lever_pull(level & lv, state_id st, block_pos pos);
 
 // MovingPistonBlock
 shape moving_piston_get_collision_shape(level & lv, block_pos pos);
-// MovingPistonBlock.getCollisionShape for an entity: the dumped shapes of the union at world offsets, or true when the
-// union is Shapes.block()
+// MovingPistonBlock.getCollisionShape for an entity, as dumped shapes at world offsets; true when it is Shapes.block()
 bool  moving_piston_get_entity_collision_shapes(level & lv, block_pos pos, std::vector<voxel_shape> & out);
 
 // PistonMovingBlockEntity

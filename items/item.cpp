@@ -12,8 +12,6 @@ void item_on_crafted_post_process(level & lv, const item_stack & s) {
 }
 
 // BoneMealItem: bonemealing plants and growing seagrass in water are out of scope, so reaching either stops the run
-
-// isValidBonemealTarget is not ported, so every bonemealable block stops the run
 bool bone_meal_item_grow_crop(level & lv, block_pos pos) {
     state_id st = level_get_state(lv, pos);
     if (!state_has(st, STATE_FLAG_BONEMEALABLE)) return false;

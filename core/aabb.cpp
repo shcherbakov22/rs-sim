@@ -16,7 +16,7 @@ vec3 vec3_normalize(const vec3 & v) {
     return dist < 1.0E-5F ? vec3{} : vec3{ v.x / dist, v.y / dist, v.z / dist };
 }
 
-// Mth.SIN[i] is (float) Math.sin(i / 10430.378350470453)
+// Mth.SIN
 static float mth_sin_table(int64_t i) { return (float) std::sin((double) (i & 65535) / 10430.378350470453); }
 
 float mth_sin(double v) { return mth_sin_table((int64_t) (v * 10430.378350470453)); }
@@ -114,7 +114,7 @@ bool aabb_contains(const aabb & b, const vec3 & v) {
     return v.x >= b.min[0] && v.x < b.max[0] && v.y >= b.min[1] && v.y < b.max[1] && v.z >= b.min[2] && v.z < b.max[2];
 }
 
-// findIndex on one cell: the moving box must overlap it on the other two axes and lie before it along a
+// VoxelShape.findIndex on one cell: moving overlaps it on the other two axes and lies before it along a
 double aabb_collide(const aabb & box, int32_t a, const aabb & moving, double distance) {
     if (std::fabs(distance) < 1.0E-7) return 0.0;
     for (int32_t other : { (a + 1) % 3, (a + 2) % 3 }) {
@@ -138,7 +138,7 @@ vec3 aabb_get_center(const aabb & b) {
              b.min[2] + 0.5 * (b.max[2] - b.min[2]) };
 }
 
-// AABB.clipPoint: the face plane at point along axis a, hit within the face (b and c) closer than scale
+// AABB.clipPoint
 static bool aabb_clip_point(double & scale, const double d[3], const double from[3], int32_t a, double point,
                             const aabb & box) {
     int32_t b  = (a + 1) % 3;

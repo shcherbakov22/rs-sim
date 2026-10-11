@@ -13,9 +13,8 @@ struct scheduled_tick {
     int64_t   sub_tick_order;
 };
 
-// LevelTicks<Block> and LevelTicks<Fluid>. Vanilla keeps one queue per chunk and merges them by priority and sub-tick, ignoring the
-// trigger tick. Every delay is >= 1, so all ticks due in one game tick share their trigger tick and the merge is
-// the same as one list sorted by ScheduledTick.DRAIN_ORDER.
+// LevelTicks<Block> and LevelTicks<Fluid>. Vanilla merges its per-chunk queues by priority and sub-tick.
+// Every delay is >= 1, so the due ticks share their trigger tick and one list in ScheduledTick.DRAIN_ORDER is the same.
 struct level_ticks {
     std::vector<scheduled_tick> pending;  // DRAIN_ORDER, front runs first
     std::vector<scheduled_tick> to_run;   // this tick's ticks; front runs next

@@ -1,5 +1,5 @@
-// Entity: the level's entity storage and sections, the entities phase, and the Entity base class that entity types
-// build on: movement and block collisions and fluids. The effects of blocks are in entity-inside.cpp.
+// Entity: storage and sections, the entities phase, and the base class: movement, block collisions and fluids.
+// The effects of blocks are in entity-inside.cpp.
 
 #include "engine/entity.h"
 
@@ -41,7 +41,7 @@ aabb entity_make_bounding_box(const entity & e, const vec3 & pos) {
     return aabb_of(pos.x - w, pos.y, pos.z - w, pos.x + w, pos.y + h, pos.z + w);
 }
 
-// Trace.vec: relative to the case origin, then Double.toString
+// Trace.vec
 static std::string entity_trace_vec(const vec3 & v) {
     return trace_double(v.x - LEVEL_ORIGIN.x) + " " + trace_double(v.y - LEVEL_ORIGIN.y) + " " +
            trace_double(v.z - LEVEL_ORIGIN.z);
@@ -63,8 +63,6 @@ void entity_trace_stack_changed(level & lv, const entity & e) {
     block_pos pos = entity_block_position(e);
     if (trace_wants(lv.tr, &pos)) trace_add(lv.tr, "stack %d %s", e.id, entity_trace_stack(e.item).c_str());
 }
-
-// storage and sections
 
 entity * entity_new(level & lv, entity_type type, vec3 pos) {
     lv.entity_store.push_back(std::make_unique<entity>());
@@ -163,8 +161,6 @@ void level_get_entities(level & lv, const aabb & box, std::vector<entity *> & ou
     }
 }
 
-// the entities phase
-
 static void entity_tick(level & lv, entity & e) {
     switch (e.type) {
         case ENTITY_TYPE_ITEM: item_entity_tick(lv, e); return;
@@ -202,8 +198,7 @@ void entity_push(entity & e, double x, double y, double z) {
     if (!e.in_ground && e.type != ENTITY_TYPE_WIND_CHARGE) e.delta = vec3_add(e.delta, { x, y, z });
 }
 
-// Entity.push(Entity): the two push apart, each by a twentieth; only vehicles push, and nothing in scope carries a
-// passenger
+// Entity.push(Entity); only vehicles push, and nothing in scope carries a passenger
 void entity_push_entity(entity & e, entity & other) {
     if (other.no_physics || e.no_physics) return;
     double xa = other.pos.x - e.pos.x;
@@ -247,8 +242,6 @@ void level_tick_entities(level & lv) {
         trace_exit(lv.tr);
     }
 }
-
-// block collisions
 
 // whether a hit on a cursor boundary counts: BlockStateBase.hasLargeCollisionShape, true for dynamic shapes
 static bool shape_is_large(uint16_t id) {
@@ -299,8 +292,7 @@ struct block_collision {
     voxel_shape shape;
 };
 
-// BlockCollisions for an entity, or the empty context for null: the moved shapes of the blocks that collide with box,
-// in Cursor3D order
+// BlockCollisions for an entity, or the empty context for null: the moved colliding shapes in Cursor3D order
 static void level_get_block_collisions(level & lv, const entity * e, const aabb & box,
                                        std::vector<block_collision> & out) {
     int32_t lo[3];
@@ -352,9 +344,7 @@ bool block_is_collision_shape_full_block(level & lv, state_id st, block_pos pos)
     return shape_is_block(block_get_collision_shape(lv, st, pos));
 }
 
-// Entity.canCollideWith: anything collides with a boat (AbstractBoat.canBeCollidedWith), and a vehicle also with the
-// pushable entities (AbstractBoat.canVehicleCollide)
-// Entity.canCollideWith; without a source only what canBeCollidedWith(null): boats
+// Entity.canCollideWith: anything collides with a boat (AbstractBoat.canBeCollidedWith), a vehicle also with pushables (AbstractBoat.canVehicleCollide)
 static bool entity_can_collide_with(const entity * e, const entity & other) {
     return entity_is_boat(other) || (e != nullptr && entity_is_pushable(*e) && entity_is_pushable(other));
 }
@@ -535,8 +525,7 @@ static float entity_get_block_speed_factor(level & lv, const entity & e) {
         .speed_factor;
 }
 
-// VoxelShape.clip at a world block: a segment that starts in the shape hits there, facing back along the segment;
-// otherwise the closest box face it enters. Location and face go to hit.
+// VoxelShape.clip at a world block: a segment that starts inside hits there, facing back; else the closest face entered
 static bool voxel_shape_clip(const shape & s, const int32_t pos[3], const vec3 & from, const vec3 & to,
                              hit_result & hit) {
     vec3 diff = vec3_subtract(to, from);
@@ -601,8 +590,7 @@ static bool block_traversal_next(block_traversal & b) {
     return true;
 }
 
-// BlockGetter.clip with ClipContext.Block.FALLDAMAGE_RESETTING and ClipContext.Fluid.WATER, for a non-player:
-// whether it hits
+// BlockGetter.clip with ClipContext.Block.FALLDAMAGE_RESETTING and ClipContext.Fluid.WATER, for a non-player
 static bool level_clip_fall_damage_resetting(level & lv, const vec3 & from, const vec3 & to) {
     if (vec3_equals(from, to)) return false;
     block_traversal b = block_traversal_init(from, to);
@@ -744,8 +732,6 @@ void entity_move(level & lv, entity & e, mover_type type, vec3 delta) {
     if (entity_is_minecart(e)) abstract_minecart_apply_effects_from_blocks(lv, e);
     if (entity_is_abstract_arrow(e)) abstract_arrow_move(lv, e, type);
 }
-
-// fluids
 
 bool entity_is_in_lava(const entity & e) { return !e.first_tick && e.fluid_height_lava > 0.0; }
 

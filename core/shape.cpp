@@ -30,7 +30,6 @@ static int32_t shape_face_cell(double x) {
     return std::clamp((int32_t) (x * 32), 0, 32);
 }
 
-// the 1/32 cells from lo to hi as bits
 static uint32_t shape_face_mask(double lo, double hi) {
     int32_t a = shape_face_cell(lo);
     int32_t b = shape_face_cell(hi);
@@ -98,8 +97,7 @@ bool shape_is_block(const shape & s) {
     return true;
 }
 
-// the slice at the shape's end along the axis, if that end is the block face (VoxelShape.max == 1 or min == 0,
-// fuzzy); a shape that ends elsewhere counts as empty there
+// the slice where the shape ends along axis; empty unless that end is the block face (fuzzy, like VoxelShape.max)
 static void shape_add_end_slice(uint32_t rows[32], const shape & s, int32_t axis, bool max_end) {
     double face = max_end ? 1.0 : 0.0;
     double end  = max_end ? -INFINITY : INFINITY;
@@ -236,8 +234,7 @@ static void voxel_shape_bounds(const voxel_shape & s, int32_t axis, double & lo,
     hi = last <= 0 ? -INFINITY : voxel_shape_get(s, axis, last);
 }
 
-// IndirectMerger of the shape's coordinates and the box's two along one axis, for AND (either side may skip): the
-// shape cells paired with the box's one cell
+// IndirectMerger with the box along one axis, for AND: the shape cells that pair with the box's one cell
 static std::vector<int32_t> voxel_shape_merge_with_box(const voxel_shape & s, int32_t axis, double lo, double hi) {
     int32_t              first_size  = voxel_defs[s.id].size[axis] + 1;
     double               box[2]      = { lo, hi };

@@ -69,7 +69,6 @@ static bool parse_input(const std::vector<std::string_view> & t, case_input & in
     return true;
 }
 
-// parse position: current section, layer and row, and the key seen so far
 struct case_parser {
     std::string section;
     int32_t     layer_y = -1;

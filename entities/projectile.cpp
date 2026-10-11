@@ -1,7 +1,6 @@
-// Projectile, ThrowableProjectile, AbstractArrow, AbstractHurtingProjectile and FireworkRocketEntity, with what a
-// dispenser fires: snowballs, eggs, experience bottles, potions, arrows, fire charges, wind charges and firework
-// rockets. Nothing in scope owns a projectile, a dispensed potion or tipped arrow has no contents, a dispensed arrow is
-// never critical and never pierces, and a dispensed rocket has no explosions.
+// The projectiles dispensers fire: ThrowableProjectile, AbstractArrow, AbstractHurtingProjectile, FireworkRocketEntity.
+// Nothing in scope owns a projectile; dispensed potions and tipped arrows have no contents, rockets no explosions.
+// A dispensed arrow is never critical and never pierces.
 
 #include "blocks/block-behaviour.h"
 #include "blocks/handlers.h"
@@ -12,7 +11,7 @@
 #include <algorithm>
 #include <cfloat>
 
-// Projectile.shoot: the direction, a triangle spread from the projectile's random, then the power
+// Projectile.shoot
 void projectile_shoot(entity & e, vec3 dir, float power, float uncertainty) {
     double spread = 0.0172275 * uncertainty;
     vec3   offset = { rng_triangle(e.random, 0.0, spread), rng_triangle(e.random, 0.0, spread),
@@ -20,21 +19,19 @@ void projectile_shoot(entity & e, vec3 dir, float power, float uncertainty) {
     e.delta       = vec3_scale(vec3_add(vec3_normalize(dir), offset), power);
 }
 
-// Projectile.canHitEntity without an owner: any pickable entity that is still alive. AbstractHurtingProjectile also
-// skips entities without physics, and AbstractWindCharge skips other wind charges.
+// Projectile.canHitEntity without an owner, with the AbstractHurtingProjectile and AbstractWindCharge overrides
 static bool projectile_can_hit_entity(const entity & e, const entity & other) {
     if (other.removed || !(entity_type_defs[other.type].flags & ENTITY_FLAG_PICKABLE)) return false;
     if ((e.type == ENTITY_TYPE_SMALL_FIREBALL || e.type == ENTITY_TYPE_WIND_CHARGE) && other.no_physics) return false;
     return e.type != ENTITY_TYPE_WIND_CHARGE || other.type != ENTITY_TYPE_WIND_CHARGE;
 }
 
-// ProjectileUtil.computeMargin: the boxes of the entities a projectile hits grow with its age
+// ProjectileUtil.computeMargin
 static float projectile_util_compute_margin(const entity & e) {
     return std::max(0.0F, std::min(0.3F, (e.tick_count - 2) / 20.0F));
 }
 
-// ProjectileUtil.getHitResultOnMoveVector: the first block on the move, unless an entity is hit closer. The world
-// border is never near.
+// ProjectileUtil.getHitResultOnMoveVector; the world border is never near
 static hit_result projectile_get_hit_result_on_move_vector(level & lv, const entity & e) {
     vec3       from = e.pos;
     vec3       to   = vec3_add(from, e.delta);
@@ -61,8 +58,7 @@ static hit_result projectile_get_hit_result_on_move_vector(level & lv, const ent
     return hit;
 }
 
-// ThrownEgg.onHit: one in eight hatches a chicken, four of them one time in 32. Entity.fudgePositionAfterSizeChange
-// grows the first from zero size about the hit; the chicken is out of scope.
+// ThrownEgg.onHit with Entity.fudgePositionAfterSizeChange of the first chicken; the chicken is out of scope
 static void thrown_egg_hatch(level & lv, entity & e) {
     if (rng_next_int(e.random, 8) != 0) return;
     rng_next_int(e.random, 32);
@@ -89,8 +85,7 @@ bool entity_is_abstract_arrow(const entity & e) {
     return e.type == ENTITY_TYPE_ARROW || e.type == ENTITY_TYPE_SPECTRAL_ARROW;
 }
 
-// AbstractArrow.onHitEntity: the damage grows with the speed. What takes no damage turns the arrow back, and an arrow
-// that comes to rest drops its item.
+// AbstractArrow.onHitEntity: what takes no damage turns the arrow back, and an arrow that comes to rest drops its item
 static void abstract_arrow_on_hit_entity(level & lv, entity & e, entity & target) {
     float   pow    = (float) std::sqrt(vec3_length_sqr(e.delta));
     int32_t damage = (int32_t) std::ceil(std::clamp(pow * 2.0, 0.0, 2.147483647E9));
@@ -119,7 +114,7 @@ static void abstract_arrow_on_hit_entity(level & lv, entity & e, entity & target
 // Math.signum
 static double signum(double v) { return v > 0.0 ? 1.0 : v < 0.0 ? -1.0 : v; }
 
-// AbstractArrow.onHitBlock: the arrow backs off the hit a little and sticks
+// AbstractArrow.onHitBlock
 static void abstract_arrow_on_hit_block(level & lv, entity & e) {
     vec3 back = vec3_scale({ signum(e.delta.x), signum(e.delta.y), signum(e.delta.z) }, 0.05F);
     entity_set_pos(lv, e, vec3_subtract(e.pos, back));
@@ -128,14 +123,14 @@ static void abstract_arrow_on_hit_block(level & lv, entity & e) {
     e.in_ground = true;
 }
 
-// SmallFireball.onHitEntity: the target burns, unless the hit does no damage
+// SmallFireball.onHitEntity
 static void small_fireball_on_hit_entity(level & lv, entity & target) {
     int32_t fire = target.remaining_fire_ticks;
     entity_ignite_for_ticks(target, floor_int(5.0F * 20.0F));
     if (!entity_hurt_server(lv, target, DAMAGE_TYPE_UNATTRIBUTED_FIREBALL, 5.0F)) target.remaining_fire_ticks = fire;
 }
 
-// SmallFireball.onHitBlock: fire in front of the hit face when that is air
+// SmallFireball.onHitBlock
 static void small_fireball_on_hit_block(level & lv, const hit_result & hit) {
     block_pos pos = pos_relative(hit.pos, hit.face);
     if (state_has(level_get_state(lv, pos), STATE_FLAG_AIR)) {
@@ -143,7 +138,7 @@ static void small_fireball_on_hit_block(level & lv, const hit_result & hit) {
     }
 }
 
-// WindCharge.explode: a small burst that pushes entities and triggers blocks
+// WindCharge.explode
 static void wind_charge_explode(level & lv, entity & e, vec3 pos) {
     level_explode(lv, &e, pos, 1.2F, EXPLOSION_BLOCK_INTERACTION_TRIGGER_BLOCK);
 }
@@ -152,8 +147,7 @@ static void wind_charge_explode(level & lv, entity & e, vec3 pos) {
 static void projectile_on_hit(level & lv, entity & e, const hit_result & hit) {
     if (hit.type == HIT_RESULT_TYPE_ENTITY) {
         entity & target = *hit.target;
-        // Projectile.deflect with AIM_DEFLECT and no owner to aim along: AbstractHurtingProjectile.onDeflection resets
-        // the acceleration, which WindCharge refuses for its first ticks
+        // Projectile.deflect with AIM_DEFLECT and no owner: only AbstractHurtingProjectile.onDeflection acts
         if ((entity_type_defs[target.type].tags & ENTITY_TYPE_TAG_REDIRECTABLE_PROJECTILE) &&
             target.no_deflect_ticks <= 0) {
             target.acceleration_power = 0.1;
@@ -173,8 +167,7 @@ static void projectile_on_hit(level & lv, entity & e, const hit_result & hit) {
         if (e.type == ENTITY_TYPE_FIREWORK_ROCKET) entity_discard(lv, e);
         return;
     }
-    // FireworkRocketEntity.onHitBlock: the block's entityInside without its effects; a rocket without explosions
-    // flies on
+    // FireworkRocketEntity.onHitBlock: entityInside without effects; without explosions the rocket flies on
     if (e.type == ENTITY_TYPE_FIREWORK_ROCKET) {
         entity_effect_collector noop;
         block_entity_inside(lv, level_get_state(lv, hit.pos), hit.pos, e, noop, true);
@@ -207,8 +200,7 @@ static void throwable_item_projectile_on_hit(level & lv, entity & e, const hit_r
     entity_discard(lv, e);
 }
 
-// ThrowableProjectile.tick: gravity and drag, then straight to the hit or along the motion, then Entity.tick, then
-// the hit
+// ThrowableProjectile.tick
 void throwable_projectile_tick(level & lv, entity & e) {
     // handleFirstTickBubbleColumn: a column pushes once before the first move
     if (e.first_tick) {
@@ -233,8 +225,7 @@ void throwable_projectile_tick(level & lv, entity & e) {
     if (hit.type != HIT_RESULT_TYPE_MISS && !e.removed) throwable_item_projectile_on_hit(lv, e, hit);
 }
 
-// ProjectileUtil.getManyEntityHitResult: every entity the move enters; past the second tick a near miss counts when
-// the way from the miss to the entity's middle is free of blocks
+// ProjectileUtil.getManyEntityHitResult: past the second tick a near miss counts if the way to the entity is clear
 static std::vector<hit_result> projectile_util_get_many_entity_hit_result(level & lv, const entity & e, vec3 from,
                                                                           vec3 to) {
     float                   margin = projectile_util_compute_margin(e);
@@ -258,7 +249,7 @@ static std::vector<hit_result> projectile_util_get_many_entity_hit_result(level 
     return hits;
 }
 
-// AbstractArrow.shouldFall: the block it sticks in is gone
+// AbstractArrow.shouldFall
 static bool abstract_arrow_should_fall(level & lv, const entity & e) {
     return e.in_ground &&
            level_no_collision_box(
@@ -279,8 +270,7 @@ void abstract_arrow_move(level & lv, entity & e, mover_type type) {
     if (type != MOVER_TYPE_SELF && abstract_arrow_should_fall(lv, e)) abstract_arrow_start_falling(e);
 }
 
-// AbstractArrow.stepMoveAndHit: to the closest entity hit, else to the block hit; a pierce level would repeat it. An
-// entity that takes no damage turns the arrow, which can then hit the next one.
+// AbstractArrow.stepMoveAndHit; an entity that takes no damage turns the arrow, which can then hit the next one
 static void abstract_arrow_step_move_and_hit(level & lv, entity & e, const hit_result & block_hit) {
     vec3                    from = e.pos;
     std::vector<hit_result> hits = projectile_util_get_many_entity_hit_result(lv, e, from, block_hit.location);
@@ -301,8 +291,8 @@ static void abstract_arrow_step_move_and_hit(level & lv, entity & e, const hit_r
     }
 }
 
-// AbstractArrow.tick: an arrow inside a collision box sticks. A stuck arrow skips Entity.tick and falls when its block
-// goes; a flying one drags, steps to its hit and falls.
+// AbstractArrow.tick: an arrow inside a collision box sticks.
+// A stuck arrow skips Entity.tick and falls when its block goes.
 void abstract_arrow_tick(level & lv, entity & e) {
     block_pos pos      = entity_block_position(e);
     state_id  st       = level_get_state(lv, pos);
@@ -338,8 +328,7 @@ void abstract_arrow_tick(level & lv, entity & e) {
     entity_base_tick(lv, e);
 }
 
-// AbstractHurtingProjectile.tick: it speeds up along its motion, then moves to its hit and burns. A wind charge keeps
-// its speed, does not burn, and bursts far above the world.
+// AbstractHurtingProjectile.tick with the AbstractWindCharge overrides
 void abstract_hurting_projectile_tick(level & lv, entity & e) {
     bool wind = e.type == ENTITY_TYPE_WIND_CHARGE;
     // AbstractWindCharge.tick
@@ -366,8 +355,7 @@ void abstract_hurting_projectile_tick(level & lv, entity & e) {
     if (wind && e.no_deflect_ticks > 0) e.no_deflect_ticks--;
 }
 
-// the FireworkRocketEntity constructor: a slight drift and a slow climb, which the shot replaces, and a lifetime from the
-// flight duration
+// the FireworkRocketEntity constructor; the shot replaces the motion
 void firework_rocket_init(entity & e, int32_t flight) {
     double x   = rng_triangle(e.random, 0.0, 0.002297);
     double z   = rng_triangle(e.random, 0.0, 0.002297);
@@ -375,8 +363,8 @@ void firework_rocket_init(entity & e, int32_t flight) {
     e.lifetime = 10 * (1 + flight) + rng_next_int(e.random, 6) + rng_next_int(e.random, 7);
 }
 
-// FireworkRocketEntity.tick of a rocket shot at an angle, as a dispensed one is: no boost, and the move and the block
-// effects leave its motion as it was. It explodes when its lifetime runs out; without explosions that only removes it.
+// FireworkRocketEntity.tick of a rocket shot at an angle, as a dispensed one is: no boost.
+// The move and the block effects leave its motion as it was; without explosions the explode only removes it.
 void firework_rocket_tick(level & lv, entity & e) {
     entity_base_tick(lv, e);
     vec3       movement = e.delta;

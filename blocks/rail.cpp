@@ -1,11 +1,10 @@
-// Rails: rails need rigid support below (and beside, for slopes) and reshape through RailState. Only RailBlock
-// curves. A detector rail powers while a minecart is on it.
+// Rails: BaseRailBlock and RailState; only RailBlock curves, and a detector rail powers while a minecart is on it
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
 #include "entities/handlers.h"
 
-// RailShape: the axis of a straight shape, and the side a slope climbs toward
+// RailShape
 
 static bool rail_shape_is_north_south(int32_t shape) {
     return shape == RAIL_SHAPE_NORTH_SOUTH || shape == RAIL_SHAPE_ASCENDING_NORTH ||
@@ -31,7 +30,7 @@ static bool base_rail_is_straight(state_id st) {
     return block_field_get(state_block(st), FIELD_BASE_RAIL_BLOCK_IS_STRAIGHT) != 0;
 }
 
-// BaseRailBlock.getShapeProperty: RailBlock has the shape with curves, the others the straight one
+// BaseRailBlock.getShapeProperty
 static prop_id base_rail_get_shape_property(state_id st) {
     return block_instanceof(state_block(st), VCLASS_RAIL_BLOCK) ? PROP_RAIL_SHAPE : PROP_RAIL_SHAPE_STRAIGHT;
 }
@@ -176,8 +175,7 @@ static bool rail_state_has_neighbor_rail(level & lv, const rail_state & rs, bloc
     return rail_state_can_connect_to(neighbor, rs);
 }
 
-// a junction of both axes keeps the default shape; a curving rail turns there, and later checks win, in an order
-// the signal reverses
+// a junction of both axes keeps the default shape; a curving rail turns there, and the signal reverses the check order
 static int32_t rail_state_junction(bool n, bool s, bool w, bool e, bool has_signal, int32_t shape) {
     if (has_signal) {
         if (s && e) shape = RAIL_SHAPE_SOUTH_EAST;
@@ -238,7 +236,7 @@ static void rail_update_state(level & lv, state_id st, block_pos pos, int32_t bl
     }
 }
 
-// PoweredRailBlock (powered and activator rails): power passes along up to 8 rails of the same block
+// PoweredRailBlock (powered and activator rails)
 
 static bool powered_rail_find_powered_rail_signal(level & lv, block_pos pos, state_id st, bool forward,
                                                   int32_t search_depth);
@@ -310,8 +308,8 @@ static bool base_rail_should_be_removed(level & lv, block_pos pos, int32_t shape
            !base_rail_can_support_rigid_block(lv, pos_relative(pos, rail_shape_ascending_direction(shape)));
 }
 
-// the subclass updateState(state, level, pos, block) runs only while the rail is still there and supported;
-// DetectorRailBlock keeps the default, which does nothing
+// the subclass updateState(state, level, pos, block) runs only while the rail is still there and supported.
+// DetectorRailBlock keeps the default, which does nothing.
 static void base_rail_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block, bool moved_by_piston) {
     if (!state_is(level_get_state(lv, pos), state_block(st))) return;
     if (base_rail_should_be_removed(lv, pos, base_rail_get_shape(st))) {

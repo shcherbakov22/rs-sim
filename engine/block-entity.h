@@ -53,8 +53,7 @@ struct composter_container {
 
 struct entity;
 
-// Container: one block entity, two chest halves as a CompoundContainer, a composter's container (no block entity), or
-// a ContainerEntity (a chest or hopper minecart)
+// Container: one block entity, two chest halves (CompoundContainer), a composter's container or a ContainerEntity
 struct container {
     block_entity *        first     = nullptr;
     block_entity *        second    = nullptr;

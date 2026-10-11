@@ -15,7 +15,7 @@ static bool connecting_face_solid(level & lv, block_pos neighbor_pos, state_id n
     return sturdy && !state_has(neighbor, STATE_FLAG_CONNECTION_EXCEPTION);
 }
 
-// FenceBlock: a side connects to a solid face, a fence of the same kind (wooden or not) or a gate across it
+// FenceBlock
 static state_id fence_update_shape(level & lv, state_id st, block_pos, direction dir, block_pos neighbor_pos,
                                    state_id neighbor) {
     if (!direction_is_horizontal(dir)) return st;
@@ -26,7 +26,7 @@ static state_id fence_update_shape(level & lv, state_id st, block_pos, direction
     return state_set(st, CROSS_COLLISION_BLOCK_PROPERTY_BY_DIRECTION[dir], connects);
 }
 
-// IronBarsBlock (bars and panes): a side connects to a solid face, other bars or a wall
+// IronBarsBlock (bars and panes)
 static state_id iron_bars_update_shape(level & lv, state_id st, block_pos, direction dir, block_pos neighbor_pos,
                                        state_id neighbor) {
     if (!direction_is_horizontal(dir)) return st;
@@ -36,7 +36,7 @@ static state_id iron_bars_update_shape(level & lv, state_id st, block_pos, direc
     return state_set(st, CROSS_COLLISION_BLOCK_PROPERTY_BY_DIRECTION[dir], attaches);
 }
 
-// WallBlock: sides connect like bars; the block above decides tall sides and the post
+// WallBlock
 
 static bool wall_should_raise_post(state_id st, state_id top, const shape_face & above_shape) {
     if (block_instanceof(state_block(top), VCLASS_WALL_BLOCK) && state_get(top, PROP_UP)) return true;
@@ -90,11 +90,10 @@ static state_id wall_update_shape(level & lv, state_id st, block_pos pos, direct
     return wall_update_shape_from(lv, st, above, level_get_state(lv, above), connected);
 }
 
-// StairBlock: the shape turns into a corner when stairs of the same half sit behind or in front across the axis
+// StairBlock
 
 static bool stair_is_stairs(state_id st) { return block_instanceof(state_block(st), VCLASS_STAIR_BLOCK); }
 
-// no stairs of the same facing and half on that side
 static bool stair_can_take_shape(level & lv, state_id st, block_pos pos, direction neighbor) {
     state_id neighbor_state = level_get_state(lv, pos_relative(pos, neighbor));
     return !stair_is_stairs(neighbor_state) || state_facing(neighbor_state) != state_facing(st) ||

@@ -36,14 +36,14 @@ static bool flowing_fluid_can_convert_to_source(int32_t fluid) { return !fluid_i
 
 // FluidState
 
-// FlowingFluid.getHeight: full under the same fluid, else amount / 9
+// FlowingFluid.getHeight
 float fluid_state_get_height(level & lv, fluid_state_id fs, block_pos pos) {
     int32_t above = fluid_state_get_type(level_get_fluid_state(lv, pos_relative(pos, DIRECTION_UP)));
     if (fluid_is_same(fluid_state_get_type(fs), above)) return 1.0f;
     return (float) fluid_state_get_amount(fs) / 9.0f;
 }
 
-// FlowingFluid.affectsFlow: the neighbor is empty or the same fluid
+// FlowingFluid.affectsFlow
 static bool flowing_fluid_affects_flow(int32_t fluid, fluid_state_id neighbor) {
     int32_t type = fluid_state_get_type(neighbor);
     return type == FLUID_EMPTY || fluid_is_same(fluid, type);
@@ -58,7 +58,7 @@ static bool flowing_fluid_is_solid_face(level & lv, int32_t fluid, block_pos pos
            block_is_face_sturdy(lv, st, pos, dir, SUPPORT_TYPE_FULL);
 }
 
-// FlowingFluid.getFlow: toward lower neighbors in float steps of own height; a falling fluid next to a wall pulls down
+// FlowingFluid.getFlow
 vec3 flowing_fluid_get_flow(level & lv, block_pos pos, fluid_state_id fs) {
     int32_t fluid  = fluid_state_get_type(fs);
     float   own    = (float) fluid_state_get_amount(fs) / 9.0f;
@@ -111,8 +111,8 @@ static bool fluid_state_can_be_replaced_with(level & lv, fluid_state_id fs, bloc
 
 // FlowingFluid
 
-// vanilla compares collision shapes with the Shapes.block() and Shapes.empty() instances; a dynamic shape comes out
-// of VoxelShape.optimize, which returns those instances for a full and an empty shape
+// vanilla compares collision shapes with the Shapes.block() and Shapes.empty() instances.
+// A dynamic shape comes out of VoxelShape.optimize, which returns those instances for a full and an empty shape.
 enum fluid_wall {
     FLUID_WALL_BLOCK,
     FLUID_WALL_EMPTY,
@@ -361,7 +361,7 @@ void flowing_fluid_tick(level & lv, block_pos pos, state_id st, fluid_state_id f
     flowing_fluid_spread(lv, fluid, pos, st, fs);
 }
 
-// LiquidBlock: water and lava as blocks; lava next to water hardens instead of flowing
+// LiquidBlock
 
 static int32_t liquid_block_fluid(state_id st) {
     return fluid_state_get_type(state_fluid_state(block_default(state_block(st))));
@@ -408,14 +408,13 @@ static void liquid_block_neighbor_changed(level & lv, state_id st, block_pos pos
     if (liquid_block_should_spread_liquid(lv, pos, st)) liquid_block_schedule_tick(lv, pos, st);
 }
 
-// only a source fills a bucket
 static item_stack liquid_block_pickup_block(level & lv, block_pos pos, state_id st) {
     if (state_get(st, PROP_LEVEL) != 0) return {};
     level_set_block(lv, pos, STATE_AIR, UPDATE_FLAG_ALL_IMMEDIATE);
     return { fluid_is_lava(liquid_block_fluid(st)) ? ITEM_LAVA_BUCKET : ITEM_WATER_BUCKET, 1, 0 };
 }
 
-// BubbleColumnBlock: soul sand or magma below turns a water source column into bubbles
+// BubbleColumnBlock
 
 static bool bubble_column_can_exist_in(state_id st) {
     fluid_state_id fs = state_fluid_state(st);
@@ -495,8 +494,6 @@ static item_stack bubble_column_pickup_block(level & lv, block_pos pos, state_id
     level_set_block(lv, pos, STATE_AIR, UPDATE_FLAG_ALL_IMMEDIATE);
     return { ITEM_WATER_BUCKET, 1, 0 };
 }
-
-// Coral: living coral dies 60 to 99 ticks after it finds no water in it or beside it
 
 // CoralBlock.scanForWater
 static bool coral_scan_for_water(level & lv, block_pos pos) {

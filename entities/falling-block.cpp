@@ -22,7 +22,6 @@ static void falling_block_entity_drop(level & lv, entity & e, int32_t block) {
     if (!item_stack_is_empty(s)) item_entity_spawn(lv, e.pos, s);
 }
 
-// a landing that cannot place the block: removed; one that may drop also breaks and drops
 static void falling_block_entity_break(level & lv, entity & e, int32_t block, block_pos pos) {
     entity_discard(lv, e);
     if (!e.drop_item) return;
@@ -30,7 +29,7 @@ static void falling_block_entity_break(level & lv, entity & e, int32_t block, bl
     falling_block_entity_drop(lv, e, block);
 }
 
-// on the ground: place the block where it can stay; a moving piston below lets it lie and try again
+// a moving piston below lets the block lie and try again
 static void falling_block_entity_land(level & lv, entity & e, int32_t block, block_pos pos, bool stuck_in_water) {
     state_id current = level_get_state(lv, pos);
     e.delta          = { e.delta.x * 0.7, e.delta.y * -0.5, e.delta.z * 0.7 };

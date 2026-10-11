@@ -44,7 +44,7 @@ bool     entity_is_abstract_arrow(const entity & e);
 void     abstract_arrow_tick(level & lv, entity & e);
 // AbstractHurtingProjectile: small fireballs and wind charges
 void     abstract_hurting_projectile_tick(level & lv, entity & e);
-// FireworkRocketEntity: the constructor's draws, then the tick
+// FireworkRocketEntity
 void     firework_rocket_init(entity & e, int32_t flight);
 void     firework_rocket_tick(level & lv, entity & e);
 // AbstractArrow.move after Entity.move: a push from outside can free a stuck arrow

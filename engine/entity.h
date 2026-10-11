@@ -27,8 +27,8 @@ enum boat_status {
     BOAT_STATUS_IN_AIR,
 };
 
-// Entity as a tagged struct: the fields after the common ones belong to one type. Positions are world coordinates,
-// so doubles round like vanilla's.
+// Entity as a tagged struct: the fields after the common ones belong to one type.
+// Positions are world coordinates, so doubles round like vanilla's.
 struct entity {
     int32_t     id;
     entity_type type;
@@ -177,7 +177,7 @@ entity * entity_new(level & lv, entity_type type, vec3 pos);
 // Level.addFreshEntity
 void     level_add_fresh_entity(level & lv, entity * e);
 void     entity_discard(level & lv, entity & e);
-// Entity.kill: removed as killed
+// Entity.kill
 void     entity_kill(level & lv, entity & e);
 
 // a block's world corner; entity positions are world coordinates
@@ -202,7 +202,6 @@ void level_tick_entities(level & lv);
 // Level.getEntities: the entities whose box intersects box, in vanilla's section and insertion order
 void level_get_entities(level & lv, const aabb & box, std::vector<entity *> & out);
 
-// Entity base behaviour that entity types build on
 void      entity_base_tick(level & lv, entity & e);
 void      entity_apply_gravity(entity & e);
 // EntityCollisionContext.getCollisionShape of a block; null is CollisionContext.empty()
@@ -212,7 +211,7 @@ void       entity_ignite_for_ticks(entity & e, int32_t ticks);
 bool       entity_is_on_fire(const entity & e);
 // Entity.hurtServer of the entity's type
 bool      entity_hurt_server(level & lv, entity & e, damage_type type, float damage);
-// Entity.push of an impulse
+// Entity.push
 void      entity_push(entity & e, double x, double y, double z);
 // Entity.push(Entity): e pushes other
 void      entity_push_entity(entity & e, entity & other);
@@ -230,15 +229,13 @@ bool      entity_update_in_water_state_and_do_fluid_pushing(level & lv, entity &
 void      entity_move_towards_closest_space(level & lv, entity & e, vec3 at);
 bool      entity_is_in_lava(const entity & e);
 block_pos entity_get_block_pos_below_that_affects_my_movement(level & lv, const entity & e);
-// BlockGetter.clip with ClipContext.Block.COLLIDER for the entity and ClipContext.Fluid.NONE: a block hit or a miss
-// at to
+// BlockGetter.clip with ClipContext.Block.COLLIDER for the entity and ClipContext.Fluid.NONE
 hit_result level_clip_collider(level & lv, const entity & e, const vec3 & from, const vec3 & to);
-// CollisionGetter.noCollision for an entity: no block or entity collides with box
+// CollisionGetter.noCollision for an entity
 bool      level_no_collision(level & lv, const entity & e, const aabb & box);
 // CollisionGetter.noCollision(AABB): the empty collision context and no source entity
 bool       level_no_collision_box(level & lv, const aabb & box);
-// Level.findFreePosition: the point of the allowed centers closest to the preferred one where a box of the size
-// hits no block
+// Level.findFreePosition
 bool       level_find_free_position(level & lv, const entity & e, const aabb & allowed, vec3 preferred, double size_x,
                                     double size_y, double size_z, vec3 & out);
 // BlockStateBase.isCollisionShapeFullBlock

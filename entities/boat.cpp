@@ -1,5 +1,4 @@
-// Boats and rafts and their chest kinds: AbstractBoat with nobody aboard, so nothing paddles, steers or gets ejected. A
-// boat floats on water, slides on land with the friction of the blocks under it and pushes boats and minecarts.
+// Boats and rafts and their chest kinds: AbstractBoat with nobody aboard, so nothing paddles, steers or gets ejected.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -9,7 +8,7 @@
 #include <cfloat>
 #include <cmath>
 
-// AbstractBoat.isUnderwater: water above the top of the box, flowing water first
+// AbstractBoat.isUnderwater
 static boat_status abstract_boat_is_underwater(level & lv, const entity & e) {
     double  max_y       = e.bb.max[1] + 0.001;
     int32_t x0          = floor_int(e.bb.min[0]);
@@ -34,7 +33,7 @@ static boat_status abstract_boat_is_underwater(level & lv, const entity & e) {
     return under_water ? BOAT_STATUS_UNDER_WATER : BOAT_STATUS_NONE;
 }
 
-// AbstractBoat.checkInWater: water reaching into the bottom of the box; it also finds the level of that water
+// AbstractBoat.checkInWater
 static bool abstract_boat_check_in_water(level & lv, entity & e) {
     int32_t x0       = floor_int(e.bb.min[0]);
     int32_t x1       = (int32_t) std::ceil(e.bb.max[0]);
@@ -59,8 +58,7 @@ static bool abstract_boat_check_in_water(level & lv, entity & e) {
     return in_water;
 }
 
-// AbstractBoat.getGroundFriction: the mean friction of the blocks just under the box and around it, without the
-// corners; NaN when there are none
+// AbstractBoat.getGroundFriction; NaN when there are no blocks
 static float abstract_boat_get_ground_friction(level & lv, const entity & e) {
     aabb    box      = aabb_of(e.bb.min[0], e.bb.min[1] - 0.001, e.bb.min[2], e.bb.max[0], e.bb.min[1], e.bb.max[2]);
     int32_t x0       = floor_int(box.min[0]) - 1;
@@ -116,7 +114,7 @@ static float abstract_boat_get_layer_water_height(level & lv, int32_t x0, int32_
     return block_height;
 }
 
-// AbstractBoat.getWaterLevelAbove: the surface of the first layer up from the top of the box that water does not fill
+// AbstractBoat.getWaterLevelAbove
 static float abstract_boat_get_water_level_above(level & lv, const entity & e) {
     int32_t x0 = floor_int(e.bb.min[0]);
     int32_t x1 = (int32_t) std::ceil(e.bb.max[0]);
@@ -147,8 +145,7 @@ static boat_status abstract_boat_get_status(level & lv, entity & e) {
     return BOAT_STATUS_IN_AIR;
 }
 
-// AbstractBoat.floatBoat: gravity, the drag of where the boat is, and lift in water; a boat that falls into water snaps
-// onto its surface
+// AbstractBoat.floatBoat; a boat that falls into water snaps onto its surface
 static void abstract_boat_float_boat(level & lv, entity & e) {
     double gravity      = entity_type_defs[e.type].gravity;
     float  height       = entity_type_defs[e.type].height;
@@ -184,8 +181,7 @@ static void abstract_boat_float_boat(level & lv, entity & e) {
     if (buoyancy > 0.0) e.delta.y = (e.delta.y + buoyancy * (gravity / 0.65)) * 0.75;
 }
 
-// AbstractBoat.tickBubbleColumn: 60 ticks after a boat came over a bubble column, the column throws it up or pulls it
-// down
+// AbstractBoat.tickBubbleColumn
 static void abstract_boat_tick_bubble_column(entity & e) {
     if (!e.is_above_bubble_column) e.bubble_time = 0;
     if (e.bubble_time <= 0) return;
@@ -197,8 +193,8 @@ static void abstract_boat_tick_bubble_column(entity & e) {
     e.is_above_bubble_column = false;
 }
 
-// AbstractBoat.onAboveBubbleColumn replaces the entity's: it only starts the timer; once in 100 ticks the splash sound
-// and particle draw from the boat's random
+// AbstractBoat.onAboveBubbleColumn replaces the entity's: it only starts the timer.
+// Once in 100 ticks the splash sound and particle draw from the boat's random.
 void abstract_boat_on_above_bubble_column(entity & e, bool drag_down) {
     e.is_above_bubble_column          = true;
     e.bubble_column_direction_is_down = drag_down;
@@ -222,7 +218,7 @@ void abstract_boat_check_fall_damage(level & lv, entity & e, double ya, bool on_
     }
 }
 
-// AbstractBoat.push: a boat pushes the boats that reach below its top, and the minecarts that stand no higher than it
+// AbstractBoat.push
 static void abstract_boat_push(entity & e, entity & other) {
     if (entity_is_boat(other)) {
         if (other.bb.min[1] < e.bb.max[1]) entity_push_entity(e, other);

@@ -5,7 +5,6 @@
 
 #include <cfloat>
 
-// the generated enum direction is vanilla's Direction in 3D data value order
 static_assert(DIRECTION_DOWN == 0 && DIRECTION_EAST == 5);
 
 // Direction.Plane.HORIZONTAL and VERTICAL
@@ -53,7 +52,7 @@ inline block_pos pos_relative_steps(block_pos pos, direction dir, int32_t steps)
 
 inline bool direction_is_horizontal(direction dir) { return dir >= DIRECTION_NORTH; }
 
-// Direction.getAxisDirection().getStep(): 1 for the directions toward the positive end of their axis, else -1
+// Direction.getAxisDirection().getStep()
 inline int32_t direction_get_axis_step(direction dir) {
     const block_pos & s = DIRECTION_STEPS[dir];
     return s.x + s.y + s.z;

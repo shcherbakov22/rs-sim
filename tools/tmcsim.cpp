@@ -125,8 +125,7 @@ static int cmd_check(const std::vector<std::string> & paths, bool xfail) {
 
 static void fingerprint_add(uint64_t & h, int64_t v) { h = (h ^ (uint64_t) v) * 0x100000001b3ull; }
 
-// FNV-1a over what later ticks can read: time, RNG, blocks, block entities, pending ticks, events, tickers, torch toggles
-// and entities
+// FNV-1a over what later ticks can read: time, RNG, blocks, block entities, ticks, events, tickers, toggles, entities
 static uint64_t level_fingerprint(const level & lv) {
     uint64_t h = 0xcbf29ce484222325ull;
     for (int64_t v : { lv.game_time, lv.sub_tick_count, lv.random.seed }) fingerprint_add(h, v);

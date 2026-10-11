@@ -52,10 +52,10 @@ inline int32_t sign_int(double v) { return v == 0.0 ? 0 : v > 0.0 ? 1 : -1; }
 // Mth.frac
 inline double frac(double v) { return v - (double) (int64_t) std::floor(v); }
 
-// Mth.sin and Mth.cos: a lookup in the table of 65536 float sines
+// Mth.sin and Mth.cos
 float  mth_sin(double v);
 float  mth_cos(double v);
-// Mth.atan2: a table lookup refined by a series
+// Mth.atan2
 double mth_atan2(double y, double x);
 // Mth.wrapDegrees(float)
 float  wrap_degrees(float angle);
@@ -71,7 +71,7 @@ aabb aabb_minmax(const aabb & a, const aabb & b);
 bool aabb_intersects(const aabb & a, const aabb & b);
 bool aabb_contains(const aabb & b, const vec3 & v);
 vec3 aabb_get_center(const aabb & b);
-// AABB.clip: whether the segment enters the box
+// AABB.clip
 bool aabb_clip(const aabb & b, const vec3 & from, const vec3 & to, vec3 * hit);
 // AABB.getDirection: a face the segment enters closer than scale sets scale and face
 bool   aabb_clip_face(const aabb & b, const vec3 & from, const vec3 & to, double & scale, direction & face);

@@ -1,5 +1,5 @@
-// VehicleEntity: the damage that breaks minecarts and boats into their item; ContainerEntity: the contents of the chest
-// and hopper minecarts and the chest boats.
+// VehicleEntity: the damage that breaks minecarts and boats into their item.
+// ContainerEntity: the contents of chest and hopper minecarts and chest boats.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
@@ -25,8 +25,8 @@ void container_entity_drop_contents(level & lv, entity & e) {
     containers_drop_contents(lv, e.pos, entity_container(e));
 }
 
-// destroy of the type: killed, then the vehicle drops as an item; a container drops its contents when killed, and
-// ContainerEntity.chestVehicleDestroyed drops them again from the now empty slots
+// destroy of the type: killed, then the vehicle drops as an item.
+// A container drops its contents when killed, and ContainerEntity.chestVehicleDestroyed drops them again.
 static void vehicle_entity_destroy(level & lv, entity & e, bool ignites_tnt) {
     if (e.type == ENTITY_TYPE_TNT_MINECART && minecart_tnt_destroy(e, ignites_tnt)) return;
     entity_kill(lv, e);
@@ -34,8 +34,7 @@ static void vehicle_entity_destroy(level & lv, entity & e, bool ignites_tnt) {
     if (entity_is_container(e)) container_entity_drop_contents(lv, e);
 }
 
-// VehicleEntity.hurtServer: damage over 40 destroys the vehicle, and fire or an explosion destroys a tnt minecart.
-// No vehicle is fire immune.
+// VehicleEntity.hurtServer; no vehicle is fire immune
 bool vehicle_entity_hurt_server(level & lv, entity & e, damage_type type, float damage) {
     if (e.removed) return true;
     e.hurt_time = 10;

@@ -4,7 +4,7 @@
 #include "engine/explosion.h"
 #include "engine/level.h"
 
-// DoorBlock: two halves that copy each other through updateShape; a signal opens it
+// DoorBlock
 
 static bool door_can_survive(level & lv, state_id st, block_pos pos) {
     block_pos below       = pos_relative(pos, DIRECTION_DOWN);
@@ -82,7 +82,7 @@ static void trap_door_on_explosion_hit(level & lv, state_id st, block_pos pos, e
     block_behaviour_on_explosion_hit(lv, st, pos, ex);
 }
 
-// FenceGateBlock: in_wall follows walls on the sides; only the neighbors along the gate's width decide it
+// FenceGateBlock
 static state_id fence_gate_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos,
                                         state_id neighbor) {
     direction facing = state_facing(st);
@@ -118,10 +118,7 @@ static void abstract_skull_neighbor_changed(level & lv, state_id st, block_pos p
     }
 }
 
-// NoteBlock: the instrument comes from the block above (mob heads) or below; a rising signal plays a note as a block
-// event
-
-// NoteBlockInstrument.worksAboveNoteBlock: every instrument that is not tunable
+// NoteBlock. NoteBlockInstrument.worksAboveNoteBlock: every instrument that is not tunable.
 static bool note_block_instrument_works_above(int32_t instrument) {
     state_id note = state_set(block_defs[BLOCK_NOTE_BLOCK].state_default, PROP_NOTEBLOCK_INSTRUMENT, instrument);
     return !state_has(note, STATE_FLAG_NOTE_TUNABLE);

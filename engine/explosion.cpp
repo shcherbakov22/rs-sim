@@ -1,5 +1,5 @@
-// ServerExplosion and ExplosionDamageCalculator for the explosions of primed tnt, tnt minecarts and wind charges. The
-// rays, the entity damage and the blocks each draw from the level random in vanilla's order.
+// ServerExplosion and ExplosionDamageCalculator for primed tnt, tnt minecarts and wind charges.
+// The rays, the entity damage and the blocks each draw from the level random in vanilla's order.
 
 #include "engine/explosion.h"
 
@@ -12,8 +12,7 @@
 #include <algorithm>
 #include <cmath>
 
-// MinecartTNT.getBlockExplosionResistance and shouldBlockExplode: a primed tnt minecart spares rails and the blocks
-// under them
+// MinecartTNT.getBlockExplosionResistance and shouldBlockExplode: a primed cart spares rails and what is under them
 static bool explosion_spares(level & lv, const explosion & ex, block_pos pos, state_id st) {
     if (ex.source == nullptr || ex.source->type != ENTITY_TYPE_TNT_MINECART || ex.source->fuse <= -1) return false;
     return state_has(st, STATE_FLAG_TAG_RAILS) ||
@@ -29,8 +28,7 @@ bool explosion_can_trigger_blocks(const explosion & ex) {
     return ex.block_interaction == EXPLOSION_BLOCK_INTERACTION_TRIGGER_BLOCK;
 }
 
-// ServerExplosion.calculateExplodedPositions: rays from the cube's surface lose power to the blocks and fluids
-// they pass; the set holds air too
+// ServerExplosion.calculateExplodedPositions: rays lose power to the blocks and fluids they pass; air goes in too
 static std::vector<block_pos> server_explosion_calculate_exploded_positions(level & lv, const explosion & ex) {
     java_hash_map to_blow;
     for (int32_t xx = 0; xx < 16; xx++) {
@@ -78,7 +76,7 @@ static std::vector<block_pos> server_explosion_calculate_exploded_positions(leve
     return out;
 }
 
-// ServerExplosion.getSeenPercent: the share of a grid of points on the entity's box that see the center
+// ServerExplosion.getSeenPercent
 static float server_explosion_get_seen_percent(level & lv, const vec3 & center, const entity & e) {
     const aabb & bb       = e.bb;
     double       xs       = 1.0 / ((bb.max[0] - bb.min[0]) * 2.0 + 1.0);
@@ -115,8 +113,7 @@ static float explosion_damage_calculator_get_entity_damage_amount(const explosio
     return (float) ((pow * pow + pow) / 2.0 * 7.0 * double_radius + 1.0);
 }
 
-// ServerExplosion.hurtEntities: only an item ignores an explosion that does not affect block-like entities, and no
-// entity in scope resists the knockback
+// ServerExplosion.hurtEntities; no entity in scope resists the knockback
 static void server_explosion_hurt_entities(level & lv, const explosion & ex) {
     if (ex.radius < 1.0E-5F) return;
     float double_radius = ex.radius * 2.0F;
@@ -163,7 +160,7 @@ void explosion_add_or_append_stack(explosion & ex, item_stack stack, block_pos p
     ex.stacks.push_back({ pos, stack });
 }
 
-// ServerExplosion.interactWithBlocks: the blocks break in a shuffled order, then the merged drops pop
+// ServerExplosion.interactWithBlocks
 static void server_explosion_interact_with_blocks(level & lv, explosion & ex, std::vector<block_pos> & targets) {
     // Util.shuffle
     for (size_t i = targets.size(); i > 1; i--) {

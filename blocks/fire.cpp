@@ -141,7 +141,7 @@ static void portal_shape_create_portal_blocks(level & lv, const portal_shape & s
     }
 }
 
-// BaseFireBlock.entityInside: ignite, then hurt by the block's fire damage
+// BaseFireBlock.entityInside
 static void base_fire_entity_inside(level &, state_id st, block_pos, entity &, entity_effect_collector & effects,
                                     bool) {
     float damage = std::bit_cast<float>(block_field_get(state_block(st), FIELD_BASE_FIRE_BLOCK_FIRE_DAMAGE));
@@ -173,8 +173,6 @@ static bool soul_fire_can_survive(level & lv, state_id, block_pos pos) {
 static state_id soul_fire_update_shape(level & lv, state_id st, block_pos pos, direction, block_pos, state_id) {
     return soul_fire_can_survive(lv, st, pos) ? block_default(state_block(st)) : STATE_AIR;
 }
-
-// FireBlock: fire burns on a sturdy top face or next to a flammable block; its sides show where it climbs
 
 // FireBlock.canBurn
 static bool fire_can_burn(state_id st) { return state_has(st, STATE_FLAG_FIRE_CAN_BURN); }
@@ -229,7 +227,7 @@ static void fire_tick(level & lv, state_id, block_pos pos) {
     level_schedule_tick(lv, pos, BLOCK_FIRE, fire_get_fire_tick_delay(lv.random));
 }
 
-// BaseFireBlock.getState: soul fire on soul sand or soil, else plain fire
+// BaseFireBlock.getState
 state_id base_fire_get_state(level & lv, block_pos pos) {
     state_id below = level_get_state(lv, pos_relative(pos, DIRECTION_DOWN));
     return soul_fire_can_survive_on_block(below) ? block_default(BLOCK_SOUL_FIRE) :
@@ -258,9 +256,7 @@ bool base_fire_can_be_placed_at(level & lv, block_pos pos, direction forward) {
     return block_can_survive(lv, base_fire_get_state(lv, pos), pos) || base_fire_is_portal(lv, pos, forward);
 }
 
-// NetherPortalBlock: a portal block breaks when an update along its plane finds the frame no longer complete
-
-// updates across the portal plane leave it alone
+// NetherPortalBlock; updates across the portal plane leave it alone
 static state_id nether_portal_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos,
                                            state_id neighbor) {
     direction_axis update_axis = direction_get_axis(dir);

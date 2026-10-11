@@ -119,8 +119,8 @@ struct shape_def {
     int32_t n_boxes;
 };
 
-// A shape as VoxelShape stores it: cell boundaries per axis (size + 1 each, in voxel_coords) and one byte per cell
-// in voxel_cells, 1 if full, at (x * size y + y) * size z + z
+// A shape as VoxelShape stores it: cell boundaries per axis in voxel_coords (size + 1 each).
+// voxel_cells holds one byte per cell, 1 if full, at (x * size y + y) * size z + z.
 struct voxel_def {
     int32_t coords_first[3];
     int32_t size[3];
@@ -189,8 +189,7 @@ extern const uint32_t        damage_type_tags[];  // damage_type_tag bits
 extern const drop_def        drop_defs[];
 extern const drop_stack      drop_stacks[];
 extern const uint16_t        state_drops[];  // drop_defs index
-// shape ids per state: the collision shape with the empty context and getBlockSupportShape, SHAPE_NONE for dynamic
-// shapes that need the world; getEntityInsideCollisionShape, SHAPE_NONE when it reads the entity; getInteractionShape
+// shape ids per state; SHAPE_NONE where the shape needs the world (collision, support) or the entity (inside)
 extern const uint16_t        state_collision_shapes[];
 extern const uint16_t        state_support_shapes[];
 extern const uint16_t        state_inside_shapes[];
@@ -222,9 +221,7 @@ inline bool state_is(state_id st, int32_t block) { return state_block(st) == blo
 
 inline bool state_has(state_id st, state_flag flag) { return (state_flags[st] & flag) != 0; }
 
-// Java instanceof on the block's class
 bool block_instanceof(int32_t block, vclass cls);
-// Java instanceof on the item's class
 bool item_instanceof(int32_t item, item_class cls);
 
 // value of a primitive instance field of the block object

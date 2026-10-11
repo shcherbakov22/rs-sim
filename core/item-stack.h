@@ -24,7 +24,7 @@ inline int32_t item_stack_get_max_stack_size(const item_stack & s) {
 
 inline void item_stack_grow(item_stack & s, int32_t amount) { s.count = item_stack_get_count(s) + amount; }
 
-// copyWithCount gives EMPTY for an empty stack
+// ItemStack.copyWithCount
 inline item_stack item_stack_copy_with_count(const item_stack & s, int32_t count) {
     return item_stack_is_empty(s) ? item_stack() : item_stack{ s.item, count, s.damage };
 }

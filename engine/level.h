@@ -15,8 +15,8 @@
 #include <unordered_map>
 #include <vector>
 
-// World position of the case origin in the oracle (TmcOracle.BATCH_ORIGIN). Sim positions are relative to it,
-// but vanilla hash orders depend on world positions.
+// World position of the case origin in the oracle (TmcOracle.BATCH_ORIGIN).
+// Sim positions are relative to it, but vanilla hash orders depend on world positions.
 constexpr block_pos LEVEL_ORIGIN = { 0, 64, 0 };
 // sections keyed by relative positions are the world's sections only while the origin is 16-aligned
 static_assert(LEVEL_ORIGIN.x % 16 == 0 && LEVEL_ORIGIN.y % 16 == 0 && LEVEL_ORIGIN.z % 16 == 0);
@@ -101,8 +101,8 @@ struct level {
     // RedStoneWireBlock.shouldSignal lives on the block object, RECENT_TOGGLES in a static map keyed by level
     bool                               red_stone_wire_should_signal = true;
     std::vector<redstone_torch_toggle> redstone_torch_recent_toggles;
-    // Entities are never freed during a run either. Sections are PersistentEntitySectionManager's, keyed by
-    // SectionPos.asLong of world positions: vanilla visits them in that signed order.
+    // Entities are never freed during a run either.
+    // Sections are PersistentEntitySectionManager's, keyed by SectionPos.asLong of world positions, in signed order.
     std::vector<std::unique_ptr<entity>>     entity_store;
     std::vector<entity *>                    entity_tick_list;  // EntityTickList, in insertion order
     std::map<int64_t, std::vector<entity *>> entity_sections;

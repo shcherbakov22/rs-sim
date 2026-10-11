@@ -15,7 +15,7 @@ void block_cause_fall_damage(level & lv, state_id, block_pos, entity & e) {
     entity_cause_fall_damage(lv, e, e.fall_distance);
 }
 
-// SimpleWaterloggedBlock.placeLiquid: only a water source fills the block
+// SimpleWaterloggedBlock.placeLiquid
 static bool simple_waterlogged_place_liquid(level & lv, block_pos pos, state_id st, fluid_state_id fs) {
     if (state_get(st, PROP_WATERLOGGED) || fluid_state_get_type(fs) != FLUID_WATER) return false;
     level_set_block(lv, pos, state_set(st, PROP_WATERLOGGED, true), UPDATE_FLAG_ALL);
@@ -23,7 +23,7 @@ static bool simple_waterlogged_place_liquid(level & lv, block_pos pos, state_id 
     return true;
 }
 
-// a double slab holds no water
+// SlabBlock.placeLiquid
 static bool slab_place_liquid(level & lv, block_pos pos, state_id st, fluid_state_id fs) {
     return state_get(st, PROP_SLAB_TYPE) != SLAB_TYPE_DOUBLE && simple_waterlogged_place_liquid(lv, pos, st, fs);
 }
@@ -119,8 +119,7 @@ static bool block_hooks_has(const block_hooks & b, hook h) {
     return false;
 }
 
-// The hooks of the class that overrides h for st: null for vanilla's default, and for an override the sim lacks,
-// which stops the run.
+// The hooks of the class that overrides h for st; null for the default, and for an unported override, which stops the run.
 static const block_hooks * block_hooks_for(level & lv, state_id st, hook h) {
     // AirBlock overrides none of the hooks (test-core checks), and many updates hit air
     if (st == STATE_AIR) return nullptr;
@@ -134,7 +133,7 @@ static const block_hooks * block_hooks_for(level & lv, state_id st, hook h) {
     return b;
 }
 
-// the face covers the support shape of the type
+// SupportType.isSupporting
 bool support_type_is_supporting(const shape & support_shape, direction dir, support_type type) {
     shape_face face = shape_get_face(support_shape, dir);
     switch (type) {

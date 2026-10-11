@@ -1,5 +1,4 @@
-// Attached blocks: torches, ladders, lanterns, amethyst, carpets, cakes, levers and bells hang on a neighbor and break
-// when it no longer holds them
+// Attached blocks: torches, ladders, lanterns, amethyst, carpets, cakes, levers and bells, which break without support
 
 #include "blocks/handlers.h"
 #include "engine/explosion.h"
@@ -31,7 +30,7 @@ static direction attached_support_side(state_id st) {
     return DIRECTION_DOWN;
 }
 
-// FaceAttachedHorizontalDirectionalBlock.canAttach: the neighbor on that side has a full sturdy face toward pos
+// FaceAttachedHorizontalDirectionalBlock.canAttach
 static bool face_attached_horizontal_directional_can_attach(level & lv, block_pos pos, direction side) {
     block_pos rel = pos_relative(pos, side);
     return block_is_face_sturdy(lv, level_get_state(lv, rel), rel, direction_opposite(side), SUPPORT_TYPE_FULL);
@@ -70,7 +69,7 @@ static state_id carpet_update_shape(level & lv, state_id st, block_pos pos, dire
     return !block_can_survive(lv, st, pos) ? STATE_AIR : st;
 }
 
-// CakeBlock, and CandleCakeBlock the same way: a cake needs a solid block below
+// CakeBlock, and CandleCakeBlock the same way
 static bool cake_can_survive(level & lv, state_id, block_pos pos) {
     return state_has(level_get_state(lv, pos_relative(pos, DIRECTION_DOWN)), STATE_FLAG_SOLID);
 }
@@ -89,8 +88,7 @@ static int32_t candle_cake_get_analog_output_signal(level &, state_id, block_pos
     return cake_get_output_signal(0);
 }
 
-// BellBlock. Without entities the bell block entity shows nothing: shaking and resonating only reach entities and
-// the client.
+// BellBlock. Shaking and resonating only reach entities and the client, so the block entity has no effect.
 
 static direction bell_get_connected_direction(state_id st) {
     switch (state_get(st, PROP_BELL_ATTACHMENT)) {
@@ -153,7 +151,7 @@ static void bell_on_projectile_hit(level & lv, state_id st, const hit_result & h
     bell_attempt_to_ring(lv, hit.pos, hit.face);
 }
 
-// AbstractCandleBlock.onProjectileHit: a burning projectile lights it
+// AbstractCandleBlock.onProjectileHit
 static void abstract_candle_on_projectile_hit(level & lv, state_id st, const hit_result & hit, entity & projectile) {
     if (!entity_is_on_fire(projectile) || !state_has(st, STATE_FLAG_CAN_LIGHT)) return;
     if (state_has(st, STATE_FLAG_TAG_CANDLE_CAKES)) {
