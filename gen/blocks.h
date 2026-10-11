@@ -265,6 +265,9 @@ enum tick_priority {
 };
 extern const char * const tick_priority_names[7];
 
+// FrontAndTop.front by ordinal
+extern const direction front_and_top_fronts[12];
+
 // vanilla item classes; ICLASS_NONE is Item
 enum item_class {
     ICLASS_NONE = 0,

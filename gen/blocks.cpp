@@ -2,6 +2,7 @@
 
 #include "core/state.h"
 
+const direction front_and_top_fronts[12] = { DIRECTION_DOWN, DIRECTION_DOWN, DIRECTION_DOWN, DIRECTION_DOWN, DIRECTION_UP, DIRECTION_UP, DIRECTION_UP, DIRECTION_UP, DIRECTION_WEST, DIRECTION_EAST, DIRECTION_NORTH, DIRECTION_SOUTH };
 const char * const direction_axis_names[3] = { "x", "y", "z" };
 const char * const direction_names[6] = { "down", "up", "north", "south", "west", "east" };
 const char * const note_block_instrument_names[23] = { "harp", "basedrum", "snare", "hat", "bass", "flute", "bell", "guitar", "chime", "xylophone", "iron_xylophone", "cow_bell", "didgeridoo", "bit", "banjo", "pling", "zombie", "skeleton", "creeper", "dragon", "wither_skeleton", "piglin", "custom_head" };

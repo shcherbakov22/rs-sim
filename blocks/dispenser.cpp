@@ -396,26 +396,13 @@ static void crafter_neighbor_changed(level & lv, state_id st, block_pos pos, int
     }
 }
 
-// FrontAndTop.front: each constant is named front_top
-static direction crafter_front(state_id st) {
-    const prop_def & p    = prop_defs[PROP_ORIENTATION];
-    int32_t          code = state_get(st, PROP_ORIENTATION);
-    for (int32_t i = 0; i < p.n_values; i++) {
-        std::string_view name = p.values[i];
-        direction        front;
-        if (p.codes[i] == code && direction_parse(name.substr(0, name.find('_')), front)) return front;
-    }
-    TMC_ASSERT(false);
-    return DIRECTION_DOWN;
-}
-
 // CrafterBlock.dispenseItem: into the container in front one by one or in bulk, the rest out as an item entity
 static void crafter_dispense_item(level &            lv,
                                   state_id           st,
                                   block_pos          pos,
                                   block_entity *     be,
                                   const item_stack & results) {
-    direction           dir  = crafter_front(st);
+    direction           dir  = front_and_top_fronts[state_get(st, PROP_ORIENTATION)];
     direction           face = direction_opposite(dir);
     container           self = { be, nullptr };
     container           into;

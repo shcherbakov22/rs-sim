@@ -3,8 +3,6 @@
 #include "core/common.h"
 #include "gen/blocks.h"
 
-#include <string_view>
-
 // the generated enum direction is vanilla's Direction in 3D data value order
 static_assert(DIRECTION_DOWN == 0 && DIRECTION_EAST == 5);
 
@@ -22,16 +20,6 @@ inline constexpr block_pos DIRECTION_STEPS[6] = {
     { -1, 0,  0  },
     { 1,  0,  0  }
 };
-
-inline bool direction_parse(std::string_view name, direction & out) {
-    for (int32_t i = 0; i < 6; i++) {
-        if (name == direction_names[i]) {
-            out = (direction) i;
-            return true;
-        }
-    }
-    return false;
-}
 
 inline direction direction_opposite(direction dir) {
     return (direction) (dir ^ 1);
