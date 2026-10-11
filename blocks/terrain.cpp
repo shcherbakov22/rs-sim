@@ -150,7 +150,7 @@ static void tnt_neighbor_changed(level & lv, state_id, block_pos pos, int32_t, b
     if (level_has_neighbor_signal(lv, pos)) tnt_prime(lv, pos);
 }
 
-// SoulSandBlock: keeps a bubble column above it, which only water can hold
+// SoulSandBlock: keeps a bubble column above it, which only water can hold. MagmaBlock has the same three methods.
 
 static void soul_sand_on_place(level & lv, state_id st, block_pos pos, state_id, bool) {
     level_schedule_tick(lv, pos, state_block(st), 20);
@@ -162,12 +162,9 @@ static state_id soul_sand_update_shape(level & lv, state_id st, block_pos pos, d
     return st;
 }
 
-// BubbleColumnBlock.updateColumn: a bubble column or a water source above becomes a column
-static void soul_sand_tick(level & lv, state_id, block_pos pos) {
-    state_id above = level_get_state(lv, pos_relative(pos, DIRECTION_UP));
-    if (state_is(above, BLOCK_BUBBLE_COLUMN) || (state_is(above, BLOCK_WATER) && state_get(above, PROP_LEVEL) == 0)) {
-        level_unsupported(lv, "fluids");
-    }
+static void soul_sand_tick(level & lv, state_id st, block_pos pos) {
+    block_pos above = pos_relative(pos, DIRECTION_UP);
+    bubble_column_update_column(lv, above, level_get_state(lv, above), st);
 }
 
 // PowderSnowBlock.pickupBlock
@@ -216,6 +213,10 @@ const std::vector<block_hooks> terrain_hooks = {
       .on_place = soul_sand_on_place,
       .tick = soul_sand_tick },
     { .vclass = VCLASS_POWDER_SNOW_BLOCK, .pickup_block = powder_snow_pickup_block },
+    { .vclass = VCLASS_MAGMA_BLOCK,
+      .update_shape = soul_sand_update_shape,
+      .on_place = soul_sand_on_place,
+      .tick = soul_sand_tick },
     { .vclass = VCLASS_SNOWY_DIRT_BLOCK, .update_shape = snowy_dirt_update_shape },
     { .vclass = VCLASS_DIRT_PATH_BLOCK,
       .update_shape = dirt_path_update_shape,

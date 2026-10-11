@@ -156,6 +156,12 @@ bool block_can_support_center(level & lv, block_pos pos, direction dir) {
     return block_is_face_sturdy(lv, st, pos, dir, SUPPORT_TYPE_CENTER);
 }
 
+// a ladder and living coral check survival before they schedule the water tick, in their own updateShape
+static bool block_schedules_water_tick_late(int32_t vclass) {
+    return vclass == VCLASS_LADDER_BLOCK || vclass == VCLASS_CORAL_PLANT_BLOCK || vclass == VCLASS_CORAL_FAN_BLOCK ||
+           vclass == VCLASS_CORAL_WALL_FAN_BLOCK;
+}
+
 state_id block_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos neighbor_pos,
                             state_id neighbor) {
     if (trace_wants(lv.tr, &pos)) {
@@ -164,9 +170,9 @@ state_id block_update_shape(level & lv, state_id st, block_pos pos, direction di
     }
     trace_enter(lv.tr);
     state_id result = st;
-    // SimpleWaterloggedBlock: updateShape schedules the water tick first. Each waterloggable class overrides it; a ladder checks survival first.
+    // SimpleWaterloggedBlock: updateShape schedules the water tick first. Each waterloggable class overrides it.
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_UPDATE_SHAPE)) {
-        if (state_is_waterlogged(st) && b->vclass != VCLASS_LADDER_BLOCK) {
+        if (state_is_waterlogged(st) && !block_schedules_water_tick_late(b->vclass)) {
             level_schedule_fluid_tick(lv, pos, FLUID_WATER, fluid_get_tick_delay(FLUID_WATER));
         }
         result = b->update_shape(lv, st, pos, dir, neighbor_pos, neighbor);

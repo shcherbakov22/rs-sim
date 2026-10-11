@@ -66,6 +66,8 @@ bool       chiseled_book_shelf_block_entity_can_take_item(const container & into
 int32_t fluid_get_tick_delay(int32_t fluid);
 // FluidState.tick (FlowingFluid.tick)
 void    flowing_fluid_tick(level & lv, block_pos pos, state_id st, fluid_state_id fs);
+// BubbleColumnBlock.updateColumn
+void    bubble_column_update_column(level & lv, block_pos origin, state_id origin_state, state_id below);
 
 // BaseRailBlock
 bool    base_rail_is_rail(state_id st);

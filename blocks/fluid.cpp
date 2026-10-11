@@ -1,7 +1,8 @@
-// Fluids: FlowingFluid with WaterFluid and LavaFluid runs the fluid ticks, LiquidBlock holds a fluid in its level
-// property, and a SimpleWaterloggedBlock holds water. The overworld has no fast lava.
+// Fluids: FlowingFluid with WaterFluid and LavaFluid runs the fluid ticks, LiquidBlock holds a fluid in its level property, and a SimpleWaterloggedBlock holds water. The overworld has no fast lava.
+// Bubble columns and coral live in water.
 
 #include "blocks/handlers.h"
+#include "core/rng.h"
 #include "engine/level.h"
 
 #include <algorithm>
@@ -356,6 +357,158 @@ static item_stack liquid_block_pickup_block(level & lv, block_pos pos, state_id 
     return { fluid_is_lava(liquid_block_fluid(st)) ? ITEM_LAVA_BUCKET : ITEM_WATER_BUCKET, 1, 0 };
 }
 
+// BubbleColumnBlock: soul sand or magma below turns a water source column into bubbles
+
+static bool bubble_column_can_exist_in(state_id st) {
+    fluid_state_id fs = state_fluid_state(st);
+    return state_is(st, BLOCK_BUBBLE_COLUMN) ||
+           (state_is(st, BLOCK_WATER) && fluid_state_get_amount(fs) >= 8 && fluid_state_is_source(fs));
+}
+
+static state_id bubble_column_get_column_state(state_id below) {
+    if (state_is(below, BLOCK_BUBBLE_COLUMN)) return below;
+    if (state_is(below, BLOCK_SOUL_SAND)) return state_set(block_default(BLOCK_BUBBLE_COLUMN), PROP_DRAG, false);
+    if (state_is(below, BLOCK_MAGMA_BLOCK)) return state_set(block_default(BLOCK_BUBBLE_COLUMN), PROP_DRAG, true);
+    return block_default(BLOCK_WATER);
+}
+
+// the column goes up through water sources and bubbles; a set that changes nothing ends it
+void bubble_column_update_column(level & lv, block_pos origin, state_id origin_state, state_id below) {
+    if (!bubble_column_can_exist_in(origin_state)) return;
+    state_id column = bubble_column_get_column_state(below);
+    level_set_block(lv, origin, column, UPDATE_FLAG_CLIENTS);
+    for (block_pos pos = pos_relative(origin, DIRECTION_UP); bubble_column_can_exist_in(level_get_state(lv, pos));
+         pos           = pos_relative(pos, DIRECTION_UP)) {
+        if (!level_set_block(lv, pos, column, UPDATE_FLAG_CLIENTS)) return;
+    }
+}
+
+static void bubble_column_tick(level & lv, state_id st, block_pos pos) {
+    bubble_column_update_column(lv, pos, st, level_get_state(lv, pos_relative(pos, DIRECTION_DOWN)));
+}
+
+static bool bubble_column_can_survive(level & lv, state_id, block_pos pos) {
+    state_id below = level_get_state(lv, pos_relative(pos, DIRECTION_DOWN));
+    return state_is(below, BLOCK_BUBBLE_COLUMN) || state_is(below, BLOCK_MAGMA_BLOCK) ||
+           state_is(below, BLOCK_SOUL_SAND);
+}
+
+static state_id bubble_column_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos,
+                                           state_id neighbor) {
+    level_schedule_fluid_tick(lv, pos, FLUID_WATER, fluid_get_tick_delay(FLUID_WATER));
+    if (!block_can_survive(lv, st, pos) || dir == DIRECTION_DOWN ||
+        (dir == DIRECTION_UP && !state_is(neighbor, BLOCK_BUBBLE_COLUMN) && bubble_column_can_exist_in(neighbor))) {
+        level_schedule_tick(lv, pos, state_block(st), 5);
+    }
+    return st;
+}
+
+static item_stack bubble_column_pickup_block(level & lv, block_pos pos, state_id) {
+    level_set_block(lv, pos, STATE_AIR, UPDATE_FLAG_ALL_IMMEDIATE);
+    return { ITEM_WATER_BUCKET, 1, 0 };
+}
+
+// Coral: living coral dies 60 to 99 ticks after it finds no water in it or beside it
+
+// CoralBlock.scanForWater
+static bool coral_scan_for_water(level & lv, block_pos pos) {
+    for (int32_t dir = DIRECTION_DOWN; dir <= DIRECTION_EAST; dir++) {
+        if (fluid_is_water_tag(fluid_state_get_type(level_get_fluid_state(lv, pos_relative(pos, (direction) dir))))) {
+            return true;
+        }
+    }
+    return false;
+}
+
+static void coral_tick(level & lv, state_id st, block_pos pos) {
+    if (coral_scan_for_water(lv, pos)) return;
+    int32_t dead = block_field_get(state_block(st), FIELD_CORAL_BLOCK_DEAD_BLOCK);
+    level_set_block(lv, pos, block_default(dead), UPDATE_FLAG_CLIENTS);
+}
+
+static state_id coral_update_shape(level & lv, state_id st, block_pos pos, direction, block_pos, state_id) {
+    if (!coral_scan_for_water(lv, pos)) level_schedule_tick(lv, pos, state_block(st), 60 + rng_next_int(lv.random, 40));
+    return st;
+}
+
+static bool base_coral_plant_type_scan_for_water(level & lv, state_id st, block_pos pos) {
+    return state_get(st, PROP_WATERLOGGED) || coral_scan_for_water(lv, pos);
+}
+
+static void base_coral_plant_type_try_schedule_die_tick(level & lv, state_id st, block_pos pos) {
+    if (!base_coral_plant_type_scan_for_water(lv, st, pos)) {
+        level_schedule_tick(lv, pos, state_block(st), 60 + rng_next_int(lv.random, 40));
+    }
+}
+
+static bool base_coral_plant_type_can_survive(level & lv, state_id, block_pos pos) {
+    block_pos below = pos_relative(pos, DIRECTION_DOWN);
+    return block_is_face_sturdy(lv, level_get_state(lv, below), below, DIRECTION_UP, SUPPORT_TYPE_FULL);
+}
+
+// block_update_shape schedules the water tick first
+static state_id base_coral_plant_type_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos,
+                                                   state_id) {
+    return dir == DIRECTION_DOWN && !block_can_survive(lv, st, pos) ? STATE_AIR : st;
+}
+
+static bool base_coral_wall_fan_can_survive(level & lv, state_id st, block_pos pos) {
+    direction facing   = state_facing(st);
+    block_pos attached = pos_relative(pos, direction_opposite(facing));
+    return block_is_face_sturdy(lv, level_get_state(lv, attached), attached, facing, SUPPORT_TYPE_FULL);
+}
+
+// block_update_shape schedules the water tick first
+static state_id base_coral_wall_fan_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos,
+                                                 state_id) {
+    return direction_opposite(dir) == state_facing(st) && !block_can_survive(lv, st, pos) ? STATE_AIR : st;
+}
+
+// CoralPlantBlock, CoralFanBlock and CoralWallFanBlock
+static void coral_plant_on_place(level & lv, state_id st, block_pos pos, state_id, bool) {
+    base_coral_plant_type_try_schedule_die_tick(lv, st, pos);
+}
+
+// each living coral class keeps its own deadBlock field
+static int32_t coral_plant_dead_block(int32_t block) {
+    if (block_instanceof(block, VCLASS_CORAL_WALL_FAN_BLOCK)) {
+        return block_field_get(block, FIELD_CORAL_WALL_FAN_BLOCK_DEAD_BLOCK);
+    }
+    if (block_instanceof(block, VCLASS_CORAL_FAN_BLOCK))
+        return block_field_get(block, FIELD_CORAL_FAN_BLOCK_DEAD_BLOCK);
+    return block_field_get(block, FIELD_CORAL_PLANT_BLOCK_DEAD_BLOCK);
+}
+
+// CoralPlantBlock, CoralFanBlock and CoralWallFanBlock; the wall fan keeps its facing
+static void coral_plant_tick(level & lv, state_id st, block_pos pos) {
+    if (base_coral_plant_type_scan_for_water(lv, st, pos)) return;
+    state_id dead = block_with_properties_of(coral_plant_dead_block(state_block(st)), st);
+    level_set_block(lv, pos, state_set(dead, PROP_WATERLOGGED, false), UPDATE_FLAG_CLIENTS);
+}
+
+// CoralPlantBlock and CoralFanBlock check survival first; the BaseCoralPlantTypeBlock updateShape they end in schedules the water tick again
+static state_id coral_plant_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos neighbor_pos,
+                                         state_id neighbor) {
+    if (dir == DIRECTION_DOWN && !block_can_survive(lv, st, pos)) return STATE_AIR;
+    base_coral_plant_type_try_schedule_die_tick(lv, st, pos);
+    if (state_get(st, PROP_WATERLOGGED)) {
+        level_schedule_fluid_tick(lv, pos, FLUID_WATER, fluid_get_tick_delay(FLUID_WATER));
+        level_schedule_fluid_tick(lv, pos, FLUID_WATER, fluid_get_tick_delay(FLUID_WATER));
+    }
+    return base_coral_plant_type_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
+}
+
+// checks survival, schedules the water tick, then the die tick; the BaseCoralWallFanBlock updateShape it ends in schedules the water tick again
+static state_id coral_wall_fan_update_shape(level & lv, state_id st, block_pos pos, direction dir,
+                                            block_pos neighbor_pos, state_id neighbor) {
+    if (direction_opposite(dir) == state_facing(st) && !block_can_survive(lv, st, pos)) return STATE_AIR;
+    bool waterlogged = state_get(st, PROP_WATERLOGGED);
+    if (waterlogged) level_schedule_fluid_tick(lv, pos, FLUID_WATER, fluid_get_tick_delay(FLUID_WATER));
+    base_coral_plant_type_try_schedule_die_tick(lv, st, pos);
+    if (waterlogged) level_schedule_fluid_tick(lv, pos, FLUID_WATER, fluid_get_tick_delay(FLUID_WATER));
+    return base_coral_wall_fan_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
+}
+
 // clang-format off
 const std::vector<block_hooks> fluid_hooks = {
     { .vclass = VCLASS_LIQUID_BLOCK,
@@ -363,5 +516,29 @@ const std::vector<block_hooks> fluid_hooks = {
       .neighbor_changed = liquid_block_neighbor_changed,
       .on_place = liquid_block_on_place,
       .pickup_block = liquid_block_pickup_block },
+    { .vclass = VCLASS_BUBBLE_COLUMN_BLOCK,
+      .update_shape = bubble_column_update_shape,
+      .tick = bubble_column_tick,
+      .can_survive = bubble_column_can_survive,
+      .pickup_block = bubble_column_pickup_block },
+    { .vclass = VCLASS_CORAL_BLOCK, .update_shape = coral_update_shape, .tick = coral_tick },
+    { .vclass = VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,
+      .update_shape = base_coral_plant_type_update_shape,
+      .can_survive = base_coral_plant_type_can_survive },
+    { .vclass = VCLASS_BASE_CORAL_WALL_FAN_BLOCK,
+      .update_shape = base_coral_wall_fan_update_shape,
+      .can_survive = base_coral_wall_fan_can_survive },
+    { .vclass = VCLASS_CORAL_PLANT_BLOCK,
+      .update_shape = coral_plant_update_shape,
+      .on_place = coral_plant_on_place,
+      .tick = coral_plant_tick },
+    { .vclass = VCLASS_CORAL_FAN_BLOCK,
+      .update_shape = coral_plant_update_shape,
+      .on_place = coral_plant_on_place,
+      .tick = coral_plant_tick },
+    { .vclass = VCLASS_CORAL_WALL_FAN_BLOCK,
+      .update_shape = coral_wall_fan_update_shape,
+      .on_place = coral_plant_on_place,
+      .tick = coral_plant_tick },
 };
 // clang-format on
