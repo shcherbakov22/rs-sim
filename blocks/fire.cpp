@@ -167,11 +167,6 @@ static state_id soul_fire_update_shape(level & lv, state_id st, block_pos pos, d
 // FireBlock.canBurn
 static bool fire_can_burn(state_id st) { return state_has(st, STATE_FLAG_FIRE_CAN_BURN); }
 
-// FireBlock.PROPERTY_BY_DIRECTION: every direction but down
-// FireBlock.PROPERTY_BY_DIRECTION, indexed by direction; down has none
-static constexpr prop_id FIRE_PROPERTY_BY_DIRECTION[6] = { PROP_COUNT, PROP_UP,   PROP_NORTH,
-                                                           PROP_SOUTH, PROP_WEST, PROP_EAST };
-
 // FireBlock.getStateForPlacement(BlockGetter, BlockPos)
 static state_id fire_get_state_for_placement(level & lv, block_pos pos) {
     block_pos below_pos = pos_relative(pos, DIRECTION_DOWN);
@@ -182,7 +177,7 @@ static state_id fire_get_state_for_placement(level & lv, block_pos pos) {
     }
     for (int32_t d = DIRECTION_UP; d < 6; d++) {
         bool burn = fire_can_burn(level_get_state(lv, pos_relative(pos, (direction) d)));
-        result    = state_set(result, FIRE_PROPERTY_BY_DIRECTION[d], burn);
+        result    = state_set(result, FIRE_BLOCK_PROPERTY_BY_DIRECTION[d], burn);
     }
     return result;
 }

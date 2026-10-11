@@ -3602,6 +3602,11 @@ enum prop_id {
     PROP_TIP = 119,
     PROP_COUNT = 120,
 };
+// Map<Direction, Property> fields, indexed by direction; PROP_COUNT where a direction is absent
+inline constexpr prop_id RED_STONE_WIRE_BLOCK_PROPERTY_BY_DIRECTION[6] = { PROP_COUNT, PROP_COUNT, PROP_NORTH_REDSTONE, PROP_SOUTH_REDSTONE, PROP_WEST_REDSTONE, PROP_EAST_REDSTONE };
+inline constexpr prop_id CROSS_COLLISION_BLOCK_PROPERTY_BY_DIRECTION[6] = { PROP_COUNT, PROP_COUNT, PROP_NORTH, PROP_SOUTH, PROP_WEST, PROP_EAST };
+inline constexpr prop_id WALL_BLOCK_PROPERTY_BY_DIRECTION[6] = { PROP_COUNT, PROP_COUNT, PROP_NORTH_WALL, PROP_SOUTH_WALL, PROP_WEST_WALL, PROP_EAST_WALL };
+inline constexpr prop_id FIRE_BLOCK_PROPERTY_BY_DIRECTION[6] = { PROP_COUNT, PROP_UP, PROP_NORTH, PROP_SOUTH, PROP_WEST, PROP_EAST };
 
 // primitive instance fields of block objects and their records, as Class.field[.component]; block fields hold block ids, Direction fields 3D data values
 enum object_field {

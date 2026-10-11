@@ -8,20 +8,15 @@
 
 // RedStoneWireBlock, with DefaultRedstoneWireEvaluator (the evaluator without the redstone experiments)
 
-// RedStoneWireBlock.PROPERTY_BY_DIRECTION, indexed by direction
-static constexpr prop_id RED_STONE_WIRE_PROPERTY_BY_DIRECTION[6] = {
-    PROP_COUNT, PROP_COUNT, PROP_NORTH_REDSTONE, PROP_SOUTH_REDSTONE, PROP_WEST_REDSTONE, PROP_EAST_REDSTONE,
-};
-
 // RedstoneSide.isConnected
 static bool red_stone_wire_connected(state_id st, direction dir) {
-    return state_get(st, RED_STONE_WIRE_PROPERTY_BY_DIRECTION[dir]) != REDSTONE_SIDE_NONE;
+    return state_get(st, RED_STONE_WIRE_BLOCK_PROPERTY_BY_DIRECTION[dir]) != REDSTONE_SIDE_NONE;
 }
 
 static state_id red_stone_wire_cross_state() {
     state_id st = block_default(BLOCK_REDSTONE_WIRE);
     for (direction dir : DIRECTION_HORIZONTAL) {
-        st = state_set(st, RED_STONE_WIRE_PROPERTY_BY_DIRECTION[dir], REDSTONE_SIDE_SIDE);
+        st = state_set(st, RED_STONE_WIRE_BLOCK_PROPERTY_BY_DIRECTION[dir], REDSTONE_SIDE_SIDE);
     }
     return st;
 }
@@ -81,7 +76,7 @@ static state_id red_stone_wire_get_missing_connections(level & lv, state_id st, 
     bool can_connect_up = !red_stone_wire_is_conductor(lv, pos_relative(pos, DIRECTION_UP));
     for (direction dir : DIRECTION_HORIZONTAL) {
         if (!red_stone_wire_connected(st, dir)) {
-            st = state_set(st, RED_STONE_WIRE_PROPERTY_BY_DIRECTION[dir],
+            st = state_set(st, RED_STONE_WIRE_BLOCK_PROPERTY_BY_DIRECTION[dir],
                            red_stone_wire_get_connecting_side(lv, pos, dir, can_connect_up));
         }
     }
@@ -112,7 +107,7 @@ static state_id red_stone_wire_update_shape(level & lv, state_id st, block_pos p
     if (dir == DIRECTION_UP) return red_stone_wire_get_connection_state(lv, st, pos);
     bool          can_connect_up = !red_stone_wire_is_conductor(lv, pos_relative(pos, DIRECTION_UP));
     redstone_side side           = red_stone_wire_get_connecting_side(lv, pos, dir, can_connect_up);
-    prop_id       prop           = RED_STONE_WIRE_PROPERTY_BY_DIRECTION[dir];
+    prop_id       prop           = RED_STONE_WIRE_BLOCK_PROPERTY_BY_DIRECTION[dir];
     if ((side != REDSTONE_SIDE_NONE) == red_stone_wire_connected(st, dir) && !red_stone_wire_is_cross(st)) {
         return state_set(st, prop, side);
     }

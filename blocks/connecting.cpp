@@ -3,12 +3,6 @@
 #include "blocks/handlers.h"
 #include "engine/level.h"
 
-// CrossCollisionBlock.PROPERTY_BY_DIRECTION and WallBlock's, indexed by direction
-static constexpr prop_id CROSS_COLLISION_PROPERTY_BY_DIRECTION[6] = { PROP_COUNT, PROP_COUNT, PROP_NORTH,
-                                                                      PROP_SOUTH, PROP_WEST,  PROP_EAST };
-static constexpr prop_id WALL_PROPERTY_BY_DIRECTION[6]            = { PROP_COUNT,      PROP_COUNT,     PROP_NORTH_WALL,
-                                                                      PROP_SOUTH_WALL, PROP_WEST_WALL, PROP_EAST_WALL };
-
 // FenceGateBlock.connectsToDirection
 static bool fence_gate_connects_to_direction(state_id st, direction dir) {
     return block_instanceof(state_block(st), VCLASS_FENCE_GATE_BLOCK) &&
@@ -29,7 +23,7 @@ static state_id fence_update_shape(level & lv, state_id st, block_pos, direction
                       state_has(neighbor, STATE_FLAG_TAG_WOODEN_FENCES) == state_has(st, STATE_FLAG_TAG_WOODEN_FENCES);
     bool connects   = connecting_face_solid(lv, neighbor_pos, neighbor, dir) || same_fence ||
                       fence_gate_connects_to_direction(neighbor, direction_opposite(dir));
-    return state_set(st, CROSS_COLLISION_PROPERTY_BY_DIRECTION[dir], connects);
+    return state_set(st, CROSS_COLLISION_BLOCK_PROPERTY_BY_DIRECTION[dir], connects);
 }
 
 // IronBarsBlock (bars and panes): a side connects to a solid face, other bars or a wall
@@ -39,7 +33,7 @@ static state_id iron_bars_update_shape(level & lv, state_id st, block_pos, direc
     bool attaches = connecting_face_solid(lv, neighbor_pos, neighbor, dir) ||
                     block_instanceof(state_block(neighbor), VCLASS_IRON_BARS_BLOCK) ||
                     state_has(neighbor, STATE_FLAG_TAG_WALLS);
-    return state_set(st, CROSS_COLLISION_PROPERTY_BY_DIRECTION[dir], attaches);
+    return state_set(st, CROSS_COLLISION_BLOCK_PROPERTY_BY_DIRECTION[dir], attaches);
 }
 
 // WallBlock: sides connect like bars; the block above decides tall sides and the post
@@ -74,7 +68,7 @@ static state_id wall_update_shape_from(level & lv, state_id st, block_pos top_po
             side =
                 shape_face_covers(above_shape, SHAPE_WALL_BLOCK_TEST_SHAPES_WALL[dir]) ? WALL_SIDE_TALL : WALL_SIDE_LOW;
         }
-        st = state_set(st, WALL_PROPERTY_BY_DIRECTION[dir], side);
+        st = state_set(st, WALL_BLOCK_PROPERTY_BY_DIRECTION[dir], side);
     }
     return state_set(st, PROP_UP, wall_should_raise_post(st, top, above_shape));
 }
@@ -84,7 +78,7 @@ static state_id wall_update_shape(level & lv, state_id st, block_pos pos, direct
     if (dir == DIRECTION_DOWN) return st;
     bool connected[6] = {};
     for (direction side : DIRECTION_HORIZONTAL) {
-        connected[side] = state_get(st, WALL_PROPERTY_BY_DIRECTION[side]) != WALL_SIDE_NONE;
+        connected[side] = state_get(st, WALL_BLOCK_PROPERTY_BY_DIRECTION[side]) != WALL_SIDE_NONE;
     }
     if (dir == DIRECTION_UP) return wall_update_shape_from(lv, st, neighbor_pos, neighbor, connected);
     // sideUpdate: WallBlock.connectsTo
