@@ -116,11 +116,13 @@ void container_set_changed(level & lv, const container & c) {
 // AbstractContainerMenu.getRedstoneSignalFromContainer
 int32_t container_get_redstone_signal(const container * c) {
     if (c == nullptr) return 0;
+    // chests and block entity containers only; the slots in order are the first half's, then the second's
+    TMC_ASSERT(c->composter == nullptr);
     float total_percent = 0.0f;
-    for (int32_t slot = 0; slot < container_get_container_size(*c); slot++) {
-        const item_stack & s = container_get_item(*c, slot);
-        if (!item_stack_is_empty(s)) {
-            total_percent += (float) item_stack_get_count(s) / (float) container_get_max_stack_size(s);
+    for (const block_entity * be : { c->first, c->second }) {
+        if (be == nullptr) continue;
+        for (const item_stack & s : be->items) {
+            if (!item_stack_is_empty(s)) total_percent += (float) s.count / (float) container_get_max_stack_size(s);
         }
     }
     total_percent /= (float) container_get_container_size(*c);
