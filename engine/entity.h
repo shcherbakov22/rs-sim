@@ -73,6 +73,9 @@ struct entity {
     bool       in_ground    = false;
     int32_t    life         = 0;
     int32_t    last_state   = -1;  // the state it last hit, -1 for none
+    // AbstractHurtingProjectile and WindCharge
+    double     acceleration_power = 0.1;
+    int32_t    no_deflect_ticks   = 5;
 
     // FallingBlockEntity
     state_id block_state              = STATE_AIR;

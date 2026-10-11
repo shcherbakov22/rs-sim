@@ -1,5 +1,5 @@
-// ServerExplosion and ExplosionDamageCalculator for the TNT explosions of primed tnt and tnt minecarts. The rays,
-// the entity damage and the blocks each draw from the level random in vanilla's order.
+// ServerExplosion and ExplosionDamageCalculator for the explosions of primed tnt, tnt minecarts and wind charges. The
+// rays, the entity damage and the blocks each draw from the level random in vanilla's order.
 
 #include "engine/explosion.h"
 
@@ -18,6 +18,15 @@ static bool explosion_spares(level & lv, const explosion & ex, block_pos pos, st
     if (ex.source == nullptr || ex.source->type != ENTITY_TYPE_TNT_MINECART || ex.source->fuse <= -1) return false;
     return state_has(st, STATE_FLAG_TAG_RAILS) ||
            state_has(level_get_state(lv, pos_relative(pos, DIRECTION_UP)), STATE_FLAG_TAG_RAILS);
+}
+
+// WindCharge.EXPLOSION_DAMAGE_CALCULATOR: only its immune blocks resist, it damages no entity and knocks back harder
+static bool explosion_by_wind_charge(const explosion & ex) {
+    return ex.source != nullptr && ex.source->type == ENTITY_TYPE_WIND_CHARGE;
+}
+
+bool explosion_can_trigger_blocks(const explosion & ex) {
+    return ex.block_interaction == EXPLOSION_BLOCK_INTERACTION_TRIGGER_BLOCK;
 }
 
 // ServerExplosion.calculateExplodedPositions: rays from the cube's surface lose power to the blocks and fluids
@@ -46,7 +55,11 @@ static std::vector<block_pos> server_explosion_calculate_exploded_positions(leve
                     fluid_state_id fs     = state_fluid_state(st);
                     bool           spares = explosion_spares(lv, ex, pos, st);
                     // ExplosionDamageCalculator.getBlockExplosionResistance: none for air without fluid
-                    if (!state_has(st, STATE_FLAG_AIR) || !fluid_state_is_empty(fs)) {
+                    if (explosion_by_wind_charge(ex)) {
+                        if (state_has(st, STATE_FLAG_TAG_BLOCKS_WIND_CHARGE_EXPLOSIONS)) {
+                            remaining_power -= (3600000.0F + 0.3F) * 0.3F;
+                        }
+                    } else if (!state_has(st, STATE_FLAG_AIR) || !fluid_state_is_empty(fs)) {
                         float resistance = std::max(block_defs[state_block(st)].resistance,
                                                     fluid_defs[fluid_state_get_type(fs)].resistance);
                         remaining_power -= ((spares ? 0.0F : resistance) + 0.3F) * 0.3F;
@@ -102,7 +115,8 @@ static float explosion_damage_calculator_get_entity_damage_amount(const explosio
     return (float) ((pow * pow + pow) / 2.0 * 7.0 * double_radius + 1.0);
 }
 
-// ServerExplosion.hurtEntities: no entity in scope ignores the explosion, and none resists the knockback
+// ServerExplosion.hurtEntities: only an item ignores an explosion that does not affect block-like entities, and no
+// entity in scope resists the knockback
 static void server_explosion_hurt_entities(level & lv, const explosion & ex) {
     if (ex.radius < 1.0E-5F) return;
     float double_radius = ex.radius * 2.0F;
@@ -111,21 +125,25 @@ static void server_explosion_hurt_entities(level & lv, const explosion & ex) {
                         floor_int(ex.center.y + double_radius + 1.0), floor_int(ex.center.z + double_radius + 1.0));
     std::vector<entity *> found;
     level_get_entities(lv, box, found);
+    bool  damages   = !explosion_by_wind_charge(ex);
+    float knockback = explosion_by_wind_charge(ex) ? 1.22F : 1.0F;
     for (entity * e : found) {
-        if (e == ex.source) continue;
+        // ItemEntity.ignoreExplosion
+        if (e == ex.source || (e->type == ENTITY_TYPE_ITEM && explosion_can_trigger_blocks(ex))) continue;
         double dist = std::sqrt(vec3_length_sqr(vec3_subtract(e->pos, ex.center))) / double_radius;
         if (dist > 1.0) continue;
         float eye       = e->type == ENTITY_TYPE_TNT ? 0.0F : entity_type_defs[e->type].eye_height;
         vec3  origin    = { e->pos.x, e->pos.y + eye, e->pos.z };
         vec3  direction = vec3_normalize(vec3_subtract(origin, ex.center));
         float exposure  = server_explosion_get_seen_percent(lv, ex.center, *e);
-        entity_hurt_server(lv, *e, DAMAGE_TYPE_EXPLOSION,
-                           explosion_damage_calculator_get_entity_damage_amount(ex, *e, exposure));
-        vec3 knockback = vec3_scale(direction, (1.0 - dist) * exposure);
-        // Entity.push(Vec3) skips an impulse that is not finite
-        if (std::isfinite(knockback.x) && std::isfinite(knockback.y) && std::isfinite(knockback.z)) {
-            entity_push(*e, knockback.x, knockback.y, knockback.z);
+        if (damages) {
+            entity_hurt_server(lv, *e, DAMAGE_TYPE_EXPLOSION,
+                               explosion_damage_calculator_get_entity_damage_amount(ex, *e, exposure));
         }
+        vec3 push = vec3_scale(direction, (1.0 - dist) * exposure * knockback);
+        // Entity.push(Vec3) skips an impulse that is not finite
+        if (std::isfinite(push.x) && std::isfinite(push.y) && std::isfinite(push.z))
+            entity_push(*e, push.x, push.y, push.z);
     }
 }
 
@@ -155,11 +173,11 @@ static void server_explosion_interact_with_blocks(level & lv, explosion & ex, st
     for (const explosion_stack & s : ex.stacks) level_pop_resource(lv, s.pos, s.stack);
 }
 
-void level_explode(level & lv, entity * source, vec3 center, float radius) {
+void level_explode(level & lv, entity * source, vec3 center, float radius, explosion_block_interaction interaction) {
     block_pos at = entity_world_to_block(center);
     if (trace_wants(lv.tr, nullptr)) trace_add(lv.tr, "explode %d %d %d", at.x, at.y, at.z);
     trace_enter(lv.tr);
-    explosion              ex      = { source, center, radius, {} };
+    explosion              ex      = { source, center, radius, interaction, {} };
     std::vector<block_pos> to_blow = server_explosion_calculate_exploded_positions(lv, ex);
     server_explosion_hurt_entities(lv, ex);
     server_explosion_interact_with_blocks(lv, ex, to_blow);

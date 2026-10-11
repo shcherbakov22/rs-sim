@@ -34,6 +34,10 @@ static int64_t entity_section_key(const entity & e) {
 aabb entity_make_bounding_box(const entity & e, const vec3 & pos) {
     float w = entity_type_defs[e.type].width / 2.0F;
     float h = entity_type_defs[e.type].height;
+    // AbstractWindCharge.makeBoundingBox: the box hangs below the position
+    if (e.type == ENTITY_TYPE_WIND_CHARGE) {
+        return aabb_of(pos.x - w, pos.y - 0.15F, pos.z - w, pos.x + w, pos.y - 0.15F + h, pos.z + w);
+    }
     return aabb_of(pos.x - w, pos.y, pos.z - w, pos.x + w, pos.y + h, pos.z + w);
 }
 
@@ -174,6 +178,8 @@ static void entity_tick(level & lv, entity & e) {
         case ENTITY_TYPE_LINGERING_POTION: throwable_projectile_tick(lv, e); return;
         case ENTITY_TYPE_ARROW:
         case ENTITY_TYPE_SPECTRAL_ARROW: abstract_arrow_tick(lv, e); return;
+        case ENTITY_TYPE_SMALL_FIREBALL:
+        case ENTITY_TYPE_WIND_CHARGE: abstract_hurting_projectile_tick(lv, e); return;
         default: break;
     }
     if (entity_is_boat(e)) {
@@ -190,9 +196,9 @@ void entity_apply_gravity(entity & e) {
     if (gravity != 0.0) e.delta.y += -gravity;
 }
 
-// AbstractArrow ignores a push while it is stuck
+// AbstractArrow ignores a push while it is stuck, AbstractWindCharge always
 void entity_push(entity & e, double x, double y, double z) {
-    if (!e.in_ground) e.delta = vec3_add(e.delta, { x, y, z });
+    if (!e.in_ground && e.type != ENTITY_TYPE_WIND_CHARGE) e.delta = vec3_add(e.delta, { x, y, z });
 }
 
 // Entity.push(Entity): the two push apart, each by a twentieth; only vehicles push, and nothing in scope carries a

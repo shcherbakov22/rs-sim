@@ -8,15 +8,24 @@ struct explosion_stack {
     item_stack stack;
 };
 
-// ServerExplosion of a TNT explosion: it destroys blocks without decay and makes no fire
+// Explosion.BlockInteraction of the explosions in scope: TNT destroys without decay, a wind charge only triggers
+enum explosion_block_interaction {
+    EXPLOSION_BLOCK_INTERACTION_DESTROY,
+    EXPLOSION_BLOCK_INTERACTION_TRIGGER_BLOCK,
+};
+
+// ServerExplosion; none in scope makes fire
 struct explosion {
     entity *                     source;  // the direct source entity, null for none
     vec3                         center;
     float                        radius;
+    explosion_block_interaction  block_interaction;
     std::vector<explosion_stack> stacks;
 };
 
-// ServerLevel.explode with Level.ExplosionInteraction.TNT
-void level_explode(level & lv, entity * source, vec3 center, float radius);
+// ServerLevel.explode: Level.ExplosionInteraction.TNT destroys, TRIGGER only triggers
+void level_explode(level & lv, entity * source, vec3 center, float radius, explosion_block_interaction interaction);
+// Explosion.canTriggerBlocks
+bool explosion_can_trigger_blocks(const explosion & ex);
 // ServerExplosion.addOrAppendStack
 void explosion_add_or_append_stack(explosion & ex, item_stack stack, block_pos pos);

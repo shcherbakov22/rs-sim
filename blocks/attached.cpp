@@ -2,6 +2,7 @@
 // when it no longer holds them
 
 #include "blocks/handlers.h"
+#include "engine/explosion.h"
 #include "engine/level.h"
 
 direction face_attached_horizontal_directional_get_connected_direction(state_id st) {
@@ -162,6 +163,19 @@ static void abstract_candle_on_projectile_hit(level & lv, state_id st, const hit
     level_set_block(lv, hit.pos, state_set(st, PROP_LIT, 1), UPDATE_FLAG_ALL_IMMEDIATE);
 }
 
+static void bell_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex) {
+    if (explosion_can_trigger_blocks(ex)) bell_attempt_to_ring(lv, pos, state_facing(st));
+    block_behaviour_on_explosion_hit(lv, st, pos, ex);
+}
+
+// AbstractCandleBlock.extinguish
+static void abstract_candle_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex) {
+    if (explosion_can_trigger_blocks(ex) && state_get(st, PROP_LIT)) {
+        level_set_block(lv, pos, state_set(st, PROP_LIT, 0), UPDATE_FLAG_ALL_IMMEDIATE);
+    }
+    block_behaviour_on_explosion_hit(lv, st, pos, ex);
+}
+
 static void bell_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
     bool signal = level_has_neighbor_signal(lv, pos);
     if (signal != (state_get(st, PROP_POWERED) != 0)) {
@@ -199,10 +213,10 @@ const std::vector<block_hooks> attached_hooks = {
       .update_shape = bell_update_shape,
       .neighbor_changed = bell_neighbor_changed,
       .can_survive = bell_can_survive,
-      .on_explosion_hit = block_behaviour_on_explosion_hit,
+      .on_explosion_hit = bell_on_explosion_hit,
       .on_projectile_hit = bell_on_projectile_hit },
     { .vclass = VCLASS_ABSTRACT_CANDLE_BLOCK,
-      .on_explosion_hit = block_behaviour_on_explosion_hit,
+      .on_explosion_hit = abstract_candle_on_explosion_hit,
       .on_projectile_hit = abstract_candle_on_projectile_hit },
 };
 // clang-format on

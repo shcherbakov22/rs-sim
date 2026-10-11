@@ -19,7 +19,7 @@ entity * primed_tnt_new(level & lv, vec3 pos) {
 // PrimedTnt.explode at a sixteenth of its height
 static void primed_tnt_explode(level & lv, entity & e) {
     vec3 center = { e.pos.x, e.pos.y + entity_type_defs[e.type].height * 0.0625, e.pos.z };
-    level_explode(lv, &e, center, 4.0F);
+    level_explode(lv, &e, center, 4.0F, EXPLOSION_BLOCK_INTERACTION_DESTROY);
 }
 
 void primed_tnt_tick(level & lv, entity & e) {

@@ -373,7 +373,7 @@ void block_on_broken_after_fall(level & lv, state_id st, block_pos pos) {
 }
 
 void block_behaviour_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex) {
-    if (state_has(st, STATE_FLAG_AIR)) return;
+    if (state_has(st, STATE_FLAG_AIR) || explosion_can_trigger_blocks(ex)) return;
     const block_hooks * drop = block_hooks_for(lv, st, HOOK_DROP_FROM_EXPLOSION);
     if (drop == nullptr || drop->drop_from_explosion()) {
         const block_entity * be = level_get_block_entity(lv, pos);

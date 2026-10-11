@@ -67,8 +67,7 @@ struct block_hooks {
 // BlockBehaviour.updateShape, the default: for classes whose override only schedules the water tick, which
 // block_update_shape does before dispatch
 state_id block_behaviour_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id);
-// BlockBehaviour.onExplosionHit, the default; also the override of classes that only act for explosions that
-// trigger blocks (wind charges)
+// BlockBehaviour.onExplosionHit, the default: an explosion that only triggers blocks destroys none
 void     block_behaviour_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex);
 // a stepOn or fallOn override that only acts on living entities or plays sounds: nothing for the entities in scope
 void     block_living_only(level & lv, state_id st, block_pos pos, entity & e);

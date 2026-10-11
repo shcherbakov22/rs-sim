@@ -1,6 +1,7 @@
 // Redstone: wire, torches, levers and the other blocks that make or take a signal; diodes are in diode.cpp
 
 #include "blocks/handlers.h"
+#include "engine/explosion.h"
 #include "engine/java-hash-map.h"
 #include "engine/level.h"
 #include "entities/handlers.h"
@@ -321,6 +322,11 @@ void lever_pull(level & lv, state_id st, block_pos pos) {
     lever_update_neighbours(lv, st, pos);
 }
 
+static void lever_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex) {
+    if (explosion_can_trigger_blocks(ex)) lever_pull(lv, st, pos);
+    block_behaviour_on_explosion_hit(lv, st, pos, ex);
+}
+
 static void lever_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston) {
     if (!moved_by_piston && state_get(st, PROP_POWERED)) lever_update_neighbours(lv, st, pos);
 }
@@ -441,7 +447,7 @@ const std::vector<block_hooks> redstone_hooks = {
       .can_survive = attached_can_survive },
     { .vclass = VCLASS_LEVER_BLOCK,
       .affect_neighbors_after_removal = lever_affect_neighbors_after_removal,
-      .on_explosion_hit = block_behaviour_on_explosion_hit },
+      .on_explosion_hit = lever_on_explosion_hit },
     { .vclass = VCLASS_REDSTONE_LAMP_BLOCK,
       .neighbor_changed = redstone_lamp_neighbor_changed,
       .tick = redstone_lamp_tick },

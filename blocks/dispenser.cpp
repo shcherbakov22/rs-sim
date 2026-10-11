@@ -88,19 +88,23 @@ static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, 
     const dispense_config & config = dispense_configs[item_defs[item].dispense_config];
     vec3                    center = vec3_add(entity_block_to_world(pos), { 0.5, 0.5, 0.5 });
     vec3 at     = vec3_add(center, { config.offset[facing][0], config.offset[facing][1], config.offset[facing][2] });
+    // asProjectile of a fire or wind charge draws three triangle distributed direction components, which the shot
+    // replaces
+    if (item_defs[item].cls == ICLASS_FIRE_CHARGE_ITEM || item_defs[item].cls == ICLASS_WIND_CHARGE_ITEM) {
+        for (int32_t i = 0; i < 6; i++) rng_next_double(lv.random);
+    }
     bool in_scope = type == ENTITY_TYPE_SNOWBALL || type == ENTITY_TYPE_EGG || type == ENTITY_TYPE_EXPERIENCE_BOTTLE ||
                     type == ENTITY_TYPE_SPLASH_POTION || type == ENTITY_TYPE_LINGERING_POTION ||
-                    type == ENTITY_TYPE_ARROW || type == ENTITY_TYPE_SPECTRAL_ARROW;
+                    type == ENTITY_TYPE_ARROW || type == ENTITY_TYPE_SPECTRAL_ARROW ||
+                    type == ENTITY_TYPE_SMALL_FIREBALL || type == ENTITY_TYPE_WIND_CHARGE;
     if (!in_scope) {
-        // asProjectile of a fire or wind charge draws three triangle distributed direction components
-        if (item_defs[item].cls == ICLASS_FIRE_CHARGE_ITEM || item_defs[item].cls == ICLASS_WIND_CHARGE_ITEM) {
-            for (int32_t i = 0; i < 6; i++) rng_next_double(lv.random);
-        }
         block_pos b = entity_world_to_block(at);
         dispenser_boundary_spawn(lv, dispensed, b.x, b.y, b.z);
         return dispensed;
     }
     entity *          e    = entity_new(lv, (entity_type) type, at);
+    // AbstractWindCharge does not accelerate
+    if (type == ENTITY_TYPE_WIND_CHARGE) e->acceleration_power = 0.0;
     // an arrow keeps one of the item to drop
     if (entity_is_abstract_arrow(*e)) e->item = item_stack_copy_with_count(dispensed, 1);
     const block_pos & step = DIRECTION_STEPS[facing];

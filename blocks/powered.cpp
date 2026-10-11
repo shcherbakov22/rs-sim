@@ -1,6 +1,7 @@
 // Powered blocks: doors, trapdoors, fence gates, skulls and note blocks follow the signal of their neighbors
 
 #include "blocks/handlers.h"
+#include "engine/explosion.h"
 #include "engine/level.h"
 
 // DoorBlock: two halves that copy each other through updateShape; a signal opens it
@@ -41,6 +42,18 @@ static void door_neighbor_changed(level & lv, state_id st, block_pos pos, int32_
     level_set_block(lv, pos, state_set(state_set(st, PROP_POWERED, signal), PROP_OPEN, signal), UPDATE_FLAG_CLIENTS);
 }
 
+// a wind charge opens or closes the lower half of an unpowered door of a type that allows it
+static void door_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex) {
+    if (explosion_can_trigger_blocks(ex) && state_get(st, PROP_DOUBLE_BLOCK_HALF) == DOUBLE_BLOCK_HALF_LOWER &&
+        block_field_get(state_block(st), FIELD_DOOR_BLOCK_TYPE_CAN_OPEN_BY_WIND_CHARGE) &&
+        !state_get(st, PROP_POWERED)) {
+        // setOpen
+        level_set_block(lv, pos, state_cycle(st, PROP_OPEN), UPDATE_FLAG_CLIENTS | UPDATE_FLAG_IMMEDIATE);
+        rng_next_float(lv.random);  // the sound pitch
+    }
+    block_behaviour_on_explosion_hit(lv, st, pos, ex);
+}
+
 // TrapDoorBlock: the sound plays before the block is set, and the water tick after
 static void trap_door_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
     bool signal = level_has_neighbor_signal(lv, pos);
@@ -52,6 +65,21 @@ static void trap_door_neighbor_changed(level & lv, state_id st, block_pos pos, i
     level_set_block(lv, pos, state_set(st, PROP_POWERED, signal), UPDATE_FLAG_CLIENTS);
     if (state_get(st, PROP_WATERLOGGED))
         level_schedule_fluid_tick(lv, pos, FLUID_WATER, fluid_get_tick_delay(FLUID_WATER));
+}
+
+// toggle: here the sound plays after the water tick
+static void trap_door_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex) {
+    if (explosion_can_trigger_blocks(ex) &&
+        block_field_get(state_block(st), FIELD_TRAP_DOOR_BLOCK_TYPE_CAN_OPEN_BY_WIND_CHARGE) &&
+        !state_get(st, PROP_POWERED)) {
+        state_id updated = state_cycle(st, PROP_OPEN);
+        level_set_block(lv, pos, updated, UPDATE_FLAG_CLIENTS);
+        if (state_get(updated, PROP_WATERLOGGED)) {
+            level_schedule_fluid_tick(lv, pos, FLUID_WATER, fluid_get_tick_delay(FLUID_WATER));
+        }
+        rng_next_float(lv.random);  // the sound pitch
+    }
+    block_behaviour_on_explosion_hit(lv, st, pos, ex);
 }
 
 // FenceGateBlock: in_wall follows walls on the sides; only the neighbors along the gate's width decide it
@@ -72,6 +100,14 @@ static void fence_gate_neighbor_changed(level & lv, state_id st, block_pos pos, 
     if (state_get(st, PROP_OPEN) != signal) {
         rng_next_float(lv.random);  // the sound pitch
     }
+}
+
+static void fence_gate_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex) {
+    if (explosion_can_trigger_blocks(ex) && !state_get(st, PROP_POWERED)) {
+        level_set_block(lv, pos, state_cycle(st, PROP_OPEN), UPDATE_FLAG_ALL);
+        rng_next_float(lv.random);  // the sound pitch
+    }
+    block_behaviour_on_explosion_hit(lv, st, pos, ex);
 }
 
 // AbstractSkullBlock: flag 2 only, a powered skull changes state without updating its neighbors
@@ -125,15 +161,15 @@ const std::vector<block_hooks> powered_hooks = {
       .update_shape = door_update_shape,
       .neighbor_changed = door_neighbor_changed,
       .can_survive = door_can_survive,
-      .on_explosion_hit = block_behaviour_on_explosion_hit },
+      .on_explosion_hit = door_on_explosion_hit },
     { .vclass = VCLASS_TRAP_DOOR_BLOCK,
       .update_shape = block_behaviour_update_shape,
       .neighbor_changed = trap_door_neighbor_changed,
-      .on_explosion_hit = block_behaviour_on_explosion_hit },
+      .on_explosion_hit = trap_door_on_explosion_hit },
     { .vclass = VCLASS_FENCE_GATE_BLOCK,
       .update_shape = fence_gate_update_shape,
       .neighbor_changed = fence_gate_neighbor_changed,
-      .on_explosion_hit = block_behaviour_on_explosion_hit },
+      .on_explosion_hit = fence_gate_on_explosion_hit },
     { .vclass = VCLASS_ABSTRACT_SKULL_BLOCK, .neighbor_changed = abstract_skull_neighbor_changed },
     { .vclass = VCLASS_NOTE_BLOCK,
       .update_shape = note_block_update_shape,
