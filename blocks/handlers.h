@@ -62,8 +62,9 @@ bool       chiseled_book_shelf_block_entity_can_place_item(const block_entity * 
 bool       chiseled_book_shelf_block_entity_can_take_item(const container & into, const item_stack & s);
 
 // BaseRailBlock
-bool base_rail_is_rail(level & lv, state_id st);
-bool base_rail_is_slope(int32_t shape);
+bool    base_rail_is_rail(state_id st);
+bool    base_rail_is_slope(int32_t shape);
+int32_t base_rail_get_shape(state_id st);
 
 // ComposterBlock
 void    composter_get_container(state_id st, block_pos pos, composter_container & out);

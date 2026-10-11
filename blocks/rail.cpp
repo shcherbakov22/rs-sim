@@ -1,10 +1,10 @@
-// Rails: rails need rigid support below (and beside, for slopes) and reshape through RailState. Only the straight
-// PoweredRailBlock rails (powered and activator) are ported; RailBlock and DetectorRailBlock stop the run.
+// Rails: rails need rigid support below (and beside, for slopes) and reshape through RailState. Only RailBlock
+// curves. No minecart ever exists, so a detector rail never finds one.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
 
-// RailShape of a straight rail: its axis, and the side a slope climbs toward
+// RailShape: the axis of a straight shape, and the side a slope climbs toward
 
 static bool rail_shape_is_north_south(int32_t shape) {
     return shape == RAIL_SHAPE_NORTH_SOUTH || shape == RAIL_SHAPE_ASCENDING_NORTH ||
@@ -20,38 +20,54 @@ bool base_rail_is_slope(int32_t shape) {
     return shape >= RAIL_SHAPE_ASCENDING_EAST && shape <= RAIL_SHAPE_ASCENDING_SOUTH;
 }
 
-bool base_rail_is_rail(level & lv, state_id st) {
-    int32_t block = state_block(st);
-    if (!state_has(st, STATE_FLAG_TAG_RAILS) || !block_instanceof(block, VCLASS_BASE_RAIL_BLOCK)) return false;
-    if (!block_instanceof(block, VCLASS_POWERED_RAIL_BLOCK)) {
-        level_unsupported(lv, "%s", block_defs[block].name);
-        return false;
-    }
-    return true;
+bool base_rail_is_rail(state_id st) {
+    return state_has(st, STATE_FLAG_TAG_RAILS) && block_instanceof(state_block(st), VCLASS_BASE_RAIL_BLOCK);
 }
+
+static bool base_rail_is_rail_at(level & lv, block_pos pos) { return base_rail_is_rail(level_get_state(lv, pos)); }
+
+static bool base_rail_is_straight(state_id st) {
+    return block_field_get(state_block(st), FIELD_BASE_RAIL_BLOCK_IS_STRAIGHT) != 0;
+}
+
+// BaseRailBlock.getShapeProperty: RailBlock has the shape with curves, the others the straight one
+static prop_id base_rail_get_shape_property(state_id st) {
+    return block_instanceof(state_block(st), VCLASS_RAIL_BLOCK) ? PROP_RAIL_SHAPE : PROP_RAIL_SHAPE_STRAIGHT;
+}
+
+int32_t base_rail_get_shape(state_id st) { return state_get(st, base_rail_get_shape_property(st)); }
 
 // RailState: a rail and the positions it connects to; vanilla builds a fresh one for every query
 
 struct rail_state {
     block_pos              pos;
     state_id               state;
+    bool                   is_straight;
     std::vector<block_pos> connections;
 };
 
-// north before south, west before east; a slope raises the side it climbs toward
+// per RailShape the two sides it connects, and which of them is one block up (-1: neither)
 static void rail_state_update_connections(rail_state & rs, int32_t shape) {
-    bool      ns    = rail_shape_is_north_south(shape);
-    direction first = ns ? DIRECTION_NORTH : DIRECTION_WEST;
-    rs.connections  = { pos_relative(rs.pos, first), pos_relative(rs.pos, direction_opposite(first)) };
-    if (base_rail_is_slope(shape)) {
-        block_pos & high = rs.connections[rail_shape_ascending_direction(shape) == first ? 0 : 1];
-        high             = pos_relative(high, DIRECTION_UP);
-    }
+    static constexpr direction SIDES[10][2] = {
+        { DIRECTION_NORTH, DIRECTION_SOUTH },
+        { DIRECTION_WEST,  DIRECTION_EAST  },
+        { DIRECTION_WEST,  DIRECTION_EAST  },
+        { DIRECTION_WEST,  DIRECTION_EAST  },
+        { DIRECTION_NORTH, DIRECTION_SOUTH },
+        { DIRECTION_NORTH, DIRECTION_SOUTH },
+        { DIRECTION_EAST,  DIRECTION_SOUTH },
+        { DIRECTION_WEST,  DIRECTION_SOUTH },
+        { DIRECTION_WEST,  DIRECTION_NORTH },
+        { DIRECTION_EAST,  DIRECTION_NORTH },
+    };
+    static constexpr int8_t UP[10] = { -1, -1, 1, 0, 0, 1, -1, -1, -1, -1 };
+    rs.connections                 = { pos_relative(rs.pos, SIDES[shape][0]), pos_relative(rs.pos, SIDES[shape][1]) };
+    if (UP[shape] >= 0) rs.connections[UP[shape]] = pos_relative(rs.connections[UP[shape]], DIRECTION_UP);
 }
 
 static rail_state rail_state_init(state_id st, block_pos pos) {
-    rail_state rs = { pos, st, {} };
-    rail_state_update_connections(rs, state_get(st, PROP_RAIL_SHAPE_STRAIGHT));
+    rail_state rs = { pos, st, base_rail_is_straight(st), {} };
+    rail_state_update_connections(rs, base_rail_get_shape(st));
     return rs;
 }
 
@@ -59,7 +75,7 @@ static rail_state rail_state_init(state_id st, block_pos pos) {
 static bool rail_state_get_rail(level & lv, block_pos pos, rail_state & out) {
     for (block_pos test : { pos, pos_relative(pos, DIRECTION_UP), pos_relative(pos, DIRECTION_DOWN) }) {
         state_id st = level_get_state(lv, test);
-        if (base_rail_is_rail(lv, st)) {
+        if (base_rail_is_rail(st)) {
             out = rail_state_init(st, test);
             return true;
         }
@@ -87,23 +103,50 @@ static void rail_state_remove_soft_connections(level & lv, rail_state & rs) {
     }
 }
 
+static bool rail_state_has_rail(level & lv, block_pos pos) {
+    return base_rail_is_rail_at(lv, pos) || base_rail_is_rail_at(lv, pos_relative(pos, DIRECTION_UP)) ||
+           base_rail_is_rail_at(lv, pos_relative(pos, DIRECTION_DOWN));
+}
+
+// Direction.Plane.HORIZONTAL order
+static int32_t rail_state_count_potential_connections(level & lv, block_pos pos) {
+    int32_t count = 0;
+    for (direction dir : { DIRECTION_NORTH, DIRECTION_EAST, DIRECTION_SOUTH, DIRECTION_WEST }) {
+        if (rail_state_has_rail(lv, pos_relative(pos, dir))) count++;
+    }
+    return count;
+}
+
 static bool rail_state_can_connect_to(const rail_state & rs, const rail_state & rail) {
     return rail_state_has_connection(rs, rail.pos) || rs.connections.size() != 2;
 }
 
-static bool rail_state_is_rail_above(level & lv, block_pos pos, direction dir) {
-    return base_rail_is_rail(lv, level_get_state(lv, pos_relative(pos_relative(pos, dir), DIRECTION_UP)));
+// the curve that joins exactly the two sides set, -1 for none
+static int32_t rail_state_curve(bool n, bool s, bool w, bool e) {
+    if (s && e && !n && !w) return RAIL_SHAPE_SOUTH_EAST;
+    if (s && w && !n && !e) return RAIL_SHAPE_SOUTH_WEST;
+    if (n && w && !s && !e) return RAIL_SHAPE_NORTH_WEST;
+    if (n && e && !s && !w) return RAIL_SHAPE_NORTH_EAST;
+    return -1;
 }
 
 // a shape that goes north-south or east-west climbs toward a rail one block up
 static int32_t rail_state_ascend(level & lv, block_pos pos, int32_t shape) {
     if (shape == RAIL_SHAPE_NORTH_SOUTH) {
-        if (rail_state_is_rail_above(lv, pos, DIRECTION_NORTH)) shape = RAIL_SHAPE_ASCENDING_NORTH;
-        if (rail_state_is_rail_above(lv, pos, DIRECTION_SOUTH)) shape = RAIL_SHAPE_ASCENDING_SOUTH;
+        if (base_rail_is_rail_at(lv, pos_relative(pos_relative(pos, DIRECTION_NORTH), DIRECTION_UP))) {
+            shape = RAIL_SHAPE_ASCENDING_NORTH;
+        }
+        if (base_rail_is_rail_at(lv, pos_relative(pos_relative(pos, DIRECTION_SOUTH), DIRECTION_UP))) {
+            shape = RAIL_SHAPE_ASCENDING_SOUTH;
+        }
     }
     if (shape == RAIL_SHAPE_EAST_WEST) {
-        if (rail_state_is_rail_above(lv, pos, DIRECTION_EAST)) shape = RAIL_SHAPE_ASCENDING_EAST;
-        if (rail_state_is_rail_above(lv, pos, DIRECTION_WEST)) shape = RAIL_SHAPE_ASCENDING_WEST;
+        if (base_rail_is_rail_at(lv, pos_relative(pos_relative(pos, DIRECTION_EAST), DIRECTION_UP))) {
+            shape = RAIL_SHAPE_ASCENDING_EAST;
+        }
+        if (base_rail_is_rail_at(lv, pos_relative(pos_relative(pos, DIRECTION_WEST), DIRECTION_UP))) {
+            shape = RAIL_SHAPE_ASCENDING_WEST;
+        }
     }
     return shape;
 }
@@ -117,9 +160,11 @@ static void rail_state_connect_to(level & lv, rail_state & rs, const rail_state 
     int32_t shape = -1;
     if (n || s) shape = RAIL_SHAPE_NORTH_SOUTH;
     if (w || e) shape = RAIL_SHAPE_EAST_WEST;
+    int32_t curve = rs.is_straight ? -1 : rail_state_curve(n, s, w, e);
+    if (curve != -1) shape = curve;
     shape = rail_state_ascend(lv, rs.pos, shape);
     if (shape == -1) shape = RAIL_SHAPE_NORTH_SOUTH;
-    rs.state = state_set(rs.state, PROP_RAIL_SHAPE_STRAIGHT, shape);
+    rs.state = state_set(rs.state, base_rail_get_shape_property(rs.state), shape);
     level_set_block(lv, rs.pos, rs.state, UPDATE_FLAG_ALL);
 }
 
@@ -130,8 +175,24 @@ static bool rail_state_has_neighbor_rail(level & lv, const rail_state & rs, bloc
     return rail_state_can_connect_to(neighbor, rs);
 }
 
-// a rail with neighbors both along and across its axis keeps its shape
-static void rail_state_place(level & lv, rail_state & rs, bool first, int32_t default_shape) {
+// a junction of both axes keeps the default shape; a curving rail turns there, and later checks win, in an order
+// the signal reverses
+static int32_t rail_state_junction(bool n, bool s, bool w, bool e, bool has_signal, int32_t shape) {
+    if (has_signal) {
+        if (s && e) shape = RAIL_SHAPE_SOUTH_EAST;
+        if (s && w) shape = RAIL_SHAPE_SOUTH_WEST;
+        if (n && e) shape = RAIL_SHAPE_NORTH_EAST;
+        if (n && w) shape = RAIL_SHAPE_NORTH_WEST;
+    } else {
+        if (n && w) shape = RAIL_SHAPE_NORTH_WEST;
+        if (n && e) shape = RAIL_SHAPE_NORTH_EAST;
+        if (s && w) shape = RAIL_SHAPE_SOUTH_WEST;
+        if (s && e) shape = RAIL_SHAPE_SOUTH_EAST;
+    }
+    return shape;
+}
+
+static void rail_state_place(level & lv, rail_state & rs, bool has_signal, bool first, int32_t default_shape) {
     bool    n              = rail_state_has_neighbor_rail(lv, rs, pos_relative(rs.pos, DIRECTION_NORTH));
     bool    s              = rail_state_has_neighbor_rail(lv, rs, pos_relative(rs.pos, DIRECTION_SOUTH));
     bool    w              = rail_state_has_neighbor_rail(lv, rs, pos_relative(rs.pos, DIRECTION_WEST));
@@ -141,11 +202,15 @@ static void rail_state_place(level & lv, rail_state & rs, bool first, int32_t de
     bool    west_or_east   = w || e;
     if (north_or_south && !west_or_east) shape = RAIL_SHAPE_NORTH_SOUTH;
     if (west_or_east && !north_or_south) shape = RAIL_SHAPE_EAST_WEST;
-    if (north_or_south && west_or_east) shape = default_shape;
+    int32_t curve = rs.is_straight ? -1 : rail_state_curve(n, s, w, e);
+    if (curve != -1) shape = curve;
+    if (shape == -1 && north_or_south && west_or_east) {
+        shape = rs.is_straight ? default_shape : rail_state_junction(n, s, w, e, has_signal, default_shape);
+    }
     shape = rail_state_ascend(lv, rs.pos, shape);
     if (shape == -1) shape = default_shape;
     rail_state_update_connections(rs, shape);
-    rs.state = state_set(rs.state, PROP_RAIL_SHAPE_STRAIGHT, shape);
+    rs.state = state_set(rs.state, base_rail_get_shape_property(rs.state), shape);
     if (!first && level_get_state(lv, rs.pos) == rs.state) return;
     level_set_block(lv, rs.pos, rs.state, UPDATE_FLAG_ALL);
     for (size_t i = 0; i < rs.connections.size(); i++) {
@@ -154,6 +219,21 @@ static void rail_state_place(level & lv, rail_state & rs, bool first, int32_t de
             rail_state_remove_soft_connections(lv, neighbor);
             if (rail_state_can_connect_to(neighbor, rs)) rail_state_connect_to(lv, neighbor, rs);
         }
+    }
+}
+
+// BaseRailBlock.updateDir
+static state_id base_rail_update_dir(level & lv, block_pos pos, state_id st, bool first) {
+    bool       has_signal = level_has_neighbor_signal(lv, pos);
+    rail_state rs         = rail_state_init(st, pos);
+    rail_state_place(lv, rs, has_signal, first, base_rail_get_shape(st));
+    return rs.state;
+}
+
+// RailBlock.updateState: a new signal source next to a T junction flips its curve
+static void rail_update_state(level & lv, state_id st, block_pos pos, int32_t block) {
+    if (block_is_signal_source(lv, block_default(block)) && rail_state_count_potential_connections(lv, pos) == 3) {
+        base_rail_update_dir(lv, pos, st, false);
     }
 }
 
@@ -208,12 +288,19 @@ static bool base_rail_can_support_rigid_block(level & lv, block_pos pos) {
     return block_is_face_sturdy(lv, level_get_state(lv, pos), pos, DIRECTION_UP, SUPPORT_TYPE_RIGID);
 }
 
-// updateDir, then the straight rail gets a neighborChanged of its own, which powers it
+static bool base_rail_can_survive(level & lv, state_id, block_pos pos) {
+    return base_rail_can_support_rigid_block(lv, pos_relative(pos, DIRECTION_DOWN));
+}
+
+// updateDir, then a straight rail gets a neighborChanged of its own, which powers it
+static state_id base_rail_update_state(level & lv, state_id st, block_pos pos, bool moved_by_piston) {
+    st = base_rail_update_dir(lv, pos, st, true);
+    if (base_rail_is_straight(st)) level_neighbor_changed(lv, st, pos, state_block(st), moved_by_piston);
+    return st;
+}
+
 static void base_rail_on_place(level & lv, state_id st, block_pos pos, state_id old, bool moved_by_piston) {
-    if (!base_rail_is_rail(lv, st) || state_block(old) == state_block(st)) return;
-    rail_state rs = rail_state_init(st, pos);
-    rail_state_place(lv, rs, true, state_get(st, PROP_RAIL_SHAPE_STRAIGHT));
-    level_neighbor_changed(lv, rs.state, pos, state_block(st), moved_by_piston);
+    if (state_block(old) != state_block(st)) base_rail_update_state(lv, st, pos, moved_by_piston);
 }
 
 static bool base_rail_should_be_removed(level & lv, block_pos pos, int32_t shape) {
@@ -222,25 +309,64 @@ static bool base_rail_should_be_removed(level & lv, block_pos pos, int32_t shape
            !base_rail_can_support_rigid_block(lv, pos_relative(pos, rail_shape_ascending_direction(shape)));
 }
 
-// the subclass updateState(state, level, pos, block) runs only while the rail is still there and supported
-static void base_rail_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool moved_by_piston) {
-    if (!base_rail_is_rail(lv, st) || !state_is(level_get_state(lv, pos), state_block(st))) return;
-    if (base_rail_should_be_removed(lv, pos, state_get(st, PROP_RAIL_SHAPE_STRAIGHT))) {
+// the subclass updateState(state, level, pos, block) runs only while the rail is still there and supported;
+// DetectorRailBlock keeps the default, which does nothing
+static void base_rail_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t block, bool moved_by_piston) {
+    if (!state_is(level_get_state(lv, pos), state_block(st))) return;
+    if (base_rail_should_be_removed(lv, pos, base_rail_get_shape(st))) {
         level_drop_resources(lv, st, pos, nullptr);
         level_remove_block(lv, pos, moved_by_piston);
-        return;
+    } else if (block_instanceof(state_block(st), VCLASS_POWERED_RAIL_BLOCK)) {
+        powered_rail_update_state(lv, st, pos);
+    } else if (block_instanceof(state_block(st), VCLASS_RAIL_BLOCK)) {
+        rail_update_state(lv, st, pos, block);
     }
-    powered_rail_update_state(lv, st, pos);
 }
 
 static void base_rail_affect_neighbors_after_removal(level & lv, state_id st, block_pos pos, bool moved_by_piston) {
-    if (!base_rail_is_rail(lv, st) || moved_by_piston) return;
-    if (base_rail_is_slope(state_get(st, PROP_RAIL_SHAPE_STRAIGHT))) {
+    if (moved_by_piston) return;
+    if (base_rail_is_slope(base_rail_get_shape(st))) {
         level_update_neighbors_at(lv, pos_relative(pos, DIRECTION_UP), state_block(st));
     }
-    level_update_neighbors_at(lv, pos, state_block(st));
-    level_update_neighbors_at(lv, pos_relative(pos, DIRECTION_DOWN), state_block(st));
+    if (base_rail_is_straight(st)) {
+        level_update_neighbors_at(lv, pos, state_block(st));
+        level_update_neighbors_at(lv, pos_relative(pos, DIRECTION_DOWN), state_block(st));
+    }
 }
+
+// DetectorRailBlock: without minecarts checkPressed only ever turns the rail off
+
+static void detector_rail_update_power_to_connected(level & lv, state_id st, block_pos pos) {
+    rail_state rs = rail_state_init(st, pos);
+    for (block_pos p : rs.connections) {
+        state_id connection = level_get_state(lv, p);
+        level_neighbor_changed(lv, connection, p, state_block(connection), false);
+    }
+}
+
+static void detector_rail_check_pressed(level & lv, block_pos pos, state_id st) {
+    if (!base_rail_can_survive(lv, st, pos)) return;
+    if (state_get(st, PROP_POWERED)) {
+        state_id unpressed = state_set(st, PROP_POWERED, false);
+        level_set_block(lv, pos, unpressed, UPDATE_FLAG_ALL);
+        detector_rail_update_power_to_connected(lv, unpressed, pos);
+        level_update_neighbors_at(lv, pos, state_block(st));
+        level_update_neighbors_at(lv, pos_relative(pos, DIRECTION_DOWN), state_block(st));
+    }
+    level_update_neighbour_for_output_signal(lv, pos, state_block(st));
+}
+
+static void detector_rail_on_place(level & lv, state_id st, block_pos pos, state_id old, bool moved_by_piston) {
+    if (state_block(old) == state_block(st)) return;
+    detector_rail_check_pressed(lv, pos, base_rail_update_state(lv, st, pos, moved_by_piston));
+}
+
+static void detector_rail_tick(level & lv, state_id st, block_pos pos) {
+    if (state_get(st, PROP_POWERED)) detector_rail_check_pressed(lv, pos, st);
+}
+
+// the signal of a minecart on the rail, so always 0
+static int32_t detector_rail_get_analog_output_signal(level &, state_id, block_pos, direction) { return 0; }
 
 // clang-format off
 const std::vector<block_hooks> rail_hooks = {
@@ -248,6 +374,11 @@ const std::vector<block_hooks> rail_hooks = {
       .update_shape = block_behaviour_update_shape,
       .neighbor_changed = base_rail_neighbor_changed,
       .on_place = base_rail_on_place,
-      .affect_neighbors_after_removal = base_rail_affect_neighbors_after_removal },
+      .affect_neighbors_after_removal = base_rail_affect_neighbors_after_removal,
+      .can_survive = base_rail_can_survive },
+    { .vclass = VCLASS_DETECTOR_RAIL_BLOCK,
+      .on_place = detector_rail_on_place,
+      .tick = detector_rail_tick,
+      .get_analog_output_signal = detector_rail_get_analog_output_signal },
 };
 // clang-format on

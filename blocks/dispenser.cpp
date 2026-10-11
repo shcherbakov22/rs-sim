@@ -96,8 +96,8 @@ static item_stack boat_dispense_item_behavior_execute(level & lv, state_id st, b
 // MinecartDispenseItemBehavior: a minecart goes on a rail in front, or on a rail below an empty front; else the item drops
 
 // getRailShape(...).isSlope; every block in the rails tag is a BaseRailBlock
-static bool minecart_dispense_item_behavior_is_slope(level & lv, state_id st) {
-    return base_rail_is_rail(lv, st) && base_rail_is_slope(state_get(st, PROP_RAIL_SHAPE_STRAIGHT));
+static bool minecart_dispense_item_behavior_is_slope(state_id st) {
+    return base_rail_is_rail(st) && base_rail_is_slope(base_rail_get_shape(st));
 }
 
 // AbstractMinecart.createMinecart draws nothing from the level random
@@ -112,13 +112,13 @@ static item_stack minecart_dispense_item_behavior_execute(level & lv, state_id s
     state_id          at      = level_get_state(lv, front);
     double            y_offset;
     if (state_has(at, STATE_FLAG_TAG_RAILS)) {
-        y_offset = minecart_dispense_item_behavior_is_slope(lv, at) ? 0.6 : 0.1;
+        y_offset = minecart_dispense_item_behavior_is_slope(at) ? 0.6 : 0.1;
     } else {
         state_id below = level_get_state(lv, pos_relative(front, DIRECTION_DOWN));
         if (!state_has(at, STATE_FLAG_AIR) || !state_has(below, STATE_FLAG_TAG_RAILS)) {
             return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
         }
-        y_offset = facing != DIRECTION_DOWN && minecart_dispense_item_behavior_is_slope(lv, below) ? -0.4 : -0.9;
+        y_offset = facing != DIRECTION_DOWN && minecart_dispense_item_behavior_is_slope(below) ? -0.4 : -0.9;
     }
     level_boundary(lv, "spawn %s %d %d %d", item_defs[item_stack_get_item(dispensed)].dispense_entity,
                    (int32_t) std::floor(spawn_x), (int32_t) std::floor(spawn_y + y_offset),
