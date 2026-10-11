@@ -69,11 +69,8 @@ int32_t state_get(state_id st, prop_id prop) {
 }
 
 direction state_facing(state_id st) {
-    for (prop_id prop : { PROP_FACING, PROP_HORIZONTAL_FACING, PROP_FACING_HOPPER }) {
-        if (state_has_prop(st, prop)) return (direction) state_get(st, prop);
-    }
-    TMC_ASSERT(false);
-    return DIRECTION_DOWN;
+    TMC_ASSERT(state_facings[st] >= 0);
+    return (direction) state_facings[st];
 }
 
 state_id state_set(state_id st, prop_id prop, int32_t value) {

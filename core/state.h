@@ -110,6 +110,7 @@ extern const int16_t iclass_hooks[]
 extern const char * const iclass_names[];
 extern const char * const item_hook_names[];
 extern const uint16_t     state_blocks[];
+extern const int8_t       state_facings[];
 extern const uint64_t     state_flags[];
 extern const uint8_t      state_signals[][12];
 extern const shape_box    shape_boxes[];
