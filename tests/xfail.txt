@@ -1,11 +1,1 @@
 # Cases allowed to fail (paths relative to oracle/cases, no .case). Only remove lines.
-corpus/0043
-corpus/0056
-corpus/0165
-corpus/0166
-corpus/0168
-corpus/0183
-corpus/0196
-corpus/0199
-corpus/0200
-corpus/0203

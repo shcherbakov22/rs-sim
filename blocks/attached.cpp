@@ -54,7 +54,9 @@ state_id attached_update_shape(level & lv, state_id st, block_pos pos, direction
 static state_id ladder_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos neighbor_pos,
                                     state_id neighbor) {
     state_id result = attached_update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
-    if (result == st && state_get(st, PROP_WATERLOGGED)) level_unsupported(lv, "fluids");
+    if (result == st && state_get(st, PROP_WATERLOGGED)) {
+        level_schedule_fluid_tick(lv, pos, FLUID_WATER, fluid_get_tick_delay(FLUID_WATER));
+    }
     return result;
 }
 

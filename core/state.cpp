@@ -16,6 +16,22 @@ int32_t item_find(std::string_view name) {
     return -1;
 }
 
+fluid_state_id fluid_state_find(int32_t fluid, int32_t amount, bool falling) {
+    for (int32_t fs = 0; fs < FLUID_STATE_COUNT; fs++) {
+        const fluid_state_def & d = fluid_state_defs[fs];
+        if (d.fluid == fluid && d.amount == amount && d.falling == falling) return (fluid_state_id) fs;
+    }
+    TMC_ABORT("no fluid state %s %d %d", fluid_defs[fluid].name, amount, falling);
+}
+
+int32_t fluid_find(std::string_view name) {
+    if (name.starts_with("minecraft:")) name.remove_prefix(10);
+    for (int32_t i = 0; i < FLUID_COUNT; i++) {
+        if (name == fluid_defs[i].name) return i;
+    }
+    return -1;
+}
+
 bool block_instanceof(int32_t block, vclass cls) {
     for (int32_t c = block_defs[block].cls; c != VCLASS_NONE; c = vclass_super[c]) {
         if (c == cls) return true;

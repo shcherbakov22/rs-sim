@@ -95,7 +95,8 @@ static bool case_parse_line(case_file & f, case_parser & p, std::string_view lin
         p.section = "";
         if (t.size() != 2 || !parse_i32(t[1], f.run)) return case_error(err, "bad run");
     } else if (t[0] == "key" || t[0] == "items" || t[0] == "data" || t[0] == "hidden" || t[0] == "ticks" ||
-               t[0] == "events" || t[0] == "toggles" || t[0] == "tickers" || t[0] == "inputs") {
+               t[0] == "fluid_ticks" || t[0] == "events" || t[0] == "toggles" || t[0] == "tickers" ||
+               t[0] == "inputs") {
         p.section = t[0];
     } else if (t[0] == "layer") {
         p.section = "layer";
@@ -134,14 +135,16 @@ static bool case_parse_line(case_file & f, case_parser & p, std::string_view lin
         if (t.size() < 5 || !parse_pos(t, 0, d.pos)) return case_error(err, "expected 'x y z <key> <value>'");
         d.value = line.substr(t[4].data() - line.data());
         f.data.push_back(d);
-    } else if (p.section == "ticks") {
+    } else if (p.section == "ticks" || p.section == "fluid_ticks") {
+        bool      fluid = p.section == "fluid_ticks";
         case_tick tk;
-        tk.block = t.size() == 6 ? block_find(t[3]) : -1;
-        if (!parse_pos(t, 0, tk.pos) || tk.block < 0 || !parse_i64(t[4], tk.delay) || tk.delay < 1 ||
+        tk.type = t.size() != 6 ? -1 : fluid ? fluid_find(t[3]) : block_find(t[3]);
+        if (!parse_pos(t, 0, tk.pos) || tk.type < 0 || !parse_i64(t[4], tk.delay) || tk.delay < 1 ||
             !parse_priority(t[5], tk.priority)) {
-            return case_error(err, "expected 'x y z <block> <delay >= 1> <priority>'");
+            return case_error(err, fluid ? "expected 'x y z <fluid> <delay >= 1> <priority>'" :
+                                           "expected 'x y z <block> <delay >= 1> <priority>'");
         }
-        f.ticks.push_back(tk);
+        (fluid ? f.fluid_ticks : f.ticks).push_back(tk);
     } else if (p.section == "events") {
         case_event ev;
         ev.block = t.size() == 6 ? block_find(t[3]) : -1;

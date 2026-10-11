@@ -149,10 +149,12 @@ static uint64_t level_fingerprint(const level & lv) {
             for (int64_t v : { s.item, s.count, s.damage }) fingerprint_add(h, v);
         }
     }
-    for (const scheduled_tick & t : lv.block_ticks.pending) {
-        for (int64_t v : { (int64_t) t.block, (int64_t) t.pos.x, (int64_t) t.pos.y, (int64_t) t.pos.z, t.trigger_tick,
-                           (int64_t) t.priority, t.sub_tick_order }) {
-            fingerprint_add(h, v);
+    for (const level_ticks * ticks : { &lv.block_ticks, &lv.fluid_ticks }) {
+        for (const scheduled_tick & t : ticks->pending) {
+            for (int64_t v : { (int64_t) t.type, (int64_t) t.pos.x, (int64_t) t.pos.y, (int64_t) t.pos.z,
+                               t.trigger_tick, (int64_t) t.priority, t.sub_tick_order }) {
+                fingerprint_add(h, v);
+            }
         }
     }
     for (const block_event & e : lv.block_events) {

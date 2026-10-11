@@ -8,15 +8,51 @@ static int16_t hook_owner(state_id st, hook h) { return vclass_hooks[state_class
 
 state_id block_behaviour_update_shape(level &, state_id st, block_pos, direction, block_pos, state_id) { return st; }
 
+// SimpleWaterloggedBlock.placeLiquid: only a water source fills the block
+static bool simple_waterlogged_place_liquid(level & lv, block_pos pos, state_id st, fluid_state_id fs) {
+    if (state_get(st, PROP_WATERLOGGED) || fluid_state_get_type(fs) != FLUID_WATER) return false;
+    level_set_block(lv, pos, state_set(st, PROP_WATERLOGGED, true), UPDATE_FLAG_ALL);
+    level_schedule_fluid_tick(lv, pos, FLUID_WATER, fluid_get_tick_delay(FLUID_WATER));
+    return true;
+}
+
+// a double slab holds no water
+static bool slab_place_liquid(level & lv, block_pos pos, state_id st, fluid_state_id fs) {
+    return state_get(st, PROP_SLAB_TYPE) != SLAB_TYPE_DOUBLE && simple_waterlogged_place_liquid(lv, pos, st, fs);
+}
+
+// water puts a lit candle out (AbstractCandleBlock.extinguish sets it with flags 11)
+static bool candle_place_liquid(level & lv, block_pos pos, state_id st, fluid_state_id fs) {
+    if (state_get(st, PROP_WATERLOGGED) || fluid_state_get_type(fs) != FLUID_WATER) return false;
+    state_id wet = state_set(st, PROP_WATERLOGGED, true);
+    if (state_get(st, PROP_LIT)) {
+        level_set_block(lv, pos, state_set(wet, PROP_LIT, false), UPDATE_FLAG_ALL_IMMEDIATE);
+    } else {
+        level_set_block(lv, pos, wet, UPDATE_FLAG_ALL);
+    }
+    level_schedule_fluid_tick(lv, pos, FLUID_WATER, fluid_get_tick_delay(FLUID_WATER));
+    return true;
+}
+
+// only a creative player takes the water out of a barrier
+static item_stack barrier_pickup_block(level &, block_pos, state_id) { return {}; }
+
+static bool candle_can_survive(level & lv, state_id, block_pos pos) {
+    return block_can_support_center(lv, pos_relative(pos, DIRECTION_DOWN), DIRECTION_UP);
+}
+
 // classes whose updateShape override only schedules the water tick, which block_update_shape does first
 // clang-format off
 static const std::vector<block_hooks> water_hooks = {
-    { .vclass = VCLASS_SLAB_BLOCK, .update_shape = block_behaviour_update_shape },
+    { .vclass = VCLASS_SLAB_BLOCK, .update_shape = block_behaviour_update_shape, .place_liquid = slab_place_liquid },
     { .vclass = VCLASS_CHAIN_BLOCK, .update_shape = block_behaviour_update_shape },
-    { .vclass = VCLASS_CANDLE_BLOCK, .update_shape = block_behaviour_update_shape },
+    { .vclass = VCLASS_CANDLE_BLOCK,
+      .update_shape = block_behaviour_update_shape,
+      .can_survive = candle_can_survive,
+      .place_liquid = candle_place_liquid },
     { .vclass = VCLASS_HEAVY_CORE_BLOCK, .update_shape = block_behaviour_update_shape },
     { .vclass = VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, .update_shape = block_behaviour_update_shape },
-    { .vclass = VCLASS_BARRIER_BLOCK, .update_shape = block_behaviour_update_shape },
+    { .vclass = VCLASS_BARRIER_BLOCK, .update_shape = block_behaviour_update_shape, .pickup_block = barrier_pickup_block },
     { .vclass = VCLASS_LIGHT_BLOCK, .update_shape = block_behaviour_update_shape },
 };
 // clang-format on
@@ -25,7 +61,7 @@ static const std::vector<block_hooks> water_hooks = {
 static const std::vector<block_hooks> * const block_hook_families[] = {
     &water_hooks,   &dispenser_hooks,  &hopper_hooks,   &container_hooks, &piston_hooks,
     &diode_hooks,   &redstone_hooks,   &rail_hooks,     &terrain_hooks,   &fire_hooks,
-    &powered_hooks, &connecting_hooks, &attached_hooks,
+    &powered_hooks, &connecting_hooks, &attached_hooks, &fluid_hooks,
 };
 
 static const block_hooks * block_hooks_of(int32_t vclass) {
@@ -57,6 +93,8 @@ static bool block_hooks_has(const block_hooks & b, hook h) {
         case HOOK_CAN_SURVIVE: return b.can_survive != nullptr;
         case HOOK_GET_ANALOG_OUTPUT_SIGNAL: return b.get_analog_output_signal != nullptr;
         case HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY: return b.should_changed_state_keep_block_entity != nullptr;
+        case HOOK_PLACE_LIQUID: return b.place_liquid != nullptr;
+        case HOOK_PICKUP_BLOCK: return b.pickup_block != nullptr;
         case HOOK_COUNT: break;
     }
     TMC_ASSERT(false);
@@ -126,10 +164,11 @@ state_id block_update_shape(level & lv, state_id st, block_pos pos, direction di
     }
     trace_enter(lv.tr);
     state_id result = st;
-    // SimpleWaterloggedBlock: every updateShape schedules the water tick before anything else, except a ladder's
-    if (state_is_waterlogged(st) && hook_owner(st, HOOK_UPDATE_SHAPE) != VCLASS_LADDER_BLOCK) {
-        level_unsupported(lv, "fluids");
-    } else if (const block_hooks * b = block_hooks_for(lv, st, HOOK_UPDATE_SHAPE)) {
+    // SimpleWaterloggedBlock: updateShape schedules the water tick first. Each waterloggable class overrides it; a ladder checks survival first.
+    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_UPDATE_SHAPE)) {
+        if (state_is_waterlogged(st) && b->vclass != VCLASS_LADDER_BLOCK) {
+            level_schedule_fluid_tick(lv, pos, FLUID_WATER, fluid_get_tick_delay(FLUID_WATER));
+        }
         result = b->update_shape(lv, st, pos, dir, neighbor_pos, neighbor);
     }
     if (result != st && trace_wants(lv.tr, &pos)) trace_add(lv.tr, "=> %s", state_to_string(result).c_str());
@@ -247,4 +286,18 @@ bool block_should_changed_state_keep_block_entity(level & lv, state_id st, state
         return b->should_changed_state_keep_block_entity(st, old);
     }
     return false;
+}
+
+bool block_place_liquid(level & lv, block_pos pos, state_id st, fluid_state_id fs) {
+    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_PLACE_LIQUID)) return b->place_liquid(lv, pos, st, fs);
+    return simple_waterlogged_place_liquid(lv, pos, st, fs);
+}
+
+// the default destroys a block that cannot stand without the water, and drops it
+item_stack block_pickup_block(level & lv, block_pos pos, state_id st) {
+    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_PICKUP_BLOCK)) return b->pickup_block(lv, pos, st);
+    if (!state_get(st, PROP_WATERLOGGED)) return {};
+    level_set_block(lv, pos, state_set(st, PROP_WATERLOGGED, false), UPDATE_FLAG_ALL);
+    if (!block_can_survive(lv, st, pos)) level_destroy_block(lv, pos, true);
+    return { ITEM_WATER_BUCKET, 1, 0 };
 }

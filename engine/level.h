@@ -73,6 +73,7 @@ struct level {
     rng                      random;
     neighbor_updater         updater;
     level_ticks              block_ticks;
+    level_ticks              fluid_ticks;
     std::vector<block_event> block_events;  // insertion-ordered set
     bool handling_tick = false;             // ServerLevel.handlingTick: from tick start to the end of block events
 
@@ -91,7 +92,7 @@ struct level {
     trace *                            tr = nullptr;
     std::string                        unsupported;  // first unsupported mechanic hit; the run stops at the next check
     size_t                             unsupported_line = 0;  // trace lines before it, all still exact
-    bool boundary = false;  // past an entity spawn, explosion or fluid tick nothing is contract, and the run ends
+    bool boundary = false;  // past an entity spawn or explosion nothing is contract, and the run ends
 };
 
 void level_unsupported(level & lv, const char * fmt, ...) __attribute__((format(printf, 2, 3)));
@@ -99,6 +100,10 @@ void level_unsupported(level & lv, const char * fmt, ...) __attribute__((format(
 void level_boundary(level & lv, const char * fmt, ...) __attribute__((format(printf, 2, 3)));
 
 state_id level_get_state(const level & lv, block_pos pos);
+
+inline fluid_state_id level_get_fluid_state(const level & lv, block_pos pos) {
+    return state_fluid_state(level_get_state(lv, pos));
+}
 
 struct level_section_ref {
     int64_t               key;  // SectionPos.asLong of the relative position
@@ -110,6 +115,9 @@ std::vector<level_section_ref> level_sections(const level & lv);
 
 // Writes the state only: no updates, no block entity changes (case placement).
 void level_set_state_raw(level & lv, block_pos pos, state_id st);
+
+// Level.isInValidBounds, the same test as Level.isInWorldBounds
+bool level_in_valid_bounds(block_pos pos);
 
 bool level_set_block(level & lv, block_pos pos, state_id st, int32_t flags, int32_t limit = UPDATE_LIMIT);
 bool level_remove_block(level & lv, block_pos pos, bool moved_by_piston);
@@ -139,6 +147,8 @@ void level_update_neighbour_for_output_signal(level & lv, block_pos pos, int32_t
 
 void level_schedule_tick(level & lv, block_pos pos, int32_t block, int32_t delay,
                          int32_t priority = TICK_PRIORITY_NORMAL);
+// Level.scheduleTick for a fluid, at normal priority
+void level_schedule_fluid_tick(level & lv, block_pos pos, int32_t fluid, int32_t delay);
 void level_block_event(level & lv, block_pos pos, int32_t block, int32_t param_a, int32_t param_b);
 
 // SignalGetter

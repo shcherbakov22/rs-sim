@@ -50,7 +50,8 @@ static void trap_door_neighbor_changed(level & lv, state_id st, block_pos pos, i
         rng_next_float(lv.random);  // the sound pitch
     }
     level_set_block(lv, pos, state_set(st, PROP_POWERED, signal), UPDATE_FLAG_CLIENTS);
-    if (state_get(st, PROP_WATERLOGGED)) level_unsupported(lv, "fluids");
+    if (state_get(st, PROP_WATERLOGGED))
+        level_schedule_fluid_tick(lv, pos, FLUID_WATER, fluid_get_tick_delay(FLUID_WATER));
 }
 
 // FenceGateBlock: in_wall follows walls on the sides; only the neighbors along the gate's width decide it

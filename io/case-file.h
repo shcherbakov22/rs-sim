@@ -41,7 +41,7 @@ struct case_data {
 
 struct case_tick {
     block_pos pos;
-    int32_t   block;
+    int32_t   type;      // block, or fluid
     int64_t   delay;
     int32_t   priority;  // tick_priority
 };
@@ -65,12 +65,13 @@ struct case_file {
     std::vector<state_id>    states;  // index x + size.x * (z + size.z * y)
     std::vector<case_item>   items;
     std::vector<case_data>   data;
-    std::vector<case_tick>   ticks;     // in execution order
-    std::vector<case_event>  events;    // in execution order
-    std::vector<case_toggle> toggles;   // redstone torch burnout history, oldest first
-    std::vector<block_pos>   tickers;   // block entity tick order
+    std::vector<case_tick>   ticks;        // in execution order
+    std::vector<case_tick>   fluid_ticks;  // in execution order
+    std::vector<case_event>  events;       // in execution order
+    std::vector<case_toggle> toggles;      // redstone torch burnout history, oldest first
+    std::vector<block_pos>   tickers;      // block entity tick order
     std::vector<case_input>  inputs;
-    int32_t                  run = 40;  // ticks to trace
+    int32_t                  run = 40;     // ticks to trace
 };
 
 // err gets "line N: ..." on failure

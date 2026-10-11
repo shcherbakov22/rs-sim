@@ -9,11 +9,7 @@
 
 // FallingBlockEntity.fall clears the block to its fluid before the spawn, which ends the run
 static void falling_block_entity_fall(level & lv, state_id st, block_pos pos) {
-    if (state_is_waterlogged(st)) {
-        level_unsupported(lv, "fluids");
-        return;
-    }
-    level_set_block(lv, pos, STATE_AIR, UPDATE_FLAG_ALL);
+    level_set_block(lv, pos, fluid_state_create_legacy_block(state_fluid_state(st)), UPDATE_FLAG_ALL);
     level_boundary(lv, "spawn falling_block %d %d %d", pos.x, pos.y, pos.z);
 }
 
@@ -174,6 +170,12 @@ static void soul_sand_tick(level & lv, state_id, block_pos pos) {
     }
 }
 
+// PowderSnowBlock.pickupBlock
+static item_stack powder_snow_pickup_block(level & lv, block_pos pos, state_id) {
+    level_set_block(lv, pos, STATE_AIR, UPDATE_FLAG_ALL_IMMEDIATE);
+    return { ITEM_POWDER_SNOW_BUCKET, 1, 0 };
+}
+
 // SnowyDirtBlock: grass, podzol and mycelium show snow while a block tagged snow is on top
 static state_id snowy_dirt_update_shape(level &, state_id st, block_pos, direction dir, block_pos, state_id neighbor) {
     return dir == DIRECTION_UP ? state_set(st, PROP_SNOWY, state_has(neighbor, STATE_FLAG_TAG_SNOW)) : st;
@@ -213,6 +215,7 @@ const std::vector<block_hooks> terrain_hooks = {
       .update_shape = soul_sand_update_shape,
       .on_place = soul_sand_on_place,
       .tick = soul_sand_tick },
+    { .vclass = VCLASS_POWDER_SNOW_BLOCK, .pickup_block = powder_snow_pickup_block },
     { .vclass = VCLASS_SNOWY_DIRT_BLOCK, .update_shape = snowy_dirt_update_shape },
     { .vclass = VCLASS_DIRT_PATH_BLOCK,
       .update_shape = dirt_path_update_shape,

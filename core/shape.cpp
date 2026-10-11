@@ -80,3 +80,50 @@ bool shape_face_covers(const shape_face & f, uint16_t shape_id) {
     }
     return true;
 }
+
+bool shape_is_block(const shape & s) {
+    std::vector<uint32_t> columns(32 * 32, 0);  // z cells as bits, per x and y cell
+    for (const shape_box & b : s.boxes) {
+        for (int32_t axis = 0; axis < 3; axis++) {
+            if (b.min[axis] < 0.0 || b.max[axis] > 1.0) return false;
+        }
+        uint32_t mask = shape_face_mask(b.min[2], b.max[2]);
+        for (int32_t x = shape_face_cell(b.min[0]); x < shape_face_cell(b.max[0]); x++) {
+            for (int32_t y = shape_face_cell(b.min[1]); y < shape_face_cell(b.max[1]); y++) columns[x * 32 + y] |= mask;
+        }
+    }
+    for (uint32_t column : columns) {
+        if (column != UINT32_MAX) return false;
+    }
+    return true;
+}
+
+// the slice at the shape's end along the axis, if that end is the block face (VoxelShape.max == 1 or min == 0,
+// fuzzy); a shape that ends elsewhere counts as empty there
+static void shape_add_end_slice(uint32_t rows[32], const shape & s, int32_t axis, bool max_end) {
+    double face = max_end ? 1.0 : 0.0;
+    double end  = max_end ? -INFINITY : INFINITY;
+    for (const shape_box & b : s.boxes) end = max_end ? std::max(end, b.max[axis]) : std::min(end, b.min[axis]);
+    if (std::fabs(end - face) > 1.0E-7) return;
+    int32_t u;
+    int32_t v;
+    shape_face_axes(axis, u, v);
+    for (const shape_box & b : s.boxes) {
+        if (std::fabs((max_end ? b.max[axis] : b.min[axis]) - face) > 1.0E-7) continue;
+        uint32_t mask = shape_face_mask(b.min[v], b.max[v]);
+        int32_t  last = shape_face_cell(b.max[u]);
+        for (int32_t i = shape_face_cell(b.min[u]); i < last; i++) rows[i] |= mask;
+    }
+}
+
+bool shape_merged_face_occludes(const shape & s, const shape & occluder, direction dir) {
+    const block_pos & step     = DIRECTION_STEPS[dir];
+    bool              positive = step.x + step.y + step.z > 0;
+    uint32_t          rows[32] = {};
+    shape_add_end_slice(rows, positive ? s : occluder, direction_get_axis(dir), true);
+    shape_add_end_slice(rows, positive ? occluder : s, direction_get_axis(dir), false);
+    for (uint32_t row : rows) {
+        if (row != UINT32_MAX) return false;
+    }
+    return true;
+}

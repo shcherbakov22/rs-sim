@@ -80,6 +80,19 @@ struct recipe_def {
     int32_t      n_ingredients;
 };
 
+struct fluid_def {
+    const char * name;
+    uint32_t     tags;  // fluid_tag bits
+};
+
+// FluidState: amount 8 for a source, legacy is createLegacyBlock
+struct fluid_state_def {
+    int32_t  fluid;
+    int32_t  amount;
+    bool     falling;
+    uint16_t legacy;
+};
+
 // Box of a collision shape, in block units, per axis x y z.
 struct shape_box {
     double min[3];
@@ -120,20 +133,24 @@ extern const uint16_t
     state_collision_shapes[];  // with the empty context, SHAPE_NONE for dynamic shapes that need the world
 extern const uint16_t
     state_support_shapes[];    // getBlockSupportShape, SHAPE_NONE for dynamic shapes that need the world
-extern const ingredient_def ingredient_defs[];
-extern const int16_t        ingredient_items[];
-extern const recipe_def     recipe_defs[];  // in RecipeManager.getRecipeFor order
-extern const char * const   recipe_class_names[];
-extern const int16_t        recipe_ingredients[];
-extern const int16_t        recipe_field_ingredients[];
-extern const int32_t        n_recipe_defs;
-extern const int32_t        n_block_defs;
-extern const int32_t        n_states;
+extern const fluid_def       fluid_defs[];
+extern const fluid_state_def fluid_state_defs[];
+extern const uint8_t         state_fluid_states[];
+extern const ingredient_def  ingredient_defs[];
+extern const int16_t         ingredient_items[];
+extern const recipe_def      recipe_defs[];  // in RecipeManager.getRecipeFor order
+extern const char * const    recipe_class_names[];
+extern const int16_t         recipe_ingredients[];
+extern const int16_t         recipe_field_ingredients[];
+extern const int32_t         n_recipe_defs;
+extern const int32_t         n_block_defs;
+extern const int32_t         n_states;
 
 constexpr state_id STATE_AIR = 0;
 
 int32_t block_find(std::string_view name);  // -1 if unknown
 int32_t item_find(std::string_view name);   // -1 if unknown
+int32_t fluid_find(std::string_view name);  // -1 if unknown
 
 inline int32_t state_block(state_id st) { return state_blocks[st]; }
 
@@ -161,6 +178,35 @@ state_id state_cycle(state_id st, prop_id prop);
 inline bool state_is_waterlogged(state_id st) {
     return state_has(st, STATE_FLAG_WATER) && state_has_prop(st, PROP_WATERLOGGED) && state_get(st, PROP_WATERLOGGED);
 }
+
+// FluidState id (Fluid.FLUID_STATE_REGISTRY); 0 is the empty fluid
+using fluid_state_id = uint8_t;
+
+constexpr fluid_state_id FLUID_STATE_EMPTY = 0;
+
+// BlockState.getFluidState
+inline fluid_state_id state_fluid_state(state_id st) { return state_fluid_states[st]; }
+
+inline int32_t fluid_state_get_type(fluid_state_id fs) { return fluid_state_defs[fs].fluid; }
+
+inline int32_t fluid_state_get_amount(fluid_state_id fs) { return fluid_state_defs[fs].amount; }
+
+inline bool fluid_state_is_falling(fluid_state_id fs) { return fluid_state_defs[fs].falling; }
+
+inline bool fluid_state_is_empty(fluid_state_id fs) { return fluid_state_get_type(fs) == FLUID_EMPTY; }
+
+inline bool fluid_state_is_source(fluid_state_id fs) {
+    return fluid_state_get_type(fs) == FLUID_WATER || fluid_state_get_type(fs) == FLUID_LAVA;
+}
+
+inline bool fluid_state_is_tag(fluid_state_id fs, fluid_tag tag) {
+    return (fluid_defs[fluid_state_get_type(fs)].tags & tag) != 0;
+}
+
+inline state_id fluid_state_create_legacy_block(fluid_state_id fs) { return fluid_state_defs[fs].legacy; }
+
+// the state of the fluid with that amount and falling; a source has amount 8
+fluid_state_id fluid_state_find(int32_t fluid, int32_t amount, bool falling);
 
 // getValue of the block's "facing": FACING, HORIZONTAL_FACING or the hopper's; a block has one property per name
 direction state_facing(state_id st);

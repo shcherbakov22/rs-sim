@@ -49,8 +49,7 @@ static int32_t section_index(block_pos pos) { return (pos.y & 15) << 8 | (pos.z 
 
 static bool level_outside_height(block_pos pos) { return pos.y < LEVEL_Y_MIN || pos.y > LEVEL_Y_MAX; }
 
-// Level.isInValidBounds
-static bool level_in_valid_bounds(block_pos pos) {
+bool level_in_valid_bounds(block_pos pos) {
     return !level_outside_height(pos) && pos.x >= -30000000 && pos.z >= -30000000 && pos.x < 30000000 &&
            pos.z < 30000000;
 }
@@ -300,10 +299,9 @@ bool level_set_block(level & lv, block_pos pos, state_id st, int32_t flags, int3
     return done;
 }
 
-// FluidState.createLegacyBlock of the state at pos; fluids are out of scope
+// FluidState.createLegacyBlock of the state at pos
 static state_id level_fluid_block(level & lv, block_pos pos) {
-    if (state_has(level_get_state(lv, pos), STATE_FLAG_FLUID)) level_unsupported(lv, "fluids");
-    return STATE_AIR;
+    return fluid_state_create_legacy_block(level_get_fluid_state(lv, pos));
 }
 
 bool level_remove_block(level & lv, block_pos pos, bool moved_by_piston) {
@@ -410,6 +408,17 @@ void level_schedule_tick(level & lv, block_pos pos, int32_t block, int32_t delay
     level_ticks_schedule(lv.block_ticks, tick);
 }
 
+void level_schedule_fluid_tick(level & lv, block_pos pos, int32_t fluid, int32_t delay) {
+    TMC_ASSERT(delay >= 1);
+    scheduled_tick tick = { fluid, pos, lv.game_time + delay, TICK_PRIORITY_NORMAL, lv.sub_tick_count++ };
+    if (trace_wants(lv.tr, &pos)) {
+        bool dup = level_ticks_has_scheduled(lv.fluid_ticks, pos, fluid);
+        trace_add(lv.tr, "fsched %d %d %d %s +%d %s%s", pos.x, pos.y, pos.z, fluid_defs[fluid].name, delay,
+                  tick_priority_names[TICK_PRIORITY_NORMAL], dup ? " dup" : "");
+    }
+    level_ticks_schedule(lv.fluid_ticks, tick);
+}
+
 static bool block_event_equals(const block_event & a, const block_event & b) {
     return a.pos == b.pos && a.block == b.block && a.param_a == b.param_a && a.param_b == b.param_b;
 }
@@ -485,6 +494,19 @@ static void level_tick_block(level & lv, block_pos pos, int32_t block) {
     trace_exit(lv.tr);
 }
 
+// ServerLevel.tickFluid
+static void level_tick_fluid(level & lv, block_pos pos, int32_t fluid) {
+    state_id       st = level_get_state(lv, pos);
+    fluid_state_id fs = state_fluid_state(st);
+    if (trace_wants(lv.tr, &pos)) {
+        trace_add(lv.tr, "ftick %d %d %d %s%s", pos.x, pos.y, pos.z, fluid_defs[fluid].name,
+                  fluid_state_get_type(fs) == fluid ? "" : " stale");
+    }
+    trace_enter(lv.tr);
+    if (fluid_state_get_type(fs) == fluid) flowing_fluid_tick(lv, pos, st, fs);
+    trace_exit(lv.tr);
+}
+
 // ServerLevel.runBlockEvents and doBlockEvent; events queued meanwhile run in the same loop
 static void level_run_block_events(level & lv) {
     while (!lv.block_events.empty()) {
@@ -554,9 +576,15 @@ void level_tick(level & lv) {
         return;
     }
     scheduled_tick t;
-    while (level_ticks_poll(lv.block_ticks, t)) level_tick_block(lv, t.pos, t.block);
+    while (level_ticks_poll(lv.block_ticks, t)) level_tick_block(lv, t.pos, t.type);
 
     trace_phase(lv.tr, "fluidTicks");
+    level_ticks_collect(lv.fluid_ticks, lv.game_time);
+    if (lv.fluid_ticks.to_run.size() > 65536) {
+        level_unsupported(lv, "more than 65536 scheduled fluid ticks");
+        return;
+    }
+    while (level_ticks_poll(lv.fluid_ticks, t)) level_tick_fluid(lv, t.pos, t.type);
     trace_phase(lv.tr, "raid");
     trace_phase(lv.tr, "chunkSource");
     trace_phase(lv.tr, "blockEvents");

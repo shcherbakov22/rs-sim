@@ -137,21 +137,56 @@ static item_stack dispense_item_behavior_armor_stand(level & lv, state_id st, bl
     return dispensed;
 }
 
-// of the BucketPickup blocks only powder snow holds no fluid
 static item_stack dispense_item_behavior_bucket(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    block_pos target = pos_relative(pos, state_facing(st));
-    state_id  at     = level_get_state(lv, target);
-    if (state_has(at, STATE_FLAG_FLUID)) {
-        level_unsupported(lv, "fluids");
-        return dispensed;
-    }
-    if (!block_instanceof(state_block(at), VCLASS_POWDER_SNOW_BLOCK)) {
-        return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
-    }
-    // PowderSnowBlock.pickupBlock
-    level_set_block(lv, target, STATE_AIR, UPDATE_FLAG_ALL_IMMEDIATE);
+    block_pos  target = pos_relative(pos, state_facing(st));
+    state_id   at     = level_get_state(lv, target);
+    item_stack pickup = {};
+    if (state_has(at, STATE_FLAG_BUCKET_PICKUP)) pickup = block_pickup_block(lv, target, at);
+    if (item_stack_is_empty(pickup)) return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
     return default_dispense_item_behavior_consume_with_remainder(lv, st, pos, dispensed,
-                                                                 { ITEM_POWDER_SNOW_BUCKET, 1 });
+                                                                 { item_stack_get_item(pickup), 1 });
+}
+
+// BucketItem.emptyContents with no user and no hit: the fluid fills a water container, or replaces what it may
+static bool bucket_item_empty_contents(level & lv, int32_t fluid, block_pos pos) {
+    state_id st          = level_get_state(lv, pos);
+    bool     may_replace = state_has(st, STATE_FLAG_FLUID_REPLACEABLE);
+    bool     container   = state_has(st, STATE_FLAG_FLUID_CONTAINER);
+    if (!state_has(st, STATE_FLAG_AIR) && !may_replace &&
+        !(container && fluid == FLUID_WATER && state_has(st, STATE_FLAG_FLUID_PLACE_WATER))) {
+        return false;
+    }
+    fluid_state_id source = fluid_state_find(fluid, 8, false);
+    if (container && fluid == FLUID_WATER) {
+        block_place_liquid(lv, pos, st, source);
+        return true;
+    }
+    if (may_replace && !state_has(st, STATE_FLAG_LIQUID)) level_destroy_block(lv, pos, true);
+    return level_set_block(lv, pos, fluid_state_create_legacy_block(source), UPDATE_FLAG_ALL_IMMEDIATE) ||
+           fluid_state_is_source(state_fluid_state(st));
+}
+
+// SolidBucketItem.emptyContents: powder snow goes only into air
+static bool solid_bucket_item_empty_contents(level & lv, int32_t block, block_pos pos) {
+    if (!level_in_valid_bounds(pos) || !state_has(level_get_state(lv, pos), STATE_FLAG_AIR)) return false;
+    level_set_block(lv, pos, block_default(block), UPDATE_FLAG_ALL);
+    return true;
+}
+
+// a mob bucket spawns its mob after the water; a bucket that cannot empty drops
+static item_stack dispense_item_behavior_filled_bucket(level & lv, state_id st, block_pos pos, item_stack dispensed) {
+    block_pos target = pos_relative(pos, state_facing(st));
+    int32_t   item   = item_stack_get_item(dispensed);
+    bool      emptied;
+    switch (item_defs[item].cls) {
+        case ICLASS_BUCKET_ITEM:
+            emptied = bucket_item_empty_contents(lv, item == ITEM_LAVA_BUCKET ? FLUID_LAVA : FLUID_WATER, target);
+            break;
+        case ICLASS_SOLID_BUCKET_ITEM: emptied = solid_bucket_item_empty_contents(lv, BLOCK_POWDER_SNOW, target); break;
+        default: level_unsupported(lv, "dispense behaviour of %s", item_defs[item].name); return dispensed;
+    }
+    if (!emptied) return default_dispense_item_behavior_dispense(lv, st, pos, dispensed);
+    return default_dispense_item_behavior_consume_with_remainder(lv, st, pos, dispensed, { ITEM_BUCKET, 1 });
 }
 
 static item_stack dispense_item_behavior_flint_and_steel(level & lv, state_id st, block_pos pos, item_stack dispensed) {
@@ -237,12 +272,13 @@ static item_stack dispense_item_behavior_dispense(level & lv, state_id st, block
         case DISPENSE_BEHAVIOR_GLASS_BOTTLE: return dispense_item_behavior_glass_bottle(lv, st, pos, dispensed);
         case DISPENSE_BEHAVIOR_GLOWSTONE: return dispense_item_behavior_glowstone(lv, st, pos, dispensed);
         case DISPENSE_BEHAVIOR_HONEYCOMB: return dispense_item_behavior_honeycomb(lv, st, pos, dispensed);
-        // spawn eggs (named after the first one) need mob spawning; filled buckets (named after the water bucket) place fluids; the others place blocks or summon
+        // filled buckets are named after the water bucket
+        case DISPENSE_BEHAVIOR_WATER_BUCKET: return dispense_item_behavior_filled_bucket(lv, st, pos, dispensed);
+        // spawn eggs (named after the first one) need mob spawning; the others place blocks or summon
         case DISPENSE_BEHAVIOR_CHICKEN_SPAWN_EGG:
         case DISPENSE_BEHAVIOR_SHULKER_BOX:
         case DISPENSE_BEHAVIOR_WITHER_SKELETON_SKULL:
-        case DISPENSE_BEHAVIOR_CARVED_PUMPKIN:
-        case DISPENSE_BEHAVIOR_WATER_BUCKET: break;
+        case DISPENSE_BEHAVIOR_CARVED_PUMPKIN: break;
     }
     level_unsupported(lv, "dispense behaviour of %s", item_defs[item_stack_get_item(dispensed)].name);
     return dispensed;

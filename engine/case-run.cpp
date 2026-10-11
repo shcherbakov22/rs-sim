@@ -183,7 +183,11 @@ static void case_place(level & lv, const case_file & f) {
     // fresh sub-tick numbers in file order keep the execution order
     for (const case_tick & t : f.ticks) {
         level_ticks_schedule(lv.block_ticks,
-                             { t.block, t.pos, lv.game_time + t.delay, t.priority, lv.sub_tick_count++ });
+                             { t.type, t.pos, lv.game_time + t.delay, t.priority, lv.sub_tick_count++ });
+    }
+    for (const case_tick & t : f.fluid_ticks) {
+        level_ticks_schedule(lv.fluid_ticks,
+                             { t.type, t.pos, lv.game_time + t.delay, t.priority, lv.sub_tick_count++ });
     }
     for (const case_event & e : f.events) lv.block_events.push_back({ e.pos, e.block, e.param_a, e.param_b });
     for (const case_toggle & t : f.toggles) {

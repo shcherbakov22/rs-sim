@@ -26,8 +26,15 @@ shape shape_from_table(uint16_t id);
 shape shape_collision(state_id st);
 shape shape_move(shape s, double dx, double dy, double dz);
 
+// the union of the boxes is the whole block and nothing more
+bool shape_is_block(const shape & s);
+
 shape_face shape_get_face(const shape & s, direction dir);
 // Block.isFaceFull
 bool       shape_face_is_full(const shape_face & f);
 // the shape lies inside the face shape, which spans the whole block along its axis (WallBlock.isCovered)
 bool       shape_face_covers(const shape_face & f, uint16_t shape_id);
+
+// Shapes.mergedFaceOccludes when neither shape is Shapes.block(): the faces where the shapes meet across dir cover
+// the whole block face
+bool shape_merged_face_occludes(const shape & s, const shape & occluder, direction dir);

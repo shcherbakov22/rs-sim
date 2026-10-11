@@ -18,6 +18,7 @@ extern const std::vector<block_hooks> fire_hooks;
 extern const std::vector<block_hooks> powered_hooks;
 extern const std::vector<block_hooks> connecting_hooks;
 extern const std::vector<block_hooks> attached_hooks;
+extern const std::vector<block_hooks> fluid_hooks;
 
 // BaseEntityBlock
 bool base_entity_block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a, int32_t param_b);
@@ -60,6 +61,11 @@ item_stack chiseled_book_shelf_block_entity_remove_item(level & lv, block_entity
 void       chiseled_book_shelf_block_entity_set_item(level & lv, block_entity * be, int32_t slot, item_stack s);
 bool       chiseled_book_shelf_block_entity_can_place_item(const block_entity * be, int32_t slot, const item_stack & s);
 bool       chiseled_book_shelf_block_entity_can_take_item(const container & into, const item_stack & s);
+
+// Fluid.getTickDelay
+int32_t fluid_get_tick_delay(int32_t fluid);
+// FluidState.tick (FlowingFluid.tick)
+void    flowing_fluid_tick(level & lv, block_pos pos, state_id st, fluid_state_id fs);
 
 // BaseRailBlock
 bool    base_rail_is_rail(state_id st);

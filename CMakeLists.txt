@@ -26,6 +26,7 @@ add_library(tmc STATIC
     blocks/diode.cpp
     blocks/dispenser.cpp
     blocks/fire.cpp
+    blocks/fluid.cpp
     blocks/hopper.cpp
     blocks/piston.cpp
     blocks/powered.cpp
