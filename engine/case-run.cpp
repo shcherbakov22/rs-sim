@@ -216,11 +216,9 @@ static void case_apply_inputs(level & lv, const case_file & f, int32_t gap) {
     }
 }
 
-bool case_run(const case_file & f, trace & tr, std::string & err) {
-    level lv;
+bool case_run(const case_file & f, level & lv, trace & tr, std::string & err) {
     case_place(lv, f);
 
-    tr           = trace();
     tr.box_min   = { -CASE_SURROUND, -CASE_SURROUND, -CASE_SURROUND };
     tr.box_max   = { f.size.x + CASE_SURROUND - 1, f.size.y + CASE_SURROUND - 1, f.size.z + CASE_SURROUND - 1 };
     lv.tr        = &tr;

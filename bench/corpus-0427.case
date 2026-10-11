@@ -1,0 +1,106 @@
+# bench: corpus/0427.case run for 20000 ticks
+# minimized from fuzz case s-00243-mut-1
+# covers: ChestBlock(4) ComparatorBlock(3) HopperBlock(2) HopperBlockEntity(7) ScheduledTick(2)
+tmc-case 2
+size 3 3 17
+seed -6508417693739911483
+key
+  a = minecraft:stone
+  b = minecraft:hopper[enabled=true,facing=east]
+  c = minecraft:hopper[enabled=true,facing=east]
+  d = minecraft:hopper[enabled=true,facing=down]
+  e = minecraft:comparator[facing=north,mode=compare,powered=false]
+  f = minecraft:hopper[enabled=true,facing=east]
+  g = minecraft:hopper[enabled=true,facing=east]
+  h = minecraft:repeater[delay=4,facing=west,locked=true,powered=true]
+  i = minecraft:hopper[enabled=true,facing=east]
+  j = minecraft:hopper[enabled=true,facing=down]
+  k = minecraft:hopper[enabled=true,facing=east]
+  l = minecraft:chest[facing=north,type=single,waterlogged=false]
+  m = minecraft:chest[facing=north,type=single,waterlogged=false]
+layer 0
+  . . .
+  . . .
+  . . .
+  . . .
+  . a .
+  . . .
+  . . .
+  . a .
+  . a .
+  . . .
+  . . .
+  . . .
+  . . .
+  . . .
+  . . .
+  . . .
+  . a .
+layer 1
+  b c .
+  . . .
+  . . .
+  b c d
+  . e .
+  . . .
+  f g .
+  . e .
+  . h .
+  i j .
+  . . .
+  . . .
+  j . .
+  . . .
+  . . .
+  k l .
+  . e .
+layer 2
+  . . .
+  . . .
+  . . .
+  . . .
+  . . .
+  . . .
+  . . .
+  . . .
+  . . .
+  . . .
+  . . .
+  . . .
+  m . .
+  . . .
+  . . .
+  . . .
+  . . .
+items
+  0 1 0 0 minecraft:redstone 3
+  0 1 3 0 minecraft:redstone 3
+  0 1 6 0 minecraft:redstone 2
+  0 1 9 0 minecraft:stone 23
+  1 1 9 0 minecraft:redstone 1
+  1 1 9 1 minecraft:redstone 1
+  1 1 9 2 minecraft:redstone 1
+  1 1 9 3 minecraft:redstone 1
+  1 1 9 4 minecraft:redstone 1
+  0 1 12 0 minecraft:redstone 1
+  0 1 12 1 minecraft:redstone 1
+  0 1 12 2 minecraft:redstone 1
+  0 1 12 3 minecraft:redstone 1
+  0 1 12 4 minecraft:redstone 1
+  0 1 15 0 minecraft:stone 1
+  0 2 12 0 minecraft:stone 1
+data
+  1 1 6 TransferCooldown 20
+tickers
+  1 1 0
+  0 1 0
+  0 1 3
+  1 1 3
+  2 1 3
+  0 1 6
+  1 1 6
+  0 1 9
+  1 1 9
+  0 1 12
+  0 1 15
+run 20000

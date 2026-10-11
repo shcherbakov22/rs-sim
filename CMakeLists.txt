@@ -49,6 +49,9 @@ target_link_libraries(test-core tmc)
 
 enable_testing()
 add_test(NAME core COMMAND test-core)
+# long runs of busy cases: tracing off must end in the same state as tracing on
+file(GLOB BENCH_CASES CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/bench/*.case)
+add_test(NAME bench COMMAND tmcsim bench ${BENCH_CASES})
 
 # One test per oracle case with a golden trace. Cases in tests/xfail.txt must stop as unsupported with
 # the trace so far matching: a wrong trace fails, and so does a pass, so the list only shrinks.

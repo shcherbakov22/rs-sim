@@ -1,0 +1,37 @@
+# bench: corpus/0406.case run for 20000 ticks
+# minimized from fuzz case s-00302-mut-1
+# covers: CollectingNeighborUpdater$MultiNeighborUpdate(1) LevelTicks(8) MovingPistonBlock(5) ObserverBlock(26) PistonBaseBlock(163) PistonHeadBlock(15) PistonMath(6) PistonMovingBlockEntity(67) PistonStructureResolver(70) ScheduledTick(3) ScheduledTick$1(2) SlabBlock(2) SoulSandBlock(2)
+tmc-case 2
+size 7 3 3
+seed 0
+key
+  a = minecraft:soul_sand
+  b = minecraft:sticky_piston[extended=false,facing=up]
+  c = minecraft:observer[facing=east,powered=false]
+  d = minecraft:observer[facing=west,powered=false]
+  e = minecraft:piston[extended=false,facing=west]
+  f = minecraft:redstone_block
+  g = minecraft:stone
+  h = minecraft:slime_block
+  i = minecraft:oak_slab[type=bottom,waterlogged=false]
+layer 0
+  . . . . . a .
+  b c . d e f .
+  g . . . . . .
+layer 1
+  . . . . . . .
+  h . . . . . .
+  . . . i . . .
+layer 2
+  . . . . . . .
+  g . . . . . .
+  . . . . . . .
+inputs
+  @1 place 6 1 0 minecraft:fire[age=0,east=false,north=false,south=false,up=false,west=false]
+  @3 place 5 1 0 minecraft:soul_fire
+  @6 place 0 1 2 minecraft:fire[age=7,east=false,north=true,south=false,up=false,west=false]
+  @7 place 0 2 2 minecraft:stone
+  @8 place 5 2 1 minecraft:fire[age=0,east=false,north=false,south=false,up=false,west=false]
+  @9 place 3 2 2 minecraft:fire[age=0,east=false,north=false,south=false,up=false,west=false]
+  @9 place 4 1 1 minecraft:fire[age=0,east=false,north=false,south=false,up=false,west=true]
+run 20000

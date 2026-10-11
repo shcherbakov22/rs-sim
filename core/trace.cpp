@@ -3,7 +3,7 @@
 #include <cstdarg>
 
 bool trace_wants(const trace * tr, const block_pos * pos) {
-    if (tr == nullptr || tr->boundary) return false;
+    if (tr == nullptr || tr->boundary || !tr->record) return false;
     if (pos == nullptr) return true;
     return pos->x >= tr->box_min.x && pos->x <= tr->box_max.x && pos->y >= tr->box_min.y && pos->y <= tr->box_max.y &&
            pos->z >= tr->box_min.z && pos->z <= tr->box_max.z;
@@ -63,11 +63,13 @@ void trace_exit(trace * tr) {
 }
 
 void trace_boundary(trace * tr, const char * fmt, ...) {
-    if (!trace_wants(tr, nullptr)) return;
-    va_list args;
-    va_start(args, fmt);
-    trace_vadd(tr, fmt, args);
-    va_end(args);
+    if (tr == nullptr || tr->boundary) return;
+    if (trace_wants(tr, nullptr)) {
+        va_list args;
+        va_start(args, fmt);
+        trace_vadd(tr, fmt, args);
+        va_end(args);
+    }
     tr->boundary = true;
 }
 

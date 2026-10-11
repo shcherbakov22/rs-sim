@@ -1,5 +1,7 @@
 #include "engine/case-run.h"
 
+#include <algorithm>
+#include <chrono>
 #include <cstring>
 #include <string>
 #include <vector>
@@ -61,9 +63,10 @@ static bool load_case(const std::string & path, case_file & f) {
 static int cmd_run(const std::string & path) {
     case_file f;
     if (!load_case(path, f)) return 1;
+    level       lv;
     trace       tr;
     std::string err;
-    bool        ok = case_run(f, tr, err);
+    bool        ok = case_run(f, lv, tr, err);
     for (const std::string & line : tr.lines) printf("%s\n", line.c_str());
     if (!ok) {
         fprintf(stderr, "%s: %s\n", path.c_str(), err.c_str());
@@ -87,9 +90,10 @@ static check_result check_case(const std::string & path, bool verbose) {
         printf("WRONG %s: no golden trace %s\n", path.c_str(), golden_path.c_str());
         return CHECK_RESULT_WRONG;
     }
+    level                    lv;
     trace                    tr;
     std::string              err;
-    bool                     ok   = case_run(f, tr, err);
+    bool                     ok   = case_run(f, lv, tr, err);
     std::vector<std::string> want = split_lines(golden);
     int64_t                  diff = trace_first_diff(want, tr.lines);
     // an unsupported run only produced a prefix, which must match
@@ -118,6 +122,107 @@ static int cmd_check(const std::vector<std::string> & paths, bool xfail) {
     return n[expected] == (int32_t) paths.size() ? 0 : 1;
 }
 
+static void fingerprint_add(uint64_t & h, int64_t v) { h = (h ^ (uint64_t) v) * 0x100000001b3ull; }
+
+// FNV-1a over what later ticks can read: time, RNG, blocks, block entities, pending ticks, events, tickers and torch toggles
+static uint64_t level_fingerprint(const level & lv) {
+    uint64_t h = 0xcbf29ce484222325ull;
+    for (int64_t v : { lv.game_time, lv.sub_tick_count, lv.random.seed }) fingerprint_add(h, v);
+    std::vector<int64_t> keys;
+    for (const auto & [key, section] : lv.sections) keys.push_back(key);
+    std::sort(keys.begin(), keys.end());
+    for (int64_t key : keys) {
+        fingerprint_add(h, key);
+        for (state_id st : lv.sections.at(key)->states) fingerprint_add(h, st);
+    }
+    keys.clear();
+    for (const auto & [key, be] : lv.block_entities) keys.push_back(key);
+    std::sort(keys.begin(), keys.end());
+    for (int64_t key : keys) {
+        const block_entity & be = *lv.block_entities.at(key);
+        for (int64_t v : { (int64_t) be.type, (int64_t) be.state, (int64_t) be.moved_state, (int64_t) be.dir,
+                           (int64_t) be.extending, (int64_t) be.is_source_piston, (int64_t) (be.progress * 1e6f),
+                           (int64_t) (be.progress_o * 1e6f), be.last_ticked, (int64_t) be.output_signal,
+                           (int64_t) be.cooldown_time, be.ticked_game_time, (int64_t) be.song_playing,
+                           be.ticks_since_song_started, (int64_t) be.last_interacted_slot, (int64_t) be.disabled_slots,
+                           (int64_t) be.crafting_ticks_remaining }) {
+            fingerprint_add(h, v);
+        }
+        for (const item_stack & s : be.items) {
+            for (int64_t v : { s.item, s.count, s.damage }) fingerprint_add(h, v);
+        }
+    }
+    for (const scheduled_tick & t : lv.block_ticks.pending) {
+        for (int64_t v : { (int64_t) t.block, (int64_t) t.pos.x, (int64_t) t.pos.y, (int64_t) t.pos.z, t.trigger_tick,
+                           (int64_t) t.priority, t.sub_tick_order }) {
+            fingerprint_add(h, v);
+        }
+    }
+    for (const block_event & e : lv.block_events) {
+        for (int64_t v : { e.pos.x, e.pos.y, e.pos.z, e.block, e.param_a, e.param_b }) fingerprint_add(h, v);
+    }
+    for (const block_entity_ticker * ticker : lv.block_entity_tickers) {
+        if (ticker->be == nullptr) continue;
+        for (int64_t v : { ticker->be->pos.x, ticker->be->pos.y, ticker->be->pos.z }) fingerprint_add(h, v);
+    }
+    for (const redstone_torch_toggle & t : lv.redstone_torch_recent_toggles) {
+        for (int64_t v : { (int64_t) t.pos.x, (int64_t) t.pos.y, (int64_t) t.pos.z, t.when }) fingerprint_add(h, v);
+    }
+    return h;
+}
+
+// runs a case untraced (best of 5) and traced; both must end in the same state
+static bool bench_case(const std::string & path, int64_t & ticks, double & seconds) {
+    case_file f;
+    if (!load_case(path, f)) return false;
+    uint64_t fingerprint = 0;
+    double   best        = 1e30;
+    for (int32_t i = 0; i < 5; i++) {
+        level       lv;
+        trace       tr;
+        std::string err;
+        tr.record  = false;
+        auto start = std::chrono::steady_clock::now();
+        bool ok    = case_run(f, lv, tr, err);
+        best       = std::min(best, std::chrono::duration<double>(std::chrono::steady_clock::now() - start).count());
+        if (!ok) {
+            fprintf(stderr, "%s: %s\n", path.c_str(), err.c_str());
+            return false;
+        }
+        fingerprint = level_fingerprint(lv);
+        ticks       = lv.game_time;
+    }
+    level       lv;
+    trace       tr;
+    std::string err;
+    auto        start  = std::chrono::steady_clock::now();
+    bool        ok     = case_run(f, lv, tr, err);
+    double      traced = std::chrono::duration<double>(std::chrono::steady_clock::now() - start).count();
+    if (!ok || level_fingerprint(lv) != fingerprint) {
+        printf("%s: the traced run ends in a different state\n", path.c_str());
+        return false;
+    }
+    printf("%-40s %7lld ticks %9.0f ticks/s (traced %8.0f) fingerprint %016llx\n", path.c_str(), (long long) ticks,
+           ticks / best, ticks / traced, (unsigned long long) fingerprint);
+    seconds = best;
+    return true;
+}
+
+static int cmd_bench(const std::vector<std::string> & paths) {
+    int64_t total_ticks   = 0;
+    double  total_seconds = 0;
+    for (const std::string & path : paths) {
+        int64_t ticks;
+        double  seconds;
+        if (!bench_case(path, ticks, seconds)) return 1;
+        total_ticks += ticks;
+        total_seconds += seconds;
+    }
+    printf("total %lld ticks in %.3f s: %.0f ticks/s\n", (long long) total_ticks, total_seconds,
+           total_ticks / total_seconds);
+    return 0;
+}
+
 int main(int argc, char ** argv) {
     if (argc >= 3 && strcmp(argv[1], "run") == 0) return cmd_run(argv[2]);
     if (argc >= 3 && strcmp(argv[1], "check") == 0) {
@@ -125,7 +230,10 @@ int main(int argc, char ** argv) {
         std::vector<std::string> paths(argv + (xfail ? 3 : 2), argv + argc);
         return cmd_check(paths, xfail);
     }
+    if (argc >= 3 && strcmp(argv[1], "bench") == 0) return cmd_bench(std::vector<std::string>(argv + 2, argv + argc));
     fprintf(stderr, "usage: tmcsim run <file.case>\n");
     fprintf(stderr, "       tmcsim check [--xfail] <file.case>...   (compares with <file.trace>)\n");
+    fprintf(stderr,
+            "       tmcsim bench <file.case>...             (ticks/s untraced; the traced run must end the same)\n");
     return 2;
 }

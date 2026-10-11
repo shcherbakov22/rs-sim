@@ -1,0 +1,197 @@
+# bench: active/crafter-recipes.case run for 20000 ticks
+# Crafters craft their grid when powered and each slot loses one item; the result and any crafting remainder go one by one into a crafter in front, whose comparator (read by wire) counts its filled slots, or in bulk into a hopper.
+# Recipes: shaped (3x3, a mirrored one, a 2x2 trimmed out of the grid with a tag ingredient), shapeless (three items in any slots, a single item with a remainder), transmute (dyeing a shulker box), and two dyes mixing ahead of the special recipes, and the special recipes whose results keep default components (two fresh tools repair into one, four bricks make a plain pot).
+# A shulker box dyed its own color, a grid without a recipe, a honey bottle with a stick, paper with a firework star, a lone arrow, two empty maps, two book and quills and the emptied shears grid powered again craft nothing.
+# The iron block that went into the first lane's crafter crafts back into ingots, which go in bulk into the chest in front.
+tmc-case 2
+size 15 3 19
+key
+  s = minecraft:stone
+  c = minecraft:chest[facing=south,type=single,waterlogged=false]
+  Q = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  h = minecraft:hopper[enabled=true,facing=down]
+  k = minecraft:comparator[facing=west,mode=compare,powered=false]
+  w = minecraft:redstone_wire[east=side,north=none,power=0,south=none,west=side]
+  A = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  B = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  D = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  E = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  F = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  G = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  H = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  I = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  J = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  K = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  L = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  M = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  N = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  O = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  R = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  T = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+  U = minecraft:crafter[crafting=false,orientation=north_up,triggered=false]
+layer 0
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s
+layer 1
+  c . . . c . . . c . . . c . .
+  Q k w . Q k w . Q k w . h k w
+  A . . . B . . . D . . . E . .
+  . . . . . . . . . . . . . . .
+  c . . . c . . . c . . . c . .
+  Q k w . Q k w . Q k w . Q k w
+  F . . . G . . . H . . . I . .
+  . . . . . . . . . . . . . . .
+  c . . . c . . . c . . . c . .
+  Q k w . Q k w . Q k w . Q k w
+  J . . . K . . . L . . . M . .
+  . . . . . . . . . . . . . . .
+  c . . . c . . . c . . . c . .
+  Q k w . Q k w . Q k w . Q k w
+  N . . . O . . . R . . . T . .
+  . . . . . . . . . . . . . . .
+  c . . . . . . . . . . . . . .
+  Q k w . . . . . . . . . . . .
+  U . . . . . . . . . . . . . .
+layer 2
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . .
+items
+  0 1 2 0 minecraft:iron_ingot 2
+  0 1 2 1 minecraft:iron_ingot 2
+  0 1 2 2 minecraft:iron_ingot 2
+  0 1 2 3 minecraft:iron_ingot 2
+  0 1 2 4 minecraft:iron_ingot 2
+  0 1 2 5 minecraft:iron_ingot 2
+  0 1 2 6 minecraft:iron_ingot 2
+  0 1 2 7 minecraft:iron_ingot 2
+  0 1 2 8 minecraft:iron_ingot 2
+  4 1 2 0 minecraft:iron_ingot 1
+  4 1 2 4 minecraft:iron_ingot 1
+  8 1 2 4 minecraft:oak_planks 1
+  8 1 2 5 minecraft:spruce_planks 1
+  8 1 2 7 minecraft:birch_planks 1
+  8 1 2 8 minecraft:jungle_planks 1
+  12 1 2 2 minecraft:blaze_powder 1
+  12 1 2 3 minecraft:charcoal 1
+  12 1 2 7 minecraft:gunpowder 1
+  0 1 6 4 minecraft:honey_bottle 1
+  4 1 6 0 minecraft:shulker_box 1
+  4 1 6 8 minecraft:blue_dye 1
+  8 1 6 3 minecraft:red_shulker_box 1
+  8 1 6 5 minecraft:red_dye 1
+  12 1 6 0 minecraft:stone 1
+  12 1 6 1 minecraft:dirt 1
+  0 1 10 0 minecraft:oak_planks 1
+  0 1 10 3 minecraft:oak_planks 1
+  0 1 10 4 minecraft:oak_planks 1
+  0 1 10 6 minecraft:oak_planks 1
+  0 1 10 7 minecraft:oak_planks 1
+  0 1 10 8 minecraft:oak_planks 1
+  4 1 10 2 minecraft:wooden_pickaxe 1
+  4 1 10 6 minecraft:wooden_pickaxe 1
+  8 1 10 1 minecraft:brick 1
+  8 1 10 3 minecraft:brick 1
+  8 1 10 5 minecraft:brick 1
+  8 1 10 7 minecraft:brick 1
+  12 1 10 4 minecraft:honey_bottle 1
+  12 1 10 5 minecraft:stick 1
+  0 1 14 0 minecraft:red_dye 1
+  0 1 14 8 minecraft:yellow_dye 1
+  4 1 14 0 minecraft:paper 1
+  4 1 14 1 minecraft:firework_star 1
+  8 1 14 4 minecraft:arrow 1
+  12 1 14 0 minecraft:map 1
+  12 1 14 1 minecraft:map 1
+  0 1 18 0 minecraft:writable_book 1
+  0 1 18 1 minecraft:writable_book 1
+tickers
+  0 1 2
+  0 1 1
+  4 1 2
+  4 1 1
+  8 1 2
+  8 1 1
+  12 1 2
+  12 1 1
+  0 1 6
+  0 1 5
+  4 1 6
+  4 1 5
+  8 1 6
+  8 1 5
+  12 1 6
+  12 1 5
+  0 1 10
+  0 1 9
+  4 1 10
+  4 1 9
+  8 1 10
+  8 1 9
+  12 1 10
+  12 1 9
+  0 1 14
+  0 1 13
+  4 1 14
+  4 1 13
+  8 1 14
+  8 1 13
+  12 1 14
+  12 1 13
+  0 1 18
+  0 1 17
+inputs
+  @1 place 0 2 2 minecraft:redstone_block
+  @3 place 4 2 2 minecraft:redstone_block
+  @5 place 8 2 2 minecraft:redstone_block
+  @7 place 12 2 2 minecraft:redstone_block
+  @9 place 0 2 6 minecraft:redstone_block
+  @11 place 4 2 6 minecraft:redstone_block
+  @13 place 8 2 6 minecraft:redstone_block
+  @15 place 12 2 6 minecraft:redstone_block
+  @17 place 0 2 10 minecraft:redstone_block
+  @19 place 4 2 10 minecraft:redstone_block
+  @21 place 8 2 10 minecraft:redstone_block
+  @23 place 12 2 10 minecraft:redstone_block
+  @25 place 0 2 14 minecraft:redstone_block
+  @27 place 4 2 14 minecraft:redstone_block
+  @29 place 8 2 14 minecraft:redstone_block
+  @31 place 12 2 14 minecraft:redstone_block
+  @33 place 0 2 18 minecraft:redstone_block
+  @36 place 0 2 1 minecraft:redstone_block
+  @38 place 4 2 2 minecraft:air
+  @40 place 4 2 2 minecraft:redstone_block
+run 20000

@@ -17,6 +17,7 @@ struct trace {
     bool                     tick_shown  = false;
     bool                     phase_shown = false;
     bool                     boundary    = false;  // past an entity spawn, explosion or fluid tick nothing is contract
+    bool                     record      = true;   // false: tracing off, but a boundary still ends the run
 };
 
 // false if tracing is off, past a boundary, or pos (when given) is outside the box

@@ -1,0 +1,27 @@
+# bench: corpus/0158.case run for 20000 ticks
+# minimized from fuzz case 00487-mut-2
+# covers: PistonBaseBlock(1) PistonStructureResolver(2)
+tmc-case 2
+size 7 4 1
+seed -4546865375428238200
+key
+  a = minecraft:sticky_piston[extended=false,facing=up]
+  b = minecraft:observer[facing=east,powered=false]
+  c = minecraft:observer[facing=west,powered=false]
+  d = minecraft:piston[extended=false,facing=west]
+  e = minecraft:redstone_block
+  f = minecraft:jungle_fence_gate[facing=south,in_wall=true,open=true,powered=false]
+  g = minecraft:slime_block
+  h = minecraft:weathered_copper_trapdoor[facing=south,half=top,open=false,powered=false,waterlogged=false]
+  i = minecraft:acacia_shelf[facing=east,powered=false,side_chain=center,waterlogged=false]
+layer 0
+  . a b . c d e
+layer 1
+  f g . . . . .
+layer 2
+  h . . . . . .
+layer 3
+  i . . . . . .
+events
+  5 0 0 minecraft:piston 0 4
+run 20000
