@@ -112,6 +112,7 @@ static bool block_hooks_has(const block_hooks & b, hook h) {
         case HOOK_ON_EXPLOSION_HIT: return b.on_explosion_hit != nullptr;
         case HOOK_WAS_EXPLODED: return b.was_exploded != nullptr;
         case HOOK_DROP_FROM_EXPLOSION: return b.drop_from_explosion != nullptr;
+        case HOOK_ON_PROJECTILE_HIT: return b.on_projectile_hit != nullptr;
         case HOOK_COUNT: break;
     }
     TMC_ASSERT(false);
@@ -391,4 +392,9 @@ void block_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & 
     } else {
         block_behaviour_on_explosion_hit(lv, st, pos, ex);
     }
+}
+
+void block_on_projectile_hit(level & lv, state_id st, const hit_result & hit, entity & projectile) {
+    const block_hooks * b = block_hooks_for(lv, st, HOOK_ON_PROJECTILE_HIT);
+    if (b != nullptr) b->on_projectile_hit(lv, st, hit, projectile);
 }

@@ -25,14 +25,19 @@ static bool entity_fire_immune(const entity & e) {
     return entity_type_defs[e.type].fire_immune;
 }
 
+bool entity_is_on_fire(const entity & e) { return !entity_fire_immune(e) && e.remaining_fire_ticks > 0; }
+
 bool entity_hurt_server(level & lv, entity & e, damage_type type, float damage) {
     switch (e.type) {
         case ENTITY_TYPE_ITEM: return item_entity_hurt_server(lv, e, type, damage);
         // it only marks itself hurt
         case ENTITY_TYPE_FALLING_BLOCK: return false;
         case ENTITY_TYPE_TNT: return false;
+        case ENTITY_TYPE_EXPERIENCE_ORB: return experience_orb_hurt_server(lv, e, damage);
         default: break;
     }
+    // Projectile.hurtServer
+    if (entity_type_defs[e.type].flags & ENTITY_FLAG_PROJECTILE) return false;
     TMC_ASSERT(entity_is_pushable(e));
     return vehicle_entity_hurt_server(lv, e, type, damage);
 }
@@ -334,9 +339,6 @@ static void entity_check_inside_blocks(level & lv, entity & e, const std::vector
         if (max_iterations <= 0) entity_check_inside_blocks_between(lv, e, m.to, m.to, effects, visited, 1);
     }
 }
-
-// Entity.isOnFire on the server
-static bool entity_is_on_fire(const entity & e) { return !entity_fire_immune(e) && e.remaining_fire_ticks > 0; }
 
 // Entity.applyEffectsFromBlocks of a list of moves
 static void entity_apply_effects_from_movements(level & lv, entity & e,

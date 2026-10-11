@@ -61,11 +61,14 @@ struct entity {
 
     std::vector<entity_movement> movement_this_tick;
 
-    // ItemEntity
+    // ItemEntity, and age and health for ExperienceOrb too
     item_stack item;
     int32_t    age          = 0;
     int32_t    pickup_delay = 0;
     int32_t    health       = 5;
+    // ExperienceOrb
+    int32_t    value        = 0;
+    int32_t    count        = 1;
 
     // FallingBlockEntity
     state_id block_state              = STATE_AIR;
@@ -138,6 +141,22 @@ void entity_effect_collector_apply(entity_effect_collector & c, inside_block_eff
 void entity_effect_collector_run_after(entity_effect_collector & c, inside_block_effect_type type,
                                        entity_effect effect);
 
+// HitResult.Type
+enum hit_result_type {
+    HIT_RESULT_TYPE_MISS,
+    HIT_RESULT_TYPE_BLOCK,
+    HIT_RESULT_TYPE_ENTITY,
+};
+
+// BlockHitResult or EntityHitResult
+struct hit_result {
+    hit_result_type type     = HIT_RESULT_TYPE_MISS;
+    vec3            location = {};
+    direction       face     = DIRECTION_DOWN;  // the face of the block hit
+    block_pos       pos      = {};              // the block hit
+    entity *        target   = nullptr;         // the entity hit
+};
+
 // MoverType
 enum mover_type {
     MOVER_TYPE_SELF,
@@ -177,6 +196,8 @@ void level_get_entities(level & lv, const aabb & box, std::vector<entity *> & ou
 // Entity base behaviour that entity types build on
 void      entity_base_tick(level & lv, entity & e);
 void      entity_apply_gravity(entity & e);
+// Entity.isOnFire on the server
+bool       entity_is_on_fire(const entity & e);
 // Entity.hurtServer of the entity's type
 bool      entity_hurt_server(level & lv, entity & e, damage_type type, float damage);
 // Entity.push of an impulse
@@ -197,9 +218,16 @@ bool      entity_update_in_water_state_and_do_fluid_pushing(level & lv, entity &
 void      entity_move_towards_closest_space(level & lv, entity & e, vec3 at);
 bool      entity_is_in_lava(const entity & e);
 block_pos entity_get_block_pos_below_that_affects_my_movement(level & lv, const entity & e);
-// BlockGetter.clip with ClipContext.Block.COLLIDER for the entity and ClipContext.Fluid.NONE: whether it hits
-bool      level_clip_collider(level & lv, const entity & e, const vec3 & from, const vec3 & to);
+// BlockGetter.clip with ClipContext.Block.COLLIDER for the entity and ClipContext.Fluid.NONE: a block hit or a miss
+// at to
+hit_result level_clip_collider(level & lv, const entity & e, const vec3 & from, const vec3 & to);
 // CollisionGetter.noCollision for an entity: no block or entity collides with box
 bool      level_no_collision(level & lv, const entity & e, const aabb & box);
+// CollisionGetter.noCollision(AABB): the empty collision context and no source entity
+bool       level_no_collision_box(level & lv, const aabb & box);
+// Level.findFreePosition: the point of the allowed centers closest to the preferred one where a box of the size
+// hits no block
+bool       level_find_free_position(level & lv, const entity & e, const aabb & allowed, vec3 preferred, double size_x,
+                                    double size_y, double size_z, vec3 & out);
 // BlockStateBase.isCollisionShapeFullBlock
 bool      block_is_collision_shape_full_block(level & lv, state_id st, block_pos pos);

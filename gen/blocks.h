@@ -2238,6 +2238,12 @@ enum entity_type {
 enum entity_flag {
     ENTITY_FLAG_BOAT = 1u << 0,
     ENTITY_FLAG_MINECART = 1u << 1,
+    ENTITY_FLAG_PICKABLE = 1u << 2,
+    ENTITY_FLAG_PROJECTILE = 1u << 3,
+};
+
+enum entity_type_tag {
+    ENTITY_TYPE_TAG_IMPACT_PROJECTILES = 1u << 0,
 };
 
 enum block_id {
@@ -3732,7 +3738,8 @@ enum hook {
     HOOK_ON_EXPLOSION_HIT = 22,
     HOOK_WAS_EXPLODED = 23,
     HOOK_DROP_FROM_EXPLOSION = 24,
-    HOOK_COUNT = 25,
+    HOOK_ON_PROJECTILE_HIT = 25,
+    HOOK_COUNT = 26,
 };
 
 // vanilla BlockStateProperties fields
@@ -3993,9 +4000,9 @@ constexpr uint16_t SHAPE_EMPTY = 0;
 // VoxelShape fields as shape ids; a map by direction has one id per direction
 constexpr uint16_t SHAPE_WALL_BLOCK_TEST_SHAPE_POST = 116;
 inline constexpr uint16_t SHAPE_WALL_BLOCK_TEST_SHAPES_WALL[6] = { SHAPE_NONE, SHAPE_NONE, 112, 114, 115, 108 };
-constexpr uint16_t SHAPE_SCAFFOLDING_BLOCK_SHAPE_STABLE = 273;
+constexpr uint16_t SHAPE_SCAFFOLDING_BLOCK_SHAPE_STABLE = 279;
 constexpr uint16_t SHAPE_SCAFFOLDING_BLOCK_SHAPE_UNSTABLE_BOTTOM = 69;
-constexpr uint16_t SHAPE_SCAFFOLDING_BLOCK_SHAPE_BELOW_BLOCK = 330;
-constexpr uint16_t SHAPE_SUPPORT_TYPE_CENTER_SUPPORT_SHAPE = 331;
-constexpr uint16_t SHAPE_SUPPORT_TYPE_RIGID_SUPPORT_SHAPE = 332;
+constexpr uint16_t SHAPE_SCAFFOLDING_BLOCK_SHAPE_BELOW_BLOCK = 336;
+constexpr uint16_t SHAPE_SUPPORT_TYPE_CENTER_SUPPORT_SHAPE = 337;
+constexpr uint16_t SHAPE_SUPPORT_TYPE_RIGID_SUPPORT_SHAPE = 338;
 

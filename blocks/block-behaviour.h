@@ -9,6 +9,7 @@ struct level;
 struct entity;
 struct entity_effect_collector;
 struct explosion;
+struct hit_result;
 
 // BlockBehaviour.UPDATE_SHAPE_ORDER
 inline constexpr direction UPDATE_SHAPE_ORDER[6] = {
@@ -60,6 +61,7 @@ struct block_hooks {
     void (*on_explosion_hit)(level & lv, state_id st, block_pos pos, explosion & ex)                      = nullptr;
     void (*was_exploded)(level & lv, block_pos pos)                                                       = nullptr;
     bool (*drop_from_explosion)()                                                                         = nullptr;
+    void (*on_projectile_hit)(level & lv, state_id st, const hit_result & hit, entity & projectile)       = nullptr;
 };
 
 // BlockBehaviour.updateShape, the default: for classes whose override only schedules the water tick, which
@@ -108,6 +110,7 @@ void     block_on_land(level & lv, state_id st, block_pos pos, state_id replaced
 void     block_on_broken_after_fall(level & lv, state_id st, block_pos pos);
 // BlockState.onExplosionHit, with Block.dropFromExplosion and Block.wasExploded
 void     block_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex);
+void     block_on_projectile_hit(level & lv, state_id st, const hit_result & hit, entity & projectile);
 
 // BlockStateBase.updateNeighbourShapes
 void block_update_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit);

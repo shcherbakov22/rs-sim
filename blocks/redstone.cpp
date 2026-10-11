@@ -342,7 +342,24 @@ static void redstone_lamp_tick(level & lv, state_id st, block_pos pos) {
     }
 }
 
-// TargetBlock: no projectiles here, so the power only comes from case data and goes away
+// TargetBlock: a projectile hit powers it for a while, the more the closer it lands to the middle of the face
+
+// TargetBlock.updateRedstoneOutput; only an arrow holds the power longer, and none is in scope
+static void target_on_projectile_hit(level & lv, state_id st, const hit_result & hit, entity &) {
+    double dist_x = std::fabs(frac(hit.location.x) - 0.5);
+    double dist_y = std::fabs(frac(hit.location.y) - 0.5);
+    double dist_z = std::fabs(frac(hit.location.z) - 0.5);
+    double distance;
+    switch (direction_get_axis(hit.face)) {
+        case DIRECTION_AXIS_Y: distance = std::max(dist_x, dist_z); break;
+        case DIRECTION_AXIS_Z: distance = std::max(dist_x, dist_y); break;
+        default: distance = std::max(dist_y, dist_z); break;
+    }
+    int32_t strength = std::max(1, (int32_t) std::ceil(15.0 * std::clamp((0.5 - distance) / 0.5, 0.0, 1.0)));
+    if (level_ticks_has_scheduled(lv.block_ticks, hit.pos, state_block(st))) return;
+    level_set_block(lv, hit.pos, state_set(st, PROP_POWER, strength), UPDATE_FLAG_ALL);
+    level_schedule_tick(lv, hit.pos, state_block(st), 8);
+}
 
 static void target_tick(level & lv, state_id st, block_pos pos) {
     if (state_get(st, PROP_POWER) != 0) level_set_block(lv, pos, state_set(st, PROP_POWER, 0), UPDATE_FLAG_ALL);
@@ -427,7 +444,10 @@ const std::vector<block_hooks> redstone_hooks = {
     { .vclass = VCLASS_REDSTONE_LAMP_BLOCK,
       .neighbor_changed = redstone_lamp_neighbor_changed,
       .tick = redstone_lamp_tick },
-    { .vclass = VCLASS_TARGET_BLOCK, .on_place = target_on_place, .tick = target_tick },
+    { .vclass = VCLASS_TARGET_BLOCK,
+      .on_place = target_on_place,
+      .tick = target_tick,
+      .on_projectile_hit = target_on_projectile_hit },
     { .vclass = VCLASS_LIGHTNING_ROD_BLOCK,
       .update_shape = block_behaviour_update_shape,
       .on_place = lightning_rod_on_place,

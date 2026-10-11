@@ -618,6 +618,14 @@ void composter_container_set_changed(level & lv, composter_container & c) {
     }
 }
 
+// DecoratedPotBlock.onProjectileHit: an impact projectile cracks the pot and breaks it
+static void decorated_pot_on_projectile_hit(level & lv, state_id st, const hit_result & hit, entity & projectile) {
+    if (!(entity_type_defs[projectile.type].tags & ENTITY_TYPE_TAG_IMPACT_PROJECTILES)) return;
+    level_set_block(lv, hit.pos, state_set(st, PROP_CRACKED, 1),
+                    UPDATE_FLAG_INVISIBLE | UPDATE_FLAG_SKIP_BLOCK_ENTITY_SIDEEFFECTS);
+    level_destroy_block(lv, hit.pos, true);
+}
+
 // clang-format off
 const std::vector<block_hooks> container_hooks = {
     { .vclass = VCLASS_BASE_ENTITY_BLOCK, .trigger_event = base_entity_block_trigger_event },
@@ -641,7 +649,8 @@ const std::vector<block_hooks> container_hooks = {
     { .vclass = VCLASS_DECORATED_POT_BLOCK,
       .update_shape = block_behaviour_update_shape,
       .affect_neighbors_after_removal = containers_update_neighbours_after_destroy,
-      .get_analog_output_signal = container_get_redstone_signal_from_block_entity },
+      .get_analog_output_signal = container_get_redstone_signal_from_block_entity,
+      .on_projectile_hit = decorated_pot_on_projectile_hit },
     { .vclass = VCLASS_JUKEBOX_BLOCK,
       .affect_neighbors_after_removal = containers_update_neighbours_after_destroy,
       .get_signal = jukebox_get_signal,

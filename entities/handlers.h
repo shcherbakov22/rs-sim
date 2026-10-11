@@ -35,6 +35,13 @@ void minecart_tnt_cause_fall_damage(level & lv, entity & e, double fall_distance
 // MinecartTNT.destroy: true when the tnt minecart primes instead of breaking
 bool minecart_tnt_destroy(entity & e, bool ignites_tnt);
 
+// Projectile and the thrown items
+void     projectile_shoot(entity & e, vec3 dir, float power, float uncertainty);
+void     throwable_projectile_tick(level & lv, entity & e);
+// ExperienceOrb
+void     experience_orb_award_with_direction(level & lv, vec3 pos, vec3 rough_direction, int32_t amount);
+void     experience_orb_tick(level & lv, entity & e);
+bool     experience_orb_hurt_server(level & lv, entity & e, float damage);
 // PrimedTnt
 entity * primed_tnt_new(level & lv, vec3 pos);
 void     primed_tnt_tick(level & lv, entity & e);

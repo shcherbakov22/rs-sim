@@ -3,6 +3,8 @@
 #include "core/common.h"
 #include "gen/blocks.h"
 
+#include <cfloat>
+
 // the generated enum direction is vanilla's Direction in 3D data value order
 static_assert(DIRECTION_DOWN == 0 && DIRECTION_EAST == 5);
 
@@ -22,6 +24,21 @@ inline constexpr block_pos DIRECTION_STEPS[6] = {
 };
 
 inline direction direction_opposite(direction dir) { return (direction) (dir ^ 1); }
+
+// Direction.getApproximateNearest: the largest dot product in float, NORTH when none is positive
+inline direction direction_get_approximate_nearest(double x, double y, double z) {
+    direction result  = DIRECTION_NORTH;
+    float     highest = FLT_TRUE_MIN;  // Float.MIN_VALUE
+    for (int32_t i = 0; i < 6; i++) {
+        const block_pos & s   = DIRECTION_STEPS[i];
+        float             dot = (float) x * s.x + (float) y * s.y + (float) z * s.z;
+        if (dot > highest) {
+            highest = dot;
+            result  = (direction) i;
+        }
+    }
+    return result;
+}
 
 inline block_pos pos_relative(block_pos pos, direction dir) {
     const block_pos & s = DIRECTION_STEPS[dir];

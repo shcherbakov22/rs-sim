@@ -67,6 +67,11 @@ void vec3_axis_step_order(const vec3 & movement, int32_t order[3]) {
     order[2]     = z_first ? 0 : 2;
 }
 
+aabb aabb_of_size(const vec3 & center, double x, double y, double z) {
+    return aabb_of(center.x - x / 2.0, center.y - y / 2.0, center.z - z / 2.0, center.x + x / 2.0, center.y + y / 2.0,
+                   center.z + z / 2.0);
+}
+
 aabb aabb_of(double x0, double y0, double z0, double x1, double y1, double z1) {
     return {
         { std::min(x0, x1), std::min(y0, y1), std::min(z0, z1) },
@@ -149,20 +154,30 @@ static bool aabb_clip_point(double & scale, const double d[3], const double from
     return false;
 }
 
-bool aabb_clip(const aabb & b, const vec3 & from, const vec3 & to, vec3 * hit) {
-    double scale   = 1.0;
+bool aabb_clip_face(const aabb & b, const vec3 & from, const vec3 & to, double & scale, direction & face) {
+    static constexpr direction MIN_FACE[3] = { DIRECTION_WEST, DIRECTION_DOWN, DIRECTION_NORTH };
+    static constexpr direction MAX_FACE[3] = { DIRECTION_EAST, DIRECTION_UP, DIRECTION_SOUTH };
     double d[3]    = { to.x - from.x, to.y - from.y, to.z - from.z };
     double f[3]    = { from.x, from.y, from.z };
     bool   clipped = false;
     for (int32_t a = 0; a < 3; a++) {
-        if (d[a] > 1.0E-7) {
-            clipped |= aabb_clip_point(scale, d, f, a, b.min[a], b);
-        } else if (d[a] < -1.0E-7) {
-            clipped |= aabb_clip_point(scale, d, f, a, b.max[a], b);
+        if (d[a] > 1.0E-7 && aabb_clip_point(scale, d, f, a, b.min[a], b)) {
+            face    = MIN_FACE[a];
+            clipped = true;
+        } else if (d[a] < -1.0E-7 && aabb_clip_point(scale, d, f, a, b.max[a], b)) {
+            face    = MAX_FACE[a];
+            clipped = true;
         }
     }
-    if (clipped && hit != nullptr) *hit = { from.x + scale * d[0], from.y + scale * d[1], from.z + scale * d[2] };
     return clipped;
+}
+
+bool aabb_clip(const aabb & b, const vec3 & from, const vec3 & to, vec3 * hit) {
+    double    scale = 1.0;
+    direction face  = DIRECTION_DOWN;
+    if (!aabb_clip_face(b, from, to, scale, face)) return false;
+    if (hit != nullptr) *hit = vec3_add(from, vec3_scale(vec3_subtract(to, from), scale));
+    return true;
 }
 
 bool aabb_collided_along_vector(const aabb & b, const vec3 & vector, const aabb & part) {

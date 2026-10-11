@@ -134,6 +134,34 @@ static void bell_attempt_to_ring(level & lv, block_pos pos, direction dir) {
     }
 }
 
+// BellBlock.onHit from a projectile: only a side hit below the top that faces the right way rings it
+static void bell_on_projectile_hit(level & lv, state_id st, const hit_result & hit, entity &) {
+    double click_y = hit.location.y - entity_block_to_world(hit.pos).y;
+    if (direction_get_axis(hit.face) == DIRECTION_AXIS_Y || click_y > 0.8124F) return;
+    bool same_axis = direction_get_axis(state_facing(st)) == direction_get_axis(hit.face);
+    switch (state_get(st, PROP_BELL_ATTACHMENT)) {
+        case BELL_ATTACH_TYPE_FLOOR:
+            if (!same_axis) return;
+            break;
+        case BELL_ATTACH_TYPE_SINGLE_WALL:
+        case BELL_ATTACH_TYPE_DOUBLE_WALL:
+            if (same_axis) return;
+            break;
+        default: break;
+    }
+    bell_attempt_to_ring(lv, hit.pos, hit.face);
+}
+
+// AbstractCandleBlock.onProjectileHit: a burning projectile lights it
+static void abstract_candle_on_projectile_hit(level & lv, state_id st, const hit_result & hit, entity & projectile) {
+    if (!entity_is_on_fire(projectile) || !state_has(st, STATE_FLAG_CAN_LIGHT)) return;
+    if (state_has(st, STATE_FLAG_TAG_CANDLE_CAKES)) {
+        level_unsupported(lv, "candle cake");
+        return;
+    }
+    level_set_block(lv, hit.pos, state_set(st, PROP_LIT, 1), UPDATE_FLAG_ALL_IMMEDIATE);
+}
+
 static void bell_neighbor_changed(level & lv, state_id st, block_pos pos, int32_t, bool) {
     bool signal = level_has_neighbor_signal(lv, pos);
     if (signal != (state_get(st, PROP_POWERED) != 0)) {
@@ -171,7 +199,10 @@ const std::vector<block_hooks> attached_hooks = {
       .update_shape = bell_update_shape,
       .neighbor_changed = bell_neighbor_changed,
       .can_survive = bell_can_survive,
-      .on_explosion_hit = block_behaviour_on_explosion_hit },
-    { .vclass = VCLASS_ABSTRACT_CANDLE_BLOCK, .on_explosion_hit = block_behaviour_on_explosion_hit },
+      .on_explosion_hit = block_behaviour_on_explosion_hit,
+      .on_projectile_hit = bell_on_projectile_hit },
+    { .vclass = VCLASS_ABSTRACT_CANDLE_BLOCK,
+      .on_explosion_hit = block_behaviour_on_explosion_hit,
+      .on_projectile_hit = abstract_candle_on_projectile_hit },
 };
 // clang-format on

@@ -62,6 +62,8 @@ float  wrap_degrees(float angle);
 
 // AABB: the constructor sorts each axis
 aabb aabb_of(double x0, double y0, double z0, double x1, double y1, double z1);
+// AABB.ofSize
+aabb   aabb_of_size(const vec3 & center, double x, double y, double z);
 aabb aabb_move(const aabb & b, const vec3 & d);
 aabb aabb_inflate(const aabb & b, double x, double y, double z);
 aabb aabb_expand_towards(const aabb & b, const vec3 & d);
@@ -71,6 +73,8 @@ bool aabb_contains(const aabb & b, const vec3 & v);
 vec3 aabb_get_center(const aabb & b);
 // AABB.clip: whether the segment enters the box
 bool aabb_clip(const aabb & b, const vec3 & from, const vec3 & to, vec3 * hit);
+// AABB.getDirection: a face the segment enters closer than scale sets scale and face
+bool   aabb_clip_face(const aabb & b, const vec3 & from, const vec3 & to, double & scale, direction & face);
 // VoxelShape.collide of Shapes.create(b): one cell at the box's own coordinates
 double aabb_collide(const aabb & b, int32_t axis, const aabb & moving, double distance);
 // AABB.collidedAlongVector against one box

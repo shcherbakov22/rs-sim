@@ -79,15 +79,31 @@ static void dispenser_boundary_spawn(level & lv, item_stack dispensed, int32_t x
     level_boundary(lv, "spawn %s %d %d %d", entity_type_defs[type].name, x, y, z);
 }
 
-// ProjectileDispenseBehavior: every DispenseConfig position lies in the block in front (the dump checks it)
+// ProjectileDispenseBehavior: the projectile starts at the DispenseConfig position and Projectile.shoot aims it along
+// the facing
 static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    int32_t   item = item_stack_get_item(dispensed);
-    block_pos at   = pos_relative(pos, state_facing(st));
-    // asProjectile of a fire or wind charge draws three triangle distributed direction components
-    if (item_defs[item].cls == ICLASS_FIRE_CHARGE_ITEM || item_defs[item].cls == ICLASS_WIND_CHARGE_ITEM) {
-        for (int32_t i = 0; i < 6; i++) rng_next_double(lv.random);
+    int32_t                 item   = item_stack_get_item(dispensed);
+    int32_t                 type   = item_defs[item].dispense_entity;
+    direction               facing = state_facing(st);
+    const dispense_config & config = dispense_configs[item_defs[item].dispense_config];
+    vec3                    center = vec3_add(entity_block_to_world(pos), { 0.5, 0.5, 0.5 });
+    vec3 at     = vec3_add(center, { config.offset[facing][0], config.offset[facing][1], config.offset[facing][2] });
+    bool thrown = type == ENTITY_TYPE_SNOWBALL || type == ENTITY_TYPE_EGG || type == ENTITY_TYPE_EXPERIENCE_BOTTLE ||
+                  type == ENTITY_TYPE_SPLASH_POTION || type == ENTITY_TYPE_LINGERING_POTION;
+    if (!thrown) {
+        // asProjectile of a fire or wind charge draws three triangle distributed direction components
+        if (item_defs[item].cls == ICLASS_FIRE_CHARGE_ITEM || item_defs[item].cls == ICLASS_WIND_CHARGE_ITEM) {
+            for (int32_t i = 0; i < 6; i++) rng_next_double(lv.random);
+        }
+        block_pos b = entity_world_to_block(at);
+        dispenser_boundary_spawn(lv, dispensed, b.x, b.y, b.z);
+        return dispensed;
     }
-    dispenser_boundary_spawn(lv, dispensed, at.x, at.y, at.z);
+    entity *          e    = entity_new(lv, (entity_type) type, at);
+    const block_pos & step = DIRECTION_STEPS[facing];
+    projectile_shoot(*e, { (double) step.x, (double) step.y, (double) step.z }, config.power, config.uncertainty);
+    level_add_fresh_entity(lv, e);
+    item_stack_grow(dispensed, -1);
     return dispensed;
 }
 

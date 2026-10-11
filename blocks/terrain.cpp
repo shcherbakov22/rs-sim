@@ -180,6 +180,18 @@ static void tnt_was_exploded(level & lv, block_pos pos) {
 
 static bool tnt_drop_from_explosion() { return false; }
 
+// a burning projectile primes it
+static void tnt_on_projectile_hit(level & lv, state_id, const hit_result & hit, entity & projectile) {
+    if (!entity_is_on_fire(projectile)) return;
+    tnt_prime(lv, hit.pos);
+    level_remove_block(lv, hit.pos, false);
+}
+
+// AmethystBlock: a projectile hit chimes, and the pitch draws from the level random
+static void amethyst_on_projectile_hit(level & lv, state_id, const hit_result &, entity &) {
+    rng_next_float(lv.random);
+}
+
 // SoulSandBlock: keeps a bubble column above it, which only water can hold. MagmaBlock has the same three methods.
 
 static void soul_sand_on_place(level & lv, state_id st, block_pos pos, state_id, bool) {
@@ -248,7 +260,9 @@ const std::vector<block_hooks> terrain_hooks = {
       .neighbor_changed = tnt_neighbor_changed,
       .on_place = tnt_on_place,
       .was_exploded = tnt_was_exploded,
-      .drop_from_explosion = tnt_drop_from_explosion },
+      .drop_from_explosion = tnt_drop_from_explosion,
+      .on_projectile_hit = tnt_on_projectile_hit },
+    { .vclass = VCLASS_AMETHYST_BLOCK, .on_projectile_hit = amethyst_on_projectile_hit },
     { .vclass = VCLASS_SOUL_SAND_BLOCK,
       .update_shape = soul_sand_update_shape,
       .on_place = soul_sand_on_place,

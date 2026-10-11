@@ -53,7 +53,9 @@ add_library(tmc STATIC
     entities/falling-block.cpp
     entities/item.cpp
     entities/minecart.cpp
+    entities/experience-orb.cpp
     entities/primed-tnt.cpp
+    entities/projectile.cpp
     entities/vehicle.cpp
     gen/blocks.cpp
     items/item.cpp

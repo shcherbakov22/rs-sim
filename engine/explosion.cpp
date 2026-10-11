@@ -82,7 +82,10 @@ static float server_explosion_get_seen_percent(level & lv, const vec3 & center, 
                 double x = bb.min[0] + xx * (bb.max[0] - bb.min[0]);
                 double y = bb.min[1] + yy * (bb.max[1] - bb.min[1]);
                 double z = bb.min[2] + zz * (bb.max[2] - bb.min[2]);
-                if (!level_clip_collider(lv, e, { x + x_offset, y, z + z_offset }, center)) hits++;
+                if (level_clip_collider(lv, e, { x + x_offset, y, z + z_offset }, center).type ==
+                    HIT_RESULT_TYPE_MISS) {
+                    hits++;
+                }
                 count++;
             }
         }

@@ -63,6 +63,14 @@ struct item_def {
     int32_t      crafting_remainder;  // Item.getCraftingRemainder (count 1), -1 for none
     int32_t      dispense_entity;     // entity_type a projectile, boat or minecart behaviour spawns, -1 for others
     int32_t      max_damage;          // MAX_DAMAGE component of a fresh stack, 0 for none
+    int32_t      dispense_config;     // dispense_configs index of a ProjectileItem, -1 for other items
+};
+
+// ProjectileItem.DispenseConfig; offset is what the position function adds to the dispenser's center, by facing
+struct dispense_config {
+    float  power;
+    float  uncertainty;
+    double offset[6][3];
 };
 
 // Ingredient: a set of items, as a range of ingredient_items
@@ -131,6 +139,7 @@ struct entity_type_def {
     uint32_t     flags;           // entity_flag bits
     int32_t      container_size;  // ContainerEntity.getContainerSize, 0 for other entities
     int32_t      vehicle_drop;    // VehicleEntity.getDropItem, -1 for other entities
+    uint32_t     tags;            // entity_type_tag bits
 };
 
 // Block.getDrops of a state, n_stacks stacks from drop_stacks
@@ -150,6 +159,7 @@ extern const block_prop   block_props[];
 extern const field_value  block_field_values[];
 extern const block_def    block_defs[];
 extern const item_def     item_defs[];
+extern const dispense_config dispense_configs[];
 extern const char * const block_entity_type_names[];
 extern const int32_t block_entity_type_container_sizes[];  // Container.getContainerSize of a fresh one, -1 for none
 extern const int32_t block_entity_type_max_stack_sizes[];  // Container.getMaxStackSize of a fresh one, -1 for none
@@ -179,10 +189,11 @@ extern const drop_def        drop_defs[];
 extern const drop_stack      drop_stacks[];
 extern const uint16_t        state_drops[];  // drop_defs index
 // shape ids per state: the collision shape with the empty context and getBlockSupportShape, SHAPE_NONE for dynamic
-// shapes that need the world; getEntityInsideCollisionShape, SHAPE_NONE when it reads the entity
+// shapes that need the world; getEntityInsideCollisionShape, SHAPE_NONE when it reads the entity; getInteractionShape
 extern const uint16_t        state_collision_shapes[];
 extern const uint16_t        state_support_shapes[];
 extern const uint16_t        state_inside_shapes[];
+extern const uint16_t        state_interaction_shapes[];
 extern const fluid_def       fluid_defs[];
 extern const fluid_state_def fluid_state_defs[];
 extern const uint8_t         state_fluid_states[];

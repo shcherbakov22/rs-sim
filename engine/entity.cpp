@@ -84,9 +84,10 @@ static bool level_entity_ticks_at(const level & lv, const vec3 & pos) {
 void level_add_fresh_entity(level & lv, entity * e) {
     block_pos pos = entity_block_position(*e);
     if (trace_wants(lv.tr, &pos)) {
-        std::string what = e->type == ENTITY_TYPE_ITEM          ? " " + entity_trace_stack(e->item) :
-                           e->type == ENTITY_TYPE_FALLING_BLOCK ? " " + state_to_string(e->block_state) :
-                                                                  "";
+        std::string what = e->type == ENTITY_TYPE_ITEM           ? " " + entity_trace_stack(e->item) :
+                           e->type == ENTITY_TYPE_FALLING_BLOCK  ? " " + state_to_string(e->block_state) :
+                           e->type == ENTITY_TYPE_EXPERIENCE_ORB ? " value " + std::to_string(e->value) :
+                                                                   "";
         trace_add(lv.tr, "spawn %d %s at %s motion %s%s", e->id, entity_type_defs[e->type].name,
                   entity_trace_vec(e->pos).c_str(), entity_trace_motion(e->delta).c_str(), what.c_str());
     }
@@ -165,6 +166,12 @@ static void entity_tick(level & lv, entity & e) {
         case ENTITY_TYPE_ITEM: item_entity_tick(lv, e); return;
         case ENTITY_TYPE_FALLING_BLOCK: falling_block_entity_tick(lv, e); return;
         case ENTITY_TYPE_TNT: primed_tnt_tick(lv, e); return;
+        case ENTITY_TYPE_EXPERIENCE_ORB: experience_orb_tick(lv, e); return;
+        case ENTITY_TYPE_SNOWBALL:
+        case ENTITY_TYPE_EGG:
+        case ENTITY_TYPE_EXPERIENCE_BOTTLE:
+        case ENTITY_TYPE_SPLASH_POTION:
+        case ENTITY_TYPE_LINGERING_POTION: throwable_projectile_tick(lv, e); return;
         default: break;
     }
     if (entity_is_boat(e)) {
@@ -250,18 +257,18 @@ static bool entity_is_above(const entity & e, uint16_t shape, block_pos pos) {
     return e.pos.y > entity_block_to_world(pos).y + voxel_shape_max({ shape, {} }, 1) - 1.0E-5F;
 }
 
-// ScaffoldingBlock.getCollisionShape; no entity in scope descends
-static uint16_t scaffolding_get_collision_shape(const entity & e, state_id st, block_pos pos) {
-    if (entity_is_above(e, SHAPE_BLOCK, pos)) return SHAPE_SCAFFOLDING_BLOCK_SHAPE_STABLE;
+// ScaffoldingBlock.getCollisionShape; no entity in scope descends, and the empty context counts as above
+static uint16_t scaffolding_get_collision_shape(const entity * e, state_id st, block_pos pos) {
+    if (e == nullptr || entity_is_above(*e, SHAPE_BLOCK, pos)) return SHAPE_SCAFFOLDING_BLOCK_SHAPE_STABLE;
     if (state_get(st, PROP_STABILITY_DISTANCE) != 0 && state_get(st, PROP_BOTTOM) &&
-        entity_is_above(e, SHAPE_SCAFFOLDING_BLOCK_SHAPE_BELOW_BLOCK, pos)) {
+        entity_is_above(*e, SHAPE_SCAFFOLDING_BLOCK_SHAPE_BELOW_BLOCK, pos)) {
         return SHAPE_SCAFFOLDING_BLOCK_SHAPE_UNSTABLE_BOTTOM;
     }
     return SHAPE_EMPTY;
 }
 
 // EntityCollisionContext.getCollisionShape for the entity types in scope; powder snow looks at the entity
-static uint16_t entity_collision_shape(level & lv, const entity & e, state_id st, block_pos pos) {
+static uint16_t entity_collision_shape(level & lv, const entity * e, state_id st, block_pos pos) {
     if (state_is(st, BLOCK_SCAFFOLDING)) return scaffolding_get_collision_shape(e, st, pos);
     if (state_is(st, BLOCK_POWDER_SNOW)) {
         level_unsupported(lv, "entity collision with %s", state_to_string(st).c_str());
@@ -280,8 +287,9 @@ struct block_collision {
     voxel_shape shape;
 };
 
-// BlockCollisions for an entity: the moved shapes of the blocks that collide with box, in Cursor3D order
-static void level_get_block_collisions(level & lv, const entity & e, const aabb & box,
+// BlockCollisions for an entity, or the empty context for null: the moved shapes of the blocks that collide with box,
+// in Cursor3D order
+static void level_get_block_collisions(level & lv, const entity * e, const aabb & box,
                                        std::vector<block_collision> & out) {
     int32_t lo[3];
     int32_t hi[3];
@@ -334,22 +342,23 @@ bool block_is_collision_shape_full_block(level & lv, state_id st, block_pos pos)
 
 // Entity.canCollideWith: anything collides with a boat (AbstractBoat.canBeCollidedWith), and a vehicle also with the
 // pushable entities (AbstractBoat.canVehicleCollide)
-static bool entity_can_collide_with(const entity & e, const entity & other) {
-    return entity_is_boat(other) || (entity_is_pushable(e) && entity_is_pushable(other));
+// Entity.canCollideWith; without a source only what canBeCollidedWith(null): boats
+static bool entity_can_collide_with(const entity * e, const entity & other) {
+    return entity_is_boat(other) || (e != nullptr && entity_is_pushable(*e) && entity_is_pushable(other));
 }
 
-// EntityGetter.getEntityCollisions
-static void level_get_entity_collisions(level & lv, const entity & e, const aabb & box, std::vector<aabb> & out) {
+// EntityGetter.getEntityCollisions of a source entity or null
+static void level_get_entity_collisions(level & lv, const entity * e, const aabb & box, std::vector<aabb> & out) {
     // AABB.getSize
     if ((box.max[0] - box.min[0] + box.max[1] - box.min[1] + box.max[2] - box.min[2]) / 3.0 < 1.0E-7) return;
     std::vector<entity *> found;
     level_get_entities(lv, aabb_inflate(box, 1.0E-7, 1.0E-7, 1.0E-7), found);
     for (entity * other : found) {
-        if (other != &e && entity_can_collide_with(e, *other)) out.push_back(other->bb);
+        if (other != e && entity_can_collide_with(e, *other)) out.push_back(other->bb);
     }
 }
 
-bool level_no_collision(level & lv, const entity & e, const aabb & box) {
+static bool level_no_collision_of(level & lv, const entity * e, const aabb & box) {
     std::vector<block_collision> collisions;
     level_get_block_collisions(lv, e, box, collisions);
     if (!collisions.empty()) return false;
@@ -358,14 +367,70 @@ bool level_no_collision(level & lv, const entity & e, const aabb & box) {
     return entity_collisions.empty();
 }
 
+bool level_no_collision(level & lv, const entity & e, const aabb & box) { return level_no_collision_of(lv, &e, box); }
+
+bool level_find_free_position(level & lv, const entity & e, const aabb & allowed, vec3 preferred, double size_x,
+                              double size_y, double size_z, vec3 & out) {
+    double                       half[3] = { size_x / 2.0, size_y / 2.0, size_z / 2.0 };
+    std::vector<block_collision> collisions;
+    level_get_block_collisions(lv, &e, aabb_inflate(allowed, half[0], half[1], half[2]), collisions);
+    std::vector<aabb> blocked;
+    for (const block_collision & c : collisions) {
+        shape s = shape_move(shape_from_table(c.shape.id), c.shape.offset[0], c.shape.offset[1], c.shape.offset[2]);
+        for (const aabb & b : s.boxes) blocked.push_back(aabb_inflate(b, half[0], half[1], half[2]));
+    }
+    // Shapes.join(allowed, blocked, ONLY_FIRST) cut into cells along every bound
+    std::vector<double> bounds[3];
+    for (int32_t axis = 0; axis < 3; axis++) {
+        bounds[axis] = { allowed.min[axis], allowed.max[axis] };
+        for (const aabb & b : blocked) {
+            if (b.min[axis] > allowed.min[axis] && b.min[axis] < allowed.max[axis]) bounds[axis].push_back(b.min[axis]);
+            if (b.max[axis] > allowed.min[axis] && b.max[axis] < allowed.max[axis]) bounds[axis].push_back(b.max[axis]);
+        }
+        std::sort(bounds[axis].begin(), bounds[axis].end());
+        bounds[axis].erase(std::unique(bounds[axis].begin(), bounds[axis].end()), bounds[axis].end());
+    }
+    // VoxelShape.closestPointTo: the first closest box wins a tie, and only vanilla's box order knows which is first
+    double best = -1.0;
+    bool   tie  = false;
+    for (size_t i = 0; i + 1 < bounds[0].size(); i++) {
+        for (size_t j = 0; j + 1 < bounds[1].size(); j++) {
+            for (size_t k = 0; k + 1 < bounds[2].size(); k++) {
+                aabb cell   = aabb_of(bounds[0][i], bounds[1][j], bounds[2][k], bounds[0][i + 1], bounds[1][j + 1],
+                                      bounds[2][k + 1]);
+                vec3 middle = { (cell.min[0] + cell.max[0]) / 2.0, (cell.min[1] + cell.max[1]) / 2.0,
+                                (cell.min[2] + cell.max[2]) / 2.0 };
+                bool free   = true;
+                for (const aabb & b : blocked) free = free && !aabb_contains(b, middle);
+                if (!free) continue;
+                vec3   at = { std::clamp(preferred.x, cell.min[0], cell.max[0]),
+                              std::clamp(preferred.y, cell.min[1], cell.max[1]),
+                              std::clamp(preferred.z, cell.min[2], cell.max[2]) };
+                double d  = vec3_length_sqr(vec3_subtract(at, preferred));
+                if (best < 0.0 || d < best) {
+                    best = d;
+                    out  = at;
+                    tie  = false;
+                } else if (d == best && !vec3_equals(at, out)) {
+                    tie = true;
+                }
+            }
+        }
+    }
+    if (tie) level_unsupported(lv, "two free positions at the same distance");
+    return best >= 0.0;
+}
+
+bool level_no_collision_box(level & lv, const aabb & box) { return level_no_collision_of(lv, nullptr, box); }
+
 // Entity.collideWithShapes over Entity.collectColliders: the entity shapes come first
 static vec3 entity_collide(level & lv, const entity & e, const vec3 & movement) {
     if (vec3_length_sqr(movement) == 0.0) return movement;
     aabb                         box = aabb_expand_towards(e.bb, movement);
     std::vector<aabb>            entity_collisions;
     std::vector<block_collision> collisions;
-    level_get_entity_collisions(lv, e, box, entity_collisions);
-    level_get_block_collisions(lv, e, box, collisions);
+    level_get_entity_collisions(lv, &e, box, entity_collisions);
+    level_get_block_collisions(lv, &e, box, collisions);
     if (entity_collisions.empty() && collisions.empty()) return movement;
     vec3    resolved = {};
     int32_t order[3];
@@ -397,7 +462,7 @@ static vec3 entity_collide(level & lv, const entity & e, const vec3 & movement) 
 // CollisionGetter.findSupportingBlock: the colliding block closest to the entity, the greater one on a tie
 static bool level_find_supporting_block(level & lv, const entity & e, const aabb & box, block_pos & out) {
     std::vector<block_collision> collisions;
-    level_get_block_collisions(lv, e, box, collisions);
+    level_get_block_collisions(lv, &e, box, collisions);
     bool   found = false;
     double best  = 0.0;
     for (const block_collision & c : collisions) {
@@ -458,8 +523,10 @@ static float entity_get_block_speed_factor(level & lv, const entity & e) {
         .speed_factor;
 }
 
-// VoxelShape.clip at a world block: the segment starts in the shape or enters one of its boxes
-static bool voxel_shape_clip(const shape & s, const int32_t pos[3], const vec3 & from, const vec3 & to) {
+// VoxelShape.clip at a world block: a segment that starts in the shape hits there, facing back along the segment;
+// otherwise the closest box face it enters. Location and face go to hit.
+static bool voxel_shape_clip(const shape & s, const int32_t pos[3], const vec3 & from, const vec3 & to,
+                             hit_result & hit) {
     vec3 diff = vec3_subtract(to, from);
     if (s.boxes.empty() || vec3_length_sqr(diff) < 1.0E-7) return false;
     vec3 test = vec3_add(from, vec3_scale(diff, 0.001));
@@ -469,14 +536,23 @@ static bool voxel_shape_clip(const shape & s, const int32_t pos[3], const vec3 &
             double v = vec3_get(test, axis) - pos[axis];
             inside   = inside && box.min[axis] <= v && v < box.max[axis];
         }
-        if (inside) return true;
-    }
-    for (const aabb & box : s.boxes) {
-        if (aabb_clip(aabb_move(box, { (double) pos[0], (double) pos[1], (double) pos[2] }), from, to, nullptr)) {
+        if (inside) {
+            hit.location = test;
+            hit.face     = direction_opposite(direction_get_approximate_nearest(diff.x, diff.y, diff.z));
             return true;
         }
     }
-    return false;
+    double    scale   = 1.0;
+    direction face    = DIRECTION_DOWN;
+    bool      clipped = false;
+    for (const aabb & box : s.boxes) {
+        clipped |= aabb_clip_face(aabb_move(box, { (double) pos[0], (double) pos[1], (double) pos[2] }), from, to,
+                                  scale, face);
+    }
+    if (!clipped) return false;
+    hit.location = vec3_add(from, vec3_scale(diff, scale));
+    hit.face     = face;
+    return true;
 }
 
 // BlockGetter.traverseBlocks: the blocks along a segment stretched by 1e-7 at both ends, in order
@@ -518,32 +594,47 @@ static bool block_traversal_next(block_traversal & b) {
 static bool level_clip_fall_damage_resetting(level & lv, const vec3 & from, const vec3 & to) {
     if (vec3_equals(from, to)) return false;
     block_traversal b = block_traversal_init(from, to);
+    hit_result      hit;
     do {
         block_pos      pos = { b.cur[0] - LEVEL_ORIGIN.x, b.cur[1] - LEVEL_ORIGIN.y, b.cur[2] - LEVEL_ORIGIN.z };
         state_id       st  = level_get_state(lv, pos);
         fluid_state_id fs  = state_fluid_state(st);
-        if (state_has(st, STATE_FLAG_TAG_FALL_DAMAGE_RESETTING) && voxel_shape_clip(shape_block(), b.cur, from, to)) {
+        if (state_has(st, STATE_FLAG_TAG_FALL_DAMAGE_RESETTING) &&
+            voxel_shape_clip(shape_block(), b.cur, from, to, hit)) {
             return true;
         }
         // FlowingFluid.getShape: a full source under the same fluid is Shapes.block(), the same box as its height
         if (fluid_state_is_tag(fs, FLUID_TAG_WATER) &&
             voxel_shape_clip({ { aabb_of(0.0, 0.0, 0.0, 1.0, fluid_state_get_height(lv, fs, pos), 1.0) } }, b.cur, from,
-                             to)) {
+                             to, hit)) {
             return true;
         }
     } while (block_traversal_next(b));
     return false;
 }
 
-bool level_clip_collider(level & lv, const entity & e, const vec3 & from, const vec3 & to) {
-    if (vec3_equals(from, to)) return false;
+hit_result level_clip_collider(level & lv, const entity & e, const vec3 & from, const vec3 & to) {
+    hit_result hit;
+    hit.location = to;
+    if (vec3_equals(from, to)) return hit;
     block_traversal b = block_traversal_init(from, to);
     do {
         block_pos pos   = { b.cur[0] - LEVEL_ORIGIN.x, b.cur[1] - LEVEL_ORIGIN.y, b.cur[2] - LEVEL_ORIGIN.z };
-        uint16_t  shape = entity_collision_shape(lv, e, level_get_state(lv, pos), pos);
-        if (shape != SHAPE_EMPTY && voxel_shape_clip(shape_from_table(shape), b.cur, from, to)) return true;
+        state_id  st    = level_get_state(lv, pos);
+        uint16_t  shape = entity_collision_shape(lv, &e, st, pos);
+        if (shape == SHAPE_EMPTY || !voxel_shape_clip(shape_from_table(shape), b.cur, from, to, hit)) continue;
+        // BlockGetter.clipWithInteractionOverride: an interaction shape hit closer gives its face
+        hit_result over;
+        if (state_interaction_shapes[st] != SHAPE_EMPTY &&
+            voxel_shape_clip(shape_from_table(state_interaction_shapes[st]), b.cur, from, to, over) &&
+            vec3_length_sqr(vec3_subtract(over.location, from)) < vec3_length_sqr(vec3_subtract(hit.location, from))) {
+            hit.face = over.face;
+        }
+        hit.type = HIT_RESULT_TYPE_BLOCK;
+        hit.pos  = pos;
+        return hit;
     } while (block_traversal_next(b));
-    return false;
+    return hit;
 }
 
 // Entity.addMovementThisTick: past 100 moves the first two merge
@@ -719,7 +810,8 @@ bool entity_update_in_water_state_and_do_fluid_pushing(level & lv, entity & e) {
 
 // Entity.getBlockPosBelowThatAffectsMyMovement
 block_pos entity_get_block_pos_below_that_affects_my_movement(level & lv, const entity & e) {
-    return entity_get_on_pos(lv, e, e.type == ENTITY_TYPE_ITEM ? 0.999999F : 0.500001F);
+    return entity_get_on_pos(
+        lv, e, e.type == ENTITY_TYPE_ITEM || e.type == ENTITY_TYPE_EXPERIENCE_ORB ? 0.999999F : 0.500001F);
 }
 
 void entity_move_towards_closest_space(level & lv, entity & e, vec3 at) {
