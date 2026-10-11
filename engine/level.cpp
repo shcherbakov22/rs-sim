@@ -368,7 +368,7 @@ void level_schedule_tick(level & lv, block_pos pos, int32_t block, int32_t delay
     if (trace_wants(lv.tr, &pos)) {
         bool dup = level_ticks_has_scheduled(lv.block_ticks, pos, block);
         trace_add(lv.tr, "sched %d %d %d %s +%d %s%s", pos.x, pos.y, pos.z, block_defs[block].name, delay,
-                  tick_priority_name(priority), dup ? " dup" : "");
+                  tick_priority_names[priority], dup ? " dup" : "");
     }
     level_ticks_schedule(lv.block_ticks, tick);
 }

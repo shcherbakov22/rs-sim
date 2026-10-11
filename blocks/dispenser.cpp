@@ -75,7 +75,7 @@ static item_stack default_dispense_item_behavior_consume_with_remainder(level & 
 // ProjectileDispenseBehavior: the projectile spawns at the position function of its item's DispenseConfig
 
 static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed) {
-    const block_pos & step     = direction_defs[state_facing(st)].step;
+    const block_pos & step     = DIRECTION_STEPS[state_facing(st)];
     int32_t           item     = item_stack_get_item(dispensed);
     // the default config: DispenserBlock.getDispensePosition with scale 0.7 and offset (0, 0.1, 0)
     double            scale    = 0.7;
@@ -131,7 +131,7 @@ static item_stack minecart_dispense_item_behavior_execute(level &    lv,
                                                           block_pos  pos,
                                                           item_stack dispensed) {
     direction         facing  = state_facing(st);
-    const block_pos & step    = direction_defs[facing].step;
+    const block_pos & step    = DIRECTION_STEPS[facing];
     double            spawn_x = pos.x + 0.5 + step.x * 1.125;
     double            spawn_y = std::floor(pos.y + 0.5) + step.y;
     double            spawn_z = pos.z + 0.5 + step.z * 1.125;

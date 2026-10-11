@@ -2,6 +2,37 @@
 
 #include "core/state.h"
 
+const char * const direction_axis_names[3] = { "x", "y", "z" };
+const char * const direction_names[6] = { "down", "up", "north", "south", "west", "east" };
+const char * const note_block_instrument_names[23] = { "harp", "basedrum", "snare", "hat", "bass", "flute", "bell", "guitar", "chime", "xylophone", "iron_xylophone", "cow_bell", "didgeridoo", "bit", "banjo", "pling", "zombie", "skeleton", "creeper", "dragon", "wither_skeleton", "piglin", "custom_head" };
+const char * const bed_part_names[2] = { "head", "foot" };
+const char * const rail_shape_names[10] = { "north_south", "east_west", "ascending_east", "ascending_west", "ascending_north", "ascending_south", "south_east", "south_west", "north_west", "north_east" };
+const char * const double_block_half_names[2] = { "upper", "lower" };
+const char * const piston_type_names[2] = { "normal", "sticky" };
+const char * const side_chain_part_names[4] = { "unconnected", "right", "center", "left" };
+const char * const creaking_heart_state_names[3] = { "uprooted", "dormant", "awake" };
+const char * const half_names[2] = { "top", "bottom" };
+const char * const stairs_shape_names[5] = { "straight", "inner_left", "inner_right", "outer_left", "outer_right" };
+const char * const chest_type_names[3] = { "single", "left", "right" };
+const char * const redstone_side_names[3] = { "up", "side", "none" };
+const char * const door_hinge_side_names[2] = { "left", "right" };
+const char * const attach_face_names[3] = { "floor", "wall", "ceiling" };
+const char * const slab_type_names[3] = { "top", "bottom", "double" };
+const char * const wall_side_names[3] = { "none", "low", "tall" };
+const char * const comparator_mode_names[2] = { "compare", "subtract" };
+const char * const bamboo_leaves_names[3] = { "none", "small", "large" };
+const char * const bell_attach_type_names[4] = { "floor", "ceiling", "single_wall", "double_wall" };
+const char * const structure_mode_names[4] = { "save", "load", "corner", "data" };
+const char * const front_and_top_names[12] = { "down_east", "down_north", "down_south", "down_west", "up_east", "up_north", "up_south", "up_west", "west_up", "east_up", "north_up", "south_up" };
+const char * const test_block_mode_names[4] = { "start", "log", "fail", "accept" };
+const char * const sculk_sensor_phase_names[3] = { "inactive", "active", "cooldown" };
+const char * const copper_golem_statue_block_pose_names[4] = { "standing", "sitting", "running", "star" };
+const char * const dripstone_thickness_names[5] = { "tip_merge", "tip", "frustum", "middle", "base" };
+const char * const tilt_names[4] = { "none", "unstable", "partial", "full" };
+const char * const trial_spawner_state_names[6] = { "inactive", "waiting_for_players", "active", "waiting_for_reward_ejection", "ejecting_reward", "cooldown" };
+const char * const vault_state_names[4] = { "inactive", "active", "unlocking", "ejecting" };
+const char * const tick_priority_names[7] = { "extremely_high", "very_high", "high", "normal", "low", "very_low", "extremely_low" };
+
 static const char * const prop_values_0[] = { "true", "false" };
 static const int8_t prop_codes_0[] = { 1, 0 };
 static const char * const prop_values_1[] = { "x", "y", "z" };

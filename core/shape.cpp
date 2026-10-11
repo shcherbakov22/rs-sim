@@ -54,7 +54,7 @@ shape_face shape_get_face(const shape & s, direction dir) {
     int32_t    u;
     int32_t    v;
     shape_face_axes(f.axis, u, v);
-    const block_pos & step = direction_defs[dir].step;
+    const block_pos & step = DIRECTION_STEPS[dir];
     double            p    = step.x + step.y + step.z > 0 ? 0.9999999 : 1.0E-7;
     for (const shape_box & b : s.boxes) {
         if (b.min[f.axis] > p || b.max[f.axis] <= p) continue;

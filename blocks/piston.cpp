@@ -224,7 +224,7 @@ static shape piston_moving_block_entity_get_collision_shape(level & lv, const bl
         return {};
     }
     float             extended_progress = piston_moving_block_entity_get_extended_progress(be, be->progress);
-    const block_pos & step              = direction_defs[be->dir].step;
+    const block_pos & step              = DIRECTION_STEPS[be->dir];
     shape             moved = shape_move(shape_collision(st), step.x * extended_progress, step.y * extended_progress,
                                          step.z * extended_progress);
     out.boxes.insert(out.boxes.end(), moved.boxes.begin(), moved.boxes.end());

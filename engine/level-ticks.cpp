@@ -3,25 +3,6 @@
 #include <algorithm>
 #include <tuple>
 
-static const char * const tick_priority_names[] = {
-    "extremely_high", "very_high", "high", "normal", "low", "very_low", "extremely_low",
-};
-
-const char * tick_priority_name(int32_t priority) {
-    TMC_ASSERT(priority >= -3 && priority <= 3);
-    return tick_priority_names[priority + 3];
-}
-
-bool tick_priority_parse(std::string_view name, int32_t & out) {
-    for (int32_t i = 0; i < 7; i++) {
-        if (name == tick_priority_names[i]) {
-            out = i - 3;
-            return true;
-        }
-    }
-    return false;
-}
-
 static bool tick_contains(const std::vector<scheduled_tick> & ticks, block_pos pos, int32_t block) {
     return std::any_of(ticks.begin(), ticks.end(),
                        [&](const scheduled_tick & t) { return t.block == block && t.pos == pos; });

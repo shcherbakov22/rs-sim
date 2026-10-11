@@ -9,6 +9,7 @@ enum direction_axis {
     DIRECTION_AXIS_Y = 1,
     DIRECTION_AXIS_Z = 2,
 };
+extern const char * const direction_axis_names[3];
 
 enum direction {
     DIRECTION_DOWN = 0,
@@ -18,6 +19,7 @@ enum direction {
     DIRECTION_WEST = 4,
     DIRECTION_EAST = 5,
 };
+extern const char * const direction_names[6];
 
 enum note_block_instrument {
     NOTE_BLOCK_INSTRUMENT_HARP = 0,
@@ -44,11 +46,13 @@ enum note_block_instrument {
     NOTE_BLOCK_INSTRUMENT_PIGLIN = 21,
     NOTE_BLOCK_INSTRUMENT_CUSTOM_HEAD = 22,
 };
+extern const char * const note_block_instrument_names[23];
 
 enum bed_part {
     BED_PART_HEAD = 0,
     BED_PART_FOOT = 1,
 };
+extern const char * const bed_part_names[2];
 
 enum rail_shape {
     RAIL_SHAPE_NORTH_SOUTH = 0,
@@ -62,16 +66,19 @@ enum rail_shape {
     RAIL_SHAPE_NORTH_WEST = 8,
     RAIL_SHAPE_NORTH_EAST = 9,
 };
+extern const char * const rail_shape_names[10];
 
 enum double_block_half {
     DOUBLE_BLOCK_HALF_UPPER = 0,
     DOUBLE_BLOCK_HALF_LOWER = 1,
 };
+extern const char * const double_block_half_names[2];
 
 enum piston_type {
     PISTON_TYPE_NORMAL = 0,
     PISTON_TYPE_STICKY = 1,
 };
+extern const char * const piston_type_names[2];
 
 enum side_chain_part {
     SIDE_CHAIN_PART_UNCONNECTED = 0,
@@ -79,17 +86,20 @@ enum side_chain_part {
     SIDE_CHAIN_PART_CENTER = 2,
     SIDE_CHAIN_PART_LEFT = 3,
 };
+extern const char * const side_chain_part_names[4];
 
 enum creaking_heart_state {
     CREAKING_HEART_STATE_UPROOTED = 0,
     CREAKING_HEART_STATE_DORMANT = 1,
     CREAKING_HEART_STATE_AWAKE = 2,
 };
+extern const char * const creaking_heart_state_names[3];
 
 enum half {
     HALF_TOP = 0,
     HALF_BOTTOM = 1,
 };
+extern const char * const half_names[2];
 
 enum stairs_shape {
     STAIRS_SHAPE_STRAIGHT = 0,
@@ -98,52 +108,61 @@ enum stairs_shape {
     STAIRS_SHAPE_OUTER_LEFT = 3,
     STAIRS_SHAPE_OUTER_RIGHT = 4,
 };
+extern const char * const stairs_shape_names[5];
 
 enum chest_type {
     CHEST_TYPE_SINGLE = 0,
     CHEST_TYPE_LEFT = 1,
     CHEST_TYPE_RIGHT = 2,
 };
+extern const char * const chest_type_names[3];
 
 enum redstone_side {
     REDSTONE_SIDE_UP = 0,
     REDSTONE_SIDE_SIDE = 1,
     REDSTONE_SIDE_NONE = 2,
 };
+extern const char * const redstone_side_names[3];
 
 enum door_hinge_side {
     DOOR_HINGE_SIDE_LEFT = 0,
     DOOR_HINGE_SIDE_RIGHT = 1,
 };
+extern const char * const door_hinge_side_names[2];
 
 enum attach_face {
     ATTACH_FACE_FLOOR = 0,
     ATTACH_FACE_WALL = 1,
     ATTACH_FACE_CEILING = 2,
 };
+extern const char * const attach_face_names[3];
 
 enum slab_type {
     SLAB_TYPE_TOP = 0,
     SLAB_TYPE_BOTTOM = 1,
     SLAB_TYPE_DOUBLE = 2,
 };
+extern const char * const slab_type_names[3];
 
 enum wall_side {
     WALL_SIDE_NONE = 0,
     WALL_SIDE_LOW = 1,
     WALL_SIDE_TALL = 2,
 };
+extern const char * const wall_side_names[3];
 
 enum comparator_mode {
     COMPARATOR_MODE_COMPARE = 0,
     COMPARATOR_MODE_SUBTRACT = 1,
 };
+extern const char * const comparator_mode_names[2];
 
 enum bamboo_leaves {
     BAMBOO_LEAVES_NONE = 0,
     BAMBOO_LEAVES_SMALL = 1,
     BAMBOO_LEAVES_LARGE = 2,
 };
+extern const char * const bamboo_leaves_names[3];
 
 enum bell_attach_type {
     BELL_ATTACH_TYPE_FLOOR = 0,
@@ -151,6 +170,7 @@ enum bell_attach_type {
     BELL_ATTACH_TYPE_SINGLE_WALL = 2,
     BELL_ATTACH_TYPE_DOUBLE_WALL = 3,
 };
+extern const char * const bell_attach_type_names[4];
 
 enum structure_mode {
     STRUCTURE_MODE_SAVE = 0,
@@ -158,6 +178,7 @@ enum structure_mode {
     STRUCTURE_MODE_CORNER = 2,
     STRUCTURE_MODE_DATA = 3,
 };
+extern const char * const structure_mode_names[4];
 
 enum front_and_top {
     FRONT_AND_TOP_DOWN_EAST = 0,
@@ -173,6 +194,7 @@ enum front_and_top {
     FRONT_AND_TOP_NORTH_UP = 10,
     FRONT_AND_TOP_SOUTH_UP = 11,
 };
+extern const char * const front_and_top_names[12];
 
 enum test_block_mode {
     TEST_BLOCK_MODE_START = 0,
@@ -180,12 +202,14 @@ enum test_block_mode {
     TEST_BLOCK_MODE_FAIL = 2,
     TEST_BLOCK_MODE_ACCEPT = 3,
 };
+extern const char * const test_block_mode_names[4];
 
 enum sculk_sensor_phase {
     SCULK_SENSOR_PHASE_INACTIVE = 0,
     SCULK_SENSOR_PHASE_ACTIVE = 1,
     SCULK_SENSOR_PHASE_COOLDOWN = 2,
 };
+extern const char * const sculk_sensor_phase_names[3];
 
 enum copper_golem_statue_block_pose {
     COPPER_GOLEM_STATUE_BLOCK_POSE_STANDING = 0,
@@ -193,6 +217,7 @@ enum copper_golem_statue_block_pose {
     COPPER_GOLEM_STATUE_BLOCK_POSE_RUNNING = 2,
     COPPER_GOLEM_STATUE_BLOCK_POSE_STAR = 3,
 };
+extern const char * const copper_golem_statue_block_pose_names[4];
 
 enum dripstone_thickness {
     DRIPSTONE_THICKNESS_TIP_MERGE = 0,
@@ -201,6 +226,7 @@ enum dripstone_thickness {
     DRIPSTONE_THICKNESS_MIDDLE = 3,
     DRIPSTONE_THICKNESS_BASE = 4,
 };
+extern const char * const dripstone_thickness_names[5];
 
 enum tilt {
     TILT_NONE = 0,
@@ -208,6 +234,7 @@ enum tilt {
     TILT_PARTIAL = 2,
     TILT_FULL = 3,
 };
+extern const char * const tilt_names[4];
 
 enum trial_spawner_state {
     TRIAL_SPAWNER_STATE_INACTIVE = 0,
@@ -217,6 +244,7 @@ enum trial_spawner_state {
     TRIAL_SPAWNER_STATE_EJECTING_REWARD = 4,
     TRIAL_SPAWNER_STATE_COOLDOWN = 5,
 };
+extern const char * const trial_spawner_state_names[6];
 
 enum vault_state {
     VAULT_STATE_INACTIVE = 0,
@@ -224,6 +252,18 @@ enum vault_state {
     VAULT_STATE_UNLOCKING = 2,
     VAULT_STATE_EJECTING = 3,
 };
+extern const char * const vault_state_names[4];
+
+enum tick_priority {
+    TICK_PRIORITY_EXTREMELY_HIGH = 0,
+    TICK_PRIORITY_VERY_HIGH = 1,
+    TICK_PRIORITY_HIGH = 2,
+    TICK_PRIORITY_NORMAL = 3,
+    TICK_PRIORITY_LOW = 4,
+    TICK_PRIORITY_VERY_LOW = 5,
+    TICK_PRIORITY_EXTREMELY_LOW = 6,
+};
+extern const char * const tick_priority_names[7];
 
 // vanilla item classes; ICLASS_NONE is Item
 enum item_class {

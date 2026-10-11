@@ -33,6 +33,13 @@ static bool parse_i32(std::string_view s, int32_t & out) {
     return r.ec == std::errc() && r.ptr == s.data() + s.size();
 }
 
+static bool parse_priority(std::string_view s, int32_t & out) {
+    for (out = 0; out < (int32_t) std::size(tick_priority_names); out++) {
+        if (s == tick_priority_names[out]) return true;
+    }
+    return false;
+}
+
 static bool parse_pos(const std::vector<std::string_view> & t, size_t i, block_pos & out) {
     return t.size() >= i + 3 && parse_i32(t[i], out.x) && parse_i32(t[i + 1], out.y) && parse_i32(t[i + 2], out.z);
 }
@@ -131,7 +138,7 @@ static bool case_parse_line(case_file & f, case_parser & p, std::string_view lin
         case_tick tk;
         tk.block = t.size() == 6 ? block_find(t[3]) : -1;
         if (!parse_pos(t, 0, tk.pos) || tk.block < 0 || !parse_i64(t[4], tk.delay) || tk.delay < 1 ||
-            !tick_priority_parse(t[5], tk.priority)) {
+            !parse_priority(t[5], tk.priority)) {
             return case_error(err, "expected 'x y z <block> <delay >= 1> <priority>'");
         }
         f.ticks.push_back(tk);

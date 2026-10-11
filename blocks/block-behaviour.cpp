@@ -151,7 +151,7 @@ state_id block_update_shape(level &   lv,
                             block_pos neighbor_pos,
                             state_id  neighbor) {
     trace_enter(lv.tr, &pos, "shape %d %d %d %s %s %s", pos.x, pos.y, pos.z, state_to_string(st).c_str(),
-                direction_defs[dir].name, state_to_string(neighbor).c_str());
+                direction_names[dir], state_to_string(neighbor).c_str());
     state_id result = st;
     // SimpleWaterloggedBlock: every updateShape schedules the water tick before anything else, except a ladder's
     if (state_has_prop(st, PROP_WATERLOGGED) && state_get(st, PROP_WATERLOGGED) &&

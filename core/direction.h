@@ -13,23 +13,19 @@ inline constexpr direction DIRECTION_HORIZONTAL[4] = { DIRECTION_NORTH, DIRECTIO
                                                        DIRECTION_WEST };
 inline constexpr direction DIRECTION_VERTICAL[2]   = { DIRECTION_UP, DIRECTION_DOWN };
 
-struct direction_def {
-    const char * name;
-    block_pos    step;
-};
-
-inline constexpr direction_def direction_defs[] = {
-    { "down",  { 0, -1, 0 } },
-    { "up",    { 0, 1, 0 }  },
-    { "north", { 0, 0, -1 } },
-    { "south", { 0, 0, 1 }  },
-    { "west",  { -1, 0, 0 } },
-    { "east",  { 1, 0, 0 }  },
+// Direction.getNormal
+inline constexpr block_pos DIRECTION_STEPS[6] = {
+    { 0,  -1, 0  },
+    { 0,  1,  0  },
+    { 0,  0,  -1 },
+    { 0,  0,  1  },
+    { -1, 0,  0  },
+    { 1,  0,  0  }
 };
 
 inline bool direction_parse(std::string_view name, direction & out) {
     for (int32_t i = 0; i < 6; i++) {
-        if (name == direction_defs[i].name) {
+        if (name == direction_names[i]) {
             out = (direction) i;
             return true;
         }
@@ -42,13 +38,13 @@ inline direction direction_opposite(direction dir) {
 }
 
 inline block_pos pos_relative(block_pos pos, direction dir) {
-    const block_pos & s = direction_defs[dir].step;
+    const block_pos & s = DIRECTION_STEPS[dir];
     return { pos.x + s.x, pos.y + s.y, pos.z + s.z };
 }
 
 // BlockPos.relative(Direction, int)
 inline block_pos pos_relative_steps(block_pos pos, direction dir, int32_t steps) {
-    const block_pos & s = direction_defs[dir].step;
+    const block_pos & s = DIRECTION_STEPS[dir];
     return { pos.x + s.x * steps, pos.y + s.y * steps, pos.z + s.z * steps };
 }
 

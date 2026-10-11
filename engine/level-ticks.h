@@ -1,23 +1,9 @@
 #pragma once
 
 #include "core/common.h"
+#include "gen/blocks.h"
 
-#include <string_view>
 #include <vector>
-
-// vanilla TickPriority values
-enum tick_priority {
-    TICK_PRIORITY_EXTREMELY_HIGH = -3,
-    TICK_PRIORITY_VERY_HIGH      = -2,
-    TICK_PRIORITY_HIGH           = -1,
-    TICK_PRIORITY_NORMAL         = 0,
-    TICK_PRIORITY_LOW            = 1,
-    TICK_PRIORITY_VERY_LOW       = 2,
-    TICK_PRIORITY_EXTREMELY_LOW  = 3,
-};
-
-const char * tick_priority_name(int32_t priority);
-bool         tick_priority_parse(std::string_view name, int32_t & out);
 
 struct scheduled_tick {
     int32_t   block;
