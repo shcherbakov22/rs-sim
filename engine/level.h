@@ -41,6 +41,9 @@ enum update_flag {
 
 constexpr int32_t UPDATE_LIMIT = 512;
 
+// sections per axis of the grid around the origin that level_find_section reads without the map
+constexpr int32_t LEVEL_NEAR_SECTIONS = 8;
+
 struct level_section {
     state_id states[16 * 16 * 16] = {};
     int32_t  n_non_air            = 0;
@@ -62,9 +65,8 @@ struct redstone_torch_toggle {
 // One world (ServerLevel). Everything outside the stored sections is air.
 struct level {
     std::unordered_map<int64_t, std::unique_ptr<level_section>> sections;  // never removed
-    // the last section looked up (null: none there); lookups mostly stay in one section
-    mutable int64_t                                             last_section_key = INT64_MIN;
-    mutable level_section *                                     last_section     = nullptr;
+    // the sections within LEVEL_NEAR_SECTIONS / 2 of the origin (null: none there); cases stay near it
+    level_section * near_sections[LEVEL_NEAR_SECTIONS * LEVEL_NEAR_SECTIONS * LEVEL_NEAR_SECTIONS] = {};
 
     int64_t                  game_time      = 0;  // relative to the case placement; case data is relative too
     int64_t                  sub_tick_count = 0;

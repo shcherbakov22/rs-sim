@@ -42,14 +42,20 @@ static bool level_in_valid_bounds(block_pos pos) {
            pos.z < 30000000;
 }
 
+// the index in near_sections, -1 outside the grid
+static int32_t level_near_index(block_pos pos) {
+    int32_t x = (pos.x >> 4) + LEVEL_NEAR_SECTIONS / 2;
+    int32_t y = (pos.y >> 4) + LEVEL_NEAR_SECTIONS / 2;
+    int32_t z = (pos.z >> 4) + LEVEL_NEAR_SECTIONS / 2;
+    if ((uint32_t) (x | y | z) >= LEVEL_NEAR_SECTIONS) return -1;
+    return (y * LEVEL_NEAR_SECTIONS + z) * LEVEL_NEAR_SECTIONS + x;
+}
+
 static level_section * level_find_section(const level & lv, block_pos pos) {
-    int64_t key = section_key(pos);
-    if (key != lv.last_section_key) {
-        auto it             = lv.sections.find(key);
-        lv.last_section_key = key;
-        lv.last_section     = it == lv.sections.end() ? nullptr : it->second.get();
-    }
-    return lv.last_section;
+    int32_t near = level_near_index(pos);
+    if (near >= 0) return lv.near_sections[near];
+    auto it = lv.sections.find(section_key(pos));
+    return it == lv.sections.end() ? nullptr : it->second.get();
 }
 
 state_id level_get_state(const level & lv, block_pos pos) {
@@ -62,8 +68,9 @@ state_id level_get_state(const level & lv, block_pos pos) {
 static state_id section_set(level & lv, block_pos pos, state_id st) {
     level_section * s = level_find_section(lv, pos);
     if (s == nullptr) {
-        s               = (lv.sections[lv.last_section_key] = std::make_unique<level_section>()).get();
-        lv.last_section = s;
+        s            = (lv.sections[section_key(pos)] = std::make_unique<level_section>()).get();
+        int32_t near = level_near_index(pos);
+        if (near >= 0) lv.near_sections[near] = s;
     }
     state_id & cell = s->states[section_index(pos)];
     state_id   old  = cell;
