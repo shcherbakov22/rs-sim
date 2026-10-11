@@ -36,7 +36,8 @@ static bool run_next(level & lv, neighbor_update & u) {
     return false;
 }
 
-static void run_updates(level & lv) {
+// out of line, so neighbor_updater_add inlines and callers build the update in the queue: a stack copy stalls on store forwarding
+[[gnu::noinline]] static void run_updates(level & lv) {
     neighbor_updater & nu = lv.updater;
     while (!nu.stack.empty() || !nu.added_this_layer.empty()) {
         // the first update added this layer ends up on top
