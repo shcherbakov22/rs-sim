@@ -437,16 +437,6 @@ static block_pos shelf_neighbor_pos(block_pos center, direction facing, bool lef
     return pos_relative_steps(center, left ? direction_clockwise(facing) : direction_counter_clockwise(facing), steps);
 }
 
-static int32_t side_chain_part_when_connected_to_the_right(int32_t part) {
-    return part == SIDE_CHAIN_PART_UNCONNECTED || part == SIDE_CHAIN_PART_LEFT ? SIDE_CHAIN_PART_LEFT :
-                                                                                 SIDE_CHAIN_PART_CENTER;
-}
-
-static int32_t side_chain_part_when_connected_to_the_left(int32_t part) {
-    return part == SIDE_CHAIN_PART_UNCONNECTED || part == SIDE_CHAIN_PART_RIGHT ? SIDE_CHAIN_PART_RIGHT :
-                                                                                  SIDE_CHAIN_PART_CENTER;
-}
-
 // SideChainPartBlock.getAllBlocksConnectedTo, left end first
 static std::vector<block_pos> shelf_get_all_blocks_connected_to(level & lv, block_pos pos) {
     state_id st = level_get_state(lv, pos);
@@ -481,20 +471,10 @@ static void shelf_update_neighbors_after_powering_down(level & lv, block_pos pos
     direction facing = state_facing(st);
     block_pos left   = shelf_neighbor_pos(pos, facing, true, 1);
     int32_t   part   = shelf_neighbor_part(lv, left, facing);
-    if (part >= 0) {
-        shelf_set_part(lv, left,
-                       part == SIDE_CHAIN_PART_UNCONNECTED || part == SIDE_CHAIN_PART_LEFT ?
-                           SIDE_CHAIN_PART_UNCONNECTED :
-                           SIDE_CHAIN_PART_RIGHT);
-    }
+    if (part >= 0) shelf_set_part(lv, left, side_chain_part_when_disconnected_from_the_right[part]);
     block_pos right = shelf_neighbor_pos(pos, facing, false, 1);
     part            = shelf_neighbor_part(lv, right, facing);
-    if (part >= 0) {
-        shelf_set_part(lv, right,
-                       part == SIDE_CHAIN_PART_UNCONNECTED || part == SIDE_CHAIN_PART_RIGHT ?
-                           SIDE_CHAIN_PART_UNCONNECTED :
-                           SIDE_CHAIN_PART_LEFT);
-    }
+    if (part >= 0) shelf_set_part(lv, right, side_chain_part_when_disconnected_from_the_left[part]);
 }
 
 static bool shelf_can_connect(int32_t new_blocks_to_connect_to, int32_t current_chain_length) {
@@ -519,13 +499,13 @@ static void shelf_update_self_and_neighbors_on_powering_up(level & lv, block_pos
     int32_t   self_part     = SIDE_CHAIN_PART_UNCONNECTED;
     int32_t   current_chain = 1;
     if (shelf_can_connect(chain_left, current_chain)) {
-        self_part = side_chain_part_when_connected_to_the_left(self_part);
-        shelf_set_part(lv, left, side_chain_part_when_connected_to_the_right(left_part));
+        self_part = side_chain_part_when_connected_to_the_left[self_part];
+        shelf_set_part(lv, left, side_chain_part_when_connected_to_the_right[left_part]);
         current_chain += chain_left;
     }
     if (shelf_can_connect(chain_right, current_chain)) {
-        self_part = side_chain_part_when_connected_to_the_right(self_part);
-        shelf_set_part(lv, right, side_chain_part_when_connected_to_the_left(right_part));
+        self_part = side_chain_part_when_connected_to_the_right[self_part];
+        shelf_set_part(lv, right, side_chain_part_when_connected_to_the_left[right_part]);
     }
     shelf_set_part(lv, pos, self_part);
 }

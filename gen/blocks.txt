@@ -35,6 +35,10 @@ enum TrialSpawnerState inactive waiting_for_players active waiting_for_reward_ej
 enum VaultState inactive active unlocking ejecting
 enum TickPriority extremely_high very_high high normal low very_low extremely_low
 front_and_top_fronts 0 0 0 0 1 1 1 1 4 5 2 3
+side_chain_part whenConnectedToTheRight 3 2 2 3
+side_chain_part whenConnectedToTheLeft 1 1 2 2
+side_chain_part whenDisconnectedFromTheRight 0 1 1 0
+side_chain_part whenDisconnectedFromTheLeft 0 0 3 3
 property SNOWY snowy bool true false
 property AXIS axis enum:Direction$Axis x y z
 property STAGE stage int 0 1
