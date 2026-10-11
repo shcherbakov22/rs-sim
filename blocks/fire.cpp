@@ -4,6 +4,8 @@
 #include "core/rng.h"
 #include "engine/level.h"
 
+#include <bit>
+
 // PortalShape: an empty obsidian frame 2..21 wide and 3..21 high
 
 constexpr int32_t PORTAL_SHAPE_MAX_SIZE = 21;
@@ -139,6 +141,16 @@ static void portal_shape_create_portal_blocks(level & lv, const portal_shape & s
     }
 }
 
+// BaseFireBlock.entityInside: ignite, then hurt by the block's fire damage
+static void base_fire_entity_inside(level &, state_id st, block_pos, entity &, entity_effect_collector & effects,
+                                    bool) {
+    float damage = std::bit_cast<float>(block_field_get(state_block(st), FIELD_BASE_FIRE_BLOCK_FIRE_DAMAGE));
+    entity_effect_collector_apply(effects, INSIDE_BLOCK_EFFECT_TYPE_CLEAR_FREEZE);
+    entity_effect_collector_apply(effects, INSIDE_BLOCK_EFFECT_TYPE_FIRE_IGNITE);
+    entity_effect_collector_run_after(effects, INSIDE_BLOCK_EFFECT_TYPE_FIRE_IGNITE,
+                                      { ENTITY_EFFECT_HURT, DAMAGE_TYPE_IN_FIRE, damage });
+}
+
 // BaseFireBlock.onPlace: the oracle level is the overworld, a portal dimension
 static void base_fire_on_place(level & lv, state_id st, block_pos pos, state_id old, bool) {
     if (state_is(old, state_block(st))) return;
@@ -263,7 +275,7 @@ static state_id nether_portal_update_shape(level & lv, state_id st, block_pos po
 
 // clang-format off
 const std::vector<block_hooks> fire_hooks = {
-    { .vclass = VCLASS_BASE_FIRE_BLOCK, .on_place = base_fire_on_place },
+    { .vclass = VCLASS_BASE_FIRE_BLOCK, .on_place = base_fire_on_place, .entity_inside = base_fire_entity_inside },
     { .vclass = VCLASS_FIRE_BLOCK,
       .update_shape = fire_update_shape,
       .on_place = fire_on_place,

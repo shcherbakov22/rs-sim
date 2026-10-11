@@ -8,6 +8,8 @@ static int16_t hook_owner(state_id st, hook h) { return vclass_hooks[state_class
 
 state_id block_behaviour_update_shape(level &, state_id st, block_pos, direction, block_pos, state_id) { return st; }
 
+void block_living_only(level &, state_id, block_pos, entity &) {}
+
 // SimpleWaterloggedBlock.placeLiquid: only a water source fills the block
 static bool simple_waterlogged_place_liquid(level & lv, block_pos pos, state_id st, fluid_state_id fs) {
     if (state_get(st, PROP_WATERLOGGED) || fluid_state_get_type(fs) != FLUID_WATER) return false;
@@ -61,7 +63,7 @@ static const std::vector<block_hooks> water_hooks = {
 static const std::vector<block_hooks> * const block_hook_families[] = {
     &water_hooks,   &dispenser_hooks,  &hopper_hooks,   &container_hooks, &piston_hooks,
     &diode_hooks,   &redstone_hooks,   &rail_hooks,     &terrain_hooks,   &fire_hooks,
-    &powered_hooks, &connecting_hooks, &attached_hooks, &fluid_hooks,
+    &powered_hooks, &connecting_hooks, &attached_hooks, &fluid_hooks,     &landing_hooks,
 };
 
 static const block_hooks * block_hooks_of(int32_t vclass) {
@@ -95,6 +97,10 @@ static bool block_hooks_has(const block_hooks & b, hook h) {
         case HOOK_SHOULD_CHANGED_STATE_KEEP_BLOCK_ENTITY: return b.should_changed_state_keep_block_entity != nullptr;
         case HOOK_PLACE_LIQUID: return b.place_liquid != nullptr;
         case HOOK_PICKUP_BLOCK: return b.pickup_block != nullptr;
+        case HOOK_ENTITY_INSIDE: return b.entity_inside != nullptr;
+        case HOOK_STEP_ON: return b.step_on != nullptr;
+        case HOOK_FALL_ON: return b.fall_on != nullptr;
+        case HOOK_UPDATE_ENTITY_MOVEMENT_AFTER_FALL_ON: return b.update_entity_movement_after_fall_on != nullptr;
         case HOOK_COUNT: break;
     }
     TMC_ASSERT(false);
@@ -306,4 +312,34 @@ item_stack block_pickup_block(level & lv, block_pos pos, state_id st) {
     level_set_block(lv, pos, state_set(st, PROP_WATERLOGGED, false), UPDATE_FLAG_ALL);
     if (!block_can_survive(lv, st, pos)) level_destroy_block(lv, pos, true);
     return { ITEM_WATER_BUCKET, 1, 0 };
+}
+
+void block_entity_inside(level & lv, state_id st, block_pos pos, entity & e, entity_effect_collector & effects,
+                         bool is_precise) {
+    const block_hooks * b = block_hooks_for(lv, st, HOOK_ENTITY_INSIDE);
+    if (b != nullptr) b->entity_inside(lv, st, pos, e, effects, is_precise);
+}
+
+uint16_t block_get_entity_inside_collision_shape(level & lv, state_id st) {
+    if (state_inside_shapes[st] == SHAPE_NONE) level_unsupported(lv, "entity inside %s", state_to_string(st).c_str());
+    return state_inside_shapes[st];
+}
+
+void block_step_on(level & lv, state_id st, block_pos pos, entity & e) {
+    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_STEP_ON)) b->step_on(lv, st, pos, e);
+}
+
+// the default Block.fallOn calls Entity.causeFallDamage, which only passes the fall on to passengers
+void block_fall_on(level & lv, state_id st, block_pos pos, entity & e) {
+    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_FALL_ON)) b->fall_on(lv, st, pos, e);
+}
+
+// Block.updateEntityMovementAfterFallOn stops the fall; a negative speed leaves -0.0
+void block_update_entity_movement_after_fall_on(level & lv, state_id st, entity & e) {
+    const block_hooks * b = block_hooks_for(lv, st, HOOK_UPDATE_ENTITY_MOVEMENT_AFTER_FALL_ON);
+    if (b != nullptr) {
+        b->update_entity_movement_after_fall_on(e);
+    } else {
+        e.delta.y *= 0.0;
+    }
 }

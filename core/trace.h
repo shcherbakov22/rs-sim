@@ -34,5 +34,8 @@ void trace_phase(trace * tr, const char * name);
 void trace_enter(trace * tr);
 void trace_exit(trace * tr);
 
+// Double.toString: the shortest digits that read back exactly, plain from 1e-3 to 1e7, else as d.dddE-n
+std::string trace_double(double v);
+
 // annotations ("  # ...") are not part of the contract
 std::string trace_strip(const std::string & line);

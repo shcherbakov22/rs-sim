@@ -1,0 +1,137 @@
+#pragma once
+
+#include "core/aabb.h"
+#include "core/item-stack.h"
+#include "core/rng.h"
+#include "core/state.h"
+
+#include <vector>
+
+struct level;
+
+// Entity.Movement; original is the axisDependentOriginalMovement of a move
+struct entity_movement {
+    vec3 from;
+    vec3 to;
+    bool has_original;
+    vec3 original;
+};
+
+// Entity as a tagged struct: the fields after the common ones belong to one type. Positions are world coordinates,
+// so doubles round like vanilla's.
+struct entity {
+    int32_t     id;
+    entity_type type;
+    rng         random;   // the oracle seeds it with the id
+    vec3        pos;
+    vec3        old_pos;  // xOld, set before each tick
+    vec3        delta;    // deltaMovement
+    aabb        bb;
+    int64_t     section_key = 0;
+    bool        removed     = false;
+    bool        first_tick  = true;
+    int32_t     tick_count  = 0;
+
+    bool      on_ground                = false;
+    bool      horizontal_collision     = false;
+    bool      vertical_collision       = false;
+    bool      vertical_collision_below = false;
+    bool      no_physics               = false;
+    bool      has_main_support         = false;  // mainSupportingBlockPos is present
+    block_pos main_support             = {};     // relative to the case origin like other block positions
+    bool      on_ground_no_blocks      = false;
+    double    fall_distance            = 0.0;
+    vec3      stuck_speed_multiplier   = {};  // from a block the entity is in, for its next move
+    double    piston_deltas[3]         = {};  // how far pistons moved the entity this game tick, per axis
+    int64_t   piston_deltas_game_time  = -1;
+    int32_t   remaining_fire_ticks     = 0;
+    bool      was_touching_water       = false;
+    double    fluid_height_water       = 0.0;
+    double    fluid_height_lava        = 0.0;
+
+    std::vector<entity_movement> movement_this_tick;
+
+    // ItemEntity
+    item_stack item;
+    int32_t    age          = 0;
+    int32_t    pickup_delay = 0;
+    int32_t    health       = 5;
+};
+
+// InsideBlockEffectType, in StepBasedCollector.APPLY_ORDER
+enum inside_block_effect_type {
+    INSIDE_BLOCK_EFFECT_TYPE_FREEZE,
+    INSIDE_BLOCK_EFFECT_TYPE_CLEAR_FREEZE,
+    INSIDE_BLOCK_EFFECT_TYPE_FIRE_IGNITE,
+    INSIDE_BLOCK_EFFECT_TYPE_LAVA_IGNITE,
+    INSIDE_BLOCK_EFFECT_TYPE_EXTINGUISH,
+    INSIDE_BLOCK_EFFECT_TYPE_COUNT,
+};
+
+// what an effect does: the effect of a type (same values), or a callback a block runs after one
+enum entity_effect_kind {
+    ENTITY_EFFECT_FREEZE,
+    ENTITY_EFFECT_CLEAR_FREEZE,
+    ENTITY_EFFECT_FIRE_IGNITE,
+    ENTITY_EFFECT_LAVA_IGNITE,
+    ENTITY_EFFECT_EXTINGUISH,
+    ENTITY_EFFECT_HURT,       // hurt by damage and amount
+    ENTITY_EFFECT_LAVA_HURT,  // Entity.lavaHurt
+};
+
+struct entity_effect {
+    entity_effect_kind kind;
+    damage_type        damage;
+    float              amount;
+};
+
+// InsideBlockEffectApplier.StepBasedCollector; nothing in scope runs an effect before a type
+struct entity_effect_collector {
+    uint32_t                   effects_in_step = 0;  // inside_block_effect_type bits
+    std::vector<entity_effect> after[INSIDE_BLOCK_EFFECT_TYPE_COUNT];
+    std::vector<entity_effect> final_effects;
+    int32_t                    last_step = -1;
+};
+
+void entity_effect_collector_apply(entity_effect_collector & c, inside_block_effect_type type);
+void entity_effect_collector_run_after(entity_effect_collector & c, inside_block_effect_type type,
+                                       entity_effect effect);
+
+// MoverType
+enum mover_type {
+    MOVER_TYPE_SELF,
+    MOVER_TYPE_PISTON,
+};
+
+// Entity constructor and the setPos of the type's constructor: the next id and the seeded random
+entity * entity_new(level & lv, entity_type type, vec3 pos);
+// Level.addFreshEntity
+void     level_add_fresh_entity(level & lv, entity * e);
+void     entity_discard(level & lv, entity & e);
+
+// a block's world corner; entity positions are world coordinates
+vec3 entity_block_to_world(block_pos pos);
+
+// the "stack" trace line of an item entity
+void entity_trace_stack_changed(level & lv, const entity & e);
+
+// ServerLevel.tick: the entities phase
+void level_tick_entities(level & lv);
+
+// Level.getEntities: the entities whose box intersects box, in vanilla's section and insertion order
+void level_get_entities(level & lv, const aabb & box, std::vector<entity *> & out);
+
+// Entity base behaviour that entity types build on
+void      entity_base_tick(level & lv, entity & e);
+void      entity_move(level & lv, entity & e, mover_type type, vec3 delta);
+void      entity_apply_effects_from_blocks(level & lv, entity & e);
+// Entity.applyEffectsFromBlocks for one move that is not the entity's own
+void      entity_apply_effects_from_blocks_between(level & lv, entity & e, vec3 from, vec3 to);
+bool      entity_update_in_water_state_and_do_fluid_pushing(level & lv, entity & e);
+void      entity_move_towards_closest_space(level & lv, entity & e, vec3 at);
+bool      entity_is_in_lava(const entity & e);
+block_pos entity_get_block_pos_below_that_affects_my_movement(level & lv, const entity & e);
+// Level.noCollision for an entity
+bool      level_no_collision(level & lv, const entity & e, const aabb & box);
+// BlockStateBase.isCollisionShapeFullBlock
+bool      block_is_collision_shape_full_block(level & lv, state_id st, block_pos pos);

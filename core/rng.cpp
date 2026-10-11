@@ -39,6 +39,12 @@ double rng_next_double(rng & r) {
     int32_t upper    = rng_next(r, 26);
     int32_t lower    = rng_next(r, 27);
     int64_t combined = ((int64_t) upper << 27) + lower;
-    // vanilla multiplies by a float constant, so the product is rounded to float
-    return (double) ((float) combined * 1.110223E-16F);
+    // the constant is a float literal, but the product is a double
+    return (double) combined * (double) 1.110223E-16F;
+}
+
+double rng_triangle(rng & r, double mean, double spread) {
+    double a = rng_next_double(r);
+    double b = rng_next_double(r);
+    return mean + spread * (a - b);
 }

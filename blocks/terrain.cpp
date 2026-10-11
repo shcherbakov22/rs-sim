@@ -7,8 +7,9 @@
 
 #include <algorithm>
 
-// FallingBlockEntity.fall clears the block to its fluid before the spawn, which ends the run
+// FallingBlockEntity.fall constructs the entity, taking an id, then clears the block to its fluid before the spawn
 static void falling_block_entity_fall(level & lv, state_id st, block_pos pos) {
+    lv.entity_counter++;
     level_set_block(lv, pos, fluid_state_create_legacy_block(state_fluid_state(st)), UPDATE_FLAG_ALL);
     level_boundary(lv, "spawn falling_block %d %d %d", pos.x, pos.y, pos.z);
 }
@@ -212,11 +213,12 @@ const std::vector<block_hooks> terrain_hooks = {
       .update_shape = soul_sand_update_shape,
       .on_place = soul_sand_on_place,
       .tick = soul_sand_tick },
-    { .vclass = VCLASS_POWDER_SNOW_BLOCK, .pickup_block = powder_snow_pickup_block },
+    { .vclass = VCLASS_POWDER_SNOW_BLOCK, .pickup_block = powder_snow_pickup_block, .fall_on = block_living_only },
     { .vclass = VCLASS_MAGMA_BLOCK,
       .update_shape = soul_sand_update_shape,
       .on_place = soul_sand_on_place,
-      .tick = soul_sand_tick },
+      .tick = soul_sand_tick,
+      .step_on = block_living_only },
     { .vclass = VCLASS_SNOWY_DIRT_BLOCK, .update_shape = snowy_dirt_update_shape },
     { .vclass = VCLASS_DIRT_PATH_BLOCK,
       .update_shape = dirt_path_update_shape,

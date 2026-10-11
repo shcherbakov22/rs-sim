@@ -16,3 +16,5 @@ int32_t rng_next_int(rng & r, int32_t bound);
 int64_t rng_next_long(rng & r);
 float   rng_next_float(rng & r);
 double  rng_next_double(rng & r);
+// RandomSource.triangle: the first draw minus the second
+double  rng_triangle(rng & r, double mean, double spread);

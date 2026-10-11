@@ -1,10 +1,11 @@
-// Hoppers: HopperBlock and HopperBlockEntity. The sim has no entities, so the item entity and container entity lookups find nothing.
+// Hoppers: HopperBlock and HopperBlockEntity. No container entity is in scope, so that lookup finds nothing.
 // The shulker box is a WorldlyContainer: every face sees every slot, and it refuses shulker boxes.
 // The composter's containers are WorldlyContainers too, one slot seen from a single face.
 // The crafter, the jukebox and the chiseled bookshelf override Container.canPlaceItem; the last two also override canTakeItem.
 
 #include "blocks/handlers.h"
 #include "engine/level.h"
+#include "entities/handlers.h"
 
 static bool hopper_block_entity_is_on_cooldown(const block_entity * be) { return be->cooldown_time > 0; }
 
@@ -171,14 +172,48 @@ static bool hopper_block_entity_try_take_in_item_from_slot(level & lv, const con
     return false;
 }
 
-// without a container above, vanilla only looks for item entities
+// HopperBlockEntity.addItem of an item entity: the stack goes in as a copy
+static bool hopper_block_entity_add_item_entity(level & lv, const container & to, entity & e) {
+    item_stack result = hopper_block_entity_add_item(lv, nullptr, to, e.item, nullptr);
+    if (item_stack_is_empty(result)) {
+        item_entity_set_item(lv, e, item_stack());
+        entity_discard(lv, e);
+        return true;
+    }
+    item_entity_set_item(lv, e, result);
+    return false;
+}
+
+// HopperBlockEntity.getItemsAtAndAbove: SUCK_AABB from the top of the bowl to the top of the block above
+static void hopper_block_entity_get_items_at_and_above(level & lv, block_pos pos, std::vector<entity *> & out) {
+    vec3                  w = entity_block_to_world(pos);
+    std::vector<entity *> found;
+    level_get_entities(lv, aabb_of(w.x, w.y + 0.6875, w.z, w.x + 1.0, w.y + 2.0, w.z + 1.0), found);
+    for (entity * e : found) {
+        if (e->type == ENTITY_TYPE_ITEM && !e->removed) out.push_back(e);
+    }
+}
+
+// without a container above, the hopper takes item entities unless a full block covers it
 static bool hopper_block_entity_suck_in_items(level & lv, block_entity * be) {
     container           source;
     composter_container composter;
-    if (!hopper_block_entity_get_container_at(lv, pos_relative(be->pos, DIRECTION_UP), source, composter)) return false;
-    container hopper = { be, nullptr };
-    for (int32_t slot = 0; slot < hopper_block_entity_get_slots(source, DIRECTION_DOWN); slot++) {
-        if (hopper_block_entity_try_take_in_item_from_slot(lv, hopper, source, slot, DIRECTION_DOWN)) return true;
+    container           hopper = { be, nullptr };
+    block_pos           above  = pos_relative(be->pos, DIRECTION_UP);
+    if (hopper_block_entity_get_container_at(lv, above, source, composter)) {
+        for (int32_t slot = 0; slot < hopper_block_entity_get_slots(source, DIRECTION_DOWN); slot++) {
+            if (hopper_block_entity_try_take_in_item_from_slot(lv, hopper, source, slot, DIRECTION_DOWN)) return true;
+        }
+        return false;
+    }
+    state_id st = level_get_state(lv, above);
+    if (block_is_collision_shape_full_block(lv, st, above) && !state_has(st, STATE_FLAG_TAG_DOES_NOT_BLOCK_HOPPERS)) {
+        return false;
+    }
+    std::vector<entity *> items;
+    hopper_block_entity_get_items_at_and_above(lv, be->pos, items);
+    for (entity * e : items) {
+        if (hopper_block_entity_add_item_entity(lv, hopper, *e)) return true;
     }
     return false;
 }
@@ -190,11 +225,16 @@ static bool hopper_block_entity_inventory_full(const block_entity * be) {
     return true;
 }
 
-static void hopper_block_entity_try_move_items(level & lv, block_pos pos, state_id st, block_entity * be) {
+// the action takes in the item entity, or sucks in items without one
+static void hopper_block_entity_try_move_items(level & lv, block_pos pos, state_id st, block_entity * be,
+                                               entity * item) {
     if (hopper_block_entity_is_on_cooldown(be) || !state_get(st, PROP_ENABLED)) return;
     bool changed = false;
     if (!container_is_empty({ be, nullptr })) changed = hopper_block_entity_eject_items(lv, pos, be);
-    if (!hopper_block_entity_inventory_full(be)) changed |= hopper_block_entity_suck_in_items(lv, be);
+    if (!hopper_block_entity_inventory_full(be)) {
+        changed |= item != nullptr ? hopper_block_entity_add_item_entity(lv, { be, nullptr }, *item) :
+                                     hopper_block_entity_suck_in_items(lv, be);
+    }
     if (changed) {
         be->cooldown_time = 8;
         block_entity_set_changed(lv, pos, st);
@@ -206,7 +246,7 @@ void hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st,
     be->ticked_game_time = lv.game_time;
     if (!hopper_block_entity_is_on_cooldown(be)) {
         be->cooldown_time = 0;
-        hopper_block_entity_try_move_items(lv, pos, st, be);
+        hopper_block_entity_try_move_items(lv, pos, st, be, nullptr);
     }
 }
 
@@ -216,6 +256,16 @@ static void hopper_check_powered_state(level & lv, state_id st, block_pos pos) {
     bool should_be_on = !level_has_neighbor_signal(lv, pos);
     if (should_be_on != (state_get(st, PROP_ENABLED) != 0)) {
         level_set_block(lv, pos, state_set(st, PROP_ENABLED, should_be_on), UPDATE_FLAG_CLIENTS);
+    }
+}
+
+// HopperBlockEntity.entityInside: an item entity in the suck box goes in right away
+static void hopper_entity_inside(level & lv, state_id st, block_pos pos, entity & e, entity_effect_collector &, bool) {
+    block_entity * be = level_get_block_entity_of_type(lv, pos, BLOCK_ENTITY_TYPE_HOPPER);
+    if (be == nullptr || e.type != ENTITY_TYPE_ITEM || item_stack_is_empty(e.item)) return;
+    vec3 w = entity_block_to_world(pos);
+    if (aabb_intersects(aabb_move(e.bb, { -w.x, -w.y, -w.z }), aabb_of(0.0, 0.6875, 0.0, 1.0, 2.0, 1.0))) {
+        hopper_block_entity_try_move_items(lv, pos, st, be, &e);
     }
 }
 
@@ -233,6 +283,7 @@ const std::vector<block_hooks> hopper_hooks = {
       .neighbor_changed = hopper_neighbor_changed,
       .on_place = hopper_on_place,
       .affect_neighbors_after_removal = containers_update_neighbours_after_destroy,
-      .get_analog_output_signal = container_get_redstone_signal_from_block_entity },
+      .get_analog_output_signal = container_get_redstone_signal_from_block_entity,
+      .entity_inside = hopper_entity_inside },
 };
 // clang-format on

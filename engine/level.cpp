@@ -3,6 +3,7 @@
 #include "blocks/block-behaviour.h"
 #include "blocks/handlers.h"
 #include "core/trace.h"
+#include "entities/handlers.h"
 
 #include <algorithm>
 #include <cstdarg>
@@ -32,18 +33,7 @@ void level_boundary(level & lv, const char * fmt, ...) {
     lv.random.tr = nullptr;
 }
 
-// SectionPos.asLong
-static int64_t section_key(block_pos pos) {
-    int64_t x = pos.x >> 4;
-    int64_t y = pos.y >> 4;
-    int64_t z = pos.z >> 4;
-    return (x & 0x3FFFFF) << 42 | (z & 0x3FFFFF) << 20 | (y & 0xFFFFF);
-}
-
-// BlockPos.asLong
-static int64_t pos_key(block_pos pos) {
-    return ((int64_t) pos.x & 0x3FFFFFF) << 38 | ((int64_t) pos.z & 0x3FFFFFF) << 12 | ((int64_t) pos.y & 0xFFF);
-}
+static int64_t section_key(block_pos pos) { return section_pos_as_long(pos.x >> 4, pos.y >> 4, pos.z >> 4); }
 
 static int32_t section_index(block_pos pos) { return (pos.y & 15) << 8 | (pos.z & 15) << 4 | (pos.x & 15); }
 
@@ -128,7 +118,7 @@ static constexpr block_entity_type BLOCK_ENTITY_TYPES_SUPPORTED[] = {
     BLOCK_ENTITY_TYPE_DECORATED_POT, BLOCK_ENTITY_TYPE_JUKEBOX, BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF,
     BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_TRAPPED_CHEST, BLOCK_ENTITY_TYPE_BARREL,
     BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_COMPARATOR, BLOCK_ENTITY_TYPE_BELL,
-    BLOCK_ENTITY_TYPE_ENDER_CHEST, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_END_PORTAL,
+    BLOCK_ENTITY_TYPE_ENDER_CHEST, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_END_PORTAL, BLOCK_ENTITY_TYPE_BED,
 };
 // clang-format on
 
@@ -315,23 +305,38 @@ static double rng_next_double_between(rng & r, double min, double max) {
     return min >= max ? min : rng_next_double(r) * (max - min) + min;
 }
 
-// Block.popResource: random offset in the block, then ItemEntity's random motion; the item entity ends the traced contract
-static void level_pop_resource(level & lv, block_pos pos) {
-    for (int32_t i = 0; i < 3; i++) rng_next_double_between(lv.random, -0.25, 0.25);
-    rng_next_double(lv.random);
-    rng_next_double(lv.random);
-    level_boundary(lv, "spawn item %d %d %d", pos.x, pos.y, pos.z);
+// Block.popResource: a random spot around the center, half an item lower; the offsets draw even for an empty stack
+static void level_pop_resource(level & lv, block_pos pos, item_stack s) {
+    vec3   w           = entity_block_to_world(pos);
+    double half_height = entity_type_defs[ENTITY_TYPE_ITEM].height / 2.0;
+    double x           = w.x + 0.5 + rng_next_double_between(lv.random, -0.25, 0.25);
+    double y           = w.y + 0.5 + rng_next_double_between(lv.random, -0.25, 0.25) - half_height;
+    double z           = w.z + 0.5 + rng_next_double_between(lv.random, -0.25, 0.25);
+    if (item_stack_is_empty(s)) return;
+    entity * e      = item_entity_new_random_motion(lv, { x, y, z }, s);
+    e->pickup_delay = 10;
+    level_add_fresh_entity(lv, e);
 }
 
 void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be) {
     // MovingPistonBlock.getDrops: the moved block drops, or nothing without a block entity
     state_id loot = st;
     if (state_is(st, BLOCK_MOVING_PISTON)) loot = be != nullptr ? be->moved_state : STATE_AIR;
-    if (state_has(loot, STATE_FLAG_DROPS_RANDOM)) {
+    const drop_def & drops = drop_defs[state_drops[loot]];
+    if (drops.n_stacks < 0) {
         level_unsupported(lv, "random loot");
         return;
     }
-    if (state_has(loot, STATE_FLAG_DROPS)) level_pop_resource(lv, pos);
+    // the shulker box item keeps the contents as a data component, which sim stacks do not carry
+    if (be != nullptr && be->type == BLOCK_ENTITY_TYPE_SHULKER_BOX) {
+        for (const item_stack & s : be->items) {
+            if (!item_stack_is_empty(s)) level_unsupported(lv, "shulker box drop with contents");
+        }
+    }
+    for (int32_t i = 0; i < drops.n_stacks; i++) {
+        const drop_stack & d = drop_stacks[drops.first + i];
+        level_pop_resource(lv, pos, { d.item, d.count, 0 });
+    }
     block_spawn_after_break(lv, st, pos);
 }
 
@@ -592,6 +597,7 @@ void level_tick(level & lv) {
     level_run_block_events(lv);
     lv.handling_tick = false;
     trace_phase(lv.tr, "entities");
+    level_tick_entities(lv);
     trace_phase(lv.tr, "blockEntities");
     level_tick_block_entities(lv);
     trace_phase(lv.tr, "entityManagement");

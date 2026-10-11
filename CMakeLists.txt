@@ -17,6 +17,8 @@ set(CMAKE_INTERPROCEDURAL_OPTIMIZATION ON)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_compile_options(-Wall -Wextra -Wpedantic)
+# entity motion must round like Java's doubles: no fused multiply-add
+add_compile_options(-ffp-contract=off)
 
 add_library(tmc STATIC
     blocks/attached.cpp
@@ -28,20 +30,24 @@ add_library(tmc STATIC
     blocks/fire.cpp
     blocks/fluid.cpp
     blocks/hopper.cpp
+    blocks/landing.cpp
     blocks/piston.cpp
     blocks/powered.cpp
     blocks/rail.cpp
     blocks/redstone.cpp
     blocks/terrain.cpp
+    core/aabb.cpp
     core/rng.cpp
     core/shape.cpp
     core/state.cpp
     core/trace.cpp
     engine/case-run.cpp
+    engine/entity.cpp
     engine/java-hash-map.cpp
     engine/level-ticks.cpp
     engine/level.cpp
     engine/neighbor-updater.cpp
+    entities/item.cpp
     gen/blocks.cpp
     items/item.cpp
     items/recipes.cpp

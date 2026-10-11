@@ -1,6 +1,7 @@
 #include "engine/case-run.h"
 
 #include <algorithm>
+#include <bit>
 #include <chrono>
 #include <cstring>
 #include <string>
@@ -124,7 +125,8 @@ static int cmd_check(const std::vector<std::string> & paths, bool xfail) {
 
 static void fingerprint_add(uint64_t & h, int64_t v) { h = (h ^ (uint64_t) v) * 0x100000001b3ull; }
 
-// FNV-1a over what later ticks can read: time, RNG, blocks, block entities, pending ticks, events, tickers and torch toggles
+// FNV-1a over what later ticks can read: time, RNG, blocks, block entities, pending ticks, events, tickers, torch toggles
+// and entities
 static uint64_t level_fingerprint(const level & lv) {
     uint64_t h = 0xcbf29ce484222325ull;
     for (int64_t v : { lv.game_time, lv.sub_tick_count, lv.random.seed }) fingerprint_add(h, v);
@@ -166,6 +168,19 @@ static uint64_t level_fingerprint(const level & lv) {
     }
     for (const redstone_torch_toggle & t : lv.redstone_torch_recent_toggles) {
         for (int64_t v : { (int64_t) t.pos.x, (int64_t) t.pos.y, (int64_t) t.pos.z, t.when }) fingerprint_add(h, v);
+    }
+    fingerprint_add(h, lv.entity_counter);
+    for (const entity * e : lv.entity_tick_list) {
+        for (double v : { e->pos.x, e->pos.y, e->pos.z, e->delta.x, e->delta.y, e->delta.z, e->fall_distance,
+                          e->stuck_speed_multiplier.x, e->stuck_speed_multiplier.y, e->stuck_speed_multiplier.z }) {
+            fingerprint_add(h, std::bit_cast<int64_t>(v));
+        }
+        for (int64_t v :
+             { (int64_t) e->id, (int64_t) e->type, (int64_t) e->removed, e->random.seed, (int64_t) e->on_ground,
+               (int64_t) e->remaining_fire_ticks, (int64_t) e->item.item, (int64_t) e->item.count, (int64_t) e->age,
+               (int64_t) e->pickup_delay, (int64_t) e->health }) {
+            fingerprint_add(h, v);
+        }
     }
     return h;
 }

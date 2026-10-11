@@ -18,6 +18,7 @@ static int32_t n_fail = 0;
     } while (0)
 
 // expected values come from the same formulas run in jshell (Java long/int/float semantics)
+// nextDouble follows the bytecode (l2d, dmul), not the float literal of the decompiled source
 static void test_rng() {
     rng r;
     rng_set_seed(r, 1942537005037828938LL);
@@ -35,8 +36,8 @@ static void test_rng() {
 
     CHECK(std::bit_cast<int32_t>(rng_next_float(r)) == 1062747648);
     CHECK(std::bit_cast<int32_t>(rng_next_float(r)) == 1057998740);
-    CHECK(std::bit_cast<int64_t>(rng_next_double(r)) == 4607083901377052672LL);
-    CHECK(std::bit_cast<int64_t>(rng_next_double(r)) == 4600814190259601408LL);
+    CHECK(std::bit_cast<int64_t>(rng_next_double(r)) == 4607083901429438607LL);
+    CHECK(std::bit_cast<int64_t>(rng_next_double(r)) == 4600814190524280366LL);
 
     rng_set_seed(r, -1);
     CHECK(r.seed == 281449761806738LL);

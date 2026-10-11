@@ -10,6 +10,8 @@
 
 // Batch.SURROUND: the oracle clears and traces this margin around the region
 static constexpr int32_t CASE_SURROUND = 13;
+// Batch.CLEARED: the oracle force-loads the chunks this far around the region
+static constexpr int32_t CASE_CLEARED  = CASE_SURROUND + 1;
 
 // the case gives block entity data for pos
 static bool case_has_data(const case_file & f, block_pos pos) {
@@ -227,6 +229,10 @@ bool case_run(const case_file & f, level & lv, trace & tr, std::string & err) {
 
     tr.box_min   = { -CASE_SURROUND, -CASE_SURROUND, -CASE_SURROUND };
     tr.box_max   = { f.size.x + CASE_SURROUND - 1, f.size.y + CASE_SURROUND - 1, f.size.z + CASE_SURROUND - 1 };
+    lv.loaded_chunk_min_x = (LEVEL_ORIGIN.x - CASE_CLEARED) >> 4;
+    lv.loaded_chunk_max_x = (LEVEL_ORIGIN.x + f.size.x + CASE_CLEARED - 1) >> 4;
+    lv.loaded_chunk_min_z = (LEVEL_ORIGIN.z - CASE_CLEARED) >> 4;
+    lv.loaded_chunk_max_z = (LEVEL_ORIGIN.z + f.size.z + CASE_CLEARED - 1) >> 4;
     lv.tr        = tr.record ? &tr : nullptr;
     lv.random.tr = lv.tr;
 

@@ -4,6 +4,7 @@
 #include "blocks/handlers.h"
 #include "core/trace.h"
 #include "engine/level.h"
+#include "entities/handlers.h"
 
 #include <algorithm>
 #include <cmath>
@@ -138,17 +139,26 @@ int32_t container_get_redstone_signal_from_block_entity(level & lv, state_id, bl
     return container_get_redstone_signal(&c);
 }
 
-// Containers.dropContents: every slot draws its position, even an empty one; the first stack spawns an entity
+// Containers.dropItemStack: one random spot in the block, even for an empty stack, then the stack in random portions
+static void containers_drop_item_stack(level & lv, const vec3 & at, item_stack & s) {
+    double xo = std::floor(at.x) + rng_next_double(lv.random) * 0.75 + 0.125;
+    double yo = std::floor(at.y) + rng_next_double(lv.random) * 0.75;
+    double zo = std::floor(at.z) + rng_next_double(lv.random) * 0.75 + 0.125;
+    while (!item_stack_is_empty(s)) {
+        item_stack part = item_stack_split(s, rng_next_int(lv.random, 21) + 10);
+        entity *   e    = item_entity_new_random_motion(lv, { xo, yo, zo }, part);
+        double     dx   = rng_triangle(lv.random, 0.0, 0.11485000171139836);
+        double     dy   = rng_triangle(lv.random, 0.2, 0.11485000171139836);
+        double     dz   = rng_triangle(lv.random, 0.0, 0.11485000171139836);
+        e->delta        = { dx, dy, dz };
+        level_add_fresh_entity(lv, e);
+    }
+}
+
+// Containers.dropContents: the slots empty as they drop
 void containers_drop_contents(level & lv, block_pos pos, const container & c) {
     for (int32_t slot = 0; slot < container_get_container_size(c); slot++) {
-        for (int32_t i = 0; i < 3; i++) rng_next_double(lv.random);
-        if (!item_stack_is_empty(container_get_item(c, slot))) {
-            // the split size, the ItemEntity constructor's motion, then three triangle draws of two doubles each
-            rng_next_int(lv.random, 21);
-            for (int32_t i = 0; i < 8; i++) rng_next_double(lv.random);
-            level_boundary(lv, "spawn item %d %d %d", pos.x, pos.y, pos.z);
-            return;
-        }
+        containers_drop_item_stack(lv, entity_block_to_world(pos), container_get_item(c, slot));
     }
 }
 
@@ -315,15 +325,16 @@ void jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack
 
 // JukeboxBlockEntity.popOutTheItem: the record pops out on top
 void jukebox_block_entity_pop_out_the_item(level & lv, block_entity * be) {
-    if (item_stack_is_empty(be->items[0])) return;
+    item_stack s = be->items[0];
+    if (item_stack_is_empty(s)) return;
     jukebox_block_entity_set_the_item(lv, be, item_stack());
-    // Vec3.offsetRandomXZ, then the ItemEntity constructor's motion
-    rng_next_float(lv.random);
-    rng_next_float(lv.random);
-    rng_next_double(lv.random);
-    rng_next_double(lv.random);
-    block_pos at = pos_relative(be->pos, DIRECTION_UP);
-    level_boundary(lv, "spawn item %d %d %d", at.x, at.y, at.z);
+    // Vec3.offsetRandomXZ by 0.7
+    vec3     w      = entity_block_to_world(be->pos);
+    float    ox     = (rng_next_float(lv.random) - 0.5F) * 0.7F;
+    float    oz     = (rng_next_float(lv.random) - 0.5F) * 0.7F;
+    entity * e      = item_entity_new_random_motion(lv, { w.x + 0.5 + ox, w.y + 1.01, w.z + 0.5 + oz }, s);
+    e->pickup_delay = 10;
+    level_add_fresh_entity(lv, e);
     jukebox_block_entity_on_song_changed(lv, be);
 }
 

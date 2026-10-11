@@ -1,0 +1,23 @@
+# bench: active/item-water.case run for 20000 ticks
+# Water carries dropped items along a channel; items merge on the way.
+tmc-case 2
+size 8 3 3
+key
+  s = minecraft:stone
+  d = minecraft:dropper[facing=east,triggered=false]
+  w = minecraft:water
+layer 0
+  s s s s s s s s
+  s s s s s s s s
+  s s s s s s s s
+layer 1
+  . s s s s s s s
+  d w . . . . . s
+  s s s s s s s s
+items
+  0 1 1 0 minecraft:stone 3
+inputs
+  @10 place 0 1 0 minecraft:redstone_block
+  @20 break 0 1 0
+  @22 place 0 1 0 minecraft:redstone_block
+run 20000

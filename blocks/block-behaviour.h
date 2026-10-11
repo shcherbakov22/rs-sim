@@ -6,6 +6,8 @@
 #include "core/state.h"
 
 struct level;
+struct entity;
+struct entity_effect_collector;
 
 // BlockBehaviour.UPDATE_SHAPE_ORDER
 inline constexpr direction UPDATE_SHAPE_ORDER[6] = {
@@ -46,11 +48,18 @@ struct block_hooks {
     bool (*should_changed_state_keep_block_entity)(state_id st, state_id old)                             = nullptr;
     bool (*place_liquid)(level & lv, block_pos pos, state_id st, fluid_state_id fs)                       = nullptr;
     item_stack (*pickup_block)(level & lv, block_pos pos, state_id st)                                    = nullptr;
+    void (*entity_inside)(level & lv, state_id st, block_pos pos, entity & e, entity_effect_collector & effects,
+                          bool is_precise)                                                                = nullptr;
+    void (*step_on)(level & lv, state_id st, block_pos pos, entity & e)                                   = nullptr;
+    void (*fall_on)(level & lv, state_id st, block_pos pos, entity & e)                                   = nullptr;
+    void (*update_entity_movement_after_fall_on)(entity & e)                                              = nullptr;
 };
 
 // BlockBehaviour.updateShape, the default: for classes whose override only schedules the water tick, which
 // block_update_shape does before dispatch
 state_id block_behaviour_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id);
+// a stepOn or fallOn override that only acts on living entities or plays sounds: nothing for the entities in scope
+void     block_living_only(level & lv, state_id st, block_pos pos, entity & e);
 
 // BlockStateBase dispatch to the block's vanilla class. A hook the class overrides but the sim
 // does not port yet stops the run as unsupported.
@@ -72,6 +81,14 @@ bool       block_should_changed_state_keep_block_entity(level & lv, state_id st,
 // LiquidBlockContainer.placeLiquid and BucketPickup.pickupBlock (no user), SimpleWaterloggedBlock by default
 bool       block_place_liquid(level & lv, block_pos pos, state_id st, fluid_state_id fs);
 item_stack block_pickup_block(level & lv, block_pos pos, state_id st);
+
+// the hooks an entity runs on blocks
+void     block_entity_inside(level & lv, state_id st, block_pos pos, entity & e, entity_effect_collector & effects,
+                             bool is_precise);
+uint16_t block_get_entity_inside_collision_shape(level & lv, state_id st);
+void     block_step_on(level & lv, state_id st, block_pos pos, entity & e);
+void     block_fall_on(level & lv, state_id st, block_pos pos, entity & e);
+void     block_update_entity_movement_after_fall_on(level & lv, state_id st, entity & e);
 
 // BlockStateBase.updateNeighbourShapes
 void block_update_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit);

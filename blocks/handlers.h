@@ -19,6 +19,7 @@ extern const std::vector<block_hooks> powered_hooks;
 extern const std::vector<block_hooks> connecting_hooks;
 extern const std::vector<block_hooks> attached_hooks;
 extern const std::vector<block_hooks> fluid_hooks;
+extern const std::vector<block_hooks> landing_hooks;
 
 // BaseEntityBlock
 bool base_entity_block_trigger_event(level & lv, state_id st, block_pos pos, int32_t param_a, int32_t param_b);
@@ -68,6 +69,9 @@ int32_t fluid_get_tick_delay(int32_t fluid);
 void    flowing_fluid_tick(level & lv, block_pos pos, state_id st, fluid_state_id fs);
 // BubbleColumnBlock.updateColumn
 void    bubble_column_update_column(level & lv, block_pos origin, state_id origin_state, state_id below);
+// FluidState.getHeight and FlowingFluid.getFlow, for entities in fluids
+float   fluid_state_get_height(level & lv, fluid_state_id fs, block_pos pos);
+vec3    flowing_fluid_get_flow(level & lv, block_pos pos, fluid_state_id fs);
 
 // BaseRailBlock
 bool    base_rail_is_rail(state_id st);
@@ -98,6 +102,9 @@ void lever_pull(level & lv, state_id st, block_pos pos);
 
 // MovingPistonBlock
 shape moving_piston_get_collision_shape(level & lv, block_pos pos);
+// MovingPistonBlock.getCollisionShape for an entity: the dumped shapes of the union at world offsets, or true when the
+// union is Shapes.block()
+bool  moving_piston_get_entity_collision_shapes(level & lv, block_pos pos, std::vector<voxel_shape> & out);
 
 // PistonMovingBlockEntity
 void piston_moving_block_entity_final_tick(level & lv, block_entity * be);

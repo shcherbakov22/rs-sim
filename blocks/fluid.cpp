@@ -36,10 +36,67 @@ static bool flowing_fluid_can_convert_to_source(int32_t fluid) { return !fluid_i
 // FluidState
 
 // FlowingFluid.getHeight: full under the same fluid, else amount / 9
-static float fluid_state_get_height(level & lv, fluid_state_id fs, block_pos pos) {
+float fluid_state_get_height(level & lv, fluid_state_id fs, block_pos pos) {
     int32_t above = fluid_state_get_type(level_get_fluid_state(lv, pos_relative(pos, DIRECTION_UP)));
     if (fluid_is_same(fluid_state_get_type(fs), above)) return 1.0f;
     return (float) fluid_state_get_amount(fs) / 9.0f;
+}
+
+// FlowingFluid.affectsFlow: the neighbor is empty or the same fluid
+static bool flowing_fluid_affects_flow(int32_t fluid, fluid_state_id neighbor) {
+    int32_t type = fluid_state_get_type(neighbor);
+    return type == FLUID_EMPTY || fluid_is_same(fluid, type);
+}
+
+// FlowingFluid.isSolidFace: ice never is
+static bool flowing_fluid_is_solid_face(level & lv, int32_t fluid, block_pos pos, direction dir) {
+    if (fluid_is_same(fluid, fluid_state_get_type(level_get_fluid_state(lv, pos)))) return false;
+    if (dir == DIRECTION_UP) return true;
+    state_id st = level_get_state(lv, pos);
+    return !block_instanceof(state_block(st), VCLASS_ICE_BLOCK) &&
+           block_is_face_sturdy(lv, st, pos, dir, SUPPORT_TYPE_FULL);
+}
+
+// FlowingFluid.getFlow: toward lower neighbors in float steps of own height; a falling fluid next to a wall pulls down
+vec3 flowing_fluid_get_flow(level & lv, block_pos pos, fluid_state_id fs) {
+    int32_t fluid  = fluid_state_get_type(fs);
+    float   own    = (float) fluid_state_get_amount(fs) / 9.0f;
+    double  flow_x = 0.0;
+    double  flow_z = 0.0;
+    for (direction dir : DIRECTION_HORIZONTAL) {
+        block_pos      neighbor_pos = pos_relative(pos, dir);
+        fluid_state_id neighbor     = level_get_fluid_state(lv, neighbor_pos);
+        if (!flowing_fluid_affects_flow(fluid, neighbor)) continue;
+        float neighbor_height = (float) fluid_state_get_amount(neighbor) / 9.0f;
+        float distance        = 0.0f;
+        if (neighbor_height == 0.0f) {
+            if (!state_has(level_get_state(lv, neighbor_pos), STATE_FLAG_BLOCKS_MOTION)) {
+                fluid_state_id below = level_get_fluid_state(lv, pos_relative(neighbor_pos, DIRECTION_DOWN));
+                if (flowing_fluid_affects_flow(fluid, below)) {
+                    neighbor_height = (float) fluid_state_get_amount(below) / 9.0f;
+                    if (neighbor_height > 0.0f) distance = own - (neighbor_height - 0.8888889f);
+                }
+            }
+        } else if (neighbor_height > 0.0f) {
+            distance = own - neighbor_height;
+        }
+        if (distance != 0.0f) {
+            flow_x += (float) DIRECTION_STEPS[dir].x * distance;
+            flow_z += (float) DIRECTION_STEPS[dir].z * distance;
+        }
+    }
+    vec3 flow = { flow_x, 0.0, flow_z };
+    if (fluid_state_is_falling(fs)) {
+        for (direction dir : DIRECTION_HORIZONTAL) {
+            block_pos side = pos_relative(pos, dir);
+            if (flowing_fluid_is_solid_face(lv, fluid, side, dir) ||
+                flowing_fluid_is_solid_face(lv, fluid, pos_relative(side, DIRECTION_UP), dir)) {
+                flow = vec3_add(vec3_normalize(flow), { 0.0, -6.0, 0.0 });
+                break;
+            }
+        }
+    }
+    return vec3_normalize(flow);
 }
 
 // empty takes anything, water only another fluid from above, lava only water and only at 4/9 high or more
@@ -387,6 +444,22 @@ static void bubble_column_tick(level & lv, state_id st, block_pos pos) {
     bubble_column_update_column(lv, pos, st, level_get_state(lv, pos_relative(pos, DIRECTION_DOWN)));
 }
 
+// Entity.onAboveBubbleColumn and onInsideBubbleColumn; above, the splash and bubble particles draw from the level random
+static void bubble_column_entity_inside(level & lv, state_id st, block_pos pos, entity & e, entity_effect_collector &,
+                                        bool is_precise) {
+    if (!is_precise) return;
+    state_id above = level_get_state(lv, pos_relative(pos, DIRECTION_UP));
+    bool     drag  = state_get(st, PROP_DRAG);
+    // vanilla asks for the shape of the state above at the column's own position
+    if (block_get_collision_shape(lv, above, pos).boxes.empty() && fluid_state_is_empty(state_fluid_state(above))) {
+        e.delta.y = drag ? std::max(-0.9, e.delta.y - 0.03) : std::min(1.8, e.delta.y + 0.1);
+        for (int32_t i = 0; i < 8; i++) rng_next_double(lv.random);
+    } else {
+        e.delta.y       = drag ? std::max(-0.3, e.delta.y - 0.03) : std::min(0.7, e.delta.y + 0.06);
+        e.fall_distance = 0.0;
+    }
+}
+
 static bool bubble_column_can_survive(level & lv, state_id, block_pos pos) {
     state_id below = level_get_state(lv, pos_relative(pos, DIRECTION_DOWN));
     return state_is(below, BLOCK_BUBBLE_COLUMN) || state_is(below, BLOCK_MAGMA_BLOCK) ||
@@ -520,7 +593,8 @@ const std::vector<block_hooks> fluid_hooks = {
       .update_shape = bubble_column_update_shape,
       .tick = bubble_column_tick,
       .can_survive = bubble_column_can_survive,
-      .pickup_block = bubble_column_pickup_block },
+      .pickup_block = bubble_column_pickup_block,
+      .entity_inside = bubble_column_entity_inside },
     { .vclass = VCLASS_CORAL_BLOCK, .update_shape = coral_update_shape, .tick = coral_tick },
     { .vclass = VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK,
       .update_shape = base_coral_plant_type_update_shape,

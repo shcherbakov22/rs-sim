@@ -42,6 +42,9 @@ struct block_def {
     int32_t      instrument;     // note_block_instrument of BlockState.instrument
     int32_t      waxed;          // HoneycombItem.WAXABLES, -1 for none
     int32_t      signals_first;  // first row in state_signals, -1 when the signals need the world
+    float        friction;       // Block.getFriction
+    float        speed_factor;   // Block.getSpeedFactor
+    float        jump_factor;    // Block.getJumpFactor
 };
 
 struct item_def {
@@ -56,7 +59,7 @@ struct item_def {
     float        compost_chance;      // ComposterBlock.COMPOSTABLES, -1 for items that do not compost
     uint32_t     components;          // item_component bits of the default data components
     int32_t      crafting_remainder;  // Item.getCraftingRemainder (count 1), -1 for none
-    const char * dispense_entity;     // entity type a projectile, boat or minecart behaviour spawns, nullptr for others
+    int32_t      dispense_entity;     // entity_type a projectile, boat or minecart behaviour spawns, -1 for others
     int32_t      max_damage;          // MAX_DAMAGE component of a fresh stack, 0 for none
 };
 
@@ -94,7 +97,7 @@ struct fluid_state_def {
 };
 
 // Box of a collision shape, in block units, per axis x y z.
-struct shape_box {
+struct aabb {
     double min[3];
     double max[3];
 };
@@ -102,6 +105,36 @@ struct shape_box {
 struct shape_def {
     int32_t boxes_first;
     int32_t n_boxes;
+};
+
+// A shape as VoxelShape stores it: cell boundaries per axis (size + 1 each, in voxel_coords) and one byte per cell
+// in voxel_cells, 1 if full, at (x * size y + y) * size z + z
+struct voxel_def {
+    int32_t coords_first[3];
+    int32_t size[3];
+    int32_t cells_first;
+    bool    block;  // the shape is Shapes.block() itself
+    bool    full;   // Block.isShapeFullBlock
+};
+
+// EntityType: EntityDimensions and fireImmune
+struct entity_type_def {
+    const char * name;
+    float        width;
+    float        height;
+    float        eye_height;
+    bool         fire_immune;
+};
+
+// Block.getDrops of a state, n_stacks stacks from drop_stacks
+struct drop_def {
+    int32_t first;
+    int32_t n_stacks;  // -1: the drops draw randoms or carry data components
+};
+
+struct drop_stack {
+    int16_t item;
+    int16_t count;
 };
 
 // generated in gen/blocks.cpp
@@ -120,19 +153,28 @@ extern const char * const hook_names[];
 extern const int16_t      iclass_super[];
 extern const int16_t iclass_hooks[]
                                  [ITEM_HOOK_COUNT];  // class that overrides each item hook, ICLASS_NONE for the default
-extern const char * const iclass_names[];
-extern const char * const item_hook_names[];
-extern const uint16_t     state_blocks[];
-extern const int16_t      state_classes[];
-extern const int8_t       state_facings[];
-extern const uint64_t     state_flags[];
-extern const uint8_t      state_signals[][12];
-extern const shape_box    shape_boxes[];
-extern const shape_def    shape_defs[];
-extern const uint16_t
-    state_collision_shapes[];  // with the empty context, SHAPE_NONE for dynamic shapes that need the world
-extern const uint16_t
-    state_support_shapes[];    // getBlockSupportShape, SHAPE_NONE for dynamic shapes that need the world
+extern const char * const    iclass_names[];
+extern const char * const    item_hook_names[];
+extern const uint16_t        state_blocks[];
+extern const int16_t         state_classes[];
+extern const int8_t          state_facings[];
+extern const uint64_t        state_flags[];
+extern const uint8_t         state_signals[][12];
+extern const aabb            shape_boxes[];
+extern const shape_def       shape_defs[];
+extern const voxel_def       voxel_defs[];  // by shape id
+extern const double          voxel_coords[];
+extern const uint8_t         voxel_cells[];
+extern const entity_type_def entity_type_defs[];
+extern const uint32_t        damage_type_tags[];  // damage_type_tag bits
+extern const drop_def        drop_defs[];
+extern const drop_stack      drop_stacks[];
+extern const uint16_t        state_drops[];  // drop_defs index
+// shape ids per state: the collision shape with the empty context and getBlockSupportShape, SHAPE_NONE for dynamic
+// shapes that need the world; getEntityInsideCollisionShape, SHAPE_NONE when it reads the entity
+extern const uint16_t        state_collision_shapes[];
+extern const uint16_t        state_support_shapes[];
+extern const uint16_t        state_inside_shapes[];
 extern const fluid_def       fluid_defs[];
 extern const fluid_state_def fluid_state_defs[];
 extern const uint8_t         state_fluid_states[];

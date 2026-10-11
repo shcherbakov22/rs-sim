@@ -4,6 +4,7 @@
 #include "core/rng.h"
 #include "core/trace.h"
 #include "engine/level.h"
+#include "entities/handlers.h"
 #include "items/handlers.h"
 #include "items/recipes.h"
 
@@ -21,19 +22,25 @@ static int32_t dispenser_block_entity_get_random_slot(level & lv, const block_en
     return replace_slot;
 }
 
-// DefaultDispenseItemBehavior.spawnItem from 0.7 blocks out of the center: the item entity lands in the block in front
-static void default_dispense_item_behavior_spawn_item(level & lv, block_pos pos, direction dir) {
-    // the ItemEntity constructor's motion, the throw power, then three triangle draws of two doubles each
-    for (int32_t i = 0; i < 9; i++) rng_next_double(lv.random);
-    block_pos at = pos_relative(pos, dir);
-    level_boundary(lv, "spawn item %d %d %d", at.x, at.y, at.z);
+// DefaultDispenseItemBehavior.spawnItem at DispenserBlock.getDispensePosition, 0.7 blocks out of the center
+static void default_dispense_item_behavior_spawn_item(level & lv, item_stack s, block_pos pos, direction dir) {
+    const block_pos & step   = DIRECTION_STEPS[dir];
+    vec3              center = vec3_add(entity_block_to_world(pos), { 0.5, 0.5, 0.5 });
+    vec3              at     = { center.x + 0.7 * step.x, center.y + 0.7 * step.y, center.z + 0.7 * step.z };
+    at.y -= direction_get_axis(dir) == DIRECTION_AXIS_Y ? 0.125 : 0.15625;
+    entity * e   = item_entity_new_random_motion(lv, at, s);
+    double   pow = rng_next_double(lv.random) * 0.1 + 0.2;
+    double   dx  = rng_triangle(lv.random, step.x * pow, 0.0172275 * 6);
+    double   dy  = rng_triangle(lv.random, 0.2, 0.0172275 * 6);
+    double   dz  = rng_triangle(lv.random, step.z * pow, 0.0172275 * 6);
+    e->delta     = { dx, dy, dz };
+    level_add_fresh_entity(lv, e);
 }
 
 // DefaultDispenseItemBehavior.dispense
 static item_stack default_dispense_item_behavior_dispense(level & lv, state_id st, block_pos pos,
                                                           item_stack dispensed) {
-    item_stack_split(dispensed, 1);
-    default_dispense_item_behavior_spawn_item(lv, pos, state_facing(st));
+    default_dispense_item_behavior_spawn_item(lv, item_stack_split(dispensed, 1), pos, state_facing(st));
     return dispensed;
 }
 
@@ -61,10 +68,15 @@ static item_stack default_dispense_item_behavior_consume_with_remainder(level & 
                                                                         item_stack dispensed, item_stack remainder) {
     item_stack_grow(dispensed, -1);
     if (item_stack_is_empty(dispensed)) return remainder;
-    if (!item_stack_is_empty(dispenser_block_entity_insert_item(lv, pos, remainder))) {
-        default_dispense_item_behavior_spawn_item(lv, pos, state_facing(st));
-    }
+    item_stack rest = dispenser_block_entity_insert_item(lv, pos, remainder);
+    if (!item_stack_is_empty(rest)) default_dispense_item_behavior_spawn_item(lv, rest, pos, state_facing(st));
     return dispensed;
+}
+
+// the entity a dispensed item makes is out of scope: the run ends where it would spawn
+static void dispenser_boundary_spawn(level & lv, item_stack dispensed, int32_t x, int32_t y, int32_t z) {
+    int32_t type = item_defs[item_stack_get_item(dispensed)].dispense_entity;
+    level_boundary(lv, "spawn %s %d %d %d", entity_type_defs[type].name, x, y, z);
 }
 
 // ProjectileDispenseBehavior: every DispenseConfig position lies in the block in front (the dump checks it)
@@ -75,7 +87,7 @@ static item_stack projectile_dispense_behavior_execute(level & lv, state_id st, 
     if (item_defs[item].cls == ICLASS_FIRE_CHARGE_ITEM || item_defs[item].cls == ICLASS_WIND_CHARGE_ITEM) {
         for (int32_t i = 0; i < 6; i++) rng_next_double(lv.random);
     }
-    level_boundary(lv, "spawn %s %d %d %d", item_defs[item].dispense_entity, at.x, at.y, at.z);
+    dispenser_boundary_spawn(lv, dispensed, at.x, at.y, at.z);
     return dispensed;
 }
 
@@ -96,8 +108,7 @@ static item_stack boat_dispense_item_behavior_execute(level & lv, state_id st, b
         y_offset = 0.0;
     }
     double spawn_y = pos.y + 0.5 + DIRECTION_STEPS[facing].y * 1.125 + y_offset;
-    level_boundary(lv, "spawn %s %d %d %d", item_defs[item_stack_get_item(dispensed)].dispense_entity, front.x,
-                   (int32_t) std::floor(spawn_y), front.z);
+    dispenser_boundary_spawn(lv, dispensed, front.x, (int32_t) std::floor(spawn_y), front.z);
     return dispensed;
 }
 
@@ -128,9 +139,8 @@ static item_stack minecart_dispense_item_behavior_execute(level & lv, state_id s
         }
         y_offset = facing != DIRECTION_DOWN && minecart_dispense_item_behavior_is_slope(below) ? -0.4 : -0.9;
     }
-    level_boundary(lv, "spawn %s %d %d %d", item_defs[item_stack_get_item(dispensed)].dispense_entity,
-                   (int32_t) std::floor(spawn_x), (int32_t) std::floor(spawn_y + y_offset),
-                   (int32_t) std::floor(spawn_z));
+    dispenser_boundary_spawn(lv, dispensed, (int32_t) std::floor(spawn_x), (int32_t) std::floor(spawn_y + y_offset),
+                             (int32_t) std::floor(spawn_z));
     return dispensed;
 }
 
@@ -416,7 +426,7 @@ static void crafter_dispense_item(level & lv, state_id st, block_pos pos, block_
             if (old_size == item_stack_get_count(remaining)) break;
         }
     }
-    if (!item_stack_is_empty(remaining)) default_dispense_item_behavior_spawn_item(lv, pos, dir);
+    if (!item_stack_is_empty(remaining)) default_dispense_item_behavior_spawn_item(lv, remaining, pos, dir);
 }
 
 // CrafterBlock.dispenseFrom; the fail sound level event is not in the trace

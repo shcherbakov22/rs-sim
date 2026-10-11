@@ -36,6 +36,12 @@ inline block_pos pos_relative_steps(block_pos pos, direction dir, int32_t steps)
 
 inline bool direction_is_horizontal(direction dir) { return dir >= DIRECTION_NORTH; }
 
+// Direction.getAxisDirection().getStep(): 1 for the directions toward the positive end of their axis, else -1
+inline int32_t direction_get_axis_step(direction dir) {
+    const block_pos & s = DIRECTION_STEPS[dir];
+    return s.x + s.y + s.z;
+}
+
 inline direction_axis direction_get_axis(direction dir) {
     static constexpr direction_axis axes[6] = { DIRECTION_AXIS_Y, DIRECTION_AXIS_Y, DIRECTION_AXIS_Z,
                                                 DIRECTION_AXIS_Z, DIRECTION_AXIS_X, DIRECTION_AXIS_X };

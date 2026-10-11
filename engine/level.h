@@ -5,9 +5,11 @@
 #include "core/rng.h"
 #include "core/state.h"
 #include "engine/block-entity.h"
+#include "engine/entity.h"
 #include "engine/level-ticks.h"
 #include "engine/neighbor-updater.h"
 
+#include <map>
 #include <memory>
 #include <string>
 #include <unordered_map>
@@ -18,6 +20,16 @@
 constexpr block_pos LEVEL_ORIGIN = { 0, 64, 0 };
 // sections keyed by relative positions are the world's sections only while the origin is 16-aligned
 static_assert(LEVEL_ORIGIN.x % 16 == 0 && LEVEL_ORIGIN.y % 16 == 0 && LEVEL_ORIGIN.z % 16 == 0);
+
+// SectionPos.asLong of section coordinates
+inline int64_t section_pos_as_long(int32_t x, int32_t y, int32_t z) {
+    return ((int64_t) x & 0x3FFFFF) << 42 | ((int64_t) z & 0x3FFFFF) << 20 | ((int64_t) y & 0xFFFFF);
+}
+
+// BlockPos.asLong
+inline int64_t pos_key(block_pos pos) {
+    return ((int64_t) pos.x & 0x3FFFFFF) << 38 | ((int64_t) pos.z & 0x3FFFFFF) << 12 | ((int64_t) pos.y & 0xFFF);
+}
 
 // Build height relative to the case origin (overworld -64..319).
 constexpr int32_t LEVEL_Y_MIN = -128;
@@ -89,6 +101,19 @@ struct level {
     // RedStoneWireBlock.shouldSignal lives on the block object, RECENT_TOGGLES in a static map keyed by level
     bool                               red_stone_wire_should_signal = true;
     std::vector<redstone_torch_toggle> redstone_torch_recent_toggles;
+    // Entities are never freed during a run either. Sections are PersistentEntitySectionManager's, keyed by
+    // SectionPos.asLong of world positions: vanilla visits them in that signed order.
+    std::vector<std::unique_ptr<entity>>     entity_store;
+    std::vector<entity *>                    entity_tick_list;  // EntityTickList, in insertion order
+    std::map<int64_t, std::vector<entity *>> entity_sections;
+    int32_t entity_counter     = 0;   // Entity.ENTITY_COUNTER; the oracle resets it when the trace starts
+    int32_t piston_noclip      = -1;  // PistonMovingBlockEntity.NOCLIP: the direction of the move pushing an entity
+    // the force-loaded chunks, where entities tick
+    int32_t loaded_chunk_min_x = 0;
+    int32_t loaded_chunk_max_x = -1;
+    int32_t loaded_chunk_min_z = 0;
+    int32_t loaded_chunk_max_z = -1;
+
     trace *                            tr = nullptr;
     std::string                        unsupported;  // first unsupported mechanic hit; the run stops at the next check
     size_t                             unsupported_line = 0;  // trace lines before it, all still exact

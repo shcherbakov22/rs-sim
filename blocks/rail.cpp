@@ -361,6 +361,11 @@ static void detector_rail_on_place(level & lv, state_id st, block_pos pos, state
     detector_rail_check_pressed(lv, pos, base_rail_update_state(lv, st, pos, moved_by_piston));
 }
 
+static void detector_rail_entity_inside(level & lv, state_id st, block_pos pos, entity &, entity_effect_collector &,
+                                        bool) {
+    if (!state_get(st, PROP_POWERED)) detector_rail_check_pressed(lv, pos, st);
+}
+
 static void detector_rail_tick(level & lv, state_id st, block_pos pos) {
     if (state_get(st, PROP_POWERED)) detector_rail_check_pressed(lv, pos, st);
 }
@@ -379,6 +384,7 @@ const std::vector<block_hooks> rail_hooks = {
     { .vclass = VCLASS_DETECTOR_RAIL_BLOCK,
       .on_place = detector_rail_on_place,
       .tick = detector_rail_tick,
-      .get_analog_output_signal = detector_rail_get_analog_output_signal },
+      .get_analog_output_signal = detector_rail_get_analog_output_signal,
+      .entity_inside = detector_rail_entity_inside },
 };
 // clang-format on

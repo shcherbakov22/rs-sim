@@ -3,8 +3,10 @@
 #include "blocks/handlers.h"
 #include "engine/java-hash-map.h"
 #include "engine/level.h"
+#include "entities/handlers.h"
 
 #include <algorithm>
+#include <cmath>
 
 // PistonBaseBlock
 
@@ -199,11 +201,14 @@ static float piston_moving_block_entity_get_extended_progress(const block_entity
     return be->extending ? progress - 1.0f : 1.0f - progress;
 }
 
-// the moved block at its current offset; a retracting piston also has its base, and a moving head the short arm
-static shape piston_moving_block_entity_get_collision_shape(level & lv, const block_entity * be) {
-    shape out;
+// the states PistonMovingBlockEntity.getCollisionShape joins, with their offsets: the moved block at its current
+// offset, and before it the base of a retracting piston; a moving head is the short arm
+static int32_t piston_moving_block_entity_get_collision_parts(level & lv, const block_entity * be, state_id parts[2],
+                                                              vec3 offsets[2]) {
+    int32_t n = 0;
     if (!be->extending && be->is_source_piston && piston_base_is_piston(be->moved_state)) {
-        out = shape_collision(state_set(be->moved_state, PROP_EXTENDED, 1));
+        parts[n]     = state_set(be->moved_state, PROP_EXTENDED, 1);
+        offsets[n++] = {};
     }
     // NOCLIP is set only while entities move
     state_id st = be->moved_state;
@@ -213,13 +218,24 @@ static shape piston_moving_block_entity_get_collision_shape(level & lv, const bl
     }
     if (state_collision_shapes[st] == SHAPE_NONE) {
         level_unsupported(lv, "dynamic shape of %s", state_to_string(st).c_str());
-        return {};
+        return 0;
     }
     float             extended_progress = piston_moving_block_entity_get_extended_progress(be, be->progress);
     const block_pos & step              = DIRECTION_STEPS[be->dir];
-    shape             moved = shape_move(shape_collision(st), step.x * extended_progress, step.y * extended_progress,
-                                         step.z * extended_progress);
-    out.boxes.insert(out.boxes.end(), moved.boxes.begin(), moved.boxes.end());
+    parts[n]                            = st;
+    offsets[n++] = { step.x * extended_progress, step.y * extended_progress, step.z * extended_progress };
+    return n;
+}
+
+static shape piston_moving_block_entity_get_collision_shape(level & lv, const block_entity * be) {
+    state_id parts[2];
+    vec3     offsets[2];
+    int32_t  n = piston_moving_block_entity_get_collision_parts(lv, be, parts, offsets);
+    shape    out;
+    for (int32_t i = 0; i < n; i++) {
+        shape moved = shape_move(shape_collision(parts[i]), offsets[i].x, offsets[i].y, offsets[i].z);
+        out.boxes.insert(out.boxes.end(), moved.boxes.begin(), moved.boxes.end());
+    }
     return out;
 }
 
@@ -237,11 +253,144 @@ void piston_moving_block_entity_final_tick(level & lv, block_entity * be) {
     }
 }
 
-// Entities are out of scope, so a tick only advances the progress (0, 0.5, 1) and then lands the block.
+static direction piston_moving_block_entity_get_movement_direction(const block_entity * be) {
+    return be->extending ? be->dir : direction_opposite(be->dir);
+}
+
+// moveByPositionAndProgress: the box at the block's current offset
+static aabb piston_moving_block_entity_move_by_position_and_progress(const block_entity * be, const aabb & box) {
+    double            progress = piston_moving_block_entity_get_extended_progress(be, be->progress);
+    const block_pos & step     = DIRECTION_STEPS[be->dir];
+    vec3              w        = entity_block_to_world(be->pos);
+    return aabb_move(box, { w.x + progress * step.x, w.y + progress * step.y, w.z + progress * step.z });
+}
+
+// PistonMath.getMovementArea: the slab the box sweeps through ahead of its leading face
+static aabb piston_math_get_movement_area(const aabb & box, direction dir, double amount) {
+    int32_t axis   = direction_get_axis(dir);
+    double  delta  = amount * direction_get_axis_step(dir);
+    double  face   = direction_get_axis_step(dir) > 0 ? box.max[axis] : box.min[axis];
+    aabb    area   = box;
+    area.min[axis] = face + std::min(delta, 0.0);
+    area.max[axis] = face + std::max(delta, 0.0);
+    return aabb_of(area.min[0], area.min[1], area.min[2], area.max[0], area.max[1], area.max[2]);
+}
+
+// getMovement: how far box has to move along the direction to leave bound
+static double piston_moving_block_entity_get_movement(const aabb & bound, direction dir, const aabb & box) {
+    int32_t axis = direction_get_axis(dir);
+    return direction_get_axis_step(dir) > 0 ? bound.max[axis] - box.min[axis] : box.max[axis] - bound.min[axis];
+}
+
+// moveEntityByPiston: NOCLIP lets the entity pass the moving blocks of this move; the move is not kept for the
+// entity's own tick
+static void piston_moving_block_entity_move_entity_by_piston(level & lv, direction piston_dir, entity & e, double delta,
+                                                             direction movement) {
+    lv.piston_noclip       = piston_dir;
+    vec3              from = e.pos;
+    const block_pos & step = DIRECTION_STEPS[movement];
+    entity_move(lv, e, MOVER_TYPE_PISTON, { delta * step.x, delta * step.y, delta * step.z });
+    entity_apply_effects_from_blocks_between(lv, e, from, e.pos);
+    if (!e.movement_this_tick.empty()) e.movement_this_tick.pop_back();
+    lv.piston_noclip = -1;
+}
+
+// fixEntityWithinPistonBase: a retracting piston pulls an entity out of its base block
+static void piston_moving_block_entity_fix_entity_within_piston_base(level & lv, block_pos pos, entity & e,
+                                                                     direction dir, double delta_progress) {
+    vec3 w     = entity_block_to_world(pos);
+    aabb block = aabb_of(w.x, w.y, w.z, w.x + 1.0, w.y + 1.0, w.z + 1.0);
+    if (!aabb_intersects(e.bb, block)) return;
+    direction opposite     = direction_opposite(dir);
+    aabb      intersection = aabb_of(std::max(e.bb.min[0], block.min[0]), std::max(e.bb.min[1], block.min[1]),
+                                     std::max(e.bb.min[2], block.min[2]), std::min(e.bb.max[0], block.max[0]),
+                                     std::min(e.bb.max[1], block.max[1]), std::min(e.bb.max[2], block.max[2]));
+    double    delta        = piston_moving_block_entity_get_movement(block, opposite, e.bb) + 0.01;
+    double    delta_inside = piston_moving_block_entity_get_movement(block, opposite, intersection) + 0.01;
+    if (std::fabs(delta - delta_inside) < 0.01) {
+        delta = std::min(delta, delta_progress) + 0.01;
+        piston_moving_block_entity_move_entity_by_piston(lv, dir, e, delta, opposite);
+    }
+}
+
+// getCollisionRelatedBlockState: a retracting piston base drags its head along
+static state_id piston_moving_block_entity_get_collision_related_block_state(const block_entity * be) {
+    if (be->extending || !be->is_source_piston || !piston_base_is_piston(be->moved_state)) return be->moved_state;
+    state_id st = state_set(block_default(BLOCK_PISTON_HEAD), PROP_SHORT, be->progress > 0.25F);
+    st          = state_set(st, PROP_PISTON_TYPE,
+                            state_is(be->moved_state, BLOCK_STICKY_PISTON) ? PISTON_TYPE_STICKY : PISTON_TYPE_NORMAL);
+    return state_set(st, PROP_FACING, state_facing(be->moved_state));
+}
+
+// moveCollidedEntities: the moved block pushes what it sweeps into, and slime bounces it
+static void piston_moving_block_entity_move_collided_entities(level & lv, block_pos pos, float new_progress,
+                                                              const block_entity * be) {
+    direction movement       = piston_moving_block_entity_get_movement_direction(be);
+    double    delta_progress = new_progress - be->progress;
+    state_id  st             = piston_moving_block_entity_get_collision_related_block_state(be);
+    if (state_collision_shapes[st] == SHAPE_NONE) {
+        level_unsupported(lv, "dynamic shape of %s", state_to_string(st).c_str());
+        return;
+    }
+    shape s = shape_collision(st);
+    if (s.boxes.empty()) return;
+    aabb bounds = s.boxes[0];
+    for (const aabb & b : s.boxes) bounds = aabb_minmax(bounds, b);
+    aabb                  box = piston_moving_block_entity_move_by_position_and_progress(be, bounds);
+    std::vector<entity *> found;
+    level_get_entities(lv, aabb_minmax(piston_math_get_movement_area(box, movement, delta_progress), box), found);
+    bool cause_bounce = state_is(be->moved_state, BLOCK_SLIME_BLOCK);
+    // every entity in scope has the NORMAL push reaction
+    for (entity * e : found) {
+        if (cause_bounce)
+            e->delta = vec3_with(e->delta, direction_get_axis(movement), direction_get_axis_step(movement));
+        double delta = 0.0;
+        for (const aabb & part : s.boxes) {
+            aabb moving = piston_math_get_movement_area(
+                piston_moving_block_entity_move_by_position_and_progress(be, part), movement, delta_progress);
+            if (!aabb_intersects(moving, e->bb)) continue;
+            delta = std::max(delta, piston_moving_block_entity_get_movement(moving, movement, e->bb));
+            if (delta >= delta_progress) break;
+        }
+        if (delta <= 0.0) continue;
+        delta = std::min(delta, delta_progress) + 0.01;
+        piston_moving_block_entity_move_entity_by_piston(lv, movement, *e, delta, movement);
+        if (!be->extending && be->is_source_piston) {
+            piston_moving_block_entity_fix_entity_within_piston_base(lv, pos, *e, movement, delta_progress);
+        }
+    }
+}
+
+// moveStuckEntities: honey moving sideways carries what stands on it
+static void piston_moving_block_entity_move_stuck_entities(level & lv, block_pos pos, float new_progress,
+                                                           const block_entity * be) {
+    direction movement = piston_moving_block_entity_get_movement_direction(be);
+    if (!state_is(be->moved_state, BLOCK_HONEY_BLOCK) || direction_get_axis(movement) == DIRECTION_AXIS_Y) return;
+    double sticky_top = -INFINITY;
+    for (const aabb & b : shape_collision(be->moved_state).boxes) sticky_top = std::max(sticky_top, b.max[1]);
+    aabb box = piston_moving_block_entity_move_by_position_and_progress(
+        be, aabb_of(0.0, sticky_top, 0.0, 1.0, 1.5000010000000001, 1.0));
+    double                delta_progress = new_progress - be->progress;
+    std::vector<entity *> found;
+    level_get_entities(lv, box, found);
+    for (entity * e : found) {
+        // matchesStickyCritera
+        bool supported = e->has_main_support && e->main_support.x == pos.x && e->main_support.y == pos.y &&
+                         e->main_support.z == pos.z;
+        bool over =
+            e->pos.x >= box.min[0] && e->pos.x <= box.max[0] && e->pos.z >= box.min[2] && e->pos.z <= box.max[2];
+        if (!e->on_ground || !(supported || over)) continue;
+        piston_moving_block_entity_move_entity_by_piston(lv, movement, *e, delta_progress, movement);
+    }
+}
+
+// A tick advances the progress (0, 0.5, 1) and then lands the block.
 void piston_moving_block_entity_tick(level & lv, block_entity * be) {
     be->last_ticked = lv.game_time;
     be->progress_o  = be->progress;
     if (be->progress_o < 1.0f) {
+        piston_moving_block_entity_move_collided_entities(lv, be->pos, be->progress + 0.5f, be);
+        piston_moving_block_entity_move_stuck_entities(lv, be->pos, be->progress + 0.5f, be);
         be->progress = std::min(be->progress + 0.5f, 1.0f);
         return;
     }
@@ -273,6 +422,29 @@ static block_entity * moving_piston_get_block_entity(level & lv, state_id st, bl
 shape moving_piston_get_collision_shape(level & lv, block_pos pos) {
     block_entity * be = moving_piston_get_block_entity(lv, level_get_state(lv, pos), pos);
     return be != nullptr ? piston_moving_block_entity_get_collision_shape(lv, be) : shape();
+}
+
+bool moving_piston_get_entity_collision_shapes(level & lv, block_pos pos, std::vector<voxel_shape> & out) {
+    block_entity * be = moving_piston_get_block_entity(lv, level_get_state(lv, pos), pos);
+    if (be == nullptr) return false;
+    state_id parts[2];
+    vec3     offsets[2];
+    int32_t  n      = piston_moving_block_entity_get_collision_parts(lv, be, parts, offsets);
+    // while this piston move pushes an entity, only the base of a retracting piston is left
+    bool     noclip = be->progress < 1.0 && lv.piston_noclip == piston_moving_block_entity_get_movement_direction(be);
+    if (noclip) {
+        n = n == 2 ? 1 : 0;
+    } else if (shape_is_block(piston_moving_block_entity_get_collision_shape(lv, be))) {
+        // Shapes.or optimizes a union that fills the block to Shapes.block() itself
+        return true;
+    }
+    vec3 w = entity_block_to_world(pos);
+    for (int32_t i = 0; i < n; i++) {
+        out.push_back({
+            state_collision_shapes[parts[i]], { w.x + offsets[i].x, w.y + offsets[i].y, w.z + offsets[i].z }
+        });
+    }
+    return false;
 }
 
 // the moving piston that stands in for a moved block, or for the base or arm of a retracting or extending piston

@@ -1,4 +1,4 @@
-// Attached blocks: torches, ladders, lanterns, amethyst, carpets, levers and bells hang on a neighbor and break
+// Attached blocks: torches, ladders, lanterns, amethyst, carpets, cakes, levers and bells hang on a neighbor and break
 // when it no longer holds them
 
 #include "blocks/handlers.h"
@@ -67,6 +67,25 @@ static bool carpet_can_survive(level & lv, state_id, block_pos pos) {
 
 static state_id carpet_update_shape(level & lv, state_id st, block_pos pos, direction, block_pos, state_id) {
     return !block_can_survive(lv, st, pos) ? STATE_AIR : st;
+}
+
+// CakeBlock, and CandleCakeBlock the same way: a cake needs a solid block below
+static bool cake_can_survive(level & lv, state_id, block_pos pos) {
+    return state_has(level_get_state(lv, pos_relative(pos, DIRECTION_DOWN)), STATE_FLAG_SOLID);
+}
+
+static state_id cake_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id) {
+    return dir == DIRECTION_DOWN && !block_can_survive(lv, st, pos) ? STATE_AIR : st;
+}
+
+static int32_t cake_get_output_signal(int32_t bites_taken) { return (7 - bites_taken) * 2; }
+
+static int32_t cake_get_analog_output_signal(level &, state_id st, block_pos, direction) {
+    return cake_get_output_signal(state_get(st, PROP_BITES));
+}
+
+static int32_t candle_cake_get_analog_output_signal(level &, state_id, block_pos, direction) {
+    return cake_get_output_signal(0);
 }
 
 // BellBlock. Without entities the bell block entity shows nothing: shaking and resonating only reach entities and
@@ -140,6 +159,14 @@ const std::vector<block_hooks> attached_hooks = {
       .update_shape = attached_update_shape,
       .can_survive = attached_can_survive },
     { .vclass = VCLASS_CARPET_BLOCK, .update_shape = carpet_update_shape, .can_survive = carpet_can_survive },
+    { .vclass = VCLASS_CAKE_BLOCK,
+      .update_shape = cake_update_shape,
+      .can_survive = cake_can_survive,
+      .get_analog_output_signal = cake_get_analog_output_signal },
+    { .vclass = VCLASS_CANDLE_CAKE_BLOCK,
+      .update_shape = cake_update_shape,
+      .can_survive = cake_can_survive,
+      .get_analog_output_signal = candle_cake_get_analog_output_signal },
     { .vclass = VCLASS_BELL_BLOCK,
       .update_shape = bell_update_shape,
       .neighbor_changed = bell_neighbor_changed,
