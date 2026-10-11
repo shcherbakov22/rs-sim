@@ -45,6 +45,7 @@ struct block_def {
     float        friction;       // Block.getFriction
     float        speed_factor;   // Block.getSpeedFactor
     float        jump_factor;    // Block.getJumpFactor
+    float        resistance;     // Block.getExplosionResistance
     int32_t      as_item;        // Block.asItem, air for blocks without an item
 };
 
@@ -86,7 +87,8 @@ struct recipe_def {
 
 struct fluid_def {
     const char * name;
-    uint32_t     tags;  // fluid_tag bits
+    uint32_t     tags;        // fluid_tag bits
+    float        resistance;  // Fluid.getExplosionResistance
 };
 
 // FluidState: amount 8 for a source, legacy is createLegacyBlock

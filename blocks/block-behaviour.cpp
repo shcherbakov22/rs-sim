@@ -2,6 +2,7 @@
 
 #include "blocks/handlers.h"
 #include "core/trace.h"
+#include "engine/explosion.h"
 #include "engine/level.h"
 
 static int16_t hook_owner(state_id st, hook h) { return vclass_hooks[state_classes[st]][h]; }
@@ -108,6 +109,9 @@ static bool block_hooks_has(const block_hooks & b, hook h) {
         case HOOK_FALLING: return b.falling != nullptr;
         case HOOK_ON_LAND: return b.on_land != nullptr;
         case HOOK_ON_BROKEN_AFTER_FALL: return b.on_broken_after_fall != nullptr;
+        case HOOK_ON_EXPLOSION_HIT: return b.on_explosion_hit != nullptr;
+        case HOOK_WAS_EXPLODED: return b.was_exploded != nullptr;
+        case HOOK_DROP_FROM_EXPLOSION: return b.drop_from_explosion != nullptr;
         case HOOK_COUNT: break;
     }
     TMC_ASSERT(false);
@@ -365,4 +369,26 @@ void block_on_land(level & lv, state_id st, block_pos pos, state_id replaced) {
 void block_on_broken_after_fall(level & lv, state_id st, block_pos pos) {
     const block_hooks * b = block_hooks_for(lv, st, HOOK_ON_BROKEN_AFTER_FALL);
     if (b != nullptr) b->on_broken_after_fall(lv, st, pos);
+}
+
+void block_behaviour_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex) {
+    if (state_has(st, STATE_FLAG_AIR)) return;
+    const block_hooks * drop = block_hooks_for(lv, st, HOOK_DROP_FROM_EXPLOSION);
+    if (drop == nullptr || drop->drop_from_explosion()) {
+        const block_entity * be = level_get_block_entity(lv, pos);
+        // spawnAfterBreak without experience: of the overrides only InfestedBlock's does something
+        if (block_instanceof(state_block(st), VCLASS_INFESTED_BLOCK)) block_spawn_after_break(lv, st, pos);
+        for (const item_stack & s : block_get_drops(lv, st, be)) explosion_add_or_append_stack(ex, s, pos);
+    }
+    level_set_block(lv, pos, STATE_AIR, UPDATE_FLAG_ALL);
+    if (const block_hooks * b = block_hooks_for(lv, st, HOOK_WAS_EXPLODED)) b->was_exploded(lv, pos);
+}
+
+void block_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex) {
+    const block_hooks * b = block_hooks_for(lv, st, HOOK_ON_EXPLOSION_HIT);
+    if (b != nullptr) {
+        b->on_explosion_hit(lv, st, pos, ex);
+    } else {
+        block_behaviour_on_explosion_hit(lv, st, pos, ex);
+    }
 }

@@ -44,6 +44,7 @@ add_library(tmc STATIC
     engine/case-run.cpp
     engine/entity-inside.cpp
     engine/entity.cpp
+    engine/explosion.cpp
     engine/java-hash-map.cpp
     engine/level-ticks.cpp
     engine/level.cpp
@@ -52,6 +53,7 @@ add_library(tmc STATIC
     entities/falling-block.cpp
     entities/item.cpp
     entities/minecart.cpp
+    entities/primed-tnt.cpp
     entities/vehicle.cpp
     gen/blocks.cpp
     items/item.cpp

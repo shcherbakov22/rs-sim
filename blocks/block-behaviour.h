@@ -8,6 +8,7 @@
 struct level;
 struct entity;
 struct entity_effect_collector;
+struct explosion;
 
 // BlockBehaviour.UPDATE_SHAPE_ORDER
 inline constexpr direction UPDATE_SHAPE_ORDER[6] = {
@@ -56,11 +57,17 @@ struct block_hooks {
     void (*falling)(entity & e)                                                                           = nullptr;
     void (*on_land)(level & lv, state_id st, block_pos pos, state_id replaced)                            = nullptr;
     void (*on_broken_after_fall)(level & lv, state_id st, block_pos pos)                                  = nullptr;
+    void (*on_explosion_hit)(level & lv, state_id st, block_pos pos, explosion & ex)                      = nullptr;
+    void (*was_exploded)(level & lv, block_pos pos)                                                       = nullptr;
+    bool (*drop_from_explosion)()                                                                         = nullptr;
 };
 
 // BlockBehaviour.updateShape, the default: for classes whose override only schedules the water tick, which
 // block_update_shape does before dispatch
 state_id block_behaviour_update_shape(level & lv, state_id st, block_pos pos, direction dir, block_pos, state_id);
+// BlockBehaviour.onExplosionHit, the default; also the override of classes that only act for explosions that
+// trigger blocks (wind charges)
+void     block_behaviour_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex);
 // a stepOn or fallOn override that only acts on living entities or plays sounds: nothing for the entities in scope
 void     block_living_only(level & lv, state_id st, block_pos pos, entity & e);
 // Block.fallOn, the default: Entity.causeFallDamage with the whole fall. Overrides that only change the damage
@@ -99,6 +106,8 @@ void     block_update_entity_movement_after_fall_on(level & lv, state_id st, ent
 void     block_falling(level & lv, state_id st, entity & e);
 void     block_on_land(level & lv, state_id st, block_pos pos, state_id replaced);
 void     block_on_broken_after_fall(level & lv, state_id st, block_pos pos);
+// BlockState.onExplosionHit, with Block.dropFromExplosion and Block.wasExploded
+void     block_on_explosion_hit(level & lv, state_id st, block_pos pos, explosion & ex);
 
 // BlockStateBase.updateNeighbourShapes
 void block_update_neighbour_shapes(level & lv, state_id st, block_pos pos, int32_t flags, int32_t limit);

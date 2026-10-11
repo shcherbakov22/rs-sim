@@ -164,6 +164,7 @@ static void entity_tick(level & lv, entity & e) {
     switch (e.type) {
         case ENTITY_TYPE_ITEM: item_entity_tick(lv, e); return;
         case ENTITY_TYPE_FALLING_BLOCK: falling_block_entity_tick(lv, e); return;
+        case ENTITY_TYPE_TNT: primed_tnt_tick(lv, e); return;
         default: break;
     }
     if (entity_is_boat(e)) {
@@ -457,59 +458,92 @@ static float entity_get_block_speed_factor(level & lv, const entity & e) {
         .speed_factor;
 }
 
-// VoxelShape.clip of a one-box shape at a world block: the segment starts in the box or enters it
-static bool voxel_shape_clip_box(const aabb & box, const int32_t pos[3], const vec3 & from, const vec3 & to) {
+// VoxelShape.clip at a world block: the segment starts in the shape or enters one of its boxes
+static bool voxel_shape_clip(const shape & s, const int32_t pos[3], const vec3 & from, const vec3 & to) {
     vec3 diff = vec3_subtract(to, from);
-    if (vec3_length_sqr(diff) < 1.0E-7) return false;
-    vec3 test   = vec3_add(from, vec3_scale(diff, 0.001));
-    bool inside = true;
-    for (int32_t axis = 0; axis < 3; axis++) {
-        double v = vec3_get(test, axis) - pos[axis];
-        inside   = inside && box.min[axis] <= v && v < box.max[axis];
+    if (s.boxes.empty() || vec3_length_sqr(diff) < 1.0E-7) return false;
+    vec3 test = vec3_add(from, vec3_scale(diff, 0.001));
+    for (const aabb & box : s.boxes) {
+        bool inside = true;
+        for (int32_t axis = 0; axis < 3; axis++) {
+            double v = vec3_get(test, axis) - pos[axis];
+            inside   = inside && box.min[axis] <= v && v < box.max[axis];
+        }
+        if (inside) return true;
     }
-    return inside ||
-           aabb_clip(aabb_move(box, { (double) pos[0], (double) pos[1], (double) pos[2] }), from, to, nullptr);
+    for (const aabb & box : s.boxes) {
+        if (aabb_clip(aabb_move(box, { (double) pos[0], (double) pos[1], (double) pos[2] }), from, to, nullptr)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// BlockGetter.traverseBlocks: the blocks along a segment stretched by 1e-7 at both ends, in order
+struct block_traversal {
+    int32_t cur[3];
+    int32_t sign[3];
+    double  t_delta[3];
+    double  t_next[3];
+};
+
+static block_traversal block_traversal_init(const vec3 & from, const vec3 & to) {
+    double          f[3] = { from.x + -1.0E-7 * (to.x - from.x), from.y + -1.0E-7 * (to.y - from.y),
+                             from.z + -1.0E-7 * (to.z - from.z) };
+    double          t[3] = { to.x + -1.0E-7 * (from.x - to.x), to.y + -1.0E-7 * (from.y - to.y),
+                             to.z + -1.0E-7 * (from.z - to.z) };
+    block_traversal b;
+    for (int32_t axis = 0; axis < 3; axis++) {
+        double d        = t[axis] - f[axis];
+        b.cur[axis]     = floor_int(f[axis]);
+        b.sign[axis]    = sign_int(d);
+        b.t_delta[axis] = b.sign[axis] == 0 ? DBL_MAX : b.sign[axis] / d;
+        b.t_next[axis]  = b.t_delta[axis] * (b.sign[axis] > 0 ? 1.0 - frac(f[axis]) : frac(f[axis]));
+    }
+    return b;
+}
+
+// steps to the next block; false past the end of the segment
+static bool block_traversal_next(block_traversal & b) {
+    if (!(b.t_next[0] <= 1.0 || b.t_next[1] <= 1.0 || b.t_next[2] <= 1.0)) return false;
+    int32_t axis =
+        b.t_next[0] < b.t_next[1] ? (b.t_next[0] < b.t_next[2] ? 0 : 2) : (b.t_next[1] < b.t_next[2] ? 1 : 2);
+    b.cur[axis] += b.sign[axis];
+    b.t_next[axis] += b.t_delta[axis];
+    return true;
 }
 
 // BlockGetter.clip with ClipContext.Block.FALLDAMAGE_RESETTING and ClipContext.Fluid.WATER, for a non-player:
 // whether it hits
 static bool level_clip_fall_damage_resetting(level & lv, const vec3 & from, const vec3 & to) {
     if (vec3_equals(from, to)) return false;
-    // traverseBlocks walks a segment stretched by 1e-7 at both ends
-    double  f[3] = { from.x + -1.0E-7 * (to.x - from.x), from.y + -1.0E-7 * (to.y - from.y),
-                     from.z + -1.0E-7 * (to.z - from.z) };
-    double  t[3] = { to.x + -1.0E-7 * (from.x - to.x), to.y + -1.0E-7 * (from.y - to.y),
-                     to.z + -1.0E-7 * (from.z - to.z) };
-    int32_t cur[3];
-    int32_t sign[3];
-    double  t_delta[3];
-    double  t_next[3];
-    for (int32_t axis = 0; axis < 3; axis++) {
-        double d      = t[axis] - f[axis];
-        cur[axis]     = floor_int(f[axis]);
-        sign[axis]    = sign_int(d);
-        t_delta[axis] = sign[axis] == 0 ? DBL_MAX : sign[axis] / d;
-        t_next[axis]  = t_delta[axis] * (sign[axis] > 0 ? 1.0 - frac(f[axis]) : frac(f[axis]));
-    }
-    while (true) {
-        block_pos      pos = { cur[0] - LEVEL_ORIGIN.x, cur[1] - LEVEL_ORIGIN.y, cur[2] - LEVEL_ORIGIN.z };
+    block_traversal b = block_traversal_init(from, to);
+    do {
+        block_pos      pos = { b.cur[0] - LEVEL_ORIGIN.x, b.cur[1] - LEVEL_ORIGIN.y, b.cur[2] - LEVEL_ORIGIN.z };
         state_id       st  = level_get_state(lv, pos);
         fluid_state_id fs  = state_fluid_state(st);
-        if (state_has(st, STATE_FLAG_TAG_FALL_DAMAGE_RESETTING) &&
-            voxel_shape_clip_box(aabb_of(0.0, 0.0, 0.0, 1.0, 1.0, 1.0), cur, from, to)) {
+        if (state_has(st, STATE_FLAG_TAG_FALL_DAMAGE_RESETTING) && voxel_shape_clip(shape_block(), b.cur, from, to)) {
             return true;
         }
         // FlowingFluid.getShape: a full source under the same fluid is Shapes.block(), the same box as its height
         if (fluid_state_is_tag(fs, FLUID_TAG_WATER) &&
-            voxel_shape_clip_box(aabb_of(0.0, 0.0, 0.0, 1.0, fluid_state_get_height(lv, fs, pos), 1.0), cur, from,
-                                 to)) {
+            voxel_shape_clip({ { aabb_of(0.0, 0.0, 0.0, 1.0, fluid_state_get_height(lv, fs, pos), 1.0) } }, b.cur, from,
+                             to)) {
             return true;
         }
-        if (!(t_next[0] <= 1.0 || t_next[1] <= 1.0 || t_next[2] <= 1.0)) return false;
-        int32_t axis = t_next[0] < t_next[1] ? (t_next[0] < t_next[2] ? 0 : 2) : (t_next[1] < t_next[2] ? 1 : 2);
-        cur[axis] += sign[axis];
-        t_next[axis] += t_delta[axis];
-    }
+    } while (block_traversal_next(b));
+    return false;
+}
+
+bool level_clip_collider(level & lv, const entity & e, const vec3 & from, const vec3 & to) {
+    if (vec3_equals(from, to)) return false;
+    block_traversal b = block_traversal_init(from, to);
+    do {
+        block_pos pos   = { b.cur[0] - LEVEL_ORIGIN.x, b.cur[1] - LEVEL_ORIGIN.y, b.cur[2] - LEVEL_ORIGIN.z };
+        uint16_t  shape = entity_collision_shape(lv, e, level_get_state(lv, pos), pos);
+        if (shape != SHAPE_EMPTY && voxel_shape_clip(shape_from_table(shape), b.cur, from, to)) return true;
+    } while (block_traversal_next(b));
+    return false;
 }
 
 // Entity.addMovementThisTick: past 100 moves the first two merge

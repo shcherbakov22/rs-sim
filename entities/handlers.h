@@ -35,6 +35,10 @@ void minecart_tnt_cause_fall_damage(level & lv, entity & e, double fall_distance
 // MinecartTNT.destroy: true when the tnt minecart primes instead of breaking
 bool minecart_tnt_destroy(entity & e, bool ignites_tnt);
 
+// PrimedTnt
+entity * primed_tnt_new(level & lv, vec3 pos);
+void     primed_tnt_tick(level & lv, entity & e);
+
 // AbstractBoat and its types
 void abstract_boat_tick(level & lv, entity & e);
 void abstract_boat_check_fall_damage(level & lv, entity & e, double ya, bool on_ground);

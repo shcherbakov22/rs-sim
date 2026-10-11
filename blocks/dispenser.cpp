@@ -234,7 +234,7 @@ static item_stack dispense_item_behavior_flint_and_steel(level & lv, state_id st
         level_set_block(lv, target, state_set(at, PROP_LIT, 1), UPDATE_FLAG_ALL);
     } else if (block_instanceof(state_block(at), VCLASS_TNT_BLOCK)) {
         tnt_prime(lv, target);
-        return dispensed;
+        level_remove_block(lv, target, false);
     } else {
         return dispensed;
     }
@@ -252,6 +252,7 @@ static item_stack dispense_item_behavior_bone_meal(level & lv, state_id st, bloc
 // builds the same PrimedTnt as TntBlock.prime
 static item_stack dispense_item_behavior_tnt(level & lv, state_id st, block_pos pos, item_stack dispensed) {
     tnt_prime(lv, pos_relative(pos, state_facing(st)));
+    item_stack_grow(dispensed, -1);
     return dispensed;
 }
 

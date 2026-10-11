@@ -86,7 +86,7 @@ struct entity {
     float   y_rot_o = 0.0F;  // yRotO, set before each tick
     bool    flipped = false;
     bool    enabled = true;  // MinecartHopper
-    int32_t fuse    = -1;    // MinecartTNT
+    int32_t fuse    = -1;    // MinecartTNT and PrimedTnt
 
     // AbstractBoat
     boat_status status                          = BOAT_STATUS_NONE;
@@ -177,6 +177,8 @@ void level_get_entities(level & lv, const aabb & box, std::vector<entity *> & ou
 // Entity base behaviour that entity types build on
 void      entity_base_tick(level & lv, entity & e);
 void      entity_apply_gravity(entity & e);
+// Entity.hurtServer of the entity's type
+bool      entity_hurt_server(level & lv, entity & e, damage_type type, float damage);
 // Entity.push of an impulse
 void      entity_push(entity & e, double x, double y, double z);
 // Entity.push(Entity): e pushes other
@@ -195,6 +197,8 @@ bool      entity_update_in_water_state_and_do_fluid_pushing(level & lv, entity &
 void      entity_move_towards_closest_space(level & lv, entity & e, vec3 at);
 bool      entity_is_in_lava(const entity & e);
 block_pos entity_get_block_pos_below_that_affects_my_movement(level & lv, const entity & e);
+// BlockGetter.clip with ClipContext.Block.COLLIDER for the entity and ClipContext.Fluid.NONE: whether it hits
+bool      level_clip_collider(level & lv, const entity & e, const vec3 & from, const vec3 & to);
 // CollisionGetter.noCollision for an entity: no block or entity collides with box
 bool      level_no_collision(level & lv, const entity & e, const aabb & box);
 // BlockStateBase.isCollisionShapeFullBlock

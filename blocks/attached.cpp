@@ -170,6 +170,8 @@ const std::vector<block_hooks> attached_hooks = {
     { .vclass = VCLASS_BELL_BLOCK,
       .update_shape = bell_update_shape,
       .neighbor_changed = bell_neighbor_changed,
-      .can_survive = bell_can_survive },
+      .can_survive = bell_can_survive,
+      .on_explosion_hit = block_behaviour_on_explosion_hit },
+    { .vclass = VCLASS_ABSTRACT_CANDLE_BLOCK, .on_explosion_hit = block_behaviour_on_explosion_hit },
 };
 // clang-format on

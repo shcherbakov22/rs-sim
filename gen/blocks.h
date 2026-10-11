@@ -3729,7 +3729,10 @@ enum hook {
     HOOK_FALLING = 19,
     HOOK_ON_LAND = 20,
     HOOK_ON_BROKEN_AFTER_FALL = 21,
-    HOOK_COUNT = 22,
+    HOOK_ON_EXPLOSION_HIT = 22,
+    HOOK_WAS_EXPLODED = 23,
+    HOOK_DROP_FROM_EXPLOSION = 24,
+    HOOK_COUNT = 25,
 };
 
 // vanilla BlockStateProperties fields

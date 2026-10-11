@@ -117,7 +117,7 @@ struct level {
     trace *                            tr = nullptr;
     std::string                        unsupported;  // first unsupported mechanic hit; the run stops at the next check
     size_t                             unsupported_line = 0;  // trace lines before it, all still exact
-    bool boundary = false;  // past an entity spawn or explosion nothing is contract, and the run ends
+    bool boundary = false;  // past an out-of-scope entity spawn nothing is contract, and the run ends
 };
 
 void level_unsupported(level & lv, const char * fmt, ...) __attribute__((format(printf, 2, 3)));
@@ -157,8 +157,12 @@ block_entity * level_get_block_entity_of_type(level & lv, block_pos pos, int32_t
 void           level_set_block_entity(level & lv, block_entity * be);
 void           level_remove_block_entity(level & lv, block_pos pos);
 
+// Block.getDrops without a tool: the dumped drops of the state
+std::vector<item_stack> block_get_drops(level & lv, state_id st, const block_entity * be);
 // Block.dropResources without a tool
-void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be);
+void                    level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be);
+// Block.popResource
+void                    level_pop_resource(level & lv, block_pos pos, item_stack s);
 
 void level_update_neighbors_at(level & lv, block_pos pos, int32_t block);
 // updateNeighborsAt for each of the six neighbors, in Direction order

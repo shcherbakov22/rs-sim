@@ -1635,7 +1635,7 @@ const field_value block_field_values[] = {
     { FIELD_FLOWER_POT_BLOCK_POTTED, 1162 },  // potted_closed_eyeblossom
 };
 
-const char * const hook_names[] = { "updateShape", "neighborChanged", "onPlace", "affectNeighborsAfterRemoval", "tick", "triggerEvent", "updateIndirectNeighbourShapes", "spawnAfterBreak", "getSignal", "getDirectSignal", "canSurvive", "getAnalogOutputSignal", "shouldChangedStateKeepBlockEntity", "placeLiquid", "pickupBlock", "entityInside", "stepOn", "fallOn", "updateEntityMovementAfterFallOn", "falling", "onLand", "onBrokenAfterFall" };
+const char * const hook_names[] = { "updateShape", "neighborChanged", "onPlace", "affectNeighborsAfterRemoval", "tick", "triggerEvent", "updateIndirectNeighbourShapes", "spawnAfterBreak", "getSignal", "getDirectSignal", "canSurvive", "getAnalogOutputSignal", "shouldChangedStateKeepBlockEntity", "placeLiquid", "pickupBlock", "entityInside", "stepOn", "fallOn", "updateEntityMovementAfterFallOn", "falling", "onLand", "onBrokenAfterFall", "onExplosionHit", "wasExploded", "dropFromExplosion" };
 const char * const vclass_names[] = { "Block", "AbstractBannerBlock", "AbstractCandleBlock", "AbstractCauldronBlock", "AbstractChestBlock", "AbstractFurnaceBlock", "AbstractSkullBlock", "AirBlock", "AmethystBlock", "AmethystClusterBlock", "AnvilBlock", "AttachedStemBlock", "AzaleaBlock", "BambooSaplingBlock", "BambooStalkBlock", "BannerBlock", "BarrelBlock", "BarrierBlock", "BaseCoralFanBlock", "BaseCoralPlantBlock", "BaseCoralPlantTypeBlock", "BaseCoralWallFanBlock", "BaseEntityBlock", "BaseFireBlock", "BasePressurePlateBlock", "BaseRailBlock", "BaseTorchBlock", "BeaconBlock", "BedBlock", "BeehiveBlock", "BeetrootBlock", "BellBlock", "BigDripleafBlock", "BigDripleafStemBlock", "BlastFurnaceBlock", "BonemealableFeaturePlacerBlock", "BrewingStandBlock", "BrushableBlock", "BubbleColumnBlock", "BuddingAmethystBlock", "BushBlock", "ButtonBlock", "CactusBlock", "CactusFlowerBlock", "CakeBlock", "CalibratedSculkSensorBlock", "CampfireBlock", "CandleBlock", "CandleCakeBlock", "CarpetBlock", "CarrotBlock", "CartographyTableBlock", "CarvedPumpkinBlock", "CauldronBlock", "CaveVinesBlock", "CaveVinesPlantBlock", "CeilingHangingSignBlock", "ChainBlock", "ChestBlock", "ChiseledBookShelfBlock", "ChorusFlowerBlock", "ChorusPlantBlock", "CocoaBlock", "ColoredFallingBlock", "CommandBlock", "ComparatorBlock", "ComposterBlock", "ConcretePowderBlock", "ConduitBlock", "CopperBulbBlock", "CopperChestBlock", "CopperGolemStatueBlock", "CoralBlock", "CoralFanBlock", "CoralPlantBlock", "CoralWallFanBlock", "CrafterBlock", "CraftingTableBlock", "CreakingHeartBlock", "CropBlock", "CrossCollisionBlock", "CryingObsidianBlock", "DaylightDetectorBlock", "DecoratedPotBlock", "DetectorRailBlock", "DiodeBlock", "DirectionalBlock", "DirtPathBlock", "DispenserBlock", "DoorBlock", "DoublePlantBlock", "DragonEggBlock", "DriedGhastBlock", "DropExperienceBlock", "DropperBlock", "DryVegetationBlock", "EnchantingTableBlock", "EndGatewayBlock", "EndPortalBlock", "EndPortalFrameBlock", "EndRodBlock", "EnderChestBlock", "EyeblossomBlock", "FaceAttachedHorizontalDirectionalBlock", "FallingBlock", "FarmBlock", "FenceBlock", "FenceGateBlock", "FireBlock", "FireflyBushBlock", "FlowerBedBlock", "FlowerBlock", "FlowerPotBlock", "FrogspawnBlock", "FrostedIceBlock", "FungusBlock", "FurnaceBlock", "GlazedTerracottaBlock", "GlowLichenBlock", "GrassBlock", "GrindstoneBlock", "GrowingPlantBlock", "GrowingPlantBodyBlock", "GrowingPlantHeadBlock", "HalfTransparentBlock", "HangingMossBlock", "HangingRootsBlock", "HayBlock", "HeavyCoreBlock", "HoneyBlock", "HopperBlock", "HorizontalDirectionalBlock", "HugeMushroomBlock", "IceBlock", "InfestedBlock", "InfestedRotatedPillarBlock", "IronBarsBlock", "JigsawBlock", "JukeboxBlock", "KelpBlock", "KelpPlantBlock", "LadderBlock", "LanternBlock", "LavaCauldronBlock", "LayeredCauldronBlock", "LeafLitterBlock", "LeavesBlock", "LecternBlock", "LeverBlock", "LightBlock", "LightningRodBlock", "LiquidBlock", "LoomBlock", "MagmaBlock", "MangroveLeavesBlock", "MangrovePropaguleBlock", "MangroveRootsBlock", "MossyCarpetBlock", "MovingPistonBlock", "MudBlock", "MultifaceBlock", "MultifaceSpreadeableBlock", "MushroomBlock", "MyceliumBlock", "NetherPortalBlock", "NetherSproutsBlock", "NetherWartBlock", "NetherrackBlock", "NoteBlock", "NyliumBlock", "ObserverBlock", "PiglinWallSkullBlock", "PipeBlock", "PistonBaseBlock", "PistonHeadBlock", "PitcherCropBlock", "PlayerHeadBlock", "PlayerWallHeadBlock", "PointedDripstoneBlock", "PotatoBlock", "PowderSnowBlock", "PoweredBlock", "PoweredRailBlock", "PressurePlateBlock", "PumpkinBlock", "RailBlock", "RedStoneOreBlock", "RedStoneWireBlock", "RedstoneLampBlock", "RedstoneTorchBlock", "RedstoneWallTorchBlock", "RepeaterBlock", "RespawnAnchorBlock", "RodBlock", "RootedDirtBlock", "RootsBlock", "RotatedPillarBlock", "SandBlock", "SaplingBlock", "ScaffoldingBlock", "SculkBlock", "SculkCatalystBlock", "SculkSensorBlock", "SculkShriekerBlock", "SculkVeinBlock", "SeaPickleBlock", "SeagrassBlock", "ShelfBlock", "ShortDryGrassBlock", "ShulkerBoxBlock", "SignBlock", "SkullBlock", "SlabBlock", "SlimeBlock", "SmallDripleafBlock", "SmithingTableBlock", "SmokerBlock", "SnifferEggBlock", "SnowLayerBlock", "SnowyDirtBlock", "SoulFireBlock", "SoulSandBlock", "SpawnerBlock", "SpongeBlock", "SporeBlossomBlock", "SpreadingSnowyDirtBlock", "StainedGlassBlock", "StainedGlassPaneBlock", "StairBlock", "StandingSignBlock", "StemBlock", "StonecutterBlock", "StructureBlock", "StructureVoidBlock", "SugarCaneBlock", "SweetBerryBushBlock", "TallDryGrassBlock", "TallFlowerBlock", "TallGrassBlock", "TallSeagrassBlock", "TargetBlock", "TestBlock", "TestInstanceBlock", "TintedGlassBlock", "TintedParticleLeavesBlock", "TntBlock", "TorchBlock", "TorchflowerCropBlock", "TransparentBlock", "TrapDoorBlock", "TrappedChestBlock", "TrialSpawnerBlock", "TripWireBlock", "TripWireHookBlock", "TurtleEggBlock", "TwistingVinesBlock", "TwistingVinesPlantBlock", "UntintedParticleLeavesBlock", "VaultBlock", "VegetationBlock", "VineBlock", "WallBannerBlock", "WallBlock", "WallHangingSignBlock", "WallSignBlock", "WallSkullBlock", "WallTorchBlock", "WaterlilyBlock", "WaterloggedTransparentBlock", "WeatheringCopperBarsBlock", "WeatheringCopperBulbBlock", "WeatheringCopperChainBlock", "WeatheringCopperChestBlock", "WeatheringCopperDoorBlock", "WeatheringCopperFullBlock", "WeatheringCopperGolemStatueBlock", "WeatheringCopperGrateBlock", "WeatheringCopperSlabBlock", "WeatheringCopperStairBlock", "WeatheringCopperTrapDoorBlock", "WeatheringLanternBlock", "WeatheringLightningRodBlock", "WebBlock", "WeepingVinesBlock", "WeepingVinesPlantBlock", "WeightedPressurePlateBlock", "WetSpongeBlock", "WitherRoseBlock", "WitherSkullBlock", "WitherWallSkullBlock", "WoolCarpetBlock" };
 
 const int16_t vclass_super[] = {
@@ -1934,297 +1934,297 @@ const int16_t vclass_super[] = {
 
 // class that overrides each hook, seen from each class
 const int16_t vclass_hooks[][HOOK_COUNT] = {
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
-    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AbstractBannerBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AbstractCandleBlock
-    { 0, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AbstractCauldronBlock
-    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AbstractChestBlock
-    { 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AbstractFurnaceBlock
-    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AbstractSkullBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AirBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AmethystBlock
-    { VCLASS_AMETHYST_CLUSTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AmethystClusterBlock
-    { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_ANVIL_BLOCK, VCLASS_ANVIL_BLOCK, VCLASS_ANVIL_BLOCK },  // AnvilBlock
-    { VCLASS_ATTACHED_STEM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AttachedStemBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AzaleaBlock
-    { VCLASS_BAMBOO_SAPLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BAMBOO_SAPLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BambooSaplingBlock
-    { VCLASS_BAMBOO_STALK_BLOCK, 0, 0, 0, VCLASS_BAMBOO_STALK_BLOCK, 0, 0, 0, 0, 0, VCLASS_BAMBOO_STALK_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BambooStalkBlock
-    { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, VCLASS_BANNER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BannerBlock
-    { 0, 0, 0, VCLASS_BARREL_BLOCK, VCLASS_BARREL_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_BARREL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BarrelBlock
-    { VCLASS_BARRIER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BARRIER_BLOCK, 0, 0, 0, 0, 0, 0, 0 },  // BarrierBlock
-    { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseCoralFanBlock
-    { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseCoralPlantBlock
-    { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseCoralPlantTypeBlock
-    { VCLASS_BASE_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseCoralWallFanBlock
-    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseEntityBlock
-    { 0, 0, VCLASS_BASE_FIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_FIRE_BLOCK, 0, 0, 0, 0, 0, 0 },  // BaseFireBlock
-    { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 },  // BasePressurePlateBlock
-    { VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseRailBlock
-    { VCLASS_BASE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseTorchBlock
-    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BeaconBlock
-    { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, VCLASS_BED_BLOCK, 0, 0, 0 },  // BedBlock
-    { VCLASS_BEEHIVE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_BEEHIVE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BeehiveBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, 0, 0 },  // BeetrootBlock
-    { VCLASS_BELL_BLOCK, VCLASS_BELL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, VCLASS_BELL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BellBlock
-    { VCLASS_BIG_DRIPLEAF_BLOCK, VCLASS_BIG_DRIPLEAF_BLOCK, 0, 0, VCLASS_BIG_DRIPLEAF_BLOCK, 0, 0, 0, 0, 0, VCLASS_BIG_DRIPLEAF_BLOCK, 0, 0, 0, 0, VCLASS_BIG_DRIPLEAF_BLOCK, 0, 0, 0, 0, 0, 0 },  // BigDripleafBlock
-    { VCLASS_BIG_DRIPLEAF_STEM_BLOCK, 0, 0, 0, VCLASS_BIG_DRIPLEAF_STEM_BLOCK, 0, 0, 0, 0, 0, VCLASS_BIG_DRIPLEAF_STEM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BigDripleafStemBlock
-    { 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BlastFurnaceBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BonemealableFeaturePlacerBlock
-    { 0, 0, 0, VCLASS_BREWING_STAND_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_BREWING_STAND_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BrewingStandBlock
-    { VCLASS_BRUSHABLE_BLOCK, 0, VCLASS_BRUSHABLE_BLOCK, 0, VCLASS_BRUSHABLE_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BRUSHABLE_BLOCK },  // BrushableBlock
-    { VCLASS_BUBBLE_COLUMN_BLOCK, 0, 0, 0, VCLASS_BUBBLE_COLUMN_BLOCK, 0, 0, 0, 0, 0, VCLASS_BUBBLE_COLUMN_BLOCK, 0, 0, 0, VCLASS_BUBBLE_COLUMN_BLOCK, VCLASS_BUBBLE_COLUMN_BLOCK, 0, 0, 0, 0, 0, 0 },  // BubbleColumnBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BuddingAmethystBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BushBlock
-    { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, 0, 0 },  // ButtonBlock
-    { VCLASS_CACTUS_BLOCK, 0, 0, 0, VCLASS_CACTUS_BLOCK, 0, 0, 0, 0, 0, VCLASS_CACTUS_BLOCK, 0, 0, 0, 0, VCLASS_CACTUS_BLOCK, 0, 0, 0, 0, 0, 0 },  // CactusBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CactusFlowerBlock
-    { VCLASS_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CAKE_BLOCK, VCLASS_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CakeBlock
-    { VCLASS_SCULK_SENSOR_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_CALIBRATED_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, 0, 0, 0, 0, VCLASS_SCULK_SENSOR_BLOCK, 0, 0, 0, 0, 0 },  // CalibratedSculkSensorBlock
-    { VCLASS_CAMPFIRE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CAMPFIRE_BLOCK, 0, VCLASS_CAMPFIRE_BLOCK, 0, 0, 0, 0, 0, 0 },  // CampfireBlock
-    { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 },  // CandleBlock
-    { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CandleCakeBlock
-    { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CarpetBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, 0, 0 },  // CarrotBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CartographyTableBlock
-    { 0, 0, VCLASS_CARVED_PUMPKIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CarvedPumpkinBlock
-    { 0, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CauldronBlock
-    { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CaveVinesBlock
-    { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CaveVinesPlantBlock
-    { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CeilingHangingSignBlock
-    { VCLASS_CHAIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ChainBlock
-    { VCLASS_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_CHEST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ChestBlock
-    { 0, 0, 0, VCLASS_CHISELED_BOOK_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_CHISELED_BOOK_SHELF_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ChiseledBookShelfBlock
-    { VCLASS_CHORUS_FLOWER_BLOCK, 0, 0, 0, VCLASS_CHORUS_FLOWER_BLOCK, 0, 0, 0, 0, 0, VCLASS_CHORUS_FLOWER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ChorusFlowerBlock
-    { VCLASS_CHORUS_PLANT_BLOCK, 0, 0, 0, VCLASS_CHORUS_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_CHORUS_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ChorusPlantBlock
-    { VCLASS_COCOA_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_COCOA_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CocoaBlock
-    { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ColoredFallingBlock
-    { 0, VCLASS_COMMAND_BLOCK, 0, 0, VCLASS_COMMAND_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_COMMAND_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CommandBlock
-    { VCLASS_COMPARATOR_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_COMPARATOR_BLOCK, VCLASS_COMPARATOR_BLOCK, 0, 0, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ComparatorBlock
-    { 0, 0, VCLASS_COMPOSTER_BLOCK, 0, VCLASS_COMPOSTER_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_COMPOSTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ComposterBlock
-    { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CONCRETE_POWDER_BLOCK, 0 },  // ConcretePowderBlock
-    { VCLASS_CONDUIT_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ConduitBlock
-    { 0, VCLASS_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CopperBulbBlock
-    { VCLASS_COPPER_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_COPPER_CHEST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CopperChestBlock
-    { VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CopperGolemStatueBlock
-    { VCLASS_CORAL_BLOCK, 0, 0, 0, VCLASS_CORAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CoralBlock
-    { VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CoralFanBlock
-    { VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CoralPlantBlock
-    { VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CoralWallFanBlock
-    { 0, VCLASS_CRAFTER_BLOCK, 0, VCLASS_CRAFTER_BLOCK, VCLASS_CRAFTER_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_CRAFTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CrafterBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CraftingTableBlock
-    { VCLASS_CREAKING_HEART_BLOCK, 0, 0, VCLASS_CREAKING_HEART_BLOCK, VCLASS_CREAKING_HEART_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_CREAKING_HEART_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CreakingHeartBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, 0, 0 },  // CropBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CrossCollisionBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CryingObsidianBlock
-    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_DAYLIGHT_DETECTOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DaylightDetectorBlock
-    { VCLASS_DECORATED_POT_BLOCK, 0, 0, VCLASS_DECORATED_POT_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_DECORATED_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DecoratedPotBlock
-    { VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_DETECTOR_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_DETECTOR_RAIL_BLOCK, 0, 0, 0, VCLASS_DETECTOR_RAIL_BLOCK, VCLASS_DETECTOR_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_DETECTOR_RAIL_BLOCK, 0, 0, 0, VCLASS_DETECTOR_RAIL_BLOCK, 0, 0, 0, 0, 0, 0 },  // DetectorRailBlock
-    { 0, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, 0, 0, 0, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DiodeBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DirectionalBlock
-    { VCLASS_DIRT_PATH_BLOCK, 0, 0, 0, VCLASS_DIRT_PATH_BLOCK, 0, 0, 0, 0, 0, VCLASS_DIRT_PATH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DirtPathBlock
-    { 0, VCLASS_DISPENSER_BLOCK, 0, VCLASS_DISPENSER_BLOCK, VCLASS_DISPENSER_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_DISPENSER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DispenserBlock
-    { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DoorBlock
-    { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DoublePlantBlock
-    { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DragonEggBlock
-    { VCLASS_DRIED_GHAST_BLOCK, 0, 0, 0, VCLASS_DRIED_GHAST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_DRIED_GHAST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 },  // DriedGhastBlock
-    { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DropExperienceBlock
-    { 0, VCLASS_DISPENSER_BLOCK, 0, VCLASS_DISPENSER_BLOCK, VCLASS_DISPENSER_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_DISPENSER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DropperBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DryVegetationBlock
-    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // EnchantingTableBlock
-    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_END_GATEWAY_BLOCK, 0, 0, 0, 0, 0, 0 },  // EndGatewayBlock
-    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_END_PORTAL_BLOCK, 0, 0, 0, 0, 0, 0 },  // EndPortalBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_END_PORTAL_FRAME_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // EndPortalFrameBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // EndRodBlock
-    { VCLASS_ENDER_CHEST_BLOCK, 0, 0, 0, VCLASS_ENDER_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // EnderChestBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, VCLASS_EYEBLOSSOM_BLOCK, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, VCLASS_EYEBLOSSOM_BLOCK, 0, 0, 0, 0, 0, 0 },  // EyeblossomBlock
-    { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FaceAttachedHorizontalDirectionalBlock
-    { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FallingBlock
-    { VCLASS_FARM_BLOCK, 0, 0, 0, VCLASS_FARM_BLOCK, 0, 0, 0, 0, 0, VCLASS_FARM_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_FARM_BLOCK, 0, 0, 0, 0 },  // FarmBlock
-    { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FenceBlock
-    { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FenceGateBlock
-    { VCLASS_FIRE_BLOCK, 0, VCLASS_FIRE_BLOCK, 0, VCLASS_FIRE_BLOCK, 0, 0, 0, 0, 0, VCLASS_FIRE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_FIRE_BLOCK, 0, 0, 0, 0, 0, 0 },  // FireBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FireflyBushBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FlowerBedBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FlowerBlock
-    { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FlowerPotBlock
-    { VCLASS_FROGSPAWN_BLOCK, 0, VCLASS_FROGSPAWN_BLOCK, 0, VCLASS_FROGSPAWN_BLOCK, 0, 0, 0, 0, 0, VCLASS_FROGSPAWN_BLOCK, 0, 0, 0, 0, VCLASS_FROGSPAWN_BLOCK, 0, 0, 0, 0, 0, 0 },  // FrogspawnBlock
-    { 0, VCLASS_FROSTED_ICE_BLOCK, VCLASS_FROSTED_ICE_BLOCK, 0, VCLASS_FROSTED_ICE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FrostedIceBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FungusBlock
-    { 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FurnaceBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GlazedTerracottaBlock
-    { VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GlowLichenBlock
-    { VCLASS_SNOWY_DIRT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GrassBlock
-    { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_GRINDSTONE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GrindstoneBlock
-    { 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GrowingPlantBlock
-    { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GrowingPlantBodyBlock
-    { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GrowingPlantHeadBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // HalfTransparentBlock
-    { VCLASS_HANGING_MOSS_BLOCK, 0, 0, 0, VCLASS_HANGING_MOSS_BLOCK, 0, 0, 0, 0, 0, VCLASS_HANGING_MOSS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // HangingMossBlock
-    { VCLASS_HANGING_ROOTS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_HANGING_ROOTS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // HangingRootsBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_HAY_BLOCK, 0, 0, 0, 0 },  // HayBlock
-    { VCLASS_HEAVY_CORE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // HeavyCoreBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_HONEY_BLOCK, 0, VCLASS_HONEY_BLOCK, 0, 0, 0, 0 },  // HoneyBlock
-    { 0, VCLASS_HOPPER_BLOCK, VCLASS_HOPPER_BLOCK, VCLASS_HOPPER_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_HOPPER_BLOCK, 0, 0, 0, VCLASS_HOPPER_BLOCK, 0, 0, 0, 0, 0, 0 },  // HopperBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // HorizontalDirectionalBlock
-    { VCLASS_HUGE_MUSHROOM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // HugeMushroomBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // IceBlock
-    { 0, 0, 0, 0, 0, 0, 0, VCLASS_INFESTED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // InfestedBlock
-    { 0, 0, 0, 0, 0, 0, 0, VCLASS_INFESTED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // InfestedRotatedPillarBlock
-    { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // IronBarsBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // JigsawBlock
-    { 0, 0, 0, VCLASS_JUKEBOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_JUKEBOX_BLOCK, 0, 0, VCLASS_JUKEBOX_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // JukeboxBlock
-    { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, VCLASS_KELP_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 },  // KelpBlock
-    { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, VCLASS_KELP_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 },  // KelpPlantBlock
-    { VCLASS_LADDER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_LADDER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LadderBlock
-    { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LanternBlock
-    { 0, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_LAVA_CAULDRON_BLOCK, 0, 0, 0, VCLASS_LAVA_CAULDRON_BLOCK, 0, 0, 0, 0, 0, 0 },  // LavaCauldronBlock
-    { 0, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_LAYERED_CAULDRON_BLOCK, 0, 0, 0, VCLASS_LAYERED_CAULDRON_BLOCK, 0, 0, 0, 0, 0, 0 },  // LayeredCauldronBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_LEAF_LITTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LeafLitterBlock
-    { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LeavesBlock
-    { 0, 0, 0, VCLASS_LECTERN_BLOCK, VCLASS_LECTERN_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_LECTERN_BLOCK, VCLASS_LECTERN_BLOCK, 0, VCLASS_LECTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LecternBlock
-    { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_LEVER_BLOCK, 0, 0, 0, 0, VCLASS_LEVER_BLOCK, VCLASS_LEVER_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LeverBlock
-    { VCLASS_LIGHT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LightBlock
-    { VCLASS_LIGHTNING_ROD_BLOCK, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LightningRodBlock
-    { VCLASS_LIQUID_BLOCK, VCLASS_LIQUID_BLOCK, VCLASS_LIQUID_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_LIQUID_BLOCK, 0, 0, 0, 0, 0, 0, 0 },  // LiquidBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LoomBlock
-    { VCLASS_MAGMA_BLOCK, 0, VCLASS_MAGMA_BLOCK, 0, VCLASS_MAGMA_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MAGMA_BLOCK, 0, 0, 0, 0, 0 },  // MagmaBlock
-    { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MangroveLeavesBlock
-    { VCLASS_MANGROVE_PROPAGULE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MANGROVE_PROPAGULE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MangrovePropaguleBlock
-    { VCLASS_MANGROVE_ROOTS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MangroveRootsBlock
-    { VCLASS_MOSSY_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MOSSY_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MossyCarpetBlock
-    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MovingPistonBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MudBlock
-    { VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MultifaceBlock
-    { VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MultifaceSpreadeableBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MUSHROOM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MushroomBlock
-    { VCLASS_SNOWY_DIRT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MyceliumBlock
-    { VCLASS_NETHER_PORTAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_NETHER_PORTAL_BLOCK, 0, 0, 0, 0, 0, 0 },  // NetherPortalBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // NetherSproutsBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // NetherWartBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // NetherrackBlock
-    { VCLASS_NOTE_BLOCK, VCLASS_NOTE_BLOCK, 0, 0, 0, VCLASS_NOTE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // NoteBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // NyliumBlock
-    { VCLASS_OBSERVER_BLOCK, 0, VCLASS_OBSERVER_BLOCK, VCLASS_OBSERVER_BLOCK, VCLASS_OBSERVER_BLOCK, 0, 0, 0, VCLASS_OBSERVER_BLOCK, VCLASS_OBSERVER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ObserverBlock
-    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PiglinWallSkullBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PipeBlock
-    { 0, VCLASS_PISTON_BASE_BLOCK, VCLASS_PISTON_BASE_BLOCK, 0, 0, VCLASS_PISTON_BASE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PistonBaseBlock
-    { VCLASS_PISTON_HEAD_BLOCK, VCLASS_PISTON_HEAD_BLOCK, 0, VCLASS_PISTON_HEAD_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_PISTON_HEAD_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PistonHeadBlock
-    { VCLASS_PITCHER_CROP_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_PITCHER_CROP_BLOCK, 0, 0, 0, 0, VCLASS_PITCHER_CROP_BLOCK, 0, 0, 0, 0, 0, 0 },  // PitcherCropBlock
-    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PlayerHeadBlock
-    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PlayerWallHeadBlock
-    { VCLASS_POINTED_DRIPSTONE_BLOCK, 0, 0, 0, VCLASS_POINTED_DRIPSTONE_BLOCK, 0, 0, 0, 0, 0, VCLASS_POINTED_DRIPSTONE_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_POINTED_DRIPSTONE_BLOCK, 0, 0, 0, VCLASS_POINTED_DRIPSTONE_BLOCK },  // PointedDripstoneBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, 0, 0 },  // PotatoBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_POWDER_SNOW_BLOCK, VCLASS_POWDER_SNOW_BLOCK, 0, VCLASS_POWDER_SNOW_BLOCK, 0, 0, 0, 0 },  // PowderSnowBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_POWERED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PoweredBlock
-    { VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PoweredRailBlock
-    { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 },  // PressurePlateBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PumpkinBlock
-    { VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RailBlock
-    { 0, 0, 0, 0, 0, 0, 0, VCLASS_RED_STONE_ORE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_RED_STONE_ORE_BLOCK, 0, 0, 0, 0, 0 },  // RedStoneOreBlock
-    { VCLASS_RED_STONE_WIRE_BLOCK, VCLASS_RED_STONE_WIRE_BLOCK, VCLASS_RED_STONE_WIRE_BLOCK, VCLASS_RED_STONE_WIRE_BLOCK, 0, 0, VCLASS_RED_STONE_WIRE_BLOCK, 0, VCLASS_RED_STONE_WIRE_BLOCK, VCLASS_RED_STONE_WIRE_BLOCK, VCLASS_RED_STONE_WIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RedStoneWireBlock
-    { 0, VCLASS_REDSTONE_LAMP_BLOCK, 0, 0, VCLASS_REDSTONE_LAMP_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RedstoneLampBlock
-    { VCLASS_BASE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, 0, 0, 0, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_BASE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RedstoneTorchBlock
-    { VCLASS_REDSTONE_WALL_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, 0, 0, 0, VCLASS_REDSTONE_WALL_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_WALL_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RedstoneWallTorchBlock
-    { VCLASS_REPEATER_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, 0, 0, 0, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RepeaterBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_RESPAWN_ANCHOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RespawnAnchorBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RodBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RootedDirtBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RootsBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RotatedPillarBlock
-    { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SandBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SaplingBlock
-    { VCLASS_SCAFFOLDING_BLOCK, 0, VCLASS_SCAFFOLDING_BLOCK, 0, VCLASS_SCAFFOLDING_BLOCK, 0, 0, 0, 0, 0, VCLASS_SCAFFOLDING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ScaffoldingBlock
-    { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SculkBlock
-    { 0, 0, 0, 0, VCLASS_SCULK_CATALYST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SCULK_CATALYST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SculkCatalystBlock
-    { VCLASS_SCULK_SENSOR_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, 0, 0, 0, 0, VCLASS_SCULK_SENSOR_BLOCK, 0, 0, 0, 0, 0 },  // SculkSensorBlock
-    { VCLASS_SCULK_SHRIEKER_BLOCK, 0, 0, 0, VCLASS_SCULK_SHRIEKER_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SCULK_SHRIEKER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SCULK_SHRIEKER_BLOCK, 0, 0, 0, 0, 0 },  // SculkShriekerBlock
-    { VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SculkVeinBlock
-    { VCLASS_SEA_PICKLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SEA_PICKLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SeaPickleBlock
-    { VCLASS_SEAGRASS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, VCLASS_SEAGRASS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 },  // SeagrassBlock
-    { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_SHELF_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ShelfBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ShortDryGrassBlock
-    { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ShulkerBoxBlock
-    { VCLASS_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SignBlock
-    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SkullBlock
-    { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 },  // SlabBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SLIME_BLOCK, VCLASS_SLIME_BLOCK, VCLASS_SLIME_BLOCK, 0, 0, 0 },  // SlimeBlock
-    { VCLASS_SMALL_DRIPLEAF_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SMALL_DRIPLEAF_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SmallDripleafBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SmithingTableBlock
-    { 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SmokerBlock
-    { 0, 0, VCLASS_SNIFFER_EGG_BLOCK, 0, VCLASS_SNIFFER_EGG_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SnifferEggBlock
-    { VCLASS_SNOW_LAYER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SNOW_LAYER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SnowLayerBlock
-    { VCLASS_SNOWY_DIRT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SnowyDirtBlock
-    { VCLASS_SOUL_FIRE_BLOCK, 0, VCLASS_BASE_FIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_SOUL_FIRE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_FIRE_BLOCK, 0, 0, 0, 0, 0, 0 },  // SoulFireBlock
-    { VCLASS_SOUL_SAND_BLOCK, 0, VCLASS_SOUL_SAND_BLOCK, 0, VCLASS_SOUL_SAND_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SoulSandBlock
-    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SPAWNER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SpawnerBlock
-    { 0, VCLASS_SPONGE_BLOCK, VCLASS_SPONGE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SpongeBlock
-    { VCLASS_SPORE_BLOSSOM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SPORE_BLOSSOM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SporeBlossomBlock
-    { VCLASS_SNOWY_DIRT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SpreadingSnowyDirtBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StainedGlassBlock
-    { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StainedGlassPaneBlock
-    { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StairBlock
-    { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StandingSignBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StemBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StonecutterBlock
-    { 0, VCLASS_STRUCTURE_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StructureBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StructureVoidBlock
-    { VCLASS_SUGAR_CANE_BLOCK, 0, 0, 0, VCLASS_SUGAR_CANE_BLOCK, 0, 0, 0, 0, 0, VCLASS_SUGAR_CANE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SugarCaneBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, VCLASS_SWEET_BERRY_BUSH_BLOCK, 0, 0, 0, 0, 0, 0 },  // SweetBerryBushBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TallDryGrassBlock
-    { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TallFlowerBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TallGrassBlock
-    { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_TALL_SEAGRASS_BLOCK, 0, 0, VCLASS_TALL_SEAGRASS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 },  // TallSeagrassBlock
-    { 0, 0, VCLASS_TARGET_BLOCK, 0, VCLASS_TARGET_BLOCK, 0, 0, 0, VCLASS_TARGET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TargetBlock
-    { 0, VCLASS_TEST_BLOCK, 0, 0, VCLASS_TEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_TEST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TestBlock
-    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TestInstanceBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TintedGlassBlock
-    { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TintedParticleLeavesBlock
-    { 0, VCLASS_TNT_BLOCK, VCLASS_TNT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TntBlock
-    { VCLASS_BASE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TorchBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, 0, 0 },  // TorchflowerCropBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TransparentBlock
-    { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TrapDoorBlock
-    { VCLASS_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_TRAPPED_CHEST_BLOCK, VCLASS_TRAPPED_CHEST_BLOCK, 0, VCLASS_CHEST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TrappedChestBlock
-    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TrialSpawnerBlock
-    { VCLASS_TRIP_WIRE_BLOCK, 0, VCLASS_TRIP_WIRE_BLOCK, VCLASS_TRIP_WIRE_BLOCK, VCLASS_TRIP_WIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRIP_WIRE_BLOCK, 0, 0, 0, 0, 0, 0 },  // TripWireBlock
-    { VCLASS_TRIP_WIRE_HOOK_BLOCK, 0, 0, VCLASS_TRIP_WIRE_HOOK_BLOCK, VCLASS_TRIP_WIRE_HOOK_BLOCK, 0, 0, 0, VCLASS_TRIP_WIRE_HOOK_BLOCK, VCLASS_TRIP_WIRE_HOOK_BLOCK, VCLASS_TRIP_WIRE_HOOK_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TripWireHookBlock
-    { 0, 0, VCLASS_TURTLE_EGG_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_TURTLE_EGG_BLOCK, VCLASS_TURTLE_EGG_BLOCK, 0, 0, 0, 0 },  // TurtleEggBlock
-    { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TwistingVinesBlock
-    { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TwistingVinesPlantBlock
-    { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // UntintedParticleLeavesBlock
-    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // VaultBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // VegetationBlock
-    { VCLASS_VINE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VINE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // VineBlock
-    { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WallBannerBlock
-    { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WallBlock
-    { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WallHangingSignBlock
-    { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WallSignBlock
-    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WallSkullBlock
-    { VCLASS_WALL_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_WALL_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WallTorchBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, VCLASS_WATERLILY_BLOCK, 0, 0, 0, 0, 0, 0 },  // WaterlilyBlock
-    { VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WaterloggedTransparentBlock
-    { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperBarsBlock
-    { 0, VCLASS_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperBulbBlock
-    { VCLASS_CHAIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperChainBlock
-    { VCLASS_COPPER_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_COPPER_CHEST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperChestBlock
-    { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperDoorBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperFullBlock
-    { VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperGolemStatueBlock
-    { VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperGrateBlock
-    { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperSlabBlock
-    { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperStairBlock
-    { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperTrapDoorBlock
-    { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringLanternBlock
-    { VCLASS_LIGHTNING_ROD_BLOCK, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringLightningRodBlock
-    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_WEB_BLOCK, 0, 0, 0, 0, 0, 0 },  // WebBlock
-    { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeepingVinesBlock
-    { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeepingVinesPlantBlock
-    { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0 },  // WeightedPressurePlateBlock
-    { 0, 0, VCLASS_WET_SPONGE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WetSpongeBlock
-    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, VCLASS_WITHER_ROSE_BLOCK, 0, 0, 0, 0, 0, 0 },  // WitherRoseBlock
-    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WitherSkullBlock
-    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WitherWallSkullBlock
-    { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WoolCarpetBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AbstractBannerBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_ABSTRACT_CANDLE_BLOCK, 0, 0 },  // AbstractCandleBlock
+    { 0, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AbstractCauldronBlock
+    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AbstractChestBlock
+    { 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AbstractFurnaceBlock
+    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AbstractSkullBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AirBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AmethystBlock
+    { VCLASS_AMETHYST_CLUSTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_AMETHYST_CLUSTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AmethystClusterBlock
+    { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_ANVIL_BLOCK, VCLASS_ANVIL_BLOCK, VCLASS_ANVIL_BLOCK, 0, 0, 0 },  // AnvilBlock
+    { VCLASS_ATTACHED_STEM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AttachedStemBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // AzaleaBlock
+    { VCLASS_BAMBOO_SAPLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BAMBOO_SAPLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BambooSaplingBlock
+    { VCLASS_BAMBOO_STALK_BLOCK, 0, 0, 0, VCLASS_BAMBOO_STALK_BLOCK, 0, 0, 0, 0, 0, VCLASS_BAMBOO_STALK_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BambooStalkBlock
+    { VCLASS_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, VCLASS_BANNER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BannerBlock
+    { 0, 0, 0, VCLASS_BARREL_BLOCK, VCLASS_BARREL_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_BARREL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BarrelBlock
+    { VCLASS_BARRIER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BARRIER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BarrierBlock
+    { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseCoralFanBlock
+    { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseCoralPlantBlock
+    { VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseCoralPlantTypeBlock
+    { VCLASS_BASE_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseCoralWallFanBlock
+    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseEntityBlock
+    { 0, 0, VCLASS_BASE_FIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_FIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseFireBlock
+    { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BasePressurePlateBlock
+    { VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseRailBlock
+    { VCLASS_BASE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BaseTorchBlock
+    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BeaconBlock
+    { VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BED_BLOCK, VCLASS_BED_BLOCK, 0, 0, 0, 0, 0, 0 },  // BedBlock
+    { VCLASS_BEEHIVE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_BEEHIVE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BEEHIVE_BLOCK, 0, 0 },  // BeehiveBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BeetrootBlock
+    { VCLASS_BELL_BLOCK, VCLASS_BELL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, VCLASS_BELL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BELL_BLOCK, 0, 0 },  // BellBlock
+    { VCLASS_BIG_DRIPLEAF_BLOCK, VCLASS_BIG_DRIPLEAF_BLOCK, 0, 0, VCLASS_BIG_DRIPLEAF_BLOCK, 0, 0, 0, 0, 0, VCLASS_BIG_DRIPLEAF_BLOCK, 0, 0, 0, 0, VCLASS_BIG_DRIPLEAF_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BigDripleafBlock
+    { VCLASS_BIG_DRIPLEAF_STEM_BLOCK, 0, 0, 0, VCLASS_BIG_DRIPLEAF_STEM_BLOCK, 0, 0, 0, 0, 0, VCLASS_BIG_DRIPLEAF_STEM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BigDripleafStemBlock
+    { 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BlastFurnaceBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BonemealableFeaturePlacerBlock
+    { 0, 0, 0, VCLASS_BREWING_STAND_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_BREWING_STAND_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BrewingStandBlock
+    { VCLASS_BRUSHABLE_BLOCK, 0, VCLASS_BRUSHABLE_BLOCK, 0, VCLASS_BRUSHABLE_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BRUSHABLE_BLOCK, 0, 0, 0 },  // BrushableBlock
+    { VCLASS_BUBBLE_COLUMN_BLOCK, 0, 0, 0, VCLASS_BUBBLE_COLUMN_BLOCK, 0, 0, 0, 0, 0, VCLASS_BUBBLE_COLUMN_BLOCK, 0, 0, 0, VCLASS_BUBBLE_COLUMN_BLOCK, VCLASS_BUBBLE_COLUMN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BubbleColumnBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BuddingAmethystBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // BushBlock
+    { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, 0, 0, 0, VCLASS_BUTTON_BLOCK, VCLASS_BUTTON_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_BUTTON_BLOCK, 0, 0 },  // ButtonBlock
+    { VCLASS_CACTUS_BLOCK, 0, 0, 0, VCLASS_CACTUS_BLOCK, 0, 0, 0, 0, 0, VCLASS_CACTUS_BLOCK, 0, 0, 0, 0, VCLASS_CACTUS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CactusBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CactusFlowerBlock
+    { VCLASS_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CAKE_BLOCK, VCLASS_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CakeBlock
+    { VCLASS_SCULK_SENSOR_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_CALIBRATED_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, 0, 0, 0, 0, VCLASS_SCULK_SENSOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 },  // CalibratedSculkSensorBlock
+    { VCLASS_CAMPFIRE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_CAMPFIRE_BLOCK, 0, VCLASS_CAMPFIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CampfireBlock
+    { VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0, VCLASS_CANDLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_ABSTRACT_CANDLE_BLOCK, 0, 0 },  // CandleBlock
+    { VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CANDLE_CAKE_BLOCK, VCLASS_CANDLE_CAKE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_ABSTRACT_CANDLE_BLOCK, 0, 0 },  // CandleCakeBlock
+    { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CarpetBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CarrotBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CartographyTableBlock
+    { 0, 0, VCLASS_CARVED_PUMPKIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CarvedPumpkinBlock
+    { 0, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CauldronBlock
+    { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CaveVinesBlock
+    { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CaveVinesPlantBlock
+    { VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CeilingHangingSignBlock
+    { VCLASS_CHAIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ChainBlock
+    { VCLASS_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_CHEST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ChestBlock
+    { 0, 0, 0, VCLASS_CHISELED_BOOK_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_CHISELED_BOOK_SHELF_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ChiseledBookShelfBlock
+    { VCLASS_CHORUS_FLOWER_BLOCK, 0, 0, 0, VCLASS_CHORUS_FLOWER_BLOCK, 0, 0, 0, 0, 0, VCLASS_CHORUS_FLOWER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ChorusFlowerBlock
+    { VCLASS_CHORUS_PLANT_BLOCK, 0, 0, 0, VCLASS_CHORUS_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_CHORUS_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ChorusPlantBlock
+    { VCLASS_COCOA_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_COCOA_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CocoaBlock
+    { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ColoredFallingBlock
+    { 0, VCLASS_COMMAND_BLOCK, 0, 0, VCLASS_COMMAND_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_COMMAND_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CommandBlock
+    { VCLASS_COMPARATOR_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_COMPARATOR_BLOCK, VCLASS_COMPARATOR_BLOCK, 0, 0, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ComparatorBlock
+    { 0, 0, VCLASS_COMPOSTER_BLOCK, 0, VCLASS_COMPOSTER_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_COMPOSTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ComposterBlock
+    { VCLASS_CONCRETE_POWDER_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CONCRETE_POWDER_BLOCK, 0, 0, 0, 0 },  // ConcretePowderBlock
+    { VCLASS_CONDUIT_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ConduitBlock
+    { 0, VCLASS_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CopperBulbBlock
+    { VCLASS_COPPER_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_COPPER_CHEST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CopperChestBlock
+    { VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CopperGolemStatueBlock
+    { VCLASS_CORAL_BLOCK, 0, 0, 0, VCLASS_CORAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CoralBlock
+    { VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, VCLASS_CORAL_FAN_BLOCK, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CoralFanBlock
+    { VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, VCLASS_CORAL_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_PLANT_TYPE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CoralPlantBlock
+    { VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, VCLASS_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CoralWallFanBlock
+    { 0, VCLASS_CRAFTER_BLOCK, 0, VCLASS_CRAFTER_BLOCK, VCLASS_CRAFTER_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_CRAFTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CrafterBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CraftingTableBlock
+    { VCLASS_CREAKING_HEART_BLOCK, 0, 0, VCLASS_CREAKING_HEART_BLOCK, VCLASS_CREAKING_HEART_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_CREAKING_HEART_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CREAKING_HEART_BLOCK, 0, 0 },  // CreakingHeartBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CropBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CrossCollisionBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // CryingObsidianBlock
+    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_DAYLIGHT_DETECTOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DaylightDetectorBlock
+    { VCLASS_DECORATED_POT_BLOCK, 0, 0, VCLASS_DECORATED_POT_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_DECORATED_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DecoratedPotBlock
+    { VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_DETECTOR_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_DETECTOR_RAIL_BLOCK, 0, 0, 0, VCLASS_DETECTOR_RAIL_BLOCK, VCLASS_DETECTOR_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_DETECTOR_RAIL_BLOCK, 0, 0, 0, VCLASS_DETECTOR_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DetectorRailBlock
+    { 0, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, 0, 0, 0, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DiodeBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DirectionalBlock
+    { VCLASS_DIRT_PATH_BLOCK, 0, 0, 0, VCLASS_DIRT_PATH_BLOCK, 0, 0, 0, 0, 0, VCLASS_DIRT_PATH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DirtPathBlock
+    { 0, VCLASS_DISPENSER_BLOCK, 0, VCLASS_DISPENSER_BLOCK, VCLASS_DISPENSER_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_DISPENSER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DispenserBlock
+    { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0, 0 },  // DoorBlock
+    { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DoublePlantBlock
+    { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DragonEggBlock
+    { VCLASS_DRIED_GHAST_BLOCK, 0, 0, 0, VCLASS_DRIED_GHAST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_DRIED_GHAST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DriedGhastBlock
+    { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DropExperienceBlock
+    { 0, VCLASS_DISPENSER_BLOCK, 0, VCLASS_DISPENSER_BLOCK, VCLASS_DISPENSER_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_DISPENSER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DropperBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // DryVegetationBlock
+    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // EnchantingTableBlock
+    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_END_GATEWAY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // EndGatewayBlock
+    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_END_PORTAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // EndPortalBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_END_PORTAL_FRAME_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // EndPortalFrameBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // EndRodBlock
+    { VCLASS_ENDER_CHEST_BLOCK, 0, 0, 0, VCLASS_ENDER_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // EnderChestBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, VCLASS_EYEBLOSSOM_BLOCK, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, VCLASS_EYEBLOSSOM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // EyeblossomBlock
+    { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FaceAttachedHorizontalDirectionalBlock
+    { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FallingBlock
+    { VCLASS_FARM_BLOCK, 0, 0, 0, VCLASS_FARM_BLOCK, 0, 0, 0, 0, 0, VCLASS_FARM_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_FARM_BLOCK, 0, 0, 0, 0, 0, 0, 0 },  // FarmBlock
+    { VCLASS_FENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FenceBlock
+    { VCLASS_FENCE_GATE_BLOCK, VCLASS_FENCE_GATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_FENCE_GATE_BLOCK, 0, 0 },  // FenceGateBlock
+    { VCLASS_FIRE_BLOCK, 0, VCLASS_FIRE_BLOCK, 0, VCLASS_FIRE_BLOCK, 0, 0, 0, 0, 0, VCLASS_FIRE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_FIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FireBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FireflyBushBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FlowerBedBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FlowerBlock
+    { VCLASS_FLOWER_POT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FlowerPotBlock
+    { VCLASS_FROGSPAWN_BLOCK, 0, VCLASS_FROGSPAWN_BLOCK, 0, VCLASS_FROGSPAWN_BLOCK, 0, 0, 0, 0, 0, VCLASS_FROGSPAWN_BLOCK, 0, 0, 0, 0, VCLASS_FROGSPAWN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FrogspawnBlock
+    { 0, VCLASS_FROSTED_ICE_BLOCK, VCLASS_FROSTED_ICE_BLOCK, 0, VCLASS_FROSTED_ICE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FrostedIceBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FungusBlock
+    { 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // FurnaceBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GlazedTerracottaBlock
+    { VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GlowLichenBlock
+    { VCLASS_SNOWY_DIRT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GrassBlock
+    { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_GRINDSTONE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GrindstoneBlock
+    { 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GrowingPlantBlock
+    { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GrowingPlantBodyBlock
+    { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // GrowingPlantHeadBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // HalfTransparentBlock
+    { VCLASS_HANGING_MOSS_BLOCK, 0, 0, 0, VCLASS_HANGING_MOSS_BLOCK, 0, 0, 0, 0, 0, VCLASS_HANGING_MOSS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // HangingMossBlock
+    { VCLASS_HANGING_ROOTS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_HANGING_ROOTS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // HangingRootsBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_HAY_BLOCK, 0, 0, 0, 0, 0, 0, 0 },  // HayBlock
+    { VCLASS_HEAVY_CORE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // HeavyCoreBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_HONEY_BLOCK, 0, VCLASS_HONEY_BLOCK, 0, 0, 0, 0, 0, 0, 0 },  // HoneyBlock
+    { 0, VCLASS_HOPPER_BLOCK, VCLASS_HOPPER_BLOCK, VCLASS_HOPPER_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_HOPPER_BLOCK, 0, 0, 0, VCLASS_HOPPER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // HopperBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // HorizontalDirectionalBlock
+    { VCLASS_HUGE_MUSHROOM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // HugeMushroomBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // IceBlock
+    { 0, 0, 0, 0, 0, 0, 0, VCLASS_INFESTED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // InfestedBlock
+    { 0, 0, 0, 0, 0, 0, 0, VCLASS_INFESTED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // InfestedRotatedPillarBlock
+    { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // IronBarsBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // JigsawBlock
+    { 0, 0, 0, VCLASS_JUKEBOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_JUKEBOX_BLOCK, 0, 0, VCLASS_JUKEBOX_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // JukeboxBlock
+    { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, VCLASS_KELP_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // KelpBlock
+    { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, VCLASS_KELP_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // KelpPlantBlock
+    { VCLASS_LADDER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_LADDER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LadderBlock
+    { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LanternBlock
+    { 0, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_LAVA_CAULDRON_BLOCK, 0, 0, 0, VCLASS_LAVA_CAULDRON_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LavaCauldronBlock
+    { 0, 0, 0, 0, VCLASS_ABSTRACT_CAULDRON_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_LAYERED_CAULDRON_BLOCK, 0, 0, 0, VCLASS_LAYERED_CAULDRON_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LayeredCauldronBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_LEAF_LITTER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LeafLitterBlock
+    { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LeavesBlock
+    { 0, 0, 0, VCLASS_LECTERN_BLOCK, VCLASS_LECTERN_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_LECTERN_BLOCK, VCLASS_LECTERN_BLOCK, 0, VCLASS_LECTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LecternBlock
+    { VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, VCLASS_LEVER_BLOCK, 0, 0, 0, 0, VCLASS_LEVER_BLOCK, VCLASS_LEVER_BLOCK, VCLASS_FACE_ATTACHED_HORIZONTAL_DIRECTIONAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_LEVER_BLOCK, 0, 0 },  // LeverBlock
+    { VCLASS_LIGHT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LightBlock
+    { VCLASS_LIGHTNING_ROD_BLOCK, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LightningRodBlock
+    { VCLASS_LIQUID_BLOCK, VCLASS_LIQUID_BLOCK, VCLASS_LIQUID_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_LIQUID_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LiquidBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // LoomBlock
+    { VCLASS_MAGMA_BLOCK, 0, VCLASS_MAGMA_BLOCK, 0, VCLASS_MAGMA_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MAGMA_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 },  // MagmaBlock
+    { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MangroveLeavesBlock
+    { VCLASS_MANGROVE_PROPAGULE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MANGROVE_PROPAGULE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MangrovePropaguleBlock
+    { VCLASS_MANGROVE_ROOTS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MangroveRootsBlock
+    { VCLASS_MOSSY_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MOSSY_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MossyCarpetBlock
+    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MovingPistonBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MudBlock
+    { VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MultifaceBlock
+    { VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MultifaceSpreadeableBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MUSHROOM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MushroomBlock
+    { VCLASS_SNOWY_DIRT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // MyceliumBlock
+    { VCLASS_NETHER_PORTAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_NETHER_PORTAL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // NetherPortalBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // NetherSproutsBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // NetherWartBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // NetherrackBlock
+    { VCLASS_NOTE_BLOCK, VCLASS_NOTE_BLOCK, 0, 0, 0, VCLASS_NOTE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // NoteBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // NyliumBlock
+    { VCLASS_OBSERVER_BLOCK, 0, VCLASS_OBSERVER_BLOCK, VCLASS_OBSERVER_BLOCK, VCLASS_OBSERVER_BLOCK, 0, 0, 0, VCLASS_OBSERVER_BLOCK, VCLASS_OBSERVER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ObserverBlock
+    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PiglinWallSkullBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PipeBlock
+    { 0, VCLASS_PISTON_BASE_BLOCK, VCLASS_PISTON_BASE_BLOCK, 0, 0, VCLASS_PISTON_BASE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PistonBaseBlock
+    { VCLASS_PISTON_HEAD_BLOCK, VCLASS_PISTON_HEAD_BLOCK, 0, VCLASS_PISTON_HEAD_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_PISTON_HEAD_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PistonHeadBlock
+    { VCLASS_PITCHER_CROP_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_PITCHER_CROP_BLOCK, 0, 0, 0, 0, VCLASS_PITCHER_CROP_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PitcherCropBlock
+    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PlayerHeadBlock
+    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PlayerWallHeadBlock
+    { VCLASS_POINTED_DRIPSTONE_BLOCK, 0, 0, 0, VCLASS_POINTED_DRIPSTONE_BLOCK, 0, 0, 0, 0, 0, VCLASS_POINTED_DRIPSTONE_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_POINTED_DRIPSTONE_BLOCK, 0, 0, 0, VCLASS_POINTED_DRIPSTONE_BLOCK, 0, 0, 0 },  // PointedDripstoneBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PotatoBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_POWDER_SNOW_BLOCK, VCLASS_POWDER_SNOW_BLOCK, 0, VCLASS_POWDER_SNOW_BLOCK, 0, 0, 0, 0, 0, 0, 0 },  // PowderSnowBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_POWERED_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PoweredBlock
+    { VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PoweredRailBlock
+    { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PressurePlateBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // PumpkinBlock
+    { VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, VCLASS_BASE_RAIL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RailBlock
+    { 0, 0, 0, 0, 0, 0, 0, VCLASS_RED_STONE_ORE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_RED_STONE_ORE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 },  // RedStoneOreBlock
+    { VCLASS_RED_STONE_WIRE_BLOCK, VCLASS_RED_STONE_WIRE_BLOCK, VCLASS_RED_STONE_WIRE_BLOCK, VCLASS_RED_STONE_WIRE_BLOCK, 0, 0, VCLASS_RED_STONE_WIRE_BLOCK, 0, VCLASS_RED_STONE_WIRE_BLOCK, VCLASS_RED_STONE_WIRE_BLOCK, VCLASS_RED_STONE_WIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RedStoneWireBlock
+    { 0, VCLASS_REDSTONE_LAMP_BLOCK, 0, 0, VCLASS_REDSTONE_LAMP_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RedstoneLampBlock
+    { VCLASS_BASE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, 0, 0, 0, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_BASE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RedstoneTorchBlock
+    { VCLASS_REDSTONE_WALL_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, 0, 0, 0, VCLASS_REDSTONE_WALL_TORCH_BLOCK, VCLASS_REDSTONE_TORCH_BLOCK, VCLASS_REDSTONE_WALL_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RedstoneWallTorchBlock
+    { VCLASS_REPEATER_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, 0, 0, 0, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, VCLASS_DIODE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RepeaterBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_RESPAWN_ANCHOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RespawnAnchorBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RodBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RootedDirtBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RootsBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // RotatedPillarBlock
+    { VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, VCLASS_FALLING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SandBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SaplingBlock
+    { VCLASS_SCAFFOLDING_BLOCK, 0, VCLASS_SCAFFOLDING_BLOCK, 0, VCLASS_SCAFFOLDING_BLOCK, 0, 0, 0, 0, 0, VCLASS_SCAFFOLDING_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ScaffoldingBlock
+    { 0, 0, 0, 0, 0, 0, 0, VCLASS_DROP_EXPERIENCE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SculkBlock
+    { 0, 0, 0, 0, VCLASS_SCULK_CATALYST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SCULK_CATALYST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SculkCatalystBlock
+    { VCLASS_SCULK_SENSOR_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, VCLASS_SCULK_SENSOR_BLOCK, 0, VCLASS_SCULK_SENSOR_BLOCK, 0, 0, 0, 0, VCLASS_SCULK_SENSOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 },  // SculkSensorBlock
+    { VCLASS_SCULK_SHRIEKER_BLOCK, 0, 0, 0, VCLASS_SCULK_SHRIEKER_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SCULK_SHRIEKER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SCULK_SHRIEKER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0 },  // SculkShriekerBlock
+    { VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_MULTIFACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SculkVeinBlock
+    { VCLASS_SEA_PICKLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SEA_PICKLE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SeaPickleBlock
+    { VCLASS_SEAGRASS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, VCLASS_SEAGRASS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SeagrassBlock
+    { VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, VCLASS_SHELF_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_SHELF_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ShelfBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ShortDryGrassBlock
+    { 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_SHULKER_BOX_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // ShulkerBoxBlock
+    { VCLASS_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SignBlock
+    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SkullBlock
+    { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SlabBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SLIME_BLOCK, VCLASS_SLIME_BLOCK, VCLASS_SLIME_BLOCK, 0, 0, 0, 0, 0, 0 },  // SlimeBlock
+    { VCLASS_SMALL_DRIPLEAF_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SMALL_DRIPLEAF_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SmallDripleafBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SmithingTableBlock
+    { 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_ABSTRACT_FURNACE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SmokerBlock
+    { 0, 0, VCLASS_SNIFFER_EGG_BLOCK, 0, VCLASS_SNIFFER_EGG_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SnifferEggBlock
+    { VCLASS_SNOW_LAYER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SNOW_LAYER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SnowLayerBlock
+    { VCLASS_SNOWY_DIRT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SnowyDirtBlock
+    { VCLASS_SOUL_FIRE_BLOCK, 0, VCLASS_BASE_FIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, VCLASS_SOUL_FIRE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_FIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SoulFireBlock
+    { VCLASS_SOUL_SAND_BLOCK, 0, VCLASS_SOUL_SAND_BLOCK, 0, VCLASS_SOUL_SAND_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SoulSandBlock
+    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, VCLASS_SPAWNER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SpawnerBlock
+    { 0, VCLASS_SPONGE_BLOCK, VCLASS_SPONGE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SpongeBlock
+    { VCLASS_SPORE_BLOSSOM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SPORE_BLOSSOM_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SporeBlossomBlock
+    { VCLASS_SNOWY_DIRT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SpreadingSnowyDirtBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StainedGlassBlock
+    { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StainedGlassPaneBlock
+    { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StairBlock
+    { VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, VCLASS_STANDING_SIGN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StandingSignBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StemBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StonecutterBlock
+    { 0, VCLASS_STRUCTURE_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StructureBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // StructureVoidBlock
+    { VCLASS_SUGAR_CANE_BLOCK, 0, 0, 0, VCLASS_SUGAR_CANE_BLOCK, 0, 0, 0, 0, 0, VCLASS_SUGAR_CANE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SugarCaneBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, VCLASS_SWEET_BERRY_BUSH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // SweetBerryBushBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TallDryGrassBlock
+    { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TallFlowerBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TallGrassBlock
+    { VCLASS_DOUBLE_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_TALL_SEAGRASS_BLOCK, 0, 0, VCLASS_TALL_SEAGRASS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TallSeagrassBlock
+    { 0, 0, VCLASS_TARGET_BLOCK, 0, VCLASS_TARGET_BLOCK, 0, 0, 0, VCLASS_TARGET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TargetBlock
+    { 0, VCLASS_TEST_BLOCK, 0, 0, VCLASS_TEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_TEST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TestBlock
+    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TestInstanceBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TintedGlassBlock
+    { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TintedParticleLeavesBlock
+    { 0, VCLASS_TNT_BLOCK, VCLASS_TNT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_TNT_BLOCK, VCLASS_TNT_BLOCK },  // TntBlock
+    { VCLASS_BASE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_BASE_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TorchBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, VCLASS_CROP_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TorchflowerCropBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TransparentBlock
+    { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0, 0 },  // TrapDoorBlock
+    { VCLASS_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, VCLASS_TRAPPED_CHEST_BLOCK, VCLASS_TRAPPED_CHEST_BLOCK, 0, VCLASS_CHEST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TrappedChestBlock
+    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TrialSpawnerBlock
+    { VCLASS_TRIP_WIRE_BLOCK, 0, VCLASS_TRIP_WIRE_BLOCK, VCLASS_TRIP_WIRE_BLOCK, VCLASS_TRIP_WIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRIP_WIRE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TripWireBlock
+    { VCLASS_TRIP_WIRE_HOOK_BLOCK, 0, 0, VCLASS_TRIP_WIRE_HOOK_BLOCK, VCLASS_TRIP_WIRE_HOOK_BLOCK, 0, 0, 0, VCLASS_TRIP_WIRE_HOOK_BLOCK, VCLASS_TRIP_WIRE_HOOK_BLOCK, VCLASS_TRIP_WIRE_HOOK_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TripWireHookBlock
+    { 0, 0, VCLASS_TURTLE_EGG_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_TURTLE_EGG_BLOCK, VCLASS_TURTLE_EGG_BLOCK, 0, 0, 0, 0, 0, 0, 0 },  // TurtleEggBlock
+    { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TwistingVinesBlock
+    { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // TwistingVinesPlantBlock
+    { VCLASS_LEAVES_BLOCK, 0, 0, 0, VCLASS_LEAVES_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // UntintedParticleLeavesBlock
+    { 0, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // VaultBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // VegetationBlock
+    { VCLASS_VINE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VINE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // VineBlock
+    { VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, VCLASS_WALL_BANNER_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WallBannerBlock
+    { VCLASS_WALL_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WallBlock
+    { VCLASS_WALL_HANGING_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WallHangingSignBlock
+    { VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, VCLASS_WALL_SIGN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WallSignBlock
+    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WallSkullBlock
+    { VCLASS_WALL_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_WALL_TORCH_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WallTorchBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, VCLASS_WATERLILY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WaterlilyBlock
+    { VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WaterloggedTransparentBlock
+    { VCLASS_IRON_BARS_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperBarsBlock
+    { 0, VCLASS_COPPER_BULB_BLOCK, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_COPPER_BULB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperBulbBlock
+    { VCLASS_CHAIN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperChainBlock
+    { VCLASS_COPPER_CHEST_BLOCK, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_CHEST_BLOCK, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_CHEST_BLOCK, VCLASS_COPPER_CHEST_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperChestBlock
+    { VCLASS_DOOR_BLOCK, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_DOOR_BLOCK, 0, 0 },  // WeatheringCopperDoorBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperFullBlock
+    { VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, VCLASS_COPPER_GOLEM_STATUE_BLOCK, VCLASS_COPPER_GOLEM_STATUE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperGolemStatueBlock
+    { VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperGrateBlock
+    { VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_SLAB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperSlabBlock
+    { VCLASS_STAIR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringCopperStairBlock
+    { VCLASS_TRAP_DOOR_BLOCK, VCLASS_TRAP_DOOR_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_TRAP_DOOR_BLOCK, 0, 0 },  // WeatheringCopperTrapDoorBlock
+    { VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_LANTERN_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringLanternBlock
+    { VCLASS_LIGHTNING_ROD_BLOCK, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, VCLASS_LIGHTNING_ROD_BLOCK, VCLASS_LIGHTNING_ROD_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeatheringLightningRodBlock
+    { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_WEB_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WebBlock
+    { VCLASS_GROWING_PLANT_HEAD_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeepingVinesBlock
+    { VCLASS_GROWING_PLANT_BODY_BLOCK, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, VCLASS_GROWING_PLANT_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeepingVinesPlantBlock
+    { VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, VCLASS_BASE_PRESSURE_PLATE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WeightedPressurePlateBlock
+    { 0, 0, VCLASS_WET_SPONGE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WetSpongeBlock
+    { VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_VEGETATION_BLOCK, 0, 0, 0, 0, VCLASS_WITHER_ROSE_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WitherRoseBlock
+    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WitherSkullBlock
+    { 0, VCLASS_ABSTRACT_SKULL_BLOCK, 0, 0, 0, VCLASS_BASE_ENTITY_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WitherWallSkullBlock
+    { VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, VCLASS_CARPET_BLOCK, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },  // WoolCarpetBlock
 };
 
 const char * const item_hook_names[] = { "onCraftedPostProcess" };
@@ -4057,1172 +4057,1172 @@ const entity_type_def entity_type_defs[] = {
 };
 
 const block_def block_defs[] = {
-    { "air", 0, 1, 0, 0, 0, 0, 0, VCLASS_AIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "stone", 1, 1, 1, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1 },
-    { "granite", 2, 1, 2, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 2 },
-    { "polished_granite", 3, 1, 3, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3 },
-    { "diorite", 4, 1, 4, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4 },
-    { "polished_diorite", 5, 1, 5, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 5 },
-    { "andesite", 6, 1, 6, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6 },
-    { "polished_andesite", 7, 1, 7, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 7 },
-    { "grass_block", 8, 2, 9, 0, 1, 0, 0, VCLASS_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 27 },
-    { "dirt", 10, 1, 10, 1, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 28 },
-    { "coarse_dirt", 11, 1, 11, 1, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 29 },
-    { "podzol", 12, 2, 13, 1, 1, 0, 0, VCLASS_SNOWY_DIRT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 30 },
-    { "cobblestone", 14, 1, 14, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 35 },
-    { "oak_planks", 15, 1, 15, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 36 },
-    { "spruce_planks", 16, 1, 16, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 37 },
-    { "birch_planks", 17, 1, 17, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 38 },
-    { "jungle_planks", 18, 1, 18, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 39 },
-    { "acacia_planks", 19, 1, 19, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 40 },
-    { "cherry_planks", 20, 1, 20, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 41 },
-    { "dark_oak_planks", 21, 1, 21, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 42 },
-    { "pale_oak_wood", 22, 3, 23, 2, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 177 },
-    { "pale_oak_planks", 25, 1, 25, 3, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 43 },
-    { "mangrove_planks", 26, 1, 26, 3, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 44 },
-    { "bamboo_planks", 27, 1, 27, 3, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 45 },
-    { "bamboo_mosaic", 28, 1, 28, 3, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 48 },
-    { "oak_sapling", 29, 2, 29, 3, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 49 },
-    { "spruce_sapling", 31, 2, 31, 4, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 50 },
-    { "birch_sapling", 33, 2, 33, 5, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 51 },
-    { "jungle_sapling", 35, 2, 35, 6, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 52 },
-    { "acacia_sapling", 37, 2, 37, 7, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 53 },
-    { "cherry_sapling", 39, 2, 39, 8, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 54 },
-    { "dark_oak_sapling", 41, 2, 41, 9, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 55 },
-    { "pale_oak_sapling", 43, 2, 43, 10, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 56 },
-    { "mangrove_propagule", 45, 40, 50, 11, 4, 0, 0, VCLASS_MANGROVE_PROPAGULE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 57 },
-    { "bedrock", 85, 1, 85, 15, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 58 },
-    { "water", 86, 16, 86, 15, 1, 0, 0, VCLASS_LIQUID_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "lava", 102, 16, 102, 16, 1, 0, 0, VCLASS_LIQUID_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "sand", 118, 1, 118, 17, 0, 0, 1, VCLASS_SAND_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 59 },
-    { "suspicious_sand", 119, 4, 119, 17, 1, 1, 1, VCLASS_BRUSHABLE_BLOCK, BLOCK_ENTITY_TYPE_BRUSHABLE_BLOCK, BLOCK_ENTITY_TYPE_BRUSHABLE_BLOCK, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 60 },
-    { "red_sand", 123, 1, 123, 18, 0, 2, 1, VCLASS_SAND_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 62 },
-    { "gravel", 124, 1, 124, 18, 0, 3, 1, VCLASS_COLORED_FALLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 63 },
-    { "suspicious_gravel", 125, 4, 125, 18, 1, 4, 1, VCLASS_BRUSHABLE_BLOCK, BLOCK_ENTITY_TYPE_BRUSHABLE_BLOCK, BLOCK_ENTITY_TYPE_BRUSHABLE_BLOCK, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 61 },
-    { "gold_ore", 129, 1, 129, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 70 },
-    { "deepslate_gold_ore", 130, 1, 130, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 71 },
-    { "iron_ore", 131, 1, 131, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 66 },
-    { "deepslate_iron_ore", 132, 1, 132, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 67 },
-    { "coal_ore", 133, 1, 133, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 64 },
-    { "deepslate_coal_ore", 134, 1, 134, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 65 },
-    { "nether_gold_ore", 135, 1, 135, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 80 },
-    { "oak_log", 136, 3, 137, 19, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 134 },
-    { "spruce_log", 139, 3, 140, 20, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 135 },
-    { "birch_log", 142, 3, 143, 21, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 136 },
-    { "jungle_log", 145, 3, 146, 22, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 137 },
-    { "acacia_log", 148, 3, 149, 23, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 138 },
-    { "cherry_log", 151, 3, 152, 24, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 139 },
-    { "dark_oak_log", 154, 3, 155, 25, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 141 },
-    { "pale_oak_log", 157, 3, 158, 26, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 140 },
-    { "mangrove_log", 160, 3, 161, 27, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 142 },
-    { "mangrove_roots", 163, 2, 164, 28, 1, 5, 0, VCLASS_MANGROVE_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 143 },
-    { "muddy_mangrove_roots", 165, 3, 166, 29, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 144 },
-    { "bamboo_block", 168, 3, 169, 30, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 147 },
-    { "stripped_spruce_log", 171, 3, 172, 31, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 149 },
-    { "stripped_birch_log", 174, 3, 175, 32, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 150 },
-    { "stripped_jungle_log", 177, 3, 178, 33, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 151 },
-    { "stripped_acacia_log", 180, 3, 181, 34, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 152 },
-    { "stripped_cherry_log", 183, 3, 184, 35, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 153 },
-    { "stripped_dark_oak_log", 186, 3, 187, 36, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 154 },
-    { "stripped_pale_oak_log", 189, 3, 190, 37, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 155 },
-    { "stripped_oak_log", 192, 3, 193, 38, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 148 },
-    { "stripped_mangrove_log", 195, 3, 196, 39, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 156 },
-    { "stripped_bamboo_block", 198, 3, 199, 40, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 170 },
-    { "oak_wood", 201, 3, 202, 41, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 171 },
-    { "spruce_wood", 204, 3, 205, 42, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 172 },
-    { "birch_wood", 207, 3, 208, 43, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 173 },
-    { "jungle_wood", 210, 3, 211, 44, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 174 },
-    { "acacia_wood", 213, 3, 214, 45, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 175 },
-    { "cherry_wood", 216, 3, 217, 46, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 176 },
-    { "dark_oak_wood", 219, 3, 220, 47, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 178 },
-    { "mangrove_wood", 222, 3, 223, 48, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 179 },
-    { "stripped_oak_wood", 225, 3, 226, 49, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 159 },
-    { "stripped_spruce_wood", 228, 3, 229, 50, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 160 },
-    { "stripped_birch_wood", 231, 3, 232, 51, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 161 },
-    { "stripped_jungle_wood", 234, 3, 235, 52, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 162 },
-    { "stripped_acacia_wood", 237, 3, 238, 53, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 163 },
-    { "stripped_cherry_wood", 240, 3, 241, 54, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 164 },
-    { "stripped_dark_oak_wood", 243, 3, 244, 55, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 165 },
-    { "stripped_pale_oak_wood", 246, 3, 247, 56, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 166 },
-    { "stripped_mangrove_wood", 249, 3, 250, 57, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 167 },
-    { "oak_leaves", 252, 28, 279, 58, 3, 5, 1, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 182 },
-    { "spruce_leaves", 280, 28, 307, 61, 3, 6, 1, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 183 },
-    { "birch_leaves", 308, 28, 335, 64, 3, 7, 1, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 184 },
-    { "jungle_leaves", 336, 28, 363, 67, 3, 8, 1, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 185 },
-    { "acacia_leaves", 364, 28, 391, 70, 3, 9, 1, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 186 },
-    { "cherry_leaves", 392, 28, 419, 73, 3, 10, 1, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 187 },
-    { "dark_oak_leaves", 420, 28, 447, 76, 3, 11, 1, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 188 },
-    { "pale_oak_leaves", 448, 28, 475, 79, 3, 12, 1, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 189 },
-    { "mangrove_leaves", 476, 28, 503, 82, 3, 13, 1, VCLASS_MANGROVE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 190 },
-    { "azalea_leaves", 504, 28, 531, 85, 3, 14, 1, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 191 },
-    { "flowering_azalea_leaves", 532, 28, 559, 88, 3, 15, 1, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 192 },
-    { "sponge", 560, 1, 560, 91, 0, 16, 0, VCLASS_SPONGE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 193 },
-    { "wet_sponge", 561, 1, 561, 91, 0, 16, 0, VCLASS_WET_SPONGE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 194 },
-    { "glass", 562, 1, 562, 91, 0, 16, 0, VCLASS_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 195 },
-    { "lapis_ore", 563, 1, 563, 91, 0, 16, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 76 },
-    { "deepslate_lapis_ore", 564, 1, 564, 91, 0, 16, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 77 },
-    { "lapis_block", 565, 1, 565, 91, 0, 16, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 197 },
-    { "dispenser", 566, 12, 567, 91, 2, 16, 0, VCLASS_DISPENSER_BLOCK, BLOCK_ENTITY_TYPE_DISPENSER, BLOCK_ENTITY_TYPE_DISPENSER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 728 },
-    { "sandstone", 578, 1, 578, 93, 0, 16, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 198 },
-    { "chiseled_sandstone", 579, 1, 579, 93, 0, 16, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 199 },
-    { "cut_sandstone", 580, 1, 580, 93, 0, 16, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 200 },
-    { "note_block", 581, 1150, 582, 93, 3, 16, 0, VCLASS_NOTE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 748 },
-    { "white_bed", 1731, 16, 1734, 96, 3, 16, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1086 },
-    { "orange_bed", 1747, 16, 1750, 99, 3, 17, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1087 },
-    { "magenta_bed", 1763, 16, 1766, 102, 3, 18, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1088 },
-    { "light_blue_bed", 1779, 16, 1782, 105, 3, 19, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1089 },
-    { "yellow_bed", 1795, 16, 1798, 108, 3, 20, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1090 },
-    { "lime_bed", 1811, 16, 1814, 111, 3, 21, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1091 },
-    { "pink_bed", 1827, 16, 1830, 114, 3, 22, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1092 },
-    { "gray_bed", 1843, 16, 1846, 117, 3, 23, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1093 },
-    { "light_gray_bed", 1859, 16, 1862, 120, 3, 24, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1094 },
-    { "cyan_bed", 1875, 16, 1878, 123, 3, 25, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1095 },
-    { "purple_bed", 1891, 16, 1894, 126, 3, 26, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1096 },
-    { "blue_bed", 1907, 16, 1910, 129, 3, 27, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1097 },
-    { "brown_bed", 1923, 16, 1926, 132, 3, 28, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1098 },
-    { "green_bed", 1939, 16, 1942, 135, 3, 29, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1099 },
-    { "red_bed", 1955, 16, 1958, 138, 3, 30, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1100 },
-    { "black_bed", 1971, 16, 1974, 141, 3, 31, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1101 },
-    { "powered_rail", 1987, 24, 2000, 144, 3, 32, 1, VCLASS_POWERED_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 833 },
-    { "detector_rail", 2011, 24, 2024, 147, 3, 33, 1, VCLASS_DETECTOR_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 0, 0.6f, 1.0f, 1.0f, 834 },
-    { "sticky_piston", 2035, 12, 2041, 150, 2, 34, 1, VCLASS_PISTON_BASE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 723 },
-    { "cobweb", 2047, 1, 2047, 152, 0, 35, 0, VCLASS_WEB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 201 },
-    { "short_grass", 2048, 1, 2048, 152, 0, 35, 0, VCLASS_TALL_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 202 },
-    { "fern", 2049, 1, 2049, 152, 0, 35, 0, VCLASS_TALL_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 203 },
-    { "dead_bush", 2050, 1, 2050, 152, 0, 35, 0, VCLASS_DRY_VEGETATION_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 207 },
-    { "bush", 2051, 1, 2051, 152, 0, 35, 0, VCLASS_BUSH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 204 },
-    { "short_dry_grass", 2052, 1, 2052, 152, 0, 35, 0, VCLASS_SHORT_DRY_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 209 },
-    { "tall_dry_grass", 2053, 1, 2053, 152, 0, 35, 0, VCLASS_TALL_DRY_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 210 },
-    { "seagrass", 2054, 1, 2054, 152, 0, 35, 0, VCLASS_SEAGRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 211 },
-    { "tall_seagrass", 2055, 2, 2056, 152, 1, 35, 0, VCLASS_TALL_SEAGRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "piston", 2057, 12, 2063, 153, 2, 35, 1, VCLASS_PISTON_BASE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 722 },
-    { "piston_head", 2069, 24, 2071, 155, 3, 36, 0, VCLASS_PISTON_HEAD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "white_wool", 2093, 1, 2093, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 213 },
-    { "orange_wool", 2094, 1, 2094, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 214 },
-    { "magenta_wool", 2095, 1, 2095, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 215 },
-    { "light_blue_wool", 2096, 1, 2096, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 216 },
-    { "yellow_wool", 2097, 1, 2097, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 217 },
-    { "lime_wool", 2098, 1, 2098, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 218 },
-    { "pink_wool", 2099, 1, 2099, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 219 },
-    { "gray_wool", 2100, 1, 2100, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 220 },
-    { "light_gray_wool", 2101, 1, 2101, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 221 },
-    { "cyan_wool", 2102, 1, 2102, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 222 },
-    { "purple_wool", 2103, 1, 2103, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 223 },
-    { "blue_wool", 2104, 1, 2104, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 224 },
-    { "brown_wool", 2105, 1, 2105, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 225 },
-    { "green_wool", 2106, 1, 2106, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 226 },
-    { "red_wool", 2107, 1, 2107, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 227 },
-    { "black_wool", 2108, 1, 2108, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 228 },
-    { "moving_piston", 2109, 12, 2109, 158, 2, 36, 0, VCLASS_MOVING_PISTON_BLOCK, -1, BLOCK_ENTITY_TYPE_PISTON, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "dandelion", 2121, 1, 2121, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 229 },
-    { "torchflower", 2122, 1, 2122, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 244 },
-    { "poppy", 2123, 1, 2123, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 232 },
-    { "blue_orchid", 2124, 1, 2124, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 233 },
-    { "allium", 2125, 1, 2125, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 234 },
-    { "azure_bluet", 2126, 1, 2126, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 235 },
-    { "red_tulip", 2127, 1, 2127, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 236 },
-    { "orange_tulip", 2128, 1, 2128, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 237 },
-    { "white_tulip", 2129, 1, 2129, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 238 },
-    { "pink_tulip", 2130, 1, 2130, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 239 },
-    { "oxeye_daisy", 2131, 1, 2131, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 240 },
-    { "cornflower", 2132, 1, 2132, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 241 },
-    { "wither_rose", 2133, 1, 2133, 160, 0, 36, 0, VCLASS_WITHER_ROSE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 243 },
-    { "lily_of_the_valley", 2134, 1, 2134, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 242 },
-    { "brown_mushroom", 2135, 1, 2135, 160, 0, 36, 0, VCLASS_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 247 },
-    { "red_mushroom", 2136, 1, 2136, 160, 0, 36, 0, VCLASS_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 248 },
-    { "gold_block", 2137, 1, 2137, 160, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BELL, -1, -1, 0.6f, 1.0f, 1.0f, 92 },
-    { "iron_block", 2138, 1, 2138, 160, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_IRON_XYLOPHONE, -1, -1, 0.6f, 1.0f, 1.0f, 90 },
-    { "bricks", 2139, 1, 2139, 160, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 304 },
-    { "tnt", 2140, 2, 2141, 160, 1, 36, 0, VCLASS_TNT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 746 },
-    { "bookshelf", 2142, 1, 2142, 161, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 317 },
-    { "chiseled_bookshelf", 2143, 256, 2206, 161, 7, 36, 0, VCLASS_CHISELED_BOOK_SHELF_BLOCK, BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF, BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 318 },
-    { "acacia_shelf", 2399, 64, 2408, 168, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 305 },
-    { "bamboo_shelf", 2463, 64, 2472, 172, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 306 },
-    { "birch_shelf", 2527, 64, 2536, 176, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 307 },
-    { "cherry_shelf", 2591, 64, 2600, 180, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 308 },
-    { "crimson_shelf", 2655, 64, 2664, 184, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 309 },
-    { "dark_oak_shelf", 2719, 64, 2728, 188, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 310 },
-    { "jungle_shelf", 2783, 64, 2792, 192, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 311 },
-    { "mangrove_shelf", 2847, 64, 2856, 196, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 312 },
-    { "oak_shelf", 2911, 64, 2920, 200, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 313 },
-    { "pale_oak_shelf", 2975, 64, 2984, 204, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 314 },
-    { "spruce_shelf", 3039, 64, 3048, 208, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 315 },
-    { "warped_shelf", 3103, 64, 3112, 212, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 316 },
-    { "mossy_cobblestone", 3167, 1, 3167, 216, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 320 },
-    { "obsidian", 3168, 1, 3168, 216, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 321 },
-    { "torch", 3169, 1, 3169, 216, 0, 36, 0, VCLASS_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 322 },
-    { "wall_torch", 3170, 4, 3170, 216, 1, 36, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 322 },
-    { "fire", 3174, 512, 3205, 217, 6, 36, 1, VCLASS_FIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "soul_fire", 3686, 1, 3686, 223, 0, 37, 1, VCLASS_SOUL_FIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "spawner", 3687, 1, 3687, 223, 0, 38, 0, VCLASS_SPAWNER_BLOCK, BLOCK_ENTITY_TYPE_MOB_SPAWNER, BLOCK_ENTITY_TYPE_MOB_SPAWNER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 329 },
-    { "creaking_heart", 3688, 18, 3695, 223, 3, 38, 0, VCLASS_CREAKING_HEART_BLOCK, BLOCK_ENTITY_TYPE_CREAKING_HEART, BLOCK_ENTITY_TYPE_CREAKING_HEART, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 330 },
-    { "oak_stairs", 3706, 80, 3717, 226, 4, 38, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 441 },
-    { "chest", 3786, 24, 3787, 230, 3, 39, 0, VCLASS_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 331 },
-    { "redstone_wire", 3810, 1296, 4970, 233, 5, 39, 1, VCLASS_RED_STONE_WIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 717 },
-    { "diamond_ore", 5106, 1, 5106, 238, 0, 40, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 78 },
-    { "deepslate_diamond_ore", 5107, 1, 5107, 238, 0, 40, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 79 },
-    { "diamond_block", 5108, 1, 5108, 238, 0, 40, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 93 },
-    { "crafting_table", 5109, 1, 5109, 238, 0, 40, 0, VCLASS_CRAFTING_TABLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 332 },
-    { "wheat", 5110, 8, 5110, 238, 1, 40, 0, VCLASS_CROP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 951 },
-    { "farmland", 5118, 8, 5118, 239, 1, 40, 0, VCLASS_FARM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 333 },
-    { "furnace", 5126, 8, 5127, 240, 2, 40, 0, VCLASS_FURNACE_BLOCK, BLOCK_ENTITY_TYPE_FURNACE, BLOCK_ENTITY_TYPE_FURNACE, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 334 },
-    { "oak_sign", 5134, 32, 5135, 242, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 988 },
-    { "spruce_sign", 5166, 32, 5167, 244, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 989 },
-    { "birch_sign", 5198, 32, 5199, 246, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 990 },
-    { "acacia_sign", 5230, 32, 5231, 248, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 992 },
-    { "cherry_sign", 5262, 32, 5263, 250, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 993 },
-    { "jungle_sign", 5294, 32, 5295, 252, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 991 },
-    { "dark_oak_sign", 5326, 32, 5327, 254, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 994 },
-    { "pale_oak_sign", 5358, 32, 5359, 256, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 995 },
-    { "mangrove_sign", 5390, 32, 5391, 258, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 996 },
-    { "bamboo_sign", 5422, 32, 5423, 260, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 997 },
-    { "oak_door", 5454, 64, 5465, 262, 5, 40, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 780 },
-    { "ladder", 5518, 8, 5519, 267, 2, 43, 0, VCLASS_LADDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 335 },
-    { "rail", 5526, 20, 5527, 269, 2, 43, 1, VCLASS_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 835 },
-    { "cobblestone_stairs", 5546, 80, 5557, 271, 4, 44, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 336 },
-    { "oak_wall_sign", 5626, 8, 5627, 275, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 988 },
-    { "spruce_wall_sign", 5634, 8, 5635, 277, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 989 },
-    { "birch_wall_sign", 5642, 8, 5643, 279, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 990 },
-    { "acacia_wall_sign", 5650, 8, 5651, 281, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 992 },
-    { "cherry_wall_sign", 5658, 8, 5659, 283, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 993 },
-    { "jungle_wall_sign", 5666, 8, 5667, 285, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 991 },
-    { "dark_oak_wall_sign", 5674, 8, 5675, 287, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 994 },
-    { "pale_oak_wall_sign", 5682, 8, 5683, 289, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 995 },
-    { "mangrove_wall_sign", 5690, 8, 5691, 291, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 996 },
-    { "bamboo_wall_sign", 5698, 8, 5699, 293, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 997 },
-    { "oak_hanging_sign", 5706, 64, 5739, 295, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1000 },
-    { "spruce_hanging_sign", 5770, 64, 5803, 298, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1001 },
-    { "birch_hanging_sign", 5834, 64, 5867, 301, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1002 },
-    { "acacia_hanging_sign", 5898, 64, 5931, 304, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1004 },
-    { "cherry_hanging_sign", 5962, 64, 5995, 307, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1005 },
-    { "jungle_hanging_sign", 6026, 64, 6059, 310, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1003 },
-    { "dark_oak_hanging_sign", 6090, 64, 6123, 313, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1006 },
-    { "pale_oak_hanging_sign", 6154, 64, 6187, 316, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1007 },
-    { "crimson_hanging_sign", 6218, 64, 6251, 319, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1010 },
-    { "warped_hanging_sign", 6282, 64, 6315, 322, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1011 },
-    { "mangrove_hanging_sign", 6346, 64, 6379, 325, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1008 },
-    { "bamboo_hanging_sign", 6410, 64, 6443, 328, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1009 },
-    { "oak_wall_hanging_sign", 6474, 8, 6475, 331, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1000 },
-    { "spruce_wall_hanging_sign", 6482, 8, 6483, 333, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1001 },
-    { "birch_wall_hanging_sign", 6490, 8, 6491, 335, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1002 },
-    { "acacia_wall_hanging_sign", 6498, 8, 6499, 337, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1004 },
-    { "cherry_wall_hanging_sign", 6506, 8, 6507, 339, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1005 },
-    { "jungle_wall_hanging_sign", 6514, 8, 6515, 341, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1003 },
-    { "dark_oak_wall_hanging_sign", 6522, 8, 6523, 343, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1006 },
-    { "pale_oak_wall_hanging_sign", 6530, 8, 6531, 345, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1007 },
-    { "mangrove_wall_hanging_sign", 6538, 8, 6539, 347, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1008 },
-    { "crimson_wall_hanging_sign", 6546, 8, 6547, 349, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1010 },
-    { "warped_wall_hanging_sign", 6554, 8, 6555, 351, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1011 },
-    { "bamboo_wall_hanging_sign", 6562, 8, 6563, 353, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1009 },
-    { "lever", 6570, 24, 6579, 355, 3, 45, 0, VCLASS_LEVER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 24, 0.6f, 1.0f, 1.0f, 732 },
-    { "stone_pressure_plate", 6594, 2, 6595, 358, 1, 45, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 763 },
-    { "iron_door", 6596, 64, 6607, 359, 5, 48, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 779 },
-    { "oak_pressure_plate", 6660, 2, 6661, 364, 1, 51, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 767 },
-    { "spruce_pressure_plate", 6662, 2, 6663, 365, 1, 54, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 768 },
-    { "birch_pressure_plate", 6664, 2, 6665, 366, 1, 57, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 769 },
-    { "jungle_pressure_plate", 6666, 2, 6667, 367, 1, 60, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 770 },
-    { "acacia_pressure_plate", 6668, 2, 6669, 368, 1, 63, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 771 },
-    { "cherry_pressure_plate", 6670, 2, 6671, 369, 1, 66, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 772 },
-    { "dark_oak_pressure_plate", 6672, 2, 6673, 370, 1, 69, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 773 },
-    { "pale_oak_pressure_plate", 6674, 2, 6675, 371, 1, 72, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 774 },
-    { "mangrove_pressure_plate", 6676, 2, 6677, 372, 1, 75, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 775 },
-    { "bamboo_pressure_plate", 6678, 2, 6679, 373, 1, 78, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 776 },
-    { "redstone_ore", 6680, 2, 6681, 374, 1, 81, 0, VCLASS_RED_STONE_ORE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 72 },
-    { "deepslate_redstone_ore", 6682, 2, 6683, 375, 1, 81, 0, VCLASS_RED_STONE_ORE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 73 },
-    { "redstone_torch", 6684, 2, 6684, 376, 1, 81, 0, VCLASS_REDSTONE_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 48, 0.6f, 1.0f, 1.0f, 718 },
-    { "redstone_wall_torch", 6686, 8, 6686, 377, 2, 81, 0, VCLASS_REDSTONE_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 50, 0.6f, 1.0f, 1.0f, 718 },
-    { "stone_button", 6694, 24, 6703, 379, 3, 81, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 749 },
-    { "snow", 6718, 8, 6718, 382, 1, 85, 0, VCLASS_SNOW_LAYER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 337 },
-    { "ice", 6726, 1, 6726, 383, 0, 85, 0, VCLASS_ICE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.98f, 1.0f, 1.0f, 338 },
-    { "snow_block", 6727, 1, 6727, 383, 0, 85, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 339 },
-    { "cactus", 6728, 16, 6728, 383, 1, 85, 0, VCLASS_CACTUS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 340 },
-    { "cactus_flower", 6744, 1, 6744, 384, 0, 85, 0, VCLASS_CACTUS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 341 },
-    { "clay", 6745, 1, 6745, 384, 0, 85, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_FLUTE, -1, -1, 0.6f, 1.0f, 1.0f, 342 },
-    { "sugar_cane", 6746, 16, 6746, 384, 1, 85, 0, VCLASS_SUGAR_CANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 256 },
-    { "jukebox", 6762, 2, 6763, 385, 1, 85, 0, VCLASS_JUKEBOX_BLOCK, BLOCK_ENTITY_TYPE_JUKEBOX, BLOCK_ENTITY_TYPE_JUKEBOX, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 343 },
-    { "oak_fence", 6764, 32, 6795, 386, 5, 85, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 344 },
-    { "netherrack", 6796, 1, 6796, 391, 0, 85, 0, VCLASS_NETHERRACK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 359 },
-    { "soul_sand", 6797, 1, 6797, 391, 0, 85, 0, VCLASS_SOUL_SAND_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_COW_BELL, -1, -1, 0.6f, 0.4f, 1.0f, 360 },
-    { "soul_soil", 6798, 1, 6798, 391, 0, 85, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 361 },
-    { "basalt", 6799, 3, 6800, 391, 1, 85, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 362 },
-    { "polished_basalt", 6802, 3, 6803, 392, 1, 85, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 363 },
-    { "soul_torch", 6805, 1, 6805, 393, 0, 85, 0, VCLASS_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 365 },
-    { "soul_wall_torch", 6806, 4, 6806, 393, 1, 85, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 365 },
-    { "copper_torch", 6810, 1, 6810, 394, 0, 85, 0, VCLASS_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 366 },
-    { "copper_wall_torch", 6811, 4, 6811, 394, 1, 85, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 366 },
-    { "glowstone", 6815, 1, 6815, 395, 0, 85, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_PLING, -1, -1, 0.6f, 1.0f, 1.0f, 367 },
-    { "nether_portal", 6816, 2, 6816, 395, 1, 85, 0, VCLASS_NETHER_PORTAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "carved_pumpkin", 6818, 4, 6818, 396, 1, 85, 0, VCLASS_CARVED_PUMPKIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 357 },
-    { "jack_o_lantern", 6822, 4, 6822, 397, 1, 85, 0, VCLASS_CARVED_PUMPKIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 358 },
-    { "cake", 6826, 7, 6826, 398, 1, 85, 0, VCLASS_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1085 },
-    { "repeater", 6833, 64, 6836, 399, 4, 85, 0, VCLASS_REPEATER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 58, 0.6f, 1.0f, 1.0f, 720 },
-    { "white_stained_glass", 6897, 1, 6897, 403, 0, 85, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 530 },
-    { "orange_stained_glass", 6898, 1, 6898, 403, 0, 86, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 531 },
-    { "magenta_stained_glass", 6899, 1, 6899, 403, 0, 87, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 532 },
-    { "light_blue_stained_glass", 6900, 1, 6900, 403, 0, 88, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 533 },
-    { "yellow_stained_glass", 6901, 1, 6901, 403, 0, 89, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 534 },
-    { "lime_stained_glass", 6902, 1, 6902, 403, 0, 90, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 535 },
-    { "pink_stained_glass", 6903, 1, 6903, 403, 0, 91, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 536 },
-    { "gray_stained_glass", 6904, 1, 6904, 403, 0, 92, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 537 },
-    { "light_gray_stained_glass", 6905, 1, 6905, 403, 0, 93, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 538 },
-    { "cyan_stained_glass", 6906, 1, 6906, 403, 0, 94, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 539 },
-    { "purple_stained_glass", 6907, 1, 6907, 403, 0, 95, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 540 },
-    { "blue_stained_glass", 6908, 1, 6908, 403, 0, 96, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 541 },
-    { "brown_stained_glass", 6909, 1, 6909, 403, 0, 97, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 542 },
-    { "green_stained_glass", 6910, 1, 6910, 403, 0, 98, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 543 },
-    { "red_stained_glass", 6911, 1, 6911, 403, 0, 99, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 544 },
-    { "black_stained_glass", 6912, 1, 6912, 403, 0, 100, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 545 },
-    { "oak_trapdoor", 6913, 64, 6928, 403, 5, 101, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 801 },
-    { "spruce_trapdoor", 6977, 64, 6992, 408, 5, 104, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 802 },
-    { "birch_trapdoor", 7041, 64, 7056, 413, 5, 107, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 803 },
-    { "jungle_trapdoor", 7105, 64, 7120, 418, 5, 110, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 804 },
-    { "acacia_trapdoor", 7169, 64, 7184, 423, 5, 113, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 805 },
-    { "cherry_trapdoor", 7233, 64, 7248, 428, 5, 116, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 806 },
-    { "dark_oak_trapdoor", 7297, 64, 7312, 433, 5, 119, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 807 },
-    { "pale_oak_trapdoor", 7361, 64, 7376, 438, 5, 122, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 808 },
-    { "mangrove_trapdoor", 7425, 64, 7440, 443, 5, 125, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 809 },
-    { "bamboo_trapdoor", 7489, 64, 7504, 448, 5, 128, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 810 },
-    { "stone_bricks", 7553, 1, 7553, 453, 0, 131, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 375 },
-    { "mossy_stone_bricks", 7554, 1, 7554, 453, 0, 131, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 376 },
-    { "cracked_stone_bricks", 7555, 1, 7555, 453, 0, 131, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 377 },
-    { "chiseled_stone_bricks", 7556, 1, 7556, 453, 0, 131, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 378 },
-    { "packed_mud", 7557, 1, 7557, 453, 0, 131, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 379 },
-    { "mud_bricks", 7558, 1, 7558, 453, 0, 131, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 380 },
-    { "infested_stone", 7559, 1, 7559, 453, 0, 131, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 368 },
-    { "infested_cobblestone", 7560, 1, 7560, 453, 0, 132, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 369 },
-    { "infested_stone_bricks", 7561, 1, 7561, 453, 0, 133, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 370 },
-    { "infested_mossy_stone_bricks", 7562, 1, 7562, 453, 0, 134, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 371 },
-    { "infested_cracked_stone_bricks", 7563, 1, 7563, 453, 0, 135, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 372 },
-    { "infested_chiseled_stone_bricks", 7564, 1, 7564, 453, 0, 136, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 373 },
-    { "brown_mushroom_block", 7565, 64, 7565, 453, 6, 137, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 387 },
-    { "red_mushroom_block", 7629, 64, 7629, 459, 6, 137, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 388 },
-    { "mushroom_stem", 7693, 64, 7693, 465, 6, 137, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 389 },
-    { "iron_bars", 7757, 32, 7788, 471, 5, 137, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 390 },
-    { "copper_bars", 7789, 32, 7820, 476, 5, 137, 1, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 345, -1, 0.6f, 1.0f, 1.0f, 391 },
-    { "exposed_copper_bars", 7821, 32, 7852, 481, 5, 138, 1, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 346, -1, 0.6f, 1.0f, 1.0f, 392 },
-    { "weathered_copper_bars", 7853, 32, 7884, 486, 5, 139, 1, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 347, -1, 0.6f, 1.0f, 1.0f, 393 },
-    { "oxidized_copper_bars", 7885, 32, 7916, 491, 5, 140, 1, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 348, -1, 0.6f, 1.0f, 1.0f, 394 },
-    { "waxed_copper_bars", 7917, 32, 7948, 496, 5, 141, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 395 },
-    { "waxed_exposed_copper_bars", 7949, 32, 7980, 501, 5, 141, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 396 },
-    { "waxed_weathered_copper_bars", 7981, 32, 8012, 506, 5, 141, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 397 },
-    { "waxed_oxidized_copper_bars", 8013, 32, 8044, 511, 5, 141, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 398 },
-    { "iron_chain", 8045, 6, 8048, 516, 2, 141, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 399 },
-    { "copper_chain", 8051, 6, 8054, 518, 2, 141, 1, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 354, -1, 0.6f, 1.0f, 1.0f, 400 },
-    { "exposed_copper_chain", 8057, 6, 8060, 520, 2, 142, 1, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 355, -1, 0.6f, 1.0f, 1.0f, 401 },
-    { "weathered_copper_chain", 8063, 6, 8066, 522, 2, 143, 1, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 356, -1, 0.6f, 1.0f, 1.0f, 402 },
-    { "oxidized_copper_chain", 8069, 6, 8072, 524, 2, 144, 1, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 357, -1, 0.6f, 1.0f, 1.0f, 403 },
-    { "waxed_copper_chain", 8075, 6, 8078, 526, 2, 145, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 404 },
-    { "waxed_exposed_copper_chain", 8081, 6, 8084, 528, 2, 145, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 405 },
-    { "waxed_weathered_copper_chain", 8087, 6, 8090, 530, 2, 145, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 406 },
-    { "waxed_oxidized_copper_chain", 8093, 6, 8096, 532, 2, 145, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 407 },
-    { "glass_pane", 8099, 32, 8130, 534, 5, 145, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 408 },
-    { "pumpkin", 8131, 1, 8131, 539, 0, 145, 0, VCLASS_PUMPKIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_DIDGERIDOO, -1, -1, 0.6f, 1.0f, 1.0f, 356 },
-    { "melon", 8132, 1, 8132, 539, 0, 145, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 409 },
-    { "attached_pumpkin_stem", 8133, 4, 8133, 539, 1, 145, 0, VCLASS_ATTACHED_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "attached_melon_stem", 8137, 4, 8137, 540, 1, 145, 0, VCLASS_ATTACHED_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "pumpkin_stem", 8141, 8, 8141, 541, 1, 145, 0, VCLASS_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1108 },
-    { "melon_stem", 8149, 8, 8149, 542, 1, 145, 0, VCLASS_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1109 },
-    { "vine", 8157, 32, 8188, 543, 5, 145, 0, VCLASS_VINE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 410 },
-    { "glow_lichen", 8189, 128, 8316, 548, 7, 145, 3, VCLASS_GLOW_LICHEN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 411 },
-    { "resin_clump", 8317, 128, 8444, 555, 7, 148, 3, VCLASS_MULTIFACE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 412 },
-    { "oak_fence_gate", 8445, 32, 8452, 562, 4, 151, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 821 },
-    { "brick_stairs", 8477, 80, 8488, 566, 4, 151, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 419 },
-    { "stone_brick_stairs", 8557, 80, 8568, 570, 4, 152, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 420 },
-    { "mud_brick_stairs", 8637, 80, 8648, 574, 4, 153, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 421 },
-    { "mycelium", 8717, 2, 8718, 578, 1, 154, 0, VCLASS_MYCELIUM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 422 },
-    { "lily_pad", 8719, 1, 8719, 579, 0, 154, 0, VCLASS_WATERLILY_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 423 },
-    { "resin_block", 8720, 1, 8720, 579, 0, 154, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 413 },
-    { "resin_bricks", 8721, 1, 8721, 579, 0, 154, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 414 },
-    { "resin_brick_stairs", 8722, 80, 8733, 579, 4, 154, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 415 },
-    { "resin_brick_slab", 8802, 6, 8805, 583, 2, 155, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 416 },
-    { "resin_brick_wall", 8808, 324, 8811, 585, 6, 155, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 417 },
-    { "chiseled_resin_bricks", 9132, 1, 9132, 591, 0, 155, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 418 },
-    { "nether_bricks", 9133, 1, 9133, 591, 0, 155, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 424 },
-    { "nether_brick_fence", 9134, 32, 9165, 591, 5, 155, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 427 },
-    { "nether_brick_stairs", 9166, 80, 9177, 596, 4, 155, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 428 },
-    { "nether_wart", 9246, 4, 9246, 600, 1, 156, 0, VCLASS_NETHER_WART_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1119 },
-    { "enchanting_table", 9250, 1, 9250, 601, 0, 156, 0, VCLASS_ENCHANTING_TABLE_BLOCK, BLOCK_ENTITY_TYPE_ENCHANTING_TABLE, BLOCK_ENTITY_TYPE_ENCHANTING_TABLE, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 433 },
-    { "brewing_stand", 9251, 8, 9258, 601, 3, 156, 0, VCLASS_BREWING_STAND_BLOCK, BLOCK_ENTITY_TYPE_BREWING_STAND, BLOCK_ENTITY_TYPE_BREWING_STAND, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1126 },
-    { "cauldron", 9259, 1, 9259, 604, 0, 156, 0, VCLASS_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1127 },
-    { "water_cauldron", 9260, 3, 9260, 604, 1, 156, 1, VCLASS_LAYERED_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1127 },
-    { "lava_cauldron", 9263, 1, 9263, 605, 0, 157, 0, VCLASS_LAVA_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1127 },
-    { "powder_snow_cauldron", 9264, 3, 9264, 605, 1, 157, 1, VCLASS_LAYERED_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1127 },
-    { "end_portal", 9267, 1, 9267, 606, 0, 158, 0, VCLASS_END_PORTAL_BLOCK, BLOCK_ENTITY_TYPE_END_PORTAL, BLOCK_ENTITY_TYPE_END_PORTAL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "end_portal_frame", 9268, 8, 9272, 606, 2, 158, 0, VCLASS_END_PORTAL_FRAME_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 434 },
-    { "end_stone", 9276, 1, 9276, 608, 0, 158, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 435 },
-    { "dragon_egg", 9277, 1, 9277, 608, 0, 158, 0, VCLASS_DRAGON_EGG_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 437 },
-    { "redstone_lamp", 9278, 2, 9279, 608, 1, 158, 0, VCLASS_REDSTONE_LAMP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 747 },
-    { "cocoa", 9280, 12, 9280, 609, 2, 158, 0, VCLASS_COCOA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1065 },
-    { "sandstone_stairs", 9292, 80, 9303, 611, 4, 158, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 438 },
-    { "emerald_ore", 9372, 1, 9372, 615, 0, 159, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 74 },
-    { "deepslate_emerald_ore", 9373, 1, 9373, 615, 0, 159, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 75 },
-    { "ender_chest", 9374, 8, 9375, 615, 2, 159, 0, VCLASS_ENDER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_ENDER_CHEST, BLOCK_ENTITY_TYPE_ENDER_CHEST, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 439 },
-    { "tripwire_hook", 9382, 16, 9391, 617, 3, 159, 0, VCLASS_TRIP_WIRE_HOOK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 744 },
-    { "tripwire", 9398, 128, 9525, 620, 7, 159, 1, VCLASS_TRIP_WIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 948 },
-    { "emerald_block", 9526, 1, 9526, 627, 0, 160, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BIT, -1, -1, 0.6f, 1.0f, 1.0f, 440 },
-    { "spruce_stairs", 9527, 80, 9538, 627, 4, 160, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 442 },
-    { "birch_stairs", 9607, 80, 9618, 631, 4, 161, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 443 },
-    { "jungle_stairs", 9687, 80, 9698, 635, 4, 162, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 444 },
-    { "command_block", 9767, 12, 9773, 639, 2, 163, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 454 },
-    { "beacon", 9779, 1, 9779, 641, 0, 164, 0, VCLASS_BEACON_BLOCK, BLOCK_ENTITY_TYPE_BEACON, BLOCK_ENTITY_TYPE_BEACON, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 455 },
-    { "cobblestone_wall", 9780, 324, 9783, 641, 6, 164, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 456 },
-    { "mossy_cobblestone_wall", 10104, 324, 10107, 647, 6, 164, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 457 },
-    { "flower_pot", 10428, 1, 10428, 653, 0, 164, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1226 },
-    { "potted_torchflower", 10429, 1, 10429, 653, 0, 165, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_oak_sapling", 10430, 1, 10430, 653, 0, 166, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_spruce_sapling", 10431, 1, 10431, 653, 0, 167, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_birch_sapling", 10432, 1, 10432, 653, 0, 168, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_jungle_sapling", 10433, 1, 10433, 653, 0, 169, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_acacia_sapling", 10434, 1, 10434, 653, 0, 170, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_cherry_sapling", 10435, 1, 10435, 653, 0, 171, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_dark_oak_sapling", 10436, 1, 10436, 653, 0, 172, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_pale_oak_sapling", 10437, 1, 10437, 653, 0, 173, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_mangrove_propagule", 10438, 1, 10438, 653, 0, 174, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_fern", 10439, 1, 10439, 653, 0, 175, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_dandelion", 10440, 1, 10440, 653, 0, 176, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_poppy", 10441, 1, 10441, 653, 0, 177, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_blue_orchid", 10442, 1, 10442, 653, 0, 178, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_allium", 10443, 1, 10443, 653, 0, 179, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_azure_bluet", 10444, 1, 10444, 653, 0, 180, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_red_tulip", 10445, 1, 10445, 653, 0, 181, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_orange_tulip", 10446, 1, 10446, 653, 0, 182, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_white_tulip", 10447, 1, 10447, 653, 0, 183, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_pink_tulip", 10448, 1, 10448, 653, 0, 184, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_oxeye_daisy", 10449, 1, 10449, 653, 0, 185, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_cornflower", 10450, 1, 10450, 653, 0, 186, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_lily_of_the_valley", 10451, 1, 10451, 653, 0, 187, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_wither_rose", 10452, 1, 10452, 653, 0, 188, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_red_mushroom", 10453, 1, 10453, 653, 0, 189, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_brown_mushroom", 10454, 1, 10454, 653, 0, 190, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_dead_bush", 10455, 1, 10455, 653, 0, 191, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_cactus", 10456, 1, 10456, 653, 0, 192, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "carrots", 10457, 8, 10457, 653, 1, 193, 0, VCLASS_CARROT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1227 },
-    { "potatoes", 10465, 8, 10465, 654, 1, 193, 0, VCLASS_POTATO_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1228 },
-    { "oak_button", 10473, 24, 10482, 655, 3, 193, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 751 },
-    { "spruce_button", 10497, 24, 10506, 658, 3, 197, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 752 },
-    { "birch_button", 10521, 24, 10530, 661, 3, 201, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 753 },
-    { "jungle_button", 10545, 24, 10554, 664, 3, 205, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 754 },
-    { "acacia_button", 10569, 24, 10578, 667, 3, 209, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 755 },
-    { "cherry_button", 10593, 24, 10602, 670, 3, 213, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 756 },
-    { "dark_oak_button", 10617, 24, 10626, 673, 3, 217, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 757 },
-    { "pale_oak_button", 10641, 24, 10650, 676, 3, 221, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 758 },
-    { "mangrove_button", 10665, 24, 10674, 679, 3, 225, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 759 },
-    { "bamboo_button", 10689, 24, 10698, 682, 3, 229, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 760 },
-    { "skeleton_skull", 10713, 32, 10729, 685, 2, 233, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_SKELETON, -1, -1, 0.6f, 1.0f, 1.0f, 1233 },
-    { "skeleton_wall_skull", 10745, 8, 10746, 687, 2, 233, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1233 },
-    { "wither_skeleton_skull", 10753, 32, 10769, 689, 2, 233, 0, VCLASS_WITHER_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_WITHER_SKELETON, -1, -1, 0.6f, 1.0f, 1.0f, 1234 },
-    { "wither_skeleton_wall_skull", 10785, 8, 10786, 691, 2, 233, 0, VCLASS_WITHER_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1234 },
-    { "zombie_head", 10793, 32, 10809, 693, 2, 233, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_ZOMBIE, -1, -1, 0.6f, 1.0f, 1.0f, 1236 },
-    { "zombie_wall_head", 10825, 8, 10826, 695, 2, 233, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1236 },
-    { "player_head", 10833, 32, 10849, 697, 2, 233, 0, VCLASS_PLAYER_HEAD_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_CUSTOM_HEAD, -1, -1, 0.6f, 1.0f, 1.0f, 1235 },
-    { "player_wall_head", 10865, 8, 10866, 699, 2, 233, 0, VCLASS_PLAYER_WALL_HEAD_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1235 },
-    { "creeper_head", 10873, 32, 10889, 701, 2, 233, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_CREEPER, -1, -1, 0.6f, 1.0f, 1.0f, 1237 },
-    { "creeper_wall_head", 10905, 8, 10906, 703, 2, 233, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1237 },
-    { "dragon_head", 10913, 32, 10929, 705, 2, 233, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_DRAGON, -1, -1, 0.6f, 1.0f, 1.0f, 1238 },
-    { "dragon_wall_head", 10945, 8, 10946, 707, 2, 233, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1238 },
-    { "piglin_head", 10953, 32, 10969, 709, 2, 233, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_PIGLIN, -1, -1, 0.6f, 1.0f, 1.0f, 1239 },
-    { "piglin_wall_head", 10985, 8, 10986, 711, 2, 233, 0, VCLASS_PIGLIN_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1239 },
-    { "anvil", 10993, 4, 10993, 713, 1, 233, 0, VCLASS_ANVIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 478 },
-    { "chipped_anvil", 10997, 4, 10997, 714, 1, 233, 0, VCLASS_ANVIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 479 },
-    { "damaged_anvil", 11001, 4, 11001, 715, 1, 233, 0, VCLASS_ANVIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 480 },
-    { "trapped_chest", 11005, 24, 11006, 716, 3, 233, 0, VCLASS_TRAPPED_CHEST_BLOCK, BLOCK_ENTITY_TYPE_TRAPPED_CHEST, BLOCK_ENTITY_TYPE_TRAPPED_CHEST, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 745 },
-    { "light_weighted_pressure_plate", 11029, 16, 11029, 719, 1, 233, 4, VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 765 },
-    { "heavy_weighted_pressure_plate", 11045, 16, 11045, 720, 1, 237, 4, VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 766 },
-    { "comparator", 11061, 16, 11062, 721, 3, 241, 0, VCLASS_COMPARATOR_BLOCK, BLOCK_ENTITY_TYPE_COMPARATOR, BLOCK_ENTITY_TYPE_COMPARATOR, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 721 },
-    { "daylight_detector", 11077, 32, 11093, 724, 2, 241, 0, VCLASS_DAYLIGHT_DETECTOR_BLOCK, BLOCK_ENTITY_TYPE_DAYLIGHT_DETECTOR, BLOCK_ENTITY_TYPE_DAYLIGHT_DETECTOR, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 741 },
-    { "redstone_block", 11109, 1, 11109, 726, 0, 241, 0, VCLASS_POWERED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 122, 0.6f, 1.0f, 1.0f, 719 },
-    { "nether_quartz_ore", 11110, 1, 11110, 726, 0, 241, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 81 },
-    { "hopper", 11111, 10, 11111, 726, 2, 241, 0, VCLASS_HOPPER_BLOCK, BLOCK_ENTITY_TYPE_HOPPER, BLOCK_ENTITY_TYPE_HOPPER, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 727 },
-    { "quartz_block", 11121, 1, 11121, 728, 0, 241, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 482 },
-    { "chiseled_quartz_block", 11122, 1, 11122, 728, 0, 241, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 481 },
-    { "quartz_pillar", 11123, 3, 11124, 728, 1, 241, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 484 },
-    { "quartz_stairs", 11126, 80, 11137, 729, 4, 241, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 485 },
-    { "activator_rail", 11206, 24, 11219, 733, 3, 242, 1, VCLASS_POWERED_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 836 },
-    { "dropper", 11230, 12, 11231, 736, 2, 243, 0, VCLASS_DROPPER_BLOCK, BLOCK_ENTITY_TYPE_DROPPER, BLOCK_ENTITY_TYPE_DROPPER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 729 },
-    { "white_terracotta", 11242, 1, 11242, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 486 },
-    { "orange_terracotta", 11243, 1, 11243, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 487 },
-    { "magenta_terracotta", 11244, 1, 11244, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 488 },
-    { "light_blue_terracotta", 11245, 1, 11245, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 489 },
-    { "yellow_terracotta", 11246, 1, 11246, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 490 },
-    { "lime_terracotta", 11247, 1, 11247, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 491 },
-    { "pink_terracotta", 11248, 1, 11248, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 492 },
-    { "gray_terracotta", 11249, 1, 11249, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 493 },
-    { "light_gray_terracotta", 11250, 1, 11250, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 494 },
-    { "cyan_terracotta", 11251, 1, 11251, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 495 },
-    { "purple_terracotta", 11252, 1, 11252, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 496 },
-    { "blue_terracotta", 11253, 1, 11253, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 497 },
-    { "brown_terracotta", 11254, 1, 11254, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 498 },
-    { "green_terracotta", 11255, 1, 11255, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 499 },
-    { "red_terracotta", 11256, 1, 11256, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 500 },
-    { "black_terracotta", 11257, 1, 11257, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 501 },
-    { "white_stained_glass_pane", 11258, 32, 11289, 738, 5, 243, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 546 },
-    { "orange_stained_glass_pane", 11290, 32, 11321, 743, 5, 244, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 547 },
-    { "magenta_stained_glass_pane", 11322, 32, 11353, 748, 5, 245, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 548 },
-    { "light_blue_stained_glass_pane", 11354, 32, 11385, 753, 5, 246, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 549 },
-    { "yellow_stained_glass_pane", 11386, 32, 11417, 758, 5, 247, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 550 },
-    { "lime_stained_glass_pane", 11418, 32, 11449, 763, 5, 248, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 551 },
-    { "pink_stained_glass_pane", 11450, 32, 11481, 768, 5, 249, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 552 },
-    { "gray_stained_glass_pane", 11482, 32, 11513, 773, 5, 250, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 553 },
-    { "light_gray_stained_glass_pane", 11514, 32, 11545, 778, 5, 251, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 554 },
-    { "cyan_stained_glass_pane", 11546, 32, 11577, 783, 5, 252, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 555 },
-    { "purple_stained_glass_pane", 11578, 32, 11609, 788, 5, 253, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 556 },
-    { "blue_stained_glass_pane", 11610, 32, 11641, 793, 5, 254, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 557 },
-    { "brown_stained_glass_pane", 11642, 32, 11673, 798, 5, 255, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 558 },
-    { "green_stained_glass_pane", 11674, 32, 11705, 803, 5, 256, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 559 },
-    { "red_stained_glass_pane", 11706, 32, 11737, 808, 5, 257, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 560 },
-    { "black_stained_glass_pane", 11738, 32, 11769, 813, 5, 258, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 561 },
-    { "acacia_stairs", 11770, 80, 11781, 818, 4, 259, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 445 },
-    { "cherry_stairs", 11850, 80, 11861, 822, 4, 260, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 446 },
-    { "dark_oak_stairs", 11930, 80, 11941, 826, 4, 261, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 447 },
-    { "pale_oak_stairs", 12010, 80, 12021, 830, 4, 262, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 448 },
-    { "mangrove_stairs", 12090, 80, 12101, 834, 4, 263, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 449 },
-    { "bamboo_stairs", 12170, 80, 12181, 838, 4, 264, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 450 },
-    { "bamboo_mosaic_stairs", 12250, 80, 12261, 842, 4, 265, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 451 },
-    { "slime_block", 12330, 1, 12330, 846, 0, 266, 0, VCLASS_SLIME_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.8f, 1.0f, 1.0f, 724 },
-    { "barrier", 12331, 2, 12332, 846, 1, 266, 0, VCLASS_BARRIER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 502 },
-    { "light", 12333, 32, 12364, 847, 2, 266, 0, VCLASS_LIGHT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 503 },
-    { "iron_trapdoor", 12365, 64, 12380, 849, 5, 266, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 800 },
-    { "prismarine", 12429, 1, 12429, 854, 0, 269, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 562 },
-    { "prismarine_bricks", 12430, 1, 12430, 854, 0, 269, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 563 },
-    { "dark_prismarine", 12431, 1, 12431, 854, 0, 269, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 564 },
-    { "prismarine_stairs", 12432, 80, 12443, 854, 4, 269, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 565 },
-    { "prismarine_brick_stairs", 12512, 80, 12523, 858, 4, 270, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 566 },
-    { "dark_prismarine_stairs", 12592, 80, 12603, 862, 4, 271, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 567 },
-    { "prismarine_slab", 12672, 6, 12675, 866, 2, 272, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 297 },
-    { "prismarine_brick_slab", 12678, 6, 12681, 868, 2, 272, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 298 },
-    { "dark_prismarine_slab", 12684, 6, 12687, 870, 2, 272, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 299 },
-    { "sea_lantern", 12690, 1, 12690, 872, 0, 272, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 568 },
-    { "hay_block", 12691, 3, 12692, 872, 1, 272, 0, VCLASS_HAY_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BANJO, -1, -1, 0.6f, 1.0f, 1.0f, 504 },
-    { "white_carpet", 12694, 1, 12694, 873, 0, 272, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 505 },
-    { "orange_carpet", 12695, 1, 12695, 873, 0, 273, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 506 },
-    { "magenta_carpet", 12696, 1, 12696, 873, 0, 274, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 507 },
-    { "light_blue_carpet", 12697, 1, 12697, 873, 0, 275, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 508 },
-    { "yellow_carpet", 12698, 1, 12698, 873, 0, 276, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 509 },
-    { "lime_carpet", 12699, 1, 12699, 873, 0, 277, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 510 },
-    { "pink_carpet", 12700, 1, 12700, 873, 0, 278, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 511 },
-    { "gray_carpet", 12701, 1, 12701, 873, 0, 279, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 512 },
-    { "light_gray_carpet", 12702, 1, 12702, 873, 0, 280, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 513 },
-    { "cyan_carpet", 12703, 1, 12703, 873, 0, 281, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 514 },
-    { "purple_carpet", 12704, 1, 12704, 873, 0, 282, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 515 },
-    { "blue_carpet", 12705, 1, 12705, 873, 0, 283, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 516 },
-    { "brown_carpet", 12706, 1, 12706, 873, 0, 284, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 517 },
-    { "green_carpet", 12707, 1, 12707, 873, 0, 285, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 518 },
-    { "red_carpet", 12708, 1, 12708, 873, 0, 286, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 519 },
-    { "black_carpet", 12709, 1, 12709, 873, 0, 287, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 520 },
-    { "terracotta", 12710, 1, 12710, 873, 0, 288, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 521 },
-    { "coal_block", 12711, 1, 12711, 873, 0, 288, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 83 },
-    { "packed_ice", 12712, 1, 12712, 873, 0, 288, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_CHIME, -1, -1, 0.98f, 1.0f, 1.0f, 522 },
-    { "sunflower", 12713, 2, 12714, 873, 1, 288, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 524 },
-    { "lilac", 12715, 2, 12716, 874, 1, 288, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 525 },
-    { "rose_bush", 12717, 2, 12718, 875, 1, 288, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 526 },
-    { "peony", 12719, 2, 12720, 876, 1, 288, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 527 },
-    { "tall_grass", 12721, 2, 12722, 877, 1, 288, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 528 },
-    { "large_fern", 12723, 2, 12724, 878, 1, 288, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 529 },
-    { "white_banner", 12725, 16, 12725, 879, 1, 288, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1266 },
-    { "orange_banner", 12741, 16, 12741, 880, 1, 289, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1267 },
-    { "magenta_banner", 12757, 16, 12757, 881, 1, 290, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1268 },
-    { "light_blue_banner", 12773, 16, 12773, 882, 1, 291, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1269 },
-    { "yellow_banner", 12789, 16, 12789, 883, 1, 292, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1270 },
-    { "lime_banner", 12805, 16, 12805, 884, 1, 293, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1271 },
-    { "pink_banner", 12821, 16, 12821, 885, 1, 294, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1272 },
-    { "gray_banner", 12837, 16, 12837, 886, 1, 295, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1273 },
-    { "light_gray_banner", 12853, 16, 12853, 887, 1, 296, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1274 },
-    { "cyan_banner", 12869, 16, 12869, 888, 1, 297, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1275 },
-    { "purple_banner", 12885, 16, 12885, 889, 1, 298, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1276 },
-    { "blue_banner", 12901, 16, 12901, 890, 1, 299, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1277 },
-    { "brown_banner", 12917, 16, 12917, 891, 1, 300, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1278 },
-    { "green_banner", 12933, 16, 12933, 892, 1, 301, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1279 },
-    { "red_banner", 12949, 16, 12949, 893, 1, 302, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1280 },
-    { "black_banner", 12965, 16, 12965, 894, 1, 303, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1281 },
-    { "white_wall_banner", 12981, 4, 12981, 895, 1, 304, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1266 },
-    { "orange_wall_banner", 12985, 4, 12985, 896, 1, 305, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1267 },
-    { "magenta_wall_banner", 12989, 4, 12989, 897, 1, 306, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1268 },
-    { "light_blue_wall_banner", 12993, 4, 12993, 898, 1, 307, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1269 },
-    { "yellow_wall_banner", 12997, 4, 12997, 899, 1, 308, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1270 },
-    { "lime_wall_banner", 13001, 4, 13001, 900, 1, 309, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1271 },
-    { "pink_wall_banner", 13005, 4, 13005, 901, 1, 310, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1272 },
-    { "gray_wall_banner", 13009, 4, 13009, 902, 1, 311, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1273 },
-    { "light_gray_wall_banner", 13013, 4, 13013, 903, 1, 312, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1274 },
-    { "cyan_wall_banner", 13017, 4, 13017, 904, 1, 313, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1275 },
-    { "purple_wall_banner", 13021, 4, 13021, 905, 1, 314, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1276 },
-    { "blue_wall_banner", 13025, 4, 13025, 906, 1, 315, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1277 },
-    { "brown_wall_banner", 13029, 4, 13029, 907, 1, 316, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1278 },
-    { "green_wall_banner", 13033, 4, 13033, 908, 1, 317, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1279 },
-    { "red_wall_banner", 13037, 4, 13037, 909, 1, 318, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1280 },
-    { "black_wall_banner", 13041, 4, 13041, 910, 1, 319, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1281 },
-    { "red_sandstone", 13045, 1, 13045, 911, 0, 320, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 569 },
-    { "chiseled_red_sandstone", 13046, 1, 13046, 911, 0, 320, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 570 },
-    { "cut_red_sandstone", 13047, 1, 13047, 911, 0, 320, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 571 },
-    { "red_sandstone_stairs", 13048, 80, 13059, 911, 4, 320, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 572 },
-    { "oak_slab", 13128, 6, 13131, 915, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 270 },
-    { "spruce_slab", 13134, 6, 13137, 917, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 271 },
-    { "birch_slab", 13140, 6, 13143, 919, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 272 },
-    { "jungle_slab", 13146, 6, 13149, 921, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 273 },
-    { "acacia_slab", 13152, 6, 13155, 923, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 274 },
-    { "cherry_slab", 13158, 6, 13161, 925, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 275 },
-    { "dark_oak_slab", 13164, 6, 13167, 927, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 276 },
-    { "pale_oak_slab", 13170, 6, 13173, 929, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 277 },
-    { "mangrove_slab", 13176, 6, 13179, 931, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 278 },
-    { "bamboo_slab", 13182, 6, 13185, 933, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 279 },
-    { "bamboo_mosaic_slab", 13188, 6, 13191, 935, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 280 },
-    { "stone_slab", 13194, 6, 13197, 937, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 283 },
-    { "smooth_stone_slab", 13200, 6, 13203, 939, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 284 },
-    { "sandstone_slab", 13206, 6, 13209, 941, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 285 },
-    { "cut_sandstone_slab", 13212, 6, 13215, 943, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 286 },
-    { "petrified_oak_slab", 13218, 6, 13221, 945, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 287 },
-    { "cobblestone_slab", 13224, 6, 13227, 947, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 288 },
-    { "brick_slab", 13230, 6, 13233, 949, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 289 },
-    { "stone_brick_slab", 13236, 6, 13239, 951, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 290 },
-    { "mud_brick_slab", 13242, 6, 13245, 953, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 291 },
-    { "nether_brick_slab", 13248, 6, 13251, 955, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 292 },
-    { "quartz_slab", 13254, 6, 13257, 957, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 293 },
-    { "red_sandstone_slab", 13260, 6, 13263, 959, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 294 },
-    { "cut_red_sandstone_slab", 13266, 6, 13269, 961, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 295 },
-    { "purpur_slab", 13272, 6, 13275, 963, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 296 },
-    { "smooth_stone", 13278, 1, 13278, 965, 0, 321, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 303 },
-    { "smooth_sandstone", 13279, 1, 13279, 965, 0, 321, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 302 },
-    { "smooth_quartz", 13280, 1, 13280, 965, 0, 321, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 300 },
-    { "smooth_red_sandstone", 13281, 1, 13281, 965, 0, 321, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 301 },
-    { "spruce_fence_gate", 13282, 32, 13289, 965, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 822 },
-    { "birch_fence_gate", 13314, 32, 13321, 969, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 823 },
-    { "jungle_fence_gate", 13346, 32, 13353, 973, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 824 },
-    { "acacia_fence_gate", 13378, 32, 13385, 977, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 825 },
-    { "cherry_fence_gate", 13410, 32, 13417, 981, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 826 },
-    { "dark_oak_fence_gate", 13442, 32, 13449, 985, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 827 },
-    { "pale_oak_fence_gate", 13474, 32, 13481, 989, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 828 },
-    { "mangrove_fence_gate", 13506, 32, 13513, 993, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 829 },
-    { "bamboo_fence_gate", 13538, 32, 13545, 997, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 830 },
-    { "spruce_fence", 13570, 32, 13601, 1001, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 345 },
-    { "birch_fence", 13602, 32, 13633, 1006, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 346 },
-    { "jungle_fence", 13634, 32, 13665, 1011, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 347 },
-    { "acacia_fence", 13666, 32, 13697, 1016, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 348 },
-    { "cherry_fence", 13698, 32, 13729, 1021, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 349 },
-    { "dark_oak_fence", 13730, 32, 13761, 1026, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 350 },
-    { "pale_oak_fence", 13762, 32, 13793, 1031, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 351 },
-    { "mangrove_fence", 13794, 32, 13825, 1036, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 352 },
-    { "bamboo_fence", 13826, 32, 13857, 1041, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 353 },
-    { "spruce_door", 13858, 64, 13869, 1046, 5, 321, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 781 },
-    { "birch_door", 13922, 64, 13933, 1051, 5, 324, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 782 },
-    { "jungle_door", 13986, 64, 13997, 1056, 5, 327, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 783 },
-    { "acacia_door", 14050, 64, 14061, 1061, 5, 330, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 784 },
-    { "cherry_door", 14114, 64, 14125, 1066, 5, 333, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 785 },
-    { "dark_oak_door", 14178, 64, 14189, 1071, 5, 336, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 786 },
-    { "pale_oak_door", 14242, 64, 14253, 1076, 5, 339, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 787 },
-    { "mangrove_door", 14306, 64, 14317, 1081, 5, 342, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 788 },
-    { "bamboo_door", 14370, 64, 14381, 1086, 5, 345, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 789 },
-    { "end_rod", 14434, 6, 14438, 1091, 1, 348, 0, VCLASS_END_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 323 },
-    { "chorus_plant", 14440, 64, 14503, 1092, 6, 348, 0, VCLASS_CHORUS_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 324 },
-    { "chorus_flower", 14504, 6, 14504, 1098, 1, 348, 1, VCLASS_CHORUS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 325 },
-    { "purpur_block", 14510, 1, 14510, 1099, 0, 349, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 326 },
-    { "purpur_pillar", 14511, 3, 14512, 1099, 1, 349, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 327 },
-    { "purpur_stairs", 14514, 80, 14525, 1100, 4, 349, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 328 },
-    { "end_stone_bricks", 14594, 1, 14594, 1104, 0, 350, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 436 },
-    { "torchflower_crop", 14595, 2, 14595, 1104, 1, 350, 0, VCLASS_TORCHFLOWER_CROP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1285 },
-    { "pitcher_crop", 14597, 10, 14598, 1105, 2, 350, 0, VCLASS_PITCHER_CROP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1286 },
-    { "pitcher_plant", 14607, 2, 14608, 1107, 1, 350, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 245 },
-    { "beetroots", 14609, 4, 14609, 1108, 1, 350, 0, VCLASS_BEETROOT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1288 },
-    { "dirt_path", 14613, 1, 14613, 1109, 0, 350, 0, VCLASS_DIRT_PATH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 523 },
-    { "end_gateway", 14614, 1, 14614, 1109, 0, 350, 0, VCLASS_END_GATEWAY_BLOCK, BLOCK_ENTITY_TYPE_END_GATEWAY, BLOCK_ENTITY_TYPE_END_GATEWAY, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "repeating_command_block", 14615, 12, 14621, 1109, 2, 350, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 573 },
-    { "chain_command_block", 14627, 12, 14633, 1111, 2, 351, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 574 },
-    { "frosted_ice", 14639, 4, 14639, 1113, 1, 352, 0, VCLASS_FROSTED_ICE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.98f, 1.0f, 1.0f, 0 },
-    { "magma_block", 14643, 1, 14643, 1114, 0, 352, 0, VCLASS_MAGMA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 575 },
-    { "nether_wart_block", 14644, 1, 14644, 1114, 0, 352, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 576 },
-    { "red_nether_bricks", 14645, 1, 14645, 1114, 0, 352, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 578 },
-    { "bone_block", 14646, 3, 14647, 1114, 1, 352, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_XYLOPHONE, -1, -1, 0.6f, 1.0f, 1.0f, 579 },
-    { "structure_void", 14649, 1, 14649, 1115, 0, 352, 0, VCLASS_STRUCTURE_VOID_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 580 },
-    { "observer", 14650, 12, 14655, 1115, 2, 352, 0, VCLASS_OBSERVER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, 123, 0.6f, 1.0f, 1.0f, 726 },
-    { "shulker_box", 14662, 6, 14666, 1117, 1, 352, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 581 },
-    { "white_shulker_box", 14668, 6, 14672, 1118, 1, 353, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 582 },
-    { "orange_shulker_box", 14674, 6, 14678, 1119, 1, 354, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 583 },
-    { "magenta_shulker_box", 14680, 6, 14684, 1120, 1, 355, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 584 },
-    { "light_blue_shulker_box", 14686, 6, 14690, 1121, 1, 356, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 585 },
-    { "yellow_shulker_box", 14692, 6, 14696, 1122, 1, 357, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 586 },
-    { "lime_shulker_box", 14698, 6, 14702, 1123, 1, 358, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 587 },
-    { "pink_shulker_box", 14704, 6, 14708, 1124, 1, 359, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 588 },
-    { "gray_shulker_box", 14710, 6, 14714, 1125, 1, 360, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 589 },
-    { "light_gray_shulker_box", 14716, 6, 14720, 1126, 1, 361, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 590 },
-    { "cyan_shulker_box", 14722, 6, 14726, 1127, 1, 362, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 591 },
-    { "purple_shulker_box", 14728, 6, 14732, 1128, 1, 363, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 592 },
-    { "blue_shulker_box", 14734, 6, 14738, 1129, 1, 364, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 593 },
-    { "brown_shulker_box", 14740, 6, 14744, 1130, 1, 365, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 594 },
-    { "green_shulker_box", 14746, 6, 14750, 1131, 1, 366, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 595 },
-    { "red_shulker_box", 14752, 6, 14756, 1132, 1, 367, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 596 },
-    { "black_shulker_box", 14758, 6, 14762, 1133, 1, 368, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 597 },
-    { "white_glazed_terracotta", 14764, 4, 14764, 1134, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 598 },
-    { "orange_glazed_terracotta", 14768, 4, 14768, 1135, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 599 },
-    { "magenta_glazed_terracotta", 14772, 4, 14772, 1136, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 600 },
-    { "light_blue_glazed_terracotta", 14776, 4, 14776, 1137, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 601 },
-    { "yellow_glazed_terracotta", 14780, 4, 14780, 1138, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 602 },
-    { "lime_glazed_terracotta", 14784, 4, 14784, 1139, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 603 },
-    { "pink_glazed_terracotta", 14788, 4, 14788, 1140, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 604 },
-    { "gray_glazed_terracotta", 14792, 4, 14792, 1141, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 605 },
-    { "light_gray_glazed_terracotta", 14796, 4, 14796, 1142, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 606 },
-    { "cyan_glazed_terracotta", 14800, 4, 14800, 1143, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 607 },
-    { "purple_glazed_terracotta", 14804, 4, 14804, 1144, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 608 },
-    { "blue_glazed_terracotta", 14808, 4, 14808, 1145, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 609 },
-    { "brown_glazed_terracotta", 14812, 4, 14812, 1146, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 610 },
-    { "green_glazed_terracotta", 14816, 4, 14816, 1147, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 611 },
-    { "red_glazed_terracotta", 14820, 4, 14820, 1148, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 612 },
-    { "black_glazed_terracotta", 14824, 4, 14824, 1149, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 613 },
-    { "white_concrete", 14828, 1, 14828, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 614 },
-    { "orange_concrete", 14829, 1, 14829, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 615 },
-    { "magenta_concrete", 14830, 1, 14830, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 616 },
-    { "light_blue_concrete", 14831, 1, 14831, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 617 },
-    { "yellow_concrete", 14832, 1, 14832, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 618 },
-    { "lime_concrete", 14833, 1, 14833, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 619 },
-    { "pink_concrete", 14834, 1, 14834, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 620 },
-    { "gray_concrete", 14835, 1, 14835, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 621 },
-    { "light_gray_concrete", 14836, 1, 14836, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 622 },
-    { "cyan_concrete", 14837, 1, 14837, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 623 },
-    { "purple_concrete", 14838, 1, 14838, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 624 },
-    { "blue_concrete", 14839, 1, 14839, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 625 },
-    { "brown_concrete", 14840, 1, 14840, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 626 },
-    { "green_concrete", 14841, 1, 14841, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 627 },
-    { "red_concrete", 14842, 1, 14842, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 628 },
-    { "black_concrete", 14843, 1, 14843, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 629 },
-    { "white_concrete_powder", 14844, 1, 14844, 1150, 0, 369, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 630 },
-    { "orange_concrete_powder", 14845, 1, 14845, 1150, 0, 370, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 631 },
-    { "magenta_concrete_powder", 14846, 1, 14846, 1150, 0, 371, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 632 },
-    { "light_blue_concrete_powder", 14847, 1, 14847, 1150, 0, 372, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 633 },
-    { "yellow_concrete_powder", 14848, 1, 14848, 1150, 0, 373, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 634 },
-    { "lime_concrete_powder", 14849, 1, 14849, 1150, 0, 374, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 635 },
-    { "pink_concrete_powder", 14850, 1, 14850, 1150, 0, 375, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 636 },
-    { "gray_concrete_powder", 14851, 1, 14851, 1150, 0, 376, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 637 },
-    { "light_gray_concrete_powder", 14852, 1, 14852, 1150, 0, 377, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 638 },
-    { "cyan_concrete_powder", 14853, 1, 14853, 1150, 0, 378, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 639 },
-    { "purple_concrete_powder", 14854, 1, 14854, 1150, 0, 379, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 640 },
-    { "blue_concrete_powder", 14855, 1, 14855, 1150, 0, 380, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 641 },
-    { "brown_concrete_powder", 14856, 1, 14856, 1150, 0, 381, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 642 },
-    { "green_concrete_powder", 14857, 1, 14857, 1150, 0, 382, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 643 },
-    { "red_concrete_powder", 14858, 1, 14858, 1150, 0, 383, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 644 },
-    { "black_concrete_powder", 14859, 1, 14859, 1150, 0, 384, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 645 },
-    { "kelp", 14860, 26, 14860, 1150, 1, 385, 2, VCLASS_KELP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 257 },
-    { "kelp_plant", 14886, 1, 14886, 1151, 0, 387, 2, VCLASS_KELP_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "dried_kelp_block", 14887, 1, 14887, 1151, 0, 389, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1027 },
-    { "turtle_egg", 14888, 12, 14888, 1151, 2, 389, 0, VCLASS_TURTLE_EGG_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 646 },
-    { "sniffer_egg", 14900, 3, 14900, 1153, 1, 389, 0, VCLASS_SNIFFER_EGG_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 647 },
-    { "dried_ghast", 14903, 32, 14904, 1154, 3, 389, 0, VCLASS_DRIED_GHAST_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 648 },
-    { "dead_tube_coral_block", 14935, 1, 14935, 1157, 0, 389, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 649 },
-    { "dead_brain_coral_block", 14936, 1, 14936, 1157, 0, 389, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 650 },
-    { "dead_bubble_coral_block", 14937, 1, 14937, 1157, 0, 389, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 651 },
-    { "dead_fire_coral_block", 14938, 1, 14938, 1157, 0, 389, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 652 },
-    { "dead_horn_coral_block", 14939, 1, 14939, 1157, 0, 389, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 653 },
-    { "tube_coral_block", 14940, 1, 14940, 1157, 0, 389, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 654 },
-    { "brain_coral_block", 14941, 1, 14941, 1157, 0, 390, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 655 },
-    { "bubble_coral_block", 14942, 1, 14942, 1157, 0, 391, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 656 },
-    { "fire_coral_block", 14943, 1, 14943, 1157, 0, 392, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 657 },
-    { "horn_coral_block", 14944, 1, 14944, 1157, 0, 393, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 658 },
-    { "dead_tube_coral", 14945, 2, 14945, 1157, 1, 394, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 668 },
-    { "dead_brain_coral", 14947, 2, 14947, 1158, 1, 394, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 664 },
-    { "dead_bubble_coral", 14949, 2, 14949, 1159, 1, 394, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 665 },
-    { "dead_fire_coral", 14951, 2, 14951, 1160, 1, 394, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 666 },
-    { "dead_horn_coral", 14953, 2, 14953, 1161, 1, 394, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 667 },
-    { "tube_coral", 14955, 2, 14955, 1162, 1, 394, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 659 },
-    { "brain_coral", 14957, 2, 14957, 1163, 1, 395, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 660 },
-    { "bubble_coral", 14959, 2, 14959, 1164, 1, 396, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 661 },
-    { "fire_coral", 14961, 2, 14961, 1165, 1, 397, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 662 },
-    { "horn_coral", 14963, 2, 14963, 1166, 1, 398, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 663 },
-    { "dead_tube_coral_fan", 14965, 2, 14965, 1167, 1, 399, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 674 },
-    { "dead_brain_coral_fan", 14967, 2, 14967, 1168, 1, 399, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 675 },
-    { "dead_bubble_coral_fan", 14969, 2, 14969, 1169, 1, 399, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 676 },
-    { "dead_fire_coral_fan", 14971, 2, 14971, 1170, 1, 399, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 677 },
-    { "dead_horn_coral_fan", 14973, 2, 14973, 1171, 1, 399, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 678 },
-    { "tube_coral_fan", 14975, 2, 14975, 1172, 1, 399, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 669 },
-    { "brain_coral_fan", 14977, 2, 14977, 1173, 1, 400, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 670 },
-    { "bubble_coral_fan", 14979, 2, 14979, 1174, 1, 401, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 671 },
-    { "fire_coral_fan", 14981, 2, 14981, 1175, 1, 402, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 672 },
-    { "horn_coral_fan", 14983, 2, 14983, 1176, 1, 403, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 673 },
-    { "dead_tube_coral_wall_fan", 14985, 8, 14985, 1177, 2, 404, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 674 },
-    { "dead_brain_coral_wall_fan", 14993, 8, 14993, 1179, 2, 404, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 675 },
-    { "dead_bubble_coral_wall_fan", 15001, 8, 15001, 1181, 2, 404, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 676 },
-    { "dead_fire_coral_wall_fan", 15009, 8, 15009, 1183, 2, 404, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 677 },
-    { "dead_horn_coral_wall_fan", 15017, 8, 15017, 1185, 2, 404, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 678 },
-    { "tube_coral_wall_fan", 15025, 8, 15025, 1187, 2, 404, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 669 },
-    { "brain_coral_wall_fan", 15033, 8, 15033, 1189, 2, 405, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 670 },
-    { "bubble_coral_wall_fan", 15041, 8, 15041, 1191, 2, 406, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 671 },
-    { "fire_coral_wall_fan", 15049, 8, 15049, 1193, 2, 407, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 672 },
-    { "horn_coral_wall_fan", 15057, 8, 15057, 1195, 2, 408, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 673 },
-    { "sea_pickle", 15065, 8, 15065, 1197, 2, 409, 0, VCLASS_SEA_PICKLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 212 },
-    { "blue_ice", 15073, 1, 15073, 1199, 0, 409, 0, VCLASS_HALF_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.989f, 1.0f, 1.0f, 679 },
-    { "conduit", 15074, 2, 15074, 1199, 1, 409, 0, VCLASS_CONDUIT_BLOCK, BLOCK_ENTITY_TYPE_CONDUIT, BLOCK_ENTITY_TYPE_CONDUIT, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 680 },
-    { "bamboo_sapling", 15076, 1, 15076, 1200, 0, 409, 0, VCLASS_BAMBOO_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "bamboo", 15077, 12, 15077, 1200, 3, 409, 0, VCLASS_BAMBOO_STALK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 269 },
-    { "potted_bamboo", 15089, 1, 15089, 1203, 0, 409, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "void_air", 15090, 1, 15090, 1203, 0, 410, 0, VCLASS_AIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "cave_air", 15091, 1, 15091, 1203, 0, 410, 0, VCLASS_AIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "bubble_column", 15092, 2, 15092, 1203, 1, 410, 0, VCLASS_BUBBLE_COLUMN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "polished_granite_stairs", 15094, 80, 15105, 1204, 4, 410, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 681 },
-    { "smooth_red_sandstone_stairs", 15174, 80, 15185, 1208, 4, 411, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 682 },
-    { "mossy_stone_brick_stairs", 15254, 80, 15265, 1212, 4, 412, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 683 },
-    { "polished_diorite_stairs", 15334, 80, 15345, 1216, 4, 413, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 684 },
-    { "mossy_cobblestone_stairs", 15414, 80, 15425, 1220, 4, 414, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 685 },
-    { "end_stone_brick_stairs", 15494, 80, 15505, 1224, 4, 415, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 686 },
-    { "stone_stairs", 15574, 80, 15585, 1228, 4, 416, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 687 },
-    { "smooth_sandstone_stairs", 15654, 80, 15665, 1232, 4, 417, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 688 },
-    { "smooth_quartz_stairs", 15734, 80, 15745, 1236, 4, 418, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 689 },
-    { "granite_stairs", 15814, 80, 15825, 1240, 4, 419, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 690 },
-    { "andesite_stairs", 15894, 80, 15905, 1244, 4, 420, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 691 },
-    { "red_nether_brick_stairs", 15974, 80, 15985, 1248, 4, 421, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 692 },
-    { "polished_andesite_stairs", 16054, 80, 16065, 1252, 4, 422, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 693 },
-    { "diorite_stairs", 16134, 80, 16145, 1256, 4, 423, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 694 },
-    { "polished_granite_slab", 16214, 6, 16217, 1260, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 699 },
-    { "smooth_red_sandstone_slab", 16220, 6, 16223, 1262, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 700 },
-    { "mossy_stone_brick_slab", 16226, 6, 16229, 1264, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 701 },
-    { "polished_diorite_slab", 16232, 6, 16235, 1266, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 702 },
-    { "mossy_cobblestone_slab", 16238, 6, 16241, 1268, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 703 },
-    { "end_stone_brick_slab", 16244, 6, 16247, 1270, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 704 },
-    { "smooth_sandstone_slab", 16250, 6, 16253, 1272, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 705 },
-    { "smooth_quartz_slab", 16256, 6, 16259, 1274, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 706 },
-    { "granite_slab", 16262, 6, 16265, 1276, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 707 },
-    { "andesite_slab", 16268, 6, 16271, 1278, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 708 },
-    { "red_nether_brick_slab", 16274, 6, 16277, 1280, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 709 },
-    { "polished_andesite_slab", 16280, 6, 16283, 1282, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 710 },
-    { "diorite_slab", 16286, 6, 16289, 1284, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 711 },
-    { "brick_wall", 16292, 324, 16295, 1286, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 458 },
-    { "prismarine_wall", 16616, 324, 16619, 1292, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 459 },
-    { "red_sandstone_wall", 16940, 324, 16943, 1298, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 460 },
-    { "mossy_stone_brick_wall", 17264, 324, 17267, 1304, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 461 },
-    { "granite_wall", 17588, 324, 17591, 1310, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 462 },
-    { "stone_brick_wall", 17912, 324, 17915, 1316, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 463 },
-    { "mud_brick_wall", 18236, 324, 18239, 1322, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 464 },
-    { "nether_brick_wall", 18560, 324, 18563, 1328, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 465 },
-    { "andesite_wall", 18884, 324, 18887, 1334, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 466 },
-    { "red_nether_brick_wall", 19208, 324, 19211, 1340, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 467 },
-    { "sandstone_wall", 19532, 324, 19535, 1346, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 468 },
-    { "end_stone_brick_wall", 19856, 324, 19859, 1352, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 469 },
-    { "diorite_wall", 20180, 324, 20183, 1358, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 470 },
-    { "scaffolding", 20504, 32, 20535, 1364, 3, 424, 0, VCLASS_SCAFFOLDING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 716 },
-    { "loom", 20536, 4, 20536, 1367, 1, 424, 0, VCLASS_LOOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1341 },
-    { "barrel", 20540, 12, 20541, 1368, 2, 424, 0, VCLASS_BARREL_BLOCK, BLOCK_ENTITY_TYPE_BARREL, BLOCK_ENTITY_TYPE_BARREL, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1354 },
-    { "smoker", 20552, 8, 20553, 1370, 2, 424, 0, VCLASS_SMOKER_BLOCK, BLOCK_ENTITY_TYPE_SMOKER, BLOCK_ENTITY_TYPE_SMOKER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1355 },
-    { "blast_furnace", 20560, 8, 20561, 1372, 2, 424, 0, VCLASS_BLAST_FURNACE_BLOCK, BLOCK_ENTITY_TYPE_BLAST_FURNACE, BLOCK_ENTITY_TYPE_BLAST_FURNACE, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1356 },
-    { "cartography_table", 20568, 1, 20568, 1374, 0, 424, 0, VCLASS_CARTOGRAPHY_TABLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1357 },
-    { "fletching_table", 20569, 1, 20569, 1374, 0, 424, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1358 },
-    { "grindstone", 20570, 12, 20574, 1374, 2, 424, 0, VCLASS_GRINDSTONE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1359 },
-    { "lectern", 20582, 16, 20585, 1376, 3, 424, 0, VCLASS_LECTERN_BLOCK, BLOCK_ENTITY_TYPE_LECTERN, BLOCK_ENTITY_TYPE_LECTERN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 730 },
-    { "smithing_table", 20598, 1, 20598, 1379, 0, 424, 0, VCLASS_SMITHING_TABLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1360 },
-    { "stonecutter", 20599, 4, 20599, 1379, 1, 424, 0, VCLASS_STONECUTTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1361 },
-    { "bell", 20603, 32, 20604, 1380, 3, 424, 0, VCLASS_BELL_BLOCK, BLOCK_ENTITY_TYPE_BELL, BLOCK_ENTITY_TYPE_BELL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1362 },
-    { "lantern", 20635, 4, 20638, 1383, 2, 424, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1363 },
-    { "soul_lantern", 20639, 4, 20642, 1385, 2, 424, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1364 },
-    { "copper_lantern", 20643, 4, 20646, 1387, 2, 424, 1, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 853, -1, 0.6f, 1.0f, 1.0f, 1365 },
-    { "exposed_copper_lantern", 20647, 4, 20650, 1389, 2, 425, 1, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 854, -1, 0.6f, 1.0f, 1.0f, 1366 },
-    { "weathered_copper_lantern", 20651, 4, 20654, 1391, 2, 426, 1, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 855, -1, 0.6f, 1.0f, 1.0f, 1367 },
-    { "oxidized_copper_lantern", 20655, 4, 20658, 1393, 2, 427, 1, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 856, -1, 0.6f, 1.0f, 1.0f, 1368 },
-    { "waxed_copper_lantern", 20659, 4, 20662, 1395, 2, 428, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1369 },
-    { "waxed_exposed_copper_lantern", 20663, 4, 20666, 1397, 2, 428, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1370 },
-    { "waxed_weathered_copper_lantern", 20667, 4, 20670, 1399, 2, 428, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1371 },
-    { "waxed_oxidized_copper_lantern", 20671, 4, 20674, 1401, 2, 428, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1372 },
-    { "campfire", 20675, 32, 20678, 1403, 4, 428, 2, VCLASS_CAMPFIRE_BLOCK, BLOCK_ENTITY_TYPE_CAMPFIRE, BLOCK_ENTITY_TYPE_CAMPFIRE, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1375 },
-    { "soul_campfire", 20707, 32, 20710, 1407, 4, 430, 2, VCLASS_CAMPFIRE_BLOCK, BLOCK_ENTITY_TYPE_CAMPFIRE, BLOCK_ENTITY_TYPE_CAMPFIRE, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1376 },
-    { "sweet_berry_bush", 20739, 4, 20739, 1411, 1, 432, 0, VCLASS_SWEET_BERRY_BUSH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1373 },
-    { "warped_stem", 20743, 3, 20744, 1412, 1, 432, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 146 },
-    { "stripped_warped_stem", 20746, 3, 20747, 1413, 1, 432, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 158 },
-    { "warped_hyphae", 20749, 3, 20750, 1414, 1, 432, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 181 },
-    { "stripped_warped_hyphae", 20752, 3, 20753, 1415, 1, 432, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 169 },
-    { "warped_nylium", 20755, 1, 20755, 1416, 0, 432, 0, VCLASS_NYLIUM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 34 },
-    { "warped_fungus", 20756, 1, 20756, 1416, 0, 432, 1, VCLASS_FUNGUS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 250 },
-    { "warped_wart_block", 20757, 1, 20757, 1416, 0, 433, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 577 },
-    { "warped_roots", 20758, 1, 20758, 1416, 0, 433, 0, VCLASS_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 252 },
-    { "nether_sprouts", 20759, 1, 20759, 1416, 0, 433, 0, VCLASS_NETHER_SPROUTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 253 },
-    { "crimson_stem", 20760, 3, 20761, 1416, 1, 433, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 145 },
-    { "stripped_crimson_stem", 20763, 3, 20764, 1417, 1, 433, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 157 },
-    { "crimson_hyphae", 20766, 3, 20767, 1418, 1, 433, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 180 },
-    { "stripped_crimson_hyphae", 20769, 3, 20770, 1419, 1, 433, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 168 },
-    { "crimson_nylium", 20772, 1, 20772, 1420, 0, 433, 0, VCLASS_NYLIUM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 33 },
-    { "crimson_fungus", 20773, 1, 20773, 1420, 0, 433, 1, VCLASS_FUNGUS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 249 },
-    { "shroomlight", 20774, 1, 20774, 1420, 0, 434, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1377 },
-    { "weeping_vines", 20775, 26, 20775, 1420, 1, 434, 2, VCLASS_WEEPING_VINES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 254 },
-    { "weeping_vines_plant", 20801, 1, 20801, 1421, 0, 436, 2, VCLASS_WEEPING_VINES_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "twisting_vines", 20802, 26, 20802, 1421, 1, 438, 2, VCLASS_TWISTING_VINES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 255 },
-    { "twisting_vines_plant", 20828, 1, 20828, 1422, 0, 440, 2, VCLASS_TWISTING_VINES_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "crimson_roots", 20829, 1, 20829, 1422, 0, 442, 0, VCLASS_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 251 },
-    { "crimson_planks", 20830, 1, 20830, 1422, 0, 442, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 46 },
-    { "warped_planks", 20831, 1, 20831, 1422, 0, 442, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 47 },
-    { "crimson_slab", 20832, 6, 20835, 1422, 2, 442, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 281 },
-    { "warped_slab", 20838, 6, 20841, 1424, 2, 442, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 282 },
-    { "crimson_pressure_plate", 20844, 2, 20845, 1426, 1, 442, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 777 },
-    { "warped_pressure_plate", 20846, 2, 20847, 1427, 1, 445, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 778 },
-    { "crimson_fence", 20848, 32, 20879, 1428, 5, 448, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 354 },
-    { "warped_fence", 20880, 32, 20911, 1433, 5, 448, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 355 },
-    { "crimson_trapdoor", 20912, 64, 20927, 1438, 5, 448, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 811 },
-    { "warped_trapdoor", 20976, 64, 20991, 1443, 5, 451, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 812 },
-    { "crimson_fence_gate", 21040, 32, 21047, 1448, 4, 454, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 831 },
-    { "warped_fence_gate", 21072, 32, 21079, 1452, 4, 454, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 832 },
-    { "crimson_stairs", 21104, 80, 21115, 1456, 4, 454, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 452 },
-    { "warped_stairs", 21184, 80, 21195, 1460, 4, 455, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 453 },
-    { "crimson_button", 21264, 24, 21273, 1464, 3, 456, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 761 },
-    { "warped_button", 21288, 24, 21297, 1467, 3, 460, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 762 },
-    { "crimson_door", 21312, 64, 21323, 1470, 5, 464, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 790 },
-    { "warped_door", 21376, 64, 21387, 1475, 5, 467, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 791 },
-    { "crimson_sign", 21440, 32, 21441, 1480, 2, 470, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 998 },
-    { "warped_sign", 21472, 32, 21473, 1482, 2, 470, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 999 },
-    { "crimson_wall_sign", 21504, 8, 21505, 1484, 2, 470, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 998 },
-    { "warped_wall_sign", 21512, 8, 21513, 1486, 2, 470, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 999 },
-    { "structure_block", 21520, 4, 21521, 1488, 1, 470, 0, VCLASS_STRUCTURE_BLOCK, BLOCK_ENTITY_TYPE_STRUCTURE_BLOCK, BLOCK_ENTITY_TYPE_STRUCTURE_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 883 },
-    { "jigsaw", 21524, 12, 21534, 1489, 1, 470, 0, VCLASS_JIGSAW_BLOCK, BLOCK_ENTITY_TYPE_JIGSAW, BLOCK_ENTITY_TYPE_JIGSAW, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 884 },
-    { "test_block", 21536, 4, 21536, 1490, 1, 470, 0, VCLASS_TEST_BLOCK, BLOCK_ENTITY_TYPE_TEST_BLOCK, BLOCK_ENTITY_TYPE_TEST_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 885 },
-    { "test_instance_block", 21540, 1, 21540, 1491, 0, 470, 0, VCLASS_TEST_INSTANCE_BLOCK, BLOCK_ENTITY_TYPE_TEST_INSTANCE_BLOCK, BLOCK_ENTITY_TYPE_TEST_INSTANCE_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 886 },
-    { "composter", 21541, 9, 21541, 1491, 1, 470, 0, VCLASS_COMPOSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1353 },
-    { "target", 21550, 16, 21550, 1492, 1, 470, 0, VCLASS_TARGET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 135, 0.6f, 1.0f, 1.0f, 731 },
-    { "bee_nest", 21566, 24, 21566, 1493, 2, 470, 0, VCLASS_BEEHIVE_BLOCK, BLOCK_ENTITY_TYPE_BEEHIVE, BLOCK_ENTITY_TYPE_BEEHIVE, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1379 },
-    { "beehive", 21590, 24, 21590, 1495, 2, 470, 0, VCLASS_BEEHIVE_BLOCK, BLOCK_ENTITY_TYPE_BEEHIVE, BLOCK_ENTITY_TYPE_BEEHIVE, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1380 },
-    { "honey_block", 21614, 1, 21614, 1497, 0, 470, 0, VCLASS_HONEY_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 0.4f, 0.5f, 725 },
-    { "honeycomb_block", 21615, 1, 21615, 1497, 0, 470, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1382 },
-    { "netherite_block", 21616, 1, 21616, 1497, 0, 470, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 94 },
-    { "ancient_debris", 21617, 1, 21617, 1497, 0, 470, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 82 },
-    { "crying_obsidian", 21618, 1, 21618, 1497, 0, 470, 0, VCLASS_CRYING_OBSIDIAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1384 },
-    { "respawn_anchor", 21619, 5, 21619, 1497, 1, 470, 0, VCLASS_RESPAWN_ANCHOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1397 },
-    { "potted_crimson_fungus", 21624, 1, 21624, 1498, 0, 470, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_warped_fungus", 21625, 1, 21625, 1498, 0, 471, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_crimson_roots", 21626, 1, 21626, 1498, 0, 472, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_warped_roots", 21627, 1, 21627, 1498, 0, 473, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "lodestone", 21628, 1, 21628, 1498, 0, 474, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1383 },
-    { "blackstone", 21629, 1, 21629, 1498, 0, 474, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1385 },
-    { "blackstone_stairs", 21630, 80, 21641, 1498, 4, 474, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1387 },
-    { "blackstone_wall", 21710, 324, 21713, 1502, 6, 475, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 471 },
-    { "blackstone_slab", 22034, 6, 22037, 1508, 2, 475, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1386 },
-    { "polished_blackstone", 22040, 1, 22040, 1510, 0, 475, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1389 },
-    { "polished_blackstone_bricks", 22041, 1, 22041, 1510, 0, 475, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1393 },
-    { "cracked_polished_blackstone_bricks", 22042, 1, 22042, 1510, 0, 475, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1396 },
-    { "chiseled_polished_blackstone", 22043, 1, 22043, 1510, 0, 475, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1392 },
-    { "polished_blackstone_brick_slab", 22044, 6, 22047, 1510, 2, 475, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1394 },
-    { "polished_blackstone_brick_stairs", 22050, 80, 22061, 1512, 4, 475, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1395 },
-    { "polished_blackstone_brick_wall", 22130, 324, 22133, 1516, 6, 476, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 473 },
-    { "gilded_blackstone", 22454, 1, 22454, 1522, 0, 476, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1388 },
-    { "polished_blackstone_stairs", 22455, 80, 22466, 1522, 4, 476, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1391 },
-    { "polished_blackstone_slab", 22535, 6, 22538, 1526, 2, 477, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1390 },
-    { "polished_blackstone_pressure_plate", 22541, 2, 22542, 1528, 1, 477, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 764 },
-    { "polished_blackstone_button", 22543, 24, 22552, 1529, 3, 480, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 750 },
-    { "polished_blackstone_wall", 22567, 324, 22570, 1532, 6, 484, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 472 },
-    { "chiseled_nether_bricks", 22891, 1, 22891, 1538, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 426 },
-    { "cracked_nether_bricks", 22892, 1, 22892, 1538, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 425 },
-    { "quartz_bricks", 22893, 1, 22893, 1538, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 483 },
-    { "candle", 22894, 16, 22897, 1538, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1398 },
-    { "white_candle", 22910, 16, 22913, 1541, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1399 },
-    { "orange_candle", 22926, 16, 22929, 1544, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1400 },
-    { "magenta_candle", 22942, 16, 22945, 1547, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1401 },
-    { "light_blue_candle", 22958, 16, 22961, 1550, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1402 },
-    { "yellow_candle", 22974, 16, 22977, 1553, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1403 },
-    { "lime_candle", 22990, 16, 22993, 1556, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1404 },
-    { "pink_candle", 23006, 16, 23009, 1559, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1405 },
-    { "gray_candle", 23022, 16, 23025, 1562, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1406 },
-    { "light_gray_candle", 23038, 16, 23041, 1565, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1407 },
-    { "cyan_candle", 23054, 16, 23057, 1568, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1408 },
-    { "purple_candle", 23070, 16, 23073, 1571, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1409 },
-    { "blue_candle", 23086, 16, 23089, 1574, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1410 },
-    { "brown_candle", 23102, 16, 23105, 1577, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1411 },
-    { "green_candle", 23118, 16, 23121, 1580, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1412 },
-    { "red_candle", 23134, 16, 23137, 1583, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1413 },
-    { "black_candle", 23150, 16, 23153, 1586, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1414 },
-    { "candle_cake", 23166, 2, 23167, 1589, 1, 484, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "white_candle_cake", 23168, 2, 23169, 1590, 1, 485, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "orange_candle_cake", 23170, 2, 23171, 1591, 1, 486, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "magenta_candle_cake", 23172, 2, 23173, 1592, 1, 487, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "light_blue_candle_cake", 23174, 2, 23175, 1593, 1, 488, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "yellow_candle_cake", 23176, 2, 23177, 1594, 1, 489, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "lime_candle_cake", 23178, 2, 23179, 1595, 1, 490, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "pink_candle_cake", 23180, 2, 23181, 1596, 1, 491, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "gray_candle_cake", 23182, 2, 23183, 1597, 1, 492, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "light_gray_candle_cake", 23184, 2, 23185, 1598, 1, 493, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "cyan_candle_cake", 23186, 2, 23187, 1599, 1, 494, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "purple_candle_cake", 23188, 2, 23189, 1600, 1, 495, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "blue_candle_cake", 23190, 2, 23191, 1601, 1, 496, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "brown_candle_cake", 23192, 2, 23193, 1602, 1, 497, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "green_candle_cake", 23194, 2, 23195, 1603, 1, 498, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "red_candle_cake", 23196, 2, 23197, 1604, 1, 499, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "black_candle_cake", 23198, 2, 23199, 1605, 1, 500, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "amethyst_block", 23200, 1, 23200, 1606, 0, 501, 0, VCLASS_AMETHYST_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 88 },
-    { "budding_amethyst", 23201, 1, 23201, 1606, 0, 501, 0, VCLASS_BUDDING_AMETHYST_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 89 },
-    { "amethyst_cluster", 23202, 12, 23211, 1606, 2, 501, 2, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1418 },
-    { "large_amethyst_bud", 23214, 12, 23223, 1608, 2, 503, 2, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1417 },
-    { "medium_amethyst_bud", 23226, 12, 23235, 1610, 2, 505, 2, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1416 },
-    { "small_amethyst_bud", 23238, 12, 23247, 1612, 2, 507, 2, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1415 },
-    { "tuff", 23250, 1, 23250, 1614, 0, 509, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 12 },
-    { "tuff_slab", 23251, 6, 23254, 1614, 2, 509, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 13 },
-    { "tuff_stairs", 23257, 80, 23268, 1616, 4, 509, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 14 },
-    { "tuff_wall", 23337, 324, 23340, 1620, 6, 510, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 15 },
-    { "polished_tuff", 23661, 1, 23661, 1626, 0, 510, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 17 },
-    { "polished_tuff_slab", 23662, 6, 23665, 1626, 2, 510, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 18 },
-    { "polished_tuff_stairs", 23668, 80, 23679, 1628, 4, 510, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 19 },
-    { "polished_tuff_wall", 23748, 324, 23751, 1632, 6, 511, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 20 },
-    { "chiseled_tuff", 24072, 1, 24072, 1638, 0, 511, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 16 },
-    { "tuff_bricks", 24073, 1, 24073, 1638, 0, 511, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 21 },
-    { "tuff_brick_slab", 24074, 6, 24077, 1638, 2, 511, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 22 },
-    { "tuff_brick_stairs", 24080, 80, 24091, 1640, 4, 511, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 23 },
-    { "tuff_brick_wall", 24160, 324, 24163, 1644, 6, 512, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 24 },
-    { "chiseled_tuff_bricks", 24484, 1, 24484, 1650, 0, 512, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 25 },
-    { "calcite", 24485, 1, 24485, 1650, 0, 512, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 11 },
-    { "tinted_glass", 24486, 1, 24486, 1650, 0, 512, 0, VCLASS_TINTED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 196 },
-    { "powder_snow", 24487, 1, 24487, 1650, 0, 512, 0, VCLASS_POWDER_SNOW_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1015 },
-    { "sculk_sensor", 24488, 96, 24489, 1650, 3, 512, 0, VCLASS_SCULK_SENSOR_BLOCK, BLOCK_ENTITY_TYPE_SCULK_SENSOR, BLOCK_ENTITY_TYPE_SCULK_SENSOR, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 742 },
-    { "calibrated_sculk_sensor", 24584, 384, 24585, 1653, 4, 512, 0, VCLASS_CALIBRATED_SCULK_SENSOR_BLOCK, BLOCK_ENTITY_TYPE_CALIBRATED_SCULK_SENSOR, BLOCK_ENTITY_TYPE_CALIBRATED_SCULK_SENSOR, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 743 },
-    { "sculk", 24968, 1, 24968, 1657, 0, 512, 0, VCLASS_SCULK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 429 },
-    { "sculk_vein", 24969, 128, 25096, 1657, 7, 512, 3, VCLASS_SCULK_VEIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 430 },
-    { "sculk_catalyst", 25097, 2, 25098, 1664, 1, 515, 0, VCLASS_SCULK_CATALYST_BLOCK, BLOCK_ENTITY_TYPE_SCULK_CATALYST, BLOCK_ENTITY_TYPE_SCULK_CATALYST, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 431 },
-    { "sculk_shrieker", 25099, 8, 25106, 1665, 3, 515, 0, VCLASS_SCULK_SHRIEKER_BLOCK, BLOCK_ENTITY_TYPE_SCULK_SHRIEKER, BLOCK_ENTITY_TYPE_SCULK_SHRIEKER, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 432 },
-    { "copper_block", 25107, 1, 25107, 1668, 0, 515, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1031, -1, 0.6f, 1.0f, 1.0f, 91 },
-    { "exposed_copper", 25108, 1, 25108, 1668, 0, 516, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1033, -1, 0.6f, 1.0f, 1.0f, 95 },
-    { "weathered_copper", 25109, 1, 25109, 1668, 0, 517, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1032, -1, 0.6f, 1.0f, 1.0f, 96 },
-    { "oxidized_copper", 25110, 1, 25110, 1668, 0, 518, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1034, -1, 0.6f, 1.0f, 1.0f, 97 },
-    { "copper_ore", 25111, 1, 25111, 1668, 0, 519, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 68 },
-    { "deepslate_copper_ore", 25112, 1, 25112, 1668, 0, 519, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 69 },
-    { "oxidized_cut_copper", 25113, 1, 25113, 1668, 0, 519, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1035, -1, 0.6f, 1.0f, 1.0f, 105 },
-    { "weathered_cut_copper", 25114, 1, 25114, 1668, 0, 520, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1036, -1, 0.6f, 1.0f, 1.0f, 104 },
-    { "exposed_cut_copper", 25115, 1, 25115, 1668, 0, 521, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1037, -1, 0.6f, 1.0f, 1.0f, 103 },
-    { "cut_copper", 25116, 1, 25116, 1668, 0, 522, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1038, -1, 0.6f, 1.0f, 1.0f, 102 },
-    { "oxidized_chiseled_copper", 25117, 1, 25117, 1668, 0, 523, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1019, -1, 0.6f, 1.0f, 1.0f, 101 },
-    { "weathered_chiseled_copper", 25118, 1, 25118, 1668, 0, 524, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1020, -1, 0.6f, 1.0f, 1.0f, 100 },
-    { "exposed_chiseled_copper", 25119, 1, 25119, 1668, 0, 525, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1021, -1, 0.6f, 1.0f, 1.0f, 99 },
-    { "chiseled_copper", 25120, 1, 25120, 1668, 0, 526, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1022, -1, 0.6f, 1.0f, 1.0f, 98 },
-    { "waxed_oxidized_chiseled_copper", 25121, 1, 25121, 1668, 0, 527, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 121 },
-    { "waxed_weathered_chiseled_copper", 25122, 1, 25122, 1668, 0, 527, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 120 },
-    { "waxed_exposed_chiseled_copper", 25123, 1, 25123, 1668, 0, 527, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 119 },
-    { "waxed_chiseled_copper", 25124, 1, 25124, 1668, 0, 527, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 118 },
-    { "oxidized_cut_copper_stairs", 25125, 80, 25136, 1668, 4, 527, 2, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1039, -1, 0.6f, 1.0f, 1.0f, 109 },
-    { "weathered_cut_copper_stairs", 25205, 80, 25216, 1672, 4, 529, 2, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1040, -1, 0.6f, 1.0f, 1.0f, 108 },
-    { "exposed_cut_copper_stairs", 25285, 80, 25296, 1676, 4, 531, 2, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1041, -1, 0.6f, 1.0f, 1.0f, 107 },
-    { "cut_copper_stairs", 25365, 80, 25376, 1680, 4, 533, 2, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1042, -1, 0.6f, 1.0f, 1.0f, 106 },
-    { "oxidized_cut_copper_slab", 25445, 6, 25448, 1684, 2, 535, 1, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1043, -1, 0.6f, 1.0f, 1.0f, 113 },
-    { "weathered_cut_copper_slab", 25451, 6, 25454, 1686, 2, 536, 1, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1044, -1, 0.6f, 1.0f, 1.0f, 112 },
-    { "exposed_cut_copper_slab", 25457, 6, 25460, 1688, 2, 537, 1, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1045, -1, 0.6f, 1.0f, 1.0f, 111 },
-    { "cut_copper_slab", 25463, 6, 25466, 1690, 2, 538, 1, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1046, -1, 0.6f, 1.0f, 1.0f, 110 },
-    { "waxed_copper_block", 25469, 1, 25469, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 114 },
-    { "waxed_weathered_copper", 25470, 1, 25470, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 116 },
-    { "waxed_exposed_copper", 25471, 1, 25471, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 115 },
-    { "waxed_oxidized_copper", 25472, 1, 25472, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 117 },
-    { "waxed_oxidized_cut_copper", 25473, 1, 25473, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 125 },
-    { "waxed_weathered_cut_copper", 25474, 1, 25474, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 124 },
-    { "waxed_exposed_cut_copper", 25475, 1, 25475, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 123 },
-    { "waxed_cut_copper", 25476, 1, 25476, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 122 },
-    { "waxed_oxidized_cut_copper_stairs", 25477, 80, 25488, 1692, 4, 539, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 129 },
-    { "waxed_weathered_cut_copper_stairs", 25557, 80, 25568, 1696, 4, 540, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 128 },
-    { "waxed_exposed_cut_copper_stairs", 25637, 80, 25648, 1700, 4, 541, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 127 },
-    { "waxed_cut_copper_stairs", 25717, 80, 25728, 1704, 4, 542, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 126 },
-    { "waxed_oxidized_cut_copper_slab", 25797, 6, 25800, 1708, 2, 543, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 133 },
-    { "waxed_weathered_cut_copper_slab", 25803, 6, 25806, 1710, 2, 543, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 132 },
-    { "waxed_exposed_cut_copper_slab", 25809, 6, 25812, 1712, 2, 543, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 131 },
-    { "waxed_cut_copper_slab", 25815, 6, 25818, 1714, 2, 543, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 130 },
-    { "copper_door", 25821, 64, 25832, 1716, 5, 543, 4, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1051, -1, 0.6f, 1.0f, 1.0f, 792 },
-    { "exposed_copper_door", 25885, 64, 25896, 1721, 5, 547, 4, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1052, -1, 0.6f, 1.0f, 1.0f, 793 },
-    { "oxidized_copper_door", 25949, 64, 25960, 1726, 5, 551, 4, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1053, -1, 0.6f, 1.0f, 1.0f, 795 },
-    { "weathered_copper_door", 26013, 64, 26024, 1731, 5, 555, 4, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1054, -1, 0.6f, 1.0f, 1.0f, 794 },
-    { "waxed_copper_door", 26077, 64, 26088, 1736, 5, 559, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 796 },
-    { "waxed_exposed_copper_door", 26141, 64, 26152, 1741, 5, 562, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 797 },
-    { "waxed_oxidized_copper_door", 26205, 64, 26216, 1746, 5, 565, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 799 },
-    { "waxed_weathered_copper_door", 26269, 64, 26280, 1751, 5, 568, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 798 },
-    { "copper_trapdoor", 26333, 64, 26348, 1756, 5, 571, 4, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1059, -1, 0.6f, 1.0f, 1.0f, 813 },
-    { "exposed_copper_trapdoor", 26397, 64, 26412, 1761, 5, 575, 4, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1060, -1, 0.6f, 1.0f, 1.0f, 814 },
-    { "oxidized_copper_trapdoor", 26461, 64, 26476, 1766, 5, 579, 4, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1061, -1, 0.6f, 1.0f, 1.0f, 816 },
-    { "weathered_copper_trapdoor", 26525, 64, 26540, 1771, 5, 583, 4, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1062, -1, 0.6f, 1.0f, 1.0f, 815 },
-    { "waxed_copper_trapdoor", 26589, 64, 26604, 1776, 5, 587, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 817 },
-    { "waxed_exposed_copper_trapdoor", 26653, 64, 26668, 1781, 5, 590, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 818 },
-    { "waxed_oxidized_copper_trapdoor", 26717, 64, 26732, 1786, 5, 593, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 820 },
-    { "waxed_weathered_copper_trapdoor", 26781, 64, 26796, 1791, 5, 596, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 819 },
-    { "copper_grate", 26845, 2, 26846, 1796, 1, 599, 1, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1067, -1, 0.6f, 1.0f, 1.0f, 1468 },
-    { "exposed_copper_grate", 26847, 2, 26848, 1797, 1, 600, 1, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1068, -1, 0.6f, 1.0f, 1.0f, 1469 },
-    { "weathered_copper_grate", 26849, 2, 26850, 1798, 1, 601, 1, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1069, -1, 0.6f, 1.0f, 1.0f, 1470 },
-    { "oxidized_copper_grate", 26851, 2, 26852, 1799, 1, 602, 1, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1070, -1, 0.6f, 1.0f, 1.0f, 1471 },
-    { "waxed_copper_grate", 26853, 2, 26854, 1800, 1, 603, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1472 },
-    { "waxed_exposed_copper_grate", 26855, 2, 26856, 1801, 1, 603, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1473 },
-    { "waxed_weathered_copper_grate", 26857, 2, 26858, 1802, 1, 603, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1474 },
-    { "waxed_oxidized_copper_grate", 26859, 2, 26860, 1803, 1, 603, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1475 },
-    { "copper_bulb", 26861, 4, 26864, 1804, 2, 603, 1, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1075, -1, 0.6f, 1.0f, 1.0f, 1476 },
-    { "exposed_copper_bulb", 26865, 4, 26868, 1806, 2, 604, 1, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1076, -1, 0.6f, 1.0f, 1.0f, 1477 },
-    { "weathered_copper_bulb", 26869, 4, 26872, 1808, 2, 605, 1, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1077, -1, 0.6f, 1.0f, 1.0f, 1478 },
-    { "oxidized_copper_bulb", 26873, 4, 26876, 1810, 2, 606, 1, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1078, -1, 0.6f, 1.0f, 1.0f, 1479 },
-    { "waxed_copper_bulb", 26877, 4, 26880, 1812, 2, 607, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1480 },
-    { "waxed_exposed_copper_bulb", 26881, 4, 26884, 1814, 2, 607, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1481 },
-    { "waxed_weathered_copper_bulb", 26885, 4, 26888, 1816, 2, 607, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1482 },
-    { "waxed_oxidized_copper_bulb", 26889, 4, 26892, 1818, 2, 607, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1483 },
-    { "copper_chest", 26893, 24, 26894, 1820, 3, 607, 1, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1083, -1, 0.6f, 1.0f, 1.0f, 1484 },
-    { "exposed_copper_chest", 26917, 24, 26918, 1823, 3, 608, 1, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1084, -1, 0.6f, 1.0f, 1.0f, 1485 },
-    { "weathered_copper_chest", 26941, 24, 26942, 1826, 3, 609, 1, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1085, -1, 0.6f, 1.0f, 1.0f, 1486 },
-    { "oxidized_copper_chest", 26965, 24, 26966, 1829, 3, 610, 1, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1086, -1, 0.6f, 1.0f, 1.0f, 1487 },
-    { "waxed_copper_chest", 26989, 24, 26990, 1832, 3, 611, 1, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1488 },
-    { "waxed_exposed_copper_chest", 27013, 24, 27014, 1835, 3, 612, 1, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1489 },
-    { "waxed_weathered_copper_chest", 27037, 24, 27038, 1838, 3, 613, 1, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1490 },
-    { "waxed_oxidized_copper_chest", 27061, 24, 27062, 1841, 3, 614, 1, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1491 },
-    { "copper_golem_statue", 27085, 32, 27086, 1844, 3, 615, 1, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1091, -1, 0.6f, 1.0f, 1.0f, 1492 },
-    { "exposed_copper_golem_statue", 27117, 32, 27118, 1847, 3, 616, 1, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1092, -1, 0.6f, 1.0f, 1.0f, 1493 },
-    { "weathered_copper_golem_statue", 27149, 32, 27150, 1850, 3, 617, 1, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1093, -1, 0.6f, 1.0f, 1.0f, 1494 },
-    { "oxidized_copper_golem_statue", 27181, 32, 27182, 1853, 3, 618, 1, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1094, -1, 0.6f, 1.0f, 1.0f, 1495 },
-    { "waxed_copper_golem_statue", 27213, 32, 27214, 1856, 3, 619, 1, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1496 },
-    { "waxed_exposed_copper_golem_statue", 27245, 32, 27246, 1859, 3, 620, 1, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1497 },
-    { "waxed_weathered_copper_golem_statue", 27277, 32, 27278, 1862, 3, 621, 1, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1498 },
-    { "waxed_oxidized_copper_golem_statue", 27309, 32, 27310, 1865, 3, 622, 1, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1499 },
-    { "lightning_rod", 27341, 24, 27360, 1868, 3, 623, 1, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1099, 151, 0.6f, 1.0f, 1.0f, 733 },
-    { "exposed_lightning_rod", 27365, 24, 27384, 1871, 3, 624, 1, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1100, 175, 0.6f, 1.0f, 1.0f, 734 },
-    { "weathered_lightning_rod", 27389, 24, 27408, 1874, 3, 625, 1, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1101, 199, 0.6f, 1.0f, 1.0f, 735 },
-    { "oxidized_lightning_rod", 27413, 24, 27432, 1877, 3, 626, 1, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1102, 223, 0.6f, 1.0f, 1.0f, 736 },
-    { "waxed_lightning_rod", 27437, 24, 27456, 1880, 3, 627, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 247, 0.6f, 1.0f, 1.0f, 737 },
-    { "waxed_exposed_lightning_rod", 27461, 24, 27480, 1883, 3, 627, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 271, 0.6f, 1.0f, 1.0f, 738 },
-    { "waxed_weathered_lightning_rod", 27485, 24, 27504, 1886, 3, 627, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 295, 0.6f, 1.0f, 1.0f, 739 },
-    { "waxed_oxidized_lightning_rod", 27509, 24, 27528, 1889, 3, 627, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 319, 0.6f, 1.0f, 1.0f, 740 },
-    { "pointed_dripstone", 27533, 20, 27538, 1892, 3, 627, 0, VCLASS_POINTED_DRIPSTONE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1419 },
-    { "dripstone_block", 27553, 1, 27553, 1895, 0, 627, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 26 },
-    { "cave_vines", 27554, 52, 27555, 1895, 2, 627, 2, VCLASS_CAVE_VINES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1374 },
-    { "cave_vines_plant", 27606, 2, 27607, 1897, 1, 629, 2, VCLASS_CAVE_VINES_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "spore_blossom", 27608, 1, 27608, 1898, 0, 631, 0, VCLASS_SPORE_BLOSSOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 246 },
-    { "azalea", 27609, 1, 27609, 1898, 0, 631, 0, VCLASS_AZALEA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 205 },
-    { "flowering_azalea", 27610, 1, 27610, 1898, 0, 631, 0, VCLASS_AZALEA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 206 },
-    { "moss_carpet", 27611, 1, 27611, 1898, 0, 631, 0, VCLASS_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 261 },
-    { "pink_petals", 27612, 16, 27612, 1898, 2, 631, 0, VCLASS_FLOWER_BED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 258 },
-    { "wildflowers", 27628, 16, 27628, 1900, 2, 631, 0, VCLASS_FLOWER_BED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 259 },
-    { "leaf_litter", 27644, 16, 27644, 1902, 2, 631, 0, VCLASS_LEAF_LITTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 260 },
-    { "moss_block", 27660, 1, 27660, 1904, 0, 631, 0, VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 262 },
-    { "big_dripleaf", 27661, 32, 27662, 1904, 3, 631, 0, VCLASS_BIG_DRIPLEAF_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 267 },
-    { "big_dripleaf_stem", 27693, 8, 27694, 1907, 2, 631, 0, VCLASS_BIG_DRIPLEAF_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 267 },
-    { "small_dripleaf", 27701, 16, 27704, 1909, 3, 631, 0, VCLASS_SMALL_DRIPLEAF_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 268 },
-    { "hanging_roots", 27717, 2, 27718, 1912, 1, 631, 0, VCLASS_HANGING_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 266 },
-    { "rooted_dirt", 27719, 1, 27719, 1913, 0, 631, 0, VCLASS_ROOTED_DIRT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 31 },
-    { "mud", 27720, 1, 27720, 1913, 0, 631, 0, VCLASS_MUD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 32 },
-    { "deepslate", 27721, 3, 27722, 1913, 1, 631, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 8 },
-    { "cobbled_deepslate", 27724, 1, 27724, 1914, 0, 631, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 9 },
-    { "cobbled_deepslate_stairs", 27725, 80, 27736, 1914, 4, 631, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 695 },
-    { "cobbled_deepslate_slab", 27805, 6, 27808, 1918, 2, 632, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 712 },
-    { "cobbled_deepslate_wall", 27811, 324, 27814, 1920, 6, 632, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 474 },
-    { "polished_deepslate", 28135, 1, 28135, 1926, 0, 632, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 10 },
-    { "polished_deepslate_stairs", 28136, 80, 28147, 1926, 4, 632, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 696 },
-    { "polished_deepslate_slab", 28216, 6, 28219, 1930, 2, 633, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 713 },
-    { "polished_deepslate_wall", 28222, 324, 28225, 1932, 6, 633, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 475 },
-    { "deepslate_tiles", 28546, 1, 28546, 1938, 0, 633, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 383 },
-    { "deepslate_tile_stairs", 28547, 80, 28558, 1938, 4, 633, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 698 },
-    { "deepslate_tile_slab", 28627, 6, 28630, 1942, 2, 634, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 715 },
-    { "deepslate_tile_wall", 28633, 324, 28636, 1944, 6, 634, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 477 },
-    { "deepslate_bricks", 28957, 1, 28957, 1950, 0, 634, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 381 },
-    { "deepslate_brick_stairs", 28958, 80, 28969, 1950, 4, 634, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 697 },
-    { "deepslate_brick_slab", 29038, 6, 29041, 1954, 2, 635, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 714 },
-    { "deepslate_brick_wall", 29044, 324, 29047, 1956, 6, 635, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 476 },
-    { "chiseled_deepslate", 29368, 1, 29368, 1962, 0, 635, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 385 },
-    { "cracked_deepslate_bricks", 29369, 1, 29369, 1962, 0, 635, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 382 },
-    { "cracked_deepslate_tiles", 29370, 1, 29370, 1962, 0, 635, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 384 },
-    { "infested_deepslate", 29371, 3, 29372, 1962, 1, 635, 1, VCLASS_INFESTED_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 374 },
-    { "smooth_basalt", 29374, 1, 29374, 1963, 0, 636, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 364 },
-    { "raw_iron_block", 29375, 1, 29375, 1963, 0, 636, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 84 },
-    { "raw_copper_block", 29376, 1, 29376, 1963, 0, 636, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 85 },
-    { "raw_gold_block", 29377, 1, 29377, 1963, 0, 636, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 86 },
-    { "potted_azalea_bush", 29378, 1, 29378, 1963, 0, 636, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_flowering_azalea_bush", 29379, 1, 29379, 1963, 0, 637, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "ochre_froglight", 29380, 3, 29381, 1963, 1, 638, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1420 },
-    { "verdant_froglight", 29383, 3, 29384, 1964, 1, 638, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1421 },
-    { "pearlescent_froglight", 29386, 3, 29387, 1965, 1, 638, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1422 },
-    { "frogspawn", 29389, 1, 29389, 1966, 0, 638, 0, VCLASS_FROGSPAWN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1423 },
-    { "reinforced_deepslate", 29390, 1, 29390, 1966, 0, 638, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 386 },
-    { "decorated_pot", 29391, 16, 29400, 1966, 3, 638, 0, VCLASS_DECORATED_POT_BLOCK, BLOCK_ENTITY_TYPE_DECORATED_POT, BLOCK_ENTITY_TYPE_DECORATED_POT, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 319 },
-    { "crafter", 29407, 48, 29452, 1969, 3, 638, 0, VCLASS_CRAFTER_BLOCK, BLOCK_ENTITY_TYPE_CRAFTER, BLOCK_ENTITY_TYPE_CRAFTER, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1103 },
-    { "trial_spawner", 29455, 12, 29461, 1972, 2, 638, 0, VCLASS_TRIAL_SPAWNER_BLOCK, BLOCK_ENTITY_TYPE_TRIAL_SPAWNER, BLOCK_ENTITY_TYPE_TRIAL_SPAWNER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1500 },
-    { "vault", 29467, 32, 29471, 1974, 3, 638, 0, VCLASS_VAULT_BLOCK, BLOCK_ENTITY_TYPE_VAULT, BLOCK_ENTITY_TYPE_VAULT, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1503 },
-    { "heavy_core", 29499, 2, 29500, 1977, 1, 638, 0, VCLASS_HEAVY_CORE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 87 },
-    { "pale_moss_block", 29501, 1, 29501, 1978, 0, 638, 0, VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 265 },
-    { "pale_moss_carpet", 29502, 162, 29502, 1978, 5, 638, 0, VCLASS_MOSSY_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 263 },
-    { "pale_hanging_moss", 29664, 2, 29664, 1983, 1, 638, 0, VCLASS_HANGING_MOSS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 264 },
-    { "open_eyeblossom", 29666, 1, 29666, 1984, 0, 638, 1, VCLASS_EYEBLOSSOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 230 },
-    { "closed_eyeblossom", 29667, 1, 29667, 1984, 0, 639, 1, VCLASS_EYEBLOSSOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 231 },
-    { "potted_open_eyeblossom", 29668, 1, 29668, 1984, 0, 640, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "potted_closed_eyeblossom", 29669, 1, 29669, 1984, 0, 641, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0 },
-    { "firefly_bush", 29670, 1, 29670, 1984, 0, 642, 0, VCLASS_FIREFLY_BUSH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 208 },
+    { "air", 0, 1, 0, 0, 0, 0, 0, VCLASS_AIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "stone", 1, 1, 1, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1 },
+    { "granite", 2, 1, 2, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 2 },
+    { "polished_granite", 3, 1, 3, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 3 },
+    { "diorite", 4, 1, 4, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 4 },
+    { "polished_diorite", 5, 1, 5, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 5 },
+    { "andesite", 6, 1, 6, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 6 },
+    { "polished_andesite", 7, 1, 7, 0, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 7 },
+    { "grass_block", 8, 2, 9, 0, 1, 0, 0, VCLASS_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.6f, 27 },
+    { "dirt", 10, 1, 10, 1, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 28 },
+    { "coarse_dirt", 11, 1, 11, 1, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 29 },
+    { "podzol", 12, 2, 13, 1, 1, 0, 0, VCLASS_SNOWY_DIRT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 30 },
+    { "cobblestone", 14, 1, 14, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 35 },
+    { "oak_planks", 15, 1, 15, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 36 },
+    { "spruce_planks", 16, 1, 16, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 37 },
+    { "birch_planks", 17, 1, 17, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 38 },
+    { "jungle_planks", 18, 1, 18, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 39 },
+    { "acacia_planks", 19, 1, 19, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 40 },
+    { "cherry_planks", 20, 1, 20, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 41 },
+    { "dark_oak_planks", 21, 1, 21, 2, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 42 },
+    { "pale_oak_wood", 22, 3, 23, 2, 1, 0, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 177 },
+    { "pale_oak_planks", 25, 1, 25, 3, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 43 },
+    { "mangrove_planks", 26, 1, 26, 3, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 44 },
+    { "bamboo_planks", 27, 1, 27, 3, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 45 },
+    { "bamboo_mosaic", 28, 1, 28, 3, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 48 },
+    { "oak_sapling", 29, 2, 29, 3, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 49 },
+    { "spruce_sapling", 31, 2, 31, 4, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 50 },
+    { "birch_sapling", 33, 2, 33, 5, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 51 },
+    { "jungle_sapling", 35, 2, 35, 6, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 52 },
+    { "acacia_sapling", 37, 2, 37, 7, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 53 },
+    { "cherry_sapling", 39, 2, 39, 8, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 54 },
+    { "dark_oak_sapling", 41, 2, 41, 9, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 55 },
+    { "pale_oak_sapling", 43, 2, 43, 10, 1, 0, 0, VCLASS_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 56 },
+    { "mangrove_propagule", 45, 40, 50, 11, 4, 0, 0, VCLASS_MANGROVE_PROPAGULE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 57 },
+    { "bedrock", 85, 1, 85, 15, 0, 0, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3600000.0f, 58 },
+    { "water", 86, 16, 86, 15, 1, 0, 0, VCLASS_LIQUID_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 100.0f, 0 },
+    { "lava", 102, 16, 102, 16, 1, 0, 0, VCLASS_LIQUID_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 100.0f, 0 },
+    { "sand", 118, 1, 118, 17, 0, 0, 1, VCLASS_SAND_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 59 },
+    { "suspicious_sand", 119, 4, 119, 17, 1, 1, 1, VCLASS_BRUSHABLE_BLOCK, BLOCK_ENTITY_TYPE_BRUSHABLE_BLOCK, BLOCK_ENTITY_TYPE_BRUSHABLE_BLOCK, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.25f, 60 },
+    { "red_sand", 123, 1, 123, 18, 0, 2, 1, VCLASS_SAND_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 62 },
+    { "gravel", 124, 1, 124, 18, 0, 3, 1, VCLASS_COLORED_FALLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.6f, 63 },
+    { "suspicious_gravel", 125, 4, 125, 18, 1, 4, 1, VCLASS_BRUSHABLE_BLOCK, BLOCK_ENTITY_TYPE_BRUSHABLE_BLOCK, BLOCK_ENTITY_TYPE_BRUSHABLE_BLOCK, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.25f, 61 },
+    { "gold_ore", 129, 1, 129, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 70 },
+    { "deepslate_gold_ore", 130, 1, 130, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 71 },
+    { "iron_ore", 131, 1, 131, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 66 },
+    { "deepslate_iron_ore", 132, 1, 132, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 67 },
+    { "coal_ore", 133, 1, 133, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 64 },
+    { "deepslate_coal_ore", 134, 1, 134, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 65 },
+    { "nether_gold_ore", 135, 1, 135, 19, 0, 5, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 80 },
+    { "oak_log", 136, 3, 137, 19, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 134 },
+    { "spruce_log", 139, 3, 140, 20, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 135 },
+    { "birch_log", 142, 3, 143, 21, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 136 },
+    { "jungle_log", 145, 3, 146, 22, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 137 },
+    { "acacia_log", 148, 3, 149, 23, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 138 },
+    { "cherry_log", 151, 3, 152, 24, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 139 },
+    { "dark_oak_log", 154, 3, 155, 25, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 141 },
+    { "pale_oak_log", 157, 3, 158, 26, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 140 },
+    { "mangrove_log", 160, 3, 161, 27, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 142 },
+    { "mangrove_roots", 163, 2, 164, 28, 1, 5, 0, VCLASS_MANGROVE_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.7f, 143 },
+    { "muddy_mangrove_roots", 165, 3, 166, 29, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.7f, 144 },
+    { "bamboo_block", 168, 3, 169, 30, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 147 },
+    { "stripped_spruce_log", 171, 3, 172, 31, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 149 },
+    { "stripped_birch_log", 174, 3, 175, 32, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 150 },
+    { "stripped_jungle_log", 177, 3, 178, 33, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 151 },
+    { "stripped_acacia_log", 180, 3, 181, 34, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 152 },
+    { "stripped_cherry_log", 183, 3, 184, 35, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 153 },
+    { "stripped_dark_oak_log", 186, 3, 187, 36, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 154 },
+    { "stripped_pale_oak_log", 189, 3, 190, 37, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 155 },
+    { "stripped_oak_log", 192, 3, 193, 38, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 148 },
+    { "stripped_mangrove_log", 195, 3, 196, 39, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 156 },
+    { "stripped_bamboo_block", 198, 3, 199, 40, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 170 },
+    { "oak_wood", 201, 3, 202, 41, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 171 },
+    { "spruce_wood", 204, 3, 205, 42, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 172 },
+    { "birch_wood", 207, 3, 208, 43, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 173 },
+    { "jungle_wood", 210, 3, 211, 44, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 174 },
+    { "acacia_wood", 213, 3, 214, 45, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 175 },
+    { "cherry_wood", 216, 3, 217, 46, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 176 },
+    { "dark_oak_wood", 219, 3, 220, 47, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 178 },
+    { "mangrove_wood", 222, 3, 223, 48, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 179 },
+    { "stripped_oak_wood", 225, 3, 226, 49, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 159 },
+    { "stripped_spruce_wood", 228, 3, 229, 50, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 160 },
+    { "stripped_birch_wood", 231, 3, 232, 51, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 161 },
+    { "stripped_jungle_wood", 234, 3, 235, 52, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 162 },
+    { "stripped_acacia_wood", 237, 3, 238, 53, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 163 },
+    { "stripped_cherry_wood", 240, 3, 241, 54, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 164 },
+    { "stripped_dark_oak_wood", 243, 3, 244, 55, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 165 },
+    { "stripped_pale_oak_wood", 246, 3, 247, 56, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 166 },
+    { "stripped_mangrove_wood", 249, 3, 250, 57, 1, 5, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 167 },
+    { "oak_leaves", 252, 28, 279, 58, 3, 5, 1, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 182 },
+    { "spruce_leaves", 280, 28, 307, 61, 3, 6, 1, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 183 },
+    { "birch_leaves", 308, 28, 335, 64, 3, 7, 1, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 184 },
+    { "jungle_leaves", 336, 28, 363, 67, 3, 8, 1, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 185 },
+    { "acacia_leaves", 364, 28, 391, 70, 3, 9, 1, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 186 },
+    { "cherry_leaves", 392, 28, 419, 73, 3, 10, 1, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 187 },
+    { "dark_oak_leaves", 420, 28, 447, 76, 3, 11, 1, VCLASS_TINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 188 },
+    { "pale_oak_leaves", 448, 28, 475, 79, 3, 12, 1, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 189 },
+    { "mangrove_leaves", 476, 28, 503, 82, 3, 13, 1, VCLASS_MANGROVE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 190 },
+    { "azalea_leaves", 504, 28, 531, 85, 3, 14, 1, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 191 },
+    { "flowering_azalea_leaves", 532, 28, 559, 88, 3, 15, 1, VCLASS_UNTINTED_PARTICLE_LEAVES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 192 },
+    { "sponge", 560, 1, 560, 91, 0, 16, 0, VCLASS_SPONGE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.6f, 193 },
+    { "wet_sponge", 561, 1, 561, 91, 0, 16, 0, VCLASS_WET_SPONGE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.6f, 194 },
+    { "glass", 562, 1, 562, 91, 0, 16, 0, VCLASS_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 195 },
+    { "lapis_ore", 563, 1, 563, 91, 0, 16, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 76 },
+    { "deepslate_lapis_ore", 564, 1, 564, 91, 0, 16, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 77 },
+    { "lapis_block", 565, 1, 565, 91, 0, 16, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 197 },
+    { "dispenser", 566, 12, 567, 91, 2, 16, 0, VCLASS_DISPENSER_BLOCK, BLOCK_ENTITY_TYPE_DISPENSER, BLOCK_ENTITY_TYPE_DISPENSER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 728 },
+    { "sandstone", 578, 1, 578, 93, 0, 16, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 198 },
+    { "chiseled_sandstone", 579, 1, 579, 93, 0, 16, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 199 },
+    { "cut_sandstone", 580, 1, 580, 93, 0, 16, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 200 },
+    { "note_block", 581, 1150, 582, 93, 3, 16, 0, VCLASS_NOTE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 748 },
+    { "white_bed", 1731, 16, 1734, 96, 3, 16, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1086 },
+    { "orange_bed", 1747, 16, 1750, 99, 3, 17, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1087 },
+    { "magenta_bed", 1763, 16, 1766, 102, 3, 18, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1088 },
+    { "light_blue_bed", 1779, 16, 1782, 105, 3, 19, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1089 },
+    { "yellow_bed", 1795, 16, 1798, 108, 3, 20, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1090 },
+    { "lime_bed", 1811, 16, 1814, 111, 3, 21, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1091 },
+    { "pink_bed", 1827, 16, 1830, 114, 3, 22, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1092 },
+    { "gray_bed", 1843, 16, 1846, 117, 3, 23, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1093 },
+    { "light_gray_bed", 1859, 16, 1862, 120, 3, 24, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1094 },
+    { "cyan_bed", 1875, 16, 1878, 123, 3, 25, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1095 },
+    { "purple_bed", 1891, 16, 1894, 126, 3, 26, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1096 },
+    { "blue_bed", 1907, 16, 1910, 129, 3, 27, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1097 },
+    { "brown_bed", 1923, 16, 1926, 132, 3, 28, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1098 },
+    { "green_bed", 1939, 16, 1942, 135, 3, 29, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1099 },
+    { "red_bed", 1955, 16, 1958, 138, 3, 30, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1100 },
+    { "black_bed", 1971, 16, 1974, 141, 3, 31, 1, VCLASS_BED_BLOCK, BLOCK_ENTITY_TYPE_BED, BLOCK_ENTITY_TYPE_BED, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 1101 },
+    { "powered_rail", 1987, 24, 2000, 144, 3, 32, 1, VCLASS_POWERED_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.7f, 833 },
+    { "detector_rail", 2011, 24, 2024, 147, 3, 33, 1, VCLASS_DETECTOR_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 0, 0.6f, 1.0f, 1.0f, 0.7f, 834 },
+    { "sticky_piston", 2035, 12, 2041, 150, 2, 34, 1, VCLASS_PISTON_BASE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.5f, 723 },
+    { "cobweb", 2047, 1, 2047, 152, 0, 35, 0, VCLASS_WEB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 4.0f, 201 },
+    { "short_grass", 2048, 1, 2048, 152, 0, 35, 0, VCLASS_TALL_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 202 },
+    { "fern", 2049, 1, 2049, 152, 0, 35, 0, VCLASS_TALL_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 203 },
+    { "dead_bush", 2050, 1, 2050, 152, 0, 35, 0, VCLASS_DRY_VEGETATION_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 207 },
+    { "bush", 2051, 1, 2051, 152, 0, 35, 0, VCLASS_BUSH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 204 },
+    { "short_dry_grass", 2052, 1, 2052, 152, 0, 35, 0, VCLASS_SHORT_DRY_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 209 },
+    { "tall_dry_grass", 2053, 1, 2053, 152, 0, 35, 0, VCLASS_TALL_DRY_GRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 210 },
+    { "seagrass", 2054, 1, 2054, 152, 0, 35, 0, VCLASS_SEAGRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 211 },
+    { "tall_seagrass", 2055, 2, 2056, 152, 1, 35, 0, VCLASS_TALL_SEAGRASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "piston", 2057, 12, 2063, 153, 2, 35, 1, VCLASS_PISTON_BASE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.5f, 722 },
+    { "piston_head", 2069, 24, 2071, 155, 3, 36, 0, VCLASS_PISTON_HEAD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.5f, 0 },
+    { "white_wool", 2093, 1, 2093, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 213 },
+    { "orange_wool", 2094, 1, 2094, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 214 },
+    { "magenta_wool", 2095, 1, 2095, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 215 },
+    { "light_blue_wool", 2096, 1, 2096, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 216 },
+    { "yellow_wool", 2097, 1, 2097, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 217 },
+    { "lime_wool", 2098, 1, 2098, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 218 },
+    { "pink_wool", 2099, 1, 2099, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 219 },
+    { "gray_wool", 2100, 1, 2100, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 220 },
+    { "light_gray_wool", 2101, 1, 2101, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 221 },
+    { "cyan_wool", 2102, 1, 2102, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 222 },
+    { "purple_wool", 2103, 1, 2103, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 223 },
+    { "blue_wool", 2104, 1, 2104, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 224 },
+    { "brown_wool", 2105, 1, 2105, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 225 },
+    { "green_wool", 2106, 1, 2106, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 226 },
+    { "red_wool", 2107, 1, 2107, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 227 },
+    { "black_wool", 2108, 1, 2108, 158, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_GUITAR, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 228 },
+    { "moving_piston", 2109, 12, 2109, 158, 2, 36, 0, VCLASS_MOVING_PISTON_BLOCK, -1, BLOCK_ENTITY_TYPE_PISTON, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "dandelion", 2121, 1, 2121, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 229 },
+    { "torchflower", 2122, 1, 2122, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 244 },
+    { "poppy", 2123, 1, 2123, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 232 },
+    { "blue_orchid", 2124, 1, 2124, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 233 },
+    { "allium", 2125, 1, 2125, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 234 },
+    { "azure_bluet", 2126, 1, 2126, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 235 },
+    { "red_tulip", 2127, 1, 2127, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 236 },
+    { "orange_tulip", 2128, 1, 2128, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 237 },
+    { "white_tulip", 2129, 1, 2129, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 238 },
+    { "pink_tulip", 2130, 1, 2130, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 239 },
+    { "oxeye_daisy", 2131, 1, 2131, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 240 },
+    { "cornflower", 2132, 1, 2132, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 241 },
+    { "wither_rose", 2133, 1, 2133, 160, 0, 36, 0, VCLASS_WITHER_ROSE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 243 },
+    { "lily_of_the_valley", 2134, 1, 2134, 160, 0, 36, 0, VCLASS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 242 },
+    { "brown_mushroom", 2135, 1, 2135, 160, 0, 36, 0, VCLASS_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 247 },
+    { "red_mushroom", 2136, 1, 2136, 160, 0, 36, 0, VCLASS_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 248 },
+    { "gold_block", 2137, 1, 2137, 160, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BELL, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 92 },
+    { "iron_block", 2138, 1, 2138, 160, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_IRON_XYLOPHONE, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 90 },
+    { "bricks", 2139, 1, 2139, 160, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 304 },
+    { "tnt", 2140, 2, 2141, 160, 1, 36, 0, VCLASS_TNT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 746 },
+    { "bookshelf", 2142, 1, 2142, 161, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.5f, 317 },
+    { "chiseled_bookshelf", 2143, 256, 2206, 161, 7, 36, 0, VCLASS_CHISELED_BOOK_SHELF_BLOCK, BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF, BLOCK_ENTITY_TYPE_CHISELED_BOOKSHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.5f, 318 },
+    { "acacia_shelf", 2399, 64, 2408, 168, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 305 },
+    { "bamboo_shelf", 2463, 64, 2472, 172, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 306 },
+    { "birch_shelf", 2527, 64, 2536, 176, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 307 },
+    { "cherry_shelf", 2591, 64, 2600, 180, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 308 },
+    { "crimson_shelf", 2655, 64, 2664, 184, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 309 },
+    { "dark_oak_shelf", 2719, 64, 2728, 188, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 310 },
+    { "jungle_shelf", 2783, 64, 2792, 192, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 311 },
+    { "mangrove_shelf", 2847, 64, 2856, 196, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 312 },
+    { "oak_shelf", 2911, 64, 2920, 200, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 313 },
+    { "pale_oak_shelf", 2975, 64, 2984, 204, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 314 },
+    { "spruce_shelf", 3039, 64, 3048, 208, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 315 },
+    { "warped_shelf", 3103, 64, 3112, 212, 4, 36, 0, VCLASS_SHELF_BLOCK, BLOCK_ENTITY_TYPE_SHELF, BLOCK_ENTITY_TYPE_SHELF, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 316 },
+    { "mossy_cobblestone", 3167, 1, 3167, 216, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 320 },
+    { "obsidian", 3168, 1, 3168, 216, 0, 36, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1200.0f, 321 },
+    { "torch", 3169, 1, 3169, 216, 0, 36, 0, VCLASS_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 322 },
+    { "wall_torch", 3170, 4, 3170, 216, 1, 36, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 322 },
+    { "fire", 3174, 512, 3205, 217, 6, 36, 1, VCLASS_FIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "soul_fire", 3686, 1, 3686, 223, 0, 37, 1, VCLASS_SOUL_FIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "spawner", 3687, 1, 3687, 223, 0, 38, 0, VCLASS_SPAWNER_BLOCK, BLOCK_ENTITY_TYPE_MOB_SPAWNER, BLOCK_ENTITY_TYPE_MOB_SPAWNER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 5.0f, 329 },
+    { "creaking_heart", 3688, 18, 3695, 223, 3, 38, 0, VCLASS_CREAKING_HEART_BLOCK, BLOCK_ENTITY_TYPE_CREAKING_HEART, BLOCK_ENTITY_TYPE_CREAKING_HEART, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 10.0f, 330 },
+    { "oak_stairs", 3706, 80, 3717, 226, 4, 38, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 441 },
+    { "chest", 3786, 24, 3787, 230, 3, 39, 0, VCLASS_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.5f, 331 },
+    { "redstone_wire", 3810, 1296, 4970, 233, 5, 39, 1, VCLASS_RED_STONE_WIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 717 },
+    { "diamond_ore", 5106, 1, 5106, 238, 0, 40, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 78 },
+    { "deepslate_diamond_ore", 5107, 1, 5107, 238, 0, 40, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 79 },
+    { "diamond_block", 5108, 1, 5108, 238, 0, 40, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 93 },
+    { "crafting_table", 5109, 1, 5109, 238, 0, 40, 0, VCLASS_CRAFTING_TABLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.5f, 332 },
+    { "wheat", 5110, 8, 5110, 238, 1, 40, 0, VCLASS_CROP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 951 },
+    { "farmland", 5118, 8, 5118, 239, 1, 40, 0, VCLASS_FARM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.6f, 333 },
+    { "furnace", 5126, 8, 5127, 240, 2, 40, 0, VCLASS_FURNACE_BLOCK, BLOCK_ENTITY_TYPE_FURNACE, BLOCK_ENTITY_TYPE_FURNACE, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 334 },
+    { "oak_sign", 5134, 32, 5135, 242, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 988 },
+    { "spruce_sign", 5166, 32, 5167, 244, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 989 },
+    { "birch_sign", 5198, 32, 5199, 246, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 990 },
+    { "acacia_sign", 5230, 32, 5231, 248, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 992 },
+    { "cherry_sign", 5262, 32, 5263, 250, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 993 },
+    { "jungle_sign", 5294, 32, 5295, 252, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 991 },
+    { "dark_oak_sign", 5326, 32, 5327, 254, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 994 },
+    { "pale_oak_sign", 5358, 32, 5359, 256, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 995 },
+    { "mangrove_sign", 5390, 32, 5391, 258, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 996 },
+    { "bamboo_sign", 5422, 32, 5423, 260, 2, 40, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 997 },
+    { "oak_door", 5454, 64, 5465, 262, 5, 40, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 780 },
+    { "ladder", 5518, 8, 5519, 267, 2, 43, 0, VCLASS_LADDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.4f, 335 },
+    { "rail", 5526, 20, 5527, 269, 2, 43, 1, VCLASS_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.7f, 835 },
+    { "cobblestone_stairs", 5546, 80, 5557, 271, 4, 44, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 336 },
+    { "oak_wall_sign", 5626, 8, 5627, 275, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 988 },
+    { "spruce_wall_sign", 5634, 8, 5635, 277, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 989 },
+    { "birch_wall_sign", 5642, 8, 5643, 279, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 990 },
+    { "acacia_wall_sign", 5650, 8, 5651, 281, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 992 },
+    { "cherry_wall_sign", 5658, 8, 5659, 283, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 993 },
+    { "jungle_wall_sign", 5666, 8, 5667, 285, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 991 },
+    { "dark_oak_wall_sign", 5674, 8, 5675, 287, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 994 },
+    { "pale_oak_wall_sign", 5682, 8, 5683, 289, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 995 },
+    { "mangrove_wall_sign", 5690, 8, 5691, 291, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 996 },
+    { "bamboo_wall_sign", 5698, 8, 5699, 293, 2, 45, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 997 },
+    { "oak_hanging_sign", 5706, 64, 5739, 295, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1000 },
+    { "spruce_hanging_sign", 5770, 64, 5803, 298, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1001 },
+    { "birch_hanging_sign", 5834, 64, 5867, 301, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1002 },
+    { "acacia_hanging_sign", 5898, 64, 5931, 304, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1004 },
+    { "cherry_hanging_sign", 5962, 64, 5995, 307, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1005 },
+    { "jungle_hanging_sign", 6026, 64, 6059, 310, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1003 },
+    { "dark_oak_hanging_sign", 6090, 64, 6123, 313, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1006 },
+    { "pale_oak_hanging_sign", 6154, 64, 6187, 316, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1007 },
+    { "crimson_hanging_sign", 6218, 64, 6251, 319, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1010 },
+    { "warped_hanging_sign", 6282, 64, 6315, 322, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1011 },
+    { "mangrove_hanging_sign", 6346, 64, 6379, 325, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1008 },
+    { "bamboo_hanging_sign", 6410, 64, 6443, 328, 3, 45, 0, VCLASS_CEILING_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1009 },
+    { "oak_wall_hanging_sign", 6474, 8, 6475, 331, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1000 },
+    { "spruce_wall_hanging_sign", 6482, 8, 6483, 333, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1001 },
+    { "birch_wall_hanging_sign", 6490, 8, 6491, 335, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1002 },
+    { "acacia_wall_hanging_sign", 6498, 8, 6499, 337, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1004 },
+    { "cherry_wall_hanging_sign", 6506, 8, 6507, 339, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1005 },
+    { "jungle_wall_hanging_sign", 6514, 8, 6515, 341, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1003 },
+    { "dark_oak_wall_hanging_sign", 6522, 8, 6523, 343, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1006 },
+    { "pale_oak_wall_hanging_sign", 6530, 8, 6531, 345, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1007 },
+    { "mangrove_wall_hanging_sign", 6538, 8, 6539, 347, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1008 },
+    { "crimson_wall_hanging_sign", 6546, 8, 6547, 349, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1010 },
+    { "warped_wall_hanging_sign", 6554, 8, 6555, 351, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1011 },
+    { "bamboo_wall_hanging_sign", 6562, 8, 6563, 353, 2, 45, 0, VCLASS_WALL_HANGING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_HANGING_SIGN, BLOCK_ENTITY_TYPE_HANGING_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1009 },
+    { "lever", 6570, 24, 6579, 355, 3, 45, 0, VCLASS_LEVER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 24, 0.6f, 1.0f, 1.0f, 0.5f, 732 },
+    { "stone_pressure_plate", 6594, 2, 6595, 358, 1, 45, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 763 },
+    { "iron_door", 6596, 64, 6607, 359, 5, 48, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 5.0f, 779 },
+    { "oak_pressure_plate", 6660, 2, 6661, 364, 1, 51, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 767 },
+    { "spruce_pressure_plate", 6662, 2, 6663, 365, 1, 54, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 768 },
+    { "birch_pressure_plate", 6664, 2, 6665, 366, 1, 57, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 769 },
+    { "jungle_pressure_plate", 6666, 2, 6667, 367, 1, 60, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 770 },
+    { "acacia_pressure_plate", 6668, 2, 6669, 368, 1, 63, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 771 },
+    { "cherry_pressure_plate", 6670, 2, 6671, 369, 1, 66, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 772 },
+    { "dark_oak_pressure_plate", 6672, 2, 6673, 370, 1, 69, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 773 },
+    { "pale_oak_pressure_plate", 6674, 2, 6675, 371, 1, 72, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 774 },
+    { "mangrove_pressure_plate", 6676, 2, 6677, 372, 1, 75, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 775 },
+    { "bamboo_pressure_plate", 6678, 2, 6679, 373, 1, 78, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 776 },
+    { "redstone_ore", 6680, 2, 6681, 374, 1, 81, 0, VCLASS_RED_STONE_ORE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 72 },
+    { "deepslate_redstone_ore", 6682, 2, 6683, 375, 1, 81, 0, VCLASS_RED_STONE_ORE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 73 },
+    { "redstone_torch", 6684, 2, 6684, 376, 1, 81, 0, VCLASS_REDSTONE_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 48, 0.6f, 1.0f, 1.0f, 0.0f, 718 },
+    { "redstone_wall_torch", 6686, 8, 6686, 377, 2, 81, 0, VCLASS_REDSTONE_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 50, 0.6f, 1.0f, 1.0f, 0.0f, 718 },
+    { "stone_button", 6694, 24, 6703, 379, 3, 81, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 749 },
+    { "snow", 6718, 8, 6718, 382, 1, 85, 0, VCLASS_SNOW_LAYER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 337 },
+    { "ice", 6726, 1, 6726, 383, 0, 85, 0, VCLASS_ICE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.98f, 1.0f, 1.0f, 0.5f, 338 },
+    { "snow_block", 6727, 1, 6727, 383, 0, 85, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 339 },
+    { "cactus", 6728, 16, 6728, 383, 1, 85, 0, VCLASS_CACTUS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.4f, 340 },
+    { "cactus_flower", 6744, 1, 6744, 384, 0, 85, 0, VCLASS_CACTUS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 341 },
+    { "clay", 6745, 1, 6745, 384, 0, 85, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_FLUTE, -1, -1, 0.6f, 1.0f, 1.0f, 0.6f, 342 },
+    { "sugar_cane", 6746, 16, 6746, 384, 1, 85, 0, VCLASS_SUGAR_CANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 256 },
+    { "jukebox", 6762, 2, 6763, 385, 1, 85, 0, VCLASS_JUKEBOX_BLOCK, BLOCK_ENTITY_TYPE_JUKEBOX, BLOCK_ENTITY_TYPE_JUKEBOX, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 343 },
+    { "oak_fence", 6764, 32, 6795, 386, 5, 85, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 344 },
+    { "netherrack", 6796, 1, 6796, 391, 0, 85, 0, VCLASS_NETHERRACK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.4f, 359 },
+    { "soul_sand", 6797, 1, 6797, 391, 0, 85, 0, VCLASS_SOUL_SAND_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_COW_BELL, -1, -1, 0.6f, 0.4f, 1.0f, 0.5f, 360 },
+    { "soul_soil", 6798, 1, 6798, 391, 0, 85, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 361 },
+    { "basalt", 6799, 3, 6800, 391, 1, 85, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 362 },
+    { "polished_basalt", 6802, 3, 6803, 392, 1, 85, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 363 },
+    { "soul_torch", 6805, 1, 6805, 393, 0, 85, 0, VCLASS_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 365 },
+    { "soul_wall_torch", 6806, 4, 6806, 393, 1, 85, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 365 },
+    { "copper_torch", 6810, 1, 6810, 394, 0, 85, 0, VCLASS_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 366 },
+    { "copper_wall_torch", 6811, 4, 6811, 394, 1, 85, 0, VCLASS_WALL_TORCH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 366 },
+    { "glowstone", 6815, 1, 6815, 395, 0, 85, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_PLING, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 367 },
+    { "nether_portal", 6816, 2, 6816, 395, 1, 85, 0, VCLASS_NETHER_PORTAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "carved_pumpkin", 6818, 4, 6818, 396, 1, 85, 0, VCLASS_CARVED_PUMPKIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 357 },
+    { "jack_o_lantern", 6822, 4, 6822, 397, 1, 85, 0, VCLASS_CARVED_PUMPKIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 358 },
+    { "cake", 6826, 7, 6826, 398, 1, 85, 0, VCLASS_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 1085 },
+    { "repeater", 6833, 64, 6836, 399, 4, 85, 0, VCLASS_REPEATER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 58, 0.6f, 1.0f, 1.0f, 0.0f, 720 },
+    { "white_stained_glass", 6897, 1, 6897, 403, 0, 85, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 530 },
+    { "orange_stained_glass", 6898, 1, 6898, 403, 0, 86, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 531 },
+    { "magenta_stained_glass", 6899, 1, 6899, 403, 0, 87, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 532 },
+    { "light_blue_stained_glass", 6900, 1, 6900, 403, 0, 88, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 533 },
+    { "yellow_stained_glass", 6901, 1, 6901, 403, 0, 89, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 534 },
+    { "lime_stained_glass", 6902, 1, 6902, 403, 0, 90, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 535 },
+    { "pink_stained_glass", 6903, 1, 6903, 403, 0, 91, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 536 },
+    { "gray_stained_glass", 6904, 1, 6904, 403, 0, 92, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 537 },
+    { "light_gray_stained_glass", 6905, 1, 6905, 403, 0, 93, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 538 },
+    { "cyan_stained_glass", 6906, 1, 6906, 403, 0, 94, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 539 },
+    { "purple_stained_glass", 6907, 1, 6907, 403, 0, 95, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 540 },
+    { "blue_stained_glass", 6908, 1, 6908, 403, 0, 96, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 541 },
+    { "brown_stained_glass", 6909, 1, 6909, 403, 0, 97, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 542 },
+    { "green_stained_glass", 6910, 1, 6910, 403, 0, 98, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 543 },
+    { "red_stained_glass", 6911, 1, 6911, 403, 0, 99, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 544 },
+    { "black_stained_glass", 6912, 1, 6912, 403, 0, 100, 1, VCLASS_STAINED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 545 },
+    { "oak_trapdoor", 6913, 64, 6928, 403, 5, 101, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 801 },
+    { "spruce_trapdoor", 6977, 64, 6992, 408, 5, 104, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 802 },
+    { "birch_trapdoor", 7041, 64, 7056, 413, 5, 107, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 803 },
+    { "jungle_trapdoor", 7105, 64, 7120, 418, 5, 110, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 804 },
+    { "acacia_trapdoor", 7169, 64, 7184, 423, 5, 113, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 805 },
+    { "cherry_trapdoor", 7233, 64, 7248, 428, 5, 116, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 806 },
+    { "dark_oak_trapdoor", 7297, 64, 7312, 433, 5, 119, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 807 },
+    { "pale_oak_trapdoor", 7361, 64, 7376, 438, 5, 122, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 808 },
+    { "mangrove_trapdoor", 7425, 64, 7440, 443, 5, 125, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 809 },
+    { "bamboo_trapdoor", 7489, 64, 7504, 448, 5, 128, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 810 },
+    { "stone_bricks", 7553, 1, 7553, 453, 0, 131, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 375 },
+    { "mossy_stone_bricks", 7554, 1, 7554, 453, 0, 131, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 376 },
+    { "cracked_stone_bricks", 7555, 1, 7555, 453, 0, 131, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 377 },
+    { "chiseled_stone_bricks", 7556, 1, 7556, 453, 0, 131, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 378 },
+    { "packed_mud", 7557, 1, 7557, 453, 0, 131, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 379 },
+    { "mud_bricks", 7558, 1, 7558, 453, 0, 131, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 380 },
+    { "infested_stone", 7559, 1, 7559, 453, 0, 131, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.75f, 368 },
+    { "infested_cobblestone", 7560, 1, 7560, 453, 0, 132, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.75f, 369 },
+    { "infested_stone_bricks", 7561, 1, 7561, 453, 0, 133, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.75f, 370 },
+    { "infested_mossy_stone_bricks", 7562, 1, 7562, 453, 0, 134, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.75f, 371 },
+    { "infested_cracked_stone_bricks", 7563, 1, 7563, 453, 0, 135, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.75f, 372 },
+    { "infested_chiseled_stone_bricks", 7564, 1, 7564, 453, 0, 136, 1, VCLASS_INFESTED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.75f, 373 },
+    { "brown_mushroom_block", 7565, 64, 7565, 453, 6, 137, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 387 },
+    { "red_mushroom_block", 7629, 64, 7629, 459, 6, 137, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 388 },
+    { "mushroom_stem", 7693, 64, 7693, 465, 6, 137, 0, VCLASS_HUGE_MUSHROOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 389 },
+    { "iron_bars", 7757, 32, 7788, 471, 5, 137, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 390 },
+    { "copper_bars", 7789, 32, 7820, 476, 5, 137, 1, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 345, -1, 0.6f, 1.0f, 1.0f, 6.0f, 391 },
+    { "exposed_copper_bars", 7821, 32, 7852, 481, 5, 138, 1, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 346, -1, 0.6f, 1.0f, 1.0f, 6.0f, 392 },
+    { "weathered_copper_bars", 7853, 32, 7884, 486, 5, 139, 1, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 347, -1, 0.6f, 1.0f, 1.0f, 6.0f, 393 },
+    { "oxidized_copper_bars", 7885, 32, 7916, 491, 5, 140, 1, VCLASS_WEATHERING_COPPER_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 348, -1, 0.6f, 1.0f, 1.0f, 6.0f, 394 },
+    { "waxed_copper_bars", 7917, 32, 7948, 496, 5, 141, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 395 },
+    { "waxed_exposed_copper_bars", 7949, 32, 7980, 501, 5, 141, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 396 },
+    { "waxed_weathered_copper_bars", 7981, 32, 8012, 506, 5, 141, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 397 },
+    { "waxed_oxidized_copper_bars", 8013, 32, 8044, 511, 5, 141, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 398 },
+    { "iron_chain", 8045, 6, 8048, 516, 2, 141, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 399 },
+    { "copper_chain", 8051, 6, 8054, 518, 2, 141, 1, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 354, -1, 0.6f, 1.0f, 1.0f, 6.0f, 400 },
+    { "exposed_copper_chain", 8057, 6, 8060, 520, 2, 142, 1, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 355, -1, 0.6f, 1.0f, 1.0f, 6.0f, 401 },
+    { "weathered_copper_chain", 8063, 6, 8066, 522, 2, 143, 1, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 356, -1, 0.6f, 1.0f, 1.0f, 6.0f, 402 },
+    { "oxidized_copper_chain", 8069, 6, 8072, 524, 2, 144, 1, VCLASS_WEATHERING_COPPER_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 357, -1, 0.6f, 1.0f, 1.0f, 6.0f, 403 },
+    { "waxed_copper_chain", 8075, 6, 8078, 526, 2, 145, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 404 },
+    { "waxed_exposed_copper_chain", 8081, 6, 8084, 528, 2, 145, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 405 },
+    { "waxed_weathered_copper_chain", 8087, 6, 8090, 530, 2, 145, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 406 },
+    { "waxed_oxidized_copper_chain", 8093, 6, 8096, 532, 2, 145, 0, VCLASS_CHAIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 407 },
+    { "glass_pane", 8099, 32, 8130, 534, 5, 145, 0, VCLASS_IRON_BARS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 408 },
+    { "pumpkin", 8131, 1, 8131, 539, 0, 145, 0, VCLASS_PUMPKIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_DIDGERIDOO, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 356 },
+    { "melon", 8132, 1, 8132, 539, 0, 145, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 409 },
+    { "attached_pumpkin_stem", 8133, 4, 8133, 539, 1, 145, 0, VCLASS_ATTACHED_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "attached_melon_stem", 8137, 4, 8137, 540, 1, 145, 0, VCLASS_ATTACHED_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "pumpkin_stem", 8141, 8, 8141, 541, 1, 145, 0, VCLASS_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 1108 },
+    { "melon_stem", 8149, 8, 8149, 542, 1, 145, 0, VCLASS_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 1109 },
+    { "vine", 8157, 32, 8188, 543, 5, 145, 0, VCLASS_VINE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 410 },
+    { "glow_lichen", 8189, 128, 8316, 548, 7, 145, 3, VCLASS_GLOW_LICHEN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 411 },
+    { "resin_clump", 8317, 128, 8444, 555, 7, 148, 3, VCLASS_MULTIFACE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 412 },
+    { "oak_fence_gate", 8445, 32, 8452, 562, 4, 151, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 821 },
+    { "brick_stairs", 8477, 80, 8488, 566, 4, 151, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 419 },
+    { "stone_brick_stairs", 8557, 80, 8568, 570, 4, 152, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 420 },
+    { "mud_brick_stairs", 8637, 80, 8648, 574, 4, 153, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 421 },
+    { "mycelium", 8717, 2, 8718, 578, 1, 154, 0, VCLASS_MYCELIUM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.6f, 422 },
+    { "lily_pad", 8719, 1, 8719, 579, 0, 154, 0, VCLASS_WATERLILY_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 423 },
+    { "resin_block", 8720, 1, 8720, 579, 0, 154, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 413 },
+    { "resin_bricks", 8721, 1, 8721, 579, 0, 154, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 414 },
+    { "resin_brick_stairs", 8722, 80, 8733, 579, 4, 154, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 415 },
+    { "resin_brick_slab", 8802, 6, 8805, 583, 2, 155, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 416 },
+    { "resin_brick_wall", 8808, 324, 8811, 585, 6, 155, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 417 },
+    { "chiseled_resin_bricks", 9132, 1, 9132, 591, 0, 155, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 418 },
+    { "nether_bricks", 9133, 1, 9133, 591, 0, 155, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 424 },
+    { "nether_brick_fence", 9134, 32, 9165, 591, 5, 155, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 427 },
+    { "nether_brick_stairs", 9166, 80, 9177, 596, 4, 155, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 428 },
+    { "nether_wart", 9246, 4, 9246, 600, 1, 156, 0, VCLASS_NETHER_WART_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 1119 },
+    { "enchanting_table", 9250, 1, 9250, 601, 0, 156, 0, VCLASS_ENCHANTING_TABLE_BLOCK, BLOCK_ENTITY_TYPE_ENCHANTING_TABLE, BLOCK_ENTITY_TYPE_ENCHANTING_TABLE, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1200.0f, 433 },
+    { "brewing_stand", 9251, 8, 9258, 601, 3, 156, 0, VCLASS_BREWING_STAND_BLOCK, BLOCK_ENTITY_TYPE_BREWING_STAND, BLOCK_ENTITY_TYPE_BREWING_STAND, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 1126 },
+    { "cauldron", 9259, 1, 9259, 604, 0, 156, 0, VCLASS_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 1127 },
+    { "water_cauldron", 9260, 3, 9260, 604, 1, 156, 1, VCLASS_LAYERED_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 1127 },
+    { "lava_cauldron", 9263, 1, 9263, 605, 0, 157, 0, VCLASS_LAVA_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 1127 },
+    { "powder_snow_cauldron", 9264, 3, 9264, 605, 1, 157, 1, VCLASS_LAYERED_CAULDRON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 1127 },
+    { "end_portal", 9267, 1, 9267, 606, 0, 158, 0, VCLASS_END_PORTAL_BLOCK, BLOCK_ENTITY_TYPE_END_PORTAL, BLOCK_ENTITY_TYPE_END_PORTAL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3600000.0f, 0 },
+    { "end_portal_frame", 9268, 8, 9272, 606, 2, 158, 0, VCLASS_END_PORTAL_FRAME_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3600000.0f, 434 },
+    { "end_stone", 9276, 1, 9276, 608, 0, 158, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 9.0f, 435 },
+    { "dragon_egg", 9277, 1, 9277, 608, 0, 158, 0, VCLASS_DRAGON_EGG_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 9.0f, 437 },
+    { "redstone_lamp", 9278, 2, 9279, 608, 1, 158, 0, VCLASS_REDSTONE_LAMP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 747 },
+    { "cocoa", 9280, 12, 9280, 609, 2, 158, 0, VCLASS_COCOA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 1065 },
+    { "sandstone_stairs", 9292, 80, 9303, 611, 4, 158, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 438 },
+    { "emerald_ore", 9372, 1, 9372, 615, 0, 159, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 74 },
+    { "deepslate_emerald_ore", 9373, 1, 9373, 615, 0, 159, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 75 },
+    { "ender_chest", 9374, 8, 9375, 615, 2, 159, 0, VCLASS_ENDER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_ENDER_CHEST, BLOCK_ENTITY_TYPE_ENDER_CHEST, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 600.0f, 439 },
+    { "tripwire_hook", 9382, 16, 9391, 617, 3, 159, 0, VCLASS_TRIP_WIRE_HOOK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 744 },
+    { "tripwire", 9398, 128, 9525, 620, 7, 159, 1, VCLASS_TRIP_WIRE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 948 },
+    { "emerald_block", 9526, 1, 9526, 627, 0, 160, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BIT, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 440 },
+    { "spruce_stairs", 9527, 80, 9538, 627, 4, 160, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 442 },
+    { "birch_stairs", 9607, 80, 9618, 631, 4, 161, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 443 },
+    { "jungle_stairs", 9687, 80, 9698, 635, 4, 162, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 444 },
+    { "command_block", 9767, 12, 9773, 639, 2, 163, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3600000.0f, 454 },
+    { "beacon", 9779, 1, 9779, 641, 0, 164, 0, VCLASS_BEACON_BLOCK, BLOCK_ENTITY_TYPE_BEACON, BLOCK_ENTITY_TYPE_BEACON, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 455 },
+    { "cobblestone_wall", 9780, 324, 9783, 641, 6, 164, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 456 },
+    { "mossy_cobblestone_wall", 10104, 324, 10107, 647, 6, 164, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 457 },
+    { "flower_pot", 10428, 1, 10428, 653, 0, 164, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 1226 },
+    { "potted_torchflower", 10429, 1, 10429, 653, 0, 165, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_oak_sapling", 10430, 1, 10430, 653, 0, 166, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_spruce_sapling", 10431, 1, 10431, 653, 0, 167, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_birch_sapling", 10432, 1, 10432, 653, 0, 168, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_jungle_sapling", 10433, 1, 10433, 653, 0, 169, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_acacia_sapling", 10434, 1, 10434, 653, 0, 170, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_cherry_sapling", 10435, 1, 10435, 653, 0, 171, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_dark_oak_sapling", 10436, 1, 10436, 653, 0, 172, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_pale_oak_sapling", 10437, 1, 10437, 653, 0, 173, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_mangrove_propagule", 10438, 1, 10438, 653, 0, 174, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_fern", 10439, 1, 10439, 653, 0, 175, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_dandelion", 10440, 1, 10440, 653, 0, 176, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_poppy", 10441, 1, 10441, 653, 0, 177, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_blue_orchid", 10442, 1, 10442, 653, 0, 178, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_allium", 10443, 1, 10443, 653, 0, 179, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_azure_bluet", 10444, 1, 10444, 653, 0, 180, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_red_tulip", 10445, 1, 10445, 653, 0, 181, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_orange_tulip", 10446, 1, 10446, 653, 0, 182, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_white_tulip", 10447, 1, 10447, 653, 0, 183, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_pink_tulip", 10448, 1, 10448, 653, 0, 184, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_oxeye_daisy", 10449, 1, 10449, 653, 0, 185, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_cornflower", 10450, 1, 10450, 653, 0, 186, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_lily_of_the_valley", 10451, 1, 10451, 653, 0, 187, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_wither_rose", 10452, 1, 10452, 653, 0, 188, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_red_mushroom", 10453, 1, 10453, 653, 0, 189, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_brown_mushroom", 10454, 1, 10454, 653, 0, 190, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_dead_bush", 10455, 1, 10455, 653, 0, 191, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_cactus", 10456, 1, 10456, 653, 0, 192, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "carrots", 10457, 8, 10457, 653, 1, 193, 0, VCLASS_CARROT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 1227 },
+    { "potatoes", 10465, 8, 10465, 654, 1, 193, 0, VCLASS_POTATO_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 1228 },
+    { "oak_button", 10473, 24, 10482, 655, 3, 193, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 751 },
+    { "spruce_button", 10497, 24, 10506, 658, 3, 197, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 752 },
+    { "birch_button", 10521, 24, 10530, 661, 3, 201, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 753 },
+    { "jungle_button", 10545, 24, 10554, 664, 3, 205, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 754 },
+    { "acacia_button", 10569, 24, 10578, 667, 3, 209, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 755 },
+    { "cherry_button", 10593, 24, 10602, 670, 3, 213, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 756 },
+    { "dark_oak_button", 10617, 24, 10626, 673, 3, 217, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 757 },
+    { "pale_oak_button", 10641, 24, 10650, 676, 3, 221, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 758 },
+    { "mangrove_button", 10665, 24, 10674, 679, 3, 225, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 759 },
+    { "bamboo_button", 10689, 24, 10698, 682, 3, 229, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 760 },
+    { "skeleton_skull", 10713, 32, 10729, 685, 2, 233, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_SKELETON, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1233 },
+    { "skeleton_wall_skull", 10745, 8, 10746, 687, 2, 233, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1233 },
+    { "wither_skeleton_skull", 10753, 32, 10769, 689, 2, 233, 0, VCLASS_WITHER_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_WITHER_SKELETON, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1234 },
+    { "wither_skeleton_wall_skull", 10785, 8, 10786, 691, 2, 233, 0, VCLASS_WITHER_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1234 },
+    { "zombie_head", 10793, 32, 10809, 693, 2, 233, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_ZOMBIE, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1236 },
+    { "zombie_wall_head", 10825, 8, 10826, 695, 2, 233, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1236 },
+    { "player_head", 10833, 32, 10849, 697, 2, 233, 0, VCLASS_PLAYER_HEAD_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_CUSTOM_HEAD, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1235 },
+    { "player_wall_head", 10865, 8, 10866, 699, 2, 233, 0, VCLASS_PLAYER_WALL_HEAD_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1235 },
+    { "creeper_head", 10873, 32, 10889, 701, 2, 233, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_CREEPER, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1237 },
+    { "creeper_wall_head", 10905, 8, 10906, 703, 2, 233, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1237 },
+    { "dragon_head", 10913, 32, 10929, 705, 2, 233, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_DRAGON, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1238 },
+    { "dragon_wall_head", 10945, 8, 10946, 707, 2, 233, 0, VCLASS_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1238 },
+    { "piglin_head", 10953, 32, 10969, 709, 2, 233, 0, VCLASS_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_PIGLIN, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1239 },
+    { "piglin_wall_head", 10985, 8, 10986, 711, 2, 233, 0, VCLASS_PIGLIN_WALL_SKULL_BLOCK, BLOCK_ENTITY_TYPE_SKULL, BLOCK_ENTITY_TYPE_SKULL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1239 },
+    { "anvil", 10993, 4, 10993, 713, 1, 233, 0, VCLASS_ANVIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1200.0f, 478 },
+    { "chipped_anvil", 10997, 4, 10997, 714, 1, 233, 0, VCLASS_ANVIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1200.0f, 479 },
+    { "damaged_anvil", 11001, 4, 11001, 715, 1, 233, 0, VCLASS_ANVIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1200.0f, 480 },
+    { "trapped_chest", 11005, 24, 11006, 716, 3, 233, 0, VCLASS_TRAPPED_CHEST_BLOCK, BLOCK_ENTITY_TYPE_TRAPPED_CHEST, BLOCK_ENTITY_TYPE_TRAPPED_CHEST, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.5f, 745 },
+    { "light_weighted_pressure_plate", 11029, 16, 11029, 719, 1, 233, 4, VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 765 },
+    { "heavy_weighted_pressure_plate", 11045, 16, 11045, 720, 1, 237, 4, VCLASS_WEIGHTED_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 766 },
+    { "comparator", 11061, 16, 11062, 721, 3, 241, 0, VCLASS_COMPARATOR_BLOCK, BLOCK_ENTITY_TYPE_COMPARATOR, BLOCK_ENTITY_TYPE_COMPARATOR, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 721 },
+    { "daylight_detector", 11077, 32, 11093, 724, 2, 241, 0, VCLASS_DAYLIGHT_DETECTOR_BLOCK, BLOCK_ENTITY_TYPE_DAYLIGHT_DETECTOR, BLOCK_ENTITY_TYPE_DAYLIGHT_DETECTOR, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 741 },
+    { "redstone_block", 11109, 1, 11109, 726, 0, 241, 0, VCLASS_POWERED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 122, 0.6f, 1.0f, 1.0f, 6.0f, 719 },
+    { "nether_quartz_ore", 11110, 1, 11110, 726, 0, 241, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 81 },
+    { "hopper", 11111, 10, 11111, 726, 2, 241, 0, VCLASS_HOPPER_BLOCK, BLOCK_ENTITY_TYPE_HOPPER, BLOCK_ENTITY_TYPE_HOPPER, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 4.8f, 727 },
+    { "quartz_block", 11121, 1, 11121, 728, 0, 241, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 482 },
+    { "chiseled_quartz_block", 11122, 1, 11122, 728, 0, 241, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 481 },
+    { "quartz_pillar", 11123, 3, 11124, 728, 1, 241, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 484 },
+    { "quartz_stairs", 11126, 80, 11137, 729, 4, 241, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 485 },
+    { "activator_rail", 11206, 24, 11219, 733, 3, 242, 1, VCLASS_POWERED_RAIL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.7f, 836 },
+    { "dropper", 11230, 12, 11231, 736, 2, 243, 0, VCLASS_DROPPER_BLOCK, BLOCK_ENTITY_TYPE_DROPPER, BLOCK_ENTITY_TYPE_DROPPER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 729 },
+    { "white_terracotta", 11242, 1, 11242, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 486 },
+    { "orange_terracotta", 11243, 1, 11243, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 487 },
+    { "magenta_terracotta", 11244, 1, 11244, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 488 },
+    { "light_blue_terracotta", 11245, 1, 11245, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 489 },
+    { "yellow_terracotta", 11246, 1, 11246, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 490 },
+    { "lime_terracotta", 11247, 1, 11247, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 491 },
+    { "pink_terracotta", 11248, 1, 11248, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 492 },
+    { "gray_terracotta", 11249, 1, 11249, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 493 },
+    { "light_gray_terracotta", 11250, 1, 11250, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 494 },
+    { "cyan_terracotta", 11251, 1, 11251, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 495 },
+    { "purple_terracotta", 11252, 1, 11252, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 496 },
+    { "blue_terracotta", 11253, 1, 11253, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 497 },
+    { "brown_terracotta", 11254, 1, 11254, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 498 },
+    { "green_terracotta", 11255, 1, 11255, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 499 },
+    { "red_terracotta", 11256, 1, 11256, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 500 },
+    { "black_terracotta", 11257, 1, 11257, 738, 0, 243, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 501 },
+    { "white_stained_glass_pane", 11258, 32, 11289, 738, 5, 243, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 546 },
+    { "orange_stained_glass_pane", 11290, 32, 11321, 743, 5, 244, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 547 },
+    { "magenta_stained_glass_pane", 11322, 32, 11353, 748, 5, 245, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 548 },
+    { "light_blue_stained_glass_pane", 11354, 32, 11385, 753, 5, 246, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 549 },
+    { "yellow_stained_glass_pane", 11386, 32, 11417, 758, 5, 247, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 550 },
+    { "lime_stained_glass_pane", 11418, 32, 11449, 763, 5, 248, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 551 },
+    { "pink_stained_glass_pane", 11450, 32, 11481, 768, 5, 249, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 552 },
+    { "gray_stained_glass_pane", 11482, 32, 11513, 773, 5, 250, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 553 },
+    { "light_gray_stained_glass_pane", 11514, 32, 11545, 778, 5, 251, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 554 },
+    { "cyan_stained_glass_pane", 11546, 32, 11577, 783, 5, 252, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 555 },
+    { "purple_stained_glass_pane", 11578, 32, 11609, 788, 5, 253, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 556 },
+    { "blue_stained_glass_pane", 11610, 32, 11641, 793, 5, 254, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 557 },
+    { "brown_stained_glass_pane", 11642, 32, 11673, 798, 5, 255, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 558 },
+    { "green_stained_glass_pane", 11674, 32, 11705, 803, 5, 256, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 559 },
+    { "red_stained_glass_pane", 11706, 32, 11737, 808, 5, 257, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 560 },
+    { "black_stained_glass_pane", 11738, 32, 11769, 813, 5, 258, 1, VCLASS_STAINED_GLASS_PANE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 561 },
+    { "acacia_stairs", 11770, 80, 11781, 818, 4, 259, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 445 },
+    { "cherry_stairs", 11850, 80, 11861, 822, 4, 260, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 446 },
+    { "dark_oak_stairs", 11930, 80, 11941, 826, 4, 261, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 447 },
+    { "pale_oak_stairs", 12010, 80, 12021, 830, 4, 262, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 448 },
+    { "mangrove_stairs", 12090, 80, 12101, 834, 4, 263, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 449 },
+    { "bamboo_stairs", 12170, 80, 12181, 838, 4, 264, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 450 },
+    { "bamboo_mosaic_stairs", 12250, 80, 12261, 842, 4, 265, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 451 },
+    { "slime_block", 12330, 1, 12330, 846, 0, 266, 0, VCLASS_SLIME_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.8f, 1.0f, 1.0f, 0.0f, 724 },
+    { "barrier", 12331, 2, 12332, 846, 1, 266, 0, VCLASS_BARRIER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3600000.8f, 502 },
+    { "light", 12333, 32, 12364, 847, 2, 266, 0, VCLASS_LIGHT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3600000.8f, 503 },
+    { "iron_trapdoor", 12365, 64, 12380, 849, 5, 266, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 5.0f, 800 },
+    { "prismarine", 12429, 1, 12429, 854, 0, 269, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 562 },
+    { "prismarine_bricks", 12430, 1, 12430, 854, 0, 269, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 563 },
+    { "dark_prismarine", 12431, 1, 12431, 854, 0, 269, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 564 },
+    { "prismarine_stairs", 12432, 80, 12443, 854, 4, 269, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 565 },
+    { "prismarine_brick_stairs", 12512, 80, 12523, 858, 4, 270, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 566 },
+    { "dark_prismarine_stairs", 12592, 80, 12603, 862, 4, 271, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 567 },
+    { "prismarine_slab", 12672, 6, 12675, 866, 2, 272, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 297 },
+    { "prismarine_brick_slab", 12678, 6, 12681, 868, 2, 272, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 298 },
+    { "dark_prismarine_slab", 12684, 6, 12687, 870, 2, 272, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 299 },
+    { "sea_lantern", 12690, 1, 12690, 872, 0, 272, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 568 },
+    { "hay_block", 12691, 3, 12692, 872, 1, 272, 0, VCLASS_HAY_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BANJO, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 504 },
+    { "white_carpet", 12694, 1, 12694, 873, 0, 272, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 505 },
+    { "orange_carpet", 12695, 1, 12695, 873, 0, 273, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 506 },
+    { "magenta_carpet", 12696, 1, 12696, 873, 0, 274, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 507 },
+    { "light_blue_carpet", 12697, 1, 12697, 873, 0, 275, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 508 },
+    { "yellow_carpet", 12698, 1, 12698, 873, 0, 276, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 509 },
+    { "lime_carpet", 12699, 1, 12699, 873, 0, 277, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 510 },
+    { "pink_carpet", 12700, 1, 12700, 873, 0, 278, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 511 },
+    { "gray_carpet", 12701, 1, 12701, 873, 0, 279, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 512 },
+    { "light_gray_carpet", 12702, 1, 12702, 873, 0, 280, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 513 },
+    { "cyan_carpet", 12703, 1, 12703, 873, 0, 281, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 514 },
+    { "purple_carpet", 12704, 1, 12704, 873, 0, 282, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 515 },
+    { "blue_carpet", 12705, 1, 12705, 873, 0, 283, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 516 },
+    { "brown_carpet", 12706, 1, 12706, 873, 0, 284, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 517 },
+    { "green_carpet", 12707, 1, 12707, 873, 0, 285, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 518 },
+    { "red_carpet", 12708, 1, 12708, 873, 0, 286, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 519 },
+    { "black_carpet", 12709, 1, 12709, 873, 0, 287, 1, VCLASS_WOOL_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 520 },
+    { "terracotta", 12710, 1, 12710, 873, 0, 288, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 521 },
+    { "coal_block", 12711, 1, 12711, 873, 0, 288, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 83 },
+    { "packed_ice", 12712, 1, 12712, 873, 0, 288, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_CHIME, -1, -1, 0.98f, 1.0f, 1.0f, 0.5f, 522 },
+    { "sunflower", 12713, 2, 12714, 873, 1, 288, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 524 },
+    { "lilac", 12715, 2, 12716, 874, 1, 288, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 525 },
+    { "rose_bush", 12717, 2, 12718, 875, 1, 288, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 526 },
+    { "peony", 12719, 2, 12720, 876, 1, 288, 0, VCLASS_TALL_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 527 },
+    { "tall_grass", 12721, 2, 12722, 877, 1, 288, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 528 },
+    { "large_fern", 12723, 2, 12724, 878, 1, 288, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 529 },
+    { "white_banner", 12725, 16, 12725, 879, 1, 288, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1266 },
+    { "orange_banner", 12741, 16, 12741, 880, 1, 289, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1267 },
+    { "magenta_banner", 12757, 16, 12757, 881, 1, 290, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1268 },
+    { "light_blue_banner", 12773, 16, 12773, 882, 1, 291, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1269 },
+    { "yellow_banner", 12789, 16, 12789, 883, 1, 292, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1270 },
+    { "lime_banner", 12805, 16, 12805, 884, 1, 293, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1271 },
+    { "pink_banner", 12821, 16, 12821, 885, 1, 294, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1272 },
+    { "gray_banner", 12837, 16, 12837, 886, 1, 295, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1273 },
+    { "light_gray_banner", 12853, 16, 12853, 887, 1, 296, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1274 },
+    { "cyan_banner", 12869, 16, 12869, 888, 1, 297, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1275 },
+    { "purple_banner", 12885, 16, 12885, 889, 1, 298, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1276 },
+    { "blue_banner", 12901, 16, 12901, 890, 1, 299, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1277 },
+    { "brown_banner", 12917, 16, 12917, 891, 1, 300, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1278 },
+    { "green_banner", 12933, 16, 12933, 892, 1, 301, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1279 },
+    { "red_banner", 12949, 16, 12949, 893, 1, 302, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1280 },
+    { "black_banner", 12965, 16, 12965, 894, 1, 303, 1, VCLASS_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1281 },
+    { "white_wall_banner", 12981, 4, 12981, 895, 1, 304, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1266 },
+    { "orange_wall_banner", 12985, 4, 12985, 896, 1, 305, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1267 },
+    { "magenta_wall_banner", 12989, 4, 12989, 897, 1, 306, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1268 },
+    { "light_blue_wall_banner", 12993, 4, 12993, 898, 1, 307, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1269 },
+    { "yellow_wall_banner", 12997, 4, 12997, 899, 1, 308, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1270 },
+    { "lime_wall_banner", 13001, 4, 13001, 900, 1, 309, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1271 },
+    { "pink_wall_banner", 13005, 4, 13005, 901, 1, 310, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1272 },
+    { "gray_wall_banner", 13009, 4, 13009, 902, 1, 311, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1273 },
+    { "light_gray_wall_banner", 13013, 4, 13013, 903, 1, 312, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1274 },
+    { "cyan_wall_banner", 13017, 4, 13017, 904, 1, 313, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1275 },
+    { "purple_wall_banner", 13021, 4, 13021, 905, 1, 314, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1276 },
+    { "blue_wall_banner", 13025, 4, 13025, 906, 1, 315, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1277 },
+    { "brown_wall_banner", 13029, 4, 13029, 907, 1, 316, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1278 },
+    { "green_wall_banner", 13033, 4, 13033, 908, 1, 317, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1279 },
+    { "red_wall_banner", 13037, 4, 13037, 909, 1, 318, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1280 },
+    { "black_wall_banner", 13041, 4, 13041, 910, 1, 319, 1, VCLASS_WALL_BANNER_BLOCK, BLOCK_ENTITY_TYPE_BANNER, BLOCK_ENTITY_TYPE_BANNER, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1281 },
+    { "red_sandstone", 13045, 1, 13045, 911, 0, 320, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 569 },
+    { "chiseled_red_sandstone", 13046, 1, 13046, 911, 0, 320, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 570 },
+    { "cut_red_sandstone", 13047, 1, 13047, 911, 0, 320, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 571 },
+    { "red_sandstone_stairs", 13048, 80, 13059, 911, 4, 320, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 572 },
+    { "oak_slab", 13128, 6, 13131, 915, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 270 },
+    { "spruce_slab", 13134, 6, 13137, 917, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 271 },
+    { "birch_slab", 13140, 6, 13143, 919, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 272 },
+    { "jungle_slab", 13146, 6, 13149, 921, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 273 },
+    { "acacia_slab", 13152, 6, 13155, 923, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 274 },
+    { "cherry_slab", 13158, 6, 13161, 925, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 275 },
+    { "dark_oak_slab", 13164, 6, 13167, 927, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 276 },
+    { "pale_oak_slab", 13170, 6, 13173, 929, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 277 },
+    { "mangrove_slab", 13176, 6, 13179, 931, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 278 },
+    { "bamboo_slab", 13182, 6, 13185, 933, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 279 },
+    { "bamboo_mosaic_slab", 13188, 6, 13191, 935, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 280 },
+    { "stone_slab", 13194, 6, 13197, 937, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 283 },
+    { "smooth_stone_slab", 13200, 6, 13203, 939, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 284 },
+    { "sandstone_slab", 13206, 6, 13209, 941, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 285 },
+    { "cut_sandstone_slab", 13212, 6, 13215, 943, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 286 },
+    { "petrified_oak_slab", 13218, 6, 13221, 945, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 287 },
+    { "cobblestone_slab", 13224, 6, 13227, 947, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 288 },
+    { "brick_slab", 13230, 6, 13233, 949, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 289 },
+    { "stone_brick_slab", 13236, 6, 13239, 951, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 290 },
+    { "mud_brick_slab", 13242, 6, 13245, 953, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 291 },
+    { "nether_brick_slab", 13248, 6, 13251, 955, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 292 },
+    { "quartz_slab", 13254, 6, 13257, 957, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 293 },
+    { "red_sandstone_slab", 13260, 6, 13263, 959, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 294 },
+    { "cut_red_sandstone_slab", 13266, 6, 13269, 961, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 295 },
+    { "purpur_slab", 13272, 6, 13275, 963, 2, 321, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 296 },
+    { "smooth_stone", 13278, 1, 13278, 965, 0, 321, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 303 },
+    { "smooth_sandstone", 13279, 1, 13279, 965, 0, 321, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 302 },
+    { "smooth_quartz", 13280, 1, 13280, 965, 0, 321, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 300 },
+    { "smooth_red_sandstone", 13281, 1, 13281, 965, 0, 321, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 301 },
+    { "spruce_fence_gate", 13282, 32, 13289, 965, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 822 },
+    { "birch_fence_gate", 13314, 32, 13321, 969, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 823 },
+    { "jungle_fence_gate", 13346, 32, 13353, 973, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 824 },
+    { "acacia_fence_gate", 13378, 32, 13385, 977, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 825 },
+    { "cherry_fence_gate", 13410, 32, 13417, 981, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 826 },
+    { "dark_oak_fence_gate", 13442, 32, 13449, 985, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 827 },
+    { "pale_oak_fence_gate", 13474, 32, 13481, 989, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 828 },
+    { "mangrove_fence_gate", 13506, 32, 13513, 993, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 829 },
+    { "bamboo_fence_gate", 13538, 32, 13545, 997, 4, 321, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 830 },
+    { "spruce_fence", 13570, 32, 13601, 1001, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 345 },
+    { "birch_fence", 13602, 32, 13633, 1006, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 346 },
+    { "jungle_fence", 13634, 32, 13665, 1011, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 347 },
+    { "acacia_fence", 13666, 32, 13697, 1016, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 348 },
+    { "cherry_fence", 13698, 32, 13729, 1021, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 349 },
+    { "dark_oak_fence", 13730, 32, 13761, 1026, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 350 },
+    { "pale_oak_fence", 13762, 32, 13793, 1031, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 351 },
+    { "mangrove_fence", 13794, 32, 13825, 1036, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 352 },
+    { "bamboo_fence", 13826, 32, 13857, 1041, 5, 321, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 353 },
+    { "spruce_door", 13858, 64, 13869, 1046, 5, 321, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 781 },
+    { "birch_door", 13922, 64, 13933, 1051, 5, 324, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 782 },
+    { "jungle_door", 13986, 64, 13997, 1056, 5, 327, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 783 },
+    { "acacia_door", 14050, 64, 14061, 1061, 5, 330, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 784 },
+    { "cherry_door", 14114, 64, 14125, 1066, 5, 333, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 785 },
+    { "dark_oak_door", 14178, 64, 14189, 1071, 5, 336, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 786 },
+    { "pale_oak_door", 14242, 64, 14253, 1076, 5, 339, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 787 },
+    { "mangrove_door", 14306, 64, 14317, 1081, 5, 342, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 788 },
+    { "bamboo_door", 14370, 64, 14381, 1086, 5, 345, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 789 },
+    { "end_rod", 14434, 6, 14438, 1091, 1, 348, 0, VCLASS_END_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 323 },
+    { "chorus_plant", 14440, 64, 14503, 1092, 6, 348, 0, VCLASS_CHORUS_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.4f, 324 },
+    { "chorus_flower", 14504, 6, 14504, 1098, 1, 348, 1, VCLASS_CHORUS_FLOWER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.4f, 325 },
+    { "purpur_block", 14510, 1, 14510, 1099, 0, 349, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 326 },
+    { "purpur_pillar", 14511, 3, 14512, 1099, 1, 349, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 327 },
+    { "purpur_stairs", 14514, 80, 14525, 1100, 4, 349, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 328 },
+    { "end_stone_bricks", 14594, 1, 14594, 1104, 0, 350, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 9.0f, 436 },
+    { "torchflower_crop", 14595, 2, 14595, 1104, 1, 350, 0, VCLASS_TORCHFLOWER_CROP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 1285 },
+    { "pitcher_crop", 14597, 10, 14598, 1105, 2, 350, 0, VCLASS_PITCHER_CROP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 1286 },
+    { "pitcher_plant", 14607, 2, 14608, 1107, 1, 350, 0, VCLASS_DOUBLE_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 245 },
+    { "beetroots", 14609, 4, 14609, 1108, 1, 350, 0, VCLASS_BEETROOT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 1288 },
+    { "dirt_path", 14613, 1, 14613, 1109, 0, 350, 0, VCLASS_DIRT_PATH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.65f, 523 },
+    { "end_gateway", 14614, 1, 14614, 1109, 0, 350, 0, VCLASS_END_GATEWAY_BLOCK, BLOCK_ENTITY_TYPE_END_GATEWAY, BLOCK_ENTITY_TYPE_END_GATEWAY, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3600000.0f, 0 },
+    { "repeating_command_block", 14615, 12, 14621, 1109, 2, 350, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3600000.0f, 573 },
+    { "chain_command_block", 14627, 12, 14633, 1111, 2, 351, 1, VCLASS_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, BLOCK_ENTITY_TYPE_COMMAND_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3600000.0f, 574 },
+    { "frosted_ice", 14639, 4, 14639, 1113, 1, 352, 0, VCLASS_FROSTED_ICE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.98f, 1.0f, 1.0f, 0.5f, 0 },
+    { "magma_block", 14643, 1, 14643, 1114, 0, 352, 0, VCLASS_MAGMA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 575 },
+    { "nether_wart_block", 14644, 1, 14644, 1114, 0, 352, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 576 },
+    { "red_nether_bricks", 14645, 1, 14645, 1114, 0, 352, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 578 },
+    { "bone_block", 14646, 3, 14647, 1114, 1, 352, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_XYLOPHONE, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 579 },
+    { "structure_void", 14649, 1, 14649, 1115, 0, 352, 0, VCLASS_STRUCTURE_VOID_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 580 },
+    { "observer", 14650, 12, 14655, 1115, 2, 352, 0, VCLASS_OBSERVER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, 123, 0.6f, 1.0f, 1.0f, 3.0f, 726 },
+    { "shulker_box", 14662, 6, 14666, 1117, 1, 352, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 581 },
+    { "white_shulker_box", 14668, 6, 14672, 1118, 1, 353, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 582 },
+    { "orange_shulker_box", 14674, 6, 14678, 1119, 1, 354, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 583 },
+    { "magenta_shulker_box", 14680, 6, 14684, 1120, 1, 355, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 584 },
+    { "light_blue_shulker_box", 14686, 6, 14690, 1121, 1, 356, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 585 },
+    { "yellow_shulker_box", 14692, 6, 14696, 1122, 1, 357, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 586 },
+    { "lime_shulker_box", 14698, 6, 14702, 1123, 1, 358, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 587 },
+    { "pink_shulker_box", 14704, 6, 14708, 1124, 1, 359, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 588 },
+    { "gray_shulker_box", 14710, 6, 14714, 1125, 1, 360, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 589 },
+    { "light_gray_shulker_box", 14716, 6, 14720, 1126, 1, 361, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 590 },
+    { "cyan_shulker_box", 14722, 6, 14726, 1127, 1, 362, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 591 },
+    { "purple_shulker_box", 14728, 6, 14732, 1128, 1, 363, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 592 },
+    { "blue_shulker_box", 14734, 6, 14738, 1129, 1, 364, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 593 },
+    { "brown_shulker_box", 14740, 6, 14744, 1130, 1, 365, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 594 },
+    { "green_shulker_box", 14746, 6, 14750, 1131, 1, 366, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 595 },
+    { "red_shulker_box", 14752, 6, 14756, 1132, 1, 367, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 596 },
+    { "black_shulker_box", 14758, 6, 14762, 1133, 1, 368, 1, VCLASS_SHULKER_BOX_BLOCK, BLOCK_ENTITY_TYPE_SHULKER_BOX, BLOCK_ENTITY_TYPE_SHULKER_BOX, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 597 },
+    { "white_glazed_terracotta", 14764, 4, 14764, 1134, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 598 },
+    { "orange_glazed_terracotta", 14768, 4, 14768, 1135, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 599 },
+    { "magenta_glazed_terracotta", 14772, 4, 14772, 1136, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 600 },
+    { "light_blue_glazed_terracotta", 14776, 4, 14776, 1137, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 601 },
+    { "yellow_glazed_terracotta", 14780, 4, 14780, 1138, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 602 },
+    { "lime_glazed_terracotta", 14784, 4, 14784, 1139, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 603 },
+    { "pink_glazed_terracotta", 14788, 4, 14788, 1140, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 604 },
+    { "gray_glazed_terracotta", 14792, 4, 14792, 1141, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 605 },
+    { "light_gray_glazed_terracotta", 14796, 4, 14796, 1142, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 606 },
+    { "cyan_glazed_terracotta", 14800, 4, 14800, 1143, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 607 },
+    { "purple_glazed_terracotta", 14804, 4, 14804, 1144, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 608 },
+    { "blue_glazed_terracotta", 14808, 4, 14808, 1145, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 609 },
+    { "brown_glazed_terracotta", 14812, 4, 14812, 1146, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 610 },
+    { "green_glazed_terracotta", 14816, 4, 14816, 1147, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 611 },
+    { "red_glazed_terracotta", 14820, 4, 14820, 1148, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 612 },
+    { "black_glazed_terracotta", 14824, 4, 14824, 1149, 1, 369, 0, VCLASS_GLAZED_TERRACOTTA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.4f, 613 },
+    { "white_concrete", 14828, 1, 14828, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 614 },
+    { "orange_concrete", 14829, 1, 14829, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 615 },
+    { "magenta_concrete", 14830, 1, 14830, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 616 },
+    { "light_blue_concrete", 14831, 1, 14831, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 617 },
+    { "yellow_concrete", 14832, 1, 14832, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 618 },
+    { "lime_concrete", 14833, 1, 14833, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 619 },
+    { "pink_concrete", 14834, 1, 14834, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 620 },
+    { "gray_concrete", 14835, 1, 14835, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 621 },
+    { "light_gray_concrete", 14836, 1, 14836, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 622 },
+    { "cyan_concrete", 14837, 1, 14837, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 623 },
+    { "purple_concrete", 14838, 1, 14838, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 624 },
+    { "blue_concrete", 14839, 1, 14839, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 625 },
+    { "brown_concrete", 14840, 1, 14840, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 626 },
+    { "green_concrete", 14841, 1, 14841, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 627 },
+    { "red_concrete", 14842, 1, 14842, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 628 },
+    { "black_concrete", 14843, 1, 14843, 1150, 0, 369, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.8f, 629 },
+    { "white_concrete_powder", 14844, 1, 14844, 1150, 0, 369, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 630 },
+    { "orange_concrete_powder", 14845, 1, 14845, 1150, 0, 370, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 631 },
+    { "magenta_concrete_powder", 14846, 1, 14846, 1150, 0, 371, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 632 },
+    { "light_blue_concrete_powder", 14847, 1, 14847, 1150, 0, 372, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 633 },
+    { "yellow_concrete_powder", 14848, 1, 14848, 1150, 0, 373, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 634 },
+    { "lime_concrete_powder", 14849, 1, 14849, 1150, 0, 374, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 635 },
+    { "pink_concrete_powder", 14850, 1, 14850, 1150, 0, 375, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 636 },
+    { "gray_concrete_powder", 14851, 1, 14851, 1150, 0, 376, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 637 },
+    { "light_gray_concrete_powder", 14852, 1, 14852, 1150, 0, 377, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 638 },
+    { "cyan_concrete_powder", 14853, 1, 14853, 1150, 0, 378, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 639 },
+    { "purple_concrete_powder", 14854, 1, 14854, 1150, 0, 379, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 640 },
+    { "blue_concrete_powder", 14855, 1, 14855, 1150, 0, 380, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 641 },
+    { "brown_concrete_powder", 14856, 1, 14856, 1150, 0, 381, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 642 },
+    { "green_concrete_powder", 14857, 1, 14857, 1150, 0, 382, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 643 },
+    { "red_concrete_powder", 14858, 1, 14858, 1150, 0, 383, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 644 },
+    { "black_concrete_powder", 14859, 1, 14859, 1150, 0, 384, 1, VCLASS_CONCRETE_POWDER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 645 },
+    { "kelp", 14860, 26, 14860, 1150, 1, 385, 2, VCLASS_KELP_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 257 },
+    { "kelp_plant", 14886, 1, 14886, 1151, 0, 387, 2, VCLASS_KELP_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "dried_kelp_block", 14887, 1, 14887, 1151, 0, 389, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 2.5f, 1027 },
+    { "turtle_egg", 14888, 12, 14888, 1151, 2, 389, 0, VCLASS_TURTLE_EGG_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 646 },
+    { "sniffer_egg", 14900, 3, 14900, 1153, 1, 389, 0, VCLASS_SNIFFER_EGG_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 647 },
+    { "dried_ghast", 14903, 32, 14904, 1154, 3, 389, 0, VCLASS_DRIED_GHAST_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 648 },
+    { "dead_tube_coral_block", 14935, 1, 14935, 1157, 0, 389, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 649 },
+    { "dead_brain_coral_block", 14936, 1, 14936, 1157, 0, 389, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 650 },
+    { "dead_bubble_coral_block", 14937, 1, 14937, 1157, 0, 389, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 651 },
+    { "dead_fire_coral_block", 14938, 1, 14938, 1157, 0, 389, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 652 },
+    { "dead_horn_coral_block", 14939, 1, 14939, 1157, 0, 389, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 653 },
+    { "tube_coral_block", 14940, 1, 14940, 1157, 0, 389, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 654 },
+    { "brain_coral_block", 14941, 1, 14941, 1157, 0, 390, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 655 },
+    { "bubble_coral_block", 14942, 1, 14942, 1157, 0, 391, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 656 },
+    { "fire_coral_block", 14943, 1, 14943, 1157, 0, 392, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 657 },
+    { "horn_coral_block", 14944, 1, 14944, 1157, 0, 393, 1, VCLASS_CORAL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 658 },
+    { "dead_tube_coral", 14945, 2, 14945, 1157, 1, 394, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 668 },
+    { "dead_brain_coral", 14947, 2, 14947, 1158, 1, 394, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 664 },
+    { "dead_bubble_coral", 14949, 2, 14949, 1159, 1, 394, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 665 },
+    { "dead_fire_coral", 14951, 2, 14951, 1160, 1, 394, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 666 },
+    { "dead_horn_coral", 14953, 2, 14953, 1161, 1, 394, 0, VCLASS_BASE_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 667 },
+    { "tube_coral", 14955, 2, 14955, 1162, 1, 394, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 659 },
+    { "brain_coral", 14957, 2, 14957, 1163, 1, 395, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 660 },
+    { "bubble_coral", 14959, 2, 14959, 1164, 1, 396, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 661 },
+    { "fire_coral", 14961, 2, 14961, 1165, 1, 397, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 662 },
+    { "horn_coral", 14963, 2, 14963, 1166, 1, 398, 1, VCLASS_CORAL_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 663 },
+    { "dead_tube_coral_fan", 14965, 2, 14965, 1167, 1, 399, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 674 },
+    { "dead_brain_coral_fan", 14967, 2, 14967, 1168, 1, 399, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 675 },
+    { "dead_bubble_coral_fan", 14969, 2, 14969, 1169, 1, 399, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 676 },
+    { "dead_fire_coral_fan", 14971, 2, 14971, 1170, 1, 399, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 677 },
+    { "dead_horn_coral_fan", 14973, 2, 14973, 1171, 1, 399, 0, VCLASS_BASE_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 678 },
+    { "tube_coral_fan", 14975, 2, 14975, 1172, 1, 399, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 669 },
+    { "brain_coral_fan", 14977, 2, 14977, 1173, 1, 400, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 670 },
+    { "bubble_coral_fan", 14979, 2, 14979, 1174, 1, 401, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 671 },
+    { "fire_coral_fan", 14981, 2, 14981, 1175, 1, 402, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 672 },
+    { "horn_coral_fan", 14983, 2, 14983, 1176, 1, 403, 1, VCLASS_CORAL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 673 },
+    { "dead_tube_coral_wall_fan", 14985, 8, 14985, 1177, 2, 404, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 674 },
+    { "dead_brain_coral_wall_fan", 14993, 8, 14993, 1179, 2, 404, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 675 },
+    { "dead_bubble_coral_wall_fan", 15001, 8, 15001, 1181, 2, 404, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 676 },
+    { "dead_fire_coral_wall_fan", 15009, 8, 15009, 1183, 2, 404, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 677 },
+    { "dead_horn_coral_wall_fan", 15017, 8, 15017, 1185, 2, 404, 0, VCLASS_BASE_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 678 },
+    { "tube_coral_wall_fan", 15025, 8, 15025, 1187, 2, 404, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 669 },
+    { "brain_coral_wall_fan", 15033, 8, 15033, 1189, 2, 405, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 670 },
+    { "bubble_coral_wall_fan", 15041, 8, 15041, 1191, 2, 406, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 671 },
+    { "fire_coral_wall_fan", 15049, 8, 15049, 1193, 2, 407, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 672 },
+    { "horn_coral_wall_fan", 15057, 8, 15057, 1195, 2, 408, 1, VCLASS_CORAL_WALL_FAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 673 },
+    { "sea_pickle", 15065, 8, 15065, 1197, 2, 409, 0, VCLASS_SEA_PICKLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 212 },
+    { "blue_ice", 15073, 1, 15073, 1199, 0, 409, 0, VCLASS_HALF_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.989f, 1.0f, 1.0f, 2.8f, 679 },
+    { "conduit", 15074, 2, 15074, 1199, 1, 409, 0, VCLASS_CONDUIT_BLOCK, BLOCK_ENTITY_TYPE_CONDUIT, BLOCK_ENTITY_TYPE_CONDUIT, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 680 },
+    { "bamboo_sapling", 15076, 1, 15076, 1200, 0, 409, 0, VCLASS_BAMBOO_SAPLING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 0 },
+    { "bamboo", 15077, 12, 15077, 1200, 3, 409, 0, VCLASS_BAMBOO_STALK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 269 },
+    { "potted_bamboo", 15089, 1, 15089, 1203, 0, 409, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "void_air", 15090, 1, 15090, 1203, 0, 410, 0, VCLASS_AIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "cave_air", 15091, 1, 15091, 1203, 0, 410, 0, VCLASS_AIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "bubble_column", 15092, 2, 15092, 1203, 1, 410, 0, VCLASS_BUBBLE_COLUMN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "polished_granite_stairs", 15094, 80, 15105, 1204, 4, 410, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 681 },
+    { "smooth_red_sandstone_stairs", 15174, 80, 15185, 1208, 4, 411, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 682 },
+    { "mossy_stone_brick_stairs", 15254, 80, 15265, 1212, 4, 412, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 683 },
+    { "polished_diorite_stairs", 15334, 80, 15345, 1216, 4, 413, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 684 },
+    { "mossy_cobblestone_stairs", 15414, 80, 15425, 1220, 4, 414, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 685 },
+    { "end_stone_brick_stairs", 15494, 80, 15505, 1224, 4, 415, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 9.0f, 686 },
+    { "stone_stairs", 15574, 80, 15585, 1228, 4, 416, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 687 },
+    { "smooth_sandstone_stairs", 15654, 80, 15665, 1232, 4, 417, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 688 },
+    { "smooth_quartz_stairs", 15734, 80, 15745, 1236, 4, 418, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 689 },
+    { "granite_stairs", 15814, 80, 15825, 1240, 4, 419, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 690 },
+    { "andesite_stairs", 15894, 80, 15905, 1244, 4, 420, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 691 },
+    { "red_nether_brick_stairs", 15974, 80, 15985, 1248, 4, 421, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 692 },
+    { "polished_andesite_stairs", 16054, 80, 16065, 1252, 4, 422, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 693 },
+    { "diorite_stairs", 16134, 80, 16145, 1256, 4, 423, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 694 },
+    { "polished_granite_slab", 16214, 6, 16217, 1260, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 699 },
+    { "smooth_red_sandstone_slab", 16220, 6, 16223, 1262, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 700 },
+    { "mossy_stone_brick_slab", 16226, 6, 16229, 1264, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 701 },
+    { "polished_diorite_slab", 16232, 6, 16235, 1266, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 702 },
+    { "mossy_cobblestone_slab", 16238, 6, 16241, 1268, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 703 },
+    { "end_stone_brick_slab", 16244, 6, 16247, 1270, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 9.0f, 704 },
+    { "smooth_sandstone_slab", 16250, 6, 16253, 1272, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 705 },
+    { "smooth_quartz_slab", 16256, 6, 16259, 1274, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 706 },
+    { "granite_slab", 16262, 6, 16265, 1276, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 707 },
+    { "andesite_slab", 16268, 6, 16271, 1278, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 708 },
+    { "red_nether_brick_slab", 16274, 6, 16277, 1280, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 709 },
+    { "polished_andesite_slab", 16280, 6, 16283, 1282, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 710 },
+    { "diorite_slab", 16286, 6, 16289, 1284, 2, 424, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 711 },
+    { "brick_wall", 16292, 324, 16295, 1286, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 458 },
+    { "prismarine_wall", 16616, 324, 16619, 1292, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 459 },
+    { "red_sandstone_wall", 16940, 324, 16943, 1298, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 460 },
+    { "mossy_stone_brick_wall", 17264, 324, 17267, 1304, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 461 },
+    { "granite_wall", 17588, 324, 17591, 1310, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 462 },
+    { "stone_brick_wall", 17912, 324, 17915, 1316, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 463 },
+    { "mud_brick_wall", 18236, 324, 18239, 1322, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 464 },
+    { "nether_brick_wall", 18560, 324, 18563, 1328, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 465 },
+    { "andesite_wall", 18884, 324, 18887, 1334, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 466 },
+    { "red_nether_brick_wall", 19208, 324, 19211, 1340, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 467 },
+    { "sandstone_wall", 19532, 324, 19535, 1346, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 468 },
+    { "end_stone_brick_wall", 19856, 324, 19859, 1352, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 9.0f, 469 },
+    { "diorite_wall", 20180, 324, 20183, 1358, 6, 424, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 470 },
+    { "scaffolding", 20504, 32, 20535, 1364, 3, 424, 0, VCLASS_SCAFFOLDING_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 716 },
+    { "loom", 20536, 4, 20536, 1367, 1, 424, 0, VCLASS_LOOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.5f, 1341 },
+    { "barrel", 20540, 12, 20541, 1368, 2, 424, 0, VCLASS_BARREL_BLOCK, BLOCK_ENTITY_TYPE_BARREL, BLOCK_ENTITY_TYPE_BARREL, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.5f, 1354 },
+    { "smoker", 20552, 8, 20553, 1370, 2, 424, 0, VCLASS_SMOKER_BLOCK, BLOCK_ENTITY_TYPE_SMOKER, BLOCK_ENTITY_TYPE_SMOKER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1355 },
+    { "blast_furnace", 20560, 8, 20561, 1372, 2, 424, 0, VCLASS_BLAST_FURNACE_BLOCK, BLOCK_ENTITY_TYPE_BLAST_FURNACE, BLOCK_ENTITY_TYPE_BLAST_FURNACE, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1356 },
+    { "cartography_table", 20568, 1, 20568, 1374, 0, 424, 0, VCLASS_CARTOGRAPHY_TABLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.5f, 1357 },
+    { "fletching_table", 20569, 1, 20569, 1374, 0, 424, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.5f, 1358 },
+    { "grindstone", 20570, 12, 20574, 1374, 2, 424, 0, VCLASS_GRINDSTONE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1359 },
+    { "lectern", 20582, 16, 20585, 1376, 3, 424, 0, VCLASS_LECTERN_BLOCK, BLOCK_ENTITY_TYPE_LECTERN, BLOCK_ENTITY_TYPE_LECTERN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.5f, 730 },
+    { "smithing_table", 20598, 1, 20598, 1379, 0, 424, 0, VCLASS_SMITHING_TABLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.5f, 1360 },
+    { "stonecutter", 20599, 4, 20599, 1379, 1, 424, 0, VCLASS_STONECUTTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1361 },
+    { "bell", 20603, 32, 20604, 1380, 3, 424, 0, VCLASS_BELL_BLOCK, BLOCK_ENTITY_TYPE_BELL, BLOCK_ENTITY_TYPE_BELL, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 5.0f, 1362 },
+    { "lantern", 20635, 4, 20638, 1383, 2, 424, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1363 },
+    { "soul_lantern", 20639, 4, 20642, 1385, 2, 424, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1364 },
+    { "copper_lantern", 20643, 4, 20646, 1387, 2, 424, 1, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 853, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1365 },
+    { "exposed_copper_lantern", 20647, 4, 20650, 1389, 2, 425, 1, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 854, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1366 },
+    { "weathered_copper_lantern", 20651, 4, 20654, 1391, 2, 426, 1, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 855, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1367 },
+    { "oxidized_copper_lantern", 20655, 4, 20658, 1393, 2, 427, 1, VCLASS_WEATHERING_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 856, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1368 },
+    { "waxed_copper_lantern", 20659, 4, 20662, 1395, 2, 428, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1369 },
+    { "waxed_exposed_copper_lantern", 20663, 4, 20666, 1397, 2, 428, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1370 },
+    { "waxed_weathered_copper_lantern", 20667, 4, 20670, 1399, 2, 428, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1371 },
+    { "waxed_oxidized_copper_lantern", 20671, 4, 20674, 1401, 2, 428, 0, VCLASS_LANTERN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1372 },
+    { "campfire", 20675, 32, 20678, 1403, 4, 428, 2, VCLASS_CAMPFIRE_BLOCK, BLOCK_ENTITY_TYPE_CAMPFIRE, BLOCK_ENTITY_TYPE_CAMPFIRE, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 1375 },
+    { "soul_campfire", 20707, 32, 20710, 1407, 4, 430, 2, VCLASS_CAMPFIRE_BLOCK, BLOCK_ENTITY_TYPE_CAMPFIRE, BLOCK_ENTITY_TYPE_CAMPFIRE, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 1376 },
+    { "sweet_berry_bush", 20739, 4, 20739, 1411, 1, 432, 0, VCLASS_SWEET_BERRY_BUSH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 1373 },
+    { "warped_stem", 20743, 3, 20744, 1412, 1, 432, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 146 },
+    { "stripped_warped_stem", 20746, 3, 20747, 1413, 1, 432, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 158 },
+    { "warped_hyphae", 20749, 3, 20750, 1414, 1, 432, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 181 },
+    { "stripped_warped_hyphae", 20752, 3, 20753, 1415, 1, 432, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 169 },
+    { "warped_nylium", 20755, 1, 20755, 1416, 0, 432, 0, VCLASS_NYLIUM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.4f, 34 },
+    { "warped_fungus", 20756, 1, 20756, 1416, 0, 432, 1, VCLASS_FUNGUS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 250 },
+    { "warped_wart_block", 20757, 1, 20757, 1416, 0, 433, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 577 },
+    { "warped_roots", 20758, 1, 20758, 1416, 0, 433, 0, VCLASS_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 252 },
+    { "nether_sprouts", 20759, 1, 20759, 1416, 0, 433, 0, VCLASS_NETHER_SPROUTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 253 },
+    { "crimson_stem", 20760, 3, 20761, 1416, 1, 433, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 145 },
+    { "stripped_crimson_stem", 20763, 3, 20764, 1417, 1, 433, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 157 },
+    { "crimson_hyphae", 20766, 3, 20767, 1418, 1, 433, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 180 },
+    { "stripped_crimson_hyphae", 20769, 3, 20770, 1419, 1, 433, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 2.0f, 168 },
+    { "crimson_nylium", 20772, 1, 20772, 1420, 0, 433, 0, VCLASS_NYLIUM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.4f, 33 },
+    { "crimson_fungus", 20773, 1, 20773, 1420, 0, 433, 1, VCLASS_FUNGUS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 249 },
+    { "shroomlight", 20774, 1, 20774, 1420, 0, 434, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 1377 },
+    { "weeping_vines", 20775, 26, 20775, 1420, 1, 434, 2, VCLASS_WEEPING_VINES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 254 },
+    { "weeping_vines_plant", 20801, 1, 20801, 1421, 0, 436, 2, VCLASS_WEEPING_VINES_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "twisting_vines", 20802, 26, 20802, 1421, 1, 438, 2, VCLASS_TWISTING_VINES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 255 },
+    { "twisting_vines_plant", 20828, 1, 20828, 1422, 0, 440, 2, VCLASS_TWISTING_VINES_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "crimson_roots", 20829, 1, 20829, 1422, 0, 442, 0, VCLASS_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 251 },
+    { "crimson_planks", 20830, 1, 20830, 1422, 0, 442, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 46 },
+    { "warped_planks", 20831, 1, 20831, 1422, 0, 442, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 47 },
+    { "crimson_slab", 20832, 6, 20835, 1422, 2, 442, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 281 },
+    { "warped_slab", 20838, 6, 20841, 1424, 2, 442, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 282 },
+    { "crimson_pressure_plate", 20844, 2, 20845, 1426, 1, 442, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 777 },
+    { "warped_pressure_plate", 20846, 2, 20847, 1427, 1, 445, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 778 },
+    { "crimson_fence", 20848, 32, 20879, 1428, 5, 448, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 354 },
+    { "warped_fence", 20880, 32, 20911, 1433, 5, 448, 0, VCLASS_FENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 355 },
+    { "crimson_trapdoor", 20912, 64, 20927, 1438, 5, 448, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 811 },
+    { "warped_trapdoor", 20976, 64, 20991, 1443, 5, 451, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 812 },
+    { "crimson_fence_gate", 21040, 32, 21047, 1448, 4, 454, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 831 },
+    { "warped_fence_gate", 21072, 32, 21079, 1452, 4, 454, 0, VCLASS_FENCE_GATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 832 },
+    { "crimson_stairs", 21104, 80, 21115, 1456, 4, 454, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 452 },
+    { "warped_stairs", 21184, 80, 21195, 1460, 4, 455, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 453 },
+    { "crimson_button", 21264, 24, 21273, 1464, 3, 456, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 761 },
+    { "warped_button", 21288, 24, 21297, 1467, 3, 460, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 762 },
+    { "crimson_door", 21312, 64, 21323, 1470, 5, 464, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 790 },
+    { "warped_door", 21376, 64, 21387, 1475, 5, 467, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 791 },
+    { "crimson_sign", 21440, 32, 21441, 1480, 2, 470, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 998 },
+    { "warped_sign", 21472, 32, 21473, 1482, 2, 470, 0, VCLASS_STANDING_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 999 },
+    { "crimson_wall_sign", 21504, 8, 21505, 1484, 2, 470, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 998 },
+    { "warped_wall_sign", 21512, 8, 21513, 1486, 2, 470, 0, VCLASS_WALL_SIGN_BLOCK, BLOCK_ENTITY_TYPE_SIGN, BLOCK_ENTITY_TYPE_SIGN, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 999 },
+    { "structure_block", 21520, 4, 21521, 1488, 1, 470, 0, VCLASS_STRUCTURE_BLOCK, BLOCK_ENTITY_TYPE_STRUCTURE_BLOCK, BLOCK_ENTITY_TYPE_STRUCTURE_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3600000.0f, 883 },
+    { "jigsaw", 21524, 12, 21534, 1489, 1, 470, 0, VCLASS_JIGSAW_BLOCK, BLOCK_ENTITY_TYPE_JIGSAW, BLOCK_ENTITY_TYPE_JIGSAW, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3600000.0f, 884 },
+    { "test_block", 21536, 4, 21536, 1490, 1, 470, 0, VCLASS_TEST_BLOCK, BLOCK_ENTITY_TYPE_TEST_BLOCK, BLOCK_ENTITY_TYPE_TEST_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3600000.0f, 885 },
+    { "test_instance_block", 21540, 1, 21540, 1491, 0, 470, 0, VCLASS_TEST_INSTANCE_BLOCK, BLOCK_ENTITY_TYPE_TEST_INSTANCE_BLOCK, BLOCK_ENTITY_TYPE_TEST_INSTANCE_BLOCK, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3600000.0f, 886 },
+    { "composter", 21541, 9, 21541, 1491, 1, 470, 0, VCLASS_COMPOSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.6f, 1353 },
+    { "target", 21550, 16, 21550, 1492, 1, 470, 0, VCLASS_TARGET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 135, 0.6f, 1.0f, 1.0f, 0.5f, 731 },
+    { "bee_nest", 21566, 24, 21566, 1493, 2, 470, 0, VCLASS_BEEHIVE_BLOCK, BLOCK_ENTITY_TYPE_BEEHIVE, BLOCK_ENTITY_TYPE_BEEHIVE, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 1379 },
+    { "beehive", 21590, 24, 21590, 1495, 2, 470, 0, VCLASS_BEEHIVE_BLOCK, BLOCK_ENTITY_TYPE_BEEHIVE, BLOCK_ENTITY_TYPE_BEEHIVE, NOTE_BLOCK_INSTRUMENT_BASS, -1, -1, 0.6f, 1.0f, 1.0f, 0.6f, 1380 },
+    { "honey_block", 21614, 1, 21614, 1497, 0, 470, 0, VCLASS_HONEY_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 0.4f, 0.5f, 0.0f, 725 },
+    { "honeycomb_block", 21615, 1, 21615, 1497, 0, 470, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.6f, 1382 },
+    { "netherite_block", 21616, 1, 21616, 1497, 0, 470, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1200.0f, 94 },
+    { "ancient_debris", 21617, 1, 21617, 1497, 0, 470, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1200.0f, 82 },
+    { "crying_obsidian", 21618, 1, 21618, 1497, 0, 470, 0, VCLASS_CRYING_OBSIDIAN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1200.0f, 1384 },
+    { "respawn_anchor", 21619, 5, 21619, 1497, 1, 470, 0, VCLASS_RESPAWN_ANCHOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1200.0f, 1397 },
+    { "potted_crimson_fungus", 21624, 1, 21624, 1498, 0, 470, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_warped_fungus", 21625, 1, 21625, 1498, 0, 471, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_crimson_roots", 21626, 1, 21626, 1498, 0, 472, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_warped_roots", 21627, 1, 21627, 1498, 0, 473, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "lodestone", 21628, 1, 21628, 1498, 0, 474, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1383 },
+    { "blackstone", 21629, 1, 21629, 1498, 0, 474, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1385 },
+    { "blackstone_stairs", 21630, 80, 21641, 1498, 4, 474, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1387 },
+    { "blackstone_wall", 21710, 324, 21713, 1502, 6, 475, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 471 },
+    { "blackstone_slab", 22034, 6, 22037, 1508, 2, 475, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1386 },
+    { "polished_blackstone", 22040, 1, 22040, 1510, 0, 475, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1389 },
+    { "polished_blackstone_bricks", 22041, 1, 22041, 1510, 0, 475, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1393 },
+    { "cracked_polished_blackstone_bricks", 22042, 1, 22042, 1510, 0, 475, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1396 },
+    { "chiseled_polished_blackstone", 22043, 1, 22043, 1510, 0, 475, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1392 },
+    { "polished_blackstone_brick_slab", 22044, 6, 22047, 1510, 2, 475, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1394 },
+    { "polished_blackstone_brick_stairs", 22050, 80, 22061, 1512, 4, 475, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1395 },
+    { "polished_blackstone_brick_wall", 22130, 324, 22133, 1516, 6, 476, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 473 },
+    { "gilded_blackstone", 22454, 1, 22454, 1522, 0, 476, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1388 },
+    { "polished_blackstone_stairs", 22455, 80, 22466, 1522, 4, 476, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1391 },
+    { "polished_blackstone_slab", 22535, 6, 22538, 1526, 2, 477, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1390 },
+    { "polished_blackstone_pressure_plate", 22541, 2, 22542, 1528, 1, 477, 3, VCLASS_PRESSURE_PLATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 764 },
+    { "polished_blackstone_button", 22543, 24, 22552, 1529, 3, 480, 4, VCLASS_BUTTON_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 750 },
+    { "polished_blackstone_wall", 22567, 324, 22570, 1532, 6, 484, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 472 },
+    { "chiseled_nether_bricks", 22891, 1, 22891, 1538, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 426 },
+    { "cracked_nether_bricks", 22892, 1, 22892, 1538, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 425 },
+    { "quartz_bricks", 22893, 1, 22893, 1538, 0, 484, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.8f, 483 },
+    { "candle", 22894, 16, 22897, 1538, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1398 },
+    { "white_candle", 22910, 16, 22913, 1541, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1399 },
+    { "orange_candle", 22926, 16, 22929, 1544, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1400 },
+    { "magenta_candle", 22942, 16, 22945, 1547, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1401 },
+    { "light_blue_candle", 22958, 16, 22961, 1550, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1402 },
+    { "yellow_candle", 22974, 16, 22977, 1553, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1403 },
+    { "lime_candle", 22990, 16, 22993, 1556, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1404 },
+    { "pink_candle", 23006, 16, 23009, 1559, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1405 },
+    { "gray_candle", 23022, 16, 23025, 1562, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1406 },
+    { "light_gray_candle", 23038, 16, 23041, 1565, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1407 },
+    { "cyan_candle", 23054, 16, 23057, 1568, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1408 },
+    { "purple_candle", 23070, 16, 23073, 1571, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1409 },
+    { "blue_candle", 23086, 16, 23089, 1574, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1410 },
+    { "brown_candle", 23102, 16, 23105, 1577, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1411 },
+    { "green_candle", 23118, 16, 23121, 1580, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1412 },
+    { "red_candle", 23134, 16, 23137, 1583, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1413 },
+    { "black_candle", 23150, 16, 23153, 1586, 3, 484, 0, VCLASS_CANDLE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 1414 },
+    { "candle_cake", 23166, 2, 23167, 1589, 1, 484, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "white_candle_cake", 23168, 2, 23169, 1590, 1, 485, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "orange_candle_cake", 23170, 2, 23171, 1591, 1, 486, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "magenta_candle_cake", 23172, 2, 23173, 1592, 1, 487, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "light_blue_candle_cake", 23174, 2, 23175, 1593, 1, 488, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "yellow_candle_cake", 23176, 2, 23177, 1594, 1, 489, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "lime_candle_cake", 23178, 2, 23179, 1595, 1, 490, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "pink_candle_cake", 23180, 2, 23181, 1596, 1, 491, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "gray_candle_cake", 23182, 2, 23183, 1597, 1, 492, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "light_gray_candle_cake", 23184, 2, 23185, 1598, 1, 493, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "cyan_candle_cake", 23186, 2, 23187, 1599, 1, 494, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "purple_candle_cake", 23188, 2, 23189, 1600, 1, 495, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "blue_candle_cake", 23190, 2, 23191, 1601, 1, 496, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "brown_candle_cake", 23192, 2, 23193, 1602, 1, 497, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "green_candle_cake", 23194, 2, 23195, 1603, 1, 498, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "red_candle_cake", 23196, 2, 23197, 1604, 1, 499, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "black_candle_cake", 23198, 2, 23199, 1605, 1, 500, 1, VCLASS_CANDLE_CAKE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 0 },
+    { "amethyst_block", 23200, 1, 23200, 1606, 0, 501, 0, VCLASS_AMETHYST_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.5f, 88 },
+    { "budding_amethyst", 23201, 1, 23201, 1606, 0, 501, 0, VCLASS_BUDDING_AMETHYST_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.5f, 89 },
+    { "amethyst_cluster", 23202, 12, 23211, 1606, 2, 501, 2, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.5f, 1418 },
+    { "large_amethyst_bud", 23214, 12, 23223, 1608, 2, 503, 2, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.5f, 1417 },
+    { "medium_amethyst_bud", 23226, 12, 23235, 1610, 2, 505, 2, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.5f, 1416 },
+    { "small_amethyst_bud", 23238, 12, 23247, 1612, 2, 507, 2, VCLASS_AMETHYST_CLUSTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.5f, 1415 },
+    { "tuff", 23250, 1, 23250, 1614, 0, 509, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 12 },
+    { "tuff_slab", 23251, 6, 23254, 1614, 2, 509, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 13 },
+    { "tuff_stairs", 23257, 80, 23268, 1616, 4, 509, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 14 },
+    { "tuff_wall", 23337, 324, 23340, 1620, 6, 510, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 15 },
+    { "polished_tuff", 23661, 1, 23661, 1626, 0, 510, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 17 },
+    { "polished_tuff_slab", 23662, 6, 23665, 1626, 2, 510, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 18 },
+    { "polished_tuff_stairs", 23668, 80, 23679, 1628, 4, 510, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 19 },
+    { "polished_tuff_wall", 23748, 324, 23751, 1632, 6, 511, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 20 },
+    { "chiseled_tuff", 24072, 1, 24072, 1638, 0, 511, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 16 },
+    { "tuff_bricks", 24073, 1, 24073, 1638, 0, 511, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 21 },
+    { "tuff_brick_slab", 24074, 6, 24077, 1638, 2, 511, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 22 },
+    { "tuff_brick_stairs", 24080, 80, 24091, 1640, 4, 511, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 23 },
+    { "tuff_brick_wall", 24160, 324, 24163, 1644, 6, 512, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 24 },
+    { "chiseled_tuff_bricks", 24484, 1, 24484, 1650, 0, 512, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 25 },
+    { "calcite", 24485, 1, 24485, 1650, 0, 512, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 0.75f, 11 },
+    { "tinted_glass", 24486, 1, 24486, 1650, 0, 512, 0, VCLASS_TINTED_GLASS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HAT, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 196 },
+    { "powder_snow", 24487, 1, 24487, 1650, 0, 512, 0, VCLASS_POWDER_SNOW_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.25f, 1015 },
+    { "sculk_sensor", 24488, 96, 24489, 1650, 3, 512, 0, VCLASS_SCULK_SENSOR_BLOCK, BLOCK_ENTITY_TYPE_SCULK_SENSOR, BLOCK_ENTITY_TYPE_SCULK_SENSOR, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.5f, 742 },
+    { "calibrated_sculk_sensor", 24584, 384, 24585, 1653, 4, 512, 0, VCLASS_CALIBRATED_SCULK_SENSOR_BLOCK, BLOCK_ENTITY_TYPE_CALIBRATED_SCULK_SENSOR, BLOCK_ENTITY_TYPE_CALIBRATED_SCULK_SENSOR, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 1.5f, 743 },
+    { "sculk", 24968, 1, 24968, 1657, 0, 512, 0, VCLASS_SCULK_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 429 },
+    { "sculk_vein", 24969, 128, 25096, 1657, 7, 512, 3, VCLASS_SCULK_VEIN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.2f, 430 },
+    { "sculk_catalyst", 25097, 2, 25098, 1664, 1, 515, 0, VCLASS_SCULK_CATALYST_BLOCK, BLOCK_ENTITY_TYPE_SCULK_CATALYST, BLOCK_ENTITY_TYPE_SCULK_CATALYST, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 431 },
+    { "sculk_shrieker", 25099, 8, 25106, 1665, 3, 515, 0, VCLASS_SCULK_SHRIEKER_BLOCK, BLOCK_ENTITY_TYPE_SCULK_SHRIEKER, BLOCK_ENTITY_TYPE_SCULK_SHRIEKER, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 432 },
+    { "copper_block", 25107, 1, 25107, 1668, 0, 515, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1031, -1, 0.6f, 1.0f, 1.0f, 6.0f, 91 },
+    { "exposed_copper", 25108, 1, 25108, 1668, 0, 516, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1033, -1, 0.6f, 1.0f, 1.0f, 6.0f, 95 },
+    { "weathered_copper", 25109, 1, 25109, 1668, 0, 517, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1032, -1, 0.6f, 1.0f, 1.0f, 6.0f, 96 },
+    { "oxidized_copper", 25110, 1, 25110, 1668, 0, 518, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1034, -1, 0.6f, 1.0f, 1.0f, 6.0f, 97 },
+    { "copper_ore", 25111, 1, 25111, 1668, 0, 519, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 68 },
+    { "deepslate_copper_ore", 25112, 1, 25112, 1668, 0, 519, 0, VCLASS_DROP_EXPERIENCE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 69 },
+    { "oxidized_cut_copper", 25113, 1, 25113, 1668, 0, 519, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1035, -1, 0.6f, 1.0f, 1.0f, 6.0f, 105 },
+    { "weathered_cut_copper", 25114, 1, 25114, 1668, 0, 520, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1036, -1, 0.6f, 1.0f, 1.0f, 6.0f, 104 },
+    { "exposed_cut_copper", 25115, 1, 25115, 1668, 0, 521, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1037, -1, 0.6f, 1.0f, 1.0f, 6.0f, 103 },
+    { "cut_copper", 25116, 1, 25116, 1668, 0, 522, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1038, -1, 0.6f, 1.0f, 1.0f, 6.0f, 102 },
+    { "oxidized_chiseled_copper", 25117, 1, 25117, 1668, 0, 523, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1019, -1, 0.6f, 1.0f, 1.0f, 6.0f, 101 },
+    { "weathered_chiseled_copper", 25118, 1, 25118, 1668, 0, 524, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1020, -1, 0.6f, 1.0f, 1.0f, 6.0f, 100 },
+    { "exposed_chiseled_copper", 25119, 1, 25119, 1668, 0, 525, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1021, -1, 0.6f, 1.0f, 1.0f, 6.0f, 99 },
+    { "chiseled_copper", 25120, 1, 25120, 1668, 0, 526, 1, VCLASS_WEATHERING_COPPER_FULL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1022, -1, 0.6f, 1.0f, 1.0f, 6.0f, 98 },
+    { "waxed_oxidized_chiseled_copper", 25121, 1, 25121, 1668, 0, 527, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 121 },
+    { "waxed_weathered_chiseled_copper", 25122, 1, 25122, 1668, 0, 527, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 120 },
+    { "waxed_exposed_chiseled_copper", 25123, 1, 25123, 1668, 0, 527, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 119 },
+    { "waxed_chiseled_copper", 25124, 1, 25124, 1668, 0, 527, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 118 },
+    { "oxidized_cut_copper_stairs", 25125, 80, 25136, 1668, 4, 527, 2, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1039, -1, 0.6f, 1.0f, 1.0f, 6.0f, 109 },
+    { "weathered_cut_copper_stairs", 25205, 80, 25216, 1672, 4, 529, 2, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1040, -1, 0.6f, 1.0f, 1.0f, 6.0f, 108 },
+    { "exposed_cut_copper_stairs", 25285, 80, 25296, 1676, 4, 531, 2, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1041, -1, 0.6f, 1.0f, 1.0f, 6.0f, 107 },
+    { "cut_copper_stairs", 25365, 80, 25376, 1680, 4, 533, 2, VCLASS_WEATHERING_COPPER_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1042, -1, 0.6f, 1.0f, 1.0f, 6.0f, 106 },
+    { "oxidized_cut_copper_slab", 25445, 6, 25448, 1684, 2, 535, 1, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1043, -1, 0.6f, 1.0f, 1.0f, 6.0f, 113 },
+    { "weathered_cut_copper_slab", 25451, 6, 25454, 1686, 2, 536, 1, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1044, -1, 0.6f, 1.0f, 1.0f, 6.0f, 112 },
+    { "exposed_cut_copper_slab", 25457, 6, 25460, 1688, 2, 537, 1, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1045, -1, 0.6f, 1.0f, 1.0f, 6.0f, 111 },
+    { "cut_copper_slab", 25463, 6, 25466, 1690, 2, 538, 1, VCLASS_WEATHERING_COPPER_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1046, -1, 0.6f, 1.0f, 1.0f, 6.0f, 110 },
+    { "waxed_copper_block", 25469, 1, 25469, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 114 },
+    { "waxed_weathered_copper", 25470, 1, 25470, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 116 },
+    { "waxed_exposed_copper", 25471, 1, 25471, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 115 },
+    { "waxed_oxidized_copper", 25472, 1, 25472, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 117 },
+    { "waxed_oxidized_cut_copper", 25473, 1, 25473, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 125 },
+    { "waxed_weathered_cut_copper", 25474, 1, 25474, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 124 },
+    { "waxed_exposed_cut_copper", 25475, 1, 25475, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 123 },
+    { "waxed_cut_copper", 25476, 1, 25476, 1692, 0, 539, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 122 },
+    { "waxed_oxidized_cut_copper_stairs", 25477, 80, 25488, 1692, 4, 539, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 129 },
+    { "waxed_weathered_cut_copper_stairs", 25557, 80, 25568, 1696, 4, 540, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 128 },
+    { "waxed_exposed_cut_copper_stairs", 25637, 80, 25648, 1700, 4, 541, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 127 },
+    { "waxed_cut_copper_stairs", 25717, 80, 25728, 1704, 4, 542, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 126 },
+    { "waxed_oxidized_cut_copper_slab", 25797, 6, 25800, 1708, 2, 543, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 133 },
+    { "waxed_weathered_cut_copper_slab", 25803, 6, 25806, 1710, 2, 543, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 132 },
+    { "waxed_exposed_cut_copper_slab", 25809, 6, 25812, 1712, 2, 543, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 131 },
+    { "waxed_cut_copper_slab", 25815, 6, 25818, 1714, 2, 543, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 130 },
+    { "copper_door", 25821, 64, 25832, 1716, 5, 543, 4, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1051, -1, 0.6f, 1.0f, 1.0f, 6.0f, 792 },
+    { "exposed_copper_door", 25885, 64, 25896, 1721, 5, 547, 4, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1052, -1, 0.6f, 1.0f, 1.0f, 6.0f, 793 },
+    { "oxidized_copper_door", 25949, 64, 25960, 1726, 5, 551, 4, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1053, -1, 0.6f, 1.0f, 1.0f, 6.0f, 795 },
+    { "weathered_copper_door", 26013, 64, 26024, 1731, 5, 555, 4, VCLASS_WEATHERING_COPPER_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1054, -1, 0.6f, 1.0f, 1.0f, 6.0f, 794 },
+    { "waxed_copper_door", 26077, 64, 26088, 1736, 5, 559, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 796 },
+    { "waxed_exposed_copper_door", 26141, 64, 26152, 1741, 5, 562, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 797 },
+    { "waxed_oxidized_copper_door", 26205, 64, 26216, 1746, 5, 565, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 799 },
+    { "waxed_weathered_copper_door", 26269, 64, 26280, 1751, 5, 568, 3, VCLASS_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 798 },
+    { "copper_trapdoor", 26333, 64, 26348, 1756, 5, 571, 4, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1059, -1, 0.6f, 1.0f, 1.0f, 6.0f, 813 },
+    { "exposed_copper_trapdoor", 26397, 64, 26412, 1761, 5, 575, 4, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1060, -1, 0.6f, 1.0f, 1.0f, 6.0f, 814 },
+    { "oxidized_copper_trapdoor", 26461, 64, 26476, 1766, 5, 579, 4, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1061, -1, 0.6f, 1.0f, 1.0f, 6.0f, 816 },
+    { "weathered_copper_trapdoor", 26525, 64, 26540, 1771, 5, 583, 4, VCLASS_WEATHERING_COPPER_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1062, -1, 0.6f, 1.0f, 1.0f, 6.0f, 815 },
+    { "waxed_copper_trapdoor", 26589, 64, 26604, 1776, 5, 587, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 817 },
+    { "waxed_exposed_copper_trapdoor", 26653, 64, 26668, 1781, 5, 590, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 818 },
+    { "waxed_oxidized_copper_trapdoor", 26717, 64, 26732, 1786, 5, 593, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 820 },
+    { "waxed_weathered_copper_trapdoor", 26781, 64, 26796, 1791, 5, 596, 3, VCLASS_TRAP_DOOR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 819 },
+    { "copper_grate", 26845, 2, 26846, 1796, 1, 599, 1, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1067, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1468 },
+    { "exposed_copper_grate", 26847, 2, 26848, 1797, 1, 600, 1, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1068, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1469 },
+    { "weathered_copper_grate", 26849, 2, 26850, 1798, 1, 601, 1, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1069, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1470 },
+    { "oxidized_copper_grate", 26851, 2, 26852, 1799, 1, 602, 1, VCLASS_WEATHERING_COPPER_GRATE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1070, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1471 },
+    { "waxed_copper_grate", 26853, 2, 26854, 1800, 1, 603, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1472 },
+    { "waxed_exposed_copper_grate", 26855, 2, 26856, 1801, 1, 603, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1473 },
+    { "waxed_weathered_copper_grate", 26857, 2, 26858, 1802, 1, 603, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1474 },
+    { "waxed_oxidized_copper_grate", 26859, 2, 26860, 1803, 1, 603, 0, VCLASS_WATERLOGGED_TRANSPARENT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1475 },
+    { "copper_bulb", 26861, 4, 26864, 1804, 2, 603, 1, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1075, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1476 },
+    { "exposed_copper_bulb", 26865, 4, 26868, 1806, 2, 604, 1, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1076, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1477 },
+    { "weathered_copper_bulb", 26869, 4, 26872, 1808, 2, 605, 1, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1077, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1478 },
+    { "oxidized_copper_bulb", 26873, 4, 26876, 1810, 2, 606, 1, VCLASS_WEATHERING_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1078, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1479 },
+    { "waxed_copper_bulb", 26877, 4, 26880, 1812, 2, 607, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1480 },
+    { "waxed_exposed_copper_bulb", 26881, 4, 26884, 1814, 2, 607, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1481 },
+    { "waxed_weathered_copper_bulb", 26885, 4, 26888, 1816, 2, 607, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1482 },
+    { "waxed_oxidized_copper_bulb", 26889, 4, 26892, 1818, 2, 607, 0, VCLASS_COPPER_BULB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1483 },
+    { "copper_chest", 26893, 24, 26894, 1820, 3, 607, 1, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1083, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1484 },
+    { "exposed_copper_chest", 26917, 24, 26918, 1823, 3, 608, 1, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1084, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1485 },
+    { "weathered_copper_chest", 26941, 24, 26942, 1826, 3, 609, 1, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1085, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1486 },
+    { "oxidized_copper_chest", 26965, 24, 26966, 1829, 3, 610, 1, VCLASS_WEATHERING_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, 1086, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1487 },
+    { "waxed_copper_chest", 26989, 24, 26990, 1832, 3, 611, 1, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1488 },
+    { "waxed_exposed_copper_chest", 27013, 24, 27014, 1835, 3, 612, 1, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1489 },
+    { "waxed_weathered_copper_chest", 27037, 24, 27038, 1838, 3, 613, 1, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1490 },
+    { "waxed_oxidized_copper_chest", 27061, 24, 27062, 1841, 3, 614, 1, VCLASS_COPPER_CHEST_BLOCK, BLOCK_ENTITY_TYPE_CHEST, BLOCK_ENTITY_TYPE_CHEST, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1491 },
+    { "copper_golem_statue", 27085, 32, 27086, 1844, 3, 615, 1, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1091, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1492 },
+    { "exposed_copper_golem_statue", 27117, 32, 27118, 1847, 3, 616, 1, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1092, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1493 },
+    { "weathered_copper_golem_statue", 27149, 32, 27150, 1850, 3, 617, 1, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1093, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1494 },
+    { "oxidized_copper_golem_statue", 27181, 32, 27182, 1853, 3, 618, 1, VCLASS_WEATHERING_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, 1094, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1495 },
+    { "waxed_copper_golem_statue", 27213, 32, 27214, 1856, 3, 619, 1, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1496 },
+    { "waxed_exposed_copper_golem_statue", 27245, 32, 27246, 1859, 3, 620, 1, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1497 },
+    { "waxed_weathered_copper_golem_statue", 27277, 32, 27278, 1862, 3, 621, 1, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1498 },
+    { "waxed_oxidized_copper_golem_statue", 27309, 32, 27310, 1865, 3, 622, 1, VCLASS_COPPER_GOLEM_STATUE_BLOCK, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, BLOCK_ENTITY_TYPE_COPPER_GOLEM_STATUE, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 1499 },
+    { "lightning_rod", 27341, 24, 27360, 1868, 3, 623, 1, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1099, 151, 0.6f, 1.0f, 1.0f, 6.0f, 733 },
+    { "exposed_lightning_rod", 27365, 24, 27384, 1871, 3, 624, 1, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1100, 175, 0.6f, 1.0f, 1.0f, 6.0f, 734 },
+    { "weathered_lightning_rod", 27389, 24, 27408, 1874, 3, 625, 1, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1101, 199, 0.6f, 1.0f, 1.0f, 6.0f, 735 },
+    { "oxidized_lightning_rod", 27413, 24, 27432, 1877, 3, 626, 1, VCLASS_WEATHERING_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, 1102, 223, 0.6f, 1.0f, 1.0f, 6.0f, 736 },
+    { "waxed_lightning_rod", 27437, 24, 27456, 1880, 3, 627, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 247, 0.6f, 1.0f, 1.0f, 6.0f, 737 },
+    { "waxed_exposed_lightning_rod", 27461, 24, 27480, 1883, 3, 627, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 271, 0.6f, 1.0f, 1.0f, 6.0f, 738 },
+    { "waxed_weathered_lightning_rod", 27485, 24, 27504, 1886, 3, 627, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 295, 0.6f, 1.0f, 1.0f, 6.0f, 739 },
+    { "waxed_oxidized_lightning_rod", 27509, 24, 27528, 1889, 3, 627, 0, VCLASS_LIGHTNING_ROD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, 319, 0.6f, 1.0f, 1.0f, 6.0f, 740 },
+    { "pointed_dripstone", 27533, 20, 27538, 1892, 3, 627, 0, VCLASS_POINTED_DRIPSTONE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 3.0f, 1419 },
+    { "dripstone_block", 27553, 1, 27553, 1895, 0, 627, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1.0f, 26 },
+    { "cave_vines", 27554, 52, 27555, 1895, 2, 627, 2, VCLASS_CAVE_VINES_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 1374 },
+    { "cave_vines_plant", 27606, 2, 27607, 1897, 1, 629, 2, VCLASS_CAVE_VINES_PLANT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "spore_blossom", 27608, 1, 27608, 1898, 0, 631, 0, VCLASS_SPORE_BLOSSOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 246 },
+    { "azalea", 27609, 1, 27609, 1898, 0, 631, 0, VCLASS_AZALEA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 205 },
+    { "flowering_azalea", 27610, 1, 27610, 1898, 0, 631, 0, VCLASS_AZALEA_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 206 },
+    { "moss_carpet", 27611, 1, 27611, 1898, 0, 631, 0, VCLASS_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 261 },
+    { "pink_petals", 27612, 16, 27612, 1898, 2, 631, 0, VCLASS_FLOWER_BED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 258 },
+    { "wildflowers", 27628, 16, 27628, 1900, 2, 631, 0, VCLASS_FLOWER_BED_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 259 },
+    { "leaf_litter", 27644, 16, 27644, 1902, 2, 631, 0, VCLASS_LEAF_LITTER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 260 },
+    { "moss_block", 27660, 1, 27660, 1904, 0, 631, 0, VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 262 },
+    { "big_dripleaf", 27661, 32, 27662, 1904, 3, 631, 0, VCLASS_BIG_DRIPLEAF_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 267 },
+    { "big_dripleaf_stem", 27693, 8, 27694, 1907, 2, 631, 0, VCLASS_BIG_DRIPLEAF_STEM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 267 },
+    { "small_dripleaf", 27701, 16, 27704, 1909, 3, 631, 0, VCLASS_SMALL_DRIPLEAF_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 268 },
+    { "hanging_roots", 27717, 2, 27718, 1912, 1, 631, 0, VCLASS_HANGING_ROOTS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 266 },
+    { "rooted_dirt", 27719, 1, 27719, 1913, 0, 631, 0, VCLASS_ROOTED_DIRT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 31 },
+    { "mud", 27720, 1, 27720, 1913, 0, 631, 0, VCLASS_MUD_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.5f, 32 },
+    { "deepslate", 27721, 3, 27722, 1913, 1, 631, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 8 },
+    { "cobbled_deepslate", 27724, 1, 27724, 1914, 0, 631, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 9 },
+    { "cobbled_deepslate_stairs", 27725, 80, 27736, 1914, 4, 631, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 695 },
+    { "cobbled_deepslate_slab", 27805, 6, 27808, 1918, 2, 632, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 712 },
+    { "cobbled_deepslate_wall", 27811, 324, 27814, 1920, 6, 632, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 474 },
+    { "polished_deepslate", 28135, 1, 28135, 1926, 0, 632, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 10 },
+    { "polished_deepslate_stairs", 28136, 80, 28147, 1926, 4, 632, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 696 },
+    { "polished_deepslate_slab", 28216, 6, 28219, 1930, 2, 633, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 713 },
+    { "polished_deepslate_wall", 28222, 324, 28225, 1932, 6, 633, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 475 },
+    { "deepslate_tiles", 28546, 1, 28546, 1938, 0, 633, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 383 },
+    { "deepslate_tile_stairs", 28547, 80, 28558, 1938, 4, 633, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 698 },
+    { "deepslate_tile_slab", 28627, 6, 28630, 1942, 2, 634, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 715 },
+    { "deepslate_tile_wall", 28633, 324, 28636, 1944, 6, 634, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 477 },
+    { "deepslate_bricks", 28957, 1, 28957, 1950, 0, 634, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 381 },
+    { "deepslate_brick_stairs", 28958, 80, 28969, 1950, 4, 634, 1, VCLASS_STAIR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 697 },
+    { "deepslate_brick_slab", 29038, 6, 29041, 1954, 2, 635, 0, VCLASS_SLAB_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 714 },
+    { "deepslate_brick_wall", 29044, 324, 29047, 1956, 6, 635, 0, VCLASS_WALL_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 476 },
+    { "chiseled_deepslate", 29368, 1, 29368, 1962, 0, 635, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 385 },
+    { "cracked_deepslate_bricks", 29369, 1, 29369, 1962, 0, 635, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 382 },
+    { "cracked_deepslate_tiles", 29370, 1, 29370, 1962, 0, 635, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 384 },
+    { "infested_deepslate", 29371, 3, 29372, 1962, 1, 635, 1, VCLASS_INFESTED_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.75f, 374 },
+    { "smooth_basalt", 29374, 1, 29374, 1963, 0, 636, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 4.2f, 364 },
+    { "raw_iron_block", 29375, 1, 29375, 1963, 0, 636, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 84 },
+    { "raw_copper_block", 29376, 1, 29376, 1963, 0, 636, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 85 },
+    { "raw_gold_block", 29377, 1, 29377, 1963, 0, 636, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 6.0f, 86 },
+    { "potted_azalea_bush", 29378, 1, 29378, 1963, 0, 636, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_flowering_azalea_bush", 29379, 1, 29379, 1963, 0, 637, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "ochre_froglight", 29380, 3, 29381, 1963, 1, 638, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 1420 },
+    { "verdant_froglight", 29383, 3, 29384, 1964, 1, 638, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 1421 },
+    { "pearlescent_froglight", 29386, 3, 29387, 1965, 1, 638, 0, VCLASS_ROTATED_PILLAR_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.3f, 1422 },
+    { "frogspawn", 29389, 1, 29389, 1966, 0, 638, 0, VCLASS_FROGSPAWN_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 1423 },
+    { "reinforced_deepslate", 29390, 1, 29390, 1966, 0, 638, 0, VCLASS_NONE, -1, -1, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 1200.0f, 386 },
+    { "decorated_pot", 29391, 16, 29400, 1966, 3, 638, 0, VCLASS_DECORATED_POT_BLOCK, BLOCK_ENTITY_TYPE_DECORATED_POT, BLOCK_ENTITY_TYPE_DECORATED_POT, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 319 },
+    { "crafter", 29407, 48, 29452, 1969, 3, 638, 0, VCLASS_CRAFTER_BLOCK, BLOCK_ENTITY_TYPE_CRAFTER, BLOCK_ENTITY_TYPE_CRAFTER, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 3.5f, 1103 },
+    { "trial_spawner", 29455, 12, 29461, 1972, 2, 638, 0, VCLASS_TRIAL_SPAWNER_BLOCK, BLOCK_ENTITY_TYPE_TRIAL_SPAWNER, BLOCK_ENTITY_TYPE_TRIAL_SPAWNER, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 50.0f, 1500 },
+    { "vault", 29467, 32, 29471, 1974, 3, 638, 0, VCLASS_VAULT_BLOCK, BLOCK_ENTITY_TYPE_VAULT, BLOCK_ENTITY_TYPE_VAULT, NOTE_BLOCK_INSTRUMENT_BASEDRUM, -1, -1, 0.6f, 1.0f, 1.0f, 50.0f, 1503 },
+    { "heavy_core", 29499, 2, 29500, 1977, 1, 638, 0, VCLASS_HEAVY_CORE_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_SNARE, -1, -1, 0.6f, 1.0f, 1.0f, 1200.0f, 87 },
+    { "pale_moss_block", 29501, 1, 29501, 1978, 0, 638, 0, VCLASS_BONEMEALABLE_FEATURE_PLACER_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 265 },
+    { "pale_moss_carpet", 29502, 162, 29502, 1978, 5, 638, 0, VCLASS_MOSSY_CARPET_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.1f, 263 },
+    { "pale_hanging_moss", 29664, 2, 29664, 1983, 1, 638, 0, VCLASS_HANGING_MOSS_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 264 },
+    { "open_eyeblossom", 29666, 1, 29666, 1984, 0, 638, 1, VCLASS_EYEBLOSSOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 230 },
+    { "closed_eyeblossom", 29667, 1, 29667, 1984, 0, 639, 1, VCLASS_EYEBLOSSOM_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 231 },
+    { "potted_open_eyeblossom", 29668, 1, 29668, 1984, 0, 640, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "potted_closed_eyeblossom", 29669, 1, 29669, 1984, 0, 641, 1, VCLASS_FLOWER_POT_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 0 },
+    { "firefly_bush", 29670, 1, 29670, 1984, 0, 642, 0, VCLASS_FIREFLY_BUSH_BLOCK, -1, -1, NOTE_BLOCK_INSTRUMENT_HARP, -1, -1, 0.6f, 1.0f, 1.0f, 0.0f, 208 },
 };
 
 // block id per state
@@ -23122,11 +23122,11 @@ const int16_t recipe_ingredients[] = {
 const int16_t recipe_field_ingredients[] = { 67, 249, 508, 509, 61, 257, 249, 508 };
 
 const fluid_def fluid_defs[] = {
-    { "empty", 0 },
-    { "flowing_water", FLUID_TAG_WATER },
-    { "water", FLUID_TAG_WATER },
-    { "flowing_lava", FLUID_TAG_LAVA },
-    { "lava", FLUID_TAG_LAVA },
+    { "empty", 0, 0.0f },
+    { "flowing_water", FLUID_TAG_WATER, 100.0f },
+    { "water", FLUID_TAG_WATER, 100.0f },
+    { "flowing_lava", FLUID_TAG_LAVA, 100.0f },
+    { "lava", FLUID_TAG_LAVA, 100.0f },
 };
 
 // by FluidState id (Fluid.FLUID_STATE_REGISTRY)

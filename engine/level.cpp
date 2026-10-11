@@ -306,7 +306,7 @@ static double rng_next_double_between(rng & r, double min, double max) {
 }
 
 // Block.popResource: a random spot around the center, half an item lower; the offsets draw even for an empty stack
-static void level_pop_resource(level & lv, block_pos pos, item_stack s) {
+void level_pop_resource(level & lv, block_pos pos, item_stack s) {
     vec3   w           = entity_block_to_world(pos);
     double half_height = entity_type_defs[ENTITY_TYPE_ITEM].height / 2.0;
     double x           = w.x + 0.5 + rng_next_double_between(lv.random, -0.25, 0.25);
@@ -315,14 +315,14 @@ static void level_pop_resource(level & lv, block_pos pos, item_stack s) {
     if (!item_stack_is_empty(s)) item_entity_spawn(lv, { x, y, z }, s);
 }
 
-void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be) {
+std::vector<item_stack> block_get_drops(level & lv, state_id st, const block_entity * be) {
     // MovingPistonBlock.getDrops: the moved block drops, or nothing without a block entity
     state_id loot = st;
     if (state_is(st, BLOCK_MOVING_PISTON)) loot = be != nullptr ? be->moved_state : STATE_AIR;
     const drop_def & drops = drop_defs[state_drops[loot]];
     if (drops.n_stacks < 0) {
         level_unsupported(lv, "random loot");
-        return;
+        return {};
     }
     // the shulker box item keeps the contents as a data component, which sim stacks do not carry
     if (be != nullptr && be->type == BLOCK_ENTITY_TYPE_SHULKER_BOX) {
@@ -330,10 +330,16 @@ void level_drop_resources(level & lv, state_id st, block_pos pos, const block_en
             if (!item_stack_is_empty(s)) level_unsupported(lv, "shulker box drop with contents");
         }
     }
+    std::vector<item_stack> out;
     for (int32_t i = 0; i < drops.n_stacks; i++) {
         const drop_stack & d = drop_stacks[drops.first + i];
-        level_pop_resource(lv, pos, { d.item, d.count, 0 });
+        out.push_back({ d.item, d.count, 0 });
     }
+    return out;
+}
+
+void level_drop_resources(level & lv, state_id st, block_pos pos, const block_entity * be) {
+    for (const item_stack & s : block_get_drops(lv, st, be)) level_pop_resource(lv, pos, s);
     block_spawn_after_break(lv, st, pos);
 }
 

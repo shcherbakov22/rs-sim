@@ -25,12 +25,12 @@ static bool entity_fire_immune(const entity & e) {
     return entity_type_defs[e.type].fire_immune;
 }
 
-// Entity.hurtServer of the entity's type
-static bool entity_hurt_server(level & lv, entity & e, damage_type type, float damage) {
+bool entity_hurt_server(level & lv, entity & e, damage_type type, float damage) {
     switch (e.type) {
         case ENTITY_TYPE_ITEM: return item_entity_hurt_server(lv, e, type, damage);
         // it only marks itself hurt
         case ENTITY_TYPE_FALLING_BLOCK: return false;
+        case ENTITY_TYPE_TNT: return false;
         default: break;
     }
     TMC_ASSERT(entity_is_pushable(e));

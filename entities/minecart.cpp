@@ -2,6 +2,7 @@
 // Nothing in scope rides one.
 
 #include "blocks/handlers.h"
+#include "engine/explosion.h"
 #include "engine/level.h"
 #include "entities/handlers.h"
 
@@ -209,11 +210,10 @@ void abstract_minecart_apply_effects_from_blocks(level & lv, entity & e) {
     e.movement_this_tick.clear();
 }
 
-// MinecartTNT.explode: the explosion is out of scope
-static void minecart_tnt_explode(level & lv, entity & e) {
-    rng_next_double(e.random);
-    block_pos pos = entity_block_position(e);
-    level_boundary(lv, "explode %d %d %d", pos.x, pos.y, pos.z);
+// MinecartTNT.explode: faster carts explode stronger, and the cart goes only after its explosion
+static void minecart_tnt_explode(level & lv, entity & e, double speed_sqr) {
+    double speed = std::min(std::sqrt(speed_sqr), 5.0);
+    level_explode(lv, &e, e.pos, (float) (4.0F + 1.0F * rng_next_double(e.random) * 1.5 * speed));
     entity_discard(lv, e);
 }
 
@@ -221,7 +221,7 @@ static void minecart_tnt_explode(level & lv, entity & e) {
 static void minecart_tnt_prime_fuse(entity & e) { e.fuse = 80; }
 
 void minecart_tnt_cause_fall_damage(level & lv, entity & e, double fall_distance) {
-    if (fall_distance >= 3.0) minecart_tnt_explode(lv, e);
+    if (fall_distance >= 3.0) minecart_tnt_explode(lv, e, (fall_distance / 10.0) * (fall_distance / 10.0));
 }
 
 // activateMinecart of the type on an activator rail: a plain minecart shakes, a hopper turns off, tnt primes
@@ -365,9 +365,11 @@ void abstract_minecart_tick(level & lv, entity & e) {
     if (e.fuse > 0) {
         e.fuse--;
     } else if (e.fuse == 0) {
-        minecart_tnt_explode(lv, e);
+        minecart_tnt_explode(lv, e, vec3_horizontal_distance_sqr(e.delta));
     }
-    if (e.horizontal_collision && vec3_horizontal_distance_sqr(e.delta) >= 0.01F) minecart_tnt_explode(lv, e);
+    if (e.horizontal_collision && vec3_horizontal_distance_sqr(e.delta) >= 0.01F) {
+        minecart_tnt_explode(lv, e, vec3_horizontal_distance_sqr(e.delta));
+    }
 }
 
 // MinecartTNT.destroy: lit by the source or moving, it primes instead of breaking

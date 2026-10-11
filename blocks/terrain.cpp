@@ -153,20 +153,32 @@ static state_id leaves_update_shape(level & lv, state_id st, block_pos pos, dire
 
 // TntBlock. Cases keep the game rule TNT_EXPLODES on, so priming always succeeds.
 
-// the PrimedTnt constructor draws its push angle from the level random before the spawn
 void tnt_prime(level & lv, block_pos pos) {
-    rng_next_double(lv.random);
-    level_boundary(lv, "spawn tnt %d %d %d", pos.x, pos.y, pos.z);
+    vec3 w = entity_block_to_world(pos);
+    level_add_fresh_entity(lv, primed_tnt_new(lv, { w.x + 0.5, w.y, w.z + 0.5 }));
 }
 
-// the spawn ends the run, so the removal of the block after priming is left out
 static void tnt_on_place(level & lv, state_id st, block_pos pos, state_id old, bool) {
-    if (!state_is(old, state_block(st)) && level_has_neighbor_signal(lv, pos)) tnt_prime(lv, pos);
+    if (state_is(old, state_block(st)) || !level_has_neighbor_signal(lv, pos)) return;
+    tnt_prime(lv, pos);
+    level_remove_block(lv, pos, false);
 }
 
 static void tnt_neighbor_changed(level & lv, state_id, block_pos pos, int32_t, bool) {
-    if (level_has_neighbor_signal(lv, pos)) tnt_prime(lv, pos);
+    if (!level_has_neighbor_signal(lv, pos)) return;
+    tnt_prime(lv, pos);
+    level_remove_block(lv, pos, false);
 }
+
+// tnt caught in an explosion primes with a short random fuse
+static void tnt_was_exploded(level & lv, block_pos pos) {
+    vec3     w      = entity_block_to_world(pos);
+    entity * primed = primed_tnt_new(lv, { w.x + 0.5, w.y, w.z + 0.5 });
+    primed->fuse    = rng_next_int(lv.random, primed->fuse / 4) + primed->fuse / 8;
+    level_add_fresh_entity(lv, primed);
+}
+
+static bool tnt_drop_from_explosion() { return false; }
 
 // SoulSandBlock: keeps a bubble column above it, which only water can hold. MagmaBlock has the same three methods.
 
@@ -232,7 +244,11 @@ const std::vector<block_hooks> terrain_hooks = {
       .tick = scaffolding_tick,
       .can_survive = scaffolding_can_survive },
     { .vclass = VCLASS_LEAVES_BLOCK, .update_shape = leaves_update_shape, .tick = leaves_tick },
-    { .vclass = VCLASS_TNT_BLOCK, .neighbor_changed = tnt_neighbor_changed, .on_place = tnt_on_place },
+    { .vclass = VCLASS_TNT_BLOCK,
+      .neighbor_changed = tnt_neighbor_changed,
+      .on_place = tnt_on_place,
+      .was_exploded = tnt_was_exploded,
+      .drop_from_explosion = tnt_drop_from_explosion },
     { .vclass = VCLASS_SOUL_SAND_BLOCK,
       .update_shape = soul_sand_update_shape,
       .on_place = soul_sand_on_place,
