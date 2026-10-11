@@ -191,12 +191,14 @@ static const uint8_t * block_state_signals(state_id st) {
 }
 
 int32_t block_get_signal(level & lv, state_id st, block_pos pos, direction dir) {
+    if (!state_has(st, STATE_FLAG_SIGNAL_HOOKS)) return 0;
     if (const uint8_t * s = block_state_signals(st)) return s[dir];
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_GET_SIGNAL)) return b->get_signal(lv, st, pos, dir);
     return 0;
 }
 
 int32_t block_get_direct_signal(level & lv, state_id st, block_pos pos, direction dir) {
+    if (!state_has(st, STATE_FLAG_SIGNAL_HOOKS)) return 0;
     if (const uint8_t * s = block_state_signals(st)) return s[6 + dir];
     if (const block_hooks * b = block_hooks_for(lv, st, HOOK_GET_DIRECT_SIGNAL)) {
         return b->get_direct_signal(lv, st, pos, dir);
