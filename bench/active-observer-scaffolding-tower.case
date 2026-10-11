@@ -1,0 +1,97 @@
+# bench: active/observer-scaffolding-tower.case run for 2000 ticks
+# Two layers of a 4-module observer/piston tower (scaffolding in each module), the back layer one block higher; the
+# end observers of the layers watch each other in a zigzag, so a pulse climbs both layers.
+# A piston pushes an observer face to face with the bottom observer: a pushed-in observer clock (4 gt). The bottom
+# observer powers a note block that the back layer's bottom observer watches.
+tmc-case 2
+size 5 11 6
+key
+  p = minecraft:piston[facing=up]
+  s = minecraft:sticky_piston[facing=west]
+  e = minecraft:observer[facing=east]
+  d = minecraft:observer[facing=down]
+  n = minecraft:observer[facing=north]
+  o = minecraft:observer[facing=south]
+  b = minecraft:note_block[instrument=harp,note=0,powered=false]
+  c = minecraft:piston[facing=north]
+  f = minecraft:scaffolding[bottom=false,distance=0,waterlogged=false]
+layer 0
+  . . . . b
+  . p s e o
+  . . . . .
+  . . . . n
+  . . . . c
+  . . . . .
+layer 1
+  . p s e d
+  . e f f n
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+layer 2
+  . e f f o
+  . p s e d
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+layer 3
+  . p s e d
+  . e f f n
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+layer 4
+  . e f f o
+  . p s e d
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+layer 5
+  . p s e d
+  . e f f n
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+layer 6
+  . e f f o
+  . p s e d
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+layer 7
+  . p s e d
+  . e f f n
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+layer 8
+  . e f f o
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+layer 9
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+layer 10
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+  . . . . .
+inputs
+  @1 place 4 0 5 minecraft:redstone_block
+run 2000
