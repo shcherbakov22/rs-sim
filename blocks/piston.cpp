@@ -44,19 +44,11 @@ static bool piston_base_is_pushable(state_id  st,
                                     direction connection_direction) {
     if (pos.y < LEVEL_Y_MIN || pos.y > LEVEL_Y_MAX) return false;
     if (state_has(st, STATE_FLAG_AIR)) return true;
-    if (state_is(st, BLOCK_OBSIDIAN) || state_is(st, BLOCK_CRYING_OBSIDIAN) || state_is(st, BLOCK_RESPAWN_ANCHOR) ||
-        state_is(st, BLOCK_REINFORCED_DEEPSLATE)) {
-        return false;
-    }
     if ((dir == DIRECTION_DOWN && pos.y == LEVEL_Y_MIN) || (dir == DIRECTION_UP && pos.y == LEVEL_Y_MAX)) return false;
-    if (!piston_base_is_piston(st)) {
-        if (state_has(st, STATE_FLAG_UNBREAKABLE) || state_has(st, STATE_FLAG_PUSH_BLOCK)) return false;
-        if (state_has(st, STATE_FLAG_PUSH_DESTROY)) return allow_destroyable;
-        if (state_has(st, STATE_FLAG_PUSH_PUSH_ONLY)) return dir == connection_direction;
-    } else if (state_get(st, PROP_EXTENDED)) {
-        return false;
-    }
-    return !state_has(st, STATE_FLAG_BLOCK_ENTITY);
+    // the rest reads only the state; the dump answers when it is never pushable
+    if (state_has(st, STATE_FLAG_PISTON_NEVER)) return false;
+    if (state_has(st, STATE_FLAG_PUSH_DESTROY)) return allow_destroyable;
+    return !state_has(st, STATE_FLAG_PUSH_PUSH_ONLY) || dir == connection_direction;
 }
 
 // PistonStructureResolver: the blocks a piston pushes and the blocks it breaks
@@ -347,12 +339,6 @@ static block_entity * piston_base_new_moving_block_entity(level &   lv,
     return be;
 }
 
-// PushReaction.NORMAL
-static bool piston_base_push_reaction_is_normal(state_id st) {
-    return !state_has(st, STATE_FLAG_PUSH_DESTROY) && !state_has(st, STATE_FLAG_PUSH_BLOCK) &&
-           !state_has(st, STATE_FLAG_PUSH_IGNORE) && !state_has(st, STATE_FLAG_PUSH_PUSH_ONLY);
-}
-
 // removed blocks first, then moving pistons from the far end; the HashMap order decides which spots turn to air first
 static bool piston_base_move_blocks(level & lv, state_id piston, block_pos piston_pos, direction dir, bool extending) {
     block_pos arm_pos = pos_relative(piston_pos, dir);
@@ -462,7 +448,7 @@ static bool piston_base_trigger_event(level & lv, state_id st, block_pos pos, in
         piston_moving_block_entity_final_tick(lv, be);
     } else if (sticky && b0 == PISTON_TRIGGER_CONTRACT && !state_has(two, STATE_FLAG_AIR) &&
                piston_base_is_pushable(two, two_pos, direction_opposite(dir), false, dir) &&
-               (piston_base_push_reaction_is_normal(two) || piston_base_is_piston(two))) {
+               !state_has(two, STATE_FLAG_PISTON_UNPULLABLE)) {
         piston_base_move_blocks(lv, st, pos, dir, false);
     } else {
         level_remove_block(lv, pos_relative(pos, dir), false);
