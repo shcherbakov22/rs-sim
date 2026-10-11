@@ -61,7 +61,10 @@ struct redstone_torch_toggle {
 
 // One world (ServerLevel). Everything outside the stored sections is air.
 struct level {
-    std::unordered_map<int64_t, std::unique_ptr<level_section>> sections;
+    std::unordered_map<int64_t, std::unique_ptr<level_section>> sections;  // never removed
+    // the last section looked up (null: none there); lookups mostly stay in one section
+    mutable int64_t                                             last_section_key = INT64_MIN;
+    mutable level_section *                                     last_section     = nullptr;
 
     int64_t                  game_time      = 0;  // relative to the case placement; case data is relative too
     int64_t                  sub_tick_count = 0;

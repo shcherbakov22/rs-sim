@@ -42,16 +42,29 @@ static bool level_in_valid_bounds(block_pos pos) {
            pos.z < 30000000;
 }
 
+static level_section * level_find_section(const level & lv, block_pos pos) {
+    int64_t key = section_key(pos);
+    if (key != lv.last_section_key) {
+        auto it             = lv.sections.find(key);
+        lv.last_section_key = key;
+        lv.last_section     = it == lv.sections.end() ? nullptr : it->second.get();
+    }
+    return lv.last_section;
+}
+
 state_id level_get_state(const level & lv, block_pos pos) {
     if (level_outside_height(pos)) return block_default(BLOCK_VOID_AIR);
-    auto it = lv.sections.find(section_key(pos));
-    return it == lv.sections.end() ? STATE_AIR : it->second->states[section_index(pos)];
+    level_section * s = level_find_section(lv, pos);
+    return s == nullptr ? STATE_AIR : s->states[section_index(pos)];
 }
 
 // LevelChunkSection.setBlockState: returns the old state
 static state_id section_set(level & lv, block_pos pos, state_id st) {
-    std::unique_ptr<level_section> & s = lv.sections[section_key(pos)];
-    if (!s) s = std::make_unique<level_section>();
+    level_section * s = level_find_section(lv, pos);
+    if (s == nullptr) {
+        s               = (lv.sections[lv.last_section_key] = std::make_unique<level_section>()).get();
+        lv.last_section = s;
+    }
     state_id & cell = s->states[section_index(pos)];
     state_id   old  = cell;
     s->n_non_air += (state_has(old, STATE_FLAG_AIR) ? 0 : -1) + (state_has(st, STATE_FLAG_AIR) ? 0 : 1);
@@ -60,8 +73,8 @@ static state_id section_set(level & lv, block_pos pos, state_id st) {
 }
 
 static bool section_only_air(const level & lv, block_pos pos) {
-    auto it = lv.sections.find(section_key(pos));
-    return it == lv.sections.end() || it->second->n_non_air == 0;
+    level_section * s = level_find_section(lv, pos);
+    return s == nullptr || s->n_non_air == 0;
 }
 
 void level_set_state_raw(level & lv, block_pos pos, state_id st) {
