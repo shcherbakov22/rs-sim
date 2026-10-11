@@ -97,6 +97,14 @@ void level_unsupported(level & lv, const char * fmt, ...) __attribute__((format(
 
 state_id level_get_state(const level & lv, block_pos pos);
 
+struct level_section_ref {
+    int64_t               key;  // SectionPos.asLong of the relative position
+    const level_section * section;
+};
+
+// the sections with a block other than air, by key
+std::vector<level_section_ref> level_sections(const level & lv);
+
 // Writes the state only: no updates, no block entity changes (case placement).
 void level_set_state_raw(level & lv, block_pos pos, state_id st);
 

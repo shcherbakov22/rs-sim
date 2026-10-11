@@ -128,14 +128,11 @@ static void fingerprint_add(uint64_t & h, int64_t v) { h = (h ^ (uint64_t) v) * 
 static uint64_t level_fingerprint(const level & lv) {
     uint64_t h = 0xcbf29ce484222325ull;
     for (int64_t v : { lv.game_time, lv.sub_tick_count, lv.random.seed }) fingerprint_add(h, v);
-    std::vector<int64_t> keys;
-    for (const auto & [key, section] : lv.sections) keys.push_back(key);
-    std::sort(keys.begin(), keys.end());
-    for (int64_t key : keys) {
-        fingerprint_add(h, key);
-        for (state_id st : lv.sections.at(key)->states) fingerprint_add(h, st);
+    for (const level_section_ref & s : level_sections(lv)) {
+        fingerprint_add(h, s.key);
+        for (state_id st : s.section->states) fingerprint_add(h, st);
     }
-    keys.clear();
+    std::vector<int64_t> keys;
     for (const auto & [key, be] : lv.block_entities) keys.push_back(key);
     std::sort(keys.begin(), keys.end());
     for (int64_t key : keys) {

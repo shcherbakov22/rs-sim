@@ -79,6 +79,16 @@ static state_id section_set(level & lv, block_pos pos, state_id st) {
     return old;
 }
 
+std::vector<level_section_ref> level_sections(const level & lv) {
+    std::vector<level_section_ref> out;
+    for (const auto & [key, section] : lv.sections) {
+        if (section->n_non_air > 0) out.push_back({ key, section.get() });
+    }
+    std::sort(out.begin(), out.end(),
+              [](const level_section_ref & a, const level_section_ref & b) { return a.key < b.key; });
+    return out;
+}
+
 static bool section_only_air(const level & lv, block_pos pos) {
     level_section * s = level_find_section(lv, pos);
     return s == nullptr || s->n_non_air == 0;
