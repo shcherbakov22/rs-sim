@@ -3,13 +3,6 @@
 #include <algorithm>
 #include <cmath>
 
-shape_box block_box(double x1, double y1, double z1, double x2, double y2, double z2) {
-    return {
-        { x1 / 16, y1 / 16, z1 / 16 },
-        { x2 / 16, y2 / 16, z2 / 16 }
-    };
-}
-
 shape shape_block() {
     return { { { { 0.0, 0.0, 0.0 }, { 1.0, 1.0, 1.0 } } } };
 }
@@ -74,13 +67,15 @@ bool shape_face_is_full(const shape_face & f) {
     return !f.outside;
 }
 
-bool shape_face_covers(const shape_face & f, const shape_box & b) {
+bool shape_face_covers(const shape_face & f, uint16_t shape_id) {
     int32_t u;
     int32_t v;
     shape_face_axes(f.axis, u, v);
-    uint32_t mask = shape_face_mask(b.min[v], b.max[v]);
-    for (int32_t i = 0; i < 32; i++) {
-        if ((shape_face_mask(b.min[u], b.max[u]) >> i & 1) && (f.rows[i] & mask) != mask) return false;
+    for (const shape_box & b : shape_from_table(shape_id).boxes) {
+        uint32_t mask = shape_face_mask(b.min[v], b.max[v]);
+        for (int32_t i = 0; i < 32; i++) {
+            if ((shape_face_mask(b.min[u], b.max[u]) >> i & 1) && (f.rows[i] & mask) != mask) return false;
+        }
     }
     return true;
 }

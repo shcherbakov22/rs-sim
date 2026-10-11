@@ -91,8 +91,6 @@ struct shape_def {
     int32_t n_boxes;
 };
 
-constexpr uint16_t SHAPE_NONE = 0xFFFF;
-
 // generated in gen/blocks.cpp
 extern const prop_def     prop_defs[];
 extern const block_prop   block_props[];

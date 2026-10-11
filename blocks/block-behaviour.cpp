@@ -94,23 +94,16 @@ static const block_hooks * block_hooks_for(level & lv, state_id st, hook h) {
     return b;
 }
 
-// the face covers the support shape of the type: CENTER is Block.column(2.0, 0.0, 10.0), RIGID is a full block
-// without Block.column(12.0, 0.0, 16.0)
+// the face covers the support shape of the type
 bool support_type_is_supporting(const shape & support_shape, direction dir, support_type type) {
-    static const shape_box center  = block_box(7, 0, 7, 9, 10, 9);
-    static const shape_box rigid[] = { block_box(0, 0, 0, 2, 16, 16), block_box(14, 0, 0, 16, 16, 16),
-                                       block_box(2, 0, 0, 14, 16, 2), block_box(2, 0, 14, 14, 16, 16) };
-    shape_face             face    = shape_get_face(support_shape, dir);
+    shape_face face = shape_get_face(support_shape, dir);
     switch (type) {
         case SUPPORT_TYPE_FULL:
             return shape_face_is_full(face);
         case SUPPORT_TYPE_CENTER:
-            return shape_face_covers(face, center);
+            return shape_face_covers(face, SHAPE_SUPPORT_TYPE_CENTER_SUPPORT_SHAPE);
         case SUPPORT_TYPE_RIGID:
-            for (const shape_box & b : rigid) {
-                if (!shape_face_covers(face, b)) return false;
-            }
-            return true;
+            return shape_face_covers(face, SHAPE_SUPPORT_TYPE_RIGID_SUPPORT_SHAPE);
     }
     TMC_ASSERT(false);
     return false;

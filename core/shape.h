@@ -20,9 +20,6 @@ struct shape_face {
     bool     outside;
 };
 
-// Block.box, in 1/16 block units
-shape_box block_box(double x1, double y1, double z1, double x2, double y2, double z2);
-
 shape shape_block();
 shape shape_from_table(uint16_t id);
 // BlockBehaviour.Cache.collisionShape of a state without a dynamic shape
@@ -32,5 +29,5 @@ shape shape_move(shape s, double dx, double dy, double dz);
 shape_face shape_get_face(const shape & s, direction dir);
 // Block.isFaceFull
 bool       shape_face_is_full(const shape_face & f);
-// the box lies inside the face shape, which spans the whole block along its axis (WallBlock.isCovered)
-bool       shape_face_covers(const shape_face & f, const shape_box & b);
+// the shape lies inside the face shape, which spans the whole block along its axis (WallBlock.isCovered)
+bool       shape_face_covers(const shape_face & f, uint16_t shape_id);

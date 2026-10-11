@@ -3725,3 +3725,11 @@ enum state_flag : uint64_t {
     STATE_FLAG_STURDY_RIGID_WEST = 1ull << 53,
     STATE_FLAG_STURDY_RIGID_EAST = 1ull << 54,
 };
+// shape ids; SHAPE_NONE is a dynamic shape, or no shape
+constexpr uint16_t SHAPE_NONE = 0xFFFF;
+// VoxelShape fields as shape ids; a map by direction has one id per direction
+constexpr uint16_t SHAPE_WALL_BLOCK_TEST_SHAPE_POST = 116;
+inline constexpr uint16_t SHAPE_WALL_BLOCK_TEST_SHAPES_WALL[6] = { SHAPE_NONE, SHAPE_NONE, 112, 114, 115, 108 };
+constexpr uint16_t SHAPE_SUPPORT_TYPE_CENTER_SUPPORT_SHAPE = 325;
+constexpr uint16_t SHAPE_SUPPORT_TYPE_RIGID_SUPPORT_SHAPE = 326;
+

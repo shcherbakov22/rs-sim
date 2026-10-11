@@ -52,20 +52,6 @@ static state_id iron_bars_update_shape(level &  lv,
 
 // WallBlock: sides connect like bars; the block above decides tall sides and the post
 
-// TEST_SHAPES_WALL: a 2 wide strip from the center to the side, full height
-static shape_box wall_test_shape_wall(direction dir) {
-    switch (dir) {
-        case DIRECTION_NORTH:
-            return block_box(7, 0, 0, 9, 16, 9);
-        case DIRECTION_EAST:
-            return block_box(7, 0, 7, 16, 16, 9);
-        case DIRECTION_SOUTH:
-            return block_box(7, 0, 7, 9, 16, 16);
-        default:
-            return block_box(0, 0, 7, 9, 16, 9);
-    }
-}
-
 static bool wall_should_raise_post(state_id st, state_id top, const shape_face & above_shape) {
     if (block_instanceof(state_block(top), VCLASS_WALL_BLOCK) && state_get(top, PROP_UP)) return true;
     int32_t north      = state_get(st, PROP_NORTH_WALL);
@@ -83,7 +69,7 @@ static bool wall_should_raise_post(state_id st, state_id top, const shape_face &
         (north == WALL_SIDE_TALL && south == WALL_SIDE_TALL) || (east == WALL_SIDE_TALL && west == WALL_SIDE_TALL);
     if (has_high_wall) return false;
     return state_has(top, STATE_FLAG_TAG_WALL_POST_OVERRIDE) ||
-           shape_face_covers(above_shape, block_box(7, 0, 7, 9, 16, 9));
+           shape_face_covers(above_shape, SHAPE_WALL_BLOCK_TEST_SHAPE_POST);
 }
 
 // the private WallBlock.updateShape: connected[] is indexed by direction
@@ -96,7 +82,8 @@ static state_id wall_update_shape_from(level &    lv,
     for (direction dir : DIRECTION_HORIZONTAL) {
         int32_t side = WALL_SIDE_NONE;
         if (connected[dir]) {
-            side = shape_face_covers(above_shape, wall_test_shape_wall(dir)) ? WALL_SIDE_TALL : WALL_SIDE_LOW;
+            side =
+                shape_face_covers(above_shape, SHAPE_WALL_BLOCK_TEST_SHAPES_WALL[dir]) ? WALL_SIDE_TALL : WALL_SIDE_LOW;
         }
         st = state_set(st, WALL_PROPERTY_BY_DIRECTION[dir], side);
     }
