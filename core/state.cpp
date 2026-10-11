@@ -16,21 +16,6 @@ int32_t item_find(std::string_view name) {
     return -1;
 }
 
-int32_t state_block(state_id st) {
-    TMC_ASSERT(st < n_states);
-    int32_t lo = 0;
-    int32_t hi = n_block_defs - 1;
-    while (lo < hi) {
-        int32_t mid = (lo + hi + 1) / 2;
-        if (block_defs[mid].state_first <= st) {
-            lo = mid;
-        } else {
-            hi = mid - 1;
-        }
-    }
-    return lo;
-}
-
 bool block_instanceof(int32_t block, vclass cls) {
     for (int32_t c = block_defs[block].cls; c != VCLASS_NONE; c = vclass_super[c]) {
         if (c == cls) return true;

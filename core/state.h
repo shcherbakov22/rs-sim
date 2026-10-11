@@ -109,6 +109,7 @@ extern const int16_t iclass_hooks[]
                                  [ITEM_HOOK_COUNT];  // class that overrides each item hook, ICLASS_NONE for the default
 extern const char * const iclass_names[];
 extern const char * const item_hook_names[];
+extern const uint16_t     state_blocks[];
 extern const uint64_t     state_flags[];
 extern const uint8_t      state_signals[][12];
 extern const shape_box    shape_boxes[];
@@ -131,7 +132,8 @@ constexpr state_id STATE_AIR = 0;
 
 int32_t block_find(std::string_view name);  // -1 if unknown
 int32_t item_find(std::string_view name);   // -1 if unknown
-int32_t state_block(state_id st);
+
+inline int32_t state_block(state_id st) { return state_blocks[st]; }
 
 inline state_id block_default(int32_t block) { return (state_id) block_defs[block].state_default; }
 
