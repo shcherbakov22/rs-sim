@@ -83,6 +83,11 @@ static void test_states() {
     CHECK(!block_instanceof(block_find("redstone_torch"), VCLASS_DIODE_BLOCK));
 }
 
+// block_hooks_for returns early for air
+static void test_air_hooks() {
+    for (int32_t h = 0; h < HOOK_COUNT; h++) CHECK(vclass_hooks[block_defs[BLOCK_AIR].cls][h] == VCLASS_NONE);
+}
+
 // expected order from java.util.HashMap in jshell, with world y = sim y + 64; 20 keys force a resize, and the keys order differently in 16 and 32 bins
 static void test_java_hash_map() {
     java_hash_map m;
@@ -122,6 +127,7 @@ static void test_shape_support() {
 int main() {
     test_rng();
     test_states();
+    test_air_hooks();
     test_java_hash_map();
     test_shape_support();
     if (n_fail > 0) {

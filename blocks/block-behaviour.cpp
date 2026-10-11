@@ -66,6 +66,8 @@ static bool block_hooks_has(const block_hooks & b, hook h) {
 // The hooks of the class that overrides h for st: null for vanilla's default, and for an override the sim lacks,
 // which stops the run.
 static const block_hooks * block_hooks_for(level & lv, state_id st, hook h) {
+    // AirBlock overrides none of the hooks (test-core checks), and many updates hit air
+    if (st == STATE_AIR) return nullptr;
     int16_t owner = hook_owner(st, h);
     if (owner == VCLASS_NONE) return nullptr;
     const block_hooks * b = block_hooks_of(owner);
