@@ -78,8 +78,13 @@ static state_id section_set(level & lv, block_pos pos, state_id st) {
     state_id & cell = s->states[section_index(pos)];
     state_id   old  = cell;
     s->n_non_air += (state_has(old, STATE_FLAG_AIR) ? 0 : -1) + (state_has(st, STATE_FLAG_AIR) ? 0 : 1);
+    s->version++;
     cell = st;
     return old;
+}
+
+const level_section * level_get_section(const level & lv, block_pos pos) {
+    return level_outside_height(pos) ? nullptr : level_find_section(lv, pos);
 }
 
 std::vector<level_section_ref> level_sections(const level & lv) {

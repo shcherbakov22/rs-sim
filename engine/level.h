@@ -59,6 +59,7 @@ constexpr int32_t LEVEL_NEAR_SECTIONS = 8;
 struct level_section {
     state_id states[16 * 16 * 16] = {};
     int32_t  n_non_air            = 0;
+    uint32_t version              = 0;  // grows with every write, so an unchanged version means unchanged states
 };
 
 struct block_event {
@@ -140,6 +141,9 @@ struct level_section_ref {
 
 // the sections with a block other than air, by key
 std::vector<level_section_ref> level_sections(const level & lv);
+
+// the section holding pos, null where nothing was ever set
+const level_section * level_get_section(const level & lv, block_pos pos);
 
 // Writes the state only: no updates, no block entity changes (case placement).
 void level_set_state_raw(level & lv, block_pos pos, state_id st);

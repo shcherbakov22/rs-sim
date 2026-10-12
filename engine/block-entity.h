@@ -7,17 +7,22 @@
 #include <vector>
 
 struct block_entity;
+struct level_section;
 
 // What a hopper read in an attempt that moved nothing and wrote no other container: states, and mod counts of block entities.
+// A state is known unchanged while the version of its section is.
 struct hopper_watch {
-    bool                 asleep = false;
-    uint64_t             block_entities_version;
-    int32_t              n_states;
-    block_pos            pos[5];
-    state_id             states[5];
-    int32_t              n_items;
-    const block_entity * be[5];
-    uint32_t             mod_count[5];
+    bool                  asleep = false;
+    uint64_t              block_entities_version;
+    state_id              own_state;
+    int32_t               n_states;
+    block_pos             pos[4];
+    state_id              states[4];
+    const level_section * sections[4];
+    uint32_t              versions[4];
+    int32_t               n_items;
+    const block_entity *  be[5];
+    uint32_t              mod_count[5];
 };
 
 // BlockEntity as a tagged struct: the fields after the common ones belong to one type.

@@ -278,46 +278,62 @@ static void hopper_block_entity_try_move_items(level & lv, block_pos pos, state_
 
 // Lithium's hopper sleeping: an attempt that moved nothing and wrote no other container repeats only after what it read changes.
 // That is the states at the hopper, in front and above (with a double chest's other half) and the containers there.
+static void hopper_watch_stamp(level & lv, hopper_watch & w, int32_t i) {
+    w.sections[i] = level_get_section(lv, w.pos[i]);
+    w.versions[i] = w.sections[i] != nullptr ? w.sections[i]->version : 0;
+}
+
+static void hopper_watch_add_state(level & lv, hopper_watch & w, block_pos pos, state_id st) {
+    w.pos[w.n_states]    = pos;
+    w.states[w.n_states] = st;
+    hopper_watch_stamp(lv, w, w.n_states++);
+}
+
+static void hopper_watch_add_items(hopper_watch & w, const block_entity * be) {
+    w.be[w.n_items]          = be;
+    w.mod_count[w.n_items++] = be->mod_count;
+}
+
 static bool hopper_watch_add(level & lv, hopper_watch & w, block_pos pos) {
     state_id st = level_get_state(lv, pos);
     // a moving piston's shape and a composter's containers change without a state or item write
     if (state_is(st, BLOCK_MOVING_PISTON) || block_instanceof(state_block(st), VCLASS_COMPOSTER_BLOCK)) return false;
-    w.pos[w.n_states]      = pos;
-    w.states[w.n_states++] = st;
+    hopper_watch_add_state(lv, w, pos, st);
     if (state_has_prop(st, PROP_CHEST_TYPE) && state_get(st, PROP_CHEST_TYPE) != CHEST_TYPE_SINGLE) {
-        block_pos other        = pos_relative(pos, chest_get_connected_direction(st));
-        w.pos[w.n_states]      = other;
-        w.states[w.n_states++] = level_get_state(lv, other);
+        block_pos other = pos_relative(pos, chest_get_connected_direction(st));
+        hopper_watch_add_state(lv, w, other, level_get_state(lv, other));
     }
     container           c;
     composter_container composter;
     if (hopper_block_entity_get_block_container(lv, pos, c, composter)) {
-        for (const block_entity * be : { c.first, c.second }) {
-            if (be == nullptr) continue;
-            w.be[w.n_items]          = be;
-            w.mod_count[w.n_items++] = be->mod_count;
-        }
+        if (c.first != nullptr) hopper_watch_add_items(w, c.first);
+        if (c.second != nullptr) hopper_watch_add_items(w, c.second);
     }
     return true;
 }
 
 static void hopper_watch_fall_asleep(level & lv, block_pos pos, state_id st, block_entity * be) {
     hopper_watch & w = be->watch;
+    w.own_state      = st;
     w.n_states       = 0;
     w.n_items        = 0;
-    for (block_pos at : { pos, pos_relative(pos, state_facing(st)), pos_relative(pos, DIRECTION_UP) }) {
+    hopper_watch_add_items(w, be);
+    for (block_pos at : { pos_relative(pos, state_facing(st)), pos_relative(pos, DIRECTION_UP) }) {
         if (!hopper_watch_add(lv, w, at)) return;
     }
     w.block_entities_version = lv.block_entities_version;
     w.asleep                 = true;
 }
 
-static bool hopper_watch_unchanged(level & lv, const hopper_watch & w) {
-    if (!w.asleep || !lv.entity_sections.empty() || w.block_entities_version != lv.block_entities_version) {
+static bool hopper_watch_unchanged(level & lv, hopper_watch & w, state_id st) {
+    if (!w.asleep || st != w.own_state || !lv.entity_sections.empty() ||
+        w.block_entities_version != lv.block_entities_version) {
         return false;
     }
     for (int32_t i = 0; i < w.n_states; i++) {
+        if (w.sections[i] != nullptr && w.sections[i]->version == w.versions[i]) continue;
         if (level_get_state(lv, w.pos[i]) != w.states[i]) return false;
+        hopper_watch_stamp(lv, w, i);
     }
     for (int32_t i = 0; i < w.n_items; i++) {
         if (w.be[i]->mod_count != w.mod_count[i]) return false;
@@ -330,7 +346,7 @@ void hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st,
     be->ticked_game_time = lv.game_time;
     if (hopper_block_entity_is_on_cooldown(be)) return;
     be->cooldown_time = 0;
-    if (hopper_watch_unchanged(lv, be->watch)) return;
+    if (hopper_watch_unchanged(lv, be->watch, st)) return;
     int64_t  seed     = lv.random.seed;
     uint64_t versions = lv.block_entities_version;
     uint64_t writes   = lv.item_writes;
