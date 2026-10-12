@@ -50,6 +50,12 @@ struct block_entity {
     std::vector<item_stack> items;
     uint32_t                mod_count = 0;
 
+    // the comparator signal of the container this block entity starts, at these mod counts; -1 before the first
+    int32_t              signal = -1;
+    uint32_t             signal_mod_count;
+    const block_entity * signal_second;
+    uint32_t             signal_second_mod_count;
+
     // HopperBlockEntity; watch is Lithium's hopper sleeping
     int32_t      cooldown_time    = -1;
     int64_t      ticked_game_time = 0;

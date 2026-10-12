@@ -140,10 +140,15 @@ void container_items_changed(level & lv, const container & c, int32_t slot) {
     if (c.composter == nullptr && c.vehicle == nullptr) block_entity_items_changed(lv, container_half(c, slot));
 }
 
-// AbstractContainerMenu.getRedstoneSignalFromContainer
+// AbstractContainerMenu.getRedstoneSignalFromContainer; the first block entity caches it until either half's items change
 int32_t container_get_redstone_signal(const container * c) {
     if (c == nullptr) return 0;
     TMC_ASSERT(c->composter == nullptr);
+    block_entity * be = c->first;
+    if (be != nullptr && be->signal >= 0 && be->signal_mod_count == be->mod_count && be->signal_second == c->second &&
+        (c->second == nullptr || be->signal_second_mod_count == c->second->mod_count)) {
+        return be->signal;
+    }
     float total_percent = 0.0f;
     for (int32_t slot = 0; slot < container_get_container_size(*c); slot++) {
         const item_stack & s = container_get_item(*c, slot);
@@ -151,7 +156,14 @@ int32_t container_get_redstone_signal(const container * c) {
     }
     total_percent /= (float) container_get_container_size(*c);
     // Mth.lerpDiscrete from 0 to 15
-    return (int32_t) std::floor(total_percent * 14.0f) + (total_percent > 0.0f ? 1 : 0);
+    int32_t signal = (int32_t) std::floor(total_percent * 14.0f) + (total_percent > 0.0f ? 1 : 0);
+    if (be != nullptr) {
+        be->signal                  = signal;
+        be->signal_mod_count        = be->mod_count;
+        be->signal_second           = c->second;
+        be->signal_second_mod_count = c->second != nullptr ? c->second->mod_count : 0;
+    }
+    return signal;
 }
 
 // AbstractContainerMenu.getRedstoneSignalFromBlockEntity, the getAnalogOutputSignal of most containers
