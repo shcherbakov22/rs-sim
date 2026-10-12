@@ -466,7 +466,7 @@ static int32_t level_get_direct_signal(level & lv, block_pos pos, direction dir)
     return block_get_direct_signal(lv, level_get_state(lv, pos), pos, dir);
 }
 
-static int32_t level_get_direct_signal_to(level & lv, block_pos pos) {
+int32_t level_get_direct_signal_to(level & lv, block_pos pos) {
     int32_t result = 0;
     for (int32_t d = 0; d < 6 && result < 15; d++) {
         direction dir = (direction) d;

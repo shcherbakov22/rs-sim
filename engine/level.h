@@ -191,6 +191,7 @@ void level_block_event(level & lv, block_pos pos, int32_t block, int32_t param_a
 
 // SignalGetter
 int32_t level_get_control_input_signal(level & lv, block_pos pos, direction dir, bool only_diodes);
+int32_t level_get_direct_signal_to(level & lv, block_pos pos);
 bool    level_has_signal(level & lv, block_pos pos, direction dir);
 int32_t level_get_signal(level & lv, block_pos pos, direction dir);
 bool    level_has_neighbor_signal(level & lv, block_pos pos);

@@ -226,7 +226,7 @@ static void case_apply_inputs(level & lv, const case_file & f, int32_t gap) {
     }
 }
 
-bool case_run(const case_file & f, level & lv, trace & tr, std::string & err) {
+void case_load(const case_file & f, level & lv, trace & tr) {
     case_place(lv, f);
 
     tr.box_min   = { -CASE_SURROUND, -CASE_SURROUND, -CASE_SURROUND };
@@ -237,7 +237,10 @@ bool case_run(const case_file & f, level & lv, trace & tr, std::string & err) {
     lv.loaded_chunk_max_z = (LEVEL_ORIGIN.z + f.size.z + CASE_CLEARED - 1) >> 4;
     lv.tr        = tr.record ? &tr : nullptr;
     lv.random.tr = lv.tr;
+}
 
+bool case_run(const case_file & f, level & lv, trace & tr, std::string & err) {
+    case_load(f, lv, tr);
     case_apply_inputs(lv, f, 0);
     // a boundary ends the run at the end of the gap where it happened
     int32_t gap = 0;
