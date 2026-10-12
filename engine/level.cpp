@@ -65,7 +65,12 @@ static state_id section_get_state(const level_section * s, block_pos pos) {
     return s == nullptr || s->n_non_air == 0 ? STATE_AIR : s->states[section_index(pos)];
 }
 
+// the near sections lie within the height, so only the far ones need its check
+static_assert(LEVEL_NEAR_SECTIONS / 2 * 16 <= -LEVEL_Y_MIN && LEVEL_NEAR_SECTIONS / 2 * 16 <= LEVEL_Y_MAX + 1);
+
 state_id level_get_state(const level & lv, block_pos pos) {
+    int32_t near = level_near_index(pos);
+    if (near >= 0) return section_get_state(lv.near_sections[near], pos);
     if (level_outside_height(pos)) return block_default(BLOCK_VOID_AIR);
     return section_get_state(level_find_section(lv, pos), pos);
 }
