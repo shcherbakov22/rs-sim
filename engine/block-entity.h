@@ -30,6 +30,8 @@ struct block_entity {
     block_entity_type type;
     block_pos         pos;
     state_id          state;
+    // the section at pos once it exists; sections are never removed
+    const level_section * section = nullptr;
 
     // the last state the ticker found valid; BlockEntityType.isValid reads only the state
     int32_t valid_state = -1;

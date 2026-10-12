@@ -61,10 +61,13 @@ static level_section * level_find_section(const level & lv, block_pos pos) {
 }
 
 // LevelChunk.getBlockState: a section of only air reads as air, though it may still hold cave or void air
+static state_id section_get_state(const level_section * s, block_pos pos) {
+    return s == nullptr || s->n_non_air == 0 ? STATE_AIR : s->states[section_index(pos)];
+}
+
 state_id level_get_state(const level & lv, block_pos pos) {
     if (level_outside_height(pos)) return block_default(BLOCK_VOID_AIR);
-    level_section * s = level_find_section(lv, pos);
-    return s == nullptr || s->n_non_air == 0 ? STATE_AIR : s->states[section_index(pos)];
+    return section_get_state(level_find_section(lv, pos), pos);
 }
 
 // LevelChunkSection.setBlockState
@@ -562,8 +565,9 @@ static void level_tick_block_entities(level & lv) {
             trace_add(lv.tr, "be %d %d %d %s", pos.x, pos.y, pos.z, block_entity_type_names[be->type]);
         }
         trace_enter(lv.tr);
-        // LevelChunk.BoundTickingBlockEntity.tick
-        state_id st = level_get_state(lv, pos);
+        // LevelChunk.BoundTickingBlockEntity.tick reads the state from its own chunk
+        if (be->section == nullptr) be->section = level_find_section(lv, pos);
+        state_id st = section_get_state(be->section, pos);
         if (st == be->valid_state || block_entity_type_is_valid(be->type, st)) {
             be->valid_state = st;
             if (be->type == BLOCK_ENTITY_TYPE_HOPPER) {
