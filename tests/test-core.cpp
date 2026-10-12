@@ -84,6 +84,25 @@ static void test_states() {
     CHECK(!block_instanceof(block_find("redstone_torch"), VCLASS_DIODE_BLOCK));
 }
 
+// rotate turns clockwise seen from above (north -> east); mirror flips x (east <-> west)
+static void test_rotate_mirror() {
+    std::string err;
+    state_id    st;
+    CHECK(state_parse("repeater[facing=north,delay=2]", st, err));
+    CHECK(state_to_string(state_rotations[st]) == "repeater[delay=2,facing=east,locked=false,powered=false]");
+    CHECK(state_to_string(state_mirrors[state_rotations[st]]) ==
+          "repeater[delay=2,facing=west,locked=false,powered=false]");
+    CHECK(state_parse("redstone_wire[north=side,east=up]", st, err));
+    CHECK(state_to_string(state_rotations[st]) == "redstone_wire[east=side,north=none,power=0,south=up,west=none]");
+    CHECK(state_to_string(state_mirrors[st]) == "redstone_wire[east=none,north=side,power=0,south=none,west=up]");
+    CHECK(state_rotations[STATE_AIR] == STATE_AIR);
+    for (int32_t s = 0; s < n_states; s++) {
+        state_id r = (state_id) s;
+        for (int32_t k = 0; k < 4; k++) r = state_rotations[r];
+        CHECK(r == s && state_mirrors[state_mirrors[s]] == s);
+    }
+}
+
 // block_hooks_for returns early for air
 static void test_air_hooks() {
     for (int32_t h = 0; h < HOOK_COUNT; h++) CHECK(vclass_hooks[block_defs[BLOCK_AIR].cls][h] == VCLASS_NONE);
@@ -128,6 +147,7 @@ static void test_shape_support() {
 int main() {
     test_rng();
     test_states();
+    test_rotate_mirror();
     test_air_hooks();
     test_java_hash_map();
     test_shape_support();

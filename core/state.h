@@ -179,6 +179,8 @@ extern const int8_t          state_facings[];
 extern const uint64_t        state_flags[];
 extern const uint32_t        state_sturdy[];  // isFaceSturdy bits at support_type * 6 + direction
 extern const uint8_t         state_signals[][12];
+extern const uint16_t        state_rotations[];  // BlockState.rotate(CLOCKWISE_90)
+extern const uint16_t        state_mirrors[];    // BlockState.mirror(FRONT_BACK): x flips
 extern const aabb            shape_boxes[];
 extern const shape_def       shape_defs[];
 extern const voxel_def       voxel_defs[];  // by shape id
