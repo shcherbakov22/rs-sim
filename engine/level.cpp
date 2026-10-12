@@ -552,7 +552,8 @@ static void level_tick_block_entities(level & lv) {
         trace_enter(lv.tr);
         // LevelChunk.BoundTickingBlockEntity.tick
         state_id st = level_get_state(lv, pos);
-        if (block_entity_type_is_valid(be->type, st)) {
+        if (st == be->valid_state || block_entity_type_is_valid(be->type, st)) {
+            be->valid_state = st;
             if (be->type == BLOCK_ENTITY_TYPE_HOPPER) {
                 hopper_block_entity_push_items_tick(lv, pos, st, be);
             } else if (be->type == BLOCK_ENTITY_TYPE_PISTON) {

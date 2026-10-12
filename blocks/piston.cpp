@@ -388,8 +388,11 @@ void piston_moving_block_entity_tick(level & lv, block_entity * be) {
     be->last_ticked = lv.game_time;
     be->progress_o  = be->progress;
     if (be->progress_o < 1.0f) {
-        piston_moving_block_entity_move_collided_entities(lv, be->pos, be->progress + 0.5f, be);
-        piston_moving_block_entity_move_stuck_entities(lv, be->pos, be->progress + 0.5f, be);
+        // the moves only reach entities; without any, the shapes are not worth building
+        if (!lv.entity_sections.empty()) {
+            piston_moving_block_entity_move_collided_entities(lv, be->pos, be->progress + 0.5f, be);
+            piston_moving_block_entity_move_stuck_entities(lv, be->pos, be->progress + 0.5f, be);
+        }
         be->progress = std::min(be->progress + 0.5f, 1.0f);
         return;
     }

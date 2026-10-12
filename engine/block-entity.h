@@ -12,6 +12,9 @@ struct block_entity {
     block_pos         pos;
     state_id          state;
 
+    // the last state the ticker found valid; BlockEntityType.isValid reads only the state
+    int32_t valid_state = -1;
+
     // PistonMovingBlockEntity
     state_id  moved_state      = STATE_AIR;
     direction dir              = DIRECTION_DOWN;
