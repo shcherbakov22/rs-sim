@@ -56,13 +56,10 @@ void crafter_block_entity_server_tick(level & lv, block_pos pos, state_id st, bl
 
 // JukeboxBlock, JukeboxBlockEntity, JukeboxSongPlayer
 bool jukebox_song_has_finished(int32_t record, int64_t ticks);
-void jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack s);
 void jukebox_block_entity_pop_out_the_item(level & lv, block_entity * be);
 void jukebox_block_entity_tick(level & lv, block_entity * be);
 
 // ChiseledBookShelfBlock, ChiseledBookShelfBlockEntity
-item_stack chiseled_book_shelf_block_entity_remove_item(level & lv, block_entity * be, int32_t slot);
-void       chiseled_book_shelf_block_entity_set_item(level & lv, block_entity * be, int32_t slot, item_stack s);
 bool       chiseled_book_shelf_block_entity_can_place_item(const block_entity * be, int32_t slot, const item_stack & s);
 bool       chiseled_book_shelf_block_entity_can_take_item(const container & into, const item_stack & s);
 
@@ -83,13 +80,11 @@ int32_t base_rail_get_shape(state_id st);
 
 // ComposterBlock
 void    composter_get_container(state_id st, block_pos pos, composter_container & out);
-int32_t composter_container_get_container_size(const composter_container & c);
 int32_t composter_container_get_slots_for_face(const composter_container & c, direction face);
 bool    composter_container_can_place_item_through_face(const composter_container & c, const item_stack & s,
                                                         const direction * face);
 bool    composter_container_can_take_item_through_face(const composter_container & c, const item_stack & s,
                                                        direction face);
-void    composter_container_set_changed(level & lv, composter_container & c);
 
 // ChestBlock
 bool chest_get_container(level & lv, state_id st, block_pos pos, bool ignore_being_blocked, container & out);

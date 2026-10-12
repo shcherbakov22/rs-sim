@@ -442,7 +442,7 @@ void level_block_event(level & lv, block_pos pos, int32_t block, int32_t param_a
     if (!dup) lv.block_events.push_back(e);
 }
 
-int32_t level_get_direct_signal(level & lv, block_pos pos, direction dir) {
+static int32_t level_get_direct_signal(level & lv, block_pos pos, direction dir) {
     return block_get_direct_signal(lv, level_get_state(lv, pos), pos, dir);
 }
 

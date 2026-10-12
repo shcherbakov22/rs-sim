@@ -181,7 +181,6 @@ void level_schedule_fluid_tick(level & lv, block_pos pos, int32_t fluid, int32_t
 void level_block_event(level & lv, block_pos pos, int32_t block, int32_t param_a, int32_t param_b);
 
 // SignalGetter
-int32_t level_get_direct_signal(level & lv, block_pos pos, direction dir);
 int32_t level_get_control_input_signal(level & lv, block_pos pos, direction dir, bool only_diodes);
 bool    level_has_signal(level & lv, block_pos pos, direction dir);
 int32_t level_get_signal(level & lv, block_pos pos, direction dir);

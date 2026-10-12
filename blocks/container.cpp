@@ -8,6 +8,12 @@
 #include <algorithm>
 #include <cmath>
 
+static void       jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack s);
+static item_stack chiseled_book_shelf_block_entity_remove_item(level & lv, block_entity * be, int32_t slot);
+static void       chiseled_book_shelf_block_entity_set_item(level & lv, block_entity * be, int32_t slot, item_stack s);
+static int32_t    composter_container_get_container_size(const composter_container & c);
+static void       composter_container_set_changed(level & lv, composter_container & c);
+
 // Container: block entities (HopperBlockEntity overrides, CompoundContainer) and SimpleContainer for the composter.
 // ContainerEntity keeps the defaults, and its setChanged does nothing.
 
@@ -314,7 +320,7 @@ static void jukebox_song_player_stop(level & lv, block_entity * be) {
 bool jukebox_song_has_finished(int32_t record, int64_t ticks) { return ticks >= item_defs[record].song_ticks + 20; }
 
 // JukeboxBlockEntity.setTheItem; notifyItemChangedInJukebox only acts while the level holds the cached state
-void jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack s) {
+static void jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack s) {
     be->items[0]  = s;
     bool inserted = !item_stack_is_empty(s);
     if (level_get_state(lv, be->pos) == be->state) {
@@ -381,7 +387,7 @@ static void chiseled_book_shelf_block_entity_update_state(level & lv, block_enti
 }
 
 // ChiseledBookShelfBlockEntity.removeItem takes the whole slot and skips setChanged
-item_stack chiseled_book_shelf_block_entity_remove_item(level & lv, block_entity * be, int32_t slot) {
+static item_stack chiseled_book_shelf_block_entity_remove_item(level & lv, block_entity * be, int32_t slot) {
     item_stack retrieved = be->items[slot];
     be->items[slot]      = item_stack();
     if (!item_stack_is_empty(retrieved)) chiseled_book_shelf_block_entity_update_state(lv, be, slot);
@@ -389,7 +395,7 @@ item_stack chiseled_book_shelf_block_entity_remove_item(level & lv, block_entity
 }
 
 // ChiseledBookShelfBlockEntity.setItem drops items outside BOOKSHELF_BOOKS without a word
-void chiseled_book_shelf_block_entity_set_item(level & lv, block_entity * be, int32_t slot, item_stack s) {
+static void chiseled_book_shelf_block_entity_set_item(level & lv, block_entity * be, int32_t slot, item_stack s) {
     if (item_defs[item_stack_get_item(s)].tags & ITEM_TAG_BOOKSHELF_BOOKS) {
         be->items[slot] = s;
         chiseled_book_shelf_block_entity_update_state(lv, be, slot);
@@ -576,7 +582,7 @@ void composter_get_container(state_id st, block_pos pos, composter_container & o
     };
 }
 
-int32_t composter_container_get_container_size(const composter_container & c) {
+static int32_t composter_container_get_container_size(const composter_container & c) {
     return state_get(c.state, PROP_LEVEL_COMPOSTER) == 7 ? 0 : 1;
 }
 
@@ -599,7 +605,7 @@ bool composter_container_can_take_item_through_face(const composter_container & 
 }
 
 // the input composts what it holds; the output empties the composter each time, from the state it was made with
-void composter_container_set_changed(level & lv, composter_container & c) {
+static void composter_container_set_changed(level & lv, composter_container & c) {
     int32_t level_value = state_get(c.state, PROP_LEVEL_COMPOSTER);
     if (level_value == 8) {
         level_set_block(lv, c.pos, state_set(c.state, PROP_LEVEL_COMPOSTER, 0), UPDATE_FLAG_ALL);
