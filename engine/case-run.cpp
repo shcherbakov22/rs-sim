@@ -65,7 +65,10 @@ static void case_load_item(level & lv, const case_item & it) {
         // getDamageValue clamps the stored value
         s.damage = std::clamp(it.damage, 0, item_defs[it.item].max_damage);
     }
-    if (it.slot >= 0 && it.slot < (int32_t) be->items.size()) be->items[it.slot] = s;
+    if (it.slot >= 0 && it.slot < (int32_t) be->items.size()) {
+        be->items[it.slot] = s;
+        block_entity_items_changed(lv, be);
+    }
 }
 
 // BlockEntity.loadWithComponents for one field

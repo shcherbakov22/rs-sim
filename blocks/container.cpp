@@ -90,7 +90,10 @@ item_stack container_remove_item(level & lv, const container & c, int32_t slot, 
     item_stack & stack  = be->items[slot];
     item_stack   result = !item_stack_is_empty(stack) && count > 0 ? item_stack_split(stack, count) : item_stack();
     bool         quiet  = be->type == BLOCK_ENTITY_TYPE_HOPPER || be->type == BLOCK_ENTITY_TYPE_DECORATED_POT;
-    if (!quiet && !item_stack_is_empty(result)) block_entity_set_changed(lv, be->pos, be->state);
+    if (!item_stack_is_empty(result)) {
+        block_entity_items_changed(lv, be);
+        if (!quiet) block_entity_set_changed(lv, be->pos, be->state);
+    }
     return result;
 }
 
@@ -116,6 +119,7 @@ void container_set_item(level & lv, const container & c, int32_t slot, item_stac
         return;
     }
     be->items[slot] = s;
+    block_entity_items_changed(lv, be);
     // ContainerSingleItem.setItem does not limit the stack either
     if (be->type == BLOCK_ENTITY_TYPE_DECORATED_POT) return;
     item_stack_limit_size(be->items[slot], container_get_max_stack_size(s));
@@ -130,6 +134,10 @@ void container_set_changed(level & lv, const container & c) {
     }
     block_entity_set_changed(lv, c.first->pos, c.first->state);
     if (c.second != nullptr) block_entity_set_changed(lv, c.second->pos, c.second->state);
+}
+
+void container_items_changed(level & lv, const container & c, int32_t slot) {
+    if (c.composter == nullptr && c.vehicle == nullptr) block_entity_items_changed(lv, container_half(c, slot));
 }
 
 // AbstractContainerMenu.getRedstoneSignalFromContainer
@@ -203,7 +211,7 @@ bool base_entity_block_trigger_event(level & lv, state_id, block_pos pos, int32_
 
 static chest_type chest_get_type(state_id st) { return (chest_type) state_get(st, PROP_CHEST_TYPE); }
 
-static direction chest_get_connected_direction(state_id st) {
+direction chest_get_connected_direction(state_id st) {
     direction facing = state_facing(st);
     return chest_get_type(st) == CHEST_TYPE_LEFT ? direction_clockwise(facing) : direction_counter_clockwise(facing);
 }
@@ -322,6 +330,7 @@ bool jukebox_song_has_finished(int32_t record, int64_t ticks) { return ticks >= 
 // JukeboxBlockEntity.setTheItem; notifyItemChangedInJukebox only acts while the level holds the cached state
 static void jukebox_block_entity_set_the_item(level & lv, block_entity * be, item_stack s) {
     be->items[0]  = s;
+    block_entity_items_changed(lv, be);
     bool inserted = !item_stack_is_empty(s);
     if (level_get_state(lv, be->pos) == be->state) {
         level_set_block(lv, be->pos, state_set(be->state, PROP_HAS_RECORD, inserted), UPDATE_FLAG_CLIENTS);
@@ -390,6 +399,7 @@ static void chiseled_book_shelf_block_entity_update_state(level & lv, block_enti
 static item_stack chiseled_book_shelf_block_entity_remove_item(level & lv, block_entity * be, int32_t slot) {
     item_stack retrieved = be->items[slot];
     be->items[slot]      = item_stack();
+    block_entity_items_changed(lv, be);
     if (!item_stack_is_empty(retrieved)) chiseled_book_shelf_block_entity_update_state(lv, be, slot);
     return retrieved;
 }
@@ -398,6 +408,7 @@ static item_stack chiseled_book_shelf_block_entity_remove_item(level & lv, block
 static void chiseled_book_shelf_block_entity_set_item(level & lv, block_entity * be, int32_t slot, item_stack s) {
     if (item_defs[item_stack_get_item(s)].tags & ITEM_TAG_BOOKSHELF_BOOKS) {
         be->items[slot] = s;
+        block_entity_items_changed(lv, be);
         chiseled_book_shelf_block_entity_update_state(lv, be, slot);
     } else if (item_stack_is_empty(s)) {
         chiseled_book_shelf_block_entity_remove_item(lv, be, slot);

@@ -114,6 +114,7 @@ static item_stack hopper_block_entity_try_move_in_item(level & lv, const contain
         int32_t count = std::min(item_stack_get_count(s), space);
         item_stack_grow(s, -count);
         item_stack_grow(current, count);
+        container_items_changed(lv, to, slot);
         success = count > 0;
     }
     if (success) {
@@ -160,6 +161,7 @@ static bool hopper_block_entity_eject_items(level & lv, block_pos pos, block_ent
             return true;
         }
         s.count = original_count;
+        container_items_changed(lv, self, slot);
         if (original_count == 1) container_set_item(lv, self, slot, s);
     }
     return false;
@@ -199,6 +201,7 @@ static bool hopper_block_entity_try_take_in_item_from_slot(level & lv, const con
         container_set_item(lv, source, slot, original);
     } else {
         s.count = item_stack_get_count(original);
+        container_items_changed(lv, source, slot);
     }
     return false;
 }
@@ -273,12 +276,71 @@ static void hopper_block_entity_try_move_items(level & lv, block_pos pos, state_
     }
 }
 
+// Lithium's hopper sleeping: an attempt that moved nothing and wrote no other container repeats only after what it read changes.
+// That is the states at the hopper, in front and above (with a double chest's other half) and the containers there.
+static bool hopper_watch_add(level & lv, hopper_watch & w, block_pos pos) {
+    state_id st = level_get_state(lv, pos);
+    // a moving piston's shape and a composter's containers change without a state or item write
+    if (state_is(st, BLOCK_MOVING_PISTON) || block_instanceof(state_block(st), VCLASS_COMPOSTER_BLOCK)) return false;
+    w.pos[w.n_states]      = pos;
+    w.states[w.n_states++] = st;
+    if (state_has_prop(st, PROP_CHEST_TYPE) && state_get(st, PROP_CHEST_TYPE) != CHEST_TYPE_SINGLE) {
+        block_pos other        = pos_relative(pos, chest_get_connected_direction(st));
+        w.pos[w.n_states]      = other;
+        w.states[w.n_states++] = level_get_state(lv, other);
+    }
+    container           c;
+    composter_container composter;
+    if (hopper_block_entity_get_block_container(lv, pos, c, composter)) {
+        for (const block_entity * be : { c.first, c.second }) {
+            if (be == nullptr) continue;
+            w.be[w.n_items]          = be;
+            w.mod_count[w.n_items++] = be->mod_count;
+        }
+    }
+    return true;
+}
+
+static void hopper_watch_fall_asleep(level & lv, block_pos pos, state_id st, block_entity * be) {
+    hopper_watch & w = be->watch;
+    w.n_states       = 0;
+    w.n_items        = 0;
+    for (block_pos at : { pos, pos_relative(pos, state_facing(st)), pos_relative(pos, DIRECTION_UP) }) {
+        if (!hopper_watch_add(lv, w, at)) return;
+    }
+    w.block_entities_version = lv.block_entities_version;
+    w.asleep                 = true;
+}
+
+static bool hopper_watch_unchanged(level & lv, const hopper_watch & w) {
+    if (!w.asleep || !lv.entity_sections.empty() || w.block_entities_version != lv.block_entities_version) {
+        return false;
+    }
+    for (int32_t i = 0; i < w.n_states; i++) {
+        if (level_get_state(lv, w.pos[i]) != w.states[i]) return false;
+    }
+    for (int32_t i = 0; i < w.n_items; i++) {
+        if (w.be[i]->mod_count != w.mod_count[i]) return false;
+    }
+    return true;
+}
+
 void hopper_block_entity_push_items_tick(level & lv, block_pos pos, state_id st, block_entity * be) {
     be->cooldown_time--;
     be->ticked_game_time = lv.game_time;
-    if (!hopper_block_entity_is_on_cooldown(be)) {
-        be->cooldown_time = 0;
-        hopper_block_entity_try_move_items(lv, pos, st, be, nullptr);
+    if (hopper_block_entity_is_on_cooldown(be)) return;
+    be->cooldown_time = 0;
+    if (hopper_watch_unchanged(lv, be->watch)) return;
+    int64_t  seed     = lv.random.seed;
+    uint64_t versions = lv.block_entities_version;
+    uint64_t writes   = lv.item_writes;
+    uint32_t own      = be->mod_count;
+    hopper_block_entity_try_move_items(lv, pos, st, be, nullptr);
+    be->watch.asleep = false;
+    // the remove and restore of a failed push write only the hopper's own items
+    if (be->cooldown_time == 0 && lv.random.seed == seed && lv.block_entities_version == versions &&
+        lv.item_writes - writes == be->mod_count - own && lv.entity_sections.empty()) {
+        hopper_watch_fall_asleep(lv, pos, st, be);
     }
 }
 

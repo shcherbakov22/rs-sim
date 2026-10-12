@@ -97,6 +97,9 @@ struct level {
     std::vector<block_entity_ticker *>                 block_entity_tickers;
     std::vector<block_entity_ticker *>                 pending_block_entity_tickers;
     bool                                               ticking_block_entities = false;
+    // grow when a block entity joins or leaves the level, and with every block_entity.mod_count; sleeping hoppers watch them
+    uint64_t                                           block_entities_version = 0;
+    uint64_t                                           item_writes            = 0;
 
     // RedStoneWireBlock.shouldSignal lives on the block object, RECENT_TOGGLES in a static map keyed by level
     bool                               red_stone_wire_should_signal = true;
@@ -156,6 +159,8 @@ block_entity * level_get_block_entity_of_type(level & lv, block_pos pos, int32_t
 // Level.setBlockEntity (LevelChunk.addAndRegisterBlockEntity)
 void           level_set_block_entity(level & lv, block_entity * be);
 void           level_remove_block_entity(level & lv, block_pos pos);
+// a write to the items of a block entity
+void           block_entity_items_changed(level & lv, block_entity * be);
 
 // Block.getDrops without a tool: the dumped drops of the state
 std::vector<item_stack> block_get_drops(level & lv, state_id st, const block_entity * be);

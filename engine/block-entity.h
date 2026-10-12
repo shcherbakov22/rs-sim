@@ -6,6 +6,20 @@
 
 #include <vector>
 
+struct block_entity;
+
+// What a hopper read in an attempt that moved nothing and wrote no other container: states, and mod counts of block entities.
+struct hopper_watch {
+    bool                 asleep = false;
+    uint64_t             block_entities_version;
+    int32_t              n_states;
+    block_pos            pos[5];
+    state_id             states[5];
+    int32_t              n_items;
+    const block_entity * be[5];
+    uint32_t             mod_count[5];
+};
+
 // BlockEntity as a tagged struct: the fields after the common ones belong to one type.
 struct block_entity {
     block_entity_type type;
@@ -27,12 +41,14 @@ struct block_entity {
     // ComparatorBlockEntity
     int32_t output_signal = 0;
 
-    // BaseContainerBlockEntity items, sized by the type
+    // BaseContainerBlockEntity items, sized by the type; mod_count grows with every write to them, as Java's modCount
     std::vector<item_stack> items;
+    uint32_t                mod_count = 0;
 
-    // HopperBlockEntity
-    int32_t cooldown_time    = -1;
-    int64_t ticked_game_time = 0;
+    // HopperBlockEntity; watch is Lithium's hopper sleeping
+    int32_t      cooldown_time    = -1;
+    int64_t      ticked_game_time = 0;
+    hopper_watch watch;
 
     // JukeboxBlockEntity: JukeboxSongPlayer.song is set while the record's song plays
     bool    song_playing             = false;

@@ -27,6 +27,8 @@ bool base_entity_block_trigger_event(level & lv, state_id st, block_pos pos, int
 // Container
 void         block_entity_set_changed(level & lv, block_pos pos, state_id st);
 bool         block_entity_is_container(const block_entity * be);
+// a write through a reference from container_get_item
+void         container_items_changed(level & lv, const container & c, int32_t slot);
 int32_t      container_get_container_size(const container & c);
 item_stack & container_get_item(const container & c, int32_t slot);
 bool         container_is_empty(const container & c);
@@ -87,6 +89,7 @@ bool    composter_container_can_take_item_through_face(const composter_container
                                                        direction face);
 
 // ChestBlock
+direction chest_get_connected_direction(state_id st);
 bool chest_get_container(level & lv, state_id st, block_pos pos, bool ignore_being_blocked, container & out);
 
 direction face_attached_horizontal_directional_get_connected_direction(state_id st);

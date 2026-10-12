@@ -55,6 +55,7 @@ static item_stack dispenser_block_entity_insert_item(level & lv, block_pos pos, 
         } else if (transfer > 0) {
             item_stack_grow(s, -transfer);
             item_stack_grow(target, transfer);
+            block_entity_items_changed(lv, be);
         }
         if (item_stack_is_empty(s)) break;
     }
@@ -482,6 +483,7 @@ static void crafter_tick(level & lv, state_id st, block_pos pos) {
     for (item_stack & s : be->items) {
         if (!item_stack_is_empty(s)) item_stack_grow(s, -1);
     }
+    block_entity_items_changed(lv, be);
     block_entity_set_changed(lv, pos, be->state);
 }
 

@@ -196,6 +196,7 @@ static void level_chunk_set_block_entity(level & lv, block_entity * be) {
         be->state = st;
     }
     lv.block_entities[pos_key(be->pos)] = be;
+    lv.block_entities_version++;
 }
 
 void level_set_block_entity(level & lv, block_entity * be) {
@@ -208,7 +209,13 @@ void level_set_block_entity(level & lv, block_entity * be) {
 void level_remove_block_entity(level & lv, block_pos pos) {
     if (!level_in_valid_bounds(pos)) return;
     lv.block_entities.erase(pos_key(pos));
+    lv.block_entities_version++;
     level_remove_block_entity_ticker(lv, pos);
+}
+
+void block_entity_items_changed(level & lv, block_entity * be) {
+    be->mod_count++;
+    lv.item_writes++;
 }
 
 // LevelChunk.setBlockState: returns false where vanilla returns null (nothing changed or the block was replaced meanwhile)
