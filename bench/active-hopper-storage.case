@@ -1,0 +1,110 @@
+# bench: active/hopper-storage.case run for 20000 ticks
+# Hopper-line bulk storage: two rows of 16 hoppers pour an input chest into double chests,
+# comparators read each chest into a lamp. The stock drains early, then the storage idles.
+tmc-case 2
+size 16 5 7
+key
+  s = minecraft:stone
+  e = minecraft:hopper[enabled=true,facing=east]
+  d = minecraft:hopper[enabled=true,facing=down]
+  R = minecraft:chest[facing=south,type=right,waterlogged=false]
+  L = minecraft:chest[facing=south,type=left,waterlogged=false]
+  i = minecraft:chest[facing=south,type=single,waterlogged=false]
+  k = minecraft:comparator[facing=north,mode=compare,powered=false]
+  l = minecraft:redstone_lamp[lit=false]
+layer 0
+  . . . . . . . . . . . . . . . .
+  s s s s s s s s s s s s s s s s
+  . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . .
+  s s s s s s s s s s s s s s s s
+  . . . . . . . . . . . . . . . .
+layer 1
+  R L R L R L R L R L R L R L R L
+  k k k k k k k k k k k k k k k k
+  l l l l l l l l l l l l l l l l
+  . . . . . . . . . . . . . . . .
+  R L R L R L R L R L R L R L R L
+  k k k k k k k k k k k k k k k k
+  l l l l l l l l l l l l l l l l
+layer 2
+  d d d d d d d d d d d d d d d d
+  . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . .
+  d d d d d d d d d d d d d d d d
+  . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . .
+layer 3
+  e e e e e e e e e e e e e e e e
+  . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . .
+  e e e e e e e e e e e e e e e e
+  . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . .
+layer 4
+  i . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . .
+  i . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . .
+items
+  0 4 0 0 minecraft:stone 64
+  0 4 0 1 minecraft:cobblestone 64
+  0 4 0 2 minecraft:oak_planks 64
+  0 4 0 3 minecraft:iron_ingot 64
+  0 4 0 4 minecraft:redstone 64
+  0 4 0 5 minecraft:glass 64
+  0 4 0 6 minecraft:sand 64
+  0 4 0 7 minecraft:dirt 64
+  0 4 0 8 minecraft:coal 64
+  0 4 0 9 minecraft:stone 64
+  0 4 0 10 minecraft:cobblestone 64
+  0 4 0 11 minecraft:oak_planks 64
+  0 4 0 12 minecraft:iron_ingot 64
+  0 4 0 13 minecraft:redstone 64
+  0 4 0 14 minecraft:glass 64
+  0 4 0 15 minecraft:sand 64
+  0 4 0 16 minecraft:dirt 64
+  0 4 0 17 minecraft:coal 64
+  0 4 0 18 minecraft:stone 64
+  0 4 0 19 minecraft:cobblestone 64
+  0 4 0 20 minecraft:oak_planks 64
+  0 4 0 21 minecraft:iron_ingot 64
+  0 4 0 22 minecraft:redstone 64
+  0 4 0 23 minecraft:glass 64
+  0 4 0 24 minecraft:sand 64
+  0 4 0 25 minecraft:dirt 64
+  0 4 0 26 minecraft:coal 64
+  0 4 4 0 minecraft:redstone 64
+  0 4 4 1 minecraft:glass 64
+  0 4 4 2 minecraft:sand 64
+  0 4 4 3 minecraft:dirt 64
+  0 4 4 4 minecraft:coal 64
+  0 4 4 5 minecraft:stone 64
+  0 4 4 6 minecraft:cobblestone 64
+  0 4 4 7 minecraft:oak_planks 64
+  0 4 4 8 minecraft:iron_ingot 64
+  0 4 4 9 minecraft:redstone 64
+  0 4 4 10 minecraft:glass 64
+  0 4 4 11 minecraft:sand 64
+  0 4 4 12 minecraft:dirt 64
+  0 4 4 13 minecraft:coal 64
+  0 4 4 14 minecraft:stone 64
+  0 4 4 15 minecraft:cobblestone 64
+  0 4 4 16 minecraft:oak_planks 64
+  0 4 4 17 minecraft:iron_ingot 64
+  0 4 4 18 minecraft:redstone 64
+  0 4 4 19 minecraft:glass 64
+  0 4 4 20 minecraft:sand 64
+  0 4 4 21 minecraft:dirt 64
+  0 4 4 22 minecraft:coal 64
+  0 4 4 23 minecraft:stone 64
+  0 4 4 24 minecraft:cobblestone 64
+  0 4 4 25 minecraft:oak_planks 64
+  0 4 4 26 minecraft:iron_ingot 64
+run 20000
