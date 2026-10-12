@@ -1,0 +1,134 @@
+# bench: active/cart-pingpong.case run for 5000 ticks
+# Eight minecart tracks ending in a dispenser and a stone block, each next to a powered rail that kicks a stopped cart back.
+# Each dispenser fires three carts, which bounce between the ends.
+tmc-case 2
+size 20 3 15
+key
+  s = minecraft:stone
+  B = minecraft:redstone_block
+  E = minecraft:dispenser[facing=east,triggered=false]
+  r = minecraft:rail[shape=east_west,waterlogged=false]
+  p = minecraft:powered_rail[powered=true,shape=east_west,waterlogged=false]
+layer 0
+  s B s s s s B s s s s s B s s s s s B s
+  s s s s s s s s s s s s s s s s s s s s
+  s B s s s s B s s s s s B s s s s s B s
+  s s s s s s s s s s s s s s s s s s s s
+  s B s s s s B s s s s s B s s s s s B s
+  s s s s s s s s s s s s s s s s s s s s
+  s B s s s s B s s s s s B s s s s s B s
+  s s s s s s s s s s s s s s s s s s s s
+  s B s s s s B s s s s s B s s s s s B s
+  s s s s s s s s s s s s s s s s s s s s
+  s B s s s s B s s s s s B s s s s s B s
+  s s s s s s s s s s s s s s s s s s s s
+  s B s s s s B s s s s s B s s s s s B s
+  s s s s s s s s s s s s s s s s s s s s
+  s B s s s s B s s s s s B s s s s s B s
+layer 1
+  E p r r r r p r r r r r p r r r r r p s
+  . . . . . . . . . . . . . . . . . . . .
+  E p r r r r p r r r r r p r r r r r p s
+  . . . . . . . . . . . . . . . . . . . .
+  E p r r r r p r r r r r p r r r r r p s
+  . . . . . . . . . . . . . . . . . . . .
+  E p r r r r p r r r r r p r r r r r p s
+  . . . . . . . . . . . . . . . . . . . .
+  E p r r r r p r r r r r p r r r r r p s
+  . . . . . . . . . . . . . . . . . . . .
+  E p r r r r p r r r r r p r r r r r p s
+  . . . . . . . . . . . . . . . . . . . .
+  E p r r r r p r r r r r p r r r r r p s
+  . . . . . . . . . . . . . . . . . . . .
+  E p r r r r p r r r r r p r r r r r p s
+layer 2
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+  . . . . . . . . . . . . . . . . . . . .
+items
+  0 1 0 0 minecraft:minecart 1
+  0 1 0 1 minecraft:minecart 1
+  0 1 0 2 minecraft:minecart 1
+  0 1 2 0 minecraft:minecart 1
+  0 1 2 1 minecraft:minecart 1
+  0 1 2 2 minecraft:minecart 1
+  0 1 4 0 minecraft:minecart 1
+  0 1 4 1 minecraft:minecart 1
+  0 1 4 2 minecraft:minecart 1
+  0 1 6 0 minecraft:minecart 1
+  0 1 6 1 minecraft:minecart 1
+  0 1 6 2 minecraft:minecart 1
+  0 1 8 0 minecraft:minecart 1
+  0 1 8 1 minecraft:minecart 1
+  0 1 8 2 minecraft:minecart 1
+  0 1 10 0 minecraft:minecart 1
+  0 1 10 1 minecraft:minecart 1
+  0 1 10 2 minecraft:minecart 1
+  0 1 12 0 minecraft:minecart 1
+  0 1 12 1 minecraft:minecart 1
+  0 1 12 2 minecraft:minecart 1
+  0 1 14 0 minecraft:minecart 1
+  0 1 14 1 minecraft:minecart 1
+  0 1 14 2 minecraft:minecart 1
+inputs
+  @1 place 0 2 0 minecraft:redstone_block
+  @1 place 0 2 2 minecraft:redstone_block
+  @1 place 0 2 4 minecraft:redstone_block
+  @1 place 0 2 6 minecraft:redstone_block
+  @1 place 0 2 8 minecraft:redstone_block
+  @1 place 0 2 10 minecraft:redstone_block
+  @1 place 0 2 12 minecraft:redstone_block
+  @1 place 0 2 14 minecraft:redstone_block
+  @5 place 0 2 0 minecraft:air
+  @5 place 0 2 2 minecraft:air
+  @5 place 0 2 4 minecraft:air
+  @5 place 0 2 6 minecraft:air
+  @5 place 0 2 8 minecraft:air
+  @5 place 0 2 10 minecraft:air
+  @5 place 0 2 12 minecraft:air
+  @5 place 0 2 14 minecraft:air
+  @40 place 0 2 0 minecraft:redstone_block
+  @40 place 0 2 2 minecraft:redstone_block
+  @40 place 0 2 4 minecraft:redstone_block
+  @40 place 0 2 6 minecraft:redstone_block
+  @40 place 0 2 8 minecraft:redstone_block
+  @40 place 0 2 10 minecraft:redstone_block
+  @40 place 0 2 12 minecraft:redstone_block
+  @40 place 0 2 14 minecraft:redstone_block
+  @44 place 0 2 0 minecraft:air
+  @44 place 0 2 2 minecraft:air
+  @44 place 0 2 4 minecraft:air
+  @44 place 0 2 6 minecraft:air
+  @44 place 0 2 8 minecraft:air
+  @44 place 0 2 10 minecraft:air
+  @44 place 0 2 12 minecraft:air
+  @44 place 0 2 14 minecraft:air
+  @80 place 0 2 0 minecraft:redstone_block
+  @80 place 0 2 2 minecraft:redstone_block
+  @80 place 0 2 4 minecraft:redstone_block
+  @80 place 0 2 6 minecraft:redstone_block
+  @80 place 0 2 8 minecraft:redstone_block
+  @80 place 0 2 10 minecraft:redstone_block
+  @80 place 0 2 12 minecraft:redstone_block
+  @80 place 0 2 14 minecraft:redstone_block
+  @84 place 0 2 0 minecraft:air
+  @84 place 0 2 2 minecraft:air
+  @84 place 0 2 4 minecraft:air
+  @84 place 0 2 6 minecraft:air
+  @84 place 0 2 8 minecraft:air
+  @84 place 0 2 10 minecraft:air
+  @84 place 0 2 12 minecraft:air
+  @84 place 0 2 14 minecraft:air
+run 5000

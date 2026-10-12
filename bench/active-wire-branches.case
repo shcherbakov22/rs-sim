@@ -1,0 +1,54 @@
+# bench: active/wire-branches.case run for 1000 ticks
+# An observer clock feeds a spine of wire and repeaters with 8 wire branches; each branch has a repeater halfway and ends in a lamp.
+# The clock starts when its second observer is placed.
+tmc-case 2
+size 24 2 17
+key
+  s = minecraft:stone
+  A = minecraft:observer[facing=north,powered=false]
+  R = minecraft:repeater[delay=1,facing=north,locked=false,powered=false]
+  r = minecraft:repeater[delay=1,facing=west,locked=false,powered=false]
+  l = minecraft:redstone_lamp[lit=false]
+  a = minecraft:redstone_wire[east=side,north=side,south=side,west=none,power=0]
+  b = minecraft:redstone_wire[east=side,north=none,south=none,west=side,power=0]
+  c = minecraft:redstone_wire[east=none,north=none,south=none,west=none,power=0]
+  d = minecraft:redstone_wire[east=side,north=side,south=none,west=none,power=0]
+layer 0
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+  s s s s s s s s s s s s s s s s s s s s s s s s
+layer 1
+  s . . . . . . . . . . . . . . . . . . . . . . .
+  A . . . . . . . . . . . . . . . . . . . . . . .
+  a b b b b b b b b b b r b b b b b b b b b b c l
+  R . . . . . . . . . . . . . . . . . . . . . . .
+  a b b b b b b b b b b r b b b b b b b b b b c l
+  R . . . . . . . . . . . . . . . . . . . . . . .
+  a b b b b b b b b b b r b b b b b b b b b b c l
+  R . . . . . . . . . . . . . . . . . . . . . . .
+  a b b b b b b b b b b r b b b b b b b b b b c l
+  R . . . . . . . . . . . . . . . . . . . . . . .
+  a b b b b b b b b b b r b b b b b b b b b b c l
+  R . . . . . . . . . . . . . . . . . . . . . . .
+  a b b b b b b b b b b r b b b b b b b b b b c l
+  R . . . . . . . . . . . . . . . . . . . . . . .
+  a b b b b b b b b b b r b b b b b b b b b b c l
+  R . . . . . . . . . . . . . . . . . . . . . . .
+  d b b b b b b b b b b r b b b b b b b b b b c l
+inputs
+  @1 place 0 1 0 minecraft:observer[facing=south,powered=false]
+run 1000
