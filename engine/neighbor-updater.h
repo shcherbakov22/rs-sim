@@ -33,6 +33,7 @@ struct neighbor_updater {
     std::vector<neighbor_update> stack;  // top at the back
     std::vector<neighbor_update> added_this_layer;
     int32_t                      count = 0;
+    int64_t                      run   = 0;  // updates run since the level started: what lag a build causes
 };
 
 // NeighborUpdater.UPDATE_ORDER
