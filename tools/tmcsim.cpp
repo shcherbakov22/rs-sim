@@ -147,7 +147,7 @@ static uint64_t level_fingerprint(const level & lv) {
             fingerprint_add(h, v);
         }
         for (const item_stack & s : be.items) {
-            for (int64_t v : { s.item, s.count, s.damage }) fingerprint_add(h, v);
+            for (int64_t v : { s.item, s.count, s.damage, s.contents }) fingerprint_add(h, v);
         }
     }
     for (const level_ticks * ticks : { &lv.block_ticks, &lv.fluid_ticks }) {
@@ -206,7 +206,7 @@ static uint64_t level_fingerprint(const level & lv) {
             fingerprint_add(h, v);
         }
         for (const item_stack & s : e->items) {
-            for (int64_t v : { s.item, s.count, s.damage }) fingerprint_add(h, v);
+            for (int64_t v : { s.item, s.count, s.damage, s.contents }) fingerprint_add(h, v);
         }
     }
     return h;

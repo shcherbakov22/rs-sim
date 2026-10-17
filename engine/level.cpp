@@ -4,6 +4,7 @@
 #include "blocks/handlers.h"
 #include "core/trace.h"
 #include "entities/handlers.h"
+#include "items/handlers.h"
 
 #include <algorithm>
 #include <cstdarg>
@@ -343,16 +344,13 @@ std::vector<item_stack> block_get_drops(level & lv, state_id st, const block_ent
         level_unsupported(lv, "random loot");
         return {};
     }
-    // the shulker box item keeps the contents as a data component, which sim stacks do not carry
-    if (be != nullptr && be->type == BLOCK_ENTITY_TYPE_SHULKER_BOX) {
-        for (const item_stack & s : be->items) {
-            if (!item_stack_is_empty(s)) level_unsupported(lv, "shulker box drop with contents");
-        }
-    }
+    // the shulker box loot table copies the block entity's CONTAINER onto the box
+    bool                    shulker  = be != nullptr && be->type == BLOCK_ENTITY_TYPE_SHULKER_BOX;
+    int32_t                 contents = shulker ? item_container_contents_from_items(lv, be->items) : -1;
     std::vector<item_stack> out;
     for (int32_t i = 0; i < drops.n_stacks; i++) {
         const drop_stack & d = drop_stacks[drops.first + i];
-        out.push_back({ d.item, d.count, 0 });
+        out.push_back({ d.item, d.count, 0, contents });
     }
     return out;
 }

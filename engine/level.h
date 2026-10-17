@@ -98,6 +98,8 @@ struct level {
     std::vector<block_entity_ticker *>                 block_entity_tickers;
     std::vector<block_entity_ticker *>                 pending_block_entity_tickers;
     bool                                               ticking_block_entities = false;
+    // ItemContainerContents, which never change once made; equal contents share one index
+    std::vector<std::vector<item_stack>>               item_contents;
     // grow when a block entity joins or leaves the level, and with every block_entity.mod_count; sleeping hoppers watch them
     uint64_t                                           block_entities_version = 0;
     uint64_t                                           item_writes            = 0;

@@ -4,11 +4,13 @@
 
 #include <algorithm>
 
-// ItemStack with DAMAGE as its only data component. A count of 0 or less is empty but keeps its item, like vanilla.
+// ItemStack with DAMAGE and CONTAINER as its only data components.
+// A count of 0 or less is empty but keeps its item, like vanilla.
 struct item_stack {
-    int32_t item   = ITEM_AIR;
-    int32_t count  = 0;
-    int32_t damage = 0;  // DAMAGE component, already clamped to MAX_DAMAGE
+    int32_t item     = ITEM_AIR;
+    int32_t count    = 0;
+    int32_t damage   = 0;   // DAMAGE component, already clamped to MAX_DAMAGE
+    int32_t contents = -1;  // CONTAINER component as an index into level.item_contents, -1 for EMPTY
 };
 
 inline bool item_stack_is_empty(const item_stack & s) { return s.item == ITEM_AIR || s.count <= 0; }
@@ -26,12 +28,12 @@ inline void item_stack_grow(item_stack & s, int32_t amount) { s.count = item_sta
 
 // ItemStack.copyWithCount
 inline item_stack item_stack_copy_with_count(const item_stack & s, int32_t count) {
-    return item_stack_is_empty(s) ? item_stack() : item_stack{ s.item, count, s.damage };
+    return item_stack_is_empty(s) ? item_stack() : item_stack{ s.item, count, s.damage, s.contents };
 }
 
 inline bool item_stack_is_same_item_same_components(const item_stack & a, const item_stack & b) {
     return item_stack_get_item(a) == item_stack_get_item(b) &&
-           ((item_stack_is_empty(a) && item_stack_is_empty(b)) || a.damage == b.damage);
+           ((item_stack_is_empty(a) && item_stack_is_empty(b)) || (a.damage == b.damage && a.contents == b.contents));
 }
 
 inline item_stack item_stack_split(item_stack & s, int32_t amount) {

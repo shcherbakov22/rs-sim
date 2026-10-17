@@ -330,9 +330,11 @@ static item_stack shulker_box_dispense_behavior_execute(level & lv, state_id st,
         !level_is_unobstructed_block(lv, target) || !level_set_block(lv, target, placed, UPDATE_FLAG_ALL_IMMEDIATE)) {
         return dispensed;
     }
-    // BlockItem.updateBlockEntityComponents ends with BlockEntity.setChanged
+    // BlockItem.updateBlockEntityComponents: the box takes the item's CONTAINER, then BlockEntity.setChanged
     block_entity * be = level_get_block_entity(lv, target);
     if (state_block(level_get_state(lv, target)) == block && be != nullptr) {
+        item_container_contents_copy_into(lv, dispensed.contents, be->items);
+        block_entity_items_changed(lv, be);
         block_entity_set_changed(lv, target, be->state);
     }
     item_stack_grow(dispensed, -1);
