@@ -73,6 +73,7 @@ entity * entity_new(level & lv, entity_type type, vec3 pos) {
     e->pos = pos;
     e->bb  = entity_make_bounding_box(*e, pos);
     e->items.resize(entity_type_defs[type].container_size);
+    e->blocks_building = (entity_type_defs[type].flags & ENTITY_FLAG_BLOCKS_BUILDING) != 0;
     return e;
 }
 

@@ -306,6 +306,39 @@ static item_stack dispense_item_behavior_honeycomb(level & lv, state_id st, bloc
     return dispensed;
 }
 
+// CollisionGetter.isUnobstructed for a full block at pos: entities that block building may not overlap it
+static bool level_is_unobstructed_block(level & lv, block_pos pos) {
+    vec3                  w    = entity_block_to_world(pos);
+    aabb                  cell = aabb_of(w.x, w.y, w.z, w.x + 1.0, w.y + 1.0, w.z + 1.0);
+    std::vector<entity *> found;
+    level_get_entities(lv, cell, found);
+    for (const entity * e : found) {
+        if (!e->removed && e->blocks_building) return false;
+    }
+    return true;
+}
+
+// ShulkerBoxDispenseBehavior: BlockItem.place with a DirectionalPlaceContext; the box faces out, or up over a block.
+// With no block entity at the spot yet, its shape is a full block.
+static item_stack shulker_box_dispense_behavior_execute(level & lv, state_id st, block_pos pos, item_stack dispensed) {
+    direction facing  = state_facing(st);
+    block_pos target  = pos_relative(pos, facing);
+    bool      floated = state_has(level_get_state(lv, pos_relative(target, DIRECTION_DOWN)), STATE_FLAG_AIR);
+    int32_t   block   = item_defs[item_stack_get_item(dispensed)].block;
+    state_id  placed  = state_set(block_default(block), PROP_FACING, floated ? facing : DIRECTION_UP);
+    if (!state_has(level_get_state(lv, target), STATE_FLAG_REPLACEABLE_NO_ITEM) ||
+        !level_is_unobstructed_block(lv, target) || !level_set_block(lv, target, placed, UPDATE_FLAG_ALL_IMMEDIATE)) {
+        return dispensed;
+    }
+    // BlockItem.updateBlockEntityComponents ends with BlockEntity.setChanged
+    block_entity * be = level_get_block_entity(lv, target);
+    if (state_block(level_get_state(lv, target)) == block && be != nullptr) {
+        block_entity_set_changed(lv, target, be->state);
+    }
+    item_stack_grow(dispensed, -1);
+    return dispensed;
+}
+
 // with no entities, equipment, a chest and a brush find nobody in front, and a potion never holds water contents
 static item_stack dispense_item_behavior_dispense(level & lv, state_id st, block_pos pos, item_stack dispensed) {
     switch ((dispense_behavior) item_defs[item_stack_get_item(dispensed)].dispense) {
@@ -329,9 +362,9 @@ static item_stack dispense_item_behavior_dispense(level & lv, state_id st, block
         case DISPENSE_BEHAVIOR_HONEYCOMB: return dispense_item_behavior_honeycomb(lv, st, pos, dispensed);
         // filled buckets are named after the water bucket
         case DISPENSE_BEHAVIOR_WATER_BUCKET: return dispense_item_behavior_filled_bucket(lv, st, pos, dispensed);
-        // spawn eggs (named after the first one) need mob spawning; the others place blocks or summon
+        case DISPENSE_BEHAVIOR_SHULKER_BOX: return shulker_box_dispense_behavior_execute(lv, st, pos, dispensed);
+        // spawn eggs (named after the first one) need mob spawning; skulls and pumpkins place blocks or summon
         case DISPENSE_BEHAVIOR_CHICKEN_SPAWN_EGG:
-        case DISPENSE_BEHAVIOR_SHULKER_BOX:
         case DISPENSE_BEHAVIOR_WITHER_SKELETON_SKULL:
         case DISPENSE_BEHAVIOR_CARVED_PUMPKIN: break;
     }

@@ -2236,10 +2236,11 @@ enum entity_type {
 
 // the vanilla class of an entity type
 enum entity_flag {
-    ENTITY_FLAG_BOAT = 1u << 0,
-    ENTITY_FLAG_MINECART = 1u << 1,
-    ENTITY_FLAG_PICKABLE = 1u << 2,
-    ENTITY_FLAG_PROJECTILE = 1u << 3,
+    ENTITY_FLAG_BLOCKS_BUILDING = 1u << 0,
+    ENTITY_FLAG_BOAT = 1u << 1,
+    ENTITY_FLAG_MINECART = 1u << 2,
+    ENTITY_FLAG_PICKABLE = 1u << 3,
+    ENTITY_FLAG_PROJECTILE = 1u << 4,
 };
 
 enum entity_type_tag {

@@ -47,6 +47,7 @@ struct entity {
     bool      vertical_collision       = false;
     bool      vertical_collision_below = false;
     bool      no_physics               = false;
+    bool      blocks_building          = false;  // Entity.blocksBuilding: placed blocks may not overlap it
     bool      has_main_support         = false;  // mainSupportingBlockPos is present
     block_pos main_support             = {};     // relative to the case origin like other block positions
     bool      on_ground_no_blocks      = false;

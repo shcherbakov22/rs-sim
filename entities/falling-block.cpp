@@ -6,11 +6,12 @@
 
 #include <algorithm>
 
-// fall: the entity takes its id before the block clears to its fluid
+// fall: the entity takes its id before the block clears to its fluid; unlike a fresh one, it blocks building
 entity * falling_block_entity_fall(level & lv, block_pos pos, state_id st) {
     vec3     w     = entity_block_to_world(pos);
     entity * e     = entity_new(lv, ENTITY_TYPE_FALLING_BLOCK, { w.x + 0.5, w.y, w.z + 0.5 });
     e->block_state = state_is_waterlogged(st) ? state_set(st, PROP_WATERLOGGED, false) : st;
+    e->blocks_building = true;
     level_set_block(lv, pos, fluid_state_create_legacy_block(state_fluid_state(st)), UPDATE_FLAG_ALL);
     level_add_fresh_entity(lv, e);
     return e;
